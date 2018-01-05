@@ -1,0 +1,35 @@
+.mask {
+	position: relative;
+	line-height: 0;
+	&__svg {
+		@include full;
+		overflow: visible!important;
+	}
+	&__circle {
+		fill: $b;
+		&--visible {
+			fill: transparentize($w, 1);
+			stroke: $dark-border {
+				width: 4px;
+			}
+		}
+	}
+	&__image {
+		width: $f;
+		height: auto;
+	}
+	.section__cell & {
+		margin: {
+			top: em($p);
+			bottom: em($p);
+		};
+	}
+	.section__cell--mw & {
+		@include breakpoint($md-max-width) {
+			$side: ($md-max-width - $min-max-width) / 2;	
+			$m: percentage($side/$min-max-width);
+			margin-left: $m*-1;
+			margin-right: $m*-1;
+		}
+	}
+}

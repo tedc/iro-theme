@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "main.js": {
+      "files": [
+         "../bower_components/gsap/src/uncompressed/TweenMax.js",
+        "../bower_components/gsap/src/uncompressed/plugins/ScrollToPlugin.js",
+        "../bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js",
+        "../custom_builds/Swiper/dist/js/swiper.js",
+        "scripts/main.js"
+      ],
+      "bower" : ["fastclick", "scrollmagic"]
+    },
+    "main.css": {
+      "files": [
+        "styles/main.scss"
+      ],
+      "bower" : ["normalize-css"]
+    }
+  },
+  "config": {
+    "devUrl": "http://www.dreamiro.it"
+  },
+  "paths": {
+    "dist": "assets/",
+    "source": "source/"
+  }
+}

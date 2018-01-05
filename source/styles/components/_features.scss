@@ -1,0 +1,47 @@
+.features {
+	overflow: hidden;
+	&__{
+		&container {
+			@include breakpoint() {
+				padding-left: percentage(4/12);
+				margin-top: em($p*-6);
+			}	
+		}
+		&header {
+			@include grow('md');
+			position: relative;
+			z-index: 200;
+			p {
+				line-height: percentage(27px/16px);
+				padding-top: em($p);
+			}
+		}
+		&title {
+			line-height: percentage(40px/35px);
+		}
+		&cell {
+			&.swiper-wrapper {
+				overflow: visible;
+				.features__cell {
+					position: relative;
+					@include normalize_padding_half;
+					@include breakpoint() {	
+						&:nth-child(odd) {
+							padding-top: em($p*8);
+						}
+					}
+					img {
+						width: $f!important;
+						height: auto!important;
+						margin-bottom: em($p/2);
+						display: block;
+					}
+					p {
+						padding-top: em($p/2, 14px);
+						font-size: em(14px);
+					}
+				}
+			}
+		}
+	}
+}

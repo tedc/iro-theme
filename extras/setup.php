@@ -1,0 +1,177 @@
+<?php
+	function ng_app($html) {
+		$html =  $html . ' class="no-js" ng-app="sprfc"';
+		return $html;
+	}
+
+	//add_filter( 'language_attributes', 'ng_app', 100 );
+	function theme_setup() {
+		add_theme_support( 'custom-logo' );
+		register_nav_menus([
+		    'footer_pages_menu' => __('Iro', 'iro'),
+		    'footer_products_menu' => __('Prodotti', 'iro'),
+		  ]);
+	}
+	
+	add_action('after_setup_theme', 'theme_setup');
+	// ADD BUILDER TO CONTENT
+	// function builder_shortcode($attr) {
+	// 	ob_start();
+	// 	get_template_part('builder/init');
+	// 	return ob_get_clean();
+	// }
+	// add_shortcode( 'builder', 'builder_shortcode' );
+
+	// function add_builder_shortcode($post_id) {
+	// 	$field = get_field_object('layout');
+	// 	if( empty($_POST['acf'][$field['key']]) ) {
+	// 		return;
+	// 	}
+	// 	$args = array(
+	// 		'ID' => $post_id,
+	// 		'post_content' => '[builder]'
+	// 	);
+	// 	wp_update_post($args);
+	// }
+	// add_action( 'acf/save_post', 'add_builder_shortcode' );
+
+	// CHANGE WRAPPER
+
+	add_filter('sage/wrap_base', 'my_sage_wrap');
+	
+	function my_sage_wrap($templates) {
+		array_unshift($templates, 'extras/base.php');
+		return $templates;
+	}
+
+	function na_remove_slug( $post_link, $post, $leavename ) {
+		global $wp_query;
+		if ( ('product' != $post->post_type && 'prodotto' != $post->post_type ) || 'publish' != $post->post_status ) {
+	        return $post_link;
+	    }
+	    // if($)
+	    $uri = '';
+	    $append = '';
+	    foreach ( $post->ancestors as $parent ) {
+	        $uri = get_post( $parent )->post_name . "/" . $uri;
+	    }
+
+	    $post_link = str_replace( $uri, '', $post_link );
+	    //$new_link = str_replace( array('/' . $post->post_type . '/', '/prodotto/'), '/', $post_link );
+	    $post_link = str_replace( array('/' . $post->post_type . '/', '/prodotto/'), '/', $post_link );
+	    return $post_link;
+	}
+	add_filter( 'post_type_link', 'na_remove_slug', 10, 3 );
+
+
+	function gp_parse_request_trick( $query ) {
+	 
+	    // Only noop the main query
+	    if ( ! $query->is_main_query() )
+	        return;
+	    //var_dump(empty( $query->query['tab'] ), count( $query->query ));
+	 	//Only noop our very specific rewrite rule match
+	 	if ( 2 != count( $query->query ) || ! isset( $query->query['page'] )  ) {
+	        return;
+	    }
+
+	 
+	    // 'name' will be set if post permalinks are just post_name, otherwise the page rule will match
+	    if ( ! empty( $query->query['name'] ) ) {
+	        $query->set( 'post_type', array( 'post', 'page', 'product', 'prodotto' ) );
+	    }
+	}
+	add_action( 'pre_get_posts', 'gp_parse_request_trick', 10 );
+
+	// Allow SVG
+	add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mimes) {
+
+		global $wp_version;
+		if ( $wp_version !== '4.7.1' ) {
+		return $data;
+		}
+
+		$filetype = wp_check_filetype( $filename, $mimes );
+
+		return [
+		'ext'             => $filetype['ext'],
+		'type'            => $filetype['type'],
+		'proper_filename' => $data['proper_filename']
+		];
+
+	}, 10, 4 );
+
+	function cc_mime_types( $mimes ){
+		$mimes['svg'] = 'image/svg+xml';
+		$mimes['ogg'] = 'video/ogg';
+		$mimes['ogv'] = 'video/ogv';
+		
+		return $mimes;
+	}
+	add_filter( 'upload_mimes', 'cc_mime_types' );
+
+	function fix_svg() {
+		echo '<style type="text/css">.attachment-266x266, .thumbnail img { width: 100% !important; height: auto !important; }</style>';
+	}
+	add_action( 'admin_head', 'fix_svg' );
+
+	if( function_exists('acf_add_options_page') ) {	
+		acf_add_options_sub_page(array(
+			'page_title' 	=> 'Footer',
+			'menu_title'	=> 'Footer Settings',
+			'parent_slug' => 'themes.php'
+		));
+		acf_add_options_page(array(
+			'page_title' 	=> 'Instagram Settings',
+			'menu_title'	=> 'Instagram',
+			'menu_slug' => 'instagram',
+			'icon_url' => get_stylesheet_directory_uri() . '/assets/images/instagram.png'
+		));
+		acf_add_options_sub_page(array(
+			'page_title' 	=> 'Campi comuni',
+			'menu_title'	=> 'Campi comuni',
+			'parent_slug' => 'themes.php'
+		));
+	}
+
+	add_action('admin_head', 'my_custom_fonts');
+
+	function my_custom_fonts() {
+	  echo '<style>
+	    .toplevel_page_instagram img {
+	    	height: 20px;
+	    }
+	  </style>';
+	}
+
+	add_filter('deprecated_constructor_trigger_error', '__return_false');
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
+
+	add_filter('excerpt_more','__return_false');
+
+	function my_acf_init() {
+	
+		acf_update_setting('google_api_key', 'AIzaSyDPjHDg5-EGUjQ_zDjltstiGMJ-aVkHuU0');
+	}
+
+	add_action('acf/init', 'my_acf_init');
+
+	add_action( 'init', 'my_add_excerpts_to_pages' );
+	function my_add_excerpts_to_pages() {
+		add_post_type_support( 'page', 'excerpt' );
+	}
+
+	add_filter( 'query_vars', 'add_query_vars');
+    function add_query_vars($vars){
+        $vars[] = __('tab', 'iro');
+        $vars[] = 'eo_count';
+        return $vars;
+    }
+    function rewrite_popup_url() {
+        $name = __('tab', 'iro');
+        add_rewrite_endpoint($name, EP_ROOT );
+    }
+    add_action('init', 'rewrite_popup_url' );

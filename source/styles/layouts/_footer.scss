@@ -1,0 +1,132 @@
+.footer {
+	&__subtitle {
+		font-size: 12px;
+		color: $light-color;
+		font-weight: 300;
+		padding-bottom: em($p, 12px);
+		width: $f;
+		flex: 0 0 auto;
+	}
+	&__cell {
+		margin: em($p) 0;
+		padding: {
+			left: 10px;
+			right: 10px;
+		};
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		justify-content: center;
+		text-align: center;
+		@include breakpoint() {
+			justify-content: flex-start;
+			text-align: left;
+		}
+		@include breakpoint() {
+			padding: {
+				left: em($p);
+				right: em($p);
+			};
+		}
+		@include breakpoint() {
+			width: auto;
+		}
+		&--first {
+			@include breakpoint() {
+				padding-left: 0;
+				padding-right: em($p*2);
+			}
+		}
+		&--last {
+			@include breakpoint() {
+				padding-right: 0;
+				padding-left: em($p*2);
+			}
+		}
+		&--menus {
+			align-items: flex-start;
+			a {
+				font-size: 12px;
+				color: $brand-main;
+				&:hover {
+					color: $alternate-color;
+				}
+			}
+			@include breakpoint() {
+				border: {
+					left: 1px solid $dark-border;
+					right: 1px solid $dark-border;
+				}
+			}
+		}
+	}
+	&__nav, &__content {
+		padding: {
+			left: 10px;
+			right: 10px;
+		};
+		@include breakpoint() {
+			padding: {
+				left: em($p);
+				right: em($p);
+			};
+		}
+	}
+	&__container {
+		@include grow();
+		align-items: center;
+		justify-content: space-between;
+		.icon-logo {
+			font-size: em(52px);
+		}
+		.icon-luna {
+			font-size: em(24px);
+			margin-right: em($p/2, 24px);
+		}
+		.icon-credits {
+			font-size: em(24px);
+		}
+		&--dark {
+			color: $w;
+			a, strong {
+				color: $w;
+			}
+			a {
+				transition: $speed opacity;
+				&:hover {
+					opacity: .7;
+					color: $w;
+				}
+			}
+		}
+		p {
+			font-size: 12px;	
+		}
+	}
+	&__figure {
+		display: inline-block;
+		padding-right: em($p/2);
+		padding-bottom: em($p);
+		a {
+			width: $f;
+			display: block;
+		}
+	}
+	&__image {
+		display: block;
+		width: $f;
+	}
+}
+
+.social {
+	@include grow('small');
+	text-align: center;
+	background-color: #f7f5f5;
+	a {
+		font-size: 24px;
+		margin: em($p/2, 24px);
+		&:not(:hover) {
+			color: $brand-main;
+		}
+	}
+}

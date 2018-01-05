@@ -1,0 +1,25 @@
+.faq {
+	&__{
+		&header, &item {
+			@include grow('md');
+		}
+		&item {
+			border-bottom: 1px solid $dark-border;
+		}
+		&list {
+			.faq__item {
+				&:nth-last-child(1) {
+					border-bottom: 0;
+				}
+			}
+		}
+		&subtitle {
+			&--active {
+				color: $main-color;
+			}
+		}
+		&text {
+			@include grow('small', 'top');
+		}
+	}
+}

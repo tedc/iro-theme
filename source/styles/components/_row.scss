@@ -1,0 +1,153 @@
+%row_patterns {
+	position: relative;
+	z-index: 2;
+	.row--shrink-fw & {
+		margin: {
+	        left: -10px;
+	        right: -10px;
+	    }
+	    @include breakpoint(640px) {
+	        margin: {
+	            left: em($unit)*-1;
+	            right: em($unit)*-1;
+	        }
+	    }
+	    @include breakpoint($breakpoint) {
+	        margin: {
+	            left: em($unit*-2);
+	            right: em($unit*-2);
+	        }
+	    }
+		@include breakpoint($max-width) {
+            margin: {
+                left: calc(((100vw - #{$max-width}) / 2) * -1);
+                right: calc(((100vw - #{$max-width}) / 2) * -1);
+            }
+        }
+	}
+}
+
+%row_patterns_top {
+	.row--grow &, .row--grow-top & {
+		top: $p*-1;
+	}
+	.row--grow-md &, .row--grow-md-top & {
+		top: $p*-2;
+	}
+	.row--grow-lg &, .row--grow-lg-top & {
+		top: $p*-2;
+		@include breakpoint() {
+			top: $p*-4;
+		}
+	}
+}
+
+%row_patterns_bottom {
+	.row--grow &, .row--grow-bottom & {
+		top: $p;
+	}
+	.row--grow-md &, .row--grow-md-bottom & {
+		top: $p*2;
+	}
+	.row--grow-lg &, .row--grow-lg-bottom & {
+		top: $p*2;
+		@include breakpoint() {
+			top: $p*4;
+		}
+	}
+}
+
+.row {
+	@include grow();
+	@each $var in ('small', 'md', 'lg' ){
+		@each $pos in ('top', 'bottom') {
+			@include grow($var, $pos);
+		}
+	}
+	&--{
+		&relative {
+			position: relative;
+		}
+		&inverted {
+			color: $w;
+			[class*="title"] {
+				&:not([class*="-forcewhite"]) {
+					color: $alternate-color;
+				}
+			}
+		}
+	}
+	&__{
+		&figure {
+			display: none;
+			@include breakpoint() {
+				display: block;
+				position: absolute;
+				z-index: 10;
+				&--multiply {
+					mix-blend-mode: multiply;
+				}
+				&[class*="--right"] {
+					right: 0;
+				}
+				&[class*="--left"] {
+					left: 0;
+				}
+				&[class*="-top"] {
+					top: 0;
+				}
+				&[class*="-bottom"] {
+					bottom: 0;
+				}
+			}
+		}
+		&image {
+			width: $f;
+			height: auto;
+		}
+		&wave {
+			@extend %row_patterns;
+			$start: -44px;
+			height: $p;
+			background: url(../images/wave.svg) repeat-x $start top {
+				size: auto $p;
+			};
+			&--top {
+				@extend %row_patterns_top;
+				transform: scaleY(-1);
+			}
+			&--bottom {
+				@extend %row_patterns_bottom;
+			}
+		}
+		&splash {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: $f;
+			background: url(../images/splash-dark.png) repeat-x {
+				size: auto $f;
+			};
+			height: em($p*10);
+		}
+		&pattern {
+			@include full;
+		}
+		&clouds {
+			@extend %row_patterns;
+			height: em($p*5);
+			&--top {
+				@extend %row_patterns_top;
+				background: url(../images/top-clouds.svg) repeat-x {
+					size: auto $f;
+				};
+			}
+			&--bottom {
+				@extend %row_patterns_bottom;
+				background: url(../images/bottom-clouds.svg) repeat-x {
+					size: auto $f;
+				};
+			}
+		}
+	}
+}

@@ -1,0 +1,83 @@
+.contact {
+	align-items: flex-start;
+	&__ {
+		&cell {
+			@include grow('lg');
+			&--figure {
+				img {
+					width: $f!important;
+					height: auto!important;
+				}
+				@include breakpoint() {		
+					height: calc(100vh - #{em(80px)});
+					.admin-bar.logged-in & {
+						height: calc(100vh - #{em(112px)});
+					}
+					position: sticky;
+					top: em(80px);
+					.admin-bar.logged-in & {
+						top: em(112px);
+					}
+					img {
+						height: $f!important;
+						object-fit: cover;
+					}
+				}
+			}
+		}
+		&header, &content {
+			@include grow('md', 'bottom');
+		}
+		&header, &footer {
+			align-items: center;
+			justify-content: space-between;
+		}
+		&button {
+			flex: 0 0 auto;
+		}
+		&label {
+			font-weight: 600;
+			color: $brand-main;
+		}
+		&module {
+			position: relative;
+		}
+		&form {
+			p {
+				padding-bottom: em($p);
+			}
+		}
+		&privacy, &required {
+			font-size: em(14px);
+			color: $light-color;
+			display: inline-block;
+		}
+		&privacy {
+			padding-right: em($p);
+		}
+		&alert {
+			@include full;
+			z-index: 2;
+			background-color: transparentize($w, .05);
+			display: flex;
+			align-items: center;
+			align-content: center;
+			justify-content: center;
+			text-align: center;
+		}
+		&message, &alert {
+			opacity: 0;
+			transition: visiblity $speed, opacity $speed;
+			visibility: hidden;
+			&--visible {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+		&message {
+			p {
+				padding: em($p) 0;
+			}
+		}
+	}
+}

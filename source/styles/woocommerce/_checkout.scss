@@ -1,0 +1,333 @@
+.checkout {	
+	&-shipping, &-billing {
+		&-fields {
+			&__header {
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+				@include grow('md');
+				@include grow('md', 'bottom');
+			}
+			&__required {
+				font-size: em(14px);
+				color: $light-color;
+				align-self: flex-end;
+			}
+			&__field-wrapper {
+				@extend %fields;
+			}
+			&__switcher {
+				justify-content: space-between;
+				align-items: center;
+				@include grow('md', 'bottom');
+			}
+		}
+	}
+	&-shipping {
+		&-fields {
+			@include grow('md');
+		}
+	}
+	&__select {
+		max-width: none;
+		+ input {
+			display: none;
+		}
+	}
+	&__slide{
+		&r {
+			overflow: hidden;
+			&-wrapper {
+				display: flex;
+				align-items: flex-start;
+			}
+		}
+		@include grow('md');
+		flex: 0 0 auto;
+		width: $f !important;
+	}
+	&__nav {
+		@include grow('md');
+		background-color: $w;
+		position: relative;
+		z-index: 200;
+		border-top: 1px solid $light-border;
+		justify-content: space-between;
+		&--submit {
+			width: $f;
+			flex: 0 0 auto;
+			border-top: 0;
+			background-color: $lighter-color;
+			margin-bottom: em($p*2);
+			&:before {
+				position: absolute;
+				width: 100vw;
+				height: $f;
+				top: 0;
+				left: 50%;
+				transform: translate3d(-50%, 0, 0);
+				content: '';
+				background-color: $lighter-color;
+			}
+			.checkout__terms, .checkout__button {
+				position: relative;
+			}
+			.checkout__checkbox + label {
+				&:before {
+					background-color: $w!important;
+				}
+			}
+		}
+	}
+	&__terms {
+		span {
+			font-size: em(12px);
+			font-weight: normal;
+			color: $dark-gray;
+		}
+		a {
+			color: $main-color;
+			text-decoration: underline;
+			&:hover {
+				color: $brand-main;
+				text-decoration: none;
+			}
+		}
+	}
+	&__banner {
+		@extend %banner;
+		align-items: center;
+		.icon-logo {
+			font-size: em(40px);
+			position: relative;
+			top: em($p/5, 40px)*-1;
+		}
+		&-btn {
+			text-transform: uppercase;
+			@extend .banner__btn--phone;
+			font-family: $alternate-font;
+		}
+		&-nav {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			span {
+				width: $p/2;
+				height: $p/2;
+				display: inline-block;
+				background-color: $light-border;
+				transition: background-color $speed;
+				border-radius: 100%;
+				margin: 0 $p/4;
+				text-indent: 120%;
+				overflow: hidden;
+				white-space: nowrap;
+				&.current {
+					background-color: $alternate-color;
+				}
+				@include breakpoint() {
+					margin: 0;
+					text-indent: 0%;
+					overflow: visible;
+					white-space: normal;
+					width: auto;
+					height: auto;
+					background-color: transparent!important;
+					border-radius: 0;
+					display: inline-flex;
+					font-size: 12px;
+					color: $brand-main;
+					align-items: center;
+					transition: color $speed;
+					&:hover, &.current {
+						color: $alternate-color;
+					}
+					&:before {
+						content: '';
+						background-color: $light-border;
+						width: 20px;
+						height: 1px;
+						margin-right: $p/2;
+					}
+					&:after {
+						content: '';
+						background-color: $light-border;
+						width: 20px;
+						height: 1px;
+						margin-left: $p/2;
+					}
+					&:nth-child(1) {
+						&:before {
+							display: none;
+						}
+					}
+					&:nth-last-child(1) {
+						&:after {
+							display: none;
+						}
+					}
+				}
+				
+			}
+		}
+	}
+	&__coupon {
+		@extend %coupon_form;
+	}
+	&__cell {
+		@include grow('md', 'bottom');
+		@include breakpoint() {	
+			&--order-review, &--slider {
+				&.ng-animate {
+					transition: width $speed, opacity $speed;
+					display: block!important;
+				}
+			}
+			&--order-review {
+				&-last {
+					width: 0%!important;
+					opacity: 0;
+					padding: 0!important;
+					display: none;
+				}
+			}
+			&--slider {
+				&-last {
+					width: $f!important;
+				}
+			}
+		}
+	}
+	&__confirm {
+		.checkout__cell--shrink-right-only {
+			border-right: 1px solid $dark-border;
+		}
+	}
+	&__info {
+		@include grow('md', 'bottom');
+	}
+}
+
+.shipping {
+	@include grow('lg');
+	&__packages {
+		@include grow('md');
+	}
+	li {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+	&__price {
+		font-size: em($p);
+		font-weight: 300;
+		color: $brand-main;
+		padding-right: em($p, $p);
+	}
+	&__header {
+		span {
+			display: inline-block;
+			padding: 0 em($p) em($p);
+		}
+	}
+	&__sublabel {
+		color: $main-color;
+		font-weight: 300;
+	}
+	&__wrapper {
+		width: $f;
+		flex: 0 0 auto;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		border-top: 1px solid $light-border;		
+		@include grow('md');
+	}
+	&__compile {
+		flex: 0 0 auto;
+		width: $f;
+		order: 3;
+	}
+	&__extra {
+		flex: 0 0 auto;
+		width: $f;
+		order: 3;
+		background-color: $lighter-color;
+		padding-left: 20px;
+		@include grow('small');
+		.extra-shipping-option {
+			padding-left: em($p/2);
+		}
+		.weso-shipping-option-text-label {
+			color: $brand-main;
+			font-weight: 600;
+			display: inline-block;
+			padding-bottom: em($p/2);
+		}
+		.shipping__checkbox {
+			& + label {
+				color: $main-color;
+				font-weight: normal;
+				&:before {
+					background-color: $w;
+				}
+				&:after {
+					background-color: $dark-border;
+				}
+			}
+			&:checked + label:after {
+				background-color: $highlight-color;
+			}
+		}
+	}
+}
+.payment {
+	&__method {
+		@include grow('md');
+		border-top: 1px solid $light-border;
+		justify-content: space-between;
+		align-items: center;
+		[class*="icon-"] {
+			font-size: em(40px);
+			color: $dark-border;
+			transition: color $speed;
+		}
+		&--paypal {
+			svg {
+				width: em(91px);
+				height: em(23px);
+			}
+			path {
+				transition: fill $speed;
+			}
+		}
+	}
+	&__icon {
+		width: em(100px);
+		text-align: center;
+	}
+	&__radio{
+		&:not(:checked) + label + .payment__icon {
+			path {
+				fill: $dark-border!important;
+			}
+		}
+		&:not(:checked):hover {
+			& + label + .payment__icon {
+				[class*="icon-"] {
+					color: $main-color;
+				}
+				path {
+					fill: $main-color!important;
+				}
+			}
+		}
+		&:checked {
+			& + label + .payment__icon {
+				[class*="icon-"] {
+					color: $alternate-color;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+[ui-view="tab"] {
+	&.ng-animate {
+		@include full($pos: fixed);
+		z-index: 9999;
+		&.ng-enter, &.ng-leave {		
+			transition: {
+				property: visibility, opacity;
+				duration: $speed;
+			};
+		}
+		&.ng-enter {	
+			visibility: hidden;
+			opacity: 0;
+			&.ng-enter-active {
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+		&.ng-leave {	
+			visibility: visible;
+			opacity: 1;
+			transition-delay: $speed/2;
+			&.ng-leave-active {
+				visibility: hidden;
+				opacity: 0;
+			}
+		}
+	}
+}

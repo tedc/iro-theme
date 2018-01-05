@@ -1,0 +1,9 @@
+@import "../grid/grid";
+@mixin color($color, $hover:null) {
+	color: $color;
+    @if ($hover){
+        &:hover {
+            color: $alternate-color;
+        }
+    }
+}

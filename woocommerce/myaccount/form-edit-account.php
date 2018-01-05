@@ -1,0 +1,83 @@
+<?php
+/**
+ * Edit account form
+ *
+ * This template can be overridden by copying it to yourtheme/woocommerce/myaccount/form-account__edit.php.
+ *
+ * HOWEVER, on occasion WooCommerce will need to update template files and you
+ * (the theme developer) will need to copy the new files to your theme to
+ * maintain compatibility. We try to do this as little as possible, but it does
+ * happen. When this occurs the version of the template file will be bumped and
+ * the readme will list any important changes.
+ *
+ * @see     https://docs.woocommerce.com/document/template-structure/
+ * @author  WooThemes
+ * @package WooCommerce/Templates
+ * @version 3.3.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+do_action( 'woocommerce_before_edit_account_form' ); ?>
+<div class="account__cell account__cell--grow-md" ng-init="isAccount = []">
+	<header class="account__header account__header--grid">
+		<h3 class="account__subtitle"><?php _e('Dati dell\'account', 'iro'); ?></h3>
+		<span class="account__button account__button--slim-light" ng-click="isAccount['details']=!isAccount['details']; reload()"><?php _e('Modifica', 'iro'); ?></span>
+	</header><!-- /header -->
+	<div class="account__desc account__desc--grow-md-top slide-toggle slide-toggle--visible" ng-class="{'slide-toggle--visible' : !isAccount['details']}">
+		<?php echo esc_attr( $user->first_name ); ?> <?php echo esc_attr( $user->last_name ); ?>
+		<p><?php echo esc_attr( $user->user_email ); ?></p>
+	</div>
+	<form class="account__edit account__edit--grid slide-toggle" ng-class="{'slide-toggle--visible':isAccount['details']}" method="post">
+		<?php do_action( 'woocommerce_edit_account_form_start' ); ?>
+		<div class="account__cell account__cell--shrink-right-half account__cell--s6">
+			<p class="account__row account__row--grow-top">
+				<label class="account__label" for="account_first_name"><?php esc_html_e( 'First name', 'woocommerce' ); ?> <span class="required">*</span></label>
+				<input class="account__input" type="text" name="account_first_name" id="account_first_name" value="<?php echo esc_attr( $user->first_name ); ?>" />
+			</p>
+		</div>
+		<div class="account__cell account__cell--shrink-left-half account__cell--s6">
+			<p class="account__row account__row--grow-top">
+				<label class="account__label" for="account_last_name"><?php esc_html_e( 'Last name', 'woocommerce' ); ?> <span class="required">*</span></label>
+				<input class="account__input" type="text" name="account_last_name" id="account_last_name" value="<?php echo esc_attr( $user->last_name ); ?>" />
+			</p>
+		</div>
+		<div class="account__cell account__cell--shrink-right-half account__cell--s6">
+			<p class="account__row account__row--grow-top">
+				<label class="account__label" for="account_email"><?php esc_html_e( 'Email address', 'woocommerce' ); ?> <span class="required">*</span></label>
+				<input class="account__input" type="email" name="account_email" id="account_email" value="<?php echo esc_attr( $user->user_email ); ?>" />
+			</p>
+		</div>
+		<div class="account__cell account__cell--shrink-left-half account__cell--s6">
+			<p class="account__row account__row--grow-top">
+				<label class="account__label" for="password_current"><?php esc_html_e( 'Password corrente', 'iro' ); ?></label>
+				<input class="account__input" type="password" name="password_current" id="password_current" />
+			</p>
+		</div>
+		<div class="account__cell account__cell--shrink-right-half account__cell--s6">
+			<p class="account__row account__row--grow-top">
+				<label class="account__label" for="password_1"><?php esc_html_e( 'Nuova password', 'iro' ); ?></label>
+				<input class="account__input" type="password" name="password_1" id="password_1" />
+			</p>
+		</div>
+		<div class="account__cell account__cell--shrink-left-half account__cell--s6">
+			<p class="account__row account__row--grow-top">
+				<label class="account__label" for="password_2"><?php esc_html_e( 'Conferma nuova password', 'iro' ); ?></label>
+				<input class="account__input" type="password" name="password_2" id="password_2" />
+			</p>
+		</div>
+		
+		<?php do_action( 'woocommerce_edit_account_form' ); ?>
+
+		<footer class="account__footer account__footer--s12 account__footer--grow-top">
+			<?php wp_nonce_field( 'save_account_details' ); ?>
+			<button type="submit" class="account__button account__button--dark" name="save_account_details" value="<?php esc_attr_e( 'Save changes', 'woocommerce' ); ?>"><?php esc_html_e( 'Save changes', 'woocommerce' ); ?></button>
+			<input class="account__input" type="hidden" name="action" value="save_account_details" />
+		</footer>
+
+		<?php do_action( 'woocommerce_edit_account_form_end' ); ?>
+	</form>
+</div>
+<?php do_action( 'woocommerce_after_edit_account_form' ); ?>

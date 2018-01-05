@@ -1,0 +1,165 @@
+%fields {
+	[class*="__cell"] {	
+		display: flex;
+		align-items: flex-end;
+		flex-wrap: wrap;		
+		label {
+			display: block;
+			padding-bottom: em($p/2);
+			width: $f;
+			flex: 0 0 auto;
+		}
+		padding: {
+			top: em($p/2);
+			bottom: em($p/2);
+		}
+		@include breakpoint() {
+			&:nth-child(odd) {
+				padding-right: em($p);
+			}
+			&:nth-child(even) {
+				padding-left: em($p);
+			}
+		}
+	}
+}
+
+.account {
+	@include grow('lg', 'bottom');
+	&__header {
+		justify-content: space-between;
+		width: $f;
+		flex: 0 0 auto;
+	}
+	&__button {
+		display: block!important;
+	}
+	&__item {
+		@include grow('small', 'top');
+		position: relative;
+	}
+	&__edit {
+		legend {
+			color: $light-color;
+		}
+		fieldset {
+			margin: 0;
+			border-color: $light-border;
+			@include breakpoint() {
+				margin-top: em(22px)*-1;
+				padding-left: em($p);
+				border: {
+					top: 0;
+					right: 0;
+					bottom: 0;
+				}
+			}
+		}
+	}
+	&__label {
+		color: $light-color;
+	}
+	&__row {
+		@include grow('small', 'top');
+	}
+	&__footer {
+		@include grow('small', 'top');
+		display: flex;
+		justify-content: flex-end;
+	}
+	&__cell {
+		@include grow('md');
+		&--address {
+			border-top: 1px solid $light-border;
+		}
+		&--figure {
+			img {
+				width: $f!important;
+				height: $f!important;
+				object-fit: contain;
+			}
+		}
+	}
+	&__back {
+		display: flex;
+		align-items: center;
+		color: $light-color;
+		i {
+			color: $alternate-color;
+			font-style: 9px;
+			flex: 0 0 auto;
+			margin-right: $p/2;
+			display: inline-block;
+			transition: transform $speed;
+		}
+		&:hover {
+			i {
+				transform: translate3d(-2px, 0, 0);
+			}
+		}
+	}
+	&-shipping, &-billing {
+		&-fields {
+			&__wrapper {
+				@extend %fields;
+				@include grow('md', 'top');
+				label {
+					color: $light-color;
+				}
+			}
+		}
+	}
+	&__desc {
+		@include grow('md', 'top');
+	}
+	&__confirm {
+		transition: color $speed;
+		color: $error;
+		&:hover {
+			color: $brand-main;
+		}
+	}
+	&__bubble {
+		position: absolute;
+		bottom: $f;
+		border-radius: $r;
+		background-color: $lighter-color;
+		text-align: center;
+		font-size: em(14px);
+		padding: em($p/2, 14px);
+		left: 50%;
+		transform: translate3d(-50%, 5px, 0);
+		opacity: 0;
+		visibility: hidden;
+		transition: transform $speed, opacity $speed, visibility $speed;
+		box-shadow: 0 4px 8px transparentize($b, .85);
+		p {
+			padding-top: em($p/2, 14px);
+			line-height: 1;
+		}
+		.icon-chiudi {
+			font-size: 8px;
+			color: $alternate-color;
+			display: inline-block;
+			position: absolute;
+			right: em($p/2, 8px);
+			top: em($p/2, 8px);
+		}
+		&--visible {
+			transform: translate3d(-50%, 0, 0);
+			opacity: 1;
+			visibility: visible;
+		}
+		&:after {
+			content: '';
+			width: 8px;
+			height: 8px;
+			position: absolute;
+			left: 50%;
+			background-color: $lighter-color;
+			bottom: 0;
+			margin: 0 0 -4px -4px;
+			transform: rotate(45deg) translateZ(0);
+		}
+	}
+}

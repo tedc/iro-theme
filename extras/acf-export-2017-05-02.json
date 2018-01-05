@@ -1,0 +1,2046 @@
+[
+    {
+        "key": "group_58de3e8fc23b9",
+        "title": "Campi comuni",
+        "fields": [
+            {
+                "key": "field_58de3ea757f41",
+                "label": "Sfondo fascia marchi",
+                "name": "brands_bg",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "acf-options-campi-comuni"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_58e4d898cd12a",
+        "title": "Chiavi instagram",
+        "fields": [
+            {
+                "key": "field_58e4d8b1b1816",
+                "label": "Instagram client id",
+                "name": "instagram_client_id",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_58e4d8bcb1817",
+                "label": "Instagram client secret",
+                "name": "instagram_client_secret",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_58e4d8dab1818",
+                "label": "Instagram access token",
+                "name": "instagram_access_token",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_58e4d8e9b1819",
+                "label": "Instagram user id",
+                "name": "instagram_user_id",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_58e4d8f1b181a",
+                "label": "Elementi visibili",
+                "name": "instagram_count",
+                "type": "number",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": "",
+                "max": "",
+                "step": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "instagram"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_58da9636e910b",
+        "title": "Footer",
+        "fields": [
+            {
+                "key": "field_58da9658ebd65",
+                "label": "Indirizzo",
+                "name": "address",
+                "type": "textarea",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": "",
+                "new_lines": "br"
+            },
+            {
+                "key": "field_58da9662ebd66",
+                "label": "P.Iva",
+                "name": "piva",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_58da966bebd67",
+                "label": "Numero di telefono",
+                "name": "phone",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_58da969aebd68",
+                "label": "Logo bianco",
+                "name": "white_logo",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_58da96adebd69",
+                "label": "Social",
+                "name": "social",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 0,
+                "max": 0,
+                "layout": "table",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_58da96baebd6a",
+                        "label": "Nome",
+                        "name": "nome",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_58da96c6ebd6b",
+                        "label": "Link",
+                        "name": "link",
+                        "type": "url",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    }
+                ]
+            },
+            {
+                "key": "field_58e357a448c8d",
+                "label": "Pagina contatti",
+                "name": "contact_page",
+                "type": "post_object",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+
+                ],
+                "taxonomy": [
+
+                ],
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "id",
+                "ui": 1
+            },
+            {
+                "key": "field_58e3d940bac2c",
+                "label": "Menu",
+                "name": "menu",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 0,
+                "max": 0,
+                "layout": "table",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_58e3d94ebac2d",
+                        "label": "Voce menu",
+                        "name": "menu_item",
+                        "type": "post_object",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "post_type": [
+
+                        ],
+                        "taxonomy": [
+
+                        ],
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "return_format": "id",
+                        "ui": 1
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "acf-options-footer-settings"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_58c83a0d98931",
+        "title": "Campi per costuire la pagina",
+        "fields": [
+            {
+                "key": "field_58c83a177c1bc",
+                "label": "Componi il layout",
+                "name": "layout",
+                "type": "flexible_content",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "button_label": "Aggiungi Riga",
+                "min": "",
+                "max": "",
+                "layouts": [
+                    {
+                        "key": "58c83a34c7494",
+                        "name": "columns",
+                        "label": "Colonne",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_58d3fbedde607",
+                                "label": "Colonna",
+                                "name": "column",
+                                "type": "flexible_content",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "button_label": "Aggiungi colonna",
+                                "min": "",
+                                "max": "",
+                                "layouts": [
+                                    {
+                                        "key": "58d3fc06a709a",
+                                        "name": "text",
+                                        "label": "Testo",
+                                        "display": "block",
+                                        "sub_fields": [
+                                            {
+                                                "key": "field_58d38a024b533",
+                                                "label": "Dimensione colonna",
+                                                "name": "size",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "12": "Riga piena",
+                                                    "3": "1\/4",
+                                                    "4": "1\/3",
+                                                    "6": "1\/2",
+                                                    "8": "2\/3"
+                                                },
+                                                "default_value": [
+                                                    6
+                                                ],
+                                                "allow_null": 0,
+                                                "multiple": 0,
+                                                "ui": 0,
+                                                "ajax": 0,
+                                                "return_format": "value",
+                                                "placeholder": ""
+                                            },
+                                            {
+                                                "key": "field_58d38e7f4b541",
+                                                "label": "Posizione verticale",
+                                                "name": "align",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "start": "Sopra",
+                                                    "center": "Centro",
+                                                    "end": "Sotto"
+                                                },
+                                                "default_value": [
+
+                                                ],
+                                                "allow_null": 1,
+                                                "multiple": 0,
+                                                "ui": 0,
+                                                "ajax": 0,
+                                                "return_format": "value",
+                                                "placeholder": ""
+                                            },
+                                            {
+                                                "key": "field_58d38c054b538",
+                                                "label": "Testo",
+                                                "name": "text",
+                                                "type": "wysiwyg",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "tabs": "all",
+                                                "toolbar": "full",
+                                                "media_upload": 1,
+                                                "delay": 0
+                                            },
+                                            {
+                                                "key": "field_58d38a5d4b534",
+                                                "label": "Titolo",
+                                                "name": "",
+                                                "type": "tab",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "placement": "top",
+                                                "endpoint": 0
+                                            },
+                                            {
+                                                "key": "field_58d38b224b535",
+                                                "label": "Testo titolo",
+                                                "name": "title_text",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": "",
+                                                "maxlength": ""
+                                            },
+                                            {
+                                                "key": "field_58d38b314b536",
+                                                "label": "Dimensione testo",
+                                                "name": "title_size",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "section__title--small": "30",
+                                                    "section__title--medium": "45",
+                                                    "section__title--big": "50"
+                                                },
+                                                "default_value": [
+
+                                                ],
+                                                "allow_null": 0,
+                                                "multiple": 0,
+                                                "ui": 0,
+                                                "ajax": 0,
+                                                "return_format": "value",
+                                                "placeholder": ""
+                                            },
+                                            {
+                                                "key": "field_58d38b3a4b537",
+                                                "label": "Grassetto",
+                                                "name": "title_weight",
+                                                "type": "true_false",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "message": "",
+                                                "default_value": 0,
+                                                "ui": 0,
+                                                "ui_on_text": "",
+                                                "ui_off_text": ""
+                                            },
+                                            {
+                                                "key": "field_58d50f2589368",
+                                                "label": "Maiuscoletto",
+                                                "name": "uppercase",
+                                                "type": "true_false",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "message": "",
+                                                "default_value": 0,
+                                                "ui": 0,
+                                                "ui_on_text": "",
+                                                "ui_off_text": ""
+                                            },
+                                            {
+                                                "key": "field_58d38de74b53f",
+                                                "label": "Marrone",
+                                                "name": "brown",
+                                                "type": "true_false",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "message": "",
+                                                "default_value": 0,
+                                                "ui": 0,
+                                                "ui_on_text": "",
+                                                "ui_off_text": ""
+                                            }
+                                        ],
+                                        "min": "",
+                                        "max": ""
+                                    },
+                                    {
+                                        "key": "58d40005240ff",
+                                        "name": "image",
+                                        "label": "Immagine",
+                                        "display": "block",
+                                        "sub_fields": [
+                                            {
+                                                "key": "field_58d4045fca471",
+                                                "label": "Dimensione colonna",
+                                                "name": "size",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "12": "Riga piena",
+                                                    "3": "1\/4",
+                                                    "4": "1\/3",
+                                                    "6": "1\/2",
+                                                    "8": "2\/3"
+                                                },
+                                                "default_value": [
+                                                    6
+                                                ],
+                                                "allow_null": 0,
+                                                "multiple": 0,
+                                                "ui": 0,
+                                                "ajax": 0,
+                                                "return_format": "value",
+                                                "placeholder": ""
+                                            },
+                                            {
+                                                "key": "field_58d40473ca472",
+                                                "label": "Posizione verticale",
+                                                "name": "align",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "start": "Sopra",
+                                                    "center": "Centro",
+                                                    "end": "Sotto"
+                                                },
+                                                "default_value": [
+
+                                                ],
+                                                "allow_null": 1,
+                                                "multiple": 0,
+                                                "ui": 0,
+                                                "ajax": 0,
+                                                "return_format": "value",
+                                                "placeholder": ""
+                                            },
+                                            {
+                                                "key": "field_58d38ecb4b543",
+                                                "label": "Immagine",
+                                                "name": "immagine",
+                                                "type": "image",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "return_format": "array",
+                                                "preview_size": "thumbnail",
+                                                "library": "all",
+                                                "min_width": "",
+                                                "min_height": "",
+                                                "min_size": "",
+                                                "max_width": "",
+                                                "max_height": "",
+                                                "max_size": "",
+                                                "mime_types": ""
+                                            }
+                                        ],
+                                        "min": "",
+                                        "max": ""
+                                    },
+                                    {
+                                        "key": "58d4002d24100",
+                                        "name": "slider",
+                                        "label": "Slider",
+                                        "display": "block",
+                                        "sub_fields": [
+                                            {
+                                                "key": "field_58d404c3ca474",
+                                                "label": "Dimensione colonna",
+                                                "name": "size",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "12": "Riga piena",
+                                                    "3": "1\/4",
+                                                    "4": "1\/3",
+                                                    "6": "1\/2",
+                                                    "8": "2\/3"
+                                                },
+                                                "default_value": [
+                                                    6
+                                                ],
+                                                "allow_null": 0,
+                                                "multiple": 0,
+                                                "ui": 0,
+                                                "ajax": 0,
+                                                "return_format": "value",
+                                                "placeholder": ""
+                                            },
+                                            {
+                                                "key": "field_58d404abca473",
+                                                "label": "Posizione verticale",
+                                                "name": "align",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "start": "Sopra",
+                                                    "center": "Centro",
+                                                    "end": "Sotto"
+                                                },
+                                                "default_value": [
+
+                                                ],
+                                                "allow_null": 1,
+                                                "multiple": 0,
+                                                "ui": 0,
+                                                "ajax": 0,
+                                                "return_format": "value",
+                                                "placeholder": ""
+                                            },
+                                            {
+                                                "key": "field_58d38c2d4b539",
+                                                "label": "Slider",
+                                                "name": "slider",
+                                                "type": "gallery",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "min": "",
+                                                "max": "",
+                                                "insert": "append",
+                                                "library": "all",
+                                                "min_width": "",
+                                                "min_height": "",
+                                                "min_size": "",
+                                                "max_width": "",
+                                                "max_height": "",
+                                                "max_size": "",
+                                                "mime_types": ""
+                                            }
+                                        ],
+                                        "min": "",
+                                        "max": ""
+                                    },
+                                    {
+                                        "key": "58d4006a24101",
+                                        "name": "services",
+                                        "label": "Servizi",
+                                        "display": "block",
+                                        "sub_fields": [
+                                            {
+                                                "key": "field_58d404dcca475",
+                                                "label": "Dimensione colonna",
+                                                "name": "size",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "12": "Riga piena",
+                                                    "3": "1\/4",
+                                                    "4": "1\/3",
+                                                    "6": "1\/2",
+                                                    "8": "2\/3"
+                                                },
+                                                "default_value": [
+                                                    6
+                                                ],
+                                                "allow_null": 0,
+                                                "multiple": 0,
+                                                "ui": 0,
+                                                "ajax": 0,
+                                                "return_format": "value",
+                                                "placeholder": ""
+                                            },
+                                            {
+                                                "key": "field_58d404f4ca476",
+                                                "label": "Posizione verticale",
+                                                "name": "align",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "start": "Sopra",
+                                                    "center": "Centro",
+                                                    "end": "Sotto"
+                                                },
+                                                "default_value": [
+
+                                                ],
+                                                "allow_null": 1,
+                                                "multiple": 0,
+                                                "ui": 0,
+                                                "ajax": 0,
+                                                "return_format": "value",
+                                                "placeholder": ""
+                                            },
+                                            {
+                                                "key": "field_58d390fb4b555",
+                                                "label": "Servizi",
+                                                "name": "servizi",
+                                                "type": "relationship",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "post_type": [
+                                                    "servizi"
+                                                ],
+                                                "taxonomy": [
+
+                                                ],
+                                                "filters": [
+                                                    "search"
+                                                ],
+                                                "elements": [
+                                                    "featured_image"
+                                                ],
+                                                "min": "",
+                                                "max": "",
+                                                "return_format": "object"
+                                            }
+                                        ],
+                                        "min": "",
+                                        "max": ""
+                                    },
+                                    {
+                                        "key": "58d4008824102",
+                                        "name": "page",
+                                        "label": "Pagina",
+                                        "display": "block",
+                                        "sub_fields": [
+                                            {
+                                                "key": "field_58d40522ca478",
+                                                "label": "Dimensione colonna",
+                                                "name": "size",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "12": "Riga piena",
+                                                    "3": "1\/4",
+                                                    "4": "1\/3",
+                                                    "6": "1\/2",
+                                                    "8": "2\/3"
+                                                },
+                                                "default_value": [
+                                                    6
+                                                ],
+                                                "allow_null": 0,
+                                                "multiple": 0,
+                                                "ui": 0,
+                                                "ajax": 0,
+                                                "return_format": "value",
+                                                "placeholder": ""
+                                            },
+                                            {
+                                                "key": "field_58d4050cca477",
+                                                "label": "Posizione verticale",
+                                                "name": "align",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "start": "Sopra",
+                                                    "center": "Centro",
+                                                    "end": "Sotto"
+                                                },
+                                                "default_value": [
+
+                                                ],
+                                                "allow_null": 1,
+                                                "multiple": 0,
+                                                "ui": 0,
+                                                "ajax": 0,
+                                                "return_format": "value",
+                                                "placeholder": ""
+                                            },
+                                            {
+                                                "key": "field_58d38c5d4b53b",
+                                                "label": "Pagina",
+                                                "name": "page",
+                                                "type": "post_object",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "post_type": [
+
+                                                ],
+                                                "taxonomy": [
+
+                                                ],
+                                                "allow_null": 0,
+                                                "multiple": 0,
+                                                "return_format": "object",
+                                                "ui": 1
+                                            },
+                                            {
+                                                "key": "field_58d38d4b4b53d",
+                                                "label": "Sfondo",
+                                                "name": "sfondo",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "square": "Quadrato",
+                                                    "bg": "Immagine"
+                                                },
+                                                "default_value": [
+
+                                                ],
+                                                "allow_null": 0,
+                                                "multiple": 0,
+                                                "ui": 0,
+                                                "ajax": 0,
+                                                "return_format": "value",
+                                                "placeholder": ""
+                                            },
+                                            {
+                                                "key": "field_58e0e5c9be574",
+                                                "label": "Background",
+                                                "name": "background",
+                                                "type": "image",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": [
+                                                    [
+                                                        {
+                                                            "field": "field_58d38d4b4b53d",
+                                                            "operator": "==",
+                                                            "value": "bg"
+                                                        }
+                                                    ]
+                                                ],
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "return_format": "array",
+                                                "preview_size": "thumbnail",
+                                                "library": "all",
+                                                "min_width": "",
+                                                "min_height": "",
+                                                "min_size": "",
+                                                "max_width": "",
+                                                "max_height": "",
+                                                "max_size": "",
+                                                "mime_types": ""
+                                            },
+                                            {
+                                                "key": "field_58d38da04b53e",
+                                                "label": "Tipo di bottone",
+                                                "name": "button",
+                                                "type": "radio",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "button": "Esteso",
+                                                    "more": "Scopri"
+                                                },
+                                                "allow_null": 0,
+                                                "other_choice": 0,
+                                                "save_other_choice": 0,
+                                                "default_value": "",
+                                                "layout": "vertical",
+                                                "return_format": "value"
+                                            }
+                                        ],
+                                        "min": "",
+                                        "max": ""
+                                    }
+                                ]
+                            },
+                            {
+                                "key": "field_58e7ad241573c",
+                                "label": "Titolo colonne",
+                                "name": "",
+                                "type": "tab",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "placement": "top",
+                                "endpoint": 0
+                            },
+                            {
+                                "key": "field_58dcffceb2324",
+                                "label": "Titolo sopra le colonne",
+                                "name": "title_columns",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_58e7ad141573b",
+                                "label": "Dimensione testo",
+                                "name": "title_columns_size",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "section__title--small": "30",
+                                    "section__title--medium": "45",
+                                    "section__title--big": "50"
+                                },
+                                "default_value": [
+
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_58e7ad001573a",
+                                "label": "Grassetto",
+                                "name": "title_columns_weight",
+                                "type": "true_false",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "message": "",
+                                "default_value": 0,
+                                "ui": 0,
+                                "ui_on_text": "",
+                                "ui_off_text": ""
+                            },
+                            {
+                                "key": "field_58e7ace215739",
+                                "label": "Maiuscoletto",
+                                "name": "title_columns_uppercase",
+                                "type": "true_false",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "message": "",
+                                "default_value": 0,
+                                "ui": 0,
+                                "ui_on_text": "",
+                                "ui_off_text": ""
+                            },
+                            {
+                                "key": "field_58e7acce15738",
+                                "label": "Marrone",
+                                "name": "title_columns_brown",
+                                "type": "true_false",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "message": "",
+                                "default_value": 0,
+                                "ui": 0,
+                                "ui_on_text": "",
+                                "ui_off_text": ""
+                            },
+                            {
+                                "key": "field_58e7ada81573d",
+                                "label": "Bordo in basso",
+                                "name": "title_columns_border_bottom",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "58e0dccc15d1c",
+                        "name": "testo",
+                        "label": "Testo",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_58e0dce415d1d",
+                                "label": "Titolo",
+                                "name": "titolo",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_58e0dcf615d1e",
+                                "label": "Testo",
+                                "name": "testo",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1,
+                                "delay": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "58d38f434b544",
+                        "name": "full-slider",
+                        "label": "Slider",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_58d38f4a4b545",
+                                "label": "Slider",
+                                "name": "full_slider",
+                                "type": "gallery",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "min": "",
+                                "max": "",
+                                "insert": "append",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "58d38f9d4b548",
+                        "name": "immagine",
+                        "label": "Immagine",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_58d38fa54b549",
+                                "label": "File",
+                                "name": "file",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "preview_size": "thumbnail",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": ""
+                            },
+                            {
+                                "key": "field_58d38fae4b54a",
+                                "label": "Larghezza piena",
+                                "name": "full",
+                                "type": "true_false",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "message": "",
+                                "default_value": 0,
+                                "ui": 0,
+                                "ui_on_text": "",
+                                "ui_off_text": ""
+                            },
+                            {
+                                "key": "field_58ecf06c71546",
+                                "label": "Normale",
+                                "name": "normal",
+                                "type": "true_false",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "message": "",
+                                "default_value": 0,
+                                "ui": 0,
+                                "ui_on_text": "",
+                                "ui_off_text": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "58d38fef4b54b",
+                        "name": "linee",
+                        "label": "Linee",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_58d390054b54c",
+                                "label": "Tipo",
+                                "name": "linee_kind",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": [
+                                    "Menu",
+                                    "Slider"
+                                ],
+                                "default_value": [
+                                    "Menu"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "58d390334b54d",
+                        "name": "services",
+                        "label": "Colonne servizi",
+                        "display": "block",
+                        "sub_fields": [
+
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "58d390454b54e",
+                        "name": "instagram",
+                        "label": "Instagram",
+                        "display": "block",
+                        "sub_fields": [
+
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "58d3904d4b54f",
+                        "name": "marchi",
+                        "label": "Marchi",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_58dfb34cf3caf",
+                                "label": "Numero di colonne",
+                                "name": "brands_cols",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": 3,
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "58d3906a4b550",
+                        "name": "row",
+                        "label": "Fascia link",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_58d3907a4b551",
+                                "label": "Titolo",
+                                "name": "row_title",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_58d390814b552",
+                                "label": "Sfondo",
+                                "name": "row_image",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "preview_size": "thumbnail",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": ""
+                            },
+                            {
+                                "key": "field_58d3908c4b553",
+                                "label": "Link",
+                                "name": "row_link",
+                                "type": "url",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_58d3909b4b554",
+                                "label": "Testo link",
+                                "name": "row_link_text",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_58e0d5ff15d1a",
+                                "label": "Testo",
+                                "name": "row_text",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1,
+                                "delay": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "58e667df64404",
+                        "name": "squares",
+                        "label": "Blocchi quadrati",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_58e6681b64405",
+                                "label": "Versione",
+                                "name": "version",
+                                "type": "radio",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "home": "Home",
+                                    "linee": "Linee"
+                                },
+                                "allow_null": 0,
+                                "other_choice": 0,
+                                "save_other_choice": 0,
+                                "default_value": "",
+                                "layout": "horizontal",
+                                "return_format": "value"
+                            },
+                            {
+                                "key": "field_58e66ae9d2f33",
+                                "label": "Titolo",
+                                "name": "squares_title",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_58e6681b64405",
+                                            "operator": "==",
+                                            "value": "home"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_58e66b0dd2f34",
+                                "label": "Bottone",
+                                "name": "squares_button",
+                                "type": "post_object",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_58e6681b64405",
+                                            "operator": "==",
+                                            "value": "home"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "post_type": [
+
+                                ],
+                                "taxonomy": [
+
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "return_format": "object",
+                                "ui": 1
+                            },
+                            {
+                                "key": "field_58e6686364406",
+                                "label": "Prima riga",
+                                "name": "",
+                                "type": "tab",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "placement": "top",
+                                "endpoint": 0
+                            },
+                            {
+                                "key": "field_58e668f664409",
+                                "label": "Immagine",
+                                "name": "prima_riga_immagine",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "preview_size": "thumbnail",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": ""
+                            },
+                            {
+                                "key": "field_58e6693e6440b",
+                                "label": "Titolo",
+                                "name": "prima_riga_titolo",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_58e6692b6440a",
+                                "label": "Testo",
+                                "name": "prima_riga_testo",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1,
+                                "delay": 0
+                            },
+                            {
+                                "key": "field_58e6688864407",
+                                "label": "Seconda riga",
+                                "name": "",
+                                "type": "tab",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "placement": "top",
+                                "endpoint": 0
+                            },
+                            {
+                                "key": "field_58e669606440c",
+                                "label": "Immagine",
+                                "name": "seconda_riga_immagine",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "preview_size": "thumbnail",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": ""
+                            },
+                            {
+                                "key": "field_58e6698d6440d",
+                                "label": "Seconda Immagine",
+                                "name": "seconda_riga_immagine_2",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_58e6681b64405",
+                                            "operator": "==",
+                                            "value": "home"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "preview_size": "thumbnail",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": ""
+                            },
+                            {
+                                "key": "field_58e669c06440e",
+                                "label": "Titolo",
+                                "name": "seconda_riga_titolo",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_58e669e76440f",
+                                "label": "Testo",
+                                "name": "seconda_riga_testo",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1,
+                                "delay": 0
+                            },
+                            {
+                                "key": "field_58e6688f64408",
+                                "label": "Terza riga",
+                                "name": "",
+                                "type": "tab",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "placement": "top",
+                                "endpoint": 0
+                            },
+                            {
+                                "key": "field_58e669fb64410",
+                                "label": "Immagine",
+                                "name": "terza_riga_immagine",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "preview_size": "thumbnail",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": ""
+                            },
+                            {
+                                "key": "field_58e66a1564411",
+                                "label": "Seconda Immagine",
+                                "name": "terza_riga_immagine_2",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "preview_size": "thumbnail",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": ""
+                            },
+                            {
+                                "key": "field_58e66a6764413",
+                                "label": "Titolo",
+                                "name": "terza_riga_titolo",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_58e66a4d64412",
+                                "label": "Testo",
+                                "name": "terza_riga_testo",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1,
+                                "delay": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "58e792fb84198",
+                        "name": "divider",
+                        "label": "Divisore",
+                        "display": "block",
+                        "sub_fields": [
+
+                        ],
+                        "min": "",
+                        "max": ""
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                },
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "template-custom.php"
+                }
+            ],
+            [
+                {
+                    "param": "page_type",
+                    "operator": "==",
+                    "value": "front_page"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "linee"
+                }
+            ]
+        ],
+        "menu_order": 1,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "the_content",
+            "custom_fields",
+            "discussion",
+            "comments",
+            "revisions",
+            "author",
+            "format",
+            "send-trackbacks"
+        ],
+        "active": 1,
+        "description": ""
+    }
+]

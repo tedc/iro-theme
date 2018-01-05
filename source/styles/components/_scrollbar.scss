@@ -1,0 +1,13 @@
+.swiper-scrollbar {
+	position: absolute;
+	top: 5px;
+	bottom: 5px;
+	right: 5px;
+	width: 5px;
+	&-drag {
+		border-radius: $r;
+		background-color: $brand-main;
+		width: 5px;
+		min-height: em($p*4);
+	}
+}

@@ -1,0 +1,150 @@
+%button {
+	display: inline-block;
+	cursor: pointer;
+	border-radius: $r;
+	transition: background-color $speed;
+	font-weight: bolder;
+	min-width: em(250px);
+	padding: em(20px) em(40px);
+	text-transform: uppercase;
+	text-align: center;
+	border: 0;
+	line-height: 0.9;
+	outline: 0!important;
+	box-shadow: none!important;
+	position: relative;
+	overflow: hidden;
+	&:before, &:after {
+		content: '';
+		border-radius: $f;
+		height: em($p*2);
+		width: em($p*2);
+		position: absolute;
+		top: $f/2;
+		left: $f/2;
+		margin: em($p)*-1 0 0 em($p)*-1;
+		opacity: 0;
+		visibility: hidden;
+		transition: {
+			property: visibility, opacity;
+			duration: $speed;
+		};
+	}	
+	&:before {
+		background-color: $w;
+	}
+	&:after {
+		transform-origin: right center;
+		transform: translate3d(0, 0, 0) rotate(360deg);
+	}
+	&:disabled {
+		opacity: .5;
+		cursor: not-allowed;
+	}
+}
+
+.icon-chiudi {
+	transition: transform $speed;
+	&:hover {
+		transform: scale(0.9) translateZ(0);
+	}
+}
+
+a, span, button, input[type="button"], input[type="submit"] {
+	&[class*="__button"], &[class*="--button"] {
+		@extend %button;
+		background-color: $highlight-color;
+		color: $brand-main;
+		&:not([class*="-loading"]):not(:disabled):hover {
+			color: $w;
+			background-color: $brand-main;
+		}
+		&:after {
+			background-color: $highlight-color;
+		}
+		&[class*="-dark"] {
+			color: $w;
+			background-color: $brand-main;
+			&:not([class*="-loading"]):not(:disabled):hover {
+				background-color: $dark-color;
+			}
+			&:after {
+				background-color: $brand-main;
+			}
+		}
+		&[class*="-slim"] {
+			padding: em(10px) em(30px);
+			min-width: 0;
+			color: $brand-main;
+			background-color: $lighter-color;
+			&:not([class*="-loading"]):not(:disabled):hover {
+				background-color: $brand-main;
+				color: $w;
+			}
+			&:before {
+				color: $alternate-color;
+			}
+			&:after {
+				background-color: $w;
+			}
+		}
+		&[class*="-light"] {
+			min-width: 0;
+			color: $brand-main;
+			border: 1px solid $alternate-color;
+			background-color: transparentize($w, 1);
+			&:not([class*="-loading"]):not(:disabled):hover {
+				color: $w;
+				background-color: $alternate-color;
+			}
+			&:before {
+				background-color: $alternate-color;
+			}
+			&:after {
+				background-color: $w;
+			}
+		}
+		&[class*="-radius-right"] {
+			min-width: 0;
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+		&[class*="-radius-left"] {
+			min-width: 0;
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+		&[class*="-radius-top"] {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+		&[class*="-radius-bottom"] {
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+		}
+		&[class*="noradius"] {
+			border-radius: 0;
+		}
+		&[class*="-loading"] {
+			color: transparent;
+			cursor: auto;
+			cursor: not-allowed;
+			&:before, &:after {		
+				opacity: 1;
+				visibility: visible;
+			}
+			&:after {
+				animation: moon 2s infinite;
+			}
+		}
+	}
+}
+
+@keyframes moon {
+	0% {
+		transform: translate3d(0, 0, 0) rotate(360deg);
+	}
+	100% {
+		transform: translate3d(0, 0, 0) rotate(0deg);
+	}
+}

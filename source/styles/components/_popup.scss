@@ -1,0 +1,93 @@
+.popup {
+	@include full($pos: fixed);
+	z-index: 9999999;
+	background: linear-gradient(to top, #0c386c, #7dcdf3);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&__form {
+		background-color: $lighter-color;
+		border-radius: $r;
+		max-width: $f;
+		.ng-enter &, .ng-leave & {
+			transform: translate3d(0, $p, 0);
+		}
+		.ng-enter.ng-enter-active &, .ng-leave & {
+			transition: transform $speed/2;
+		}
+		.ng-leave & {
+			transition-delay: $speed;
+		}
+		.ng-enter.ng-enter-active & {
+			transform: translate3d(0, 0, 0);
+		}
+	}
+	&__row {
+		padding: {
+			top: em(10px);
+			left: em(30px);
+			right: em(30px);
+			bottom: em(10px);
+		}
+		&--close {
+			height: em(87px);
+			text-align: right;
+			background-color: $dark-color;
+			border-top-left-radius: $r;
+			border-top-right-radius: $r;
+			color: $w;
+			padding-top: em(20px);
+			margin-bottom: em(20px);
+			.icon-chiudi {
+				font-size: 12px;
+			}
+		}
+		&--aligncenter {
+			padding-top: 0;
+			a {
+				font-size: 12px;
+			}
+		}
+	}
+	&__footer {
+		border-top: 1px solid $dark-border;
+		padding: em(20px) em(30px);
+	}
+	&__title {
+		margin-right: em(40px, 30px);
+		line-height: 1;
+	}
+	&__switch {
+		font-size: 12px;
+		position: relative;
+		top: -7px;
+		align-self: flex-end;
+	}
+	&__button {
+		width: $f;
+	}
+	&__header {
+		position: relative;
+	}
+	&__image {
+		position: absolute;
+		left: em(30px);
+		width: em(125px);
+		height: em(130px);
+		top: em(67px)*-1;
+		background-image: url(../images/login-svg.svg);
+		@include cover;
+		.ng-enter &, .ng-leave & {
+			transform: translate3d(0, $p*-1, 0);
+			opacity: 0;
+		}
+		.ng-enter.ng-enter-active &, .ng-leave & {
+			transition: transform $speed/2, opacity $speed/2;
+		}
+		.ng-enter.ng-enter-active & {
+			transform: translate3d(0, 0, 0);
+			opacity: 1;
+			transition-delay: $speed/2;
+		}
+	}
+}

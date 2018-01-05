@@ -1,0 +1,139 @@
+.cart {
+	&-aside{
+		width: $f;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		display: flex;
+		justify-content: flex-end;
+		z-index: 999999;
+		.ng-animate & {
+			position: absolute;
+		}
+		.admin-bar.logged-in & {
+			top: 32px;
+		}
+		&:before {
+			@include full();
+			content: '';
+			z-index: 0;
+			background-color: transparentize($b, .35);
+		}
+		&__container {	
+			display: flex;
+			flex-direction: column;
+			position: relative;
+			z-index: 1;
+			background-color: $w;
+			width: $f;
+			max-width: em($p*20);
+			.ng-enter &, .ng-leave & {
+				transform: translate3d($f, 0, 0);
+			}
+			.ng-enter.ng-enter-active &, .ng-leave & {
+				transition: transform $speed/2;
+			}
+			.ng-enter.ng-enter-active & {
+				transform: translate3d(0, 0, 0);
+			}
+		}
+		&__figure {
+			display: inline-block;
+			max-width: $f;
+		}
+		&__image {
+			width: $f;
+		}
+		&__header {
+			display: flex;
+			height: em(80px);
+			align-items: center;
+			justify-content: space-between;
+			border-bottom: 1px solid $light-border;
+			.icon-chiudi {
+				font-size: $p/2;
+				color: $brand-main;
+				&:hover {
+					color: $alternate-color;
+				}
+			}
+		}
+		&__wrapper {
+			overflow: hidden;
+			flex: 20;
+			position: relative;
+		}
+		&__price {
+			color: $brand-main;
+			.cart-aside__total &, .cart-aside__subtotal & {
+				font-size: em(24px);
+				font-weight: 300;
+			}
+		}
+		&__item {
+			border-bottom: 1px solid $light-border;
+			@include grow('small');
+		}
+		&__bottom {
+			align-items: center;;
+		}
+		&__qty {
+			display: flex;
+			align-items: center;
+			font-weight: 600;
+		}
+		&__value {
+			display: inline-block;
+			padding: 0 em($p);
+		}
+		&__plus, &__minus {
+			font-size: em(24px);
+			color: $light-color;
+			transition: color;
+			&:hover {
+				color: $alternate-color;
+			};
+		}
+		&__minus {
+			position: relative;;
+			top: -2px;
+			margin-right: -1px;
+		}
+		&__top, &__bottom {
+			@include grow('small', 'top');
+		}
+		&__top, &__bottom, &__total, &__subtotal {
+			display: flex;
+			justify-content: space-between;
+			
+		}
+		&__info {
+			a {
+				font-weight: 600;
+			}
+		}
+		&__desc {
+			@extend %cart_item_desc;
+		}
+		&__remove {
+			@extend %remove;
+		}
+		&__total, &__subtotal {
+			@include grow('small');
+			background-color: $lighter-color;
+			align-items: flex-end;
+		}
+		&__label {
+			color: $light-color;
+			font-weight: 600;
+			padding-bottom: 0;
+		}
+		&__variation {
+			@include grow('small');
+		}
+		&__coupon {
+			@extend %coupon_form;
+		}
+	}
+}

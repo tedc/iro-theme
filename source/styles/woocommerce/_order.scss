@@ -1,0 +1,266 @@
+%order_row {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+%order_desc {
+	width: $f;
+	flex: 0 0 auto;
+	@extend %cart_item_desc;
+}
+%order_span {
+	font-weight: 600;
+	color: $brand-main;
+}
+.order {
+	&-review {
+		position: absolute;
+		top: em(120px);
+		left: 0;
+		z-index: 99999;
+		background-color: $lighter-color;
+		.admin-bar.logged-in & {
+			top: calc(#{em(120px)} + 32px);
+		}
+		@include breakpoint() {
+			position: static;
+			background-color: $w;
+		}
+		// position: absolute;
+		// top: em(80px);	
+		// z-index: 9999;
+		// .admin-bar.logged-in & {
+		// 	margin-top: 32px;
+		// }
+		margin-bottom: em($p);
+		&__header {
+			display: flex;
+			justify-content: space-between;
+			border-top-left-radius: $r;
+			border-top-right-radius: $r;
+			padding: em($p);
+			&-toggle {
+				display: flex;
+				align-items: center;
+				strong {
+					color: $brand-main;
+					display: inline-block;
+					margin-right: em($p/2);
+				}
+			}
+			.icon-arrow-down {
+				font-size: 9px;
+				color: $alternate-color;
+			}
+			@include breakpoint() {
+				&--mobile {
+					display: none;
+				}
+				&-toggle {
+					display: none;
+				}
+			}
+			.checkout__confirm & {
+				display: none!important;
+			}
+		}
+		&__wrapper {
+			max-height: calc(100vh - #{em(80px)});
+			overflow: hidden;
+			.order-review__header {
+				display: none;
+			}
+			@include breakpoint() {
+				max-height: none;
+				display: block!important;
+				height: auto!important;
+				.order-review__header {
+					display: block;
+				}
+			}
+		}
+		&__row {
+			background-color: $w;
+			padding: em($p);
+			@extend %order_row;
+			&--meta {
+				border-top: 1px solid $light-border;
+			}
+		}
+		&__remove {
+			@extend %remove;
+		}
+		&__desc {
+			@extend %order_desc;
+		}
+		&__name, &__price {
+			@extend %order_span;
+		}
+		&__qty {
+			@extend %cart_item_qty;
+		}
+		&__total {
+			display: flex;
+			justify-content: space-between;
+			background-color: $lighter-color;
+			padding: em($p);
+			border-bottom-left-radius: $r;
+			border-bottom-right-radius: $r;
+			&-label {
+				font-size: em(24px);
+				color: $light-color;
+			}
+			&-price {
+				font-size: em(24px);
+				font-weight: 300;
+				color: $brand-main;
+			}
+			@include breakpoint() {
+				border-top: 1px solid $light-border;
+				.checkout__confirm & {
+					border-top: 0;
+				}
+			}
+			.checkout__confirm & {
+				background-color: $w;
+			}
+		}
+		&__container {
+			margin-bottom: em($p);
+			.checkout__confirm & {
+				margin-bottom: 0;
+			}	
+			@include breakpoint() {
+				border-radius: $r;
+				border: 1px solid $dark-border;
+				.checkout__confirm & {
+					border-radius: 0;
+					border: 0;
+				}
+			}
+		}
+		&__shipping, &__coupon {
+			width: $f;
+			flex: 0 0 auto;
+			padding-top: em($p/2);
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+		}
+		.checkout__confirm & {
+			position: static !important;
+		}
+	}
+	// ORDERS LIST
+	&s {
+		width: $f;
+		border-collapse: collapse;
+		tr {
+			display: block;
+			@include breakpoint($md-max-width) {
+				display: table-row;
+			}
+		}
+	}
+	border-top: 1px solid $light-border;
+	&__th {
+		font-weight: 400;
+		display: none;
+		@include breakpoint($md-max-width) {
+			display: table-cell;
+		}
+	}
+	&__td, &__th {
+		text-align: right;
+		color: $dark-gray;
+		padding: em($p/2) 0;
+		a {
+			font-weight: 600;
+			color: $brand-main;
+			&:hover {
+				color: $alternate-color;
+			}
+		}
+		@include breakpoint($md-max-width) {		
+			padding: em($p);
+			&--order {
+				&-number {
+					padding-left: 0;
+					text-align: left;
+				}
+				&-actions {
+					padding-right: 0;
+				}
+			}
+		}
+	}
+	&__td {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		&:before {
+			content: attr(data-title);
+			color: $dark-gray!important;
+			display: inline-block;
+			padding-right: em($p/2);
+		}
+		@include breakpoint($md-max-width) {
+			display: table-cell;
+			&:before {
+				display: none;
+			}
+		}
+		&--order {
+			&-status {
+				.order--completed & {
+					color: $alternate-color;
+				}
+				.order--on-hold & {
+					color: #f7941d;
+				}
+				.order--cancelled & {
+					color: $error;
+				}
+			}
+		}
+	}
+	&-details {
+		padding: em($p) 0;
+		mark {
+			background-color: transparent;
+			font-weight: 600;
+		}
+		address {
+			padding-top: em($p/4);
+			font-style: normal;
+			line-height: percentage(27px/18px);
+		}
+		&__{
+			&billing {
+				padding-bottom: em($p);
+			}
+			&cell {
+				padding: em($p/2) em($p);
+				@include breakpoint(640px) {
+					padding: 0 em($p);	
+				}
+				&--order {
+					@include breakpoint() {
+						padding-right: em($p);
+						border-left: 1px solid $dark-border;
+					}
+				}
+			}
+			&row {
+				@extend %order_row;
+				padding-bottom: em($p);
+				.wc-item-meta {
+					@extend %order_desc;
+				}
+			}
+			&price, &name {
+				@extend %order_span;
+			}
+		}
+	}
+}

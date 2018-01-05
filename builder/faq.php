@@ -1,0 +1,30 @@
+<?php $faq = get_posts(array(
+	'post_type' => 'faq',
+	'post__in' => get_sub_field('domande'),
+	'posts_per_page' => count(get_sub_field('domande')),
+	'orderby' => 'post__in',
+	'suppress_filters' => 0
+));
+if($faq) : ?>
+<section class="faq faq--shrink faq--mw-large" ng-init="isFaq=[]">
+	<header class="faq__header faq__header--grow-md">
+		<h2 class="faq__title faq__title--aligncenter faq__title--big"><?php _e('Domande frequenti', 'iro'); ?></h2>
+	</header>
+	<ul class="faq__list">
+	<?php foreach($faq as $f) : 
+		$faq_title = get_the_title($f->ID);
+	?>
+	<li class="faq__item faq__item--grow-md">
+		<header class="faq__header" ng-click="isFaq['<?php echo sanitize_title($faq_title); ?>']=!isFaq['<?php echo sanitize_title($faq_title); ?>']">
+			<h3 class="faq__subtitle" ng-class="{'faq__subtitle--active':isFaq['<?php echo sanitize_title($faq_title); ?>']}"><?php echo $faq_title; ?></h3>
+		</header>
+		<div class="faq__content faq__content--grow-top slide-toggle" ng-class="{'slide-toggle--visible':isFaq['<?php echo sanitize_title($faq_title); ?>']}">
+			<div class="faq__text faq__text--grow-top">
+				<?php echo apply_filters('the_content', $f->post_content); ?>
+			</div>
+		</div>
+	</li>
+	<?php endforeach; ?>
+	</ul>
+</section>
+<?php endif; ?>

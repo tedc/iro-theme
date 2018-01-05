@@ -1,0 +1,44 @@
+.related {
+	&__{
+		&header {
+			@include grow('md');
+			p {
+				padding-top: em($p);
+			}
+		}
+		&container {
+			@include grow('md', 'top');
+			background: url(../images/white-splash.jpg) left bottom repeat-x {
+				size: auto em($p*7);
+			};
+		}
+		&image {
+			width: $f!important;
+			height: auto!important;
+			line-height: 0;
+		}
+		&cell {
+			display: flex;
+		}
+		&link {
+			width: $f;
+			position: relative;
+			display: flex;
+			align-items: flex-end;
+		}
+		&button {
+			position: absolute!important;
+			left: 50%;
+			top: 50%;
+			transform: translate3d(-50%, -40%, 0);
+			opacity: 0;
+			visibility: hidden;
+			transition: background-color $speed, opacity $speed, visiblity $speed, transform $speed!important;
+			.related__link:hover & {
+				opacity: 1;
+				visibility: visible;
+				transform: translate3d(-50%, -50%, 0);
+			}
+		}
+	}
+}

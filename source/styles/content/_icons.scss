@@ -1,0 +1,59 @@
+@font-face {
+  font-family: "iro-icons";
+  src: url('../fonts/iro-icons.eot');
+  src: url('../fonts/iro-icons.eot?#iefix') format('eot'),
+    url('../fonts/iro-icons.woff2') format('woff2'),
+    url('../fonts/iro-icons.woff') format('woff'),
+    url('../fonts/iro-icons.ttf') format('truetype'),
+    url('../fonts/iro-icons.svg#iro-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon"], [class*=" icon"] {
+  display: inline-block;
+  font-family: "iro-icons";
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-down:before { content: "\EA01" }
+.icon-arrow-left:before { content: "\EA02" }
+.icon-arrow-right:before { content: "\EA03" }
+.icon-arrow-up:before { content: "\EA04" }
+.icon-bacs:before { content: "\EA05" }
+.icon-bag:before { content: "\EA06" }
+.icon-carta:before { content: "\EA07" }
+.icon-casa:before { content: "\EA08" }
+.icon-chiudi:before { content: "\EA09" }
+.icon-cod:before { content: "\EA0A" }
+.icon-credits:before { content: "\EA0B" }
+.icon-cuscino:before { content: "\EA0C" }
+.icon-detergente:before { content: "\EA0D" }
+.icon-facebook:before { content: "\EA0E" }
+.icon-fiala:before { content: "\EA0F" }
+.icon-instagram:before { content: "\EA10" }
+.icon-lenzuola:before { content: "\EA11" }
+.icon-logo:before { content: "\EA12" }
+.icon-luna-vuota:before { content: "\EA13" }
+.icon-luna:before { content: "\EA14" }
+.icon-macchie:before { content: "\EA15" }
+.icon-materasso:before { content: "\EA16" }
+.icon-materiali-1:before { content: "\EA17" }
+.icon-materiali-2:before { content: "\EA18" }
+.icon-materiali-3:before { content: "\EA19" }
+.icon-materiali-4:before { content: "\EA1A" }
+.icon-onda:before { content: "\EA1B" }
+.icon-pacco:before { content: "\EA1C" }
+.icon-phone:before { content: "\EA1D" }
+.icon-pinterest:before { content: "\EA1E" }
+.icon-play:before { content: "\EA1F" }
+.icon-satispay:before { content: "\EA20" }
+.icon-spedizioni:before { content: "\EA21" }
+.icon-stella-vuota:before { content: "\EA22" }
+.icon-stella:before { content: "\EA23" }
+.icon-twitter:before { content: "\EA24" }
+.icon-youtube:before { content: "\EA25" }

@@ -1,0 +1,31 @@
+%coupon_form {
+	padding-top: em($p/2);
+	[class*="__input"] {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+		background-color: $w;
+		border-color: $light-border;
+		flex: 4;
+	}
+	[class*="__button"] {
+		font-size: 12px;
+		height: em(50px, 12px);
+	}
+}
+%remove {
+	color: $error;
+	font-size: 8px;
+	position: relative;
+	top: 5px;
+}
+%cart_item_qty {
+	font-size: em(14px);
+	color: $light-color;
+}
+%cart_item_desc {
+	text-transform: capitalize;
+	font-size: em(14px);
+}
+[class*="__showcoupon"] {
+	font-weight: 600;
+}

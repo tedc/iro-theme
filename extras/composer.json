@@ -1,0 +1,5 @@
+{
+    "require": {
+        "instaphp/instaphp": "^2.0"
+    }
+}

@@ -1,0 +1,140 @@
+.slide {
+	&-toggle {
+		overflow: hidden;
+		display: none;
+		&--visible {
+			display: block;
+			&[class*="--grid"] {
+				display: flex;
+			}
+		}	
+	}
+}
+
+// SWIPER
+
+.swiper {
+	&-wrapper {
+		display: flex;
+		overflow: hidden;
+		position: relative;
+		&--vertical {
+			display: block;
+			.swiper-slide {
+				width: $f;
+			}
+		}
+		&.checkout__slider-wrapper {
+			overflow: visible;
+		}
+	}
+	&-pagination {
+		line-height: 0;
+		&-bullet {
+			cursor: pointer;
+			display: inline-block;
+			width: 8px;
+			height: 8px;
+			background-color: $w;
+			border-radius: 8px;
+			margin: 0 8px;
+			opacity: 0.5;
+			transform: translateZ(0);
+			backface-visibility: hidden;
+			transition: opacity $speed;
+			&-active {
+				opacity: 1;
+			}
+			&s {
+				.product__gallery & {
+					padding-top: em($p*2);
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+			}
+			.product__gallery & {
+				width: em(32px);
+				height: em(32px);
+				margin: 0 em($p/2);
+				opacity: 1;
+				transition: box-shadow $speed;
+				border-radius: $r/3;
+				border: 1px solid $dark-border;
+				box-shadow: 0 0 0 2px transparentize($dark-border, 1);
+				img {
+					width: $f;
+					height: $f;
+					border-radius: $r/3;
+				}
+				&-active {
+					box-shadow: 0 0 0 2px $dark-border;
+				}
+				@include breakpoint($min: false) {
+					width: 10px;
+					height: 10px;
+					border-radius: 10px;
+					border: 0;
+					background-color: $light-border;
+					box-shadow: none!important;
+					img {
+						display: none;
+					}
+					&-active {
+						background-color: $dark-gray;
+					}
+				}
+			}
+		}
+	}
+}
+
+// SLIDERS
+
+.slider {
+	position: relative;
+	&__nav {
+		@include grow('md');
+		position: absolute;
+		z-index: 20;
+		bottom: 0;
+		left: 0;
+		width: $f;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		[class*="icon"] {
+			cursor: pointer;
+			color: $w;
+			transition: opacity $speed;
+			&:hover {
+				opacity: .75;
+			}
+		}
+		.icon-arrow-left {
+			margin-right: $p;
+		}
+		.icon-arrow-right {
+			margin-left: $p;
+		}
+	}
+	&__image {
+		object-fit: cover;
+		width: $f!important;
+		.full-slider & {
+			height: calc(100vh - #{em($p*4)})!important;
+		}
+	}
+	&__wrapper {
+		.full-slider & {
+			@include full;
+		}
+	}
+	&__slide {
+		width: $f!important;
+		flex: 0 0 auto;
+	}
+	.full-slider & {
+		height: calc(100vh - #{em($p*4)});
+	}
+}

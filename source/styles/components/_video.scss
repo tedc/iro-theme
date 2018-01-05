@@ -1,0 +1,59 @@
+[class*="__iframe"] {
+	@include full(fixed);
+	opacity: 0;
+	visibility: hidden;
+	transition: $speed visibility, $speed opacity;
+	z-index: 999999;
+	&[class*="--visible"] {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+[class*="__video"], [class*="__video-item"], .video__item {
+	@include full;
+}
+[class*="__video"], [class*="__video-item"], .video__item {
+	object-fit: cover;
+}
+
+.video {
+	position: relative;
+	min-height: calc(100vh - #{em($p*4)});
+	display: flex;
+	flex-direction: column;
+	&__{
+		&video {
+			opacity: .85;
+		}
+		&content {
+			position: relative;
+			display: flex;
+			min-height: calc(100vh - #{em($p*4)});
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			align-content: center;
+			text-align: center;
+			color: $w;
+			> * {
+				&:not(.video__button) {
+					width: $f;
+					flex: 0 0 auto;
+				}
+			}
+			p {
+				padding-top: em($p*2);
+			}
+		}
+		&title {
+			color: $w;
+		}
+		&open {
+			@extend %play;
+		}
+		&button {
+			margin-top: em($p*2);
+		}
+	}
+}

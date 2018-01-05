@@ -1,0 +1,98 @@
+.section {
+	&__{
+		&label {
+			text-transform: uppercase;
+			color: $alternate-color;
+			font-weight: 300;
+			@include grow('small', 'bottom');
+		}
+		&text {
+			@include grow('small', 'top');
+			@include grow('md', 'top');
+			p {
+				line-height: percentage(27px/16px);
+				.row:not(.row--inverted) &{
+					color: $dark-gray;
+				}
+				font-weight: 300;
+				padding-bottom: em($p);
+				&:nth-last-child(1) {
+					padding-bottom: 0;
+				}
+			}
+			img {
+				width: $f!important;
+				height: auto!important;
+			}
+		}
+		&cell {
+			[class*="--gradient"] & {
+				position: relative;
+				z-index: 3;
+			}
+			@include grow();
+			@each $var in ('small', 'md', 'lg' ){
+				@each $pos in ('top', 'bottom') {
+					@include grow($var, $pos);
+				}
+			}
+			&--centered {
+				margin: auto;
+			}
+			&--right {
+				margin-left: auto;
+			}
+		}
+		&image {
+			display: inline-block;
+			max-width: $f;
+		}
+		&thumb {
+			width: $f!important;
+			height: auto!important;
+			@include breakpoint() {
+				object-fit: contain;
+				[class*="section__figure--shrink-fw"] &{
+					min-height: em(400px);
+					max-height: calc(100vh - #{em(80px)});
+				}
+				.section__cell--even .section__figure:not([class*="section__figure--shrink-fw"]) & {
+					object-position: right center;
+				}
+				.section__cell--odd .section__figure:not([class*="section__figure--shrink-fw"]) & {
+					object-position: left center;
+				}
+			}
+		}
+		&title {
+			line-height: percentage(40px/35px);
+			&--forcewhite {
+				color: $w;
+			}
+		}
+		&symbol {
+			color: $alternate-color;
+			[class*="icon"] {
+				font-size: em(70px);
+				margin-right: em($p/2, 70px);
+			}
+			svg {
+				width: auto;
+				height: em(70px);
+			}
+			path {
+				fill: $alternate-color!important;
+			}
+			&--blu {
+				color: $brand-main;
+				path {
+					fill: $brand-main!important;
+				}
+			}
+			&s {
+				@include grow('small', 'bottom');
+			}
+		}
+	}
+	
+}
