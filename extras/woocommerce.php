@@ -10,7 +10,7 @@
     }
 
 
-    remove_action('wp_enqueue_scripts', [WC_Frontend_Scripts::class, 'load_scripts']);
+    remove_action('wp_enqueue_scripts', array('WC_Frontend_Scripts', 'load_scripts'));
 
     // Or just remove them all in one line
     add_filter( 'woocommerce_enqueue_styles', '__return_false' );
