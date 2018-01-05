@@ -21,9 +21,9 @@ while(have_rows('content')) : the_row();
 	if(get_sub_field('padding')) {
 		$modifier = '';
 		if(get_sub_field('padding_mod')) {
-			$padding_modifier = (count(get_sub_field('padding_mod')) > 1) ? '' : implode('', get_sub_field('padding_mod'));
+			$modifier = (count(get_sub_field('padding_mod')) > 1) ? '' : implode('', get_sub_field('padding_mod'));
 		}
-		$paddingClass = ' section__cell'.get_sub_field('padding') . $padding_modifier;
+		$paddingClass = ' section__cell'.get_sub_field('padding') . $modifier;
 	}
 	$alignClass .= (get_sub_field('column_right')) ? ' section__cell--right section__cell--aligncenter' : '';
 ?>

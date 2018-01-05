@@ -64,7 +64,7 @@
 		$pattern = (!empty($pattern_style)) ? '<div class="row__pattern'.$patternClass.'" style="'.$pattern_style.'"></div>' : '';	
 		$bgStyle = (!empty($bg)) ? ' style="'.$bg.'"' : '';
 		$abs_image = get_sub_field('absolute_image');
-		$relativeRow = ($abs_image['file'] && get_sub_field('floating_image') || $background['ondine'] || $background['nuvole']) ? ' row--relative' : '';
+		$relativeRow = ($abs_image['file'] && get_sub_field('floating_image') || $background['ondine'] || $background['clouds']) ? ' row--relative' : '';
 		$multiplyClass = ($abs_image['multiply']) ? ' row__figure--multiply' : '';
 		$top = ($abs_image['file'] && get_sub_field('floating_image') && $abs_image['top'] != 0) ? ' move-top-image="'.$abs_image['top'].'"' : '';
 		$abs_image = ($abs_image['file'] && get_sub_field('floating_image')) ? '<figure class="row__figure row__figure'.$abs_image['posizione'].$multiplyClass.'"'.$top.' style="width:'.$abs_image['width'].'%;"><img src="'.$abs_image['file'].'" class="row__image"/></figure>' : '';
