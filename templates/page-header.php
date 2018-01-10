@@ -9,7 +9,6 @@
 ?>
 <div class="header header--shrink-fw">
 	<?php 
-	echo 'cazzo';
 	if(get_field('header_video')) :
 		get_template_part( 'templates/header', 'video');
 	else :

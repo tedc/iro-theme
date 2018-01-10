@@ -58,10 +58,13 @@ iro
 	}])
 	.directive('ngMask', ()=>{
 		return {
+			scope : true,
 			link : (scope, element)=>{
 				element.find('img').one('load', ()=> {
 					controller.update(true);
 				});
+				console.log(element[0].getBoundingClientRect().top);
+					
 				scope.moveMask = (evt, id, leave)=> {
 					let body = document.body;
 					let docEl = document.documentElement;
