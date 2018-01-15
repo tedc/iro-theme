@@ -361,6 +361,7 @@
 // HEADER
 
 .header {
+	position: relative;
 	body:not(.woocommerce-page) & {
 		display: flex;
 		min-height: calc(100vh - #{em(80px)});
@@ -371,7 +372,7 @@
 			left: 0;
 			width: $f!important;
 			height: $f!important;
-			object-fill: cover;
+			object-fit: cover;
 		}
 		&__play {
 			@extend %play;
@@ -396,6 +397,9 @@
 			}
 		}
 	}
+	&__title {
+		line-height: percentage(64px/55px);
+	}
 	&__container {
 		@include grow('md');
 		&--grid {
@@ -404,5 +408,8 @@
 				align-items: center;
 			}
 		}
+	}
+	&__btns {
+		@include grow('md', 'top');
 	}
 }

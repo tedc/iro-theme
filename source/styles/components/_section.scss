@@ -1,10 +1,22 @@
 .section {
 	&__{
+		&label, &title, &text {
+			.swiper-container & {
+				transition: $speed transform;
+				transform: translate3d(0, $p*-1, 0);
+			}
+			.swiper-slide-active & {
+				transform: translate3d(0, 0, 0);
+			}
+		}
 		&label {
 			text-transform: uppercase;
 			color: $alternate-color;
 			font-weight: 300;
 			@include grow('small', 'bottom');
+			.swiper-slide-active & {
+				transition-delay: $speed/2;
+			}
 		}
 		&text {
 			@include grow('small', 'top');
@@ -24,6 +36,12 @@
 				width: $f!important;
 				height: auto!important;
 			}
+			.swiper-slide & {
+				transition-delay: $speed/2;
+			}
+			.swiper-slide-active & {
+				transition-delay: 0;
+			}
 		}
 		&cell {
 			[class*="--gradient"] & {
@@ -42,6 +60,14 @@
 			&--right {
 				margin-left: auto;
 			}
+			&--image {
+				&.section__cell--even {
+					text-align: right;
+				}
+			}
+		}
+		&figure {
+			line-height: 0;
 		}
 		&image {
 			display: inline-block;
@@ -65,9 +91,31 @@
 			}
 		}
 		&title {
-			line-height: percentage(40px/35px);
+			$lh: 40px/35px;
+			line-height: percentage($lh);
 			&--forcewhite {
 				color: $w;
+			}
+			&--medium {	
+		        margin-bottom: lh_mb(30px, $lh);
+		        @include breakpoint($bp) {     
+		        	margin-bottom: lh_mb(35px, $lh);
+			    }
+			}
+			&--big {
+			    margin-bottom: lh_mb(35px, $lh);
+			    @include breakpoint($bp) {
+			       margin-bottom: lh_mb(42px, $lh);
+			    }
+			}
+			&--large {
+			    margin-bottom: lh_mb(42px, $lh);
+		        @include breakpoint($bp) {
+		            margin-bottom: lh_mb(55px, $lh);
+		        }
+			}
+			.swiper-slide & {
+				transition-delay: $speed/4;
 			}
 		}
 		&symbol {
@@ -91,6 +139,76 @@
 			}
 			&s {
 				@include grow('small', 'bottom');
+			}
+		}
+		&link {
+			@include grow('small', 'top');
+			@include grow('md', 'top');
+		}
+		&item {
+			flex: 0 0 auto;
+			width: $f;
+		}
+		&wrapper {
+			align-items: flex-start;
+		}
+		&pagination {
+			@include grow('md', 'top');
+			display: flex;
+			align-items: center;
+			.icon-arrow-left, .icon-arrow-right {
+				font-size: em($p);
+				color: $brand-main;
+				cursor: pointer;
+				&:before {
+					display: inline-block;
+					transition: transform $speed;
+				}
+			}
+			.icon-arrow-left {
+				margin-right: 2em;
+				&:hover {
+					&:before {
+						transform: translate3d(-1px, 0, 0);
+					}
+				}
+			}
+			.icon-arrow-right {
+				margin-left: 2em;
+				&:hover {
+					&:before {
+						transform: translate3d(1px, 0, 0);
+					}
+				}
+			}
+		}
+		&article {
+			display: inline-flex;
+			align-items: center;
+			.icon-arrow-link {
+				font-size: 7px;
+				width: $p;
+				height: $p;
+				line-height: $p;
+				text-align: center;
+				background-color: $light-border;
+				border-radius: $p;
+				color: $brand-main;
+				transition: background-color $speed;
+				margin-left: $p/2;
+				&:before {
+					display: inline-block;
+					transition: transform $speed;
+				}
+			}
+			&:hover{
+				.icon-arrow-link {
+					background-color: transparent;
+					//color: $w;
+					&:before {
+						transform: translate3d(2px, -2px, 0);
+					}
+				}
 			}
 		}
 	}

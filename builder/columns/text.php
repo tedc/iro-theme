@@ -39,9 +39,12 @@ if(!$mw && !$centered) {
 		echo '<div class="'.$contentClass.'">';
 		the_sub_field('text');
 		echo '</div>';
-		if(get_sub_field('col_link')) {
-			echo '<div class="section__link section__link--grow-top"><a href="'.get_sub_field('col_link').'">'.get_sub_field('link_text').'</a></div>';
-		}
 		endif;
+		if(get_sub_field('col_link')) {
+			$button_class = 'section__button';
+			$link_class = !get_sub_field('text') ? 'section__link' : 'section__link section__link--grow-top';
+			$button_class .= get_sub_field('col_link_color') ? ' section__button--'.get_sub_field('col_link_color') : '';
+			echo '<div class="'.$link_class.'"><a class="'.$button_class.'" ui-sref="app.page({slug : \''.basename(get_sub_field('col_link')['url']).'\'})" href="'.get_sub_field('col_link')['url'].'">'.get_sub_field('col_link')['title'].'</a></div>';
+		}
 	?>
 </div>

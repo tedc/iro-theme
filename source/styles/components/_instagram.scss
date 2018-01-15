@@ -1,0 +1,41 @@
+.instagram {
+	&__{
+		&header {
+			display: flex;
+			align-items: center;
+		}
+		&figure {
+			display: none;
+			@include breakpoint() {
+				display: block;
+				position: relative;	
+				flex: 1;
+				z-index: 2;
+				margin-bottom: em($p*-10);
+			}
+		}
+		&image {
+			width: $f;
+		}
+		&button {
+			margin: 0 em($p*2);
+			span {
+				font-size: 12px;
+			}
+		}
+		&container {
+			overflow: hidden;
+		}
+		&item {
+			position: relative;
+			&:before {
+				display: block;
+				padding-top: $f;
+				content: '';
+			}
+			a, img {
+				@include full;
+			}
+		}
+	}
+}

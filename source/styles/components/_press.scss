@@ -1,0 +1,17 @@
+.press {
+	&__{
+		&wrapper {
+			align-items: center;
+			justify-content: center;
+		}
+		&label {
+			span {
+				font-size: em(14px);
+				color: $dark-gray;
+			}
+		}
+		&container {
+			@include grow('small', 'top');
+		}
+	}
+}

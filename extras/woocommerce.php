@@ -409,3 +409,16 @@ add_action('woocommerce_after_single_product', 'add_builder_to_product', 30);
 // ACCOUNT
 
 require_once 'woocommerce-api.php';
+
+function prova_xml($xml, $rec) {
+    $str = '';
+    foreach ($rec as $field => $value) {
+        $str .= $field .'_' .$value;
+        add_filter('woe_xml_child_labels_'.$field, function($child_labels) {
+            $child_labels = strtolower($child_labels);
+            return $child_labels . 'cazzo';
+        });
+    }
+    return $xml;
+}
+add_filter('woe_xml_output_filter', 'prova_xml', 10, 2);

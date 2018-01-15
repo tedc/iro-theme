@@ -9,6 +9,7 @@ while(have_rows('content')) : the_row();
 	$sizeClass = '';
 	$alignClass = get_sub_field('align') ? ' section__cell--align-'.get_sub_field('align') : '';
 	$alignClass .= ($centered) ? ' section__cell--centered section__cell--aligncenter' : '';
+	$alignClass .= (get_sub_field('aligncenter') && !$centered) ? ' section__cell--aligncenter' : '';
 	if(!$centered){
 		if($size !== 0) {
 			$sizeClass = ' section__cell--s'.$size;

@@ -1,0 +1,1 @@
+<hr class="divider divider<?php the_sub_field('divider_height'); ?>" />

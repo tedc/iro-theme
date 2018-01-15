@@ -24,7 +24,7 @@
 				width: $f;
 			}
 		}
-		&.checkout__slider-wrapper {
+		&.checkout__slider-wrapper, &.instagram__wrapper {
 			overflow: visible;
 		}
 	}
@@ -52,6 +52,9 @@
 					justify-content: center;
 					align-items: center;
 				}
+			}
+			.section__pagination & {
+				background-color: $alternate-color;
 			}
 			.product__gallery & {
 				width: em(32px);

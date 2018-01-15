@@ -1,5 +1,8 @@
 <?php
 	while(have_rows('rows')) : the_row();
+		if(get_sub_field('is_divider')) :
+			get_template_part( 'builder/divider' );
+		else :
 		$padding = get_sub_field('padding');
 		$padding_pos = get_sub_field('padding_mod');
 		$p = '';
@@ -24,6 +27,7 @@
 				}
 				if($key == 'background_color') {
 					$bgClass = ($value) ? ' row'.$value : '';
+					$bgClass .= ($background['inverted_gradient'] && preg_match('/gradient/', $background['background_color'])) ? ' row'.$value.'-inverted' : '';
 				}
 				if($key == 'background_size') {
 					if($value != 1) {
@@ -33,7 +37,7 @@
 				if($key == 'background_size_custom') {
 					if(!preg_match('/gradient/', $background['background_color'])) {
 						if($background['background_size'] == 1) {
-							$bg .= ($value) ? str_replace('_', '-', $key) . ':' . $value . ';' : '';
+							$bg .= ($value) ? str_replace('_', '-', str_replace('_custom', '', $key)) . ':' . $value . ';' : '';
 						}
 					} else {
 						if($background['background_size'] == 1) {
@@ -54,7 +58,13 @@
 						} else {
 							$pattern_style .= ($value) ? str_replace('_', '-', $key) . ':' . $value . ';' : '';
 							if(!$value) {
-								$patternClass .= ' row__pattern--contain';
+								if($background['background_size'] && $background['background_size'] != 1){
+									$patternClass .= ' row__pattern'.$background['background_size'];
+								} elseif($background['background_size'] && $background['background_size'] == 1) {
+									$pattern_style .= 'background-size:'.$background['background_size_custom'].';';
+								} else {
+									$patternClass .= ' row__pattern--contain';
+								}
 							}
 						}						
 					}
@@ -98,5 +108,6 @@
 		<?php endif; endif; echo $abs_image; ?>
 	</section>
 <?php
+	endif;
 	endwhile;
 ?>

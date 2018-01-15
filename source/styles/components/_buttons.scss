@@ -92,7 +92,7 @@ a, span, button, input[type="button"], input[type="submit"] {
 			min-width: 0;
 			color: $brand-main;
 			border: 1px solid $alternate-color;
-			background-color: transparentize($w, 1);
+			background-color: transparentize($w, 0);
 			&:not([class*="-loading"]):not(:disabled):hover {
 				color: $w;
 				background-color: $alternate-color;

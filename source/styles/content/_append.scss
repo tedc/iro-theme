@@ -175,10 +175,16 @@ strong {
     background-color: $alternate-color;
 }
 [class*="-gradient-dark"] {
-    background-image: linear-gradient(to top, $brand-main, $alternate-color);
+    background-image: linear-gradient(to top, #0c386c, #7ecdf3);
+}
+[class*="-gradient-dark-inverted"] {
+    background-image: linear-gradient(to bottom, #0c386c, #7ecdf3);
 }
 [class*="-gradient-light"] {
     background-image: linear-gradient(to bottom, $w, #eff9fd);
+}
+[class*="-gradient-light-inverted"] {
+    background-image: linear-gradient(to top, $w, #eff9fd);
 }
 [class*="-alternate"] {
     font-family: $alternate-font;

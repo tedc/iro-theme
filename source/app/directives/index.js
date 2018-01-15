@@ -110,3 +110,37 @@ iro
 			}
 		}
 	})
+	.directive('ngInstagram', ()=> {
+		return {
+			restrict: 'A',
+			controller : [ '$scope', "$http", '$timeout', 'getInstances', '$rootScope', ($scope, $http, $timeout, getInstances, $rootScope)=>{
+				$scope.resize = (url)=>{
+					return url.replace('150x150/', '640x640/')
+				}
+				let regex = new RegExp(`(${vars.main.langs})$`, "g");
+	            let new_base = vars.main.base.replace(/\/$/g, '').replace(regex, '');
+	            let url = `${new_base}/wp-json/api/v1/instagram`;
+        		// $scope.renderSlide = (slide, index)=> {
+        		// 	let html = `<li class="instagram__item instagram__item--cell-s3 swiper-slide">${slide}</li>`;
+        		// 	console.log(html);
+        		// 	return html;
+        		// }
+        		var instagram_slider = getInstances.getInstance('instagram');
+
+          		instagram_slider.then( (swiper)=> {
+            		$scope.$on('updateSwiper', ()=> {
+        				swiper.update();
+        			});
+				} );
+        		$http
+	            	.get(url)
+	            	.then( (res)=> {
+	            		let data = res.data.data;
+		            	if(data.length < 1) return;
+		            	$scope.items = data;
+		            	$scope.username = $scope.items[0].user.username;
+		          
+	            	});
+			}]
+		}
+	})

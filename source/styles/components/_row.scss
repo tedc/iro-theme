@@ -87,23 +87,56 @@
 				&--multiply {
 					mix-blend-mode: multiply;
 				}
-				&[class*="--right"] {
+				&--right-bottom {
 					right: 0;
+					bottom: 0;
 				}
-				&[class*="--left"] {
+				&--left-bottom {
 					left: 0;
+					bottom: 0;
 				}
-				&[class*="-top"] {
+				&--left-top {
+					left: 0;
 					top: 0;
 				}
-				&[class*="-bottom"] {
+				&--right-top {
+					right: 0;
+					top: 0;
+				}
+				&--right-center {
+					right: 0;
+					top: 50%;
+					img {
+						transform: translate3d(0, -50%, 0);
+					}
+				}
+				&--left-center {
+					left: 0;
+					top: 50%;
+					img {
+						transform: translate3d(0, -50%, 0);
+					}
+				}
+				&--top-center {
+					top: 0;
+					left: 50%;
+					img {
+						transform: translate3d(-50%, 0, 0);
+					}
+				}
+				&--bottom-center {
 					bottom: 0;
+					left: 50%;
+					img {
+						transform: translate3d(-50%, 0, 0);
+					}
 				}
 			}
 		}
 		&image {
 			width: $f;
 			height: auto;
+			position: relative;
 		}
 		&wave {
 			@extend %row_patterns;
@@ -148,6 +181,34 @@
 					size: auto $f;
 				};
 			}
+		}
+	}
+}
+
+.divider {
+	border: 0;
+	background-color: transparent;
+	display: none;
+	margin: 0;
+	@include breakpoint() {
+		display: block;
+	}
+	&--small {
+		height: em($p*2);
+	}
+	&--md {
+		height: em($p*2);
+		@include breakpoint() {	
+			height: em($p*4);
+		}
+	}
+	&--lg {
+		height: em($p*2);
+		@include breakpoint() {	
+			height: em($p*4);
+		}
+		@include breakpoint(1020px) {	
+			height: em($p*8);
 		}
 	}
 }

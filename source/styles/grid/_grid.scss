@@ -400,3 +400,7 @@ $unit: $p;
         repeat: no-repeat;
     }
 }
+
+@function lh_mb($fz, $lh) { 
+    @return ((em($fz) * ($lh)) - em($fz))*-1;
+}
