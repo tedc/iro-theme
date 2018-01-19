@@ -1,1 +1,1 @@
-<?php get_template_part( 'builder/init' ); ?>
+<?php the_content(); ?>
