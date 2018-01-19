@@ -1,14 +1,26 @@
 .datasheet {
+	@include grow('lg');
 	&__{
 		&row {
 			@include grow('md');
-			border: 1px solid $w;
+			border-bottom: 1px solid $w;
 			&--last {
 				border-bottom: 0;
 			}
 		}
 		&header {
 			@include grow('small');
+		}
+		&subtitle {
+			font-size: em($p);
+			color: $dark-gray;
+		}
+		&cell {
+			&--s8 {
+				p {
+					font-size: em(14px);
+				}
+			}
 		}
 	}
 }

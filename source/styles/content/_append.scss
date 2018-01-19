@@ -171,8 +171,11 @@ strong {
 [class*="-dark"] {
     background-color: $dark-color;
 }
+[class*="-black"] {
+    background-color: $b;
+}
 [class*="-cyan"] {
-    background-color: $alternate-color;
+    background-color: #ddf3fd
 }
 [class*="-gradient-dark"] {
     background-image: linear-gradient(to top, #0c386c, #7ecdf3);
@@ -269,4 +272,11 @@ strong {
             width: 80%;
         }
     }
+}
+
+[class*="__permalink"] {
+    @include full;
+    text-indent: 120%;
+    white-space: nowrap;
+    overflow: hidden;
 }

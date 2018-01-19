@@ -1,0 +1,106 @@
+.review {
+	@include grow('lg');
+	&__{
+		&required {
+			font-size: em(14px);
+			padding-bottom: em($p*2, 14px);
+			color: $light-color;
+			display: inline-block;
+		}
+		&row {
+			@include grow('small');
+			border-top: 1px solid $light-border;
+		}
+		&choice {
+			display: none;
+			& + label {
+				display: flex;
+				justify-content: center;
+				color: $light-color;
+				flex-wrap: wrap;
+				cursor: pointer;
+				transition: $speed color;
+				i {
+					font-size: em(56px);
+					color: $dark-border;
+					transition: $speed color;
+				}
+				.icon-stella {
+					font-size: 1em;
+					margin: 0 4px;
+				}
+				&:hover {
+					color: $brand-main;
+					i {
+						color: $light-color;
+					}
+				}
+			}
+			&:checked {
+				& + label {
+					color: $brand-main;
+					i {
+						color: $highlight-color;
+					}
+				}
+			}
+		}
+		&name {
+			flex: 0 0 auto;
+			width: $f;
+			text-align: center;
+			@include grow('small', 'top');
+		}
+		&item {
+			width: $f/5;
+			@include grow('small');
+		}
+		&cell {
+			@include grow('small');
+		}
+		&privacy {
+			font-size: 12px;
+			color: $light-color;
+			line-height: percentage(17px/12px);
+			padding-right: em($p*2, 12px);
+		}
+		&button {
+			flex: 0 0 auto;
+		}
+		&form {
+			position: relative;
+			&:after {
+				@include full;
+				opacity: 0;
+				visibility: hidden;
+				content: '';
+				transition: visibility $speed, opacity $speed;
+			}
+			&--loading {
+				&:after {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+		&message {
+			p {
+				line-height: percentage(27px/16px);
+			}
+		}
+		&content {
+			@include grow('md');
+		}
+		&title {
+			&--big {
+				&-error {
+					color: $error;
+				}
+			}
+			margin-bottom: lh_mb(35px, $lh);
+		    @include breakpoint($bp) {
+		       margin-bottom: lh_mb(42px, $lh);
+		    }
+		}
+	}
+}

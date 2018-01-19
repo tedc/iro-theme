@@ -168,6 +168,7 @@
     function add_query_vars($vars){
         $vars[] = __('tab', 'iro');
         $vars[] = 'eo_count';
+        $vars[] = 'productId';
         return $vars;
     }
     function rewrite_popup_url() {

@@ -53,6 +53,9 @@
 		// $redirect = array('current' => ICL_LANGUAGE_CODE, 'url' => $url, 'lang' => $lang);
 		// $ajax = array('url' => admin_url('admin-ajax.php'), 'action' => 'catellanipdf');
 		
+		acf_set_language_to_default();
+		$review_base = get_field('review_base', 'options');
+		acf_unset_language_to_default();
 		$wc = array(
 			'form' => WC_AJAX::get_endpoint('iro_form'),
 			'variation_add' => WC_AJAX::get_endpoint('iro_variation_add_to_cart_item'),
@@ -70,7 +73,8 @@
 			'orderBase' => basename(wc_get_page_permalink('checkout')) . '/'. basename(wc_get_endpoint_url('order-received')),
 			'logged' => (bool)is_user_logged_in(),
 			'country_select_params' => apply_filters( 'wc_country_select_params', array(
-			'countries'              => json_encode( array_merge( WC()->countries->get_allowed_country_states(), WC()->countries->get_shipping_country_states() ) )) )
+			'countries'              => json_encode( array_merge( WC()->countries->get_allowed_country_states(), WC()->countries->get_shipping_country_states() ) )) ),
+			'review_base' => basename(get_permalink($review_base))
 		);
 		$vars = array(
 			"main" => array(

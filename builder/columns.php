@@ -2,6 +2,9 @@
 <?php 
 $col = 0;
 while(have_rows('colonne')) : the_row();
+if(get_sub_field('spaziatore')) :
+	echo '<hr class="divider divider'.get_sub_field('altezza_spaziatore').'" />';
+else :
 while(have_rows('content')) : the_row();
 	$centered = get_sub_field('centered_columns');
 	$size = ($centered) ? '_centered' : '';
@@ -26,7 +29,7 @@ while(have_rows('content')) : the_row();
 		}
 		$paddingClass = ' section__cell'.get_sub_field('padding') . $modifier;
 	}
-	$alignClass .= (get_sub_field('column_right')) ? ' section__cell--right section__cell--aligncenter' : '';
+	$alignClass .= (get_sub_field('column_right')) ? ' section__cell--right' : '';
 ?>
 	
 	<?php 
@@ -37,5 +40,6 @@ while(have_rows('content')) : the_row();
 	<?php endwhile;
 	
 endwhile;
-$col++; endwhile; ?>
+$col++;endif; endwhile; 
+?>
 </div>

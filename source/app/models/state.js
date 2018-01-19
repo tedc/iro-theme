@@ -35,12 +35,13 @@ module.exports = function ($stateProvider, $locationProvider, $provide) {
 			controller : ['$rootScope', '$scope', 'data', require('./html')]
 		})
 		.state('app.page', {
-			url : '/{slug:(?!tab$)[a-zA-Z0-9\-]*}',
+			url : '/{slug:(?!tab$)[a-zA-Z0-9\-]*}?productId',
 			template : tpl,
 			resolve : {
 				data : ['getData', '$stateParams', function(getData, $stateParams) {
-					return getData($stateParams.slug);
-				}]
+					let base_url = ($stateParams.productId) ? `${$stateParams.slug}?productId=${$stateParams.productId}`: $stateParams.slug;
+					return getData(base_url);
+				}],
 			},
 			controller : ['$rootScope', '$scope', 'data', require('./html')]
 		})

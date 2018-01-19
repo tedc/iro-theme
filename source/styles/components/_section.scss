@@ -68,6 +68,11 @@
 		}
 		&figure {
 			line-height: 0;
+			position: relative;
+			z-index: 1;
+			.row--shrink-fw & {
+				text-align: center;
+			}
 		}
 		&image {
 			display: inline-block;
@@ -75,6 +80,7 @@
 		}
 		&thumb {
 			width: $f!important;
+			position: relative;
 			height: auto!important;
 			@include breakpoint() {
 				object-fit: contain;
@@ -91,7 +97,6 @@
 			}
 		}
 		&title {
-			$lh: 40px/35px;
 			line-height: percentage($lh);
 			&--forcewhite {
 				color: $w;
@@ -135,6 +140,12 @@
 				color: $brand-main;
 				path {
 					fill: $brand-main!important;
+				}
+			}
+			.row--inverted & {
+				color: $w;
+				path {
+					fill: $w!important;
 				}
 			}
 			&s {

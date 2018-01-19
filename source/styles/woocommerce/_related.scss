@@ -1,4 +1,4 @@
-.related {
+.related, .products {
 	&__{
 		&header {
 			@include grow('md');
@@ -8,17 +8,11 @@
 		}
 		&container {
 			@include grow('md', 'top');
-			background: url(../images/white-splash.jpg) left bottom repeat-x {
-				size: auto em($p*7);
-			};
 		}
 		&image {
 			width: $f!important;
 			height: auto!important;
 			line-height: 0;
-		}
-		&cell {
-			display: flex;
 		}
 		&link {
 			width: $f;
@@ -34,10 +28,70 @@
 			opacity: 0;
 			visibility: hidden;
 			transition: background-color $speed, opacity $speed, visiblity $speed, transform $speed!important;
+		}
+	}
+}
+%button_hover {
+	opacity: 1;
+	visibility: visible;
+	transform: translate3d(-50%, -50%, 0);
+}
+.products {
+	&__{
+		&figure {
+			position: relative;
+		}
+		&image {
+			transition: opacity $speed;
+			.products__cell:hover & {
+				opacity: .25;
+			}
+		}
+		&content {
+			@include grow('md');
+			text-align: center;
+		}
+		&cell {
+			&--shrink-left-only {
+				@include breakpoint() {
+					margin-top: em($p*8);
+				}
+			}
+		}
+		&title {
+			$lh: 40px/35px;
+			line-height: percentage($lh);
+			margin-bottom: lh_mb(30px, $lh);
+			padding-bottom: em($p, 30px);
+	        @include breakpoint($bp) {     
+	        	margin-bottom: lh_mb(35px, $lh);
+				padding-bottom: em($p, 35px);
+		    }
+		}
+		&button {
+			.products__cell:hover & {
+				@extend %button_hover;
+			}
+		}
+		&cell {
+			position: relative;
+		}
+	}
+}
+
+.related {
+	&__{	
+		&container {
+			background: url(../images/white-splash.jpg) left bottom repeat-x {
+				size: auto em($p*7);
+			};
+		}	
+		&cell {
+			display: flex;
+		}
+		&button {
 			.related__link:hover & {
-				opacity: 1;
-				visibility: visible;
-				transform: translate3d(-50%, -50%, 0);
+				@extend %button_hover;
 			}
 		}
 	}

@@ -36,3 +36,16 @@
             }
         }
     }
+
+    // Enable the option show in rest
+    add_filter( 'acf/rest_api/field_settings/show_in_rest', '__return_true' );
+
+    // Enable the option edit in rest
+    add_filter( 'acf/rest_api/field_settings/edit_in_rest', '__return_true' );
+
+    add_filter( 'acf/rest_api/item_permissions/update', function( $permission, $request, $type ) {
+        if ( 'user' == $type && method_exists( $request, 'get_param' ) && get_current_user_id() == $request->get_param( 'id' ) ) {
+            return true;
+        }
+        return $permission;
+    }, 10, 3 );

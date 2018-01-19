@@ -5,7 +5,7 @@ figure {
 	@include cover();
 }
 [class*="__contain"], [class*="-contain"] {
-	&:not([class*="__container"]), &:not([class*="-container"]) {
+	&:not([class*="__container"]):not([class*="--container"]) {
 		@include cover($size : contain);
 	}
 }

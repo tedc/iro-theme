@@ -59,6 +59,7 @@
 
 .row {
 	@include grow();
+	background-repeat: no-repeat;
 	@each $var in ('small', 'md', 'lg' ){
 		@each $pos in ('top', 'bottom') {
 			@include grow($var, $pos);
@@ -84,6 +85,9 @@
 				display: block;
 				position: absolute;
 				z-index: 10;
+				&--lowlev {
+					z-index: 0;
+				}
 				&--multiply {
 					mix-blend-mode: multiply;
 				}
@@ -190,6 +194,8 @@
 	background-color: transparent;
 	display: none;
 	margin: 0;
+	width: $f;
+	flex: 0 0 auto;
 	@include breakpoint() {
 		display: block;
 	}

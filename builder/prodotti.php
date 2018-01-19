@@ -1,12 +1,28 @@
 <?php
-$args = array(
-	'post_type' => 'product',
-	'post__in' => get_sub_field('products'),
-	'posts_per_page' => count(get_sub_field('products')),
-	'orderby' => 'post__in',
-	'suppress_filters' => 0
-);
 $is_archive = get_sub_field('is_archive');
+if($is_archive && get_sub_field('product_category')) {
+	$args = array(
+		'post_type' => 'product',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'product_cat',
+				'field' => 'term_id',
+				'terms' => get_sub_field('product_category')
+			)
+		),
+		'posts_per_page' => -1,
+		'orderby' => 'menu_order',
+		'suppress_filters' => 0
+	);
+} else {
+	$args = array(
+		'post_type' => 'product',
+		'post__in' => get_sub_field('products'),
+		'posts_per_page' => count(get_sub_field('products')),
+		'orderby' => 'post__in',
+		'suppress_filters' => 0
+	);
+}
 $base_class = $is_archive ? 'products' : 'related';
 $prodotti = new WP_Query($args);
 if($prodotti->have_posts()) : ?>
@@ -16,17 +32,19 @@ if($prodotti->have_posts()) : ?>
 		<?php the_sub_field('testo_'.$name); ?>
 	</header>
 	<?php if($is_archive) : ?>
-	<div class="<?php echo $base_class; ?> <?php echo $base_class; ?>--grid">
+	<div class="<?php echo $base_class; ?>__container <?php echo $base_class; ?>__container--grow-md-top <?php echo $base_class; ?>--grid">
 		<?php $count = 0; while($prodotti->have_posts()) : $prodotti->the_post();
 			?>
-		<div class="<?php echo $base_class; ?>__cell <?php echo $base_class; ?>__cell--s6 <?php echo $base_class .'__cell--shrink-'; ($count%2==0) ? 'right': 'left'; ?>-only">
+		<div class="<?php echo $base_class; ?>__cell <?php echo $base_class; ?>__cell--s6 <?php echo $base_class .'__cell--shrink-'; echo ($count%2==0) ? 'right': 'left'; ?>-only">
 			<figure class="<?php echo $base_class; ?>__figure">
-				<?php the_post_thumbnail('large'); ?>
-				<a href="<?php the_permalink(); ?>" ui-sref="app.page({slug:'<?php echo basename(get_permalink()); ?>'})" class="<?php echo $base_class; ?>__button <?php echo $base_class; ?>__button--dark"><?php the_title(); ?></a>
+				<?php the_post_thumbnail('large', array('class'=> $base_class.'__image')); ?>
+				<span class="<?php echo $base_class; ?>__button <?php echo $base_class; ?>__button--dark"><?php _e('Scopri', 'iro'); ?></span>
 			</figure>
-			<div class="<?php echo $base_class; ?>__content <?php echo $base_class; ?>__content--grow-top">
+			<div class="<?php echo $base_class; ?>__content <?php echo $base_class; ?>__content--shrink <?php echo $base_class; ?>__content--grow-md">
+				<h3 class="<?php echo $base_class; ?>__title <?php echo $base_class; ?>__title--medium"><?php the_title(); ?></h3>
 				<?php the_excerpt(); ?>
 			</div>
+			<a href="<?php the_permalink(); ?>" ui-sref="app.page({slug:'<?php echo basename(get_permalink()); ?>'})" class="<?php echo $base_class; ?>__permalink"><?php the_title(); ?></a>
 		</div>
 		<?php $count++; endwhile; wp_reset_postdata(); wp_reset_query(); ?>
 	</div>

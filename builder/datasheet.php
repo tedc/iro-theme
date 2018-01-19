@@ -1,13 +1,22 @@
-<?php $args = array(
+<?php 
+$name = 'datasheet';
+$args = array(
 	'post_type' => $name,
-	'post__in' => get_sub_field($name),
-	'posts_per_page' => count(get_sub_field($name)),
-	'orderby' => 'post__in',
-	'suppress_filters' => 0
+	'posts_per_page' => -1,
+	'orderby' => 'menu_order',
+	'suppress_filters' => 0,
+	'order' => 'ASC',
+	'tax_query' => array(
+		array(
+			'taxonomy'=>'prodotti_associato',
+			'field' => 'term_id',
+			'terms' => get_sub_field($name)
+		)
+	)
 );
 $datasheet = new WP_Query($args);
 if($datasheet->have_posts()) : ?>
-<section class="<?php echo $name; ?> <?php echo $name; ?>--grid">
+<section class="<?php echo $name; ?> <?php echo $name; ?>--grow-lg <?php echo $name; ?>--shrink <?php echo $name; ?>--mw-large">
 	<header class="<?php echo $name; ?>__header <?php echo $name; ?>__header--grow">
 		<h2 class="<?php echo $name; ?>__title <?php echo $name; ?>__title--big"><?php _e('Scheda tecnica', 'iro'); ?></h2>
 	</header>
@@ -21,6 +30,5 @@ if($datasheet->have_posts()) : ?>
 		</div>
 	</div>
 	<?php $c++; endwhile; wp_reset_postdata(); wp_reset_query(); ?>	
-	</div>
 </section>
 <?php endif; ?>

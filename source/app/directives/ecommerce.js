@@ -312,11 +312,11 @@ module.exports = () => {
 						angular.element(swiper.slides[swiper.activeIndex]).addClass('swiper-slide-current')
 					}
 					swiper.on('init', currentClass);
-					swiper.on('slideChangeTransitionEnd', currentClass);
 					swiper.init();
-					swiper.on('progress', ()=> {
+					swiper.on('slideChangeTransitionStart', (evt)=> {
 						angular.element(swiper.$el.find('.swiper-slide-current')).removeClass('swiper-slide-current')
 					});
+					swiper.on('slideChangeTransitionEnd', currentClass);
 				})
 			}
 			$rootScope.initEcommerce();

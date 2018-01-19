@@ -13,7 +13,7 @@
           $append_sting = (is_user_logged_in()) ? __('Profilo', 'iro') : __('Login', 'iro');
           $append_url = (is_user_logged_in()) ? wc_get_page_permalink('myaccount') : '/tab/login/';
           $append = '<li class="menu__item menu__item--account" ui-sref-active="menu__item--active"><a href="'.$append_url.'" ng-click="account($event)" class="menu__link" ng-class="{\'menu__link--active\':menuItem ==\''.basename(wc_get_page_permalink('myaccount')).'\'}" ng-bind-html="(isUserLoggedIn) ? \''.__('Profilo', 'iro').'\' : \''.__('Login', 'iro').'\'">'.$append_sting.'</a></li>';
-         bem_menu('primary_navigation', 'menu', null, null, $append);
+         bem_menu('primary_navigation', 'menu', 'menu--shrink', null, $append);
           
         endif;
         ?>

@@ -144,3 +144,4 @@ iro
 			}]
 		}
 	})
+	.directive('review', require('./review'))
