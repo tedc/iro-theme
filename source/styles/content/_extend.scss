@@ -1,0 +1,79 @@
+
+@include grid();
+@include flex-align();
+@include shrink();
+
+%pos_Abs {
+    width: $f;
+    z-index: 1;
+    position: absolute;
+    height: 100vh;
+    overflow: hidden !important;
+    display: none;
+    .logged-in.admin-bar & {
+        height: calc(100vh - 32px);
+    }
+}
+%blurry_fix {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    perspective: 1000px;
+    filter: blur(0);
+}
+
+%play {
+    width: $f;
+    flex: 0 0 auto;
+    // visibility: hidden;
+    // opacity: 0;
+    transition-property: visibility, opacity;
+    transition-duration: $speed;
+    span {
+        font-size: em(14px);
+    }
+    &[class*="--ready"] {
+        opacity: 1;
+        visibility: visible;
+    }
+    .icon-play {
+        font-size: em(30px);
+        border-radius: $f;
+        width: em(100px, 30px);
+        height: em(100px, 30px);
+        line-height: em(100px, 30px);
+        border: 2px solid $w;
+        box-shadow: inset 0 0 5px transparentize($w, .5), 0 0 5px transparentize($w, .5);
+        display: block;
+        margin: em($p, 30px) auto;
+        transition: box-shadow $speed;
+        &:before {
+            display: inline-block;
+            position: relative;
+            left: em(4px, 30px);
+            transition: transform $speed;
+        }
+
+    }
+    &:hover {
+        .icon-play {
+            box-shadow: inset 0 0 5px transparentize($w, .2), 0 0 5px transparentize($w, .1);
+            &:before {
+                transform: scale(0.9) translateZ(0);
+            }
+        }
+    }
+}
+@include breakpoint($min: false) {
+    [class*="__cell"], [class*="--cell"] {
+        &.swiper-slide:not([class*="__cell--s12"]), &.swiper-slide:not([class*="--cell-s12"]) {
+            width: 80%;
+        }
+    }
+}
+
+[class*="__permalink"] {
+    @include full;
+    text-indent: 120%;
+    white-space: nowrap;
+    overflow: hidden;
+}

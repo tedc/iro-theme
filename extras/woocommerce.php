@@ -135,7 +135,6 @@
     <?php }, 9 );
     add_action('woocommerce_checkout_after_customer_details', 'move_shippings', 10);
     add_action('woocommerce_checkout_after_customer_details', 'woocommerce_checkout_payment', 11);
-    add_action('woocommerce_checkout_after_customer_details', function() { wc_get_template_part('checkout/form', 'confirm');}, 12);
     function shipping_title() {
         return __( 'Modalità di spedizione', 'iro' );
     }

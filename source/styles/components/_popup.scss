@@ -5,20 +5,40 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	opacity: 0;
+	visibility: hidden;
+	transition: $speed opacity $speed, visibility $speed $speed;
+	&--visible {
+		opacity: 1;
+		visibility: visible;
+		transition-delay: 0;
+	}
 	&__form {
 		background-color: $lighter-color;
 		border-radius: $r;
 		max-width: $f;
-		.ng-enter &, .ng-leave & {
+		// .ng-enter &, .ng-leave & {
+		// 	transform: translate3d(0, $p, 0);
+		// }
+		// .ng-enter.ng-enter-active &, .ng-leave & {
+		// 	transition: transform $speed/2;
+		// }
+		// .ng-leave & {
+		// 	transition-delay: $speed;
+		// }
+		// .ng-enter.ng-enter-active & {
+		// 	transform: translate3d(0, 0, 0);
+		// }
+		.popup--visible-add &, .popup--visible-remove & {
 			transform: translate3d(0, $p, 0);
 		}
-		.ng-enter.ng-enter-active &, .ng-leave & {
+		.popup--visible-add.popup--visible &, .popup--visible-remove & {
 			transition: transform $speed/2;
 		}
-		.ng-leave & {
+		.popup--visible-remove & {
 			transition-delay: $speed;
 		}
-		.ng-enter.ng-enter-active & {
+		.popup--visible.popup--visible-add-active & {
 			transform: translate3d(0, 0, 0);
 		}
 	}
@@ -77,17 +97,37 @@
 		top: em(67px)*-1;
 		background-image: url(../images/login-svg.svg);
 		@include cover;
-		.ng-enter &, .ng-leave & {
+		.popup--visible-add &, .popup--visible-remove & {
 			transform: translate3d(0, $p*-1, 0);
 			opacity: 0;
 		}
-		.ng-enter.ng-enter-active &, .ng-leave & {
+		.popup--visible-add.popup--visible &, .popup--visible-remove & {
 			transition: transform $speed/2, opacity $speed/2;
 		}
-		.ng-enter.ng-enter-active & {
+		.popup--visible-add.popup--visible & {
 			transform: translate3d(0, 0, 0);
 			opacity: 1;
 			transition-delay: $speed/2;
+		}
+	}
+	&__error {
+		color: $error;
+		text-align: center;
+		padding: em($p);
+		&.ng-enter {
+			opacity: 0;
+			visibility: hidden;
+		}
+		&.ng-enter-active, &.ng-leave {
+			transition: opacity $speed, visibility $speed;
+		}
+		&.ng-enter-active {
+			opacity: 1;
+			visibility: visible;
+		}
+		&.ng-leave-active {
+			visibility: hidden;
+			opacity: 0;
 		}
 	}
 }

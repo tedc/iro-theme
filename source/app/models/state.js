@@ -1,5 +1,6 @@
 const tpl = '<main class="main" bind-html-compile="content"></main>'
-module.exports = function ($stateProvider, $locationProvider, $provide) {
+module.exports = function ($stateProvider, $locationProvider, $provide, cfpLoadingBarProvider) {
+	cfpLoadingBarProvider.includeSpinner = false;
 	$provide.decorator('$locale', ['$delegate', function ($delegate) {
 		$delegate.NUMBER_FORMATS.GROUP_SEP = '.';
         $delegate.NUMBER_FORMATS.DECIMAL_SEP = ',';
@@ -15,7 +16,7 @@ module.exports = function ($stateProvider, $locationProvider, $provide) {
 		.state('app', {
 				abstract : true,
 				url : `/{lang:(?:${vars.lang.langs})}`,			
-				template : '<ui-view class="view"></ui-view>',
+				template : '<ui-view class="view" autoscroll="false"></ui-view>',
 				params : {
 					lang : {
 						squash : true,
@@ -75,33 +76,41 @@ module.exports = function ($stateProvider, $locationProvider, $provide) {
 			controller : ['$rootScope', '$scope', 'data', require('./html')]
 		})
 		.state('app.reviews', {
-			url : '/{base:(recensioni|reviews)}/:name',
+			url : `/${vars.wc.reviews}?review_product&rating`,
 			template : tpl,
 			resolve : {
-				data : ['getData', (getData) => {
-					let url = `${$stateParams.base}/${$stateParams.name}`
+				data : ['getData',  '$stateParams', (getData, $stateParams) => {
+					let url = `${vars.wc.reviews}/`;
+					if($stateParams.review_product) {
+						url += '?review_product=' + $stateParams.review_product;
+					}
+					let and = ($stateParams.review_product) ? '&' : '?';
+					if($stateParams.rating) {
+						url += and + 'rating=' + $stateParams.rating;
+					}
+					console.log(url);
 					return getData(url);
 				}]
 			},
 			controller : ['$rootScope', '$scope', 'data', 'ngCart', require('./html')]
 		})
-		.state('tab', {
-			url : '/tab/:name/?',	
-			resolve : {
-				PreviousState: ["$state", '$rootScope', ($state, $rootScope)=> {
-					$rootScope.previousState = {
-						Name: $state.current.name,
-						Params: $state.params,
-						URL: $state.href($state.current.name, $state.params)
-					}
-				}]
-			},
-			views : {
-				'tab@': {
-					//template : 'prova',
-					templateUrl : (toParams) => `${toParams.name}.html`,	
-					controller : ['$scope', 'ecommerce', '$rootScope', '$window', 'PreviousState', require('./login')]
-				}
-			}
-		})
+		// .state('app.tab', {
+		// 	url : '?name',	
+		// 	resolve : {
+		// 		PreviousState: ["$state", '$rootScope', ($state, $rootScope)=> {
+		// 			$rootScope.previousState = {
+		// 				Name: $state.current.name,
+		// 				Params: $state.params,
+		// 				URL: $state.href($state.current.name, $state.params)
+		// 			}
+		// 		}]
+		// 	},
+		// 	views : {
+		// 		'tab@': {
+		// 			//template : 'prova',
+		// 			templateUrl : (toParams) => `${toParams.name}.html`,	
+		// 			controller : ['$scope', 'ecommerce', '$rootScope', '$window', 'PreviousState', '$state', require('./login')]
+		// 		}
+		// 	}
+		// })
 }

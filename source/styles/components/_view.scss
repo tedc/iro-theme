@@ -1,25 +1,39 @@
-.view {
-	transition: transform $speed, opacity $speed;
-	&.ng-animate {
-		opacity: 0;
-		background-color: $f;
-		&.ng-enter {
-			transition-delay: $speed*50;
-			transform: translate3d(0, $p*2, 0);
-			&.ng-enter-active {
-				transform: translate3d(0, 0, 0);
-				opacity: 1;
-			}
-		}
-		&.ng-leave {
-			position: absolute;
-			top: em($p*4);
-			left: 0;
-			width: $f;
-			z-index: 2;
-		}
-		&.ng-leave.ng-leave-active {
-			transform: translate3d(0, $p*-2, 0);
+// %ng_enter {
+// 	&.ng-enter {
+// 		position: relative;
+// 		opacity: 0;
+// 		visibility: hidden;
+// 		top: em($p*-2);
+// 		transition: none;
+// 	}
+// 	&.ng-enter-active {
+// 		opacity: 1;
+// 		visibility: visible;
+// 		top: 0;
+// 	}
+// }
+
+// .view {
+// 	.is-anim & {
+// 		position: relative;
+// 		opacity: 0;
+// 		visibility: hidden;
+// 		top: em($p*-2);
+// 		@extend %ng_enter;
+// 	}
+// 	@extend %ng_enter;
+// }
+
+body {
+	> .view {
+		transition: visibility $speed, opacity $speed, top $speed;
+		position: relative;
+	}
+	&.is-anim {
+		> .view {	
+			opacity: 0;
+			visibility: hidden;
+			top: em($p*-2);
 		}
 	}
 }

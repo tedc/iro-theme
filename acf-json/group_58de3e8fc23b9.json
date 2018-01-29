@@ -267,7 +267,7 @@
         },
         {
             "key": "field_5a608806693d6",
-            "label": "Base recensioni",
+            "label": "Pagina form recensioni",
             "name": "review_base",
             "type": "post_object",
             "instructions": "",
@@ -278,6 +278,8 @@
                 "class": "",
                 "id": ""
             },
+            "show_in_rest": 0,
+            "edit_in_rest": 0,
             "post_type": [
                 "page"
             ],
@@ -286,6 +288,54 @@
             "multiple": 0,
             "return_format": "id",
             "ui": 1
+        },
+        {
+            "key": "field_5a6f8091d5e80",
+            "label": "Archivio recensioni",
+            "name": "reviews",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_rest": 0,
+            "edit_in_rest": 0,
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "id",
+            "ui": 1
+        },
+        {
+            "key": "field_5a6f7bb85a726",
+            "label": "Prodotto principale",
+            "name": "main_product",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_rest": 0,
+            "edit_in_rest": 0,
+            "taxonomy": "prodotto_associato",
+            "field_type": "select",
+            "allow_null": 0,
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0
         }
     ],
     "location": [
@@ -305,5 +355,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1516275766
+    "modified": 1517256876
 }

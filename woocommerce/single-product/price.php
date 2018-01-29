@@ -22,7 +22,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $product;
 if(!$product->is_type('variable')) :
-
 ?>
 <div class="product__price product__price--grow-top"><span><?php echo $product->get_price_html(); ?></span></div>
 <?php else : ?>

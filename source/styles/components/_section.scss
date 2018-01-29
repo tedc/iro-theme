@@ -70,7 +70,7 @@
 			line-height: 0;
 			position: relative;
 			z-index: 1;
-			.row--shrink-fw & {
+			.row--shrink-fw &, &.section__figure--shrink-fw-right, &.section__figure--shrink-fw-left {
 				text-align: center;
 			}
 		}

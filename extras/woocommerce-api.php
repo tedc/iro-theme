@@ -140,7 +140,7 @@
 	    	$product_id = apply_filters( 'woocommerce_add_to_cart_product_id', absint( $_POST['product_id'] ) );
 			$quantity = empty( $_POST['quantity'] ) ? 1 : apply_filters( 'woocommerce_stock_amount', $_POST['quantity'] );
 			$passed_validation = apply_filters( 'woocommerce_add_to_cart_validation', true, $product_id, $quantity );
-		
+			$data = array($product_id, $quantity, $passed_validation);
 			if ( $passed_validation && WC()->cart->add_to_cart( $product_id, $quantity  ) ) {
 				do_action( 'woocommerce_ajax_added_to_cart', $product_id );
 				if ( get_option( 'woocommerce_cart_redirect_after_add' ) == 'yes' ) {
@@ -315,10 +315,10 @@
 	    }
 	    public static function iro_login() {
 	    	//check_ajax_referer('iro-login', 'ea234fc388');
-	    	check_ajax_referer('iro-login', 'security');
 	    	if(is_user_logged_in()) {
 	    		die();
 	    	}
+	    	check_ajax_referer('iro-login', 'security');
 	    	$info = array();
     		$info['user_login'] = $_POST['username'];
     		$info['user_password'] = $_POST['password'];
@@ -332,26 +332,30 @@
 	    	die();
 	    }
 	    public static function iro_register() {
-	    	check_ajax_referer('woocommerce-register', 'woocommerce-register-nonce');
+	    	check_ajax_referer('iro-register', 'security');
 	    	if(is_user_logged_in()) {
 	    		wp_die();
 	    	}
 	    	$username = ($_POST['username']) ? $_POST['username'] : $_POST['email'];
-	    	$password_confirmation = ($_POST['password'] === $_POST['passowrd_cofirm']);
+	    	$password_confirmation = ($_POST['password'] === $_POST['password_confirm']);
 	    	$email = $_POST['email'];
 	    	$user_id = username_exists($username);
 	    	if(!$user_id && email_exists($email) == false && $password_confirmation) {
 	    		$user_id = wp_create_user(
-	    			$usernam, $_POST['password'], $user_email
+	    			$username, $password_confirmation, $user_email
 	    		);
-	    		echo json_encode(array('register'=>true, 'message'=>__('Registrazione avvenuta.', 'iro'), 'redirect' => basename(wc_get_page_permalink('myaccount'))));
+	    		$info = array();
+    			$info['user_login'] = $username;
+    			$info['user_password'] = $password_confirmation;
+    			$user_signon = wp_signon( $info, false );
+	    		echo json_encode(array('loggedin'=>true, 'message'=>__('Registrazione avvenuta.', 'iro'), 'redirect' => basename(wc_get_page_permalink('myaccount'))));
 	    	} else {
 	    		if($user_id) {
-	    			echo json_encode(array('register'=>false, 'message'=>__('Nome utente in uso da un altro utente.', 'iro')));
+	    			echo json_encode(array('loggedin'=>false, 'message'=>__('Nome utente in uso da un altro utente.', 'iro')));
 	    		} elseif(email_exists($email) == true) {
-	    			echo json_encode(array('register'=>false, 'message'=>__('Ci risulta un utente già registrato con questo indirizzo e-mail.', 'iro')));
+	    			echo json_encode(array('loggedin'=>false, 'message'=>__('Ci risulta un utente già registrato con questo indirizzo e-mail.', 'iro')));
 	    		} else {
-					echo json_encode(array('register'=>false, 'message'=>__('Qualcosa è andato storto, verifica che tutti i campi siano stati inseriti correttamente.', 'iro')));
+					echo json_encode(array('loggedin'=>false, 'message'=>__('Qualcosa è andato storto, verifica che tutti i campi siano stati inseriti correttamente.', 'iro'), 'altro' => array(email_exists($email), $password_confirmation)));
 	    		}
 	    	}
 	    	die();

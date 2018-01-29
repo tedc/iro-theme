@@ -1,6 +1,6 @@
 module.exports = () => {
 	return {
-		controller : ['$scope', '$rootScope', 'ngCart', '$element', 'ecommerce', '$state', 'getInstances', '$timeout', '$window', '$filter', '$compile', ($scope, $rootScope, ngCart, $element, ecommerce, $state, getInstances, $timeout, $window, $filter, $compile)=> {
+		controller : ['$scope', '$rootScope', 'ngCart', '$element', 'ecommerce', '$state', 'getInstances', '$timeout', '$window', '$filter', '$location', ($scope, $rootScope, ngCart, $element, ecommerce, $state, getInstances, $timeout, $window, $filter, $location)=> {
 			// CART
 			$rootScope.initEcommerce = ()=>{
 				// EMPTY ON LOAD
@@ -38,6 +38,10 @@ module.exports = () => {
 						if($scope.product.original_id !== $scope.product.product_id) {
 							data = angular.extend({}, data, {product_id : $scope.product.original_id});
 						}
+					} else {
+						if($scope.product.original_id !== data.product_id) {
+							data = angular.extend({}, data, {product_id : $scope.product.original_id});
+						}
 					}
 					ecommerce
 						.post(url, data)
@@ -45,8 +49,8 @@ module.exports = () => {
 							let item_data = angular.extend({}, item.getData(), {remove_item_url : res.data.remove_item_url, item_key: res.data.item_key, qty : item.getQuantity()});
 							item.setData(item_data);
 							$rootScope.$broadcast('ngCart:change');
-							$state.go('tab', {name : 'cart'});
 							ngCart.isUpdating = false;
+							$location.hash('cart');
 						});
 				}
 				ngCart.changeQty = (item, inCart, plus)=> {
@@ -67,7 +71,7 @@ module.exports = () => {
 						.post(url, data)
 						.then((res)=> {
 							$rootScope.$broadcast('ngCart:change');
-							$state.go('tab', {name : 'cart'});
+							$location.hash('cart');
 							ngCart.isUpdating = false;	
 						});
 				}
@@ -96,11 +100,13 @@ module.exports = () => {
 				ngCart.getDesc = (item)=> {
 					var item_data = item.getData();
 					var desc = '';
-					if(item_data.attributes.attribute_pa_misure) {
-						desc += `${item_data.attributes.attribute_pa_misure.replace(/\-/g, ' ')} ${item_data.dimensions_html.replace(/\s+/g, '')}<br/>`;
-					}
-					if(item_data.attributes.attribute_pa_color) {
-						desc += `${item_data.attributes.attribute_pa_color}`;
+					if(item_data.attributes) {
+						if(item_data.attributes.attribute_pa_misure) {
+							desc += `${item_data.attributes.attribute_pa_misure.replace(/\-/g, ' ')} ${item_data.dimensions_html.replace(/\s+/g, '')}<br/>`;
+						}
+						if(item_data.attributes.attribute_pa_color) {
+							desc += `${item_data.attributes.attribute_pa_color}`;
+						}
 					}
 					return desc;
 				}
@@ -108,27 +114,36 @@ module.exports = () => {
 				// DELETE ITEM
 	
 				ngCart.delete = (url, item)=> {
+					ngCart.isCounting = true;
 					ecommerce
 						.get(url)
 						.then( ()=>{
 							ngCart.removeItem(item);
+							ngCart.isCounting = true;
 						});
 				}
 	
 				//LOGIN AND REGISTER AND POPUP
 	
 				ngCart.close = ()=> {
-					let pages = ($rootScope.previousState.Name == 'tab') ? -2 : -1;
-					$window.history.go(pages);
-					//$window.history.back();
+					if( $window.history && $window.history.pushState ) {
+						history.pushState('', document.title, $location.path());
+					} else {
+						$location.hash('');
+					}
 				}
+
+				ngCart.logged = $rootScope.isUserLoggedIn;
+				$rootScope.$watch('isUserLoggedIn', (newValue, oldValue)=> {
+					if(newValue != oldValue) {
+						ngCart.logged = $rootScope.isUserLoggedIn;
+					}
+				})
 	
 				$scope.account = ($event)=> {
-					$event.preventDefault();
 					if($rootScope.isUserLoggedIn) {
+						$event.preventDefault();
 						$state.go('app.page', {slug : vars.wc.accountBase});
-					} else {
-						$state.go('tab', {name : 'login'});
 					}
 				}
 	
@@ -199,8 +214,9 @@ module.exports = () => {
 					}
 					return selected;
 				}
-	
+				$scope.isCheckoutUpdating = false;
 				$scope.updateShipping = (fn)=> {
+					$scope.isCheckoutUpdating = true;
 					var model_prefix = ($scope.checkShippingAddress) ? 'shipping_' : 'billing_',
 						calc_country = ($scope.checkoutFields.customer[model_prefix + 'country']) ? $scope.checkoutFields.customer[model_prefix + 'country'] : '',
 						calc_city= ($scope.checkoutFields.customer[model_prefix + 'city']) ? $scope.checkoutFields.customer[model_prefix + 'city'] : '',
@@ -228,7 +244,7 @@ module.exports = () => {
 							$rootScope.$broadcast('ngCart:change');
 							$scope.shippings = ngCart.getExtras().shippings.packages;
 							if(fn) {
-								fn();
+								$timeout(fn);
 							}
 						});
 				}
@@ -274,19 +290,30 @@ module.exports = () => {
 				}
 				// ngCart.$cart = angular.extend({}, ngCart.$cart, {coupons : []});
 				// console.log(ngCart.$cart);
+				$scope.isConfirm = false;
 				$scope.checkout_slider = getInstances.getInstance('checkout');
 				$scope.checkout_slider.then((swiper) => {
 					if(swiper.destroyed) return;
-					$scope.slideTo = (cond, index)=> {
-						if(!cond) return;
-						swiper.slideTo(index);
-					}
-					$scope.next = (cond)=> {
+					$scope.slideTo = (cond, max, idx)=> {
 						if(!cond) return;
 						$scope.updateShipping(()=> {
-							swiper.slideNext();
-						})
-						
+							if($scope.checkoutObj.current + 1 > max && typeof idx == 'undefined') {
+								$scope.isConfirm = true;
+								$scope.isCheckoutUpdating = false;
+								return;
+							}
+							$scope.isConfirm = false;
+							if(idx) {
+								swiper.slideTo(idx);	
+							} else {
+								swiper.slideNext();
+							}
+							$scope.isCheckoutUpdating = false;
+						});	
+					}
+					$scope.next = (cond, max)=> {
+						$scope.slideTo(cond, max);
+						if(!cond) return;
 					}
 					var getCurrentIndex = ()=> {
 						$scope.checkoutObj.current = swiper.realIndex;

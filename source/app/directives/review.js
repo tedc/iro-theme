@@ -17,12 +17,12 @@ module.exports = ()=> {
 				}
 				let review_data = $scope.reviewFields;
 				review_data.rating = [review_data.rating];
-				review_data.prodotti_associato = [review_data.prodotti_associato];
+				review_data.prodotto_associato = [review_data.prodotto_associato];
 				if($scope.reviewFields.id) {
 					review = `${review}/${$scope.reviewFields.id}`;
 					delete review_data.id;
 				}
-				let params = ($scope.reviewFields.id) ? {} : {params : {prodotti_associato : $scope.reviewFields.prodotti_associato, author : userId}}
+				let params = ($scope.reviewFields.id) ? {} : {params : {prodotto_associato : $scope.reviewFields.prodotto_associato, author : userId}}
 				
 				// REVIEW CREATE OR UPDATE
 
@@ -49,7 +49,6 @@ module.exports = ()=> {
 								.post(review, review_data, config)
 								.then((res)=> {
 									$scope.isReview = true;
-									console.log(res);
 									if(res.status >= 400) {
 										$scope.isError = true;
 									}

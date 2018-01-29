@@ -14,6 +14,7 @@
 	}
 	
 	add_action('after_setup_theme', 'theme_setup');
+	add_filter('show_admin_bar', '__return_false');
 	// ADD BUILDER TO CONTENT
 	// function builder_shortcode($attr) {
 	// 	ob_start();
@@ -169,6 +170,8 @@
         $vars[] = __('tab', 'iro');
         $vars[] = 'eo_count';
         $vars[] = 'productId';
+        $vars[] = 'review_product';
+        $vars[] = 'rating';
         return $vars;
     }
     function rewrite_popup_url() {

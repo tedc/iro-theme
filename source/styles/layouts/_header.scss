@@ -74,7 +74,9 @@
 				padding-bottom: 0;
 			}
 			&--active {
-				color: #cecfd0;
+				a {
+					color: #cecfd0;
+				}
 			}
 			@include breakpoint(1024px) {
 				padding: 0;

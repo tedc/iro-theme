@@ -7,7 +7,7 @@
 				'post_type' => 'recensioni',
 				'tax_query' => array(
 					array(
-						'taxonomy' => 'prodotti_associato',
+						'taxonomy' => 'prodotto_associato',
 						'field' => 'term_id',
 						'terms' => $product_id
 					)
@@ -48,12 +48,12 @@
 		<div class="review__row review__row--grow review__row--grid">
 			<div class="review__item review__item--grow"><?php _e('Recensione per', 'iro'); ?></div>
 			<?php 
-				$cats = get_terms(array('taxonomy'=>'prodotti_associato', 'hide_empty'=>0, 'orderby' => 'term_order'));
+				$cats = get_terms(array('taxonomy'=>'prodotto_associato', 'hide_empty'=>0, 'orderby' => 'term_order'));
 				foreach ($cats as $cat) { 
-					$init = (!empty($product_id) && $product_id == $cat->term_id) ? ' ng-checked="true" ng-init="reviewFields.prodotti_associato='.$cat->term_id.'"' : '';
+					$init = (!empty($product_id) && $product_id == $cat->term_id) ? ' ng-checked="true" ng-init="reviewFields.prodotto_associato='.$cat->term_id.'"' : '';
 				?>
 				<div class="review__item review__item--grow">
-					<input id="cat_<?php echo $cat->term_id; ?>" type="radio" class="review__choice" ng-model="reviewFields.prodotti_associato" ng-value="'<?php echo $cat->term_id; ?>'" required<?php echo $init; ?> name="prodotti_associato" />
+					<input id="cat_<?php echo $cat->term_id; ?>" type="radio" class="review__choice" ng-model="reviewFields.prodotto_associato" ng-value="'<?php echo $cat->term_id; ?>'" required<?php echo $init; ?> name="prodotto_associato" />
 					<label for="cat_<?php echo $cat->term_id; ?>">
 						<?php 
 							$icon_kind = get_field('icon_kind', 'product_plus_'.$cat->term_id);

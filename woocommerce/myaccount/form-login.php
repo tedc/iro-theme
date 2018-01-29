@@ -24,14 +24,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php wc_print_notices(); ?>
 
-<?php do_action( 'woocommerce_before_customer_login_form' ); ?>
+<?php if(!is_user_logged_in()) :
+do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 <?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) : ?>
 
 
 <?php endif; ?>
-<div class="popup">
-	<form class="popup__form" name="loginForm" method="post" novalidate ng-submit="sign(loginForm)">
+<div class="popup" ng-if="!isUserLoggedIn" login-form id="login">
+	<form class="popup__form" name="loginForm" method="post" novalidate ng-submit="sign('login')">
 		<header class="popup__header">
 			<div class="popup__row popup__row--close">
 				<div class="popup__image"></div>
@@ -39,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 			<div class="popup__row popup__row--grid">
 				<h2 class="popup__title popup__title--small"><?php _e( 'Login', 'woocommerce' ); ?></h2>
-				<a href="/tab/register/" ui-sref="tab({name:'register'})" class="popup__switch"><?php _e('Nuovo cliente? Registrati', 'iro'); ?></a>	
+				<a href="#register" class="popup__switch"><?php _e('Nuovo cliente? Registrati', 'iro'); ?></a>	
 			</div>
 		</header>
 		<?php do_action( 'woocommerce_login_form_start' ); ?>
@@ -56,7 +57,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<p class="popup__row">
 			<?php //wp_nonce_field( 'iro-login', 'security' ); ?>
 			<input type="hidden" name="security" ng-model="user.security" ng-init="user.security='<?php echo wp_create_nonce('iro-login'); ?>'" />
-			<button class="popup__button" type="submit" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>"><?php _e( 'Login', 'woocommerce' ); ?></button>
+			<button class="popup__button" ng-class="{'popup__button--loading':isLogging}" type="submit" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>"><?php _e( 'Login', 'woocommerce' ); ?></button>
 		</p>
 		<p class="popup__row popup__row--aligncenter">
 			<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( 'Lost your password?', 'woocommerce' ); ?></a>
@@ -66,5 +67,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 		<?php do_action( 'woocommerce_login_form_end' ); ?>
 	</form>
+	<div class="popup__error" ng-if="error" ng-bind-html="errorMessage"></div>
 </div>
-<?php do_action( 'woocommerce_after_customer_login_form' ); ?>
+<?php do_action( 'woocommerce_after_customer_login_form' ); endif; ?>

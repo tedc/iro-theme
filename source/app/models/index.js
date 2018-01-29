@@ -1,11 +1,11 @@
 var iro = angular.module('iro');
 iro
-	.config(['$stateProvider', '$locationProvider', '$provide', require('./state')])
-	.run(["$location", "$rootScope", "$window", "$state", "$cookies", "$transitions", "webFontLoader", 'angularLoad', ($location, $rootScope, $window, $state, $cookies, $transitions, webFontLoader, angularLoad) => {
+	.config(['$stateProvider', '$locationProvider', '$provide', 'cfpLoadingBarProvider', require('./state')])
+	.run(["$location", "$rootScope", "$window", "$state", "$cookies", "$transitions", "webFontLoader", 'angularLoad',  '$animate', ($location, $rootScope, $window, $state, $cookies, $transitions, webFontLoader, angularLoad, $animate) => {
 		webFontLoader(['Baloo Bhaina','Encode Sans:300,400,600,800']);
 		angularLoad.loadScript('https://www.youtube.com/iframe_api')
 		FastClick.attach(document.body);
-		$rootScope.isAnim = 'is-anim';
+		$rootScope.isAnim = false;
 		var oldUrl = $location.absUrl();
 		$rootScope.isUserLoggedIn = vars.wc.logged;
 		// var langCookie = $cookies.get('lang');
@@ -39,12 +39,45 @@ iro
 					delete $rootScope.menuItem;
 				}
 			}
-			if((newUrl.split('#')[0] === oldUrl.split('#')[0]) && (trans.params().name != 'login' && trans.params().name != 'cart' && trans.params().name != 'register')) return false;
+			if((newUrl.split('#')[0] === oldUrl.split('#')[0])) return false;
 			oldUrl = newUrl;
+			$rootScope.isAnim = true;
 			$rootScope.$broadcast('sceneDestroy');
 			$rootScope.$broadcast('updateScenes');
 		});
 		$transitions.onSuccess({}, ()=> {
 			$rootScope.initEcommerce();
-		})
+		});	
+		$rootScope.$on('$locationChangeSuccess', ()=> {
+			let popup_visible = angular.element(document.querySelector('.popup--visible'));
+			let cart_visible = angular.element(document.querySelector('.cart-aside--visible'));
+			let hash = $location.hash();
+			if(hash) {
+				let class_to_add = (hash == 'cart') ? 'cart-aside--visible' : 'popup--visible';
+				if(hash != 'login' && hash != 'register' && hash != 'cart') return;
+				if((hash == 'register' || hash == 'login') && $rootScope.isUserLoggedIn) {
+					history.pushState('', document.title, $location.path());
+				}
+				let popup = angular.element(document.getElementById(hash));
+				if(popup_visible) {
+					$animate.removeClass(popup_visible, 'popup--visible');
+				}
+				if(cart_visible) {
+					$animate.removeClass(cart_visible, 'cart-aside--visible');
+				}
+				$animate
+					.addClass(popup, class_to_add)
+					.then(()=> {
+						$rootScope.$broadcast('update_scroller');
+					});
+			} else {
+				let popup_visible = angular.element(document.querySelector('.popup--visible'));
+				if(popup_visible) {
+					$animate.removeClass(popup_visible, 'popup--visible');
+				}
+				if(cart_visible) {
+					$animate.removeClass(cart_visible, 'cart-aside--visible');
+				}
+			}
+		});
 	}]);

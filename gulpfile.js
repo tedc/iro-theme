@@ -37,6 +37,8 @@ var uglifyify    = require('uglifyify');
 var modernizr    = require('gulp-modernizr');
 var pug          = require('gulp-pug');
 var ngTemplates  = require('gulp-ng-templates');
+var critical = require('critical').stream;
+var gutil = require('gulp-util');
 
 
 // See https://github.com/austinpray/asset-builder
@@ -375,6 +377,13 @@ gulp.task('Iconfont', function(done){
 
 });
 
+gulp.task('critical', function() {
+    return gulp.src(path.dist + 'styles/critical.css')
+        .pipe(critical({base: 'templates/', dest: 'critical-css.php', html: '<style></style>', ignore: ['@font-face',/url\(/], inline: true, pathPrefix: '/app/themes/iro-theme/assets', css: ['assets/styles/critical.css']}))
+        .on('error', function(err) { gutil.log(gutil.colors.red(err.message)); })
+        .pipe(gulp.dest('templates'));
+});
+
 // ### Clean
 // `gulp clean` - Deletes the build folder entirely.
 gulp.task('clean', require('del').bind(null, [path.dist]));
@@ -395,6 +404,7 @@ gulp.task('watch', function() {
         }
     });
     gulp.watch([path.source + 'styles/**/*'], ['styles']);
+    gulp.watch([path.source + 'styles/critical.css'], ['critical']);
     //gulp.watch([path.source + 'app/**/*'], ['browserify']);
     gulp.watch([path.source + 'scripts/**/*'], ['scripts']);
     gulp.watch([path.source + 'pug/**/*'], ['tpl']);

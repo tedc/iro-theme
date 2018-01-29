@@ -34,19 +34,20 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
     $phone_unformatted = preg_replace('/[^0-9,.]/','',str_replace('+', '00', $phone)); 
     acf_unset_language_to_default();
 ?>
-<form name="checkout" method="post" class="checkout checkout--shrink-fw checkout--grid" ng-submit="sendCheckout(checkout)" novalidate>
+<form name="checkout" method="post" class="checkout checkout--shrink-fw" ng-submit="sendCheckout(checkout)" novalidate>
 	<nav class="checkout__banner checkout__banner--grid checkout__banner--shrink-fw">
 		<a href="<?php echo home_url('/'); ?>" ui-sref="app.root({lang : '<?php echo ICL_LANGUAGE_CODE; ?>'})" class="icon-logo"></a>
 		<div class="checkout__banner-nav">
-			<span ng-click="slideTo(checkout.$valid, 0)" ng-class="{current : checkoutObj.current == 0}"><?php _e('I tuoi dati', 'iro'); ?></span>
-			<span ng-click="slideTo(checkout.$valid, 1)" ng-class="{current : checkoutObj.current == 1}"><?php _e('Spedizione', 'iro'); ?></span>
-			<span ng-click="slideTo(checkout.$valid, 2)" ng-class="{current : checkoutObj.current == 2}"><?php _e('Pagamento', 'iro'); ?></span>
-			<span ng-class="{current : checkoutObj.current == 3}"><?php _e('Conferma', 'iro'); ?></span>
+			<span ng-click="slideTo(checkout.$valid, 2, 0)" ng-class="{current : checkoutObj.current == 0 && !isConfirm}"><?php _e('I tuoi dati', 'iro'); ?></span>
+			<span ng-click="slideTo(checkout.$valid, 2, 1)" ng-class="{current : checkoutObj.current == 1 && !isConfirm}"><?php _e('Spedizione', 'iro'); ?></span>
+			<span ng-click="slideTo(checkout.$valid, 2, 2)" ng-class="{current : checkoutObj.current == 2 && !isConfirm}"><?php _e('Pagamento', 'iro'); ?></span>
+			<span ng-click="slideTo(checkout.$valid, 2)" ng-class="{current : isConfirm}"><?php _e('Conferma', 'iro'); ?></span>
 		</div>
 		<a href="tel:<?php echo $phone_unformatted; ?>" class="checkout__banner-btn checkout__banner-btn--phone"><i class="icon-phone"></i><span><?php _e('Assistenza', 'iro'); ?><br/><?php echo $phone; ?></span></a>
 	</nav>
+	<div class="checkout__main checkout__main--grid slide-toggle slide-toggle--visible" ng-class="{'slide-toggle--visible' : !isConfirm}">
 	<?php if ( $checkout->get_checkout_fields() ) : ?>
-	<div class="checkout__cell checkout__cell--slider checkout__cell--shrink-right-only checkout__cell--s8" ng-class="{'checkout__cell--slider-last': checkoutObj.current == 3}">
+	<div class="checkout__cell checkout__cell--slider checkout__cell--shrink-right-only checkout__cell--s8">
 		<div class="checkout__slider" scroller="checkout" options='{"autoHeight":true, "allowTouchMove":false, "speed" : 1000}'>
 			<div class="checkout__slider-wrapper swiper-wrapper">
 			<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
@@ -57,14 +58,14 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 			
 			<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
 			</div>
-			<nav class="checkout__nav checkout__nav--grow-md checkout__nav--grid" ng-if="checkoutObj.current <= 2">
+			<nav class="checkout__nav checkout__nav--grow-md checkout__nav--grid">
 				<a class="checkout__button checkout__button--light" href="<?php echo home_url('/'); ?>" ui-sref="app.root({lang : '<?php echo ICL_LANGUAGE_CODE; ?>'})"><?php _e('Continua lo shopping', 'iro'); ?></a>
-				<span class="checkout__button" ng-click="next(true)"><?php _e('Continua', 'iro'); ?></span>
+				<span class="checkout__button" ng-class="{'checkout__button--loading':isCheckoutUpdating}" ng-click="next(true, 2)"><?php _e('Continua', 'iro'); ?></span>
 			</nav>
 		</div>
 	</div>
 	<?php endif; ?>
-	<aside class="checkout__cell checkout__cell--order-review checkout__cell--shrink-left-only checkout__cell--s4" ng-class="{'checkout__cell--order-review-last': checkoutObj.current == 3}">
+	<aside class="checkout__cell checkout__cell--order-review checkout__cell--shrink-left-only checkout__cell--s4" ng-class="{'slide-toggle--visible' : isConfirm}">
 		<div class="order-review">
 			<header class="order-review__header order-review__header--mobile">
 				<h4 class="order-review__subtitle"><?php _e('Riepilogo ordine'); ?></h4>
@@ -77,10 +78,8 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 		</div>
 		</div>
 	</aside>
-	<nav class="checkout__nav checkout__nav--submit checkout__nav--grow-md checkout__nav--grid" ng-if="checkoutObj.current > 2">
-		<input required type="checkbox" class="checkout__checkbox" ng-model="checkoutFields.terms" id="checkout_terms" /><label for="checkout_terms" class="checkout__terms"><span><?php _e('Dichiaro di aver letto e accetto i ', 'iro'); ?><a class="checkout__terms" href="<?php $term_cond_id = apply_filters('wpml_object_id', wc_get_page_id('terms'), 'page', true, ICL_LANGUAGE_CODE ); echo get_permalink($term_cond_id); ?>" target="_blank"><?php echo lcfirst(get_the_title($term_cond_id)); ?></a></span></label>
-		<button class="checkout__button" ng-class="{'checkout__button--loading':isOrdering}" ng-disabled="checkout.$invalid"><?php _e('Acquista', 'iro'); ?></button>
-	</nav>
+	</div>
+	<?php wc_get_template_part('checkout/form', 'confirm'); ?>
 </form>
 
 <?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>

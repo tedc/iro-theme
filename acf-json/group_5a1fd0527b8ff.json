@@ -750,6 +750,8 @@
                                         "class": "",
                                         "id": ""
                                     },
+                                    "show_in_rest": 0,
+                                    "edit_in_rest": 0,
                                     "collapsed": "field_5a1fdcac4302a",
                                     "min": 1,
                                     "max": 0,
@@ -827,6 +829,8 @@
                                                 "class": "",
                                                 "id": ""
                                             },
+                                            "show_in_rest": 0,
+                                            "edit_in_rest": 0,
                                             "layout": "block",
                                             "sub_fields": [
                                                 {
@@ -1056,6 +1060,35 @@
                                                     "ui_off_text": ""
                                                 },
                                                 {
+                                                    "key": "field_5a6f1cb93667b",
+                                                    "label": "Allniamente testo a destra",
+                                                    "name": "text_align_right",
+                                                    "type": "true_false",
+                                                    "instructions": "",
+                                                    "required": 0,
+                                                    "conditional_logic": [
+                                                        [
+                                                            {
+                                                                "field": "field_59a55ee502715",
+                                                                "operator": "==",
+                                                                "value": "1"
+                                                            }
+                                                        ]
+                                                    ],
+                                                    "wrapper": {
+                                                        "width": "",
+                                                        "class": "",
+                                                        "id": ""
+                                                    },
+                                                    "show_in_rest": 0,
+                                                    "edit_in_rest": 0,
+                                                    "message": "",
+                                                    "default_value": 0,
+                                                    "ui": 1,
+                                                    "ui_on_text": "",
+                                                    "ui_off_text": ""
+                                                },
+                                                {
                                                     "key": "field_5a56248e9fd85",
                                                     "label": "Allimento testo centrato",
                                                     "name": "aligncenter",
@@ -1095,6 +1128,8 @@
                                                         "class": "",
                                                         "id": ""
                                                     },
+                                                    "show_in_rest": 0,
+                                                    "edit_in_rest": 0,
                                                     "layouts": {
                                                         "58d3fc06a709a": {
                                                             "key": "58d3fc06a709a",
@@ -1327,11 +1362,13 @@
                                                                         "class": "",
                                                                         "id": ""
                                                                     },
+                                                                    "show_in_rest": 0,
+                                                                    "edit_in_rest": 0,
                                                                     "default_value": "",
                                                                     "tabs": "all",
                                                                     "toolbar": "full",
                                                                     "media_upload": 1,
-                                                                    "delay": 0
+                                                                    "delay": 1
                                                                 },
                                                                 {
                                                                     "key": "field_59a537aeb1a94",
@@ -1853,11 +1890,13 @@
                                         "class": "",
                                         "id": ""
                                     },
+                                    "show_in_rest": 0,
+                                    "edit_in_rest": 0,
                                     "default_value": "",
                                     "tabs": "visual",
                                     "toolbar": "basic",
                                     "media_upload": 1,
-                                    "delay": 0
+                                    "delay": 1
                                 },
                                 {
                                     "key": "field_59e776d3183e5",
@@ -2113,11 +2152,13 @@
                                         "class": "",
                                         "id": ""
                                     },
+                                    "show_in_rest": 0,
+                                    "edit_in_rest": 0,
                                     "default_value": "",
                                     "tabs": "all",
                                     "toolbar": "full",
                                     "media_upload": 1,
-                                    "delay": 0
+                                    "delay": 1
                                 },
                                 {
                                     "key": "field_5a2156e5f7fb3",
@@ -2177,7 +2218,9 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "taxonomy": "prodotti_associato",
+                                    "show_in_rest": 0,
+                                    "edit_in_rest": 0,
+                                    "taxonomy": "prodotto_associato",
                                     "field_type": "select",
                                     "allow_null": 0,
                                     "add_term": 0,
@@ -2272,5 +2315,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1516208574
+    "modified": 1517240967
 }

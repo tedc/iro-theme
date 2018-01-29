@@ -3,6 +3,10 @@
 		&header {
 			display: flex;
 			align-items: center;
+			padding-bottom: em($p);
+			@include breakpoint() {
+				padding-bottom: 0;
+			}
 		}
 		&figure {
 			display: none;
@@ -11,6 +15,9 @@
 				position: relative;	
 				flex: 1;
 				z-index: 2;
+				margin-bottom: em($p*-5);
+			}
+			@include breakpoint(1024px) {
 				margin-bottom: em($p*-10);
 			}
 		}

@@ -25,13 +25,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php wc_print_notices(); ?>
 
-<?php do_action( 'woocommerce_before_customer_login_form' ); ?>
+<?php if(!is_user_logged_in()) : do_action( 'woocommerce_before_customer_login_form' ); ?>
 <?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) : ?>
 
-<div class="popup">
-	
-
-		<form method="post" name="registerForm" class="popup__form" novalidate>
+<div class="popup" ng-if="!isUserLoggedIn" id="register" login-form>
+		<form method="post" name="registerForm" class="popup__form" novalidate ng-submit="sign('register')">
 			<header class="popup__header">
 				<div class="popup__row popup__row--close">
 					<div class="popup__image"></div>
@@ -39,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 				<div class="popup__row popup__row--grid">
 					<h2 class="popup__title popup__title--small"><?php _e( 'Register', 'woocommerce' ); ?></h2>
-					<a ui-sref="tab({name:'login'})" class="popup__switch"><?php _e('Già cliente? Accedi', 'iro'); ?></a>	
+					<a href="#login" class="popup__switch"><?php _e('Già cliente? Accedi', 'iro'); ?></a>	
 				</div>
 			</header>
 			<?php do_action( 'woocommerce_register_form_start' ); ?>
@@ -63,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</p>
 
 				<p class="popup__row">
-					<input type="password" ng-model="user.password_confirm" placeholder="<?php _e('Conferma password (campo obbligatorio)', 'iro'); ?>" required class="popup__input popup__input--white" name="password_confirm" id="reg_password" ng-change="pwdMatch(user)" />
+					<input type="password" ng-model="user.password_confirm" placeholder="<?php _e('Conferma password (campo obbligatorio)', 'iro'); ?>" required class="popup__input popup__input--white" name="password_confirm" id="password_confirm" ng-change="pwdMatch(user)" />
 				</p>
 
 			<?php endif; ?>
@@ -73,7 +71,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<p class="popup__row">
 				<input type="hidden" name="security" ng-model="user.security" ng-init="user.security='<?php echo wp_create_nonce('iro-register'); ?>'" />
 				<?php //wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
-				<button class="popup__button" type="submit" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>"><?php _e( 'Register', 'woocommerce' ); ?></button>
+				<button class="popup__button" type="submit"  ng-class="{'popup__button--loading':isLogging}" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>"><?php _e( 'Register', 'woocommerce' ); ?></button>
 			</p>
 
 
@@ -81,9 +79,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<a href="<?php echo home_url('/'); ?>" class="popup__button popup__button--light"><?php _e('Continua come ospite', 'iro'); ?></a>
 		</div>
 			<?php do_action( 'woocommerce_register_form_end' ); ?>
-
-		</form>
+	</form>
+	<div class="popup__error" ng-if="error" ng-bind-html="errorMessage"></div>
 </div>
 <?php endif; ?>
 
-<?php do_action( 'woocommerce_after_customer_login_form' ); ?>
+<?php do_action( 'woocommerce_after_customer_login_form' ); endif; ?>

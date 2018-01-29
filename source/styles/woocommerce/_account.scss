@@ -73,6 +73,10 @@
 			border-top: 1px solid $light-border;
 		}
 		&--figure {
+			display: none;
+			@include breakpoint() {
+				display: block;
+			}
 			img {
 				width: $f!important;
 				height: $f!important;

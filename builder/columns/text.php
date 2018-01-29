@@ -2,6 +2,8 @@
 $section__content = 'section__content';
 if(!$mw && !$centered) {
 	$section__content .= ($col%2==0) ? ' section__content--shrink-fw-left' : ' section__content--shrink-fw-right';
+} else {
+	$section__content .= ' section__content--shrink';
 }
 ?>
 <div class="<?php echo $section__content; ?>">

@@ -15,6 +15,11 @@
         "styles/main.scss"
       ],
       "bower" : ["normalize-css"]
+    },
+    "critical.css": {
+      "files": [
+        "styles/critical.scss"
+      ]
     }
   },
   "config": {

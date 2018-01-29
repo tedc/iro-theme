@@ -21,7 +21,6 @@ iro
 				})
 				scope.$on('$destroy', ()=> {
 					getInstances.destroyInstance(name);
-					console.log(true);
 				});
 			}
 		}
@@ -63,7 +62,6 @@ iro
 				element.find('img').one('load', ()=> {
 					controller.update(true);
 				});
-				console.log(element[0].getBoundingClientRect().top);
 					
 				scope.moveMask = (evt, id, leave)=> {
 					let body = document.body;
@@ -145,3 +143,4 @@ iro
 		}
 	})
 	.directive('review', require('./review'))
+	.directive('loginForm', require('./login'))

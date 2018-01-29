@@ -24,13 +24,14 @@ global $product;
 if ( ! $product->is_purchasable() ) {
 	return;
 }
-
-echo wc_get_stock_html( $product );
+$image_id = get_post_thumbnail_id();
+$image = wp_get_attachment_image_src($image_id, 'shop_thumbnail');
 
 if ( $product->is_in_stock() ) : ?>
 
-	<?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
-	<ngcart-addtocart id="<?php echo $product->get_id(); ?>" price="<?php echo $product->get_price(); ?>" name="<?php $product->get_title(); ?>" quantity="<?php echo $product->get_min_purchase_quantity(); ?>" quantity-max="<?php echo $product->get_max_purchase_quantity(); ?>" template-url="addtocart.html" data="{href : '<?php echo $product->get_slug(); ?>'}">
+	<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
+	<input type="hidden" ng-init="product.original_id=<?php echo $product->get_id(); ?>" ng-model="product.origina_id" />
+	<ngcart-addtocart id="<?php echo $product->get_id(); ?>" price="<?php echo $product->get_price(); ?>" name="<?php echo $product->get_title(); ?>" quantity="<?php echo $product->get_min_purchase_quantity(); ?>" quantity-max="<?php echo $product->get_max_purchase_quantity(); ?>" template-url="addtocart.html" data="{href : '<?php echo $product->get_slug(); ?>', image : {thumb_src : '<?php echo $image[0]; ?>'}}">
 		<?php echo esc_html( $product->single_add_to_cart_text() ); ?>
 	</ngcart-addtocart>
 

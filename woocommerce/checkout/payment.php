@@ -24,8 +24,13 @@ if ( ! is_ajax() ) {
 }
 ?>
 <div id="payment" class="checkout__slide checkout__slide--grow-md swiper-slide">
+	<h2 class="checkout__subtitle"><?php _e('Modalità di pagamento', 'iro'); ?></h2>
+	
 	<?php if ( WC()->cart->needs_payment() ) : ?>
-		<ul class="wc_payment_methods payment_methods methods">
+		<ul class="payment payment--grow-md">
+			<li class="payment__header">
+				<span><?php _e('Modalità', 'iro'); ?></span>
+			</li>
 			<?php
 				if ( ! empty( $available_gateways ) ) {
 					foreach ( $available_gateways as $gateway ) {

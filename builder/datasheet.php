@@ -8,7 +8,7 @@ $args = array(
 	'order' => 'ASC',
 	'tax_query' => array(
 		array(
-			'taxonomy'=>'prodotti_associato',
+			'taxonomy'=>'prodotto_associato',
 			'field' => 'term_id',
 			'terms' => get_sub_field($name)
 		)

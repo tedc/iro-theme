@@ -1,5 +1,5 @@
 .review {
-	@include grow('lg');
+	@include grow();
 	&__{
 		&required {
 			font-size: em(14px);
@@ -89,7 +89,12 @@
 			}
 		}
 		&content {
-			@include grow('md');
+			@include grow();
+			@include breakpoint() {
+				.reviews & {
+					padding-right: em($p);
+				}
+			}
 		}
 		&title {
 			&--big {
@@ -102,5 +107,45 @@
 		       margin-bottom: lh_mb(42px, $lh);
 		    }
 		}
+		&product {
+			display: inline-block;
+			padding-bottom: em($p/2);
+			color: $alternate-color;
+		}
+		&rating {
+			@include grow('small');
+			text-align: center;
+			.icon-stella {
+				color: $highlight-color;
+				font-size: 1em;
+				margin: 0 4px;
+			}
+			@include breakpoint() {
+				padding-left: em($p);
+				border-left: 1px solid $dark-border;
+			}
+		}
+		&meta {
+			span, strong {
+				font-size: em(14px);
+			}
+			span {
+				color: $light-color;
+			}
+			strong {
+				color: $brand-main;
+			}
+		}
+		&value {
+			width: $f;
+			display: inline-block;
+			color: $brand-main;
+			font-weight: 200;
+			font-size: em(52px);
+			padding-bottom: em($p/2, 52px);
+		}
+	}
+	.reviews & {
+		align-items: flex-start;
 	}
 }

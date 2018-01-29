@@ -58,7 +58,7 @@
 			flex: 0 0 auto;
 			border-top: 0;
 			background-color: $lighter-color;
-			margin-bottom: em($p*2);
+			margin: em($p*2) 0;
 			&:before {
 				position: absolute;
 				width: 100vw;
@@ -208,6 +208,13 @@
 	}
 }
 
+%table_header {
+	span {
+		display: inline-block;
+		padding: 0 em($p) em($p);
+	}
+}
+
 .shipping {
 	@include grow('lg');
 	&__packages {
@@ -225,10 +232,7 @@
 		padding-right: em($p, $p);
 	}
 	&__header {
-		span {
-			display: inline-block;
-			padding: 0 em($p) em($p);
-		}
+		@extend %table_header;
 	}
 	&__sublabel {
 		color: $main-color;
@@ -282,6 +286,10 @@
 	}
 }
 .payment {
+	@include grow('md');
+	&__header {
+		@extend %table_header;
+	}
 	&__method {
 		@include grow('md');
 		border-top: 1px solid $light-border;
