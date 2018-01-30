@@ -19,9 +19,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-echo '<div class="notice notice--shrink-fw">';
 wc_print_notices();
-echo '</div>';
 
 do_action( 'woocommerce_before_checkout_form', $checkout );
 

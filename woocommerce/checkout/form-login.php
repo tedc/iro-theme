@@ -26,7 +26,10 @@ if ( is_user_logged_in() || 'no' === get_option( 'woocommerce_enable_checkout_lo
 
 $info_message  = apply_filters( 'woocommerce_checkout_login_message', __( 'Returning customer?', 'woocommerce' ) );
 $info_message .= ' <a href="#login" class="showlogin">' . __( 'Click here to login', 'woocommerce' ) . '</a>';
+
+echo '<div class="notice notice--shrink-fw">';
 wc_print_notice( $info_message, 'notice' );
+echo '</div>';
 
 woocommerce_login_form(
 	array(
