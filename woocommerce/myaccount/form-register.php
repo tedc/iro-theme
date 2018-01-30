@@ -76,7 +76,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 		<div class="popup__footer">
-			<a href="<?php echo home_url('/'); ?>" class="popup__button popup__button--light"><?php _e('Continua come ospite', 'iro'); ?></a>
+			<span ng-click="close()" class="popup__button popup__button--light"><?php _e('Continua come ospite', 'iro'); ?></span>
 		</div>
 			<?php do_action( 'woocommerce_register_form_end' ); ?>
 	</form>

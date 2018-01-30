@@ -72,10 +72,10 @@
 			<span class="swiper-scrollbar"></span>
 		</div>
 
-	<a ng-if="ngCart.getTotalItems() == 0 && ngCart.logged" class="cart-aside__button cart-aside__button--noradius" ui-sref="app.root({lang: '<?php echo ICL_LANGUAGE_CODE; ?>'})"><?php _e('Continua lo shopping', 'iro'); ?></a>
-	<a ng-if="!ngCart.logged" href="#login" class="cart-aside__button cart-aside__button--noradius"><?php _e('Entra per proseguire', 'iro'); ?>
-	</a>
-	<a ng-if="ngCart.getTotalItems() > 0 && ngCart.logged" href="<?php echo wc_get_page_permalink('checkout'); ?>" ui-sref="app.page({slug : '<?php echo basename(wc_get_page_permalink('checkout')); ?>'})" class="cart-aside__button cart-aside__button--noradius"><?php _e('Vai al checkout', 'iro'); ?>
+	<span ng-if="ngCart.getTotalItems() == 0" class="cart-aside__button cart-aside__button--noradius" ng-click="ngCart.close()"><?php _e('Continua lo shopping', 'iro'); ?></span>
+	<!-- <a ng-if="!ngCart.logged" href="#login" class="cart-aside__button cart-aside__button--noradius"><?php _e('Entra per proseguire', 'iro'); ?>
+	</a> -->
+	<a ng-if="ngCart.getTotalItems() > 0" href="<?php echo wc_get_page_permalink('checkout'); ?>" ui-sref="app.page({slug : '<?php echo basename(wc_get_page_permalink('checkout')); ?>'})" class="cart-aside__button cart-aside__button--noradius"><?php _e('Vai al checkout', 'iro'); ?>
 	</a>
 	</div>
 </aside>

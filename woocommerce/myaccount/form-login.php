@@ -63,7 +63,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 			<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( 'Lost your password?', 'woocommerce' ); ?></a>
 		</p>
 		<div class="popup__footer">
-			<a href="<?php echo home_url('/'); ?>" ui-sref="app.root({lang : '<?= ICL_LANGUAGE_CODE; ?>'})" class="popup__button popup__button--light"><?php _e('Continua come ospite', 'iro'); ?></a>
+			<span ng-click="close()" class="popup__button popup__button--light"><?php _e('Continua come ospite', 'iro'); ?></span>
 		</div>
 		<?php do_action( 'woocommerce_login_form_end' ); ?>
 	</form>
