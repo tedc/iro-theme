@@ -385,8 +385,29 @@
 		&__play {
 			@extend %play;
 		}
-		&__video, &__player {
+		&__video {
 			@include full;
+		}
+		&__player {
+			@extend %player;
+		}
+		&__close {
+			@extend %video_close;
+		}
+		&__controls {
+			@extend %video_controls;
+			.icon-play {
+				@extend %video_play;
+			}
+		}
+		&__play-pause {
+			@extend %video_play-pause;
+		}
+		&__duration {
+			@extend %video_duration;
+		}
+		&__pause {
+			@extend %video_pause;
 		}
 		&__container {
 			display: flex;

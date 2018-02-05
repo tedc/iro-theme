@@ -54,6 +54,10 @@
 					@include grow($var, $pos);
 				}
 			}
+			text-align: center;
+			@include breakpoint() {
+				text-align: left;
+			}
 			&--centered {
 				margin: auto;
 			}
@@ -63,6 +67,37 @@
 			&--image {
 				&.section__cell--even {
 					text-align: right;
+				}
+			}
+			&--aligncenter {
+				@include breakpoint() {
+					text-align: center;
+				}
+			}
+			&--alignright {
+				@include breakpoint() {
+					text-align: right;
+				}
+			}
+			&--hide {
+				@include breakpoint($min: false) {
+					display: none;
+				}
+			}
+			.section--grid-invert & {
+				&:nth-child(1) {
+					order: 2;
+				}
+				&:nth-child(2) {
+					order: 1;
+				}
+				@include breakpoint() {
+					&:nth-child(1) {
+						order: 1;
+					}
+					&:nth-child(2) {
+						order: 2;
+					}
 				}
 			}
 		}
@@ -190,6 +225,12 @@
 					&:before {
 						transform: translate3d(1px, 0, 0);
 					}
+				}
+			}
+			.swiper-pagination {
+				margin: auto;
+				@include breakpoint() {
+					margin: 0;
 				}
 			}
 		}

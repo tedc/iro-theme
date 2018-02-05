@@ -49,8 +49,8 @@ if($prodotti->have_posts()) : ?>
 		<?php $count++; endwhile; wp_reset_postdata(); wp_reset_query(); ?>
 	</div>
 	<?php else : ?>
-	<div class="<?php echo $base_class; ?>__container <?php echo $base_class; ?>__container--grow-md-top <?php echo $base_class; ?>__container--shrink-fw swiper-container">
-		<ul class="<?php echo $base_class; ?>__list swiper-wrapper" scroller options="{slidesPerView : 'auto', freeMode : true}">
+	<div class="<?php echo $base_class; ?>__container <?php echo $base_class; ?>__container--grow-md-top <?php echo $base_class; ?>__container--shrink-fw swiper-container" scroller options="{slidesPerView : 'auto', freeMode : true}">
+		<ul class="<?php echo $base_class; ?>__list swiper-wrapper">
 			<?php while($prodotti->have_posts()) : $prodotti->the_post();
 			?>
 			<li class="<?php echo $base_class; ?>__cell <?php echo $base_class; ?>__cell--shrink <?php echo $base_class; ?>__cell--s4 swiper-slide <?php echo $base_class; ?>__cell--grow-md">

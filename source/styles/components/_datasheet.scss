@@ -1,5 +1,9 @@
 .datasheet {
 	@include grow('lg');
+	text-align: center;
+	@include breakpoint() {
+		text-align: left;
+	}
 	&__{
 		&row {
 			@include grow('md');

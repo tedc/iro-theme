@@ -197,6 +197,7 @@
 	text-align: center;
 	height: em(50px);
 	width: em($p*4);
+	border-radius: 0;
 	border: {
 		left: 1px solid $dark-border;
 		right: 1px solid $dark-border;

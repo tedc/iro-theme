@@ -2,6 +2,7 @@
 	$video = 'video';
 	if(get_sub_field('video')) :
 	$file = preg_replace('/\\.[^.\\s]{3,4}$/', '', get_sub_field('video')['url']);
+	$video_id = $video.'_video_'. get_the_ID().'_'.$row;
 ?>
 <div class="video video--cover video--grow-md" id="video_<?php $row; ?>" ng-style="{backgroundImage : 'url(<?php echo $file; ?>.jpg)'}">
 	<video class="video__video" loop poster="<?php echo $file; ?>.jpg">
@@ -15,7 +16,7 @@
 		<?php endif;
 			if(get_sub_field('video_title')) :
 				the_sub_field('video_text'); endif; ?>
-		<span class="video__open" ng-click="openVideo('video_<?php echo $row; ?>');">
+		<span class="video__open" ng-click="playIframe('<?php echo $video_id; ?>');">
 			<i class="icon-play"></i><br/>
 			<span class=""><?php _e('Guarda il video', 'iro'); ?></span>
 		</span>
@@ -29,8 +30,7 @@
 <?php if(get_sub_field('video_iframe')) :
 	$src = get_field('video_iframe', false, false);
 	 ?>
-	<div class="<?php echo $video; ?>__iframe" player-id="<?php echo $video; ?>_video_<?php echo get_the_ID(); ?>" ng-player="<?php echo $src; ?>" ng-class="{'<?php echo $video; ?>__iframe--visible': isVideo['<?php echo $video; ?>_video_<?php echo get_the_ID(); ?>']}">
-	<div class="<?php echo $video; ?>__player" youtube-video video-id="playerId" player-vars="playerVars" player="player">
-	</div>
+<div class="<?php echo $video; ?>__iframe" player-id="<?php echo $video; ?>_video_<?php echo get_the_ID(); ?>" ng-player="<?php echo $src; ?>" ng-class="{'<?php echo $video; ?>__iframe--visible': isVideo['<?php echo $video_id; ?>']}">
+	<?php include(locate_template( 'builder/commons/video.php', false, true )); ?>
 </div>
 <?php endif; endif; ?>

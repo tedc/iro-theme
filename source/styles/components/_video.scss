@@ -1,12 +1,120 @@
+%player {
+	max-width: calc(100% - #{em($p*4)});
+	min-width: 90%;
+	height: calc(100% - #{em($p*4)});
+	flex: 0 0 auto;
+	margin: auto;
+}
+
+%video_commons {
+	height: em($p*2);
+	display: flex;
+	align-items: center;
+	position: relative;
+	z-index: 1;
+}
+
+%video_close {
+	@extend %video_commons;
+	justify-content: flex-end;
+	i {
+		font-size: 14px;
+	}
+}
+
+%video_play-pause {
+	position: relative;
+}
+
+%video_play {
+	transition: opacity $speed;
+	[class*="play-pause--playing"] & {
+		opacity: 0;
+	}
+}
+
+%video_pause {
+	transition: opacity $speed;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -4px;
+	margin-top: -7px;
+	opacity: 0;
+	height: 14px;
+	width: 8px;
+	border-right: 2px solid $w;
+	border-left: 2px solid $w;
+	[class*="play-pause--playing"] & {
+		opacity: 1;
+	}
+}
+
+%video_duration {
+	font-size: 10px;
+	color: $w;
+	font-family: $alternate-font;
+}
+
+%video_controls {
+	@extend %video_commons;
+	justify-content: center;
+	[class*="progressbar"] {
+		flex: 2;
+		position: relative;
+		margin: auto $p;
+		border-radius: $p/2;
+		height: $p/2;
+		background-color: $w;
+		overflow: hidden;
+		[class*="progress"] {
+			height: $f;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: $alternate-color;
+			border-radius: $p/2;
+		}
+	}
+}
+
 [class*="__iframe"] {
 	@include full(fixed);
 	opacity: 0;
 	visibility: hidden;
-	transition: $speed visibility, $speed opacity;
 	z-index: 999999;
-	&[class*="--visible"] {
-		opacity: 1;
+	transform: translate3d(0, $p*2, 0);
+	display: flex;
+	flex-direction: column;
+	&:before {
+		@include full;
+		background-color: transparentize($b, .15);
+		content: '';
+		transform: translate3d(0, $p*-2, 0);
+		transition: $speed transform;
+	}
+	iframe {
+		position: relative;
+		z-index: 1;
+	}
+	&.video__iframe--visible-add, &.video__iframe--visible-remove, &.header__iframe--visible-add, &.header__iframe--visible-remove {
 		visibility: visible;
+		transition: visibility $speed, $speed opacity, $speed transform;
+	}
+	&.video__iframe--visible, &.header__iframe--visible, &.video__iframe--visible-remove, &.header__iframe--visible-remove {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+		visibility: visible;
+		&:before {
+			transform: translate3d(0, 0, 0);
+		}
+	}
+	&.video__iframe--visible-remove-active, &.header__iframe--visible-remove-active {
+		opacity: 0;
+		transform: translate3d(0, $p*2, 0);
+		&:before {
+			transform: translate3d(0, $p*-2, 0);
+		}
 	}
 }
 [class*="__video"], [class*="__video-item"], .video__item {
@@ -22,8 +130,26 @@
 	display: flex;
 	flex-direction: column;
 	&__{
+		&close {
+			@extend %video_close;
+		}
 		&video {
 			opacity: .85;
+		}
+		&controls {
+			@extend %video_controls;
+			.icon-play {
+				@extend %video_play;
+			}
+		}
+		&play-pause {
+			@extend %video_play-pause;
+		}
+		&pause {
+			@extend %video_pause;
+		}
+		&duration {
+			@extend %video_duration;
 		}
 		&content {
 			position: relative;

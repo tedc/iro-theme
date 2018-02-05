@@ -82,7 +82,8 @@
 	            'iro_empty_cart' => true,
 	            'iro_udapte_item_quantity' => true,
 	            'iro_form' => true,
-	            'iro_save_address' => true
+	            'iro_save_address' => true,
+	            'iro_get_cart' => true
 	        );
 	        foreach ( $ajax_events as $ajax_event => $nopriv ) {
 	            add_action( 'wp_ajax_woocommerce_' . $ajax_event, array( __CLASS__, $ajax_event ) );
@@ -662,6 +663,19 @@
 	        }
 	        wp_send_json( $data );
 	        wp_die();
+	    }
+	    public static function iro_get_cart() {
+	    	$data = array();
+	    	if(! WC()->cart->is_empty()) :
+	    		$data['cart_empty'] = false;
+	    		$data['products'] = array();
+	    		foreach(WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+	    			array_push($data['products'], $cart_item);
+	    		}
+	    	else :
+	    		$data['cart_empty'] = true;
+	    	endif;
+	    	wp_send_json( $data );
 	    }
 	}
 

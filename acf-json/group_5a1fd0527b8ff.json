@@ -72,6 +72,35 @@
                     "return_format": "value"
                 },
                 {
+                    "key": "field_5a784cfdd30b1",
+                    "label": "Visible su mobile",
+                    "name": "mobile_show_divider",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5a578036d171c",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_rest": 0,
+                    "edit_in_rest": 0,
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
                     "key": "field_5a1fe2b343038",
                     "label": "Testo bianco",
                     "name": "white_text",
@@ -243,6 +272,24 @@
                     },
                     "layout": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_5a784be9d30ac",
+                            "label": "Tutti i display",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 0,
+                            "edit_in_rest": 0,
+                            "placement": "top",
+                            "endpoint": 0
+                        },
                         {
                             "key": "field_5a1fe81d4303a",
                             "label": "Dimensione immagine",
@@ -518,6 +565,66 @@
                             "default_value": "",
                             "layout": "horizontal",
                             "return_format": "value"
+                        },
+                        {
+                            "key": "field_5a784c04d30ad",
+                            "label": "Mobile",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 0,
+                            "edit_in_rest": 0,
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_5a784c37d30ae",
+                            "label": "Nascondi immagine background",
+                            "name": "mobile_hide_background_image",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 0,
+                            "edit_in_rest": 0,
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_5a784c85d30af",
+                            "label": "Background scuro",
+                            "name": "mobile_dark_backgrond",
+                            "type": "true_false",
+                            "instructions": "Sostituisce il background con un gradiente blu scuro su tablet (portrait) e mobile.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 0,
+                            "edit_in_rest": 0,
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
                         }
                     ]
                 },
@@ -738,6 +845,27 @@
                             "display": "block",
                             "sub_fields": [
                                 {
+                                    "key": "field_5a784d6cd30b3",
+                                    "label": "Inverti colonne su mobile",
+                                    "name": "mobile_invert_columns",
+                                    "type": "true_false",
+                                    "instructions": "Per invertire l'ordine delle colonne (immagine - testo, per esempio) su cellulare. Importante: da usare solo in caso di due colonne.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "show_in_rest": 0,
+                                    "edit_in_rest": 0,
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui": 1,
+                                    "ui_on_text": "",
+                                    "ui_off_text": ""
+                                },
+                                {
                                     "key": "field_5a2027a538365",
                                     "label": "Colonne",
                                     "name": "colonne",
@@ -807,6 +935,64 @@
                                             "default_value": "",
                                             "layout": "horizontal",
                                             "return_format": "value"
+                                        },
+                                        {
+                                            "key": "field_5a784d2dd30b2",
+                                            "label": "Visible su mobile",
+                                            "name": "mobile_show_divider",
+                                            "type": "true_false",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_5a5e063e09970",
+                                                        "operator": "==",
+                                                        "value": "1"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "show_in_rest": 0,
+                                            "edit_in_rest": 0,
+                                            "message": "",
+                                            "default_value": 0,
+                                            "ui": 1,
+                                            "ui_on_text": "",
+                                            "ui_off_text": ""
+                                        },
+                                        {
+                                            "key": "field_5a785162a3ccd",
+                                            "label": "Nascondi colonna su mobile",
+                                            "name": "mobile_hide_col",
+                                            "type": "true_false",
+                                            "instructions": "Nasconde l'intera colonna su mobile",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_5a5e063e09970",
+                                                        "operator": "!=",
+                                                        "value": "1"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "show_in_rest": 0,
+                                            "edit_in_rest": 0,
+                                            "message": "",
+                                            "default_value": 0,
+                                            "ui": 1,
+                                            "ui_on_text": "",
+                                            "ui_off_text": ""
                                         },
                                         {
                                             "key": "field_5a1fdcac4302a",
@@ -2315,5 +2501,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1517240967
+    "modified": 1517836273
 }

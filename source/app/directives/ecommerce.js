@@ -4,7 +4,33 @@ module.exports = () => {
 			// CART
 			$rootScope.initEcommerce = ()=>{
 				// EMPTY ON LOAD
-				if(ngCart.isEmpty()) ecommerce.empty();
+				if(ngCart.isEmpty()){ 
+					ecommerce.empty();
+				} else {
+					// let url = vars.wc.cart;
+					// ecommerce
+					// 	.get(url)
+					// 	.then((res)=> {
+					// 		let data = res.data;
+					// 		if(data.cart_empty == true) {
+					// 			console.log(data);
+					// 			//ngCart.empty();
+					// 		} else {
+					// 			for(let i = 0; i < data.products.length; i++) {
+					// 				let pId = (data.products[i].variation_id > 0) ? data.products[i].variation_id : data.products[i].product_id;
+					// 				pId = pId.toString();
+					// 				let item = ngCart.getItemById(pId);
+
+					// 				console.log(data, pId, item, ngCart.getCart().items);
+					// 				// if(!ngCart.getItemById(pId)) {
+					// 				// 	ngCart.removeItem(i);
+					// 				// } else {
+					// 				// 	console.log(item);
+					// 				// }
+					// 			}
+					// 		}
+					// 	})
+				}
 				
 				// ADD AND UPDATE
 				$scope.singleProductVariation = {}
@@ -16,6 +42,7 @@ module.exports = () => {
 					//$scope.product.price = `€ ${$scope.attributes.display_price}`;
 					$scope.product.price = $filter('currency')($scope.attributes.display_price, '€ ', 2*($scope.attributes.display_price % 1 !== 0));
 					$scope.product.product_id = $scope.attributes.variation_id;
+					console.log($scope.attributes.variation_id);
 				}
 				var addToCart = (item)=> {
 					ngCart.isUpdating = true;
@@ -28,6 +55,7 @@ module.exports = () => {
 						data = angular.extend({}, data, {variation_id : $scope.attributes.variation_id, variation : $scope.singleProductVariation});	
 						var url = vars.wc.variation_add;
 						let item_data = angular.extend({}, item.getData(), $scope.attributes);
+						item_data = angular.extend({}, item_data, {variation : data.variation});
 						let price = $scope.attributes.display_price;
 						item.setData(item_data);	
 						item.setPrice(price);
@@ -47,6 +75,7 @@ module.exports = () => {
 						.post(url, data)
 						.then( (res)=> {
 							let item_data = angular.extend({}, item.getData(), {remove_item_url : res.data.remove_item_url, item_key: res.data.item_key, qty : item.getQuantity()});
+							console.log(item_data);
 							item.setData(item_data);
 							$rootScope.$broadcast('ngCart:change');
 							ngCart.isUpdating = false;
@@ -104,9 +133,9 @@ module.exports = () => {
 						if(item_data.attributes.attribute_pa_misure) {
 							desc += `${item_data.attributes.attribute_pa_misure.replace(/\-/g, ' ')} ${item_data.dimensions_html.replace(/\s+/g, '')}<br/>`;
 						}
-						if(item_data.attributes.attribute_pa_color) {
-							desc += `${item_data.attributes.attribute_pa_color}`;
-						}
+					}
+					if(item_data.attributes && item_data.attributes.attribute_pa_color) {
+						desc += `${item_data.attributes.attribute_pa_color}`;
 					}
 					return desc;
 				}
@@ -321,6 +350,9 @@ module.exports = () => {
 					swiper.on('slideChange', getCurrentIndex);
 					swiper.on('init', getCurrentIndex);
 				});
+
+				// PRODUCTS SLIDER
+
 				$scope.product_slider = getInstances.getInstance('product');
 				$scope.product_slider.then((swiper) => {
 					if(swiper.destroyed) return;
@@ -332,6 +364,13 @@ module.exports = () => {
 					})	
 				});
 
+				// FEATURES SLIDER
+
+				$scope.features_slider = getInstances.getInstance('features');
+				$scope.features_slider.then((swiper)=> {
+
+				});
+				// VALUES SLIDER
 				$scope.values_slider = getInstances.getInstance('values');
 				$scope.values_slider.then((swiper)=> {
 					if(swiper.destroyed) return;

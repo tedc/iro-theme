@@ -29,30 +29,30 @@
 
 %row_patterns_top {
 	.row--grow &, .row--grow-top & {
-		top: $p*-1;
+		top: em($p*-1);
 	}
 	.row--grow-md &, .row--grow-md-top & {
-		top: $p*-2;
+		top: em($p*-2);
 	}
 	.row--grow-lg &, .row--grow-lg-top & {
-		top: $p*-2;
+		top: em($p*-2);
 		@include breakpoint() {
-			top: $p*-4;
+			top: em($p*-4);
 		}
 	}
 }
 
 %row_patterns_bottom {
 	.row--grow &, .row--grow-bottom & {
-		top: $p;
+		top: em($p);
 	}
 	.row--grow-md &, .row--grow-md-bottom & {
-		top: $p*2;
+		top: em($p*2);
 	}
 	.row--grow-lg &, .row--grow-lg-bottom & {
-		top: $p*2;
+		top: em($p*2);
 		@include breakpoint() {
-			top: $p*4;
+			top: em($p*4);
 		}
 	}
 }
@@ -75,6 +75,16 @@
 				&:not([class*="-forcewhite"]) {
 					color: $alternate-color;
 				}
+			}
+		}
+		&hide-bg {
+			@include breakpoint($min: false) {
+				background-image: none!important;
+			}
+		}
+		&handheld-dark {
+			@include breakpoint($min: false) {
+				background-image: linear-gradient(to top, #0c386c, #7ecdf3)!important;
 			}
 		}
 	}
@@ -147,8 +157,12 @@
 			$start: -44px;
 			height: $p;
 			background: url(../images/wave.svg) repeat-x $start top {
-				size: auto $p;
+				size: auto $f;
 			};
+			display: none;
+			@include breakpoint() {
+				display: block;
+			}
 			&--top {
 				@extend %row_patterns_top;
 				transform: scaleY(-1);
@@ -166,13 +180,25 @@
 				size: auto $f;
 			};
 			height: em($p*10);
+			display: none;
+			@include breakpoint() {
+				display: block;
+			}
 		}
 		&pattern {
 			@include full;
+			display: none;
+			@include breakpoint() {
+				display: block;
+			}
 		}
 		&clouds {
 			@extend %row_patterns;
 			height: em($p*5);
+			display: none;
+			@include breakpoint() {
+				display: block;
+			}
 			&--top {
 				@extend %row_patterns_top;
 				background: url(../images/top-clouds.svg) repeat-x {
@@ -192,12 +218,17 @@
 .divider {
 	border: 0;
 	background-color: transparent;
-	display: none;
 	margin: 0;
 	width: $f;
 	flex: 0 0 auto;
+	&:not(.divider--handheld) {
+		display: none;
+	}
 	@include breakpoint() {
 		display: block;
+		&:not(.divider--handheld) {
+			display: block;
+		}
 	}
 	&--small {
 		height: em($p*2);

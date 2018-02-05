@@ -21,6 +21,12 @@
 		$pattern_style = '';
 		$patternClass = '';
 		if(get_sub_field('custom_background')) {
+			if($background['mobile_hide_background_image']) {
+				$bgClass .= ' row--hide-bg';
+			}
+			if($background['mobile_dark_backgrond']) {
+				$bgClass .= ' row--handheld-dark';
+			}
 			foreach ($background as $key => $value) {
 				if($key == 'background_position') {
 					$bg .= ($value) ? str_replace('_', '-', $key) . ':' . $value . ';' : '';

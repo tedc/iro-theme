@@ -12,7 +12,7 @@ if($features->have_posts()) : ?>
 		<h2 class="features__title features__title--big"><?php the_sub_field('titolo_'.$name); ?></h2>
 		<?php the_sub_field('testo_'.$name); ?>
 	</header>
-	<div class="features__container features__container--grid swiper-container" scroller options="{'slidesPerView' : 'auto', 'freeMode' : true, 'simulateTouch':true,'grabCursor':true}">
+	<div class="features__container features__container--grid swiper-container" scroller="features" options="{'slidesPerView' : 'auto', 'freeMode' : true, 'simulateTouch':true,'grabCursor':true}">
 		<ul class="features__cell features__cell--s8 swiper-wrapper">
 			<?php while($features->have_posts()) : $features->the_post();
 			?>

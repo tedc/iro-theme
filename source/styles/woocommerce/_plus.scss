@@ -1,5 +1,6 @@
 .plus {
 	@include grow('md', 'bottom');
+	overflow: hidden;
 	&__wrapper {
 		align-items: center;
 		overflow: visible;

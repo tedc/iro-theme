@@ -20,7 +20,7 @@
 	<div class="header__container header__container--grow-md header__container--grow-lg">
 		<?php get_template_part( 'templates/page', 'title'); ?>
 		<?php if(get_field('header_iframe') && get_field('is_video')) : ?>
-		<span class="header__play" ng-class="{'header__play--ready': playerReady['header_video_<?php echo get_the_ID(); ?>']}" ng-click="isVideo['header_video_<?php echo get_the_ID(); ?>'] = true">
+		<span class="header__play" ng-class="{'header__play--ready': playerReady['header_video_<?php echo get_the_ID(); ?>']}" ng-click="playIframe('header_video_<?php echo get_the_ID(); ?>')">
 			<i class="icon-play"></i>
 			<span><?php _e('Guarda il video', 'iro'); ?></span>
 		</span>

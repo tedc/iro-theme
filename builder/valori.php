@@ -9,10 +9,6 @@ $image = get_sub_field($name.'_image')['ID'];
 $values = new WP_Query($args);
 if($values->have_posts()) : ?>
 <section class="<?php echo $name; ?> <?php echo $name; ?>--grow-md">
-	<header class="<?php echo $name; ?>__header <?php echo $name; ?>__header--grow-md">
-		<h2 class="<?php echo $name; ?>__title <?php echo $name; ?>__title--big"><?php the_sub_field('titolo_'.$name); ?></h2>
-		<?php the_sub_field('testo_'.$name); ?>
-	</header>
 	<div class="<?php echo $name; ?>__container <?php echo $name; ?>__container--grow-lg swiper-container" scroller="values" options="{effect : 'magnify', 'grabCursor' : true, magnifyEffect: {slideResizerClass : '.<?php echo $name; ?>__circle'},  init: false, slideToClickedSlide : true, speed : 750}">
 		<ul class="<?php echo $name; ?>__wrapper swiper-wrapper">
 			<?php $slide = 0; while($values->have_posts()) : $values->the_post();

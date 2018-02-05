@@ -2,6 +2,10 @@
 	&__{
 		&header, &item {
 			@include grow('md');
+			text-align: center;
+			@include breakpoint() {
+				text-align: left;
+			}
 		}
 		&item {
 			border-bottom: 1px solid $dark-border;

@@ -8,6 +8,7 @@
 	$src = $src[0];
 	if($video_file) : 
 	$file = preg_replace('/\\.[^.\\s]{3,4}$/', '', $video_file['url']);
+	$video_id = $video.'_video_'. get_the_ID();
 ?>
 <div class="<?php echo $video; ?>__video" ng-style="{backgroundImage : 'url(<?php echo $file; ?>.jpg)'}">
 	<video<?php if(!is_handheld()): ?> loop<?php endif; ?> class="<?php echo $video; ?>__video-item" ng-video muted poster="<?php echo $file; ?>.jpg">
@@ -20,7 +21,6 @@
 	$alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true) ? get_post_meta($thumb_id, '_wp_attachment_image_alt', true) : get_bloginfo('name') . ': '.Titles\title();
 	the_post_thumbnail( $image_size, false, array('class' => 'header__image', 'alt' => $alt) );
 endif; ?>
-<div class="<?php echo $video; ?>__iframe" player-id="<?php echo $video; ?>_video_<?php echo get_the_ID(); ?>" ng-player="<?php echo $src; ?>" ng-class="{'<?php echo $video; ?>__iframe--visible': isVideo['<?php echo $video; ?>_video_<?php echo get_the_ID(); ?>']}">
-	<div class="<?php echo $video; ?>__player" youtube-video video-id="playerId" player-vars="playerVars" player="player">
-	</div>
+<div class="<?php echo $video; ?>__iframe" player-id="<?php echo $video_id; ?>" ng-player="<?php echo $src; ?>" ng-class="{'<?php echo $video; ?>__iframe--visible': isVideo['<?php echo $video_id; ?>']}">
+	<?php include(locate_template( 'builder/commons/video.php', false, true )); ?>
 </div>

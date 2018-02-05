@@ -7,6 +7,7 @@ iro
 		FastClick.attach(document.body);
 		$rootScope.isAnim = false;
 		var oldUrl = $location.absUrl();
+		$rootScope.isMenu = false;
 		$rootScope.isUserLoggedIn = vars.wc.logged;
 		// var langCookie = $cookies.get('lang');
 		// if(!langCookie) {
@@ -20,6 +21,7 @@ iro
 		// 	}
 		// }
 		$transitions.onStart({}, (trans) => {
+			$rootScope.isMenu = false;
 			let newUrl = trans.router.stateService.href(trans.to().name, trans.params(), {absolute : true});
 			$rootScope.fromState = {
 				Name : trans.to().name,

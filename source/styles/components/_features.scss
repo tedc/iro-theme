@@ -11,6 +11,10 @@
 			@include grow('md');
 			position: relative;
 			z-index: 200;
+			text-align: center;
+			@include breakpoint() {
+				text-align: left;
+			}
 			p {
 				line-height: percentage(27px/16px);
 				padding-top: em($p);
