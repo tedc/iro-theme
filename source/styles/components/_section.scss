@@ -85,6 +85,7 @@
 				}
 			}
 			.section--grid-invert & {
+				order: 3;
 				&:nth-child(1) {
 					order: 2;
 				}
@@ -112,6 +113,16 @@
 		&image {
 			display: inline-block;
 			max-width: $f;
+			&--mobile {
+				@include breakpoint() {
+					display: none;
+				}
+				&-hide {
+					@include breakpoint($min: false) {
+						display: none;
+					}
+				}
+			}
 		}
 		&thumb {
 			width: $f!important;

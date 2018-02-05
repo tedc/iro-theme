@@ -46,6 +46,7 @@ module.exports = ($rootScope, $timeout)=> {
 				let point = x / w;
 				let val = Math.round ( max * point );
 				player.seekTo(val);
+				if(!scope.playing) player.playVideo();
 				TweenMax.to(progress, .5,{width : "#{(point * 100)}%"})
 			}
 			scope.$on( 'youtube.player.ended', (event, player)=>{

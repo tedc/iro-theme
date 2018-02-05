@@ -62,7 +62,7 @@ iro
 				element.find('img').one('load', ()=> {
 					controller.update(true);
 				});
-					
+
 				scope.moveMask = (evt, id, leave)=> {
 					let body = document.body;
 					let docEl = document.documentElement;

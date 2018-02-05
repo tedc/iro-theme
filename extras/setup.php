@@ -1,4 +1,5 @@
 <?php
+	define('WP_MAX_MEMORY_LIMIT', 512);
 	function ng_app($html) {
 		$html =  $html . ' class="no-js" ng-app="sprfc"';
 		return $html;

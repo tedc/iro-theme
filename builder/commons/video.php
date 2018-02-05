@@ -1,5 +1,7 @@
 <div class="<?php echo $video; ?>__close <?php echo $video; ?>__close--shrink-fw"><i class="icon-chiudi" ng-click="closeVideo(); player.pause();"></i></div>
+<div class="<?php echo $video; ?>__wrapper <?php echo $video; ?>__wrapper--shrink-fw">
 <div class="<?php echo $video; ?>__player" youtube-video video-id="playerId" player-vars="playerVars" player="player">
+</div>
 </div>
 <div class="<?php echo $video; ?>__controls <?php echo $video; ?>__close--shrink-fw">
 	<span class="<?php echo $video; ?>__play-pause" ng-class="{'<?php echo $video; ?>__play-pause--playing': playing}" ng-click="playPause()">

@@ -388,7 +388,7 @@
 		&__video {
 			@include full;
 		}
-		&__player {
+		&__wrapper {
 			@extend %player;
 		}
 		&__close {

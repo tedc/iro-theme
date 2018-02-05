@@ -1,9 +1,15 @@
 %player {
-	max-width: calc(100% - #{em($p*4)});
-	min-width: 90%;
 	height: calc(100% - #{em($p*4)});
 	flex: 0 0 auto;
 	margin: auto;
+	position: relative;
+	z-index: 1;
+	width: $f;
+	iframe {
+		position: relative;
+		height: $f!important;
+		width: $f!important;
+	}
 }
 
 %video_commons {
@@ -27,14 +33,17 @@
 }
 
 %video_play {
-	transition: opacity $speed;
+	transition: opacity $speed, color $speed;
+	[class*="play-pause"]:hover & {
+		color: $highlight-color;
+	}
 	[class*="play-pause--playing"] & {
 		opacity: 0;
 	}
 }
 
 %video_pause {
-	transition: opacity $speed;
+	transition: opacity $speed, border-color $speed;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -45,15 +54,21 @@
 	width: 8px;
 	border-right: 2px solid $w;
 	border-left: 2px solid $w;
+	[class*="play-pause"]:hover & {
+		border-left-color: $highlight-color;
+		border-right-color: $highlight-color;
+	}
 	[class*="play-pause--playing"] & {
 		opacity: 1;
 	}
 }
 
 %video_duration {
-	font-size: 10px;
+	font-size: 12px;
 	color: $w;
 	font-family: $alternate-font;
+	min-width: em(70px, 12px);
+	text-align: right;
 }
 
 %video_controls {
@@ -80,11 +95,11 @@
 
 [class*="__iframe"] {
 	@include full(fixed);
+	display: none;
 	opacity: 0;
 	visibility: hidden;
 	z-index: 999999;
 	transform: translate3d(0, $p*2, 0);
-	display: flex;
 	flex-direction: column;
 	&:before {
 		@include full;
@@ -93,15 +108,13 @@
 		transform: translate3d(0, $p*-2, 0);
 		transition: $speed transform;
 	}
-	iframe {
-		position: relative;
-		z-index: 1;
-	}
 	&.video__iframe--visible-add, &.video__iframe--visible-remove, &.header__iframe--visible-add, &.header__iframe--visible-remove {
+		display: flex;
 		visibility: visible;
 		transition: visibility $speed, $speed opacity, $speed transform;
 	}
 	&.video__iframe--visible, &.header__iframe--visible, &.video__iframe--visible-remove, &.header__iframe--visible-remove {
+		display: flex;
 		opacity: 1;
 		transform: translate3d(0, 0, 0);
 		visibility: visible;
@@ -130,6 +143,9 @@
 	display: flex;
 	flex-direction: column;
 	&__{
+		&wrapper {
+			@extend %player;
+		}
 		&close {
 			@extend %video_close;
 		}

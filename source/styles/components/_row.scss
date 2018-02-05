@@ -221,6 +221,7 @@
 	margin: 0;
 	width: $f;
 	flex: 0 0 auto;
+	order: 3;
 	&:not(.divider--handheld) {
 		display: none;
 	}
@@ -234,16 +235,10 @@
 		height: em($p*2);
 	}
 	&--md {
-		height: em($p*2);
-		@include breakpoint() {	
-			height: em($p*4);
-		}
+		height: em($p*4);
 	}
 	&--lg {
-		height: em($p*2);
-		@include breakpoint() {	
-			height: em($p*4);
-		}
+		height: em($p*4);
 		@include breakpoint(1020px) {	
 			height: em($p*8);
 		}

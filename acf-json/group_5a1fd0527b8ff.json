@@ -1635,6 +1635,8 @@
                                                                         "class": "",
                                                                         "id": ""
                                                                     },
+                                                                    "show_in_rest": 0,
+                                                                    "edit_in_rest": 0,
                                                                     "message": "",
                                                                     "default_value": 0,
                                                                     "ui": 1,
@@ -1654,6 +1656,8 @@
                                                                         "class": "",
                                                                         "id": ""
                                                                     },
+                                                                    "show_in_rest": 0,
+                                                                    "edit_in_rest": 0,
                                                                     "return_format": "array",
                                                                     "preview_size": "thumbnail",
                                                                     "library": "all",
@@ -1685,6 +1689,32 @@
                                                                     "min": "",
                                                                     "max": "",
                                                                     "step": ""
+                                                                },
+                                                                {
+                                                                    "key": "field_5a788b76ffc63",
+                                                                    "label": "Imaggine Mobile",
+                                                                    "name": "mobile_image",
+                                                                    "type": "image",
+                                                                    "instructions": "Immagine alternativa per tablet in versione portrait e cellulari. Se non presente, si vedrà la versione desktop.",
+                                                                    "required": 0,
+                                                                    "conditional_logic": 0,
+                                                                    "wrapper": {
+                                                                        "width": "",
+                                                                        "class": "",
+                                                                        "id": ""
+                                                                    },
+                                                                    "show_in_rest": 0,
+                                                                    "edit_in_rest": 0,
+                                                                    "return_format": "array",
+                                                                    "preview_size": "thumbnail",
+                                                                    "library": "all",
+                                                                    "min_width": "",
+                                                                    "min_height": "",
+                                                                    "min_size": "",
+                                                                    "max_width": "",
+                                                                    "max_height": "",
+                                                                    "max_size": "",
+                                                                    "mime_types": ""
                                                                 }
                                                             ],
                                                             "min": "",
@@ -2501,5 +2531,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1517836273
+    "modified": 1517849554
 }
