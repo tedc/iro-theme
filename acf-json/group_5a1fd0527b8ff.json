@@ -30,10 +30,12 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "33",
                         "class": "",
                         "id": ""
                     },
+                    "show_in_rest": 0,
+                    "edit_in_rest": 0,
                     "message": "",
                     "default_value": 0,
                     "ui": 1,
@@ -57,10 +59,12 @@
                         ]
                     ],
                     "wrapper": {
-                        "width": "",
+                        "width": "33",
                         "class": "",
                         "id": ""
                     },
+                    "show_in_rest": 0,
+                    "edit_in_rest": 0,
                     "choices": {
                         "--small": "40",
                         "--md": "80",
@@ -88,7 +92,7 @@
                         ]
                     ],
                     "wrapper": {
-                        "width": "",
+                        "width": "33",
                         "class": "",
                         "id": ""
                     },
@@ -99,6 +103,429 @@
                     "ui": 1,
                     "ui_on_text": "",
                     "ui_off_text": ""
+                },
+                {
+                    "key": "field_5a202bfd98af6",
+                    "label": "Background personalizzato",
+                    "name": "custom_background",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5a578036d171c",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_5a1fd07dc7cc0",
+                    "label": "Background",
+                    "name": "background",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5a202bfd98af6",
+                                "operator": "==",
+                                "value": "1"
+                            },
+                            {
+                                "field": "field_5a578036d171c",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5a784be9d30ac",
+                            "label": "Tutti i display",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 0,
+                            "edit_in_rest": 0,
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_5a1fe81d4303a",
+                            "label": "Dimensione immagine",
+                            "name": "background_size",
+                            "type": "button_group",
+                            "instructions": "Da spuntare solo in caso di immagine di sfondo",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 0,
+                            "edit_in_rest": 0,
+                            "choices": {
+                                "--cover": "Cover",
+                                "--contain": "Contain",
+                                "1": "Personalizzata"
+                            },
+                            "allow_null": 1,
+                            "default_value": "",
+                            "layout": "horizontal",
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_5a1fe870d1da5",
+                            "label": "Animato",
+                            "name": "animated",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 0,
+                            "edit_in_rest": 0,
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_5a1fec2641de3",
+                            "label": "Dimensione immagine di sfondo personalizzata",
+                            "name": "background_size_custom",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_5a1fe81d4303a",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5a1fd8a00db50",
+                            "label": "Colore fondo",
+                            "name": "background_color",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "75",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 0,
+                            "edit_in_rest": 0,
+                            "choices": {
+                                "--white": "Bianco",
+                                "--gray": "Grigio",
+                                "--dark": "Blu scuro",
+                                "--cyan": "Azzurro",
+                                "--black": "Nero",
+                                "--gradient-dark": "Gradiente blu",
+                                "--gradient-light": "Gradiente azzurro chiaro"
+                            },
+                            "allow_null": 1,
+                            "default_value": "",
+                            "layout": "horizontal",
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_5a5622562a038",
+                            "label": "Inverti gradiente",
+                            "name": "inverted_gradient",
+                            "type": "true_false",
+                            "instructions": "Da spuntare solo in caso di gradiente.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 0,
+                            "edit_in_rest": 0,
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_5a1fd8d80db51",
+                            "label": "Immagine di sfondo",
+                            "name": "background_image",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "url",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_5a1fd9090db52",
+                            "label": "Posizione",
+                            "name": "background_position",
+                            "type": "select",
+                            "instructions": "Selezionare solo se diverso dalla posizione centrale in orizzontale e verticale.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "left center": "Centro sinistra",
+                                "right center": "Centro destra",
+                                "top center": "In alto al centro",
+                                "bottom center": "In basso al centro",
+                                "left top": "In alto a sinistra",
+                                "right top": "In alto a destra",
+                                "right bottom": "In basso a destra",
+                                "left bottom": "In basso a sinistra"
+                            },
+                            "default_value": [],
+                            "allow_null": 1,
+                            "multiple": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "return_format": "value",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_5a1fd9b60db53",
+                            "label": "Ripeti sfondo",
+                            "name": "background_repeat",
+                            "type": "select",
+                            "instructions": "Modificare solo per i pattern",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "repeat": "Verticale e orizzontale",
+                                "repeat-x": "Orizzontale",
+                                "repeat-y": "Verticale"
+                            },
+                            "default_value": [],
+                            "allow_null": 1,
+                            "multiple": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "return_format": "value",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_5a4e69a6886e5",
+                            "label": "Ondine",
+                            "name": "ondine",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 0,
+                            "edit_in_rest": 0,
+                            "choices": {
+                                "1": "Sopra",
+                                "2": "Sotto",
+                                "3": "Sopra e sotto"
+                            },
+                            "allow_null": 1,
+                            "default_value": "",
+                            "layout": "horizontal",
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_5a4e69d2886e6",
+                            "label": "Nuvole",
+                            "name": "clouds",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 0,
+                            "edit_in_rest": 0,
+                            "choices": {
+                                "1": "Sopra",
+                                "2": "Sotto",
+                                "3": "Sopra e sotto"
+                            },
+                            "allow_null": 1,
+                            "default_value": "",
+                            "layout": "horizontal",
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_5a4e6a1d886e7",
+                            "label": "Splash pattern",
+                            "name": "splash",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_5a4e69a6886e5",
+                                        "operator": "==",
+                                        "value": "2"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "field": "field_5a4e69a6886e5",
+                                        "operator": "==",
+                                        "value": "3"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_5a784c04d30ad",
+                            "label": "Mobile",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 0,
+                            "edit_in_rest": 0,
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_5a784c37d30ae",
+                            "label": "Nascondi immagine background",
+                            "name": "mobile_hide_background_image",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 0,
+                            "edit_in_rest": 0,
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_5a784c85d30af",
+                            "label": "Background scuro",
+                            "name": "mobile_dark_backgrond",
+                            "type": "true_false",
+                            "instructions": "Sostituisce il background con un gradiente blu scuro su tablet (portrait) e mobile.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 0,
+                            "edit_in_rest": 0,
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        }
+                    ]
                 },
                 {
                     "key": "field_5a1fe2b343038",
@@ -216,417 +643,6 @@
                     "layout": "horizontal",
                     "toggle": 1,
                     "return_format": "value"
-                },
-                {
-                    "key": "field_5a202bfd98af6",
-                    "label": "Background personalizzato",
-                    "name": "custom_background",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_5a578036d171c",
-                                "operator": "!=",
-                                "value": "1"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
-                },
-                {
-                    "key": "field_5a1fd07dc7cc0",
-                    "label": "Background",
-                    "name": "background",
-                    "type": "group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_5a202bfd98af6",
-                                "operator": "==",
-                                "value": "1"
-                            },
-                            {
-                                "field": "field_5a578036d171c",
-                                "operator": "!=",
-                                "value": "1"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "layout": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5a784be9d30ac",
-                            "label": "Tutti i display",
-                            "name": "",
-                            "type": "tab",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "show_in_rest": 0,
-                            "edit_in_rest": 0,
-                            "placement": "top",
-                            "endpoint": 0
-                        },
-                        {
-                            "key": "field_5a1fe81d4303a",
-                            "label": "Dimensione immagine",
-                            "name": "background_size",
-                            "type": "button_group",
-                            "instructions": "Da spuntare solo in caso di immagine di sfondo",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "--cover": "Cover",
-                                "--contain": "Contain",
-                                "1": "Personalizzata"
-                            },
-                            "allow_null": 1,
-                            "default_value": "",
-                            "layout": "horizontal",
-                            "return_format": "value"
-                        },
-                        {
-                            "key": "field_5a1fec2641de3",
-                            "label": "Dimensione immagine di sfondo personalizzata",
-                            "name": "background_size_custom",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_5a1fe81d4303a",
-                                        "operator": "==",
-                                        "value": "1"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_5a1fe870d1da5",
-                            "label": "Animato",
-                            "name": "animated",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 0,
-                            "ui": 1,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
-                        },
-                        {
-                            "key": "field_5a1fd8a00db50",
-                            "label": "Colore fondo",
-                            "name": "background_color",
-                            "type": "button_group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "--white": "Bianco",
-                                "--gray": "Grigio",
-                                "--dark": "Blu scuro",
-                                "--cyan": "Azzurro",
-                                "--black": "Nero",
-                                "--gradient-dark": "Gradiente blu",
-                                "--gradient-light": "Gradiente azzurro chiaro"
-                            },
-                            "allow_null": 1,
-                            "default_value": "",
-                            "layout": "horizontal",
-                            "return_format": "value"
-                        },
-                        {
-                            "key": "field_5a5622562a038",
-                            "label": "Inverti gradiente",
-                            "name": "inverted_gradient",
-                            "type": "true_false",
-                            "instructions": "Da spuntare solo in caso di gradiente.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 0,
-                            "ui": 1,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
-                        },
-                        {
-                            "key": "field_5a1fd8d80db51",
-                            "label": "Immagine di sfondo",
-                            "name": "background_image",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "url",
-                            "preview_size": "thumbnail",
-                            "library": "all",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": ""
-                        },
-                        {
-                            "key": "field_5a1fd9090db52",
-                            "label": "Posizione",
-                            "name": "background_position",
-                            "type": "select",
-                            "instructions": "Selezionare solo se diverso dalla posizione centrale in orizzontale e verticale.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "left center": "Centro sinistra",
-                                "right center": "Centro destra",
-                                "top center": "In alto al centro",
-                                "bottom center": "In basso al centro",
-                                "left top": "In alto a sinistra",
-                                "right top": "In alto a destra",
-                                "right bottom": "In basso a destra",
-                                "left bottom": "In basso a sinistra"
-                            },
-                            "default_value": [],
-                            "allow_null": 1,
-                            "multiple": 0,
-                            "ui": 0,
-                            "ajax": 0,
-                            "return_format": "value",
-                            "placeholder": ""
-                        },
-                        {
-                            "key": "field_5a1fd9b60db53",
-                            "label": "Ripeti sfondo",
-                            "name": "background_repeat",
-                            "type": "select",
-                            "instructions": "Modificare solo per i pattern",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "repeat": "Verticale e orizzontale",
-                                "repeat-x": "Orizzontale",
-                                "repeat-y": "Verticale"
-                            },
-                            "default_value": [],
-                            "allow_null": 1,
-                            "multiple": 0,
-                            "ui": 0,
-                            "ajax": 0,
-                            "return_format": "value",
-                            "placeholder": ""
-                        },
-                        {
-                            "key": "field_5a4e69a6886e5",
-                            "label": "Ondine",
-                            "name": "ondine",
-                            "type": "button_group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "1": "Sopra",
-                                "2": "Sotto",
-                                "3": "Sopra e sotto"
-                            },
-                            "allow_null": 1,
-                            "default_value": "",
-                            "layout": "horizontal",
-                            "return_format": "value"
-                        },
-                        {
-                            "key": "field_5a4e6a1d886e7",
-                            "label": "Splash pattern",
-                            "name": "splash",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_5a4e69a6886e5",
-                                        "operator": "==",
-                                        "value": "2"
-                                    }
-                                ],
-                                [
-                                    {
-                                        "field": "field_5a4e69a6886e5",
-                                        "operator": "==",
-                                        "value": "3"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 0,
-                            "ui": 0,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
-                        },
-                        {
-                            "key": "field_5a4e69d2886e6",
-                            "label": "Nuvole",
-                            "name": "clouds",
-                            "type": "button_group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "1": "Sopra",
-                                "2": "Sotto",
-                                "3": "Sopra e sotto"
-                            },
-                            "allow_null": 1,
-                            "default_value": "",
-                            "layout": "horizontal",
-                            "return_format": "value"
-                        },
-                        {
-                            "key": "field_5a784c04d30ad",
-                            "label": "Mobile",
-                            "name": "",
-                            "type": "tab",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "show_in_rest": 0,
-                            "edit_in_rest": 0,
-                            "placement": "top",
-                            "endpoint": 0
-                        },
-                        {
-                            "key": "field_5a784c37d30ae",
-                            "label": "Nascondi immagine background",
-                            "name": "mobile_hide_background_image",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "show_in_rest": 0,
-                            "edit_in_rest": 0,
-                            "message": "",
-                            "default_value": 0,
-                            "ui": 1,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
-                        },
-                        {
-                            "key": "field_5a784c85d30af",
-                            "label": "Background scuro",
-                            "name": "mobile_dark_backgrond",
-                            "type": "true_false",
-                            "instructions": "Sostituisce il background con un gradiente blu scuro su tablet (portrait) e mobile.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "show_in_rest": 0,
-                            "edit_in_rest": 0,
-                            "message": "",
-                            "default_value": 0,
-                            "ui": 1,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
-                        }
-                    ]
                 },
                 {
                     "key": "field_5a202bac98af5",
@@ -785,13 +801,15 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
+                            "show_in_rest": 0,
+                            "edit_in_rest": 0,
                             "message": "",
                             "default_value": 0,
-                            "ui": 0,
+                            "ui": 1,
                             "ui_on_text": "",
                             "ui_off_text": ""
                         },
@@ -804,10 +822,12 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
+                            "show_in_rest": 0,
+                            "edit_in_rest": 0,
                             "message": "",
                             "default_value": 0,
                             "ui": 1,
@@ -895,10 +915,12 @@
                                             "required": 0,
                                             "conditional_logic": 0,
                                             "wrapper": {
-                                                "width": "",
+                                                "width": "33",
                                                 "class": "",
                                                 "id": ""
                                             },
+                                            "show_in_rest": 0,
+                                            "edit_in_rest": 0,
                                             "message": "",
                                             "default_value": 0,
                                             "ui": 1,
@@ -922,10 +944,12 @@
                                                 ]
                                             ],
                                             "wrapper": {
-                                                "width": "",
+                                                "width": "33",
                                                 "class": "",
                                                 "id": ""
                                             },
+                                            "show_in_rest": 0,
+                                            "edit_in_rest": 0,
                                             "choices": {
                                                 "--small": "40",
                                                 "--md": "80",
@@ -953,7 +977,7 @@
                                                 ]
                                             ],
                                             "wrapper": {
-                                                "width": "",
+                                                "width": "33",
                                                 "class": "",
                                                 "id": ""
                                             },
@@ -1075,10 +1099,12 @@
                                                     "required": 0,
                                                     "conditional_logic": 0,
                                                     "wrapper": {
-                                                        "width": "",
+                                                        "width": "50",
                                                         "class": "",
                                                         "id": ""
                                                     },
+                                                    "show_in_rest": 0,
+                                                    "edit_in_rest": 0,
                                                     "message": "",
                                                     "default_value": 0,
                                                     "ui": 1,
@@ -1102,10 +1128,12 @@
                                                         ]
                                                     ],
                                                     "wrapper": {
-                                                        "width": "",
+                                                        "width": "50",
                                                         "class": "",
                                                         "id": ""
                                                     },
+                                                    "show_in_rest": 0,
+                                                    "edit_in_rest": 0,
                                                     "choices": {
                                                         "12": "Riga piena",
                                                         "3": "1\/4",
@@ -1141,10 +1169,12 @@
                                                         ]
                                                     ],
                                                     "wrapper": {
-                                                        "width": "",
+                                                        "width": "50",
                                                         "class": "",
                                                         "id": ""
                                                     },
+                                                    "show_in_rest": 0,
+                                                    "edit_in_rest": 0,
                                                     "choices": {
                                                         "-mw": "Piccola",
                                                         "-mw-large": "Media",
@@ -1179,6 +1209,8 @@
                                                         "class": "",
                                                         "id": ""
                                                     },
+                                                    "show_in_rest": 0,
+                                                    "edit_in_rest": 0,
                                                     "default_value": "",
                                                     "placeholder": "ie : 50",
                                                     "prepend": "Valore in percentuale",
@@ -1247,7 +1279,7 @@
                                                 },
                                                 {
                                                     "key": "field_5a6f1cb93667b",
-                                                    "label": "Allniamente testo a destra",
+                                                    "label": "Allineamento testo a destra",
                                                     "name": "text_align_right",
                                                     "type": "true_false",
                                                     "instructions": "",
@@ -1287,6 +1319,11 @@
                                                                 "field": "field_5a2028f938367",
                                                                 "operator": "!=",
                                                                 "value": "1"
+                                                            },
+                                                            {
+                                                                "field": "field_5a6f1cb93667b",
+                                                                "operator": "!=",
+                                                                "value": "1"
                                                             }
                                                         ]
                                                     ],
@@ -1295,6 +1332,8 @@
                                                         "class": "",
                                                         "id": ""
                                                     },
+                                                    "show_in_rest": 0,
+                                                    "edit_in_rest": 0,
                                                     "message": "",
                                                     "default_value": 0,
                                                     "ui": 1,
@@ -2531,5 +2570,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1517849554
+    "modified": 1517933926
 }

@@ -221,7 +221,9 @@
 	margin: 0;
 	width: $f;
 	flex: 0 0 auto;
-	order: 3;
+	.section--grid-invert & {
+		order: 3;
+	}
 	&:not(.divider--handheld) {
 		display: none;
 	}
