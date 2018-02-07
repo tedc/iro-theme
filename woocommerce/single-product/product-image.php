@@ -88,7 +88,6 @@ $options = ($product->get_gallery_image_ids() && has_post_thumbnail()) ? ' scrol
 				$attributes      = array(
 					'title'                   => get_post_field( 'post_title', $attachment_id ),
 				);
-
 				$pages_html  = '<span class="product__gallery-page swiper-pagination-bullet" ng-click="productSlideTo('.$thumb.')" ng-class="{\'swiper-pagination-bullet-active\' : currentProductSlide == '.$thumb.'}">';
 				$pages_html .= wp_get_attachment_image( $attachment_id, 'shop_thumbnail', false, $attributes );
 		 		$pages_html .= '</span>';

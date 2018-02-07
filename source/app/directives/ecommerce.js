@@ -370,6 +370,7 @@ module.exports = () => {
 
 				$scope.product_slider = getInstances.getInstance('product');
 				$scope.product_slider.then((swiper) => {
+					$scope.currentProductSlide = 0;
 					if(swiper.destroyed) return;
 					$scope.productSlideTo = (index)=> {
 						swiper.slideTo(index);
