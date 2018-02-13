@@ -522,7 +522,7 @@
 	            $sender = $name;
 	            $message = $_POST['message'];
 	            //var_dump($_POST['security_check']);
-	            //$pTo = array('hello@bspkn.it');
+	            //$pTo = array('form@bspkn.it');
 	            //$pTo = array('e.grandinetti@bspkn.it');
 	            $pTo = $send_to;
 	            $pSubject = __('Richiesta di contatto da') . ' ' . $sender;

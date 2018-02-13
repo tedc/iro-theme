@@ -94,6 +94,40 @@ module.exports = function ($stateProvider, $locationProvider, $provide, cfpLoadi
 			},
 			controller : ['$rootScope', '$scope', 'data', 'ngCart', require('./html')]
 		})
+		.state('app.blog', {
+			url : '/blog/:path',
+			template : tpl,
+			params: {
+				path: {
+					type : 'string',
+					raw: true
+				}
+			},
+			resolve : {
+				data : ['getData', '$stateParams', function(getData, $stateParams) {
+					let base_url = `blog/${$stateParams.path}`;
+					return getData(base_url);
+				}],
+			},
+			controller : ['$rootScope', '$scope', 'data', require('./html')]
+		})
+		.state('app.category', {
+			url : '/category/:name/:path',
+			template : tpl,
+			params: {
+				path: {
+					type : 'string',
+					raw: true
+				}
+			},
+			resolve : {
+				data : ['getData', '$stateParams', function(getData, $stateParams) {
+					let base_url = ($stateParams.path) ? `category/${$stateParams.name}/${$stateParams.path}` : `category/${$stateParams.name}`;
+					return getData(base_url);
+				}],
+			},
+			controller : ['$rootScope', '$scope', 'data', require('./html')]
+		})
 		// .state('app.tab', {
 		// 	url : '?name',	
 		// 	resolve : {

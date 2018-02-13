@@ -9,5 +9,14 @@
 		background-color: $brand-main;
 		width: 5px;
 		min-height: em($p*4);
+		.facebook__scrollbar & {
+			background-color: $alternate-color;
+			border-radius: 0;
+		}
+	}
+	&.facebook__scrollbar {	
+		background-color: $dark-border;
+		border-radius: 0;
+		right: 0;
 	}
 }

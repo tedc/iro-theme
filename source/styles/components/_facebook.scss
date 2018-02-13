@@ -1,0 +1,110 @@
+.facebook {
+	@include grow('lg', 'top');
+	width: $f;
+	flex: 0 0 auto;
+	&__{
+		&content {
+			background-color: $lighter-color;
+			@include grow('md');
+			@include breakpoint() {
+				overflow: hidden;
+				order: 3;
+				position: relative;
+				z-index: 1;
+				height: calc(100vh - ((200 / 691) * 100vh));
+			}
+		}
+		&header {
+			padding-bottom: em($p*2);
+		}
+		&container {
+			overflow: hidden;
+			position: relative;
+			z-index: 20;
+			@include breakpoint() {
+				height: calc(100vh - ((200 / 691) * 100vh) - #{em(103px)});
+			}
+		}
+		&item {
+			width: $f;
+			flex: 0 0 auto;
+		}
+		&wrapper {
+			flex-wrap: wrap;
+			overflow: visible;
+		}
+		&wrapper {
+			@include grow('md');
+			.facebook__item {
+				padding: em($p) 0;
+				border-bottom: 1px solid $dark-border;
+				&:nth-last-child(1) {
+					border-bottom: 0;
+				}
+				&:nth-child(1) {
+					padding-top: 0;
+				}
+			}
+		}
+		&cover {
+			position: relative;
+			img {
+				width: $f!important;
+				height: auto!important;
+			}
+			@include breakpoint() {
+				order: 1;
+				height: 0;
+				padding-top: calc(((200 / 691) * 100vh) - #{em($p*4)});
+			}
+		}
+		&figure {
+			line-height: 0;
+			@include breakpoint() {
+				order: 1;
+				height: 0;
+				width: $f;
+				position: absolute;
+				top: 0;
+				left: 0;
+				padding-top: calc( ((486 / 691) * 100vh) - #{em($p*4)});
+				img {
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: $f!important;
+					object-fit: cover;
+				}
+			}
+		}
+		&footer {
+			@include grow('md');
+			@include breakpoint() {
+				text-align: right;
+				padding-right: em($p*2);
+				order: 2;
+				&:before {
+					display: block;
+					content: '';
+					padding-top: calc( (( (486 / 691) * 100vh) - #{em($p*4)})  - (((200 / 691) * 100vh) - #{em($p*4)}) );
+				}
+			}
+		}
+		&time {
+			font-size: em(14px);
+			font-weight: 600;
+			color: $dark-gray;
+			padding-bottom: em($p, 14px);
+			display: inline-block;
+		}
+		&link {
+			font-size: 12px;
+			font-weight: 600;
+			padding-top: em($p, 12px);
+			display: inline-block;
+		}
+		&message {
+			line-height: percentage(26px/16px);
+		}
+	}
+}

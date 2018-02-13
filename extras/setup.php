@@ -1,5 +1,5 @@
 <?php
-	define('WP_MAX_MEMORY_LIMIT', 512);
+	//define('WP_MAX_MEMORY_LIMIT', 512);
 	function ng_app($html) {
 		$html =  $html . ' class="no-js" ng-app="sprfc"';
 		return $html;
@@ -129,6 +129,12 @@
 			'menu_slug' => 'instagram',
 			'icon_url' => get_stylesheet_directory_uri() . '/assets/images/instagram.png'
 		));
+		acf_add_options_page(array(
+			'page_title' 	=> 'Facebook Settings',
+			'menu_title'	=> 'Facebook',
+			'menu_slug' => 'facebook',
+			'icon_url' => 'dashicons-facebook'
+		));
 		acf_add_options_sub_page(array(
 			'page_title' 	=> 'Campi comuni',
 			'menu_title'	=> 'Campi comuni',
@@ -180,3 +186,14 @@
         add_rewrite_endpoint($name, EP_ROOT );
     }
     add_action('init', 'rewrite_popup_url' );
+
+    function extend_facebook_at($value, $post_id, $field) {
+    	$group = get_field('facebook_api', 'options');
+    	$new_value = extend_access_token($group);
+    	if($new_value){
+    	   	$value = $new_value['facebook_extended_at'];
+    	}
+    	return $value;
+    }
+    //add_filter('acf/update_value/name=facebook_extended_at', 'extend_facebook_at', 10, 3);
+    //add_action( 'acf/save_post', 'extend_facebook_at', 100 );

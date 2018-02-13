@@ -1,6 +1,4 @@
 <?php
-    include( locate_template( 'extras/vendor/autoload.php', false, false) );
-    
     add_action( 'rest_api_init', 'api_init' );
     
     function api_init() {
@@ -33,6 +31,23 @@
                 $expiration_time = 60*60*2;
                 set_transient($user_id, $items, $expiration_time);
                 return $items;
+            }
+        }
+        register_rest_route('api/v1', '/facebook', array(
+            'methods' => 'GET',
+            'callback' => 'faebook_posts'
+        ));
+        function faebook_posts() {
+            $page_id = get_field('facebook_api', 'options')['facebook_page_id'];
+            $cached = get_transient($page_id);
+            $data = facebook_feed();
+            return $data;
+            if($cached !== false) {
+                return $cached;
+            } else {
+                $expiration_time = 60*60*2;
+                set_transient($page_id, $data, $expiration_time);
+                return $data;
             }
         }
     }

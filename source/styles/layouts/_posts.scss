@@ -102,6 +102,8 @@
 		&meta {
 			@include normalize_padding_half;
 			padding-bottom: em($p);
+			position: relative;
+			z-index: 10;
 		}
 	}
 }

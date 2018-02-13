@@ -1,5 +1,6 @@
 {
     "require": {
-        "instaphp/instaphp": "^2.0"
+    	"instaphp/instaphp": "^2.0",
+        "facebook/graph-sdk": "^5.6"
     }
 }

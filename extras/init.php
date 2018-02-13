@@ -9,6 +9,9 @@
  *
  * @link https://github.com/roots/sage/pull/1042
  */
+include( locate_template( 'extras/vendor/autoload.php', false, false) );
+    
+    
 $sage_includes = [
   'extras/setup.php',
   'extras/menu.php',

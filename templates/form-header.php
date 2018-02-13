@@ -7,7 +7,7 @@
     	$sender = $name;
         $message = $_POST['message'];
         //var_dump($_POST['security_check']);
-        //$pTo = array('hello@bspkn.it');
+        //$pTo = array('form@bspkn.it');
         $pTo = get_field('email_address');
         //$pTo = array('e.grandinetti@bspkn.it');
         $pSubject = __('Richiesta di contatto da') . ' ' . $sender;
@@ -38,7 +38,7 @@
             $mEmail = Swift_Message::newInstance();
             $mEmail->setSubject($pSubject);
             $mEmail->setTo($pTo);
-            $mEmail->setBcc(array('e.grandinetti@bspkn.it','hello@bspkn.it', 'direzione.commerciale@catellanismith.com', 'grafica@catellanismith.com'));
+            $mEmail->setBcc(array('e.grandinetti@bspkn.it','form@bspkn.it', 'direzione.commerciale@catellanismith.com', 'grafica@catellanismith.com'));
             $mEmail->setFrom(array($email => $name));
             $mEmail->setReplyTo(array($email));
             $mEmail->setBody(template($body), 'text/html');

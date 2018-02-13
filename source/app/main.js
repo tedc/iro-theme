@@ -8,6 +8,7 @@ require('angular-load');
 require('angular-loading-bar');
 require('../../bower_components/ngCart/dist/ngCart')
 require('angular-youtube-embed');
+require('../../bower_components/angular-i18n/angular-locale_it-it');
 window.controller = new ScrollMagic.Controller()
 var iro = angular.module('iro', ['ngSanitize','angular-loading-bar', 'ui.router', 'angularLoad', 'ngAnimate', 'angular-bind-html-compile', 'ngCart', 'ngCookies', 'youtube-embed']);
 const vars = vars;

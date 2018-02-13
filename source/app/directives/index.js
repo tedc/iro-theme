@@ -142,5 +142,63 @@ iro
 			}]
 		}
 	})
+
+	.directive('ngFacebook', ()=> {
+		return {
+			restrict: 'A',
+			controller : [ '$scope', "$http", '$timeout', 'getInstances', '$rootScope', ($scope, $http, $timeout, getInstances, $rootScope)=>{
+				let regex = new RegExp(`(${vars.main.langs})$`, "g");
+	            let new_base = vars.main.base.replace(/\/$/g, '').replace(regex, '');
+	            let url = `${new_base}/wp-json/api/v1/facebook`;
+        		// $scope.renderSlide = (slide, index)=> {
+        		// 	let html = `<li class="instagram__item instagram__item--cell-s3 swiper-slide">${slide}</li>`;
+        		// 	console.log(html);
+        		// 	return html;
+        		// }
+        		var fb_slider = getInstances.getInstance('facebook');
+
+          		fb_slider.then( (swiper)=> {
+            		$scope.$on('updateSwiper', ()=> {
+        				swiper.update();
+        				swiper.scrollbar.updateSize();
+        			});
+				} );
+        		$http
+	            	.get(url)
+	            	.then( (res)=> {
+	            		let data = res.data;
+		            	if(data.length < 1) return;
+		            	$scope.fb = data;
+		            	let cut = (value, word, max, ellipsis)=> {
+							if(!value) return '';
+							max = parseInt(max, 10);
+							if(!max) return value;
+							if(value.length <= max) return value;
+							value = value.substr(0, max);
+							if(word) {
+								let lastspace = value.lastIndexOf(' ');
+								if(lastspace !== -1) {
+									value = value.substr(0, lastspace);
+								}
+							}
+							let excerpt =  `${value}${(ellipsis || '...')}`;
+							return excerpt;
+				        }
+		            	$scope.convertHtml = (str)=> {
+		            		str = cut(str, true, 240);
+		            		let re = /(?![^<]*>|[^<>]*<\/)((http:|https:)\/\/[a-zA-Z0-9&#=.\/\-?_]+)/gi;
+		            		let subst = '<a href="$1" target="_blank">$1</a>';
+		            		let subhash = '$1<a href="https://www.facebook.com/hashtag/$3" target="_blank">$2$3</a>';
+		            		str = str.replace(re, subst);
+		            		let newLine = /[\n\r]/g;
+		            		let hashTag = /(^|\s)(#)([a-z\d-]+)/gi;
+		            		str = str.replace(newLine, '<br/>');
+		            		str = str.replace(hashTag, subhash);
+		            		return str;
+		            	}
+	            	});
+			}]
+		}
+	})
 	.directive('review', require('./review'))
 	.directive('loginForm', require('./login'))
