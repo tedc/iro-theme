@@ -22,6 +22,7 @@
 .post {
 	@include grow('lg', 'top');
 	position: relative;
+	z-index: 1;
 	&--grid {
 		align-items: center;
 		align-content: center;
