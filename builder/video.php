@@ -1,6 +1,11 @@
 <?php 
 	$video = 'video';
+	$src = get_sub_field('video_iframe', false, false);
+	$src = explode('?v=', $src);
+	$src = explode('&', $src[1]);
+	$src = $src[0];
 	if(get_sub_field('video')) :
+
 	$file = preg_replace('/\\.[^.\\s]{3,4}$/', '', get_sub_field('video')['url']);
 	$video_id = $video.'_video_'. get_the_ID().'_'.$row;
 ?>
@@ -20,11 +25,17 @@
 			<i class="icon-play"></i><br/>
 			<span class=""><?php _e('Guarda il video', 'iro'); ?></span>
 		</span>
-		<?php if(get_sub_field('video_link')) : ?>
-		<a class="video__button video__button--dark" href="<?php echo get_permalink(get_sub_field('video_link')); ?>" ui-sref="app.page({slug : '<?php echo basename(get_sub_field('video_link')); ?>'})">
-			<?php echo get_the_title(get_sub_field('video_link')); ?>
-		</a>
-		<?php endif; ?>
+		<?php
+		$button_class = 'video__button';
+		if(get_sub_field('video_link')):
+		$button_link = get_sub_field('video_link')['url'];
+		$button_text = get_sub_field('video_link')['title'];
+	?>
+	<a class="video__button video__button--dark" class="<?php echo $button_class; ?>" ui-sref="app.page({slug : '<?php echo basename($button_link); ?>'})">
+		<?php echo $button_text; ?>
+	</a>
+	<?php endif; ?>
+
 	</div>
 </div>
 <?php if(get_sub_field('video_iframe')) :
