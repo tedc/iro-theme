@@ -84,6 +84,9 @@
 					display: none;
 				}
 			}
+			&--text {
+				z-index: 2;
+			}
 			.section--grid-invert & {
 				order: 3;
 				&:nth-child(1) {
@@ -109,6 +112,18 @@
 			.row--shrink-fw &, &.section__figure--shrink-fw-right, &.section__figure--shrink-fw-left {
 				text-align: center;
 			}
+			&--double {
+				@include breakpoint() {	
+					display: flex;
+					max-width: none;
+					.section__cell--even & {
+						justify-content: flex-end;
+					}
+					.section__cell--odd & {
+						justify-content: flex-start;
+					}
+				}
+			}
 		}
 		&image {
 			display: inline-block;
@@ -123,23 +138,32 @@
 					}
 				}
 			}
-			&--double {
-				@include breakpoint() {	
-					max-width: none;
-					.section__cell--s6 & {
-						width: calc(200% - #{em($p*2)});
-					}
-					.section__cell--s8 & {
-						$w: $f * 1.5;
-						width: calc(#{$w} - #{em($p*2)});
-					}
-					.section__cell--s7 & {
-						$w: $f * 1.24;
-						width: calc(#{$w} - #{em($p*2)});
-					}
+			@include breakpoint() {	
+				flex: 0 0 auto;
+				max-width: none;
+				.section__cell--s6 .section__figure--double & {
+					width: calc(200% - #{em($p*2)});
 				}
-				@include breakpoint($max-width) {	
+				.section__cell--s8 .section__figure--double  & {
+					$w: $f * 1.5;
+					width: calc(#{$w} - #{em($p*2)});
+				}
+				.section__cell--s7 .section__figure--double  & {
+					$w: $f * 1.24;
+					width: calc(#{$w} - #{em($p*2)});
+				}
+			}
+			@include breakpoint($max-width) {
+				.section__cell--s6 .section__figure--double  & {
 					width: calc(200% - ((100vw - #{$max-width}) / 2));
+				}
+				.section__cell--s8 & {
+					$w: $f * 1.5;
+					width: calc(#{$w} - ((100vw - #{$max-width}) / 2));
+				}
+				.section__cell--s7 .section__figure--double  & {
+					$w: $f * 1.24;
+					width: calc(#{$w} - ((100vw - #{$max-width}) / 2));
 				}
 			}
 		}

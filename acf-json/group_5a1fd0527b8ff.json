@@ -544,7 +544,7 @@
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "",
+                                        "width": "33",
                                         "class": "",
                                         "id": ""
                                     },
@@ -558,7 +558,7 @@
                                     },
                                     "allow_null": 1,
                                     "default_value": "",
-                                    "layout": "horizontal",
+                                    "layout": "vertical",
                                     "return_format": "value"
                                 },
                                 {
@@ -570,7 +570,7 @@
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "",
+                                        "width": "33",
                                         "class": "",
                                         "id": ""
                                     },
@@ -582,9 +582,9 @@
                                         "row__flowers--center row__flowers--flipped-x": "Asse x capovolta",
                                         "row__flowers--center row__flowers--flipped-y": "Asse y capovolta"
                                     },
-                                    "allow_null": 0,
+                                    "allow_null": 1,
                                     "default_value": "",
-                                    "layout": "horizontal",
+                                    "layout": "vertical",
                                     "return_format": "value"
                                 },
                                 {
@@ -596,7 +596,7 @@
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "",
+                                        "width": "33",
                                         "class": "",
                                         "id": ""
                                     },
@@ -608,9 +608,9 @@
                                         "row__flowers--bottom row__flowers--flipped-x": "Asse x capovolta",
                                         "row__flowers--bottom row__flowers--flipped-y": "Asse y capovolta"
                                     },
-                                    "allow_null": 0,
+                                    "allow_null": 1,
                                     "default_value": "",
-                                    "layout": "horizontal",
+                                    "layout": "vertical",
                                     "return_format": "value"
                                 }
                             ]
@@ -2787,5 +2787,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1518618105
+    "modified": 1518619650
 }

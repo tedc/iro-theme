@@ -4,7 +4,7 @@ if(!$mw && !$centered && !get_sub_field('full_image')) {
 	$section__figure .= ($col%2==0) ? ' section__figure--shrink-fw-left' : ' section__figure--shrink-fw-right';
 	$is_not_full = true;
 } ?>
-<figure class="<?php echo $section__figure; ?>">
+<figure class="<?php echo $section__figure; echo (get_sub_field('double_image')) ? ' section__figure--double' : ''; ?>">
 	<?php 
 	if(is_mobile()) {
 		$thumb = 'medium';
@@ -22,7 +22,7 @@ if(!$mw && !$centered && !get_sub_field('full_image')) {
 		$mv_mob = (get_sub_field('move_top_image')) ? 'top:' .(get_sub_field('move_top_image')/16) . 'em' : null;	
 	}
 	?>
-	<span class="section__image<?php echo (get_sub_field('mobile_image')) ? ' section__image--mobile-hide' : ''; echo (get_sub_field('double_image')) ? ' section__image--double' : ''; ?>" style="max-width: <?php echo ($w/15); ?>em">
+	<span class="section__image<?php echo (get_sub_field('mobile_image')) ? ' section__image--mobile-hide' : ''; ?>"<?php if(!get_sub_field('double_image')) : ?> style="max-width: <?php echo ($w/15); ?>em"<?php endif; ?>>
 	<?php echo wp_get_attachment_image( get_sub_field('immagine')['ID'], $thumb, false, array('class'=>'section__thumb', 'style' => $mv) ); ?>
 	</span>
 	<?php if(get_sub_field('mobile_image')) : ?>
