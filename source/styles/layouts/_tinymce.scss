@@ -2,4 +2,7 @@ body#tinymce {
   margin: 12px !important;
   opacity: 1!important;
   padding: 0!important;
+  p {
+  	padding-bottom: em($p)!important;
+  }
 }

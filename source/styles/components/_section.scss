@@ -43,8 +43,9 @@
 						height: 8px;
 						background-color: $alternate-color;
 						position: absolute;
-						top: 3px;
+						top: em(18px);
 						left: 0;
+						border-radius: 8px;
 					}
 					&:nth-child(1) {
 						padding-top: 0;
