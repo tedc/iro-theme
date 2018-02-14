@@ -22,7 +22,7 @@ if(!$mw && !$centered && !get_sub_field('full_image')) {
 		$mv_mob = (get_sub_field('move_top_image')) ? 'top:' .(get_sub_field('move_top_image')/16) . 'em' : null;	
 	}
 	?>
-	<span class="section__image<?php echo (get_sub_field('mobile_image')) ? ' section__image--mobile-hide' : ''; ?>" style="max-width: <?php echo ($w/15); ?>em">
+	<span class="section__image<?php echo (get_sub_field('mobile_image')) ? ' section__image--mobile-hide' : ''; echo (get_sub_field('double_image')) ? ' section__image--double' : ''; ?>" style="max-width: <?php echo ($w/15); ?>em">
 	<?php echo wp_get_attachment_image( get_sub_field('immagine')['ID'], $thumb, false, array('class'=>'section__thumb', 'style' => $mv) ); ?>
 	</span>
 	<?php if(get_sub_field('mobile_image')) : ?>

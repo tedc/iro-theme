@@ -82,12 +82,12 @@
 		$pattern = (!empty($pattern_style)) ? '<div class="row__pattern'.$patternClass.'" style="'.$pattern_style.'"></div>' : '';	
 		$bgStyle = (!empty($bg)) ? ' style="'.$bg.'"' : '';
 		$abs_image = get_sub_field('absolute_image');
-		$relativeRow = ($abs_image['file'] && get_sub_field('floating_image') || $background['ondine'] || $background['clouds']) ? ' row--relative' : '';
+		$relativeRow = ($abs_image['file'] && get_sub_field('floating_image') || $background['ondine'] || $background['clouds'] || $background['flowers']) ? ' row--relative' : '';
 		$multiplyClass = ($abs_image['multiply']) ? ' row__figure--multiply' : '';
 		$top = ($abs_image['file'] && get_sub_field('floating_image') && $abs_image['top'] != 0) ? ' move-top-image="'.$abs_image['top'].'"' : '';
 		$multiplyClass .= ($abs_image['file'] && get_sub_field('floating_image') && $abs_image['z_index_0']) ? ' row__figure--lowlev' : '';
 		$abs_image = ($abs_image['file'] && get_sub_field('floating_image')) ? '<figure class="row__figure row__figure'.$abs_image['posizione'].$multiplyClass.'"'.$top.' style="width:'.$abs_image['width'].'%;"><img src="'.$abs_image['file'].'" class="row__image"/></figure>' : '';
-
+	
 	?>
 	<section class="row<?php echo $p . $fw . $bgClass . $relativeRow; echo (get_sub_field('white_text') ? ' row--inverted' : ''); ?>"<?php echo $bgStyle; ?>>
 		<?php
@@ -98,7 +98,18 @@
 		if($background['clouds']) : 
 			if($background['clouds'] != 2) : ?>
 		<div class="row__clouds row__clouds--top"></div>
-		<?php endif; endif; echo $pattern; ?>
+		<?php endif; endif;
+			if($background['flowers'] && $background['flowers']['top_flowers']) : 
+				echo '<div class="row__flowers '.$background['flowers']['top_flowers'].'"></div>';
+			endif;
+		 echo $pattern;
+		 	if($background['flowers'] && $background['flowers']['center_flowers']) : 
+				echo '<div class="row__flowers '.$background['flowers']['center_flowers'].'"></div>';
+			endif;
+			if($background['flowers'] && $background['flowers']['bottom_flowers']) : 
+				echo '<div class="row__flowers '.$background['flowers']['bottom_flowers'].'"></div>';
+			endif;
+		  ?>
 	<?php
 		$row = 0;
 		while(have_rows('layout')) :

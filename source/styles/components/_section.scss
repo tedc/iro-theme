@@ -123,6 +123,15 @@
 					}
 				}
 			}
+			&--double {
+				@include breakpoint() {	
+					max-width: none;
+					width: calc(200% - #{em($p*2)});
+				}
+				@include breakpoint($max-width) {	
+					width: calc(200% - ((100vw - #{$max-width}) / 2));
+				}
+			}
 		}
 		&thumb {
 			width: $f!important;
