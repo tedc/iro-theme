@@ -1,23 +1,23 @@
-.flowers {
+[class*="flowers"] {
 	background: url(../images/iro-illustrazione-elemento-soffione-1.png) repeat-x center;
 	background-size: contain;
 	position: absolute;
 	left: 0;
 	width: $f;
 	height: em($p*20);
-	&--top {
+	&[class*="--top"] {
 		top: 0;
 	}
-	&--bottom {
+	&[class*="--bottom"] {
 		bottom: 0;
 	}
-	&--flipped {
+	&[class*="--flipped"] {
 		transform: scale(-1);
-		&-x {
-			transform: scaleX(-1);
-		}
-		&-y {
-			transform: scaleY(-1);
-		}
+	}
+	&[class*="--flipped-x"] {
+		transform: scaleX(-1);
+	}
+	&[class*="--flipped--y"] {
+		transform: scaleY(-1);
 	}
 }
