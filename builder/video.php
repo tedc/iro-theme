@@ -4,6 +4,7 @@
 	$src = explode('?v=', $src);
 	$src = explode('&', $src[1]);
 	$src = $src[0];
+	var_dump($src);
 	if(get_sub_field('video')) :
 
 	$file = preg_replace('/\\.[^.\\s]{3,4}$/', '', get_sub_field('video')['url']);
