@@ -1,10 +1,10 @@
 .flowers {
-	background: url(../images/iro-illustrazione-elemento-soffione-1.png) no-repeat center;
+	background: url(../images/iro-illustrazione-elemento-soffione-1.png) repeat center;
 	background-size: contain;
 	position: absolute;
 	left: 0;
 	width: $f;
-	height: em(300px);
+	height: em($p*20);
 	&--top {
 		top: 0;
 	}
