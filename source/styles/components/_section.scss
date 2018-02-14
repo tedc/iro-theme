@@ -138,7 +138,7 @@
 					}
 				}
 			}
-			@include breakpoint() {	
+			@include breakpoint(1024px) {	
 				flex: 0 0 auto;
 				max-width: none;
 				.section__cell--s6 .section__figure--double & {

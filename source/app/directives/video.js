@@ -2,6 +2,7 @@ module.exports = ($rootScope, $timeout)=> {
     return {
         scope: true,
         link : (scope, element)=> {
+            console.log(element);
             if(vars.main.mobile) {
                 scope.isLoading = false;
                 scope.isPaused = true;
