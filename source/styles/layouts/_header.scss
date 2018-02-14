@@ -15,6 +15,11 @@
 .banner {
 	@extend %banner;
 	font-family: $alternate-font;
+	display: flex;
+	flex-wrap: wrap;
+	@include breakpoint(1024px) {
+		flex-wrap: nowrap;
+	}
 	.icon-logo {
 		display: flex;
 		align-items: center;
@@ -23,6 +28,13 @@
 			display: inline-block;
 			position: relative;
 			top: em($p/5, 40px)*-1;
+		}
+	}
+	&__nav {	
+		display: flex;
+		flex-wrap: wrap;
+		@include breakpoint(1024px) {
+			flex-wrap: nowrap;
 		}
 	}
 	&__menu {

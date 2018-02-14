@@ -4,8 +4,8 @@
     $phone_unformatted = preg_replace('/[^0-9,.]/','',str_replace('+', '00', $phone)); 
     acf_unset_language_to_default();
 ?>
-<header class="banner banner--grid banner--shrink-fw" ng-class="{'banner--active-menu':isMenu}">
-    <nav class="banner__nav banner__nav--grid">
+<header class="banner banner--shrink-fw" ng-class="{'banner--active-menu':isMenu}">
+    <nav class="banner__nav">
       <a class="icon-logo" href="<?= esc_url(home_url('/')); ?>" ui-sref="app.root({lang : '<?php echo ICL_LANGUAGE_CODE; ?>'})"></a>
       <div class="banner__menu">
       <?php
