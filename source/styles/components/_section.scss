@@ -126,7 +126,17 @@
 			&--double {
 				@include breakpoint() {	
 					max-width: none;
-					width: calc(200% - #{em($p*2)});
+					.section__cell--s6 & {
+						width: calc(200% - #{em($p*2)});
+					}
+					.section__cell--s8 & {
+						$w: $f * 1.5;
+						width: calc(#{$w} - #{em($p*2)});
+					}
+					.section__cell--s7 & {
+						$w: $f * 1.24;
+						width: calc(#{$w} - #{em($p*2)});
+					}
 				}
 				@include breakpoint($max-width) {	
 					width: calc(200% - ((100vw - #{$max-width}) / 2));
