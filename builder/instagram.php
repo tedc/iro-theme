@@ -9,9 +9,9 @@
 <div class="instagram" ng-instagram>
 	<header class="instagram__header instagram__header--shrink-fw-left instagram__header--grow" ng-if="items.length > 0">
 		<h3 class="instagram__title">@{{username}}</h3><a class="instagram__button instagram__button--slim" ng-attr-href="https://instagram.com/{{username}}" target="_blank"><span><?php _e('Seguici su instagram', 'iro'); ?></span></a>
-		<figure class="instagram__figure"<?php if($img_mb > 0) : ?> style="margin-bottom: <?php echo $img_mb; ?>%"<?php endif; ?>>
+		<!-- <figure class="instagram__figure"<?php if($img_mb > 0) : ?> style="margin-bottom: <?php echo $img_mb; ?>%"<?php endif; ?>>
 			<img src="<?php echo $img_src; ?>" class="instagram__image" alt="<?php _e('Segui Iro su Instagram', 'iro'); ?>" />
-		</figure>
+		</figure> -->
 	</header>
 	<div class="instagram__container" scroller="instagram" options="{freeMode : true, slidesPerView :'auto'}"  ng-if="items.length > 0">
 		<ul class="instagram__wrapper swiper-wrapper">

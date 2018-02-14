@@ -200,5 +200,6 @@ iro
 			}]
 		}
 	})
+	.directive('ngVideo', ['$rootScope', '$timeout', require('./review')])
 	.directive('review', require('./review'))
 	.directive('loginForm', require('./login'))

@@ -28,6 +28,7 @@
 			position: relative;
 			p {
 				font-size: em(14px);
+				padding: 0 em($p, 14px);
 			}
 			&.swiper-slide {
 				width: $f;
