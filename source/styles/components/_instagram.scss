@@ -4,9 +4,6 @@
 			display: flex;
 			align-items: center;
 			padding-bottom: em($p);
-			@include breakpoint() {
-				padding-bottom: 0;
-			}
 		}
 		&figure {
 			display: none;
