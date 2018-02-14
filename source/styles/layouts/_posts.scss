@@ -4,9 +4,15 @@
 		&header {
 			width: $f;
 			flex: 0 0 auto;
+			position: relative;
+		}
+		&nav {
+			@include grow('md', 'top');
+			position: relative;
 		}
 	}
 	&--row {
+		position: relative;
 		padding: {
 			top: em(280px);
 			bottom: em(280px);
