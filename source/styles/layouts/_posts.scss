@@ -6,6 +6,12 @@
 			flex: 0 0 auto;
 		}
 	}
+	&--row {
+		padding: {
+			top: em(280px);
+			bottom: em(280px);
+		};
+	}
 }
 .post {
 	@include grow('lg', 'top');

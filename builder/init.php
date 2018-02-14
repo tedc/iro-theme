@@ -2,6 +2,8 @@
 	while(have_rows('rows')) : the_row();
 		if(get_sub_field('is_divider')) :
 			get_template_part( 'builder/divider' );
+		elseif (get_sub_field('blog')) :
+			get_template_part( 'builder/blog' );
 		else :
 		$padding = get_sub_field('padding');
 		$padding_pos = get_sub_field('padding_mod');

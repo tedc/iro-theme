@@ -1,4 +1,4 @@
-<div class="blog blog--grid blog--grow-lg blog--shrink-fw">
+<div class="blog blog--grid blog--row blog--shrink-fw">
 	<header class="blog__header blog__header--aligncenter">
 		<h2 class="blog__title blog__title--big"><?php _e('Iro Blog', 'iro'); ?></h2>
 	</header>
