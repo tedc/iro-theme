@@ -1,10 +1,5 @@
 <?php 
 	$video = 'video';
-	$src = get_sub_field('video_iframe', false, false);
-	$src = explode('?v=', $src);
-	$src = explode('&', $src[1]);
-	$src = $src[0];
-	var_dump($src);
 	if(get_sub_field('video')) :
 
 	$file = preg_replace('/\\.[^.\\s]{3,4}$/', '', get_sub_field('video')['url']);
@@ -40,8 +35,11 @@
 	</div>
 </div>
 <?php if(get_sub_field('video_iframe')) :
-	$src = get_field('video_iframe', false, false);
-	 ?>
+	$src = get_sub_field('video_iframe', false, false);
+	$src = explode('?v=', $src);
+	$src = explode('&', $src[1]);
+	$src = $src[0];
+?>
 <div class="<?php echo $video; ?>__iframe" player-id="<?php echo $video; ?>_video_<?php echo get_the_ID(); ?>" ng-player="<?php echo $src; ?>" ng-class="{'<?php echo $video; ?>__iframe--visible': isVideo['<?php echo $video_id; ?>']}">
 	<?php include(locate_template( 'builder/commons/video.php', false, true )); ?>
 </div>
