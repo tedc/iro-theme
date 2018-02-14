@@ -11,6 +11,10 @@
 	&[class*="--bottom"] {
 		bottom: 0;
 	}
+	&[class*="--center"] {
+		top: 50%;
+		margin-top: em($p*-10);
+	}
 	&[class*="--flipped"] {
 		transform: scale(-1);
 	}
