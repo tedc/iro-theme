@@ -33,3 +33,24 @@
 		}
 	}
 }
+
+.lrgrimg {
+	&__image {
+		width: $f;
+		height: auto;
+	}
+	.section__cell & {
+		margin: {
+			top: em($p);
+			bottom: em($p);
+		};
+	}
+	.section__cell--mw & {
+		@include breakpoint($md-max-width) {
+			$side: ($md-max-width - $min-max-width) / 2;	
+			$m: percentage($side/$min-max-width);
+			margin-left: $m*-1;
+			margin-right: $m*-1;
+		}
+	}
+}
