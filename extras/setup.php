@@ -197,3 +197,13 @@
     }
     //add_filter('acf/update_value/name=facebook_extended_at', 'extend_facebook_at', 10, 3);
     //add_action( 'acf/save_post', 'extend_facebook_at', 100 );
+
+
+    function iro_larger_image($atts) {
+        $src = $atts['src'];
+        ob_start(); 
+        include(locate_template( 'builder/commons/large-image.php', false, true ));
+        return ob_get_clean();
+    }
+
+    add_shortcode( 'larger_image', 'iro_larger_image' );

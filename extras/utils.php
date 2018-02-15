@@ -171,12 +171,3 @@
         $data = array('info' => $infoNode, 'feed' => $graphNode['data']);
         return $data;
     }
-
-    function iro_larger_image($atts) {
-        $src = $atts['src'];
-        ob_start(); 
-        include(locate_template( 'builder/commons/larger-image.php', false, true ));
-        return ob_get_clean();
-    }
-
-add_shortcode( 'larger_image', 'iro_larger_image' );
