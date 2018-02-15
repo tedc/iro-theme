@@ -43,11 +43,12 @@ module.exports = ($rootScope, $timeout)=> {
                 index: 10,
                 onUpdateParams : ['{self}'],
                 onUpdate : (evt)=> {
-                    if(evt.target.index > 0 && evt.target.index <= 9.6) {
-                        element[0].play();
-                    } else {
-                        element[0].pause();
-                    }
+                    console.log(evt.target.index);
+                    // if(evt.target.index > 0 && evt.target.index <= 9.6) {
+                    //     element[0].play();
+                    // } else {
+                    //     element[0].pause();
+                    // }
                 }
             });
             let enterVideoScene = new ScrollMagic.Scene({
