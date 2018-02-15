@@ -1,7 +1,31 @@
 .valori {
 	overflow: hidden;
+	position: relative;
 	@include grow('md');
 	&__{
+		display: flex;
+		justify-content: center;
+		&main {
+			max-width: em(1000px);
+			margin: 0 auto;
+			position: relative;
+		}
+		&nav {
+			[class*="icon"] {
+				font-size: em(20px);
+				width: em($p*4);
+				height: em($p*4);
+				line-height: em($p*4);
+				background-color: $alternate-color;
+				color: $brand-main;
+				transition: background-color $speed;
+				cursor: pointer;
+				&:hover {
+					background-color: $brand-main;
+					color: $w;
+				}
+			}
+		}
 		&container {
 			@include grow('lg');
 			text-align: center;
@@ -43,18 +67,23 @@
 			z-index: 1;
 		}
 		&circle {
-			position: absolute;
+			//position: absolute;
+			position: relative;
 			//transition: $speed/2;
-			top: 50%;
-			left: 50%;
-			transform: translate3d(-50%, -50%, 0);
+			// top: 50%;
+			// left: 50%;
+			// transform: translate3d(-50%, -50%, 0);
 			@include normalize_padding_half;
 			&:before {
 				display: block;
 				padding-top: $f;
-				border-radius: $f;
-				background-color: #f8f6d8;
+				// border-radius: $f;
+				// background-color: #f8f6d8;
 				content: '';
+			}
+			img {
+				width: $f!important;
+				height: auto!important;
 			}
 		}
 		&text, &title {
@@ -71,9 +100,9 @@
 		}
 		&title {
 			line-height: 1;
-			.swiper-slide-next:hover &, .swiper-slide-prev:hover & {
-				opacity: 1!important;
-			}
+			// .swiper-slide-next:hover &, .swiper-slide-prev:hover & {
+			// 	opacity: 1!important;
+			// }
 		}
 		&text {
 			padding-top: em($p/2);
@@ -83,18 +112,18 @@
 			//transform: none!important;
 			width: $f;
 		}
-		&icon {
-			max-width: em(100px);
-			height: auto!important;
-			position: absolute;
-			top: 0;
-			left: 50%;
-			transform: translate3d(-50%, -50%, 0);
-			opacity: 0;
-			transition: opacity $speed/2;
-			.swiper-slide-active &, .swiper-slide-next &, .swiper-slide-prev & {
-				opacity: 1;
-			}
-		}
+		// &icon {
+		// 	max-width: em(100px);
+		// 	height: auto!important;
+		// 	position: absolute;
+		// 	top: 0;
+		// 	left: 50%;
+		// 	transform: translate3d(-50%, -50%, 0);
+		// 	opacity: 0;
+		// 	transition: opacity $speed/2;
+		// 	.swiper-slide-active &, .swiper-slide-next &, .swiper-slide-prev & {
+		// 		opacity: 1;
+		// 	}
+		// }
 	}
 }
