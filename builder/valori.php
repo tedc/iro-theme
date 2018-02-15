@@ -13,7 +13,7 @@ if($values->have_posts()) : ?>
 		<i class="icon-arrow-left"></i>
 	</span>
 	<div class="<?php echo $name; ?>__main">
-		<div class="<?php echo $name; ?>__container swiper-container" scroller="values" options="{effect : 'magnify', 'grabCursor' : true, magnifyEffect: {slideResizerClass : '.<?php echo $name; ?>__circle'},  init: false, slideToClickedSlide : true, speed : 750}">
+		<div class="<?php echo $name; ?>__container swiper-container" scroller="values" options="{effect : 'magnify', 'grabCursor' : true, magnifyEffect: {slideResizerClass : '.<?php echo $name; ?>__icon'},  init: false, slideToClickedSlide : true, speed : 750}">
 			<ul class="<?php echo $name; ?>__wrapper swiper-wrapper">
 				<?php $slide = 0; while($values->have_posts()) : $values->the_post();
 				?>
