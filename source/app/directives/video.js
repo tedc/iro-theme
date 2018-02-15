@@ -2,7 +2,6 @@ module.exports = ($rootScope, $timeout)=> {
     return {
         scope: true,
         link : (scope, element)=> {
-            console.log(element);
             if(vars.main.mobile) {
                 scope.isLoading = false;
                 scope.isPaused = true;
@@ -43,7 +42,7 @@ module.exports = ($rootScope, $timeout)=> {
                 index: 10,
                 onUpdateParams : ['{self}'],
                 onUpdate : (evt)=> {
-                    console.log(evt.target.index);
+                    console.log(element[0].paused);
                     // if(evt.target.index > 0 && evt.target.index <= 9.6) {
                     //     element[0].play();
                     // } else {
