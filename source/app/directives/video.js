@@ -54,7 +54,7 @@ module.exports = ($rootScope, $timeout)=> {
                 triggerElement : element[0],
                 duration: '100%'
             }).setTween(tween).addTo(controller);
-            element.on( '$destroy', => {
+            element.on( '$destroy', ()=> {
                 enterVideoScene.destroy();
             });
         }
