@@ -177,4 +177,4 @@
         include(locate_template( 'builder/commons/larger-image.php', false, true ));
     }
     
-add_shortcode( 'iro_larger_image', 'iro_larger_image' );
+add_shortcode( 'larger_image', 'iro_larger_image' );
