@@ -33,7 +33,7 @@ if($values->have_posts()) : ?>
 		</div>
 	</div>
 	<span class="<?php echo $name; ?>__nav">
-		<i class="icon-arrow-left"></i>
+		<i class="icon-arrow-right"></i>
 	</span>
 	<?php echo wp_get_attachment_image( $image, 'full', false, array('class' => $name.'__image' )); ?>
 </section>

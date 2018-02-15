@@ -1,11 +1,13 @@
 .valori {
 	overflow: hidden;
 	position: relative;
+	display: flex;
+	justify-content: center;
 	@include grow('md');
-	&__{
-		display: flex;
-		justify-content: center;
+	&__{		
 		&main {
+			flex: 0 0 auto;
+			width: $f;
 			max-width: em(1000px);
 			margin: 0 auto;
 			position: relative;
@@ -20,6 +22,8 @@
 				color: $brand-main;
 				transition: background-color $speed;
 				cursor: pointer;
+				border-radius: $f;
+				text-align: center;
 				&:hover {
 					background-color: $brand-main;
 					color: $w;
@@ -50,6 +54,7 @@
 			justify-content: center;
 			align-items: center;
 			position: relative;
+			flex-wrap: wrap;
 			p {
 				font-size: em(14px);
 				padding: 0 em($p, 14px);
@@ -65,6 +70,7 @@
 			padding-top: em(100px);
 			padding-bottom: em(100px);
 			z-index: 1;
+			width: $f;
 		}
 		&circle {
 			//position: absolute;
