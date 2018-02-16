@@ -34,7 +34,7 @@ if($values->have_posts()) : ?>
 			</ul>
 		</div>
 	</div>
-	<span class="<?php echo $name; ?>__nav<?php echo $name; ?>__nav--next">
+	<span class="<?php echo $name; ?>__nav <?php echo $name; ?>__nav--next">
 		<i class="icon-arrow-right" ng-click="valueMove(true)"></i>
 	</span>
 	<?php echo wp_get_attachment_image( $image, 'full', false, array('class' => $name.'__image' )); ?>
