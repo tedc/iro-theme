@@ -35,6 +35,7 @@
 
 %video_play {
 	transition: opacity $speed, color $speed;
+	color: $w;
 	[class*="play-pause"]:hover & {
 		color: $highlight-color;
 	}
