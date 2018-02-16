@@ -216,10 +216,10 @@
 			border-top: em(100px) solid $w;
 			border-bottom: em(100px) solid $w;
 			animation: wave 3000ms infinite linear;
-			animation-play-state: paused;
+			//animation-play-state: paused;
 			backface-visibility: hidden;
 			.video--playing & {
-				animation-play-state: running;
+				//animation-play-state: running;
 			}
 			.video__waves--cyan {
 				border-color: $cyan;
