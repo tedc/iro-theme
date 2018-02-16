@@ -227,15 +227,15 @@
 				transition: none;
 				animation: wave 3000ms infinite linear;
 			}
-			.video__waves--azure {
+			.video__waves--azure & {
 				border-top-color: $cyan;
 				border-bottom-color: $cyan;
-				&--top {
-					border-top-color: $cyan;
-				}
-				&--bottom {
-					border-bottom-color: $cyan;
-				}
+			}
+			.video__waves--azure-bottom {
+				border-top-color: $cyan;
+			}
+			.video__waves--azure-bottom {
+				border-top-color: $cyan;
 			}
 			.video__waves & {
 				&:nth-child(1) {
