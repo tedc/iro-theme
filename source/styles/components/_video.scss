@@ -140,6 +140,7 @@
 
 .video {
 	position: relative;
+	overflow: hidden;
 	min-height: calc(100vh - #{em($p*4)});
 	&--waves {
 		min-height: calc(100vh);
@@ -231,11 +232,11 @@
 				border-top-color: $cyan;
 				border-bottom-color: $cyan;
 			}
-			.video__waves--azure-bottom & {
+			.video__waves--azure-top & {
 				border-top-color: $cyan;
 			}
 			.video__waves--azure-bottom & {
-				border-top-color: $cyan;
+				border-bottom-color: $cyan;
 			}
 			.video__waves & {
 				&:nth-child(1) {
