@@ -2523,9 +2523,9 @@
                                     "edit_in_rest": 0,
                                     "choices": {
                                         "video__waves": "Bianche",
-                                        "video__waves video__waves--cyan": "Azzurre",
-                                        "video__waves video__waves--cyan-top": "Azzurre sopra, bianche sotto",
-                                        "video__waves video__waves--cyan-bottom": "Azzurre sotto, bianche sopra"
+                                        "video__waves video__waves--azure": "Azzurre",
+                                        "video__waves video__waves--azure-top": "Azzurre sopra, bianche sotto",
+                                        "video__waves video__waves--azure-bottom": "Azzurre sotto, bianche sopra"
                                     },
                                     "allow_null": 1,
                                     "default_value": "",
@@ -2821,5 +2821,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1518778515
+    "modified": 1518781473
 }

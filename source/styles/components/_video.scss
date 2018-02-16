@@ -227,8 +227,9 @@
 				transition: none;
 				animation: wave 3000ms infinite linear;
 			}
-			.video__waves--cyan {
-				border-color: $cyan;
+			.video__waves--azure {
+				border-top-color: $cyan;
+				border-bottom-color: $cyan;
 				&--top {
 					border-top-color: $cyan;
 				}
