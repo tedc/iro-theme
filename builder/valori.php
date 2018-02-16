@@ -10,10 +10,10 @@ $values = new WP_Query($args);
 if($values->have_posts()) : ?>
 <section class="<?php echo $name; ?> <?php echo $name; ?>--grow-md">
 	<span class="<?php echo $name; ?>__nav">
-		<i class="icon-arrow-left"></i>
+		<i class="icon-arrow-left" ng-click="valueMove(false)"></i>
 	</span>
 	<div class="<?php echo $name; ?>__main">
-		<div class="<?php echo $name; ?>__container swiper-container" scroller="values" options="{effect : 'magnify', 'grabCursor' : true, magnifyEffect: {slideResizerClass : '.<?php echo $name; ?>__icon'},  init: false, slideToClickedSlide : true, speed : 750, 'navigation': {'nextEl': '<?php echo $name; ?>__nav .icon-arrow-left','prevEl': '<?php echo $name; ?>__nav .icon-arrow-right'}}">
+		<div class="<?php echo $name; ?>__container swiper-container" scroller="values" options="{effect : 'magnify', 'grabCursor' : true, magnifyEffect: {slideResizerClass : '.<?php echo $name; ?>__icon'},  init: false, slideToClickedSlide : true, speed : 750}">
 			<ul class="<?php echo $name; ?>__wrapper swiper-wrapper">
 				<?php $slide = 0; while($values->have_posts()) : $values->the_post();
 				?>
@@ -35,7 +35,7 @@ if($values->have_posts()) : ?>
 		</div>
 	</div>
 	<span class="<?php echo $name; ?>__nav">
-		<i class="icon-arrow-right"></i>
+		<i class="icon-arrow-right" ng-click="valueMove(true)"></i>
 	</span>
 	<?php echo wp_get_attachment_image( $image, 'full', false, array('class' => $name.'__image' )); ?>
 </section>
