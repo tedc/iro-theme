@@ -141,6 +141,9 @@
 .video {
 	position: relative;
 	min-height: calc(100vh - #{em($p*4)});
+	&--waves {
+		min-height: calc(100vh);
+	}
 	display: flex;
 	flex-direction: column;
 	&__{
