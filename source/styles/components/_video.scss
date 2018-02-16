@@ -218,9 +218,9 @@
 			animation: wave 3000ms infinite linear;
 			//animation-play-state: paused;
 			backface-visibility: hidden;
-			.video--playing & {
-				//animation-play-state: running;
-			}
+			// .video--playing & {
+			// 	//animation-play-state: running;
+			// }
 			.video__waves--cyan {
 				border-color: $cyan;
 				&--top {
