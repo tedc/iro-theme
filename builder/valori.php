@@ -9,7 +9,7 @@ $image = get_sub_field($name.'_image')['ID'];
 $values = new WP_Query($args);
 if($values->have_posts()) : ?>
 <section class="<?php echo $name; ?> <?php echo $name; ?>--grow-md">
-	<span class="<?php echo $name; ?>__nav">
+	<span class="<?php echo $name; ?>__nav <?php echo $name; ?>__nav--prev">
 		<i class="icon-arrow-left" ng-click="valueMove(false)"></i>
 	</span>
 	<div class="<?php echo $name; ?>__main">
@@ -34,7 +34,7 @@ if($values->have_posts()) : ?>
 			</ul>
 		</div>
 	</div>
-	<span class="<?php echo $name; ?>__nav">
+	<span class="<?php echo $name; ?>__nav<?php echo $name; ?>__nav--next">
 		<i class="icon-arrow-right" ng-click="valueMove(true)"></i>
 	</span>
 	<?php echo wp_get_attachment_image( $image, 'full', false, array('class' => $name.'__image' )); ?>
