@@ -19,7 +19,9 @@ if($values->have_posts()) : ?>
 				?>
 				<li class="<?php echo $name; ?>__item swiper-slide <?php echo $name; ?>__cell--grow-md<?php echo ($slide==0) ? ' swiper-slide-active':''; ?>" id="valore_<?php echo the_ID(); ?>" title="<?php _e('Trascina e scopri', 'iro'); ?>">
 					<div class="<?php echo $name; ?>__circle">
-						<?php the_post_thumbnail('large', array('class' => $name.'__icon')); ?>
+						<figure class="<?php echo $name; ?>__icon">
+							<?php the_post_thumbnail('large', array('class' => $name.'__image')); ?>
+						</figure>
 					</div>
 					<div class="<?php echo $name; ?>__content">
 						<h3 class="<?php echo $name; ?>__title"><?php the_title(); ?></h3>
