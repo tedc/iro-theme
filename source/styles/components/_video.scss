@@ -215,12 +215,15 @@
 			border-radius: 40% 50% / 40% 50%;
 			border-top: em(100px) solid $w;
 			border-bottom: em(100px) solid $w;
-			animation: wave 3000ms infinite linear;
+			transform: scaleY(1) scaleX(1) translate3d(0, 0, 0);
+			transition: transform $speed;
 			//animation-play-state: paused;
 			backface-visibility: hidden;
-			// .video--playing & {
-			// 	//animation-play-state: running;
-			// }
+			perspective: 1000px;
+			.video--playing & {
+				transition: none;
+				animation: wave 3000ms infinite linear;
+			}
 			.video__waves--cyan {
 				border-color: $cyan;
 				&--top {
@@ -256,14 +259,14 @@
 @keyframes wave {
 	0% {
 		//border-radius: 40% 50%;
-		transform: scaleY(1) scaleX(1);
+		transform: scaleY(1) scaleX(1) translate3d(0, 0, 0);
 	}
 	50% {
 		//border-radius: 55% 40%;
-		transform: scaleY(1.15) scaleX(1.3);
+		transform: scaleY(1.15) scaleX(1.3) translate3d(0, 0, 0);
 	}
 	100% {
 		//border-radius: 40% 50%;
-		transform: scaleY(1) scaleX(1);
+		transform: scaleY(1) scaleX(1) translate3d(0, 0, 0);
 	}
 }
