@@ -175,7 +175,7 @@ strong {
     background-color: $b;
 }
 [class*="-cyan"] {
-    background-color: #ddf3fd
+    background-color: $cyan;
 }
 [class*="-gradient-dark"] {
     background-image: linear-gradient(to top, #0c386c, #7ecdf3);

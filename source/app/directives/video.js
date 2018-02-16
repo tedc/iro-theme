@@ -38,14 +38,21 @@ module.exports = ($rootScope, $timeout)=> {
                 scope.isPaused = element[0].paused;
             }
             if(vars.main.mobile) return;
+            $rootScope.isVideoPlaying = false;
             let tween = TweenMax.to({index:0}, 5, {
                 index: 10,
                 onUpdateParams : ['{self}'],
                 onUpdate : (evt)=> {
                     if(evt.target.index > 0 && evt.target.index <= 9.6) {
                         element[0].play();
+                        $timeout(()=>{
+                            $rootScope.isVideoPlaying = true;
+                        });
                     } else {
                         element[0].pause();
+                        $timeout(()=>{
+                            $rootScope.isVideoPlaying = false;
+                        });
                     }
                 }
             });

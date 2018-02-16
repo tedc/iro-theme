@@ -5,11 +5,20 @@
 	$file = preg_replace('/\\.[^.\\s]{3,4}$/', '', get_sub_field('video')['url']);
 	$video_id = $video.'_video_'. get_the_ID().'_'.$row;
 ?>
-<div class="video video--cover video--grow-md" id="video_<?php $row; ?>" ng-style="{backgroundImage : 'url(<?php echo $file; ?>.jpg)'}">
+<div class="video video--cover video--grow-md" id="video_<?php $row; ?>" ng-style="{backgroundImage : 'url(<?php echo $file; ?>.jpg)'}" ng-class="{'video--playing' : isVideoPlaying}">
 	<video class="video__video" loop poster="<?php echo $file; ?>.jpg" ng-video>
 		<source src="<?php echo $file; ?>.webm">
 		<source src="<?php echo $file; ?>.mp4">
 	</video>
+	<?php if(get_sub_field('video_waves') && !is_handheld()) : 
+		$video_waves_class = get_sub_field('video_waves');
+	?>
+	<div class="<?php echo $video_waves_class; ?>">
+		<div class="video__wave"></div>
+		<div class="video__wave"></div>
+		<div class="video__wave"></div>
+	</div>
+	<?php endif; ?>
 	<div class="video__content video__content--mw video__content--shrink">
 		<?php if(get_sub_field('video_title')) : ?>
 

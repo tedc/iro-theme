@@ -22,27 +22,6 @@
             "button_label": "",
             "sub_fields": [
                 {
-                    "key": "field_5a8417a807a31",
-                    "label": "Fascia blog",
-                    "name": "blog",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "show_in_rest": 0,
-                    "edit_in_rest": 0,
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
-                },
-                {
                     "key": "field_5a578036d171c",
                     "label": "Divisore",
                     "name": "is_divider",
@@ -60,6 +39,35 @@
                     ],
                     "wrapper": {
                         "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_rest": 0,
+                    "edit_in_rest": 0,
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_5a8417a807a31",
+                    "label": "Fascia blog",
+                    "name": "blog",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5a578036d171c",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
@@ -1507,7 +1515,7 @@
                                                 },
                                                 {
                                                     "key": "field_5a56248e9fd85",
-                                                    "label": "Allimento testo centrato",
+                                                    "label": "Allineamento testo centrato",
                                                     "name": "aligncenter",
                                                     "type": "true_false",
                                                     "instructions": "",
@@ -2497,6 +2505,32 @@
                                     },
                                     "width": "",
                                     "height": ""
+                                },
+                                {
+                                    "key": "field_5a86b7f2f6594",
+                                    "label": "Ondine",
+                                    "name": "video_waves",
+                                    "type": "button_group",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "show_in_rest": 0,
+                                    "edit_in_rest": 0,
+                                    "choices": {
+                                        "video__waves": "Bianche",
+                                        "video__waves video__waves--cyan": "Azzurre",
+                                        "video__waves video__waves--cyan-top": "Azzurre sopra, bianche sotto",
+                                        "video__waves video__waves--cyan-bottom": "Azzurre sotto, bianche sopra"
+                                    },
+                                    "allow_null": 1,
+                                    "default_value": "",
+                                    "layout": "horizontal",
+                                    "return_format": "value"
                                 }
                             ],
                             "min": "",
@@ -2787,5 +2821,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1518621098
+    "modified": 1518778515
 }
