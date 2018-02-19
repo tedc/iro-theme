@@ -12,8 +12,8 @@ if($values->have_posts()) : ?>
 	<span class="<?php echo $name; ?>__nav <?php echo $name; ?>__nav--prev" ng-class="{'<?php echo $name; ?>__nav--hidden':valueIsStart}">
 		<i class="icon-arrow-left" ng-click="valueMove(false)"></i>
 	</span>
-	<div class="<?php echo $name; ?>__main <?php echo $name; ?>__main--cell-s8">
-		<div class="<?php echo $name; ?>__container <?php echo $name; ?>__container--cell-s4 swiper-container" scroller="values" options="{effect : 'magnify', 'grabCursor' : true, magnifyEffect: {slideResizerClass : '.<?php echo $name; ?>__icon'},  init: false, slideToClickedSlide : true, speed : 750}">
+	<div class="<?php echo $name; ?>__main">
+		<div class="<?php echo $name; ?>__container swiper-container" scroller="values" options="{effect : 'magnify', 'grabCursor' : true, magnifyEffect: {slideResizerClass : '.<?php echo $name; ?>__icon'},  init: false, slideToClickedSlide : true, speed : 750}">
 			<ul class="<?php echo $name; ?>__wrapper swiper-wrapper">
 				<?php $slide = 0; while($values->have_posts()) : $values->the_post();
 				?>
