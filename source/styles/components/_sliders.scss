@@ -124,12 +124,12 @@
 	&__image {
 		object-fit: cover;
 		width: $f!important;
-		.full-slider & {
+		.full-slider &, .post__gallery & {
 			height: calc(100vh - #{em($p*4)})!important;
 		}
 	}
 	&__wrapper {
-		.full-slider & {
+		.full-slider &, .post__gallery & {
 			@include full;
 		}
 	}
@@ -137,7 +137,7 @@
 		width: $f!important;
 		flex: 0 0 auto;
 	}
-	.full-slider & {
+	.full-slider &, .post__gallery & {
 		height: calc(100vh - #{em($p*4)});
 	}
 }

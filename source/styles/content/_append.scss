@@ -202,3 +202,74 @@ strong {
     cursor: pointer;
 }
 
+%content {
+    p, ul, ol {
+        line-height: percentage(27px/16px);
+        font-weight: 300;
+        padding-bottom: em($p);
+        &:nth-last-child(1) {
+            padding-bottom: 0;
+        }
+        a {
+            color: $alternate-color;
+            font-weight: bold;
+            &:hover {
+                color: $brand-main;
+            }
+        }
+    }
+    ul, ol {
+        li {
+            padding-top: em($p/2);
+            position: relative;
+            &:before {
+                position: absolute;
+                left: 0;
+            }
+            &:nth-child(1) {
+                padding-top: 0;
+                &:before {
+                    top: em(12px);
+                }
+            }
+        }
+    }
+    ul {
+        li {
+            padding-left: em($p);
+            &:before {
+                content: '';
+                width: 4px;
+                height: 4px;
+                background-color: $alternate-color;
+                border-radius: 8px;
+                top: em(22px);
+            }
+            &:nth-child(1) {
+                &:before {
+                    top: em(12px);
+                }
+            }
+        }
+    }
+    ol {
+        counter-reset: section;
+        li {
+            counter-increment: section;
+            padding-left: em($p*1.5);
+            &:before {
+                content: counter(section) ".";
+                color: $alternate-color;
+                font-size: em(14px);
+                font-style: italic;
+                font-weight: 600;
+                top: em(14px);
+            }
+            &:nth-child(1) {
+                &:before {
+                    top: em(4px);
+                }
+            }
+        }
+    }
+}

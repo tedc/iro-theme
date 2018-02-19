@@ -7,17 +7,19 @@
 <header class="banner banner--shrink-fw" ng-class="{'banner--active-menu':isMenu}">
     <nav class="banner__nav">
       <a class="icon-logo" href="<?= esc_url(home_url('/')); ?>" ui-sref="app.root({lang : '<?php echo ICL_LANGUAGE_CODE; ?>'})"></a>
-      <div class="banner__menu">
+      <div class="banner__menu" scroller options="{slidesPerView: 'auto', breakpoints:{1024:{direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true} } }  }">
       <?php
         if (has_nav_menu('primary_navigation')) :
           $append_sting = (is_user_logged_in()) ? __('Profilo', 'iro') : __('Login', 'iro');
           $append_url = (is_user_logged_in()) ? wc_get_page_permalink('myaccount') : '/tab/login/';
-          $append = '<li class="menu__item menu__item--account" ui-sref-active="menu__item--active"><a href="'.$append_url.'" ng-click="account($event)" class="menu__link" ng-class="{\'menu__link--active\':menuItem ==\''.basename(wc_get_page_permalink('myaccount')).'\'}" ng-bind-html="(isUserLoggedIn) ? \''.__('Profilo', 'iro').'\' : \''.__('Login', 'iro').'\'">'.$append_sting.'</a></li>';
-         bem_menu('primary_navigation', 'menu', 'menu--shrink', null, $append);
+          $append = '<li class="menu__item swiper-slide menu__item--account" ui-sref-active="menu__item--active"><a href="'.$append_url.'" ng-click="account($event)" class="menu__link" ng-class="{\'menu__link--active\':menuItem ==\''.basename(wc_get_page_permalink('myaccount')).'\'}" ng-bind-html="(isUserLoggedIn) ? \''.__('Profilo', 'iro').'\' : \''.__('Login', 'iro').'\'">'.$append_sting.'</a></li>';
+         bem_menu('primary_navigation', 'menu', 'menu--shrink swiper-wrapper', null, $append);
           
         endif;
         ?>
         <a href="tel:<?php echo $phone_unformatted; ?>" class="banner__btn banner__btn--phone"><i class="icon-phone"></i><span><?php _e('Assistenza', 'iro'); ?> <?php echo $phone; ?></span></a>
+
+        <span class="banner__swiper swiper-scrollbar"></span>
       </div>
     </nav>
     <span class="banner__toggle" ng-click="isMenu=!isMenu">

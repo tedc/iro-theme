@@ -88,7 +88,7 @@ class walker_texas_ranger extends Walker_Nav_Menu {
         $class_string = implode("  ", array_filter($item_classes));
 
         // Add the classes to the wrapping <li>
-        $output .= $indent . '<li class="' . $class_string . '" ui-sref-active="'.$prefix . $suffix['active_item'].'">';
+        $output .= $indent . '<li class="' . $class_string . ' swiper-slide" ui-sref-active="'.$prefix . $suffix['active_item'].'">';
 
         // Link classes
         $link_classes = array(

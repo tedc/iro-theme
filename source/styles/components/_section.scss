@@ -21,35 +21,10 @@
 		&text {
 			@include grow('small', 'top');
 			@include grow('md', 'top');
+			@extend %content;
 			p, ul, ol {
-				line-height: percentage(27px/16px);
 				.row:not(.row--inverted) &{
 					color: $dark-gray;
-				}
-				font-weight: 300;
-				padding-bottom: em($p);
-				&:nth-last-child(1) {
-					padding-bottom: 0;
-				}
-			}
-			ul {
-				li {
-					padding-left: em($p);
-					padding-top: em($p/2);
-					position: relative;
-					&:before {
-						content: '';
-						width: 8px;
-						height: 8px;
-						background-color: $alternate-color;
-						position: absolute;
-						top: em(18px);
-						left: 0;
-						border-radius: 8px;
-					}
-					&:nth-child(1) {
-						padding-top: 0;
-					}
 				}
 			}
 			img {

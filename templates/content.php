@@ -8,8 +8,8 @@
 ?>
 <article class="<?php echo $post_class; ?>">
 	<?php if(!$is_first) : ?>
-		<div class="post__meta">
-			<?php get_template_part('templates/entry', 'meta'); ?>
+		<div class="post__meta post__meta--grid">
+			<?php include(locate_template('templates/entry-meta.php', false, false)); ?>
 		</div>
 	<?php endif; ?>
 	<figure class="post__figure<?php echo ($is_first) ? ' post__figure--cell-s6' : ''; ?>">

@@ -207,3 +207,22 @@
     }
 
     add_shortcode( 'larger_image', 'iro_larger_image' );
+
+    function my_gallery_shortcode( $output = '', $attrs ) {
+		global $post;
+		$row = str_replace(',', '', $attrs['ids']);
+		$ids = explode(',', $attrs['ids']);
+		$images = array();
+		$full = true;
+		foreach ($ids as $id) {
+			array_push($images, array('ID' => $id, 'url' => wp_get_attachment_image_src( $id, 'full')[0], 'alt' => get_post_meta( $id, '_wp_attachment_image_alt', true)));
+		}
+		ob_start();
+		$prepend = ($post->post_type == 'post') ? '</div>' : '';
+		$append = ($post->post_type == 'post') ? '<div class="post__content post__content--grow-lg post__content--mw-large">' : '';
+		include(locate_template('builder/commons/gallery.php', false, false));
+		$output = $prepend.'<div class="post__gallery" id="slider_'.$row.'">'.ob_get_clean().'</div>'.$append;
+		return $output;
+	}
+
+	add_filter( 'post_gallery', 'my_gallery_shortcode', 10, 2 );

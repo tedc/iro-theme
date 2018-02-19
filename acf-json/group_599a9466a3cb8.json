@@ -168,13 +168,6 @@
     "location": [
         [
             {
-                "param": "post_type",
-                "operator": "==",
-                "value": "post"
-            }
-        ],
-        [
-            {
                 "param": "post_template",
                 "operator": "==",
                 "value": "template-custom.php"
@@ -197,5 +190,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1516270125
+    "modified": 1519033736
 }
