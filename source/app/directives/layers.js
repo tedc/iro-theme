@@ -1,0 +1,82 @@
+module.exports = (getInstances)=> {
+	return {
+		scope : true,
+		link : (scope, element, attrs)=> {
+			if(attrs.ngLayers == 'slider') {
+				let layers_slider = getInstances.getInstance('layers');
+				layers_slider.then((swiper)=> {
+					swiper.on('slideChangeTransitionEnd', ()=> {
+						var currentLayers = element[0].querySelector(`[data-swiper-slide-index="${swiper.realIndex}"]`).getAttribute('data-layer-to').replace(/\s/g, '').split(',');
+						for(let i = 0; i < currentLayers.length; i++) {
+							angular.forEach(element[0].querySelectorAll(`[data-layer="${currentLayers[i]}"]`), (el, index)=>{
+								angular.element(el).addClass('section__layer--visible');
+							});
+						}
+						for(let i = 0; i < parseInt(currentLayers[0]); i++) {
+							angular.forEach(element[0].querySelectorAll(`[data-layer="${i}"]`), (el, index)=>{
+								angular.element(el).addClass('section__layer--visible');
+							});
+						}
+						for(var c = (parseInt(currentLayers[currentLayers.length - 1]) + 1); c < 7; c++ ) {
+							angular.forEach(element[0].querySelectorAll(`[data-layer="${c}"]`), (el, index)=>{
+								angular.element(el).removeClass('section__layer--visible');
+							});
+						}
+					});
+					swiper.on('init', ()=> {
+						var currentLayers = element[0].querySelector(`[data-swiper-slide-index="0"]`).getAttribute('data-layer-to').replace(/\s/g, '').split(',');
+						for(let i = 0; i < currentLayers.length; i++) {
+							angular.forEach(element[0].querySelectorAll(`[data-layer="${currentLayers[i]}"]`), (el, index)=>{
+								angular.element(el).addClass('section__layer--visible');
+							});
+						}
+					});
+					swiper.init();
+				});
+			} else {
+				var layers = element[0].querySelectorAll('[data-layer-to]');
+				angular.forEach( layers, function(item, index) {
+					let layers = item.getAttribute('data-layer-to').replace(/\s/g, '').split(',');
+					angular.element(item).on('mouseenter', ()=> {
+						if(!element.hasClass('layers--inview')) return;
+						for(let i of layers) {
+							let x = 0;
+							if(i == 1) {
+								x = -60;
+							} else if(i == 2) {
+								x = 60;
+							}
+							TweenMax.set(element[0].querySelectorAll('[data-layer]'), {className : '+=animate'});
+							TweenMax.to(element[0].querySelectorAll(`[data-layer="${i}"]`), .5, {
+								y: (parseInt(i) != 0) ? -40 : 0,
+								x: x,
+								opacity: 1
+							});
+						}
+						for(let i = (parseInt(layers[layers.length - 1]) + 1); i < 7; i++ ) {
+							TweenMax.to(element[0].querySelectorAll(`[data-layer="${i}"]`), .5, {
+								y: -40,
+								x: 0,
+								opacity: 0
+							});
+						}
+						for(let i = 0; i < parseInt(layers[0]); i++) {
+							TweenMax.to(element[0].querySelectorAll(`[data-layer="${i}"]`), .5, {
+								opacity: 0.25,
+								x : 0
+							});
+						}
+					});
+					angular.element(item).on('mouseleave', ()=> {
+						TweenMax.set(element[0].querySelectorAll('[data-layer]'), {className : '-=animate'});
+						TweenMax.to(element[0].querySelectorAll('[data-layer]'), .5, {
+							y: 0,
+							x: 0,
+							opacity: 1
+						});
+					});
+				});
+			}
+		}
+	}
+}

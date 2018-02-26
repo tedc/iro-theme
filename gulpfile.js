@@ -213,8 +213,8 @@ gulp.task('styles', ['wiredep'], function() {
 });
 
 
-var b = watchify(browserify(path.source + 'app/main.js', {browserifyOptions : true, fast : true, noparse: 'angular', 'detect-globals' : false}));
-//var b = browserify(path.source + 'app/main.js', {browserifyOptions : true, fast : true, noparse: 'angular', 'detect-globals' : false});
+//var b = watchify(browserify(path.source + 'app/main.js', {browserifyOptions : true, fast : true, noparse: 'angular', 'detect-globals' : false}));
+var b = browserify(path.source + 'app/main.js', {plugin:[watchify], browserifyOptions : true, fast : true, noparse: 'angular', 'detect-globals' : false});
 b.transform(coffeeify)
   .transform(babelify, {presets : ['env'], sourceMapsAbsolute: true, "plugins": ["transform-es2015-template-literals"]});
 //.transform(uglifyify);

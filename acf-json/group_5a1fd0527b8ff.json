@@ -2113,6 +2113,131 @@
                                                                     ]
                                                                 },
                                                                 {
+                                                                    "key": "field_5a902cc9cdbe6",
+                                                                    "label": "Testi strati",
+                                                                    "name": "testi_layers",
+                                                                    "type": "repeater",
+                                                                    "instructions": "",
+                                                                    "required": 0,
+                                                                    "conditional_logic": [
+                                                                        [
+                                                                            {
+                                                                                "field": "field_5a1fe23143037",
+                                                                                "operator": "==",
+                                                                                "value": "layers"
+                                                                            }
+                                                                        ]
+                                                                    ],
+                                                                    "wrapper": {
+                                                                        "width": "-1",
+                                                                        "class": "",
+                                                                        "id": ""
+                                                                    },
+                                                                    "show_in_rest": 0,
+                                                                    "edit_in_rest": 0,
+                                                                    "collapsed": "",
+                                                                    "min": 0,
+                                                                    "max": 0,
+                                                                    "layout": "row",
+                                                                    "button_label": "",
+                                                                    "sub_fields": [
+                                                                        {
+                                                                            "key": "field_5a902cc9cdbe7",
+                                                                            "label": "Testo sopra til titolo",
+                                                                            "name": "title_label",
+                                                                            "type": "text",
+                                                                            "instructions": "",
+                                                                            "required": 0,
+                                                                            "conditional_logic": 0,
+                                                                            "wrapper": {
+                                                                                "width": "",
+                                                                                "class": "",
+                                                                                "id": ""
+                                                                            },
+                                                                            "show_in_rest": 0,
+                                                                            "edit_in_rest": 0,
+                                                                            "default_value": "",
+                                                                            "placeholder": "",
+                                                                            "prepend": "",
+                                                                            "append": "",
+                                                                            "maxlength": ""
+                                                                        },
+                                                                        {
+                                                                            "key": "field_5a902cc9cdbe8",
+                                                                            "label": "Titolo",
+                                                                            "name": "title",
+                                                                            "type": "text",
+                                                                            "instructions": "",
+                                                                            "required": 0,
+                                                                            "conditional_logic": 0,
+                                                                            "wrapper": {
+                                                                                "width": "",
+                                                                                "class": "",
+                                                                                "id": ""
+                                                                            },
+                                                                            "show_in_rest": 0,
+                                                                            "edit_in_rest": 0,
+                                                                            "default_value": "",
+                                                                            "placeholder": "",
+                                                                            "prepend": "",
+                                                                            "append": "",
+                                                                            "maxlength": ""
+                                                                        },
+                                                                        {
+                                                                            "key": "field_5a902cc9cdbe9",
+                                                                            "label": "Testo",
+                                                                            "name": "testo",
+                                                                            "type": "wysiwyg",
+                                                                            "instructions": "",
+                                                                            "required": 0,
+                                                                            "conditional_logic": 0,
+                                                                            "wrapper": {
+                                                                                "width": "",
+                                                                                "class": "",
+                                                                                "id": ""
+                                                                            },
+                                                                            "show_in_rest": 0,
+                                                                            "edit_in_rest": 0,
+                                                                            "default_value": "",
+                                                                            "tabs": "all",
+                                                                            "toolbar": "full",
+                                                                            "media_upload": 1,
+                                                                            "delay": 0
+                                                                        },
+                                                                        {
+                                                                            "key": "field_5a902cf7cdbea",
+                                                                            "label": "Strato associato",
+                                                                            "name": "layers",
+                                                                            "type": "checkbox",
+                                                                            "instructions": "",
+                                                                            "required": 0,
+                                                                            "conditional_logic": 0,
+                                                                            "wrapper": {
+                                                                                "width": "",
+                                                                                "class": "",
+                                                                                "id": ""
+                                                                            },
+                                                                            "show_in_rest": 0,
+                                                                            "edit_in_rest": 0,
+                                                                            "choices": [
+                                                                                "Base",
+                                                                                "Curva rossa",
+                                                                                "Curva gialla",
+                                                                                "Curva bianca",
+                                                                                "Terzo strato",
+                                                                                "Cornice",
+                                                                                "Ultimo strato"
+                                                                            ],
+                                                                            "allow_custom": 0,
+                                                                            "save_custom": 0,
+                                                                            "default_value": [],
+                                                                            "layout": "vertical",
+                                                                            "toggle": 0,
+                                                                            "return_format": "value"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
                                                                     "key": "field_5a1fe23143037",
                                                                     "label": "Tipo",
                                                                     "name": "slider_kind",
@@ -2125,9 +2250,12 @@
                                                                         "class": "",
                                                                         "id": ""
                                                                     },
+                                                                    "show_in_rest": 0,
+                                                                    "edit_in_rest": 0,
                                                                     "choices": {
                                                                         "gallery": "Immagini",
-                                                                        "texts": "Testi"
+                                                                        "texts": "Testi",
+                                                                        "layers": "Strati materasso"
                                                                     },
                                                                     "allow_null": 0,
                                                                     "default_value": 1,
@@ -2779,6 +2907,225 @@
                             ],
                             "min": "",
                             "max": ""
+                        },
+                        "5a8ed3d304da6": {
+                            "key": "5a8ed3d304da6",
+                            "name": "strati",
+                            "label": "Strati",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5a9000037d5b3",
+                                    "label": "Riga piena",
+                                    "name": "layers_content_full",
+                                    "type": "true_false",
+                                    "instructions": "Se selezionato, il contenuto non verrà diviso in due colonne.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "show_in_rest": 0,
+                                    "edit_in_rest": 0,
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui": 1,
+                                    "ui_on_text": "",
+                                    "ui_off_text": ""
+                                },
+                                {
+                                    "key": "field_5a9000827d5b4",
+                                    "label": "Titolo sopra, testo sotto",
+                                    "name": "layers_content_above",
+                                    "type": "true_false",
+                                    "instructions": "Se selezionato si vedrà il titolo della riga sopra gli strati e il testo sotto.",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5a9000037d5b3",
+                                                "operator": "==",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "show_in_rest": 0,
+                                    "edit_in_rest": 0,
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui": 1,
+                                    "ui_on_text": "",
+                                    "ui_off_text": ""
+                                },
+                                {
+                                    "key": "field_5a8ed3dc04da7",
+                                    "label": "Titolo",
+                                    "name": "layers_title",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "show_in_rest": 0,
+                                    "edit_in_rest": 0,
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "maxlength": "",
+                                    "rows": "",
+                                    "new_lines": "br"
+                                },
+                                {
+                                    "key": "field_5a8ed3f604da8",
+                                    "label": "Testo",
+                                    "name": "layers_text",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "show_in_rest": 0,
+                                    "edit_in_rest": 0,
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 0,
+                                    "delay": 1
+                                },
+                                {
+                                    "key": "field_5a8ed42d04da9",
+                                    "label": "Puntatori",
+                                    "name": "layers_pointers",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "show_in_rest": 0,
+                                    "edit_in_rest": 0,
+                                    "collapsed": "",
+                                    "min": 0,
+                                    "max": 0,
+                                    "layout": "table",
+                                    "button_label": "",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_5a8ed48004dac",
+                                            "label": "Icona",
+                                            "name": "pointer_icon",
+                                            "type": "file",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "show_in_rest": 0,
+                                            "edit_in_rest": 0,
+                                            "return_format": "url",
+                                            "library": "all",
+                                            "min_size": "",
+                                            "max_size": "",
+                                            "mime_types": ""
+                                        },
+                                        {
+                                            "key": "field_5a8ed44d04daa",
+                                            "label": "Titoletto",
+                                            "name": "pointer_title",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "show_in_rest": 0,
+                                            "edit_in_rest": 0,
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
+                                            "key": "field_5a8ed45504dab",
+                                            "label": "Testo",
+                                            "name": "pointer_text",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "show_in_rest": 0,
+                                            "edit_in_rest": 0,
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "maxlength": "",
+                                            "rows": "",
+                                            "new_lines": "wpautop"
+                                        },
+                                        {
+                                            "key": "field_5a8ed49f04dad",
+                                            "label": "Elemento associato",
+                                            "name": "pointer_layer",
+                                            "type": "checkbox",
+                                            "instructions": "È possibile associare più di un elemento per voce (es: nel caso della seconda fascia, abbiamo tre elementi in uno solo strato).",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "show_in_rest": 0,
+                                            "edit_in_rest": 0,
+                                            "choices": [
+                                                "Base",
+                                                "Curva rossa",
+                                                "Curva gialla",
+                                                "Curva bianca",
+                                                "Terzo strato",
+                                                "Cornice",
+                                                "Ultimo strato"
+                                            ],
+                                            "allow_custom": 0,
+                                            "save_custom": 0,
+                                            "default_value": [],
+                                            "layout": "vertical",
+                                            "toggle": 0,
+                                            "return_format": "value"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
                         }
                     },
                     "button_label": "Aggiungi layout",
@@ -2821,5 +3168,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1518781473
+    "modified": 1519398188
 }

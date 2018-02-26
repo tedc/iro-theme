@@ -393,6 +393,8 @@ module.exports = () => {
 					})
 				});
 				// VALUES SLIDER
+				$scope.valueIsStart = true;
+				$scope.valueIsEnd = false;
 				$scope.values_slider = getInstances.getInstance('values');
 				$scope.values_slider.then((swiper)=> {
 					if(swiper.destroyed) return;
@@ -401,11 +403,22 @@ module.exports = () => {
 					}
 					swiper.on('init', currentClass);
 					swiper.init();
-					swiper.on('slideChangeTransitionStart', (evt)=> {
+					swiper.on('slideChangeTransitionStart', (evt)=> {		
 						angular.element(swiper.$el.find('.swiper-slide-current')).removeClass('swiper-slide-current')
 					});
+					swiper.on('progress', ()=> {
+						$scope.valueIsEnd = swiper.isEnd;
+						$scope.valueIsStart = swiper.isBeginning;
+					});
 					swiper.on('slideChangeTransitionEnd', currentClass);
-				})
+					$scope.valueMove = (cond)=> {
+						if(cond) {
+							swiper.slideNext();
+						} else {
+							swiper.slidePrev();
+						}
+					}
+				});
 			}
 			$rootScope.initEcommerce();
 		}]

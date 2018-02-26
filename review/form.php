@@ -50,10 +50,10 @@
 			<?php 
 				$cats = get_terms(array('taxonomy'=>'prodotto_associato', 'hide_empty'=>0, 'orderby' => 'term_order'));
 				foreach ($cats as $cat) { 
-					$init = (!empty($product_id) && $product_id == $cat->term_id) ? ' ng-checked="true" ng-init="reviewFields.prodotto_associato='.$cat->term_id.'"' : '';
+					$init = (!empty($product_id) && $product_id == $cat->term_id) ? ' ng-init="reviewFields.prodotto_associato=\''.$cat->term_id.'\'"' : '';
 				?>
 				<div class="review__item review__item--grow">
-					<input id="cat_<?php echo $cat->term_id; ?>" type="radio" class="review__choice" ng-model="reviewFields.prodotto_associato" ng-value="'<?php echo $cat->term_id; ?>'" required<?php echo $init; ?> name="prodotto_associato" />
+					<input id="cat_<?php echo $cat->term_id; ?>" type="radio" class="review__choice" ng-model="reviewFields.prodotto_associato" value="<?php echo $cat->term_id; ?>" required<?php echo $init; ?> name="prodotto_associato" />
 					<label for="cat_<?php echo $cat->term_id; ?>">
 						<?php 
 							$icon_kind = get_field('icon_kind', 'product_plus_'.$cat->term_id);
@@ -87,13 +87,13 @@
 					));
 				foreach ($values as $value) { 
 					$init_rating = '';
-					if($current_review) {
-						$rating = wp_get_post_terms($current_review->ID, 'rating')[0];
-						$init_rating = ($rating && $value->term_id == $rating->term_id) ? ' ng-checked="true" ng-init="reviewFields.rating='.$value->term_id.'"' : '';
+					if(isset($current_review) && $current_review) {
+						$rating = wp_get_post_terms($current_review[0]->ID, 'rating')[0];
+						$init_rating = ($rating && $value->term_id == $rating->term_id) ?  ' ng-init="reviewFields.rating=\''.$value->term_id.'\'"' : '';
 					}
 				?>
 				<div class="review__item">
-					<input id="rate_<?php echo $value->term_id; ?>" type="radio" class="review__choice" ng-model="reviewFields.rating" ng-value="'<?php echo $value->term_id; ?>'" required name="rating"<?php echo $init_rating; ?> />
+					<input id="rate_<?php echo $value->term_id; ?>" type="radio" class="review__choice" ng-model="reviewFields.rating" value="<?php echo $value->term_id; ?>" required name="rating"<?php echo $init_rating; ?> />
 					<label for="rate_<?php echo $value->term_id ?>">
 						<?php 
 							for($i= 0; $i < intval(get_field('rating', 'rating_'.$value->term_id)); $i++) {

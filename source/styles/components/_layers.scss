@@ -1,0 +1,217 @@
+%layers {
+	position: relative;
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: $f;
+		display: block;
+		&:nth-child(1) {
+			position: relative;
+		}
+	}
+}
+
+@mixin line_top($n, $ratio) {
+	[data-layer-to*="#{$n}"] & {
+		top: calc((100vw - 20px) * #{$ratio*-1});
+		@include breakpoint(640px) {
+			top: calc((100vw - #{em($p)}) * #{$ratio*-1});
+		}
+		@include breakpoint() {
+			top: calc((100vw - #{em($p*2)}) * #{$ratio*-1});
+		}
+		@include breakpoint($max-width) {
+			top: calc( ( (100vw - (100vw - #{$max-width}) / 2 ) ) * #{$ratio*-1} );
+		}
+	}
+	.layers__wrapper--cell-s8 [data-layer-to*="#{$n}"] & {	
+		@include breakpoint() {
+			top: calc( ( (100vw - #{em($p*2)}) - (100vw * (8/12))) * #{$ratio*-1});
+		}
+		@include breakpoint($max-width) {
+			top: calc( ( ( (100vw - (100vw - #{$max-width}) / 2) ) - (100vw * (8/12)) ) * #{$ratio*-1});
+		}
+	}
+}
+.layers {
+	align-items: center;
+	p {
+		color: $dark-gray;
+	}
+	&__{
+		&header, &wrapper {
+			@include grow('md');
+		}
+		&content {
+			@include grow('small', 'top');
+		}
+		&header {
+			@include breakpoint() {
+				.layers--grid & {
+					padding-right: em($p*2);
+				}
+			}
+		}
+		&wrapper {
+			@include breakpoint() {
+				.layers--grid & {
+					padding-left: em($p*2);
+				}
+			}
+		}
+		// &wrapper {
+		// 	@include breakpoint() {
+		// 		width: $f*0.8;
+		// 		margin-left: $p*0.2;
+		// 	}
+		// }
+		&render {
+			@extend %layers;
+			@include breakpoint() {
+				img {
+					&:not(.animate){
+						opacity: 0;
+						transform: translate3d(0, $p*-1, 0);
+						transition: transform $speed, opacity $speed;
+						@for $i from 0 through 5 {
+							&[data-layer="#{$i}"] {
+								$de: (0.05s * $i);
+								transition-delay: $de;
+							}
+						}
+						.layers--inview & {
+							opacity: 1;
+							transform: translate3d(0, 0, 0);
+						}
+					}
+				}
+			}
+		}
+		&pointer {
+			&s {
+				display: flex;
+				flex-wrap: wrap;
+				@include breakpoint() {		
+					flex-wrap: nowrap;
+				}
+			}
+			.layers__title {
+				font-size: em(22px);
+				padding-bottom: em($p/2, 22px);
+			}
+			p {
+				font-size: em(12px);
+			}
+			padding-top: em($p*2);
+			text-align: center;
+			width: $f;
+			flex: 0 0 auto;
+			@include breakpoint() {
+				opacity: 0;
+				transform: translate3d(0, $p, 0);
+				width: auto;
+				position: relative;
+				flex: 1;
+				cursor: pointer;
+				padding: {
+					left: em($p/2);
+					right: em($p/2);
+				}
+				transition: padding-top $speed, opacity $speed, transform $speed;
+				.layers__pointers & {
+					&:nth-child(1) {
+						padding-left: em($p);
+					}
+					&:nth-child(odd) {
+						padding-top: em($p*4);
+					}
+					&:nth-last-child(1) {
+						padding-right: em($p);
+					}
+					@for $i from 1 through 10 {
+						$de: (0.25s * $i) - 0.25s;
+						&:nth-child(#{$i}) {
+							transition-delay: $de;
+						}
+					}
+				}
+				.layers--inview & {
+					opacity: 1;
+					transform: translate3d(0, 0, 0);
+				}
+				.layers--inview .layers__pointers:hover & {
+					opacity: .4;
+					&:nth-child(even) {
+						padding-top: em($p*4);
+					}
+				}
+				&:hover {
+					.layers--inview & {
+						opacity: 1!important;
+						padding-top: em($p*2)!important;
+					}
+				}
+			}
+		}
+		&line {
+			display: none;
+			@include breakpoint() {
+				display: block;
+				position: absolute;
+				bottom: calc(#{$f} - #{em($p*1.5)});
+				left: 50%;
+				width: 2px;
+				margin-left: -1px;
+				background-color: $brand-main;
+				transition: all $speed;
+				&:before {
+					width: 10px;
+					height: 10px;
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 50%;
+					margin: -5px 0 0 -5px;
+					border-radius: $f;
+					border: 2px solid $brand-main;
+					transition: border-colo $speed;
+				}
+				&:after {
+					width: 8px;
+					height: 8px;
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 50%;
+					margin: -4px 0 0 -4px;
+					border-radius: $f;
+					background-color: $w;
+					transition: background-color $speed;
+				}
+				@each $n, $ratio in (0, (32/1500)), (1, (55/1500)), (2, (55/1500)), (3, (55/1500)), (4, (88/1500)), (5, (112/1500)), (6, (150/1500)) {
+					@include line_top($n, $ratio);
+				}
+				.layers--inview .layers__pointers:hover & {
+					opacity: 0;
+				}
+				.layers__pointers .layers__pointer:nth-child(odd):not(:hover) &, .layers:not(.layers--inview) .layers__pointer:nth-child(odd):hover &  {
+					bottom: calc(#{$f} - #{em($p*3.5)});
+				}
+				.layers--inview .layers__pointer:not([data-layer-to="0"]):hover & {
+					margin-top: -60px;
+				}
+				.layers--inview .layers__pointer:hover & {
+					opacity: 1;
+					background-color: $alternate-color;
+					&:before {
+						border-color: $alternate-color;
+					}
+					&:after {
+						background-color: $lighter-color;
+					}
+				}
+			}
+		}
+	}
+}

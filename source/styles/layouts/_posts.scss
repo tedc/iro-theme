@@ -10,6 +10,12 @@
 			@include grow('md', 'top');
 			position: relative;
 		}
+		&pagination {
+			@extend %pagination;
+			justify-content: center;
+			margin-top: em($p*2);
+			@include grow('lg');
+		}
 	}
 	&--row {
 		position: relative;

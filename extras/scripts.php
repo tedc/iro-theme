@@ -55,7 +55,7 @@
 		
 		acf_set_language_to_default();
 		$review_base = get_field('review_base', 'options');
-		$reviews = get_field('reviews', 'options');
+		$blog_base = get_option('page_for_posts');
 		acf_unset_language_to_default();
 		$wc = array(
 			'form' => WC_AJAX::get_endpoint('iro_form'),
@@ -77,7 +77,7 @@
 			'country_select_params' => apply_filters( 'wc_country_select_params', array(
 			'countries'              => json_encode( array_merge( WC()->countries->get_allowed_country_states(), WC()->countries->get_shipping_country_states() ) )) ),
 			'review_base' => basename(get_permalink($review_base)),
-			'reviews' => basename(get_permalink($reviews))
+			'reviews' => basename(get_post_type_archive_link('recensioni'))
 		);
 		$vars = array(
 			"main" => array(
@@ -86,7 +86,9 @@
 				'base' => get_home_url(),
 				'home' => get_post(get_option('page_on_front'))->post_name,
 				'error' => $error,
-				'errorTitle' => __('Pagina non trovata', 'catellani')
+				'errorTitle' => __('Pagina non trovata', 'catellani'),
+				'blog' => basename(get_permalink($blog_base)),
+				'category' => get_option( 'category_base' )
 			),
 			'lang' => array(
 				'default' => $sitepress->get_default_language(),

@@ -226,3 +226,16 @@
 	}
 
 	add_filter( 'post_gallery', 'my_gallery_shortcode', 10, 2 );
+	function custom_paginate_links($link) {
+		$term = get_queried_object();
+		if(is_category()) {
+			$base_link = get_term_link($term->term_id) . '/';
+		} else {
+			$base_link = get_permalink(get_option('page_for_posts'))  . '/';
+		}
+		$sref = str_replace($base_link, '', $link);
+		$sref = (is_category()) ? '" ui-sref="app.category({name : \''.$term->slug.'\', path : \''.$sref.'\'})' : '" ui-sref="app.blog({path : \''.$sref.'\'})';
+		$link = $link . $sref;
+		return $link;
+	}
+	//add_filter( 'paginate_links', 'custom_paginate_links', 10, 1 );

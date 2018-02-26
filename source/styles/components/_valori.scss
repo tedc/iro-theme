@@ -1,29 +1,50 @@
 .valori {
 	overflow: hidden;
 	position: relative;
-	display: flex;
-	justify-content: center;
 	@include grow('md');
 	&__{		
 		&main {
-			flex: 0 0 auto;
 			width: $f;
-			max-width: em(1000px);
 			margin: 0 auto;
 			position: relative;
+			overflow: hidden;
+			max-width: calc(100% - #{em($p*8)});
+			@include breakpoint(1000px) {	
+				max-width: em(1000px);
+			}
 		}
 		&nav {
+			top: 0;
+			position: absolute;
+			height: $f;
+			display: flex;
+			align-items: center;
+			width: em($p*2);
+			background-color: #fff;
+			z-index: 4;
+			transition: visibility $speed, opacity $speed;
+			&--hidden {
+				opacity: 0;
+				visibility: hidden;
+			}
+			&--prev {
+				left: 0;
+			}
+			&--next {
+				right: 0;
+			}
 			[class*="icon"] {
-				font-size: em(20px);
-				width: em($p*4);
-				height: em($p*4);
-				line-height: em($p*4);
-				background-color: $alternate-color;
+				width: em($p*2);
+				height: em($p*2);
+				line-height: em($p*2);
+				background-color: $cyan;
 				color: $brand-main;
 				transition: background-color $speed;
 				cursor: pointer;
 				border-radius: $f;
 				text-align: center;
+				position: relative;
+				bottom: 10%;
 				&:hover {
 					background-color: $brand-main;
 					color: $w;
@@ -34,12 +55,11 @@
 			@include grow('lg');
 			text-align: center;
 			margin: auto;
-			min-height: 100vw;
+			//min-height: 100vw;
 			display: flex;
 			align-items: center;
 			@include breakpoint(500px) {
-				width: em(500px);
-				min-height: em(500px);
+				max-width: em(500px);
 			}
 		}
 		&header {
@@ -55,6 +75,7 @@
 			align-items: center;
 			position: relative;
 			flex-wrap: wrap;
+			@include normalize_padding;
 			p {
 				font-size: em(14px);
 				padding: 0 em($p, 14px);
@@ -67,19 +88,19 @@
 		&content {
 			@include normalize_padding_half;
 			position: relative;
-			padding-top: em(100px);
-			padding-bottom: em(100px);
+			padding-top: em($p*2);
 			z-index: 1;
 			width: $f;
 		}
 		&circle {
 			//position: absolute;
 			position: relative;
+			width: $f;
+			flex: 0 0 auto;
 			//transition: $speed/2;
 			// top: 50%;
 			// left: 50%;
 			// transform: translate3d(-50%, -50%, 0);
-			@include normalize_padding_half;
 			&:before {
 				display: block;
 				padding-top: $f;
@@ -87,10 +108,18 @@
 				// background-color: #f8f6d8;
 				content: '';
 			}
+		}
+		&icon {
+			position: absolute;
+			width: $f;
+			left: 50%;
+			top: 50%;
+			transform: translate3d(-50%, -50%, 0);
+			object-fit: contain;
 			img {
-				width: $f!important;
+		    	width: $f!important;
 				height: auto!important;
-			}
+		    }
 		}
 		&text, &title {
 			opacity: 0;

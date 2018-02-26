@@ -200,6 +200,15 @@ iro
 			}]
 		}
 	})
+	.directive('ratingPercentage', ()=> {
+		return {
+			link : (scope, element, attr)=> {
+				let value = scope.$eval(attr.ratingPercentage);
+				TweenMax.set(element, {width : `${value}%`});
+			}
+		}
+	})
 	.directive('ngVideo', ['$rootScope', '$timeout', require('./video')])
 	.directive('review', require('./review'))
 	.directive('loginForm', require('./login'))
+	.directive('ngLayers', ['getInstances', require('./layers')])

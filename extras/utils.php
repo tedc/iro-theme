@@ -171,3 +171,7 @@
         $data = array('info' => $infoNode, 'feed' => $graphNode['data']);
         return $data;
     }
+
+    function get_percentage($v, $t) {
+        echo (($v * 100) / $t);
+    }

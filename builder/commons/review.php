@@ -1,4 +1,5 @@
 <?php
+$review_id = get_sub_field('review');
 $args = array(
 	'post_type' => 'recensioni',
 	'post__in' => array($review_id)

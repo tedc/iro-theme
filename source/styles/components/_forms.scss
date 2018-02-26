@@ -34,8 +34,8 @@
 %common_select {
 	background-color: $lighter-color;
 	border: 1px solid $light-border;
-	padding-left: em(40px);
-	padding-right: em(40px);
+	padding-left: em($p);
+	padding-right: em($p);
 	border-radius: $r;	
 }
 %select_strong {

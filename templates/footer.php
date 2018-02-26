@@ -34,10 +34,8 @@
 			<?php endwhile; ?>
 		</div>
 		</div>
-		<?php endwhile; acf_unset_language_to_default(); ?>
-		<div class="footer__cell footer__cell--grow footer__cell--last">
-			<a href="<?php echo home_url('/'); ?>" class="icon-logo" ui-sref="app.root({lang : '<?php echo ICL_LANGUAGE_CODE; ?>'})"></a>
-		</div>
+		<?php endwhile; acf_unset_language_to_default(); 
+		get_template_part( 'templates/footer', 'rating' ); ?>
 	</div>
 	<div class="footer__container footer__container--grow footer__container--grid footer__container--dark footer__container--shrink-fw">
 		<div class="footer__cell footer__cell--first">
@@ -48,7 +46,7 @@
             the_field('info', 'options'); 
             acf_unset_language_to_default(); ?>
         </div>
-        <div class="footer__cell">
+        <div class="footer__cell footer__cell--last">
         	<a href="http://www.bspkn.it" target="_blank" class="icon-credits"></a>
         </div>
 	</div>

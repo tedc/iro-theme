@@ -6,6 +6,9 @@
 		padding-bottom: em($p, 12px);
 		width: $f;
 		flex: 0 0 auto;
+		.footer__cell--last & {
+			padding-bottom: $p/2;
+		}
 	}
 	&__cell {
 		margin: em($p) 0;
@@ -38,6 +41,7 @@
 			}
 		}
 		&--last {
+			display: block;
 			@include breakpoint() {
 				padding-right: 0;
 				padding-left: em($p*2);
@@ -115,6 +119,31 @@
 	&__image {
 		display: block;
 		width: $f;
+	}
+	&__average {
+		display: inline-block;
+		margin: 0 auto $p/2;
+		@extend %average;
+	}
+	&__star {
+		@extend %star;
+		&s {
+			display: flex;
+		}
+		&--active {
+			color: $highlight-color;
+		}
+		&half {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 50%;
+			bottom: 0;
+			overflow: hidden;
+			i {
+				color: $highlight-color;
+			}
+		}
 	}
 }
 

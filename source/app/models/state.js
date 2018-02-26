@@ -76,11 +76,19 @@ module.exports = function ($stateProvider, $locationProvider, $provide, cfpLoadi
 			controller : ['$rootScope', '$scope', 'data', require('./html')]
 		})
 		.state('app.reviews', {
-			url : `/${vars.wc.reviews}?review_product&rating`,
+			url : `/${vars.wc.reviews}/:path?review_product&rating`,
 			template : tpl,
+			params: {
+				path: {
+					value : null,
+					squash : true,
+					type : 'string',
+					raw: true
+				}
+			},
 			resolve : {
-				data : ['getData',  '$stateParams', (getData, $stateParams) => {
-					let url = `${vars.wc.reviews}/`;
+				data : ['getData',  '$stateParams', '$rootScope', (getData, $stateParams, $rootScope) => {
+					let url = ($stateParams.path) ? `${vars.wc.reviews}/${$stateParams.path}` : `${vars.wc.reviews}`;
 					if($stateParams.review_product) {
 						url += '?review_product=' + $stateParams.review_product;
 					}
@@ -88,41 +96,51 @@ module.exports = function ($stateProvider, $locationProvider, $provide, cfpLoadi
 					if($stateParams.rating) {
 						url += and + 'rating=' + $stateParams.rating;
 					}
-					console.log(url);
+					if(url == vars.wc.reviews) {
+						$rootScope.menuItem = vars.wc.reviews;
+					}
 					return getData(url);
 				}]
 			},
 			controller : ['$rootScope', '$scope', 'data', 'ngCart', require('./html')]
 		})
 		.state('app.blog', {
-			url : '/blog/:path',
+			url : `/${vars.main.blog}/:path`,
 			template : tpl,
 			params: {
 				path: {
+					value : null,
+					squash : true,
 					type : 'string',
 					raw: true
 				}
 			},
 			resolve : {
-				data : ['getData', '$stateParams', function(getData, $stateParams) {
-					let base_url = `blog/${$stateParams.path}`;
+				data : ['getData', '$stateParams', '$rootScope', function(getData, $stateParams, $rootScope) {
+					let base_url = ($stateParams.path) ? `${vars.main.blog}/${$stateParams.path}` : `${vars.main.blog}`;
+					if(base_url == vars.main.blog) {
+						$rootScope.menuItem = vars.main.blog;
+					}
 					return getData(base_url);
 				}],
 			},
 			controller : ['$rootScope', '$scope', 'data', require('./html')]
 		})
 		.state('app.category', {
-			url : '/category/:name/:path',
+			url : `/${vars.main.category}/:name/:path`,
 			template : tpl,
 			params: {
 				path: {
+					value : null,
+					squash : true,
 					type : 'string',
 					raw: true
 				}
 			},
 			resolve : {
-				data : ['getData', '$stateParams', function(getData, $stateParams) {
-					let base_url = ($stateParams.path) ? `category/${$stateParams.name}/${$stateParams.path}` : `category/${$stateParams.name}`;
+				data : ['getData', '$stateParams', '$rootScope', function(getData, $stateParams, $rootScope) {
+					let base_url = ($stateParams.path) ? `${vars.main.category}/${$stateParams.name}/${$stateParams.path}` : `${vars.main.category}/${$stateParams.name}`;
+					$rootScope.menuItem = vars.main.blog;
 					return getData(base_url);
 				}],
 			},

@@ -1,3 +1,87 @@
+%pagination {
+	display: flex;
+	align-items: center;
+	border-top: 1px solid $light-border;
+	@include breakpoint() {
+		margin-top: em($p*4);
+	}
+	a, span {
+		display: inline-block;
+		margin: $p/2 $p - 5px;
+		text-align: center;
+		&:not(.prev):not(.next) {
+			font-weight: bold;
+			border-radius: 30px;
+			transition: background $speed;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			font-size: 12px;
+		}
+	}
+	span {
+		background-color: $light-border;
+		color: $dark-gray;
+	}
+	a:not(.prev):not(.next) {
+		background: $w;
+		color: $brand-main;
+		&:hover {
+			color: $w;
+			background: $brand-main;
+		}
+	}
+	.prev, .next {
+		@extend %button;
+		padding: em(10px) em(30px);
+		min-width: 0;
+		color: $brand-main;
+		border: 1px solid $alternate-color;
+		background-color: transparentize($w, 0);
+		&:not([class*="-loading"]):not(:disabled):hover {
+			color: $w;
+			background-color: $alternate-color;
+		}
+		&:before {
+			background-color: $alternate-color;
+		}
+		&:after {
+			background-color: $w;
+		}
+	}
+}
+%average {
+	font-size: em(28px);
+	font-weight: 300;
+	letter-spacing: -0.025em;
+	line-height: 0.8;
+	margin-top: em(-12px, 28px);
+	color: $brand-main;
+	strong {
+		font-size: percentage(42px/28px);
+	}
+}
+%star {
+	overflow: hidden;
+	width: em(16px);
+	position: relative;
+	margin: 0 2px;
+	i {
+		font-size: 16px;
+	}
+}
+
+%star_half {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 50%;
+	bottom: 0;
+	overflow: hidden;
+	i {
+		color: $highlight-color;
+	}
+}
 .review {
 	@include grow();
 	&__{
@@ -143,6 +227,132 @@
 			font-weight: 200;
 			font-size: em(52px);
 			padding-bottom: em($p/2, 52px);
+		}
+	}
+	&s {
+		&__{
+			&header {
+				display: flex;
+				min-height: calc(100vh - #{em(80px)});
+				align-items: center;
+				justify-content: flex-end;
+				position: relative;
+			}
+			&values {
+				display: inline-flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: space-between;
+				@include grow('md', 'top');
+			}
+			&chart {
+				flex: 0 0 auto;
+				width: $f;
+				margin-top: em($p);
+				padding-top: em($p);
+				padding-bottom: em($p*2);
+				border-top: 1px solid $light-border;
+			}
+			&average {
+				&s {
+					position: relative;
+				}
+				@extend %average;
+			}
+			&total {
+				color: $light-color;
+			}
+			&star {
+				&s {
+					display: flex;
+				}
+				overflow: hidden;
+				width: em(16px);
+				position: relative;
+				margin: 0 2px;
+				i {
+					font-size: 16px;
+				}
+				&--active {
+					color: $highlight-color;
+				}
+				&half {
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 50%;
+					bottom: 0;
+					overflow: hidden;
+					i {
+						color: $highlight-color;
+					}
+				}
+			}
+			&row {
+				display: flex;
+				font-size: em(14px);
+				align-items: center;
+				padding-bottom: em($p/2, 14px);
+				.reviews__values & {
+					&:nth-last-child(1) {
+						padding-bottom: 0;
+					}
+				}
+				span {
+					flex: 1;
+					&.reviews__bar {
+						flex: 4;
+					}
+				}
+			}
+			&subtotal {
+				color: $light-color;
+			}
+			&bar {
+				margin: 0 $p + 5px;
+				background-color: $dark-border;
+				height: $p + 5px;
+				position: relative;
+				//min-width: em(200px, 14px);
+			}
+			&percentage {
+				background-color: $highlight-color;
+				position: absolute;
+				height: $f;
+				left: 0;
+				top: 0;
+				width: 0;
+				transition: width $speed $speed;
+			}
+			&wrapper {
+				@include grow('lg');
+			}
+			&select {
+				margin-top: em($p/2);
+				margin-bottom: em($p*2);
+			}
+			&image {
+				width: $f!important;
+				height: auto!important;
+				@include breakpoint() {
+					position: absolute;
+					left: 0;
+					right: 0;
+					top: 0;
+					object-fit: cover;
+					height: $f!important;
+				}
+			}
+			&pagination {
+				@extend %pagination;
+				margin-top: em($p);
+				@include grow('md');
+				a, span {
+					&:nth-child(1) {
+						margin-left: 0;
+					}
+				}
+			}
 		}
 	}
 	.reviews & {

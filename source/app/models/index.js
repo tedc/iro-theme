@@ -34,6 +34,10 @@ iro
 				if (newUrl === oldUrl) {
 					if (trans.params().slug) {
 						$rootScope.menuItem = trans.params().slug;
+					} else if(trans.to().name == 'app.blog' || trans.to().name == 'app.category' ) {
+						$rootScope.menuItem = vars.main.blog;
+					} else if(trans.to().name == 'app.reviews') {
+						$rootScope.menuItem = vars.wc.reviews;
 					} else if (oldUrl.replace(/\/$/g, '') === vars.main.base.replace(/\/$/g, '')) {
 						$rootScope.menuItem = 'root';
 					}
@@ -41,6 +45,7 @@ iro
 					delete $rootScope.menuItem;
 				}
 			}
+			console.log($rootScope.menuItem);
 			if((newUrl.split('#')[0] === oldUrl.split('#')[0])) return false;
 			oldUrl = newUrl;
 			$rootScope.isAnim = true;
