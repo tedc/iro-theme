@@ -77,8 +77,11 @@
 		    	}
 		    }
 		}
-		&button {
+		&button, &readmore {
 			margin-top: em($p);
+		}
+		&readmore {
+			font-family: $alternate-font;
 		}
 		&figure {
 			position: relative;
