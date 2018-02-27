@@ -8,7 +8,7 @@
 $image = get_sub_field($name.'_image')['ID'];
 $values = new WP_Query($args);
 if($values->have_posts()) : ?>
-<section class="<?php echo $name; ?> <?php echo $name; ?>--grow-md">
+<section class="<?php echo $name; ?>">
 	<span class="<?php echo $name; ?>__nav <?php echo $name; ?>__nav--prev" ng-class="{'<?php echo $name; ?>__nav--hidden':valueIsStart}">
 		<i class="icon-arrow-left" ng-click="valueMove(false)"></i>
 	</span>
