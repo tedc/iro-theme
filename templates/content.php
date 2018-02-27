@@ -20,7 +20,7 @@
 			<?php get_template_part('templates/entry', 'meta'); ?>
 			<h2 class="post__title post__title--medium"><a href="<?php the_permalink(); ?>" ui-sref="app.page({slug : '<?php echo basename(get_permalink()); ?>'})"><?php the_title(); ?></a></h2>
 			<?php the_excerpt(); ?>
-			<a href="<?php the_permalink(); ?>" ui-sref="app.page({slug : '<?php echo basename(get_permalink()); ?>'})" class="post__button post__button--slim-light"><?php _e('Leggi tutto', 'iro'); ?></a>
+			<a href="<?php the_permalink(); ?>" ui-sref="app.page({slug : '<?php echo basename(get_permalink()); ?>'})" class="post__button post__button--dark"><?php _e('Leggi tutto', 'iro'); ?></a>
 		<?php else : ?>
 			<h2 class="post__title post__title--medium"><a href="<?php the_permalink(); ?>" ui-sref="app.page({slug : '<?php echo basename(get_permalink()); ?>'})"><?php the_title(); ?></a></h2>
 		<?php endif; ?>
