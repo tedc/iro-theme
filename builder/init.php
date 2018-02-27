@@ -99,14 +99,14 @@
 			if($background['clouds'] != 2) : ?>
 		<div class="row__clouds row__clouds--top"></div>
 		<?php endif; endif;
-			if($background['flowers'] && $background['flowers']['top_flowers']) : 
+			if($background['flowers'] && $background['flowers']['top_flowers'] && get_sub_field('custom_background')) : 
 				echo '<div class="row__flowers '.$background['flowers']['top_flowers'].'"></div>';
 			endif;
 		 echo $pattern;
-		 	if($background['flowers'] && $background['flowers']['center_flowers']) : 
+		 	if($background['flowers'] && $background['flowers']['center_flowers'] && get_sub_field('custom_background')) : 
 				echo '<div class="row__flowers '.$background['flowers']['center_flowers'].'"></div>';
 			endif;
-			if($background['flowers'] && $background['flowers']['bottom_flowers']) : 
+			if($background['flowers'] && $background['flowers']['bottom_flowers'] && get_sub_field('custom_background')) : 
 				echo '<div class="row__flowers '.$background['flowers']['bottom_flowers'].'"></div>';
 			endif;
 		  ?>
