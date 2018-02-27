@@ -148,6 +148,12 @@
 	}
 	display: flex;
 	flex-direction: column;
+	&:before {
+		@include full;
+		content: '';
+		background: $b;
+		opacity: .2;
+	}
 	&__{
 		&wrapper {
 			@extend %player;
@@ -157,6 +163,7 @@
 		}
 		&video {
 			opacity: .85;
+			z-index: 0;
 		}
 		&controls {
 			@extend %video_controls;
@@ -184,6 +191,7 @@
 			align-content: center;
 			text-align: center;
 			color: $w;
+			z-index: 2;
 			> * {
 				&:not(.video__button) {
 					width: $f;
@@ -193,6 +201,10 @@
 			p {
 				padding-top: em($p*2);
 			}
+		}
+		&text {
+			@include grow();
+			line-height: percentage(27px/18px);
 		}
 		&title {
 			color: $w;
@@ -212,6 +224,7 @@
 				bottom: em(-80px);
 				margin-left: -50%;
 			}
+			z-index: 1;
 			position: absolute;
 			top: 0;
 			bottom: 0;

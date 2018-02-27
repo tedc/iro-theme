@@ -22,14 +22,17 @@
 	<?php endif; ?>
 	<div class="video__content video__content--mw video__content--shrink">
 		<?php if(get_sub_field('video_title')) : ?>
-
 		<h3 class="video__title video__title--big"><?php the_sub_field('video_title'); ?></h3>
 		<?php endif;
 			if(get_sub_field('video_title')) :
-				the_sub_field('video_text'); endif; if(get_sub_field('video_iframe')) : ?>
+		?>
+		<div class="video__text video__text--grow">
+			<?php the_sub_field('video_text'); ?>
+		</div>
+		<?php endif; if(get_sub_field('video_iframe')) : ?>
 		<span class="video__open" ng-click="playIframe('<?php echo $video_id; ?>');">
 			<i class="icon-play"></i><br/>
-			<span class=""><?php _e('Guarda il video', 'iro'); ?></span>
+			<span><?php _e('Guarda il video', 'iro'); ?></span>
 		</span>
 		<?php endif;
 		$button_class = 'video__button';
