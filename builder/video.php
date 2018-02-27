@@ -24,7 +24,7 @@
 		<?php if(get_sub_field('video_title')) : ?>
 		<h3 class="video__title video__title--big"><?php the_sub_field('video_title'); ?></h3>
 		<?php endif;
-			if(get_sub_field('video_title')) :
+			if(get_sub_field('video_text')) :
 		?>
 		<div class="video__text video__text--grow">
 			<?php the_sub_field('video_text'); ?>

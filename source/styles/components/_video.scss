@@ -153,6 +153,7 @@
 		content: '';
 		background: $b;
 		opacity: .2;
+		z-index: 1;
 	}
 	&__{
 		&wrapper {
