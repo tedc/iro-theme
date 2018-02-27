@@ -108,6 +108,9 @@
 				// background-color: #f8f6d8;
 				content: '';
 			}
+			@include breakpoint() {		
+				max-width: 65%;
+			}
 		}
 		&icon {
 			position: absolute;
