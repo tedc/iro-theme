@@ -91,12 +91,11 @@
 	?>
 	<section class="row<?php echo $p . $fw . $bgClass . $relativeRow; echo (get_sub_field('white_text') ? ' row--inverted' : ''); ?>"<?php echo $bgStyle; ?><?php scrollmagic('triggerHook: 0.5, class : "row--inview"'); ?>>
 		<?php
-		 if($background['ondine']) : 
+		 if($background['ondine'] && get_sub_field('custom_background')) : 
 			if($background['ondine'] != 2) : ?>
 		<div class="row__wave row__wave--top"></div>
 		<?php endif; endif; 
-		var_dump($background['clouds']);
-		if($background['clouds']) : 
+		if($background['clouds'] && get_sub_field('custom_background')) : 
 			if($background['clouds'] != 2) : ?>
 		<div class="row__clouds row__clouds--top"></div>
 		<?php endif; endif;
@@ -119,13 +118,13 @@
 			include(locate_template( 'builder/' .$name .'.php', false, true ));
 		endwhile;
 		$row++; 
-		if($background['ondine']) :
+		if($background['ondine'] && get_sub_field('custom_background')) :
 			if($background['ondine'] != 1) : 
 			echo ($background['splash']) ? '<div class="row__splash"></div>' : '';
 		?>
 		<div class="row__wave row__wave--bottom"></div>
 		<?php endif; endif;  
-		if($background['clouds']) : 
+		if($background['clouds'] && get_sub_field('custom_background')) : 
 			if($background['clouds'] != 1) : ?>
 		<div class="row__clouds row__clouds--bottom"></div>
 		<?php endif; endif; echo $abs_image; ?>
