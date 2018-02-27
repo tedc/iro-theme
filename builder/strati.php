@@ -19,12 +19,12 @@
 	<?php endif;
 		if(get_sub_field('layers_title') && get_sub_field('layers_content_full')) :
 	?>
-	<header class="layers__header layers__header--grow-md layers__header--cell-mw">
+	<header class="layers__header layers__header--aligncenter layers__header--grow-md layers__header--cell-mw">
 		<?php if(get_sub_field('layers_title')) :  ?>
 		<h2 class="layers__title layers__title--medium">
 			<?php the_sub_field('layers_title'); ?>
 		</h2>
-		<?php endif; if(get_sub_field('layers_title') && get_sub_field('layers_content_above')) : ?>
+		<?php endif; if(get_sub_field('layers_title') && !get_sub_field('layers_content_above')) : ?>
 		<div class="layers__content<?php echo (get_sub_field('layers_title')) ? ' layers__content--grow-top' : ''; ?>">
 			<?php the_sub_field('layers_text'); ?>
 		</div>
@@ -74,8 +74,8 @@
 		</div>
 		<?php endif; ?>
 	</div>
-	<?php if(get_sub_field('layers_title') && get_sub_field('layers_content_full') && !get_sub_field('layers_content_above')) : ?>
-	<div class="layers__content layers__content--cell-mw layers__content--grow-md-bottom">
+	<?php if(get_sub_field('layers_title') && get_sub_field('layers_content_full') && get_sub_field('layers_content_above')) : ?>
+	<div class="layers__content layers__content--aligncenter layers__content--cell-mw layers__content--grow-md-bottom">
 		<?php the_sub_field('layers_text'); ?>
 	</div>
 	<?php endif; ?>
