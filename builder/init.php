@@ -95,6 +95,7 @@
 			if($background['ondine'] != 2) : ?>
 		<div class="row__wave row__wave--top"></div>
 		<?php endif; endif; 
+		var_dump($background['clouds']);
 		if($background['clouds']) : 
 			if($background['clouds'] != 2) : ?>
 		<div class="row__clouds row__clouds--top"></div>
