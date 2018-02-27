@@ -13,26 +13,7 @@
 }
 
 @mixin line_top($n, $ratio) {
-	[data-layer-to*="#{$n}"] & {
-		top: calc((100vw - 20px) * #{$ratio*-1});
-		@include breakpoint(640px) {
-			top: calc((100vw - #{em($p)}) * #{$ratio*-1});
-		}
-		@include breakpoint() {
-			top: calc((100vw - #{em($p*2)}) * #{$ratio*-1});
-		}
-		@include breakpoint($max-width) {
-			top: calc( ( (100vw - (100vw - #{$max-width}) / 2 ) ) * #{$ratio*-1} );
-		}
-	}
-	.layers__wrapper--cell-s8 [data-layer-to*="#{$n}"] & {	
-		@include breakpoint() {
-			top: calc( ( (100vw - #{em($p*2)}) - (100vw * (8/12))) * #{$ratio*-1});
-		}
-		@include breakpoint($max-width) {
-			top: calc( ( ( (100vw - (100vw - #{$max-width}) / 2) ) - (100vw * (8/12)) ) * #{$ratio*-1});
-		}
-	}
+	height: calc(#{percentage($ratio)});
 }
 .layers {
 	align-items: center;
@@ -54,6 +35,7 @@
 			}
 		}
 		&wrapper {
+			position: relative;
 			@include breakpoint() {
 				.layers--grid & {
 					padding-left: em($p*2);
@@ -88,6 +70,47 @@
 				}
 			}
 		}
+		&images {
+			position: relative;
+			line-height: 0;
+			&:before {
+				display: block;
+				content: '';
+				padding-top: percentage(592px/2200px);
+			}
+			.layers__render {
+				@include full;
+				overflow: hidden;
+				img {
+					@include full;
+				}
+			}
+			img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: $f;
+			}
+			svg {
+				@include full;
+			}
+			@include breakpoint() {
+				position: absolute;
+				width: $f;
+				left: 0;
+				top: 50%;
+				transform: translate3d(0, -50%, 0);
+				.layers--grid & {
+					left: em($p*2);
+					width: calc(#{$f} - #{em($p*2)});
+				}
+			}
+		}
+		&last {
+			&--hidden {
+				opacity: 0;
+			}
+		}
 		&pointer {
 			&s {
 				display: flex;
@@ -97,13 +120,13 @@
 				}
 			}
 			.layers__title {
-				font-size: em(22px);
+				font-size: 1em;
 				padding-bottom: em($p/2, 22px);
 			}
 			p {
 				font-size: em(12px);
 			}
-			padding-top: em($p*2);
+			//padding-top: em($p*2);
 			text-align: center;
 			width: $f;
 			flex: 0 0 auto;
@@ -114,25 +137,124 @@
 				position: relative;
 				flex: 1;
 				cursor: pointer;
-				padding: {
-					left: em($p/2);
-					right: em($p/2);
-				}
 				transition: padding-top $speed, opacity $speed, transform $speed;
+				&--odd {
+					&:before {
+						display: block;
+						content: '';
+						padding-bottom: em($p*4);
+					}
+				}
+				&--even {
+					&:after {
+						display: block;
+						content: '';
+						padding-bottom: em($p*4);
+					}
+				}
 				.layers__pointers & {
-					&:nth-child(1) {
-						padding-left: em($p);
-					}
-					&:nth-child(odd) {
-						padding-top: em($p*4);
-					}
-					&:nth-last-child(1) {
-						padding-right: em($p);
-					}
 					@for $i from 1 through 10 {
 						$de: (0.25s * $i) - 0.25s;
 						&:nth-child(#{$i}) {
 							transition-delay: $de;
+						}
+					}
+				}
+				.layers[data-count="1"] & {
+					&:nth-child(odd) {
+						&:before {
+							padding-top: percentage(592px/2200px);
+						}
+					}
+				}
+				.layers[data-count="2"] & {
+					&:nth-child(odd) {
+						&:before {
+							padding-top: percentage(592px/2200px)*2;
+						}
+					}
+				}
+				.layers[data-count="3"] & {
+					&:nth-child(odd) {
+						&:before {
+							padding-top: percentage(592px/2200px)*3;
+						}
+					}
+				}
+				.layers[data-count="4"] & {
+					&:nth-child(odd) {
+						&:before {
+							padding-top: percentage(592px/2200px)*4;
+						}
+					}
+				}
+				.layers[data-count="5"] & {
+					&:nth-child(odd) {
+						&:before {
+							padding-top: percentage(592px/2200px)*5;
+						}
+					}
+				}
+				.layers[data-count="6"] & {
+					&:nth-child(odd) {
+						&:before {
+							padding-top: percentage(592px/2200px)*6;
+						}
+					}
+				}
+				.layers[data-count="7"] & {
+					&:nth-child(odd) {
+						&:before {
+							padding-top: percentage(592px/2200px)*7;
+						}
+					}
+				}
+				.layers[data-count="1"] & {
+					&:nth-child(even) {
+						&:after {
+							padding-top: percentage(592px/2200px);
+						}
+					}
+				}
+				.layers[data-count="2"] & {
+					&:nth-child(even) {
+						&:after {
+							padding-top: percentage(592px/2200px)*2;
+						}
+					}
+				}
+				.layers[data-count="3"] & {
+					&:nth-child(even) {
+						&:after {
+							padding-top: percentage(592px/2200px)*3;
+						}
+					}
+				}
+				.layers[data-count="4"] & {
+					&:nth-child(even) {
+						&:after {
+							padding-top: percentage(592px/2200px)*4;
+						}
+					}
+				}
+				.layers[data-count="5"] & {
+					&:nth-child(even) {
+						&:after {
+							padding-top: percentage(592px/2200px)*5;
+						}
+					}
+				}
+				.layers[data-count="6"] & {
+					&:nth-child(even) {
+						&:after {
+							padding-top: percentage(592px/2200px)*6;
+						}
+					}
+				}
+				.layers[data-count="7"] & {
+					&:nth-child(even) {
+						&:after {
+							padding-top: percentage(592px/2200px)*7;
 						}
 					}
 				}
@@ -142,75 +264,133 @@
 				}
 				.layers--inview .layers__pointers:hover & {
 					opacity: .4;
-					&:nth-child(even) {
-						padding-top: em($p*4);
-					}
+					// &:nth-child(even) {
+					// 	padding-top: em($p*4);
+					// }
 				}
 				&:hover {
 					.layers--inview & {
 						opacity: 1!important;
-						padding-top: em($p*2)!important;
+						//padding-top: em($p*2)!important;
 					}
 				}
 			}
 		}
-		&line {
-			display: none;
+		&content {
 			@include breakpoint() {
-				display: block;
-				position: absolute;
-				bottom: calc(#{$f} - #{em($p*1.5)});
-				left: 50%;
-				width: 2px;
-				margin-left: -1px;
-				background-color: $brand-main;
+				background-color: #fff;
+				position: relative;
+				z-index: 2;
+				padding: {
+					left: em($p/2);
+					right: em($p/2);
+				}
+			}
+		}
+		&line {
+			&s{
+				display: none;
+				@include breakpoint() {
+					display: flex;
+					align-items: flex-start;
+					@include full;
+				}
+			}
+			@include breakpoint() {
 				transition: all $speed;
-				&:before {
+				flex: 0 0 auto;
+				position: relative;
+				&--odd {
+					align-self: flex-end;
+				}
+				.layers[data-count="1"] & {
+					width: $f;
+				}
+				.layers[data-count="2"] & {
+					width: $f/2;
+				}
+				.layers[data-count="3"] & {
+					width: $f/3;
+				}
+				.layers[data-count="4"] & {
+					width: $f/4;
+				}
+				.layers[data-count="5"] & {
+					width: $f/5;
+				}
+				.layers[data-count="6"] & {
+					width: $f/6;
+				}
+				.layers[data-count="7"] & {
+					width: $f/7;
+				}
+				&:after {
 					width: 10px;
 					height: 10px;
 					content: '';
 					position: absolute;
-					top: 0;
 					left: 50%;
-					margin: -5px 0 0 -5px;
+					margin: 0 0 0 -5px;
 					border-radius: $f;
 					border: 2px solid $brand-main;
-					transition: border-colo $speed;
+					background-color: #fff;
+					transition: border-color $speed, background-color $speed;
 				}
-				&:after {
-					width: 8px;
-					height: 8px;
+				&:before {
+					left: 50%;
+					width: 2px;
+					margin-left: -1px;
 					content: '';
 					position: absolute;
+					height: $f;
+					background-color: $brand-main;
 					top: 0;
-					left: 50%;
-					margin: -4px 0 0 -4px;
-					border-radius: $f;
-					background-color: $w;
 					transition: background-color $speed;
 				}
-				@each $n, $ratio in (0, (32/1500)), (1, (55/1500)), (2, (55/1500)), (3, (55/1500)), (4, (88/1500)), (5, (112/1500)), (6, (150/1500)) {
-					@include line_top($n, $ratio);
+				&--odd {
+					&:after {
+						top: -5px;
+					}
 				}
-				.layers--inview .layers__pointers:hover & {
-					opacity: 0;
+				&--even {
+					&:after {
+						bottom: -5px;
+					}
 				}
-				.layers__pointers .layers__pointer:nth-child(odd):not(:hover) &, .layers:not(.layers--inview) .layers__pointer:nth-child(odd):hover &  {
-					bottom: calc(#{$f} - #{em($p*3.5)});
-				}
-				.layers--inview .layers__pointer:not([data-layer-to="0"]):hover & {
-					margin-top: -60px;
-				}
-				.layers--inview .layers__pointer:hover & {
-					opacity: 1;
-					background-color: $alternate-color;
+				&.layers__line--active {
+					opacity: 1!important;
 					&:before {
-						border-color: $alternate-color;
+						background-color: $alternate-color;
 					}
 					&:after {
-						background-color: $lighter-color;
+						border-color: $alternate-color;
+						background-color: $highlight-color;
 					}
 				}
+				@each $n, $ratio in (0, (227/592)), (1, (296/592)), (2, (296/592)), (3, (296/592)), (4, (360/592)), (5, (403/592)), ("cover", (296/592)) {
+					&[data-line*="#{$n}"] {
+						@include line_top($n, $ratio);
+					}
+				}
+				// .layers--inview .layers__pointers:hover & {
+				// 	opacity: 0;
+				// }
+				// .layers__pointers .layers__pointer:nth-child(odd):not(:hover) &, .layers:not(.layers--inview) .layers__pointer:nth-child(odd):hover &  {
+				// 	bottom: calc(#{$f} - #{em($p*3.5)});
+				// }
+				// .layers--inview .layers__pointer:not([data-layer-to="0"]):hover & {
+				// 	margin-top: -60px;
+				// }
+				// .layers--inview .layers__pointer:hover & {
+				// 	opacity: 1;
+				// 	background-color: $alternate-color;
+				// 	&:before {
+				// 		border-color: $alternate-color;
+				// 	}
+				// 	&:after {
+				// 		background-color: $lighter-color;
+				// 	}
+				// }
 			}
 		}
 	}

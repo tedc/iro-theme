@@ -3105,15 +3105,15 @@
                                             },
                                             "show_in_rest": 0,
                                             "edit_in_rest": 0,
-                                            "choices": [
-                                                "Base",
-                                                "Curva rossa",
-                                                "Curva gialla",
-                                                "Curva bianca",
-                                                "Terzo strato",
-                                                "Cornice",
-                                                "Ultimo strato"
-                                            ],
+                                            "choices": {
+                                                "0": "Base",
+                                                "1": "Curva rossa",
+                                                "2": "Curva gialla",
+                                                "3": "Curva bianca",
+                                                "4": "Terzo strato",
+                                                "6": "Ultimo strato",
+                                                "cover": "Involucro"
+                                            },
                                             "allow_custom": 0,
                                             "save_custom": 0,
                                             "default_value": [],
@@ -3168,5 +3168,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1519398188
+    "modified": 1519667613
 }

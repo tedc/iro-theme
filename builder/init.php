@@ -89,7 +89,7 @@
 		$abs_image = ($abs_image['file'] && get_sub_field('floating_image')) ? '<figure class="row__figure row__figure'.$abs_image['posizione'].$multiplyClass.'"'.$top.' style="width:'.$abs_image['width'].'%;"><img src="'.$abs_image['file'].'" class="row__image"/></figure>' : '';
 	
 	?>
-	<section class="row<?php echo $p . $fw . $bgClass . $relativeRow; echo (get_sub_field('white_text') ? ' row--inverted' : ''); ?>"<?php echo $bgStyle; ?>>
+	<section class="row<?php echo $p . $fw . $bgClass . $relativeRow; echo (get_sub_field('white_text') ? ' row--inverted' : ''); ?>"<?php echo $bgStyle; ?><?php scrollmagic('triggerHook: 0.5, class : "row--inview"'); ?>>
 		<?php
 		 if($background['ondine']) : 
 			if($background['ondine'] != 2) : ?>

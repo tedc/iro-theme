@@ -95,6 +95,8 @@
 				display: block;
 				position: absolute;
 				z-index: 10;
+				transition: margin $speed, opacity $speed;
+				opacity: 0;
 				&--lowlev {
 					z-index: 0;
 				}
@@ -104,22 +106,41 @@
 				&--right-bottom {
 					right: 0;
 					bottom: 0;
+					.row:not(.row--inview) & {
+						margin-right: em($p*-8);
+						margin-top: em($p*8);
+					}
 				}
 				&--left-bottom {
 					left: 0;
 					bottom: 0;
+					.row:not(.row--inview) & {
+						margin-left: em($p*-8);
+						margin-top: em($p*8);
+					}
 				}
 				&--left-top {
 					left: 0;
 					top: 0;
+					.row:not(.row--inview) & {
+						margin-left: em($p*-8);
+						margin-top: em($p*-8);
+					}
 				}
 				&--right-top {
 					right: 0;
 					top: 0;
+					.row:not(.row--inview) & {
+						margin-right: em($p*-8);
+						margin-top: em($p*-8);
+					}
 				}
 				&--right-center {
 					right: 0;
 					top: 50%;
+					.row:not(.row--inview) & {
+						margin-right: em($p*-8);
+					}
 					img {
 						transform: translate3d(0, -50%, 0);
 					}
@@ -130,12 +151,18 @@
 					img {
 						transform: translate3d(0, -50%, 0);
 					}
+					.row:not(.row--inview) & {
+						margin-left: em($p*-8);
+					}
 				}
 				&--top-center {
 					top: 0;
 					left: 50%;
 					img {
 						transform: translate3d(-50%, 0, 0);
+					}
+					.row:not(.row--inview) & {
+						margin-top: em($p*-8);
 					}
 				}
 				&--bottom-center {
@@ -144,6 +171,12 @@
 					img {
 						transform: translate3d(-50%, 0, 0);
 					}
+					.row:not(.row--inview) & {
+						margin-top: em($p*8);
+					}
+				}
+				.row--inview & {
+					opacity: 1;
 				}
 			}
 		}
