@@ -20,6 +20,6 @@
 	 */
 	do_action( 'woocommerce_after_add_to_cart_quantity' );
 ?>
-<span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top" ng-class="{'add-to-cart__wrapper--loading' : ngCart.isUpdating}" ng-sm="[{'triggerHook' : 'onLeave', 'triggerElement':'#product-trigger', 'offset': 80, 'class':'add-to-cart__wrapper--fixed'}, {'triggerHook' : 'onLeave','triggerElement':'#product-trigger', offset: 140, 'class':'add-to-cart__wrapper--fixed-inview'}, , {'triggerHook' : 'onLeave','triggerElement':'.footer', offset: 140, 'class':'add-to-cart__wrapper--fixed-inview-hidden'}]">
+<span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top" ng-class="{'add-to-cart__wrapper--loading' : ngCart.isUpdating}" ng-sm="[{'triggerHook' : 'onLeave', 'triggerElement':'#product-trigger', 'offset': 80, 'class':'add-to-cart__wrapper--fixed'}, {'triggerHook' : 'onLeave','triggerElement':'#product-trigger', offset: 140, 'class':'add-to-cart__wrapper--fixed-inview'}, {'triggerHook' : 'onLeave','triggerElement':'.footer', offset: 140, 'class':'add-to-cart__wrapper--fixed-inview-hidden'}]">
 <span class="add-to-cart__button" ng-class="{'add-to-cart__button--loading' : ngCart.isUpdating}" ng-transclude ng-click="ngCart.addItem(id, name, price, qty, data)"></span>
 </span>

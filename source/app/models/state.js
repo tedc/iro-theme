@@ -16,7 +16,7 @@ module.exports = function ($stateProvider, $locationProvider, $provide, cfpLoadi
 		.state('app', {
 				abstract : true,
 				url : `/{lang:(?:${vars.lang.langs})}`,			
-				template : '<ui-view class="view" autoscroll="true"></ui-view>',
+				template : '<ui-view class="view"></ui-view>',
 				params : {
 					lang : {
 						squash : true,
