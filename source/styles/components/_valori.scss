@@ -23,10 +23,10 @@
 			background-color: #fff;
 			z-index: 4;
 			transition: visibility $speed, opacity $speed;
-			&--hidden {
-				opacity: 0;
-				visibility: hidden;
-			}
+			// &--hidden {
+			// 	opacity: 0;
+			// 	visibility: hidden;
+			// }
 			&--prev {
 				left: 0;
 			}

@@ -399,6 +399,7 @@ module.exports = () => {
 				$scope.values_slider.then((swiper)=> {
 					if(swiper.destroyed) return;
 					let currentClass = ()=> {
+						swiper.update();
 						angular.element(swiper.slides[swiper.activeIndex]).addClass('swiper-slide-current')
 					}
 					swiper.on('init', currentClass);

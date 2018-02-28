@@ -20,6 +20,9 @@
 	p {
 		color: $dark-gray;
 	}
+	.layer-active {
+		opacity: 1!important;
+	}
 	&__{
 		&header, &wrapper {
 			@include grow('md');
@@ -50,25 +53,25 @@
 		// }
 		&render {
 			@extend %layers;
-			@include breakpoint() {
-				img {
-					&:not(.animate){
-						opacity: 0;
-						transform: translate3d(0, $p*-1, 0);
-						transition: transform $speed, opacity $speed;
-						@for $i from 0 through 5 {
-							&[data-layer="#{$i}"] {
-								$de: (0.05s * $i);
-								transition-delay: $de;
-							}
-						}
-						.layers--inview & {
-							opacity: 1;
-							transform: translate3d(0, 0, 0);
-						}
-					}
-				}
-			}
+			// @include breakpoint() {
+			// 	img {
+			// 		&:not(.animate){
+			// 			opacity: 0;
+			// 			transform: translate3d(0, $p*-1, 0);
+			// 			transition: transform $speed, opacity $speed;
+			// 			@for $i from 0 through 5 {
+			// 				&[data-layer="#{$i}"] {
+			// 					$de: (0.05s * $i);
+			// 					transition-delay: $de;
+			// 				}
+			// 			}
+			// 			.layers--inview & {
+			// 				opacity: 1;
+			// 				transform: translate3d(0, 0, 0);
+			// 			}
+			// 		}
+			// 	}
+			// }
 		}
 		&images {
 			position: relative;
@@ -100,6 +103,7 @@
 				left: 0;
 				top: 50%;
 				transform: translate3d(0, -50%, 0);
+				z-index: 3;
 				.layers--grid & {
 					left: em($p*2);
 					width: calc(#{$f} - #{em($p*2)});
@@ -122,6 +126,7 @@
 			.layers__title {
 				font-size: 1em;
 				padding-bottom: em($p/2, 22px);
+				transition: color $speed;
 			}
 			p {
 				font-size: em(12px);
@@ -131,12 +136,9 @@
 			width: $f;
 			flex: 0 0 auto;
 			@include breakpoint() {
-				opacity: 0;
-				transform: translate3d(0, $p, 0);
 				width: auto;
 				position: relative;
 				flex: 1;
-				cursor: pointer;
 				transition: padding-top $speed, opacity $speed, transform $speed;
 				&--odd {
 					&:before {
@@ -152,6 +154,106 @@
 						padding-bottom: em($p*4);
 					}
 				}
+				.layers[data-count="1"] & {
+					&:nth-child(odd) {
+						&:before {
+							padding-top: percentage(592px/2200px);
+						}
+					}
+				}
+				.layers[data-count="2"] & {
+					&:nth-child(odd) {
+						&:before {
+							padding-top: percentage(592px/2200px)*2;
+						}
+					}
+				}
+				.layers[data-count="3"] & {
+					&:nth-child(odd) {
+						&:before {
+							padding-top: percentage(592px/2200px)*3;
+						}
+					}
+				}
+				.layers[data-count="4"] & {
+					&:nth-child(odd) {
+						&:before {
+							padding-top: percentage(592px/2200px)*4;
+						}
+					}
+				}
+				.layers[data-count="5"] & {
+					&:nth-child(odd) {
+						&:before {
+							padding-top: percentage(592px/2200px)*5;
+						}
+					}
+				}
+				.layers[data-count="6"] & {
+					&:nth-child(odd) {
+						&:before {
+							padding-top: percentage(592px/2200px)*6;
+						}
+					}
+				}
+				.layers[data-count="7"] & {
+					&:nth-child(odd) {
+						&:before {
+							padding-top: percentage(592px/2200px)*7;
+						}
+					}
+				}
+				.layers[data-count="1"] & {
+					&:nth-child(even) {
+						&:after {
+							padding-top: percentage(592px/2200px);
+						}
+					}
+				}
+				.layers[data-count="2"] & {
+					&:nth-child(even) {
+						&:after {
+							padding-top: percentage(592px/2200px)*2;
+						}
+					}
+				}
+				.layers[data-count="3"] & {
+					&:nth-child(even) {
+						&:after {
+							padding-top: percentage(592px/2200px)*3;
+						}
+					}
+				}
+				.layers[data-count="4"] & {
+					&:nth-child(even) {
+						&:after {
+							padding-top: percentage(592px/2200px)*4;
+						}
+					}
+				}
+				.layers[data-count="5"] & {
+					&:nth-child(even) {
+						&:after {
+							padding-top: percentage(592px/2200px)*5;
+						}
+					}
+				}
+				.layers[data-count="6"] & {
+					&:nth-child(even) {
+						&:after {
+							padding-top: percentage(592px/2200px)*6;
+						}
+					}
+				}
+				.layers[data-count="7"] & {
+					&:nth-child(even) {
+						&:after {
+							padding-top: percentage(592px/2200px)*7;
+						}
+					}
+				}
+				opacity: 0;
+				transform: translate3d(0, $p, 0);
 				.layers__pointers & {
 					@for $i from 1 through 10 {
 						$de: (0.25s * $i) - 0.25s;
@@ -160,130 +262,38 @@
 						}
 					}
 				}
-				.layers[data-count="1"] & {
-					&:nth-child(odd) {
-						&:before {
-							padding-top: percentage(592px/2200px);
-						}
-					}
-				}
-				.layers[data-count="2"] & {
-					&:nth-child(odd) {
-						&:before {
-							padding-top: percentage(592px/2200px)*2;
-						}
-					}
-				}
-				.layers[data-count="3"] & {
-					&:nth-child(odd) {
-						&:before {
-							padding-top: percentage(592px/2200px)*3;
-						}
-					}
-				}
-				.layers[data-count="4"] & {
-					&:nth-child(odd) {
-						&:before {
-							padding-top: percentage(592px/2200px)*4;
-						}
-					}
-				}
-				.layers[data-count="5"] & {
-					&:nth-child(odd) {
-						&:before {
-							padding-top: percentage(592px/2200px)*5;
-						}
-					}
-				}
-				.layers[data-count="6"] & {
-					&:nth-child(odd) {
-						&:before {
-							padding-top: percentage(592px/2200px)*6;
-						}
-					}
-				}
-				.layers[data-count="7"] & {
-					&:nth-child(odd) {
-						&:before {
-							padding-top: percentage(592px/2200px)*7;
-						}
-					}
-				}
-				.layers[data-count="1"] & {
-					&:nth-child(even) {
-						&:after {
-							padding-top: percentage(592px/2200px);
-						}
-					}
-				}
-				.layers[data-count="2"] & {
-					&:nth-child(even) {
-						&:after {
-							padding-top: percentage(592px/2200px)*2;
-						}
-					}
-				}
-				.layers[data-count="3"] & {
-					&:nth-child(even) {
-						&:after {
-							padding-top: percentage(592px/2200px)*3;
-						}
-					}
-				}
-				.layers[data-count="4"] & {
-					&:nth-child(even) {
-						&:after {
-							padding-top: percentage(592px/2200px)*4;
-						}
-					}
-				}
-				.layers[data-count="5"] & {
-					&:nth-child(even) {
-						&:after {
-							padding-top: percentage(592px/2200px)*5;
-						}
-					}
-				}
-				.layers[data-count="6"] & {
-					&:nth-child(even) {
-						&:after {
-							padding-top: percentage(592px/2200px)*6;
-						}
-					}
-				}
-				.layers[data-count="7"] & {
-					&:nth-child(even) {
-						&:after {
-							padding-top: percentage(592px/2200px)*7;
-						}
-					}
-				}
 				.layers--inview & {
 					opacity: 1;
 					transform: translate3d(0, 0, 0);
 				}
-				.layers--inview .layers__pointers:hover & {
-					opacity: .4;
-					// &:nth-child(even) {
-					// 	padding-top: em($p*4);
-					// }
-				}
-				&:hover {
-					.layers--inview & {
-						opacity: 1!important;
-						//padding-top: em($p*2)!important;
-					}
-				}
+				// .layers--inview .layers__pointers:hover & {
+				// 	opacity: .4;
+				// 	// &:nth-child(even) {
+				// 	// 	padding-top: em($p*4);
+				// 	// }
+				// }
+				// &:hover {
+				// 	.layers--inview & {
+				// 		opacity: 1!important;
+				// 		//padding-top: em($p*2)!important;
+				// 	}
+				// }
 			}
 		}
 		&content {
 			@include breakpoint() {
 				background-color: #fff;
 				position: relative;
-				z-index: 2;
+				z-index: 2;	
+				cursor: pointer;
 				padding: {
 					left: em($p/2);
 					right: em($p/2);
+				}
+				&.layer-active {
+					.layers__title {
+						color: $alternate-color;
+					}
 				}
 			}
 		}
@@ -300,6 +310,7 @@
 				transition: all $speed;
 				flex: 0 0 auto;
 				position: relative;
+				cursor: pointer;
 				&--odd {
 					align-self: flex-end;
 				}
@@ -357,8 +368,7 @@
 						bottom: -5px;
 					}
 				}
-				&.layers__line--active {
-					opacity: 1!important;
+				&.layer-active {
 					&:before {
 						background-color: $alternate-color;
 					}
@@ -368,9 +378,23 @@
 					}
 				}
 				@each $n, $ratio in (0, (227/592)), (1, (296/592)), (2, (296/592)), (3, (296/592)), (4, (360/592)), (5, (403/592)), ("cover", (296/592)) {
-					&[data-line*="#{$n}"] {
+					&[data-layer-to*="#{$n}"] {
 						@include line_top($n, $ratio);
 					}
+				}
+				opacity: 0;
+				transform: translate3d(0, $p, 0);
+				.layers__lines & {
+					@for $i from 1 through 10 {
+						$de: (0.25s * $i) - 0.25s;
+						&:nth-child(#{$i}) {
+							transition-delay: $de;
+						}
+					}
+				}
+				.layers--inview & {
+					opacity: 1;
+					transform: translate3d(0, 0, 0);
 				}
 				// .layers--inview .layers__pointers:hover & {
 				// 	opacity: 0;

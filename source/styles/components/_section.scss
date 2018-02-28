@@ -37,6 +37,11 @@
 			.swiper-slide-active & {
 				transition-delay: 0;
 			}
+			.section__content--layers & {
+				p {
+					font-size: em(14px);
+				}
+			}
 		}
 		&cell {
 			[class*="--gradient"] & {
@@ -144,27 +149,27 @@
 				flex: 0 0 auto;
 				max-width: none;
 				.section__cell--s6 .section__figure--double & {
-					width: calc(200% - #{em($p*2)});
+					width: calc(150% - #{em($p*2)});
 				}
 				.section__cell--s8 .section__figure--double  & {
-					$w: $f * 1.5;
+					$w: $f * 1.25;
 					width: calc(#{$w} - #{em($p*2)});
 				}
 				.section__cell--s7 .section__figure--double  & {
-					$w: $f * 1.24;
+					$w: $f * 1.10;
 					width: calc(#{$w} - #{em($p*2)});
 				}
 			}
 			@include breakpoint($max-width) {
 				.section__cell--s6 .section__figure--double  & {
-					width: calc(200% - ((100vw - #{$max-width}) / 2));
+					width: calc(150% - ((100vw - #{$max-width}) / 2));
 				}
 				.section__cell--s8 & {
-					$w: $f * 1.5;
+					$w: $f * 1.25;
 					width: calc(#{$w} - ((100vw - #{$max-width}) / 2));
 				}
 				.section__cell--s7 .section__figure--double  & {
-					$w: $f * 1.24;
+					$w: $f * 1.1;
 					width: calc(#{$w} - ((100vw - #{$max-width}) / 2));
 				}
 			}
@@ -212,6 +217,12 @@
 			}
 			.swiper-slide & {
 				transition-delay: $speed/4;
+			}
+			&--small {
+				.section__content--layers & {
+					font-size: em(18px);
+					color: $alternate-color;
+				}
 			}
 		}
 		&symbol {
@@ -384,6 +395,10 @@
 		&render {
 			@extend %layers;
 			margin-bottom: em($p*4);
+			&--mw-large {
+				margin-left: auto;
+				margin-right: auto;
+			}
 		}
 		&layer {
 			width: $f;

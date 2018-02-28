@@ -87,9 +87,9 @@
 	&__{	
 		&container {
 			overflow: hidden;
-			background: url(../images/white-splash.jpg) left bottom repeat-x {
-				size: auto em($p*7);
-			};
+			// background: url(../images/white-splash.jpg) left bottom repeat-x {
+			// 	size: auto em($p*7);
+			// };
 		}	
 		&cell {
 			display: flex;
