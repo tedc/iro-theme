@@ -414,5 +414,26 @@
 		&slider {
 			z-index: 10;
 		}
+		&certification {
+			display: flex;
+			flex-wrap: wrap;
+			.section__figure {
+				flex: 1;
+				@include breakpoint(640px) {
+					flex: 0 0 auto;
+					max-width: em(200px);
+				}
+			}
+			.section__content {
+				flex: 0 0 auto;
+				text-align: center;
+				width: $f;
+				@include breakpoint(640px) {
+					width: auto;
+					text-align: left;
+					padding-right: em($p*2);
+				}
+			}
+		}
 	}	
 }
