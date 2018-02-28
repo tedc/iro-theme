@@ -1,5 +1,5 @@
 <?php $mw = ($strati=='section') ? ' '.$strati.'__render--mw-large' : ''; ?>
-<figure class="<?php echo $strati; ?>__render<?php $mw; ?>">
+<figure class="<?php echo $strati; ?>__render<?php echo $mw; ?>">
 	<?php 
 		$max = ($strati == 'layers') ? 5 : 7;
 		for($i= 0; $i<=$max; $i++) {
