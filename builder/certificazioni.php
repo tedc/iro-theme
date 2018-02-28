@@ -48,7 +48,7 @@
 				<?php the_content(); ?>
 			</div>
 		</div>
-		<?php endwhile; ?>
+		<?php endwhile; wp_reset_query(); wp_reset_postdata(); ?>
 	</div>
 </div>
 <?php endif; ?>
