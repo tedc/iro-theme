@@ -401,16 +401,16 @@
 			width: $f!important;
 			height: $f!important;
 			object-fit: cover;
-			.header--center-top & {
+			&--center-top {
 				object-position: center top;
 			}
-			.header--center-bottom & {
+			&--center-bottom {
 				object-position: center bottom;
 			}
-			.header--center-left & {
+			&--center-left {
 				object-position: left center;
 			}
-			.header--center-right & {
+			&--center-right {
 				object-position: right center;
 			}
 		}

@@ -5,10 +5,11 @@
 	$thumb_id = get_post_thumbnail_id($the_id);
 	$alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true) ? get_post_meta($thumb_id, '_wp_attachment_image_alt', true) : get_bloginfo('name') . ': '.Titles\title();
 	$image_size = (is_mobile()) ? 'large' : 'full';
+	$image_class = 'header__image';
+	$image_class .= (get_field('background_position')) ? ' header__image'.get_field('background_position') : '';
 	$image = wp_get_attachment_image( $thumb_id, $image_size, false, array('class' => 'header__image', 'alt' => $alt) );
 	$header_class = 'header header--shrink-fw';
 	$header_class .= (get_field('white_text')) ? ' header--clear' : '';
-	$header_class .= (get_field('background_position')) ? ' header'.get_field('background_position') : '';
 ?>
 <div class="<?= $header_class; ?>">
 	<?php 
