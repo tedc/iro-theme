@@ -25,13 +25,14 @@
             $api->setAccessToken($access_token);
             $items = $api->Users->Recent($user_id, array('count'=>$count));
             $cached = get_transient($user_id);
-            if($cached !== false) {
-                return $cached;
-            } else {
-                $expiration_time = 60*60*2;
-                set_transient($user_id, $items, $expiration_time);
-                return $items;
-            }
+            return $items;
+            // if($cached !== false) {
+            //     return $cached;
+            // } else {
+            //     $expiration_time = 60*60*2;
+            //     set_transient($user_id, $items, $expiration_time);
+            //     return $items;
+            // }
         }
         register_rest_route('api/v1', '/facebook', array(
             'methods' => 'GET',

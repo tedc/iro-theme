@@ -3126,6 +3126,79 @@
                             ],
                             "min": "",
                             "max": ""
+                        },
+                        "5a96bfda65375": {
+                            "key": "5a96bfda65375",
+                            "name": "certificazioni",
+                            "label": "Certificazioni",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5a96c01d65376",
+                                    "label": "Numero colonne",
+                                    "name": "certification_cols",
+                                    "type": "true_false",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "show_in_rest": 0,
+                                    "edit_in_rest": 0,
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui": 1,
+                                    "ui_on_text": 1,
+                                    "ui_off_text": 2
+                                },
+                                {
+                                    "key": "field_5a96c05b65378",
+                                    "label": "Titolo",
+                                    "name": "certification_title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "show_in_rest": 0,
+                                    "edit_in_rest": 0,
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5a96c04a65377",
+                                    "label": "Testo",
+                                    "name": "certification_text",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "show_in_rest": 0,
+                                    "edit_in_rest": 0,
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 1,
+                                    "delay": 0
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
                         }
                     },
                     "button_label": "Aggiungi layout",
@@ -3168,5 +3241,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1519667613
+    "modified": 1519829121
 }
