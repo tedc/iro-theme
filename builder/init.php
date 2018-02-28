@@ -87,8 +87,8 @@
 		$top = ($abs_image['file'] && get_sub_field('floating_image') && $abs_image['top'] != 0) ? ' move-top-image="'.$abs_image['top'].'"' : '';
 		$multiplyClass .= ($abs_image['file'] && get_sub_field('floating_image') && $abs_image['z_index_0']) ? ' row__figure--lowlev' : '';
 		$abs_image = ($abs_image['file'] && get_sub_field('floating_image')) ? '<figure class="row__figure row__figure'.$abs_image['posizione'].$multiplyClass.'"'.$top.' style="width:'.$abs_image['width'].'%;"><img src="'.$abs_image['file'].'" class="row__image"/></figure>' : '';
-	
-	?>
+		if(!get_sub_field('is_hidden')):
+		?>
 	<section class="row<?php echo $p . $fw . $bgClass . $relativeRow; echo (get_sub_field('white_text') ? ' row--inverted' : ''); ?>"<?php echo $bgStyle; ?><?php scrollmagic('triggerHook: 0.5, class : "row--inview"'); ?>>
 		<?php
 		 if($background['ondine'] && get_sub_field('custom_background')) : 
@@ -130,6 +130,7 @@
 		<?php endif; endif; echo $abs_image; ?>
 	</section>
 <?php
+	endif;
 	endif;
 	endwhile;
 ?>

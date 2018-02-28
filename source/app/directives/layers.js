@@ -38,7 +38,7 @@ module.exports = (getInstances)=> {
 				angular.forEach( layers, function(item, index) {
 					let layers = item.getAttribute('data-layer-to').replace(/\s/g, '').split(',');
 					angular.element(item).on('mouseenter', ()=> {
-						if(!element.hasClass('layers--inview')) return;
+						//if(!element.hasClass('layers--inview')) return;
 						TweenMax.set(element[0].querySelectorAll('[data-layer]'), {className : '+=animate'});
 						TweenMax.to([element[0].querySelectorAll('[data-layer]'),element[0].querySelectorAll('[data-layer-to]')], .5, {
 							opacity: .35
