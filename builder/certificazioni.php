@@ -1,7 +1,7 @@
 <?php 
 	$is_cols = get_sub_field('certification_cols');
 	$title = get_sub_field('certification_title');
-	$text = get_sub_field('certificaion_text');
+	$text = get_sub_field('certification_text');
 	$cert_class = 'section';
 	$cert_class = ($is_cols ) ? 'section--grid' : ''; 
 	$args = array(
@@ -41,7 +41,7 @@
 	<?php endif; ?>
 	<div class="section__cell <?php echo ($is_cols) ? ' section__cell--s6' : '' ?><?php echo ($title || $text) ? ' section__cell--shrink-left-only' : ''; ?>">
 		<?php while($cert->have_posts()) : $cert->the_post(); ?>
-		<div class="section__certificaion section__certificaion--grid">
+		<div class="section__certification">
 			<figure class="section__figure"><?php the_post_thumbnail('large'); ?></figure>
 			<div class="section__content">
 				<h3 class="section__title section__title--small"><?php the_title(); ?></h3>
