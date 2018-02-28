@@ -25,7 +25,7 @@ if($is_archive && get_sub_field('product_category')) {
 }
 $base_class = $is_archive ? 'products' : 'related';
 $prodotti = new WP_Query($args);
-if($prodotti->have_posts()) : ?>
+if($prodotti->have_posts() && !is_singular('product')) : ?>
 <section class="<?php echo $base_class; ?>">
 	<header class="<?php echo $base_class; ?>__header <?php echo $base_class; ?>__header--mw <?php echo $base_class; ?>__header--aligncenter <?php echo $base_class; ?>__header--grow-md">
 		<h2 class="<?php echo $base_class; ?>__title <?php echo $base_class; ?>__title--big"><?php the_sub_field('titolo_'.$name); ?></h2>
