@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer" id="footer">
 	<?php get_template_part( 'templates/social'); ?>
 	<div class="footer__container footer__container--grid footer__container--grow footer__container--gray footer__container--shrink-fw">
 		<div class="footer__cell footer__cell--first">
