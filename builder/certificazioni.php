@@ -25,7 +25,7 @@
 ?>
 <div class="<?php echo $cert_class; ?>">
 	<?php if($title || $text) : ?>
-	<div class="section__cell section__cell--grow-md<?php echo ($is_cols) ? ' section__cell--s6 section__cell--shrink-right-only' : ' section__cell--mw-large'; ?>">
+	<div class="section__cell section__cell--grow-md<?php echo ($is_cols) ? ' section__cell--s6 section__cell--shrink-right-only' : ' section__cell--mw-large section__cell--aligncenter'; ?>">
 		<?php 
 		$contentClass = 'section__text';	
 		if($title) : ?>
