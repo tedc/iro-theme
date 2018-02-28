@@ -3,7 +3,7 @@
 	$title = get_sub_field('certification_title');
 	$text = get_sub_field('certification_text');
 	$cert_class = 'section';
-	$cert_class = ($is_cols ) ? ' section--grid' : ''; 
+	$cert_class .= ($is_cols ) ? ' section--grid' : ''; 
 	$args = array(
 		'post_type' => 'certificazioni',
 		'posts_per_page' => -1
@@ -25,7 +25,7 @@
 ?>
 <div class="<?php echo $cert_class; ?>">
 	<?php if($title || $text) : ?>
-	<div class="section__cell section__cell--grow-md<?php echo ($is_cols) ? ' section__cell--s6 section__cell--shrink-right-only' : ''; ?>" ?>
+	<div class="section__cell section__cell--grow-md<?php echo ($is_cols) ? ' section__cell--s6 section__cell--shrink-right-only' : ''; ?>">
 		<?php 
 		$contentClass = 'section__text';	
 		if($title) : ?>
