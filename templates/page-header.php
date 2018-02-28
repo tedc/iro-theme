@@ -8,6 +8,7 @@
 	$image = wp_get_attachment_image( $thumb_id, $image_size, false, array('class' => 'header__image', 'alt' => $alt) );
 	$header_class = 'header header--shrink-fw';
 	$header_class .= (get_field('white_text')) ? ' header--clear' : '';
+	$header_class .= (get_field('background_position')) ? ' header'.get_field('background_position') : '';
 ?>
 <div class="<?= $header_class; ?>">
 	<?php 

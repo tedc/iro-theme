@@ -401,6 +401,18 @@
 			width: $f!important;
 			height: $f!important;
 			object-fit: cover;
+			.header--center-top & {
+				object-position: center top;
+			}
+			.header--center-bottom & {
+				object-position: center bottom;
+			}
+			.header--center-left & {
+				object-position: left center;
+			}
+			.header--center-right & {
+				object-position: right center;
+			}
 		}
 		&__play {
 			@extend %play;
