@@ -1,6 +1,31 @@
 {
     "key": "group_599a9466a3cb8",
     "title": "Header",
+    "location": [
+        [
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "template-custom.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "discussion",
+        "comments",
+        "revisions",
+        "author",
+        "format",
+        "send-trackbacks"
+    ],
+    "active": 1,
+    "description": "",
     "fields": [
         {
             "key": "field_599c5d7d8f654",
@@ -163,32 +188,33 @@
                     "return_format": "value"
                 }
             ]
+        },
+        {
+            "key": "field_5a96d48b69588",
+            "label": "Posizione background",
+            "name": "background_position",
+            "type": "button_group",
+            "instructions": "Se non selezionato, l'immagine si vedrà al centro.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_rest": 0,
+            "edit_in_rest": 0,
+            "choices": {
+                "--center-top": "In altro al centro",
+                "--center-bottom": "In basso al centro",
+                "--center-left": "Centro sinistra",
+                "--center-right": "Centro destra"
+            },
+            "allow_null": 1,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
         }
     ],
-    "location": [
-        [
-            {
-                "param": "post_template",
-                "operator": "==",
-                "value": "template-custom.php"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "acf_after_title",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": [
-        "the_content",
-        "discussion",
-        "comments",
-        "revisions",
-        "author",
-        "format",
-        "send-trackbacks"
-    ],
-    "active": 1,
-    "description": "",
-    "modified": 1519033736
+    "modified": 1519839742
 }
