@@ -1,31 +1,6 @@
 {
     "key": "group_599a9466a3cb8",
     "title": "Header",
-    "location": [
-        [
-            {
-                "param": "post_template",
-                "operator": "==",
-                "value": "template-custom.php"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "acf_after_title",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": [
-        "the_content",
-        "discussion",
-        "comments",
-        "revisions",
-        "author",
-        "format",
-        "send-trackbacks"
-    ],
-    "active": 1,
-    "description": "",
     "fields": [
         {
             "key": "field_599c5d7d8f654",
@@ -216,5 +191,30 @@
             "return_format": "value"
         }
     ],
-    "modified": 1519839742
+    "location": [
+        [
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "template-custom.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "discussion",
+        "comments",
+        "revisions",
+        "author",
+        "format",
+        "send-trackbacks"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1519840633
 }

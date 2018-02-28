@@ -1,39 +1,6 @@
 {
     "key": "group_5a1fd0527b8ff",
     "title": "Layout pagina",
-    "location": [
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "template-custom.php"
-            }
-        ],
-        [
-            {
-                "param": "page_type",
-                "operator": "==",
-                "value": "front_page"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "product"
-            }
-        ]
-    ],
-    "menu_order": 1,
-    "position": "acf_after_title",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": [
-        "comments"
-    ],
-    "active": 1,
-    "description": "",
     "fields": [
         {
             "key": "field_5a1fd05bc7cbf",
@@ -84,6 +51,27 @@
                     "ui_off_text": ""
                 },
                 {
+                    "key": "field_5a96e05b17c4c",
+                    "label": "Nascondi riga",
+                    "name": "is_hidden",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_rest": 0,
+                    "edit_in_rest": 0,
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
                     "key": "field_5a8417a807a31",
                     "label": "Fascia blog",
                     "name": "blog",
@@ -100,7 +88,7 @@
                         ]
                     ],
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -3144,7 +3132,7 @@
                                                 "2": "Curva gialla",
                                                 "3": "Curva bianca",
                                                 "4": "Terzo strato",
-                                                "6": "Ultimo strato",
+                                                "5": "Ultimo strato",
                                                 "cover": "Involucro"
                                             },
                                             "allow_custom": 0,
@@ -3241,5 +3229,38 @@
             ]
         }
     ],
-    "modified": 1519839742
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-custom.php"
+            }
+        ],
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "product"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "comments"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1519840555
 }
