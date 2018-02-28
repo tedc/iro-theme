@@ -2,7 +2,7 @@
 	$is_cols = get_sub_field('certification_cols');
 	$title = get_sub_field('certification_title');
 	$text = get_sub_field('certification_text');
-	$cert_class = 'section';
+	$cert_class = 'section section--certification';
 	$cert_class .= ($is_cols ) ? ' section--grid' : ''; 
 	$args = array(
 		'post_type' => 'certificazioni',
@@ -25,7 +25,7 @@
 ?>
 <div class="<?php echo $cert_class; ?>">
 	<?php if($title || $text) : ?>
-	<div class="section__cell section__cell--grow-md<?php echo ($is_cols) ? ' section__cell--s6 section__cell--shrink-right-only' : ''; ?>">
+	<div class="section__cell section__cell--grow-md<?php echo ($is_cols) ? ' section__cell--s6 section__cell--shrink-right-only' : ' section__cell--mw-large'; ?>">
 		<?php 
 		$contentClass = 'section__text';	
 		if($title) : ?>
@@ -39,7 +39,7 @@
 		?>
 	</div>
 	<?php endif; ?>
-	<div class="section__cell <?php echo ($is_cols) ? ' section__cell--s6' : '' ?><?php echo ($title || $text) ? ' section__cell--shrink-left-only' : ''; ?>">
+	<div class="section__cell <?php echo ($is_cols) ? ' section__cell--s6' : ' section__cell--mw-large' ?><?php echo (($title || $text) && $is_col) ? ' section__cell--shrink-left-only' : ''; ?>">
 		<?php while($cert->have_posts()) : $cert->the_post(); ?>
 		<div class="section__certification">
 			<figure class="section__figure"><?php the_post_thumbnail('large'); ?></figure>
