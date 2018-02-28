@@ -41,10 +41,10 @@
 	<?php endif; ?>
 	<div class="section__cell <?php echo ($is_cols) ? ' section__cell--s6' : ' section__cell--mw-large' ?><?php echo (($title || $text) && $is_cols) ? ' section__cell--shrink-left-only' : ''; ?>">
 		<?php while($cert->have_posts()) : $cert->the_post(); ?>
-		<div class="section__certification">
+		<div class="section__certification section__certification--grow-top">
 			<figure class="section__figure"><?php the_post_thumbnail('large'); ?></figure>
 			<div class="section__content">
-				<h3 class="section__title section__title--small"><?php the_title(); ?></h3>
+				<h3 class="section__title"><?php the_title(); ?></h3>
 				<?php the_content(); ?>
 			</div>
 		</div>
