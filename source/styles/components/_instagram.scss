@@ -40,6 +40,11 @@
 			a, img {
 				@include full;
 			}
+			&:hover {
+				.instagram__content {
+					opacity: 1;
+				}
+			}
 		}
 		&content {
 			@include full;
