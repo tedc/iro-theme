@@ -111,7 +111,7 @@ iro
 	.directive('ngInstagram', ()=> {
 		return {
 			restrict: 'A',
-			controller : [ '$scope', "$http", '$timeout', 'getInstances', '$rootScope', ($scope, $http, $timeout, getInstances, $rootScope)=>{
+			controller : [ '$scope', "$http", '$timeout', 'getInstances', '$rootScope', '$attrs', ($scope, $http, $timeout, getInstances, $rootScope, $attrs)=>{
 				$scope.resize = (url)=>{
 					return url.replace('150x150/', '640x640/')
 				}
@@ -130,6 +130,29 @@ iro
         				swiper.update();
         			});
 				} );
+				$scope.strings = $scope.$eval(attrs.strings);
+				$scope.timeSince = (timeStamp)=> {
+					var now = new Date(),
+					secondsPast = (now.getTime() - timeStamp.getTime()) / 1000;
+					if(secondsPast < 60){
+						let seconds = (secondsPast > 1) ? $scope.strings.s[1] : $scope.strings.s[0];
+						return parseInt(secondsPast) + seconds + ' ' + $scope.strings.ago;
+					}
+					if(secondsPast < 3600){
+						let minutes = (secondsPast/60 > 1) ? $scope.strings.m[1] : $scope.strings.m[0];
+						return parseInt(secondsPast/60) + minutes + ' ' + $scope.strings.ago;
+					}
+					if(secondsPast <= 86400){
+						let hours = (secondsPast/3600 > 1) ? $scope.strings.h[1] : $scope.strings.h[0];
+						return parseInt(secondsPast/3600) + hours + ' ' + $scope.strings.ago;
+					}
+					if(secondsPast > 86400){
+						day = timeStamp.getDate();
+						month = timeStamp.toDateString().match(/ [a-zA-Z]*/)[0].replace(" ","");
+						year = timeStamp.getFullYear() == now.getFullYear() ? "" :  " "+timeStamp.getFullYear();
+						return day + "/" + month + "/" year;
+					}
+				}
         		$http
 	            	.get(url)
 	            	.then( (res)=> {
@@ -137,7 +160,7 @@ iro
 		            	if(data.length < 1) return;
 		            	$scope.items = data;
 		            	$scope.username = $scope.items[0].user.username;
-		          
+		          		$scope.userpicture = $scope.items[0].user.userpicture;
 	            	});
 			}]
 		}
