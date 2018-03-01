@@ -41,5 +41,27 @@
 				@include full;
 			}
 		}
+		&content {
+			@include full;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			padding: em($p/2);
+			color: $w;
+			opacity: 0;
+			transition: opacity $speed;
+			img {
+				max-width: em($p*4);
+				margin-bottom: em($p/2);
+			}
+			> * {
+				width: $f;
+				text-align: center;
+				flex: 0 0 auto;
+			}
+		}
+		&time {
+			font-size: 12px;
+		}
 	}
 }
