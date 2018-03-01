@@ -10,7 +10,7 @@ $folder_base = '';
 ?>
 <div class="section__slider" ng-layers="slider">
 <?php include(locate_template( 'builder/commons/strati.php', false, true )); ?>	
-<div class="<?php echo $section__content; ?> section__content--layers section__content--cell-s8 swiper-container" scroller="layers" options="{effect: 'fade', fadeEffect : {crossFade : true}, init: false, navigation: {nextEl : '.icon-arrow-right', prevEl : '.icon-arrow-left'}, loop: true, slidesPerView : 'auto'}">
+<div class="<?php echo $section__content; ?> section__content--layers section__content--cell-s8 swiper-container" scroller="layers" options="{effect: 'fade', fadeEffect : {crossFade : true}, init: false, navigation: {nextEl : '.icon-arrow-right', prevEl : '.icon-arrow-left'}, slidesPerView : 'auto'}">
 	<i class="icon-arrow-left"></i>
 	<div class="section__wrapper swiper-wrapper">
 		<?php while(have_rows('testi_layers')) : the_row(); ?>
