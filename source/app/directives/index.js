@@ -150,7 +150,7 @@ iro
 						day = timeStamp.getDate();
 						month = timeStamp.toDateString().match(/ [a-zA-Z]*/)[0].replace(" ","");
 						year = timeStamp.getFullYear() == now.getFullYear() ? "" :  " "+timeStamp.getFullYear();
-						return day + "/" + month + "/" year;
+						return day + "/" + month + "/" + year;
 					}
 				}
         		$http
