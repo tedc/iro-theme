@@ -60,6 +60,8 @@
 			img {
 				max-width: em($p*4);
 				margin-bottom: em($p/2);
+				position: static;
+				height: auto;
 			}
 			> * {
 				width: $f;
