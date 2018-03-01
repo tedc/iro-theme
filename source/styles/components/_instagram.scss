@@ -46,10 +46,12 @@
 			display: flex;
 			flex-wrap: wrap;
 			align-items: center;
+			justify-content: center;
 			padding: em($p/2);
 			color: $w;
 			opacity: 0;
 			transition: opacity $speed;
+			background-color: transparentize($b, .4);
 			img {
 				max-width: em($p*4);
 				margin-bottom: em($p/2);
