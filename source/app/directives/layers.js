@@ -7,7 +7,6 @@ module.exports = (getInstances)=> {
 				layers_slider.then((swiper)=> {
 					swiper.on('slideChangeTransitionEnd', ()=> {
 						let index = element[0].querySelector(`[data-swiper-slide-index="${swiper.realIndex}"]`) ? `[data-swiper-slide-index="${swiper.realIndex}"]` : '.swiper-slide-active';
-						console.log(index);
 						var currentLayers = element[0].querySelector(index).getAttribute('data-layer-to').replace(/\s/g, '').split(',');
 						for(let i = 0; i < currentLayers.length; i++) {
 							angular.forEach(element[0].querySelectorAll(`[data-layer="${currentLayers[i]}"]`), (el, index)=>{
