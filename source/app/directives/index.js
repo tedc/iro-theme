@@ -160,7 +160,7 @@ iro
 		            	if(data.length < 1) return;
 		            	$scope.items = data;
 		            	$scope.username = $scope.items[0].user.username;
-		          		$scope.userpicture = $scope.items[0].user.userpicture;
+		          		$scope.userpicture = $scope.items[0].user.profile_picture;
 	            	});
 			}]
 		}
