@@ -10,7 +10,7 @@ require('../../bower_components/ngCart/dist/ngCart')
 require('angular-youtube-embed');
 require('../../bower_components/angular-i18n/angular-locale_it-it');
 window.controller = new ScrollMagic.Controller()
-var iro = angular.module('iro', ['ngSanitize','angular-loading-bar', 'ui.router', 'angularLoad', 'ngAnimate', 'angular-bind-html-compile', 'ngCart', 'ngCookies', 'youtube-embed']);
+var iro = angular.module('iro', ['ngSanitize','angular-loading-bar', 'ui.router', 'yaru22.angular-timeago', 'angularLoad', 'ngAnimate', 'angular-bind-html-compile', 'ngCart', 'ngCookies', 'youtube-embed']);
 const vars = vars;
 export const speed = 0.5;
 require('./models/index');

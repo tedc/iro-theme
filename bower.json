@@ -12,6 +12,7 @@
     "fastclick": "~1.0.6",
     "swiper": "^4.0.5",
     "angular-bind-html-compile": "^1.4.1",
-    "ngCart": "ngcart#^1.0.0"
+    "ngCart": "ngcart#^1.0.0",
+    "angular-timeago": "^0.4.6"
   }
 }
