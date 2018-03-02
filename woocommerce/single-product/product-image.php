@@ -31,7 +31,7 @@ $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_cl
 	'product__gallery',
 	'product__gallery--' . $placeholder,
 	'product__gallery--columns-' . absint( $columns ),
-	'product__gallery--align-center',
+	'product__gallery--align-start',
 	'product__gallery--shrink-right-only',
 	//'product__gallery--grow-md',
 	$swiper_container
