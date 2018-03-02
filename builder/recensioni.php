@@ -9,7 +9,7 @@
 		<?php include(locate_template( 'builder/commons/review.php', false, true )); ?>
 	</div>
 	<?php endif;
-	$args = array('post_type' => 'recensioni','posts_per_page' => get_sub_field('posts_per_page') ? get_sub_field('posts_per_page') : 3);
+	$args = array('post_type' => 'recensioni','posts_per_page' => get_sub_field('posts_per_page') ? get_sub_field('posts_per_page') : 2);
 	$reviews_ids = get_sub_field('reviews');
 	$ratings_ids = get_sub_field('ratings');
 	if($reviews_ids || $ratings_ids) {
