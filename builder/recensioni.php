@@ -38,6 +38,7 @@
 	}
 	if(is_singular('product') && !$reviews_ids) {
 		$term = wp_get_post_terms($post->ID, 'prodotto_associato');
+		var_dump($term);
 		if($term) {
 			if($ratings_ids){
 				array_push($args['tax_query'], array(
