@@ -81,7 +81,7 @@
 		
 	
 	$main_total = count(get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $total_args)));
-	$ratings = get_terms(array('taxonomy'=>'rating', 'hide_empty'=>0));
+	$ratings = get_terms(array('taxonomy'=>'rating'));
 	$totals = array();
 	foreach ($ratings as $rate) {
 		if(is_singular('product') && !$reviews_ids) {

@@ -6,7 +6,7 @@
 	$var = get_query_var( 'review_product' ) ? get_query_var( 'review_product' ) : $main_product;
 	$field = get_query_var( 'review_product' ) ? 'slug' : 'term_id';
 	$paged =  (get_query_var('paged')) ? get_query_var('paged') : 1;
-	$ratings = get_terms(array('taxonomy'=>'rating', 'hide_empty'=>0));	
+	$ratings = get_terms(array('taxonomy'=>'rating'));	
 	$current = get_term_by( $field, $var, 'prodotto_associato' );			
 	$args = array(
 		'post_type' => 'recensioni',
@@ -36,7 +36,10 @@
 				'terms' => array($var)
 			)
 		);
-		$totals[get_field('rating', 'rating_'.$rate->term_id)] = count(get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $tx)));
+		$object = get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $tx));
+		if($object) {
+			$totals[get_field('rating', 'rating_'.$rate->term_id)] = count();
+		}
 	}
 	if(get_query_var( 'rating' )) {
 		$args['tax_query']['relation'] = 'AND';
@@ -88,7 +91,7 @@
 						echo sprintf($txt, $main_total); ?>
 					</span>
 					<ul class="reviews__chart">
-						<?php if($totals[5] > 0) { ?>
+						<?php if($totals[5] && $totals[5] > 0) { ?>
 						<li class="reviews__row">
 							<span><?php _e('Voto 5', 'iro'); ?></span>
 							<span class="reviews__bar">
@@ -97,7 +100,7 @@
 							<span class="reviews__subtotal"><?php echo $totals[5]; ?></span>
 						</li>
 						<?php } ?>
-						<?php if($totals[4] > 0) { ?>
+						<?php if($totals[4] && $totals[4] > 0) { ?>
 						<li class="reviews__row">
 							<span><?php _e('Voto 4', 'iro'); ?></span>
 							<span class="reviews__bar">
@@ -106,7 +109,7 @@
 							<span class="reviews__subtotal"><?php echo $totals[4]; ?></span>
 						</li>
 						<?php } ?>
-						<?php if($totals[3] > 0) { ?>
+						<?php if($totals[3] && $totals[3] > 0) { ?>
 						<li class="reviews__row">
 							<span><?php _e('Voto 3', 'iro'); ?></span>
 							<span class="reviews__bar">
@@ -115,7 +118,7 @@
 							<span class="reviews__subtotal"><?php echo $totals[3]; ?></span>
 						</li>
 						<?php } ?>
-						<?php if($totals[2] > 0) { ?>
+						<?php if($totals[2] && $totals[2] > 0) { ?>
 						<li class="reviews__row">
 							<span><?php _e('Voto 2', 'iro'); ?></span>
 							<span class="reviews__bar">
@@ -124,7 +127,7 @@
 							<span class="reviews__subtotal"><?php echo $totals[2]; ?></span>
 						</li>
 						<?php } ?>
-						<?php if($totals[1] > 0) { ?>
+						<?php if($totals[1] && $totals[1] > 0) { ?>
 						<li class="reviews__row">
 							<span><?php _e('Voto 1', 'iro'); ?></span>
 							<span class="reviews__bar">
