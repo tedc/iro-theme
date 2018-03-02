@@ -20,7 +20,7 @@
 					<img ng-src="{{i.images.standard_resolution.url}}" />
 					<div class="instagram__content">
 						<img ng-src="{{userpicture}}" />
-						<span class="instagram__time" ng-bind-html="( num(i.created_time) | timeAgo)"></span>
+						<span class="instagram__time" ng-bind-html="timeAgo(i.created_time)"></span>
 					</div>
 				</a>
 			</li>
