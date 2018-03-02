@@ -109,27 +109,30 @@ $reviews = new WP_Query($args);
 if($reviews->have_posts()) : 
 ?>
 	<div class="section__cell section__cell--reviews<?php echo ($paper_review) ? ' section__cell--shrink-left-only' : ''; ?> section__cell--s<?php echo ($paper_review) ? 6 : 12; ?>">
-		<div class="section__averages">
-			<span class="section__average"><strong><?php echo $average?></strong> / 5</span>
-			<span class="section__stars">
-				<?php 
-					for($i= 1; $i<= round($average, 0, PHP_ROUND_HALF_UP); $i++ ) {
-						if ($average - $i > 0 && $average - $i < 1) {
-							$is_half = true;
-						} else {
-							$is_half = false;
+		<div class="section__top section__top--grid">
+			<div class="section__averages">
+				<span class="section__average"><strong><?php echo $average?></strong> / 5</span>
+				<span class="section__stars">
+					<?php 
+						for($i= 1; $i<= round($average, 0, PHP_ROUND_HALF_UP); $i++ ) {
+							if ($average - $i > 0 && $average - $i < 1) {
+								$is_half = true;
+							} else {
+								$is_half = false;
+							}
+							$starClass = ($is_half) ? 'section__star section__star--active-half' : 'section__star section__star--active';
+							$stars = (!$is_half) ? '<i class="icon-stella"></i>' : '<span class="section__starhalf"><i class="icon-stella"></i></span><i class="icon-stella"></i>';
+							echo '<span class="'.$starClass.'">'.$stars.'</span>';
 						}
-						$starClass = ($is_half) ? 'section__star section__star--active-half' : 'section__star section__star--active';
-						$stars = (!$is_half) ? '<i class="icon-stella"></i>' : '<span class="section__starhalf"><i class="icon-stella"></i></span><i class="icon-stella"></i>';
-						echo '<span class="'.$starClass.'">'.$stars.'</span>';
-					}
-					$resto = round((5 - $average), 0, PHP_ROUND_HALF_UP);
-					for($c = 0; $c<$resto; $c++) {
-						echo '<span class="section__star"><i class="icon-stella"></i></span>';
-					}
-				?>
-			</span>
-			<span class="section__total"><?php echo $main_total; ?> <?php _e('Recensioni', 'iro'); ?></span>
+						$resto = round((5 - $average), 0, PHP_ROUND_HALF_UP);
+						for($c = 0; $c<$resto; $c++) {
+							echo '<span class="section__star"><i class="icon-stella"></i></span>';
+						}
+					?>
+				</span>
+				<span class="section__total"><?php echo $main_total; ?> <?php _e('Recensioni', 'iro'); ?></span>
+				
+			</div>
 			<a class="section__button section__button--slim" href="<?php echo get_post_type_archive_link('recensioni'); ?>" ui-sref="<?php echo $sref; ?>"><?php _e('Leggi tutte', 'iro'); ?></a>
 		</div>
 		<?php while($reviews->have_posts()) : $reviews->the_post(); ?>
