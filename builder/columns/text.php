@@ -46,7 +46,8 @@ if(!$mw && !$centered) {
 		$imgPattern = '/(<img.*?src\s*=.*?>)/';
 		// Run preg_match_all to grab all the images and save the results in $aPics
 		// This time we replace/remove the images from the content
-		$sectionDesc = preg_replace( $imgPattern, '<figure class="section__thumb">$1</figure>' , $sectionContent);
+		$sectionDesc = preg_replace( $imgPattern, '<figure class="section__thumbnail">$1</figure>' , $sectionContent);
+		$sectionDesc = str_replace(array('<p><figure', 'figure></p>'), array('<figure', 'figure>'), $sectionDesc);
 		// Apply filters for correct content display
 		// Echo the Content
 		echo $sectionDesc; 
