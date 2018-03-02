@@ -134,7 +134,7 @@ if($reviews->have_posts()) :
 		</div>
 		<?php while($reviews->have_posts()) : $reviews->the_post(); ?>
 			<?php
-			$rating = wp_get_post_terms(get_the_ID(), 'rating')[0]->term_id;
+			$rating = wp_get_post_terms(get_the_ID(), 'rating');
 			$user = $post->post_author;
 			$name = get_field('review_name', 'user_'.$user);
 			?>
@@ -147,9 +147,10 @@ if($reviews->have_posts()) :
 					<?php the_excerpt(); ?>
 				</div>
 				</div>
+				<?php if($rating) : ?>
 				<div class="review__rating review__rating--grow review__rating--cell-s4">
 					<?php 
-						$rating = wp_get_post_terms(get_the_ID(), 'rating')[0]->term_id;
+						$rating = $rating->term_id;
 						$rating = intval(get_field('rating', 'rating_'.$rating));
 					 ?>
 					<span class="review__value"><?php echo $rating; ?></span>
@@ -157,6 +158,7 @@ if($reviews->have_posts()) :
 						echo '<i class="icon-stella"></i>';
 					} ?>
 				</div>
+				<?php endif; ?>
 			</div>
 		<?php endwhile; wp_reset_postdata(); wp_reset_query(); ?>
 	</div>
