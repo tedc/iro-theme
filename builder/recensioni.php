@@ -7,7 +7,7 @@
 	$args = array('post_type' => 'recensioni','posts_per_page' => get_sub_field('posts_per_page'));
 	$reviews_ids = get_sub_field('reviews');
 	$ratings_ids = get_sub_field('ratings');
-	if($reviews_ids || $ratings) {
+	if($reviews_ids || $ratings_ids) {
 		$args['tax_query']['relation'] = 'AND';
 	}
 	if($reviews_ids) {
