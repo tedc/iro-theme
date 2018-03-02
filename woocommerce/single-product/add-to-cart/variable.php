@@ -25,7 +25,6 @@ $attribute_keys = array_keys( $attributes );
 
 do_action( 'woocommerce_before_add_to_cart_form' );
 
-var_dump($available_variations);
  ?>
 <div class="variations_form" ng-init="product.product_variations=<?php echo htmlspecialchars( wp_json_encode( $available_variations ) ) ?>" ng-submit="addToCart()">
 	<?php do_action( 'woocommerce_before_variations_form' ); ?>
