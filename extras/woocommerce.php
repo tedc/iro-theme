@@ -150,10 +150,14 @@
     add_filter( 'woocommerce_shipping_package_name', 'shipping_title', 10 );
 
     // DROPDOWN VARIATIONS
-    $filters = array(array('filter_woocommerce_dropdown_variation_attribute_options_args', 1), array('woocommerce_dropdown_variation_attribute_options_html', 2), array('woocommerce_account_menu_items', 1), array('woocommerce_account_menu_item_classes', 2), array('woocommerce_account_orders_columns', 1), array('woocommerce_my_account_my_address_formatted_address', 3), array('woocommerce_formatted_address_replacements', 2), array('woocommerce_localisation_address_formats', 1), array('woocommerce_order_formatted_billing_address', 2));
+    $filters = array(array('filter_woocommerce_dropdown_variation_attribute_options_args', 1), array('woocommerce_dropdown_variation_attribute_options_html', 2), array('woocommerce_account_menu_items', 1), array('woocommerce_account_menu_item_classes', 2), array('woocommerce_account_orders_columns', 1), array('woocommerce_my_account_my_address_formatted_address', 3), array('woocommerce_formatted_address_replacements', 2), array('woocommerce_localisation_address_formats', 1), array('woocommerce_order_formatted_billing_address', 2), array('woocommerce_ajax_variation_threshold', 1));
     function my_filter_woocommerce_dropdown_variation_attribute_options_args($args) {
         $args['is_radio'] = false;
         return $args;
+    }
+
+    function my_woocommerce_ajax_variation_threshold($n) {
+        return 70;
     }
 
     function my_woocommerce_dropdown_variation_attribute_options_html($html, $args) {
