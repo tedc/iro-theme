@@ -41,7 +41,16 @@ if(!$mw && !$centered) {
 	endwhile;
 		if(get_sub_field('text')) : 
 		echo '<div class="'.$contentClass.'">';
-		the_sub_field('text');
+		$sectionContent = get_sub_field('text');
+// Define the pattern to search
+		$imgPattern = '/(<img.*?src\s*=.*?>)/';
+		// Run preg_match_all to grab all the images and save the results in $aPics
+		// This time we replace/remove the images from the content
+		$sectionDesc = preg_replace( $imgPattern, '<figure class="section__thumb">$1</figure>' , $sectionContent);
+		// Apply filters for correct content display
+		// Echo the Content
+		echo $sectionDesc; 
+		//the_sub_field('text');
 		echo '</div>';
 		endif;
 		if(get_sub_field('col_link')) {
