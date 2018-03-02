@@ -22,7 +22,7 @@
 	$image_size = (is_mobile()) ? 'large' : 'full';
 	$thumb_id = get_post_thumbnail_id($post->ID);
 	$alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true) ? get_post_meta($thumb_id, '_wp_attachment_image_alt', true) : get_bloginfo('name') . ': '.Titles\title();
-	the_post_thumbnail( $image_size, false, array('class' => 'header__image', 'alt' => $alt) );
+	the_post_thumbnail( $image_size, array('class' => 'header__image', 'alt' => $alt) );
 endif; if(get_field('header_iframe')) :?>
 <div class="<?php echo $video; ?>__iframe" player-id="<?php echo $video_id; ?>" ng-player="<?php echo $src; ?>" ng-class="{'<?php echo $video; ?>__iframe--visible': isVideo['<?php echo $video_id; ?>']}">
 	<?php include(locate_template( 'builder/commons/video.php', false, true )); ?>
