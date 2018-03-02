@@ -13,7 +13,7 @@
 ?>
 <div class="<?= $header_class; ?>">
 	<?php 
-	if(get_field('header_iframe') && get_field('is_video')) :
+	if(get_field('is_video')) :
 		get_template_part( 'templates/header', 'video');
 	else :
 		echo $image;
