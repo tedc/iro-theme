@@ -91,7 +91,7 @@
 						echo sprintf($txt, $main_total); ?>
 					</span>
 					<ul class="reviews__chart">
-						<?php if($totals["5"] && $totals["5"] > 0) { ?>
+						<?php if(array_key_exists("5", $totals) && $totals["5"] > 0) { ?>
 						<li class="reviews__row">
 							<span><?php _e('Voto 5', 'iro'); ?></span>
 							<span class="reviews__bar">
@@ -100,7 +100,7 @@
 							<span class="reviews__subtotal"><?php echo $totals[5]; ?></span>
 						</li>
 						<?php } ?>
-						<?php if($totals["4"]) { if($totals["4"] > 0) { ?>
+						<?php if(array_key_exists("4", $totals) && $totals["4"] > 0) { ?>
 						<li class="reviews__row">
 							<span><?php _e('Voto 4', 'iro'); ?></span>
 							<span class="reviews__bar">
@@ -108,8 +108,8 @@
 							</span>
 							<span class="reviews__subtotal"><?php echo $totals[4]; ?></span>
 						</li>
-						<?php }} ?>
-						<?php if($totals["3"] && $totals["3"] > 0) { ?>
+						<?php } ?>
+						<?php if(array_key_exists("3", $totals) && $totals["3"] > 0) { ?>
 						<li class="reviews__row">
 							<span><?php _e('Voto 3', 'iro'); ?></span>
 							<span class="reviews__bar">
@@ -118,7 +118,7 @@
 							<span class="reviews__subtotal"><?php echo $totals[3]; ?></span>
 						</li>
 						<?php } ?>
-						<?php if($totals["2"] && $totals["2"] > 0) { ?>
+						<?php if(array_key_exists("2", $totals) && $totals["2"] > 0) { ?>
 						<li class="reviews__row">
 							<span><?php _e('Voto 2', 'iro'); ?></span>
 							<span class="reviews__bar">
@@ -127,7 +127,7 @@
 							<span class="reviews__subtotal"><?php echo $totals[2]; ?></span>
 						</li>
 						<?php } ?>
-						<?php if($totals["1"] && $totals["1"] > 0) { ?>
+						<?php if(array_key_exists("1", $totals) && $totals["1"] > 0) { ?>
 						<li class="reviews__row">
 							<span><?php _e('Voto 1', 'iro'); ?></span>
 							<span class="reviews__bar">
