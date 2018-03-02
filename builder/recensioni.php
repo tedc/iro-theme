@@ -150,7 +150,7 @@ if($reviews->have_posts()) :
 				<?php if($rating) : ?>
 				<div class="review__rating review__rating--grow review__rating--cell-s4">
 					<?php 
-						$rating = $rating->term_id;
+						$rating = $rating[0]->term_id;
 						$rating = intval(get_field('rating', 'rating_'.$rating));
 					 ?>
 					<span class="review__value"><?php echo $rating; ?></span>
