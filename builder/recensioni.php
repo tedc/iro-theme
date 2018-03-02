@@ -1,8 +1,10 @@
 <?php acf_set_language_to_default();
 	$main_product = get_field('main_product', 'options');
-	acf_unset_language_to_default(); ?>
-<div class="section section--shrink-fw section--grid">
-	<?php $paper_review = get_sub_field('review'); if($paper_review): ?>
+	acf_unset_language_to_default();
+	$paper_review = get_sub_field('review');
+?>
+<div class="section section--<?php echo ($paper_review) ? 'shrink-fw  section--grid' : 'mw-large section--shrink'; ?>">
+	<?php  if($paper_review): ?>
 	<div class="section__cell  section__cell--s6">
 		<?php include(locate_template( 'builder/commons/review.php', false, true )); ?>
 	</div>
