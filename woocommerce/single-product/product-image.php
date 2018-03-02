@@ -33,7 +33,7 @@ $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_cl
 	'product__gallery--columns-' . absint( $columns ),
 	'product__gallery--align-center',
 	'product__gallery--shrink-right-only',
-	'product__gallery--grow-md',
+	//'product__gallery--grow-md',
 	$swiper_container
 ) );
 $swiper_wrapper = ($product->get_gallery_image_ids() && has_post_thumbnail()) ? ' swiper-wrapper' : '';

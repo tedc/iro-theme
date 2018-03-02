@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 	return;
 	 }
 ?>
-<div id="product-<?php the_ID(); ?>" <?php post_class('product--grid product--grow-md'); ?>>
+<div id="product-<?php the_ID(); ?>" <?php post_class('product--grid'); ?>>
 
 	<?php
 		/**
