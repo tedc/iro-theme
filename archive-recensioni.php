@@ -100,7 +100,7 @@
 							<span class="reviews__subtotal"><?php echo $totals[5]; ?></span>
 						</li>
 						<?php } ?>
-						<?php if($totals["4"] && $totals["4"] > 0) { ?>
+						<?php if($totals["4"]) { if($totals["4"] > 0) { ?>
 						<li class="reviews__row">
 							<span><?php _e('Voto 4', 'iro'); ?></span>
 							<span class="reviews__bar">
@@ -108,7 +108,7 @@
 							</span>
 							<span class="reviews__subtotal"><?php echo $totals[4]; ?></span>
 						</li>
-						<?php } ?>
+						<?php }} ?>
 						<?php if($totals["3"] && $totals["3"] > 0) { ?>
 						<li class="reviews__row">
 							<span><?php _e('Voto 3', 'iro'); ?></span>
