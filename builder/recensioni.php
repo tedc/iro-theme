@@ -38,7 +38,6 @@
 	}
 	if(is_singular('product') && !$reviews_ids) {
 		$term = wp_get_post_terms($post->ID, 'prodotto_associato');
-		var_dump($term);
 		if($term) {
 			if($ratings_ids){
 				array_push($args['tax_query'], array(
@@ -121,6 +120,7 @@ $reviews = new WP_Query($args);
 if($reviews->have_posts()) : 
 ?>
 	<div class="section__cell section__cell--reviews<?php echo ($paper_review) ? ' section__cell--shrink-left-only' : ''; ?> section__cell--s<?php echo ($paper_review) ? 6 : 12; ?>">
+		<h3 class="section__title section__title--medium-aligncenter section__title--review"><?php _e('Recensioni', 'iro'); ?></h3>
 		<div class="section__top section__top--grid">
 			<div class="section__averages">
 				<span class="section__average"><strong><?php echo $average?></strong> / 5</span>
