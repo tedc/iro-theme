@@ -3,9 +3,11 @@
 	$src = get_field('header_iframe', false, false);
 	$video_file = get_field('header_video_file');
 	$video = 'header'; 
-	$src = explode('?v=', $src);
-	$src = explode('&', $src[1]);
-	$src = $src[0];
+	if($src) {
+		$src = explode('?v=', $src);
+		$src = explode('&', $src[1]);
+		$src = $src[0];
+	}
 	if($video_file) : 
 	$file = preg_replace('/\\.[^.\\s]{3,4}$/', '', $video_file['url']);
 	$video_id = $video.'_video_'. get_the_ID();
