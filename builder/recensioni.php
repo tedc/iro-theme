@@ -1,3 +1,6 @@
+<?php acf_set_language_to_default();
+	$main_product = get_field('main_product', 'options');
+	acf_unset_language_to_default(); ?>
 <div class="section section--grid">
 	<?php $paper_review = get_sub_field('review'); if($paper_review): ?>
 	<div class="section__cell  section__cell--s6">
@@ -45,6 +48,23 @@
 				'taxonomy' => 'prodotto_associato',
 				'field' => 'term_id',
 				'terms' => array($term[0]->term_id)
+			)
+		);
+	}
+
+	if(!is_singular('product') && !$reviews_ids) {
+		if($main_product){
+			array_push($args['tax_query'], array(
+				'taxonomy' => 'prodotto_associato',
+				'field' => 'term_id',
+				'terms' => array($main_product)
+			));
+		}
+		$total_args = array(
+			array(
+				'taxonomy' => 'prodotto_associato',
+				'field' => 'term_id',
+				'terms' => array($main_product)
 			)
 		);
 	}

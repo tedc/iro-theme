@@ -2850,7 +2850,56 @@
                             "name": "recensioni",
                             "label": "Recensioni",
                             "display": "block",
-                            "sub_fields": [],
+                            "sub_fields": [
+                                {
+                                    "key": "field_5a995fd3787b7",
+                                    "label": "Prodotti recensiti",
+                                    "name": "review",
+                                    "type": "taxonomy",
+                                    "instructions": "Se non selezionato, saranno visibili tutti i prodotti recensiti.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "show_in_rest": 0,
+                                    "edit_in_rest": 0,
+                                    "taxonomy": "prodotto_associato",
+                                    "field_type": "checkbox",
+                                    "allow_null": 0,
+                                    "add_term": 0,
+                                    "save_terms": 0,
+                                    "load_terms": 0,
+                                    "return_format": "id",
+                                    "multiple": 0
+                                },
+                                {
+                                    "key": "field_5a995ffd787b8",
+                                    "label": "Voti",
+                                    "name": "ratings",
+                                    "type": "taxonomy",
+                                    "instructions": "Se non selezionato, saranno visibili tutti i voti.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "show_in_rest": 0,
+                                    "edit_in_rest": 0,
+                                    "taxonomy": "rating",
+                                    "field_type": "checkbox",
+                                    "allow_null": 0,
+                                    "add_term": 1,
+                                    "save_terms": 0,
+                                    "load_terms": 0,
+                                    "return_format": "id",
+                                    "multiple": 0
+                                }
+                            ],
                             "min": "",
                             "max": ""
                         },
@@ -3262,5 +3311,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1519840555
+    "modified": 1520001073
 }
