@@ -1,7 +1,7 @@
 <?php acf_set_language_to_default();
 	$main_product = get_field('main_product', 'options');
 	acf_unset_language_to_default(); ?>
-<div class="section section--grid">
+<div class="section section--shrink-fw section--grid">
 	<?php $paper_review = get_sub_field('review'); if($paper_review): ?>
 	<div class="section__cell  section__cell--s6">
 		<?php include(locate_template( 'builder/commons/review.php', false, true )); ?>
@@ -130,7 +130,7 @@ if($reviews->have_posts()) :
 				?>
 			</span>
 			<span class="section__total"><?php echo $main_total; ?> <?php _e('Recensioni', 'iro'); ?></span>
-			<a href="section__button section__button--slim" href="<?php echo get_post_type_archive_link('recensioni'); ?>" ui-sref="<?php echo $sref; ?>"><?php _e('Leggi tutte', 'iro'); ?></a>
+			<a class="section__button section__button--slim" href="<?php echo get_post_type_archive_link('recensioni'); ?>" ui-sref="<?php echo $sref; ?>"><?php _e('Leggi tutte', 'iro'); ?></a>
 		</div>
 		<?php while($reviews->have_posts()) : $reviews->the_post(); ?>
 			<?php
