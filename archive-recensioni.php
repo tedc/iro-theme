@@ -38,7 +38,7 @@
 		);
 		$object = get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $tx));
 		if($object) {
-			$totals[get_field('rating', 'rating_'.$rate->term_id)] = count();
+			$totals[get_field('rating', 'rating_'.$rate->term_id)] = count($object);
 		}
 	}
 	if(get_query_var( 'rating' )) {
