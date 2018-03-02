@@ -87,7 +87,7 @@
 		if(is_singular('product') && !$reviews_ids) {
 			$pId = $term[0]->term_id;
 		}
-		if(is_singular('product') && !$reviews_ids) {
+		if(!is_singular('product') && !$reviews_ids) {
 			$pId = $main_product;
 		}
 		if($reviews_ids) {
