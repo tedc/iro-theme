@@ -13,6 +13,7 @@
 ?>
 <div class="<?= $header_class; ?>">
 	<?php 
+	var_dump(get_field('is_video'));
 	if(get_field('is_video')) :
 		get_template_part( 'templates/header', 'video');
 	else :
