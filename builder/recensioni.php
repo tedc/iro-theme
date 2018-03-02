@@ -84,6 +84,15 @@
 	$ratings = get_terms(array('taxonomy'=>'rating', 'hide_empty'=>0));
 	$totals = array();
 	foreach ($ratings as $rate) {
+		if(is_singular('product') && !$reviews_ids) {
+			$pId = $term[0]->term_id;
+		}
+		if(is_singular('product') && !$reviews_ids) {
+			$pId = $main_product;
+		}
+		if($reviews_ids) {
+			$pId = $reviews_ids;
+		}
 		$tx = array(
 			'relation' => 'AND',
 			array(
@@ -94,7 +103,7 @@
 			array(
 				'taxonomy' => 'prodotto_associato',
 				'field' => 'term_id',
-				'terms' => (is_singular('product') && !$reviews_ids) ? array($term[0]->term_id) : array($reviews_ids)
+				'terms' => ($pId)
 			)
 		);
 		$totals[get_field('rating', 'rating_'.$rate->term_id)] = count(get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $tx)));
