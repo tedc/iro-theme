@@ -7,7 +7,7 @@
 		<?php include(locate_template( 'builder/commons/review.php', false, true )); ?>
 	</div>
 	<?php endif;
-	$args = array('post_type' => 'recensioni','posts_per_page' => get_sub_field('posts_per_page'));
+	$args = array('post_type' => 'recensioni','posts_per_page' => get_sub_field('posts_per_page') ? get_sub_field('posts_per_page') : 3);
 	$reviews_ids = get_sub_field('reviews');
 	$ratings_ids = get_sub_field('ratings');
 	if($reviews_ids || $ratings_ids) {
@@ -36,12 +36,20 @@
 	}
 	if(is_singular('product') && !$reviews_ids) {
 		$term = wp_get_post_terms($post->ID, 'prodotto_associato');
-		if($term){
-			array_push($args['tax_query'], array(
-				'taxonomy' => 'prodotto_associato',
-				'field' => 'term_id',
-				'terms' => array($term[0]->term_id)
-			));
+		if($term) {
+			if($ratings_ids){
+				array_push($args['tax_query'], array(
+					'taxonomy' => 'prodotto_associato',
+					'field' => 'term_id',
+					'terms' => array($term[0]->term_id)
+				));
+			} else {
+				$args['tax_query'] = array(
+					'taxonomy' => 'prodotto_associato',
+					'field' => 'term_id',
+					'terms' => array($term[0]->term_id)
+				);
+			}
 		}
 		$total_args = array(
 			array(
@@ -54,11 +62,11 @@
 
 	if(!is_singular('product') && !$reviews_ids) {
 		if($main_product){
-			array_push($args['tax_query'], array(
+			$args['tax_query'] = array(
 				'taxonomy' => 'prodotto_associato',
 				'field' => 'term_id',
 				'terms' => array($main_product)
-			));
+			);
 		}
 		$total_args = array(
 			array(
