@@ -2854,13 +2854,13 @@
                                 {
                                     "key": "field_5a995fd3787b7",
                                     "label": "Prodotti recensiti",
-                                    "name": "review",
+                                    "name": "reviews",
                                     "type": "taxonomy",
                                     "instructions": "Se non selezionato, saranno visibili tutti i prodotti recensiti.",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "",
+                                        "width": "50",
                                         "class": "",
                                         "id": ""
                                     },
@@ -2884,7 +2884,7 @@
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "",
+                                        "width": "50",
                                         "class": "",
                                         "id": ""
                                     },
@@ -2898,6 +2898,53 @@
                                     "load_terms": 0,
                                     "return_format": "id",
                                     "multiple": 0
+                                },
+                                {
+                                    "key": "field_5a9966c24d385",
+                                    "label": "Recensione da stampa",
+                                    "name": "review",
+                                    "type": "post_object",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "show_in_rest": 0,
+                                    "edit_in_rest": 0,
+                                    "post_type": [
+                                        "recensioni"
+                                    ],
+                                    "taxonomy": [],
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "return_format": "id",
+                                    "ui": 1
+                                },
+                                {
+                                    "key": "field_5a99675b4d386",
+                                    "label": "Quantità recensioni utenti",
+                                    "name": "posts_per_page",
+                                    "type": "number",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "show_in_rest": 0,
+                                    "edit_in_rest": 0,
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "min": 1,
+                                    "max": 5,
+                                    "step": ""
                                 }
                             ],
                             "min": "",
@@ -3311,5 +3358,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1520001073
+    "modified": 1520002986
 }
