@@ -127,7 +127,6 @@ if($reviews->have_posts()) :
 				<span class="section__stars">
 					<?php 
 						for($i= 1; $i<= round($average, 0, PHP_ROUND_HALF_UP); $i++ ) {
-							echo ($average - $i);
 							if (($average + 1) - $i > 0 && ($average + 1) - $i < 1) {
 								$is_half = true;
 							} else {
