@@ -136,7 +136,7 @@ if($reviews->have_posts()) :
 							$stars = (!$is_half) ? '<i class="icon-stella"></i>' : '<span class="section__starhalf"><i class="icon-stella"></i></span><i class="icon-stella"></i>';
 							echo '<span class="'.$starClass.'">'.$stars.'</span>';
 						}
-						$resto = round((5 - $average), 0, PHP_ROUND_HALF_UP);
+						$resto = round((5 - $average), 0, PHP_ROUND_HALF_DOWN);
 						for($c = 0; $c<$resto; $c++) {
 							echo '<span class="section__star"><i class="icon-stella"></i></span>';
 						}
