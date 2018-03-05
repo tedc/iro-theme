@@ -1,0 +1,21 @@
+@import "compass";
+@import "compass/css3";
+@import "ceaser-easing";
+@import "common/variables";
+@import "common/global";
+@import "content/index";
+
+.landing {
+	@include grow('lg');
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	text-align: center;
+	background: linear-gradient(45deg, #123f6d, #051338);
+	color: $w;
+	&__title {
+		color: $w;
+	}
+}

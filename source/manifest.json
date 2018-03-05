@@ -20,6 +20,11 @@
       "files": [
         "styles/critical.scss"
       ]
+    },
+    "landing.css": {
+      "files": [
+        "styles/landing.scss"
+      ]
     }
   },
   "config": {
