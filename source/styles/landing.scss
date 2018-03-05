@@ -26,11 +26,11 @@
 		color: $w;
 	}
 	&__figure {
-		display: inline-block;
-		max-width: $f;
-		margin:  em($p*2) 0;
+		display: block;
+		margin:  em($p*2) auto;
 		img {
-			width: $f!important;
+			width: $f;
+			max-width: em(400px);
 		}
 	}
 }
