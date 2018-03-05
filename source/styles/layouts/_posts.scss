@@ -1,3 +1,4 @@
+
 .blog {
 	@include grow('lg');
 	&__{
@@ -134,103 +135,9 @@
 	    	}
 		}
 		&content {
-			@include normalize_padding_half;
 			@include grow();
 			@include grow('small', 'top');
-			position: relative;
-			.post--grid & {
-				background-color: $lighter-color;
-			}
-			.post--grid &, &--mw-large {
-				@include normalize_padding;
-			}
-			&--mw-large {
-				@extend %content;
-				h2, h3, h4, h5, h6 {
-					font-family: $alternate-font;
-					color: $brand-main;
-					position: relative;
-					padding-left: percentage(93px/775px);
-					margin-left: percentage(93px/775px)*-1;
-					background: url(../images/title-cloud.png) no-repeat left center;
-				}
-				h2 {
-				    padding-top: em($p*2, 30px);
-				    padding-bottom: em($p*2, 30px);;
-					font-size: em(30px);
-				   	background-size: auto em(62px, 30px);
-				    @include breakpoint($bp) {
-				        font-size: em(35px);
-				        padding-top: em($p*2, 35px);
-				        padding-bottom: em($p*2, 35px);
-				   		background-size: auto em(62px, 35px);
-				    }
-				}
-				h3 {
-					font-size: em(26px);
-				   	padding-top: em($p*2, 26px);
-				   	padding-bottom: em($p*2, 26px);
-				   	background-size: auto em(62px, 26px);
-					@include breakpoint($bp) {
-						font-size: em(30px);
-				   		padding-top: em($p*2, 30px);
-				   		padding-bottom: em($p*2, 30px);
-				   		background-size: auto em(62px, 30px);
-					}
-				}
-				h4 {
-					font-size: em(22px);
-				   	padding-top: em($p*2, 22px);
-				   	padding-bottom: em($p*2, 22px);
-				   	background-size: auto em(62px, 22px);
-					@include breakpoint($bp) {
-						font-size: em(26px);
-				   		padding-top: em($p*2, 26px);
-				   		padding-bottom: em($p*2, 26px);
-				   		background-size: auto em(62px, 26px);
-					}
-				}
-				h5 {
-					font-size: em(18px);
-				   	padding-top: em($p*2, 18px);
-				   	padding-bottom: em($p*2, 18px);
-				   	background-size: auto em(62px, 18px);
-					@include breakpoint($bp) {
-						font-size: em(22px);
-				   		padding-top: em($p*2, 22px);
-				   		padding-bottom: em($p*2, 22px);
-				   		background-size: auto em(62px, 22px);
-					}
-				}
-				h6 {
-					font-size: em(16px);
-				   	padding-top: em($p*2);
-				   	padding-bottom: em($p*2);
-				   	background-size: auto em(62px);
-					@include breakpoint($bp) {
-						font-size: em(18px);
-				   		padding-top: em($p*2, 18px);
-				   		padding-bottom: em($p*2, 18px);
-				   		background-size: auto em(62px, 18px);
-					}
-				}
-				blockquote {
-					margin: 0;
-					position: relative;
-					padding: em($p, 18px) 0 em($p*2, 18px) em($p*2, 18px);
-					font-style: italic;
-					font-size: em(18px);
-					&:before {
-						content: '\201C';
-						color: $alternate-color;
-						position: absolute;
-						top: 0;
-						left: 0;
-						font-size: em(60px, 18px);
-						font-family: $alternate-font;
-					}
-				}
-			}
+			@extend %cntnt;		
 		}
 		&meta {
 			@include normalize_padding_half;

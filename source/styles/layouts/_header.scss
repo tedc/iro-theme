@@ -459,6 +459,9 @@
 				width: $f;
 				flex: 0 0 auto;
 			}
+			.header--page & {
+				min-height: 0;
+			}
 		}
 	}
 	&__title {
