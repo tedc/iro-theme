@@ -8,7 +8,11 @@
 if($faq) : ?>
 <section class="faq faq--shrink faq--mw-large" ng-init="isFaq=[]">
 	<header class="faq__header faq__header--grow-md">
+		<?php if(is_page_template('template-faq')) : ?>
+		<h1 class="faq__title faq__title--aligncenter faq__title--big"><?php the_title(); ?></h1>
+		<?php else : ?>
 		<h2 class="faq__title faq__title--aligncenter faq__title--big"><?php _e('Domande frequenti', 'iro'); ?></h2>
+		<?php endif; ?>
 	</header>
 	<ul class="faq__list">
 	<?php foreach($faq as $f) : 

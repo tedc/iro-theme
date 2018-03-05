@@ -3346,6 +3346,13 @@
                 "operator": "==",
                 "value": "product"
             }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-faq.php"
+            }
         ]
     ],
     "menu_order": 1,
@@ -3358,5 +3365,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1520002986
+    "modified": 1520267231
 }
