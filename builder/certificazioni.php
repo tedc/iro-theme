@@ -15,7 +15,7 @@
 				array(
 					'taxonomy' => 'prodotto_associato',
 					'field' => 'term_id',
-					'terms' => array($productID)
+					'terms' => array($productID[0]->term_id)
 				)
 			);
 		}
@@ -39,7 +39,7 @@
 		?>
 	</div>
 	<?php endif; 
-		var_dump($cert);
+		var_dump($cert)
 	?>
 	<div class="section__cell <?php echo ($is_cols) ? ' section__cell--s6' : ' section__cell--mw-large' ?><?php echo (($title || $text) && $is_cols) ? ' section__cell--shrink-left-only' : ''; ?>">
 		<?php while($cert->have_posts()) : $cert->the_post(); ?>
