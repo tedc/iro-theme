@@ -137,7 +137,18 @@
 		&content {
 			@include grow();
 			@include grow('small', 'top');
-			@extend %cntnt;		
+			@include normalize_padding_half;
+			position: relative;
+			.post--grid & {
+				background-color: $lighter-color;
+			}
+			.post--grid &, &--mw-large {
+				@include normalize_padding;
+			}
+			&--mw-large {
+				@extend %content, %cntnt;
+			}
+			
 		}
 		&meta {
 			@include normalize_padding_half;
