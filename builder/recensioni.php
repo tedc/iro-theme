@@ -145,7 +145,6 @@ if($reviews->have_posts()) :
 				<span class="section__total"><?php echo $main_total; ?> <?php _e('Recensioni', 'iro'); ?></span>
 				
 			</div>
-			
 		</div>
 		<?php while($reviews->have_posts()) : $reviews->the_post(); ?>
 			<?php
@@ -176,7 +175,10 @@ if($reviews->have_posts()) :
 				<?php endif; ?>
 			</div>
 		<?php endwhile; wp_reset_postdata(); wp_reset_query(); ?>
+		<footer class="section__link section__link--aligncenter section__link--grow-md-top">
+				<a class="section__button section__button--dark" href="<?php echo get_post_type_archive_link('recensioni'); ?>" ui-sref="<?php echo $sref; ?>"><?php _e('Leggi tutte', 'iro'); ?></a>
 		
+		</footer>
 	</div>
 	<?php endif; ?>
 </div>
