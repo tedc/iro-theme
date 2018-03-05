@@ -9,6 +9,9 @@
 	background: linear-gradient(45deg, #123f6d, #051338);
 	color: $w;
 	opacity: 1;
+	.icon-logo {
+		font-size: em(70px);
+	}
 	&__container {
 		@include grow('lg');
 		min-height: 100vh;
@@ -25,7 +28,7 @@
 	&__figure {
 		display: inline-block;
 		max-width: $f;
-		margin: 0 em($p*2);
+		margin:  em($p*2) 0;
 		img {
 			width: $f!important;
 		}
