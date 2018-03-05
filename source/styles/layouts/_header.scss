@@ -457,6 +457,9 @@
 				flex: 0 0 auto;
 			}
 		}
+		&--page {
+			min-height: 0;
+		}
 	}
 	&__title {
 		line-height: percentage(64px/55px);
