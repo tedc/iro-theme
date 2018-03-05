@@ -39,7 +39,8 @@
 }
 
 .product {
-	@include grow('md');
+	//@include grow('md');
+	@include grow('md', 'bottom');
 	&:after {
 		content: '';
 		width: $f;
@@ -75,6 +76,14 @@
 			order: 2;
 			text-align: left;
 		}
+		ngcart-addtocart {
+			display: flex;
+			align-items: flex-end;
+			flex-wrap: wrap;
+			.quantity + .add-to-cart__wrapper:not(.add-to-cart__wrapper--fixed) {
+				margin-left: em($p);
+			}
+		}
 	}
 	&__gallery {
 		order: 2;
@@ -84,10 +93,10 @@
 			img {
 				width: $f!important;
 				height:auto!important;
-				@include breakpoint() {	
-					max-height: calc(100vh - #{em(140px + 32px)});
-					object-fit: contain;
-				}
+				// @include breakpoint() {	
+				// 	max-height: calc(100vh - #{em(140px + 32px)});
+				// 	object-fit: contain;
+				// }
 			}
 		}
 		@include breakpoint() {
@@ -114,13 +123,14 @@
 				white-space: nowrap;
 				border-radius: 32px;
 				border: 1px solid $light-border;
-				transition: box-shadow $speed;
-				box-shadow: inset 0 0 0 1px transparentize($w, 1);
+				transition: box-shadow $speed, border-color $speed;
+				box-shadow: inset 0 0 0 2px transparentize($w, 1);
 				margin-right: 10px;
 				cursor: pointer;
 			}
 			&:checked + label {
-				box-shadow: inset 0 0 0 1px $w;
+				border-color: $dark-border;
+				box-shadow: inset 0 0 0 2px $w;
 			}
 		}
 	}
@@ -136,7 +146,7 @@
 	&__wrapper {
 		display: inline-block;
 		position: relative;
-		transition: transform $speed;
+		line-height: 0;
 		@include grow('small', 'top');
 		&:after {
 			@include full;
@@ -150,19 +160,25 @@
 		&--fixed {
 			position: fixed;
 			left: 50%;
-			top: em($p*4);
-			transform: translate3d(-50%, -100%, 0);
+			bottom: 0;
+			transform: translate3d(-50%, 100%, 0);
 			z-index: 9997;
 			padding-top: 0;
-			.logged-in.admin-bar & {
-				margin-top: 32px;
+			// .logged-in.admin-bar & {
+			// 	margin-top: 32px;
+			// }
+			&-transition {
+				transition: transform $speed;
 			}
 			&-inview {
 				transform: translate3d(-50%, 0%, 0);
+				&-hidden {
+					transform: translate3d(-50%, 100%, 0);
+				}
 			}
 			.add-to-cart__button {
-				border-top-right-radius: 0!important;
-				border-top-left-radius: 0!important;
+				border-bottom-right-radius: 0!important;
+				border-bottom-left-radius: 0!important;
 			}
 		}
 	}

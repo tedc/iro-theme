@@ -9,6 +9,9 @@
 			position: relative;
 			overflow: hidden;
 			max-width: calc(100% - #{em($p*8)});
+			@include breakpoint(500px) {
+				max-width: em(500px);
+			}
 			@include breakpoint(1000px) {	
 				max-width: em(1000px);
 			}
@@ -34,21 +37,8 @@
 				right: 0;
 			}
 			[class*="icon"] {
-				width: em($p*2);
-				height: em($p*2);
-				line-height: em($p*2);
-				background-color: $cyan;
-				color: $brand-main;
-				transition: background-color $speed;
-				cursor: pointer;
-				border-radius: $f;
-				text-align: center;
-				position: relative;
-				bottom: 10%;
-				&:hover {
-					background-color: $brand-main;
-					color: $w;
-				}
+				@extend %arrow_balls;
+				bottom: 18%;
 			}
 		}
 		&container {
@@ -75,7 +65,15 @@
 			align-items: center;
 			position: relative;
 			flex-wrap: wrap;
-			@include normalize_padding;
+			//background-color: $w;
+			padding: {
+				left: em($p);
+				right: em($p);
+			};
+			@include breakpoint() {
+				padding-left: em($p*2);
+				padding-right: em($p*2);
+			}
 			p {
 				font-size: em(14px);
 				padding: 0 em($p, 14px);
@@ -83,7 +81,14 @@
 			&.swiper-slide {
 				width: $f;
 				cursor: pointer;
+				opacity: 0;
+				&.swiper-slide-active, &.swiper-slide-prev, &.swiper-slide-next {
+					opacity: 1;
+				}
 			}
+		    @include breakpoint(1000px, false) {
+		    	transform: translate3d(0, 0, 0)!important;
+		    }
 		}
 		&content {
 			@include normalize_padding_half;
@@ -122,6 +127,13 @@
 			img {
 		    	width: $f!important;
 				height: auto!important;
+		    }
+		    .swiper-slide-prev &, .swiper-slide-next & {
+		    	max-width: 50%;
+		    	transition: max-width $speed;
+			    @include breakpoint(1250px) {
+			    	max-width: none;
+			    }
 		    }
 		}
 		&text, &title {

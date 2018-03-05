@@ -1,87 +1,3 @@
-%pagination {
-	display: flex;
-	align-items: center;
-	border-top: 1px solid $light-border;
-	@include breakpoint() {
-		margin-top: em($p*4);
-	}
-	a, span {
-		display: inline-block;
-		margin: $p/2 $p - 5px;
-		text-align: center;
-		&:not(.prev):not(.next) {
-			font-weight: bold;
-			border-radius: 30px;
-			transition: background $speed;
-			width: 30px;
-			height: 30px;
-			line-height: 30px;
-			font-size: 12px;
-		}
-	}
-	span {
-		background-color: $light-border;
-		color: $dark-gray;
-	}
-	a:not(.prev):not(.next) {
-		background: $w;
-		color: $brand-main;
-		&:hover {
-			color: $w;
-			background: $brand-main;
-		}
-	}
-	.prev, .next {
-		@extend %button;
-		padding: em(10px) em(30px);
-		min-width: 0;
-		color: $brand-main;
-		border: 1px solid $alternate-color;
-		background-color: transparentize($w, 0);
-		&:not([class*="-loading"]):not(:disabled):hover {
-			color: $w;
-			background-color: $alternate-color;
-		}
-		&:before {
-			background-color: $alternate-color;
-		}
-		&:after {
-			background-color: $w;
-		}
-	}
-}
-%average {
-	font-size: em(28px);
-	font-weight: 300;
-	letter-spacing: -0.025em;
-	line-height: 0.8;
-	margin-top: em(-12px, 28px);
-	color: $brand-main;
-	strong {
-		font-size: percentage(42px/28px);
-	}
-}
-%star {
-	overflow: hidden;
-	width: em(16px);
-	position: relative;
-	margin: 0 2px;
-	i {
-		font-size: 16px;
-	}
-}
-
-%star_half {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 50%;
-	bottom: 0;
-	overflow: hidden;
-	i {
-		color: $highlight-color;
-	}
-}
 .review {
 	@include grow();
 	&__{
@@ -175,7 +91,7 @@
 		&content {
 			@include grow();
 			@include breakpoint() {
-				.reviews & {
+				.reviews &, .section & {
 					padding-right: em($p);
 				}
 			}
@@ -266,26 +182,12 @@
 				&s {
 					display: flex;
 				}
-				overflow: hidden;
-				width: em(16px);
-				position: relative;
-				margin: 0 2px;
-				i {
-					font-size: 16px;
-				}
+				@extend %star;
 				&--active {
 					color: $highlight-color;
 				}
 				&half {
-					position: absolute;
-					top: 0;
-					left: 0;
-					right: 50%;
-					bottom: 0;
-					overflow: hidden;
-					i {
-						color: $highlight-color;
-					}
+					@extend %star_half;
 				}
 			}
 			&row {

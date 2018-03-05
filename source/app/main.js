@@ -9,10 +9,10 @@ require('angular-loading-bar');
 require('../../bower_components/ngCart/dist/ngCart')
 require('angular-youtube-embed');
 require('../../bower_components/angular-i18n/angular-locale_it-it');
-require('../../bower_components/angular-timeago/dist/angular-timeago-core');
-require('../../bower_components/angular-timeago/src/languages/time-ago-language-it_IT');
+//require('../../bower_components/angular-timeago/dist/angular-timeago');
+//require('../../bower_components/angular-timeago/src/languages/time-ago-language-it_IT');
 window.controller = new ScrollMagic.Controller()
-var iro = angular.module('iro', ['ngSanitize','angular-loading-bar', 'ui.router', 'yaru22.angular-timeago', 'angularLoad', 'ngAnimate', 'angular-bind-html-compile', 'ngCart', 'ngCookies', 'youtube-embed']);
+var iro = angular.module('iro', ['ngSanitize','angular-loading-bar', 'ui.router', 'angularLoad', 'ngAnimate', 'angular-bind-html-compile', 'ngCart', 'ngCookies', 'youtube-embed']);
 const vars = vars;
 export const speed = 0.5;
 require('./models/index');

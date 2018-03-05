@@ -130,30 +130,43 @@ iro
         				swiper.update();
         			});
 				} );
-				$scope.strings = $scope.$eval(attrs.strings);
-				$scope.timeSince = (timeStamp)=> {
-					var now = new Date(),
-					secondsPast = (now.getTime() - timeStamp.getTime()) / 1000;
-					if(secondsPast < 60){
-						let seconds = (secondsPast > 1) ? $scope.strings.s[1] : $scope.strings.s[0];
-						return parseInt(secondsPast) + seconds + ' ' + $scope.strings.ago;
-					}
-					if(secondsPast < 3600){
-						let minutes = (secondsPast/60 > 1) ? $scope.strings.m[1] : $scope.strings.m[0];
-						return parseInt(secondsPast/60) + minutes + ' ' + $scope.strings.ago;
-					}
-					if(secondsPast <= 86400){
-						let hours = (secondsPast/3600 > 1) ? $scope.strings.h[1] : $scope.strings.h[0];
-						return parseInt(secondsPast/3600) + hours + ' ' + $scope.strings.ago;
-					}
-					if(secondsPast > 86400){
-						day = timeStamp.getDate();
-						month = timeStamp.toDateString().match(/ [a-zA-Z]*/)[0].replace(" ","");
-						year = timeStamp.getFullYear() == now.getFullYear() ? "" :  " "+timeStamp.getFullYear();
-						return day + "/" + month + "/" + year;
-					}
+				$scope.strings = $scope.$eval($attrs.strings);
+				//$scope.num = (num)=> { return 1000*parseInt(num)};
+				$scope.timeAgo = (time)=> {
+					var msPerMinute = 60 * 1000;
+				    var msPerHour = msPerMinute * 60;
+				    var msPerDay = msPerHour * 24;
+				    var msPerMonth = msPerDay * 30;
+				    var msPerYear = msPerDay * 365;
+				    var current = new Date();
+				    var elapsed = current - (parseInt(time)*1000);
+				    if (elapsed < msPerMinute) {
+				    	let seconds = (Math.round(elapsed/1000) > 1) ? $scope.strings.s[1] : $scope.strings.s[0];
+				        return Math.round(elapsed/1000) + ' ' +seconds+ ' ' + $scope.strings.ago;   
+				    }
+				    else if (elapsed < msPerHour) {
+				        let minutes = (Math.round(elapsed/msPerMinute) > 1) ? $scope.strings.m[1] : $scope.strings.m[0];
+				        return Math.round(elapsed/msPerMinute) + ' ' +minutes+ ' ' + $scope.strings.ago;    
+				    }
+
+				    else if (elapsed < msPerDay ) {
+				         let hours = (Math.round(elapsed/msPerHour) > 1) ? $scope.strings.h[1] : $scope.strings.h[0];
+				        return Math.round(elapsed/msPerHour ) + ' ' +hours+ ' ' + $scope.strings.ago;    
+				    }
+				    else if (elapsed < msPerMonth) {
+				        let days = (Math.round(elapsed/msPerDay) > 1) ? $scope.strings.d[1] : $scope.strings.d[0];
+				        return Math.round(elapsed/msPerDay) + ' ' +days+ ' ' + $scope.strings.ago;    
+				    }
+				    else if (elapsed < msPerYear) {
+				        let months = (Math.round(elapsed/msPerMonth) > 1) ? $scope.strings.mo[1] : $scope.strings.mo[0];
+				        return Math.round(elapsed/msPerMonth) + ' ' +months+ ' ' + $scope.strings.ago;    
+				    }
+				    else {
+				        let years = (Math.round(elapsed/msPerYear) > 1) ? $scope.strings.y[1] : $scope.strings.y[0];
+				        return Math.round(elapsed/msPerYear ) + ' ' +years+ ' ' + $scope.strings.ago;    
+				    }
 				}
-        		$http
+				$http
 	            	.get(url)
 	            	.then( (res)=> {
 	            		let data = res.data.data;

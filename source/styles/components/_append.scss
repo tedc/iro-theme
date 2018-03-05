@@ -1,0 +1,159 @@
+%arrow_balls {
+	width: em($p*2);
+	height: em($p*2);
+	line-height: em($p*2);
+	background-color: $cyan;
+	color: $brand-main;
+	transition: background-color $speed, opacity $speed, visibility $speed;;
+	cursor: pointer;
+	border-radius: $f;
+	text-align: center;
+	position: relative;
+	flex: 0 0 auto;
+	&:hover:not(.swiper-button-disabled) {
+		background-color: $brand-main;
+		color: $w;
+	}
+}
+%button {
+	display: inline-block;
+	cursor: pointer;
+	border-radius: $r;
+	transition: background-color $speed;
+	font-weight: bolder;
+	min-width: em(250px);
+	padding: em($p);
+	text-transform: uppercase;
+	text-align: center;
+	border: 0;
+	line-height: 0.9;
+	outline: 0!important;
+	box-shadow: none!important;
+	position: relative;
+	overflow: hidden;
+	letter-spacing: (80/1000)*1em;
+	&:before, &:after {
+		content: '';
+		border-radius: $f;
+		height: em($p*2);
+		width: em($p*2);
+		position: absolute;
+		top: $f/2;
+		left: $f/2;
+		margin: em($p)*-1 0 0 em($p)*-1;
+		opacity: 0;
+		visibility: hidden;
+		transition: {
+			property: visibility, opacity;
+			duration: $speed;
+		};
+	}	
+	&:before {
+		background-color: $w;
+	}
+	&:after {
+		transform-origin: right center;
+		transform: translate3d(0, 0, 0) rotate(360deg);
+	}
+	&:disabled {
+		opacity: .5;
+		cursor: not-allowed;
+	}
+}
+%layers {
+	position: relative;
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: $f;
+		display: block;
+		&:nth-child(1) {
+			position: relative;
+		}
+	}
+}
+%pagination {
+	display: flex;
+	align-items: center;
+	border-top: 1px solid $light-border;
+	@include breakpoint() {
+		margin-top: em($p*4);
+	}
+	a, span {
+		display: inline-block;
+		margin: $p/2 $p - 5px;
+		text-align: center;
+		&:not(.prev):not(.next) {
+			font-weight: bold;
+			border-radius: 30px;
+			transition: background $speed;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			font-size: 12px;
+		}
+	}
+	span {
+		background-color: $light-border;
+		color: $dark-gray;
+	}
+	a:not(.prev):not(.next) {
+		background: $w;
+		color: $brand-main;
+		&:hover {
+			color: $w;
+			background: $brand-main;
+		}
+	}
+	.prev, .next {
+		@extend %button;
+		padding: em(10px) em(30px);
+		min-width: 0;
+		color: $brand-main;
+		border: 1px solid $alternate-color;
+		background-color: transparentize($w, 0);
+		&:not([class*="-loading"]):not(:disabled):hover {
+			color: $w;
+			background-color: $alternate-color;
+		}
+		&:before {
+			background-color: $alternate-color;
+		}
+		&:after {
+			background-color: $w;
+		}
+	}
+}
+%average {
+	font-size: em(28px);
+	font-weight: 300;
+	letter-spacing: -0.025em;
+	line-height: 0.8;
+	margin-top: em(-12px, 28px);
+	color: $brand-main;
+	strong {
+		font-size: percentage(42px/28px);
+	}
+}
+%star {
+	overflow: hidden;
+	width: em(16px);
+	position: relative;
+	margin: 0 2px;
+	i {
+		font-size: 16px;
+	}
+}
+
+%star_half {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 50%;
+	bottom: 0;
+	overflow: hidden;
+	i {
+		color: $highlight-color;
+	}
+}

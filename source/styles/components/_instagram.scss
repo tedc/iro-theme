@@ -63,6 +63,7 @@
 				margin-bottom: em($p/2);
 				position: static;
 				height: auto;
+				border-radius: $f;
 			}
 			> * {
 				width: $f;

@@ -1,17 +1,3 @@
-%layers {
-	position: relative;
-	img {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: $f;
-		display: block;
-		&:nth-child(1) {
-			position: relative;
-		}
-	}
-}
-
 @mixin line_top($n, $ratio) {
 	height: calc(#{percentage($ratio)});
 }
@@ -35,6 +21,9 @@
 				.layers--grid & {
 					padding-right: em($p*2);
 				}
+			}
+			.layers__title {
+				line-height: percentage($lh);
 			}
 		}
 		&wrapper {
@@ -252,20 +241,20 @@
 						}
 					}
 				}
-				opacity: 0;
-				transform: translate3d(0, $p, 0);
-				.layers__pointers & {
-					@for $i from 1 through 10 {
-						$de: (0.25s * $i) - 0.25s;
-						&:nth-child(#{$i}) {
-							transition-delay: $de;
-						}
-					}
-				}
-				.layers--inview & {
-					opacity: 1;
-					transform: translate3d(0, 0, 0);
-				}
+				// opacity: 0;
+				// transform: translate3d(0, $p, 0);
+				// .layers__pointers & {
+				// 	@for $i from 1 through 10 {
+				// 		$de: (0.25s * $i) - 0.25s;
+				// 		&:nth-child(#{$i}) {
+				// 			transition-delay: $de;
+				// 		}
+				// 	}
+				// }
+				// .layers--inview & {
+				// 	opacity: 1;
+				// 	transform: translate3d(0, 0, 0);
+				// }
 				// .layers--inview .layers__pointers:hover & {
 				// 	opacity: .4;
 				// 	// &:nth-child(even) {
@@ -369,12 +358,12 @@
 					}
 				}
 				&.layer-active {
-					&:before {
-						background-color: $alternate-color;
-					}
+					// &:before {
+					// 	background-color: $alternate-color;
+					// }
 					&:after {
-						border-color: $alternate-color;
-						background-color: $highlight-color;
+						//border-color: $alternate-color;
+						background-color: $brand-main;
 					}
 				}
 				@each $n, $ratio in (0, (227/592)), (1, (296/592)), (2, (296/592)), (3, (296/592)), (4, (360/592)), (5, (403/592)), ("cover", (296/592)) {
@@ -382,20 +371,25 @@
 						@include line_top($n, $ratio);
 					}
 				}
-				opacity: 0;
-				transform: translate3d(0, $p, 0);
-				.layers__lines & {
-					@for $i from 1 through 10 {
-						$de: (0.25s * $i) - 0.25s;
-						&:nth-child(#{$i}) {
-							transition-delay: $de;
-						}
+				@each $n, $ratio in (0, (366/592)), (4, (235/592)), (5, (192/592)) {
+					&[data-layer-to*="#{$n}"].layers__line--even {
+						@include line_top($n, $ratio);
 					}
 				}
-				.layers--inview & {
-					opacity: 1;
-					transform: translate3d(0, 0, 0);
-				}
+				// opacity: 0;
+				// transform: translate3d(0, $p, 0);
+				// .layers__lines & {
+				// 	@for $i from 1 through 10 {
+				// 		$de: (0.25s * $i) - 0.25s;
+				// 		&:nth-child(#{$i}) {
+				// 			transition-delay: $de;
+				// 		}
+				// 	}
+				// }
+				// .layers--inview & {
+				// 	opacity: 1;
+				// 	transform: translate3d(0, 0, 0);
+				// }
 				// .layers--inview .layers__pointers:hover & {
 				// 	opacity: 0;
 				// }

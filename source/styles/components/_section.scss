@@ -43,6 +43,10 @@
 				}
 			}
 		}
+		&thumbnail {
+			display: inline-block;
+			max-width: $f;
+		}
 		&cell {
 			[class*="--gradient"] & {
 				position: relative;
@@ -86,12 +90,19 @@
 			}
 			&--text {
 				z-index: 2;
+				[class*="--gradient"] & {
+					z-index: 4;
+				}
 			}
 			&--reviews {
 				@include breakpoint() {
 					&.section__cell--s6 {
 						border-left: 1px solid $light-border;
 					}
+				}
+				.section__top {
+					justify-content: space-between;
+					align-items: center;
 				}
 			}
 			.section--grid-invert & {
@@ -220,9 +231,16 @@
 			}
 			&--small {
 				.section__content--layers & {
-					font-size: em(18px);
+					//font-size: em(18px);
 					color: $alternate-color;
 				}
+			}
+			&--review {
+				color: $alternate-color;
+				margin-bottom: em($p*2, 30px);
+			    @include breakpoint($bp) {
+			        margin-bottom: em($p*2, 35px);
+			    }
 			}
 		}
 		&symbol {
@@ -291,12 +309,17 @@
 						display: inline-block;
 						transition: transform $speed;
 					}
+					@extend %arrow_balls;
+					&.swiper-button-disabled {
+						opacity: .25;
+						cursor: not-allowed;
+					}
 				}
 				.icon-arrow-left {
 					order: 2;
 					font-size: em($p);
 					margin-right: em($p*2, $p);
-					&:hover:before {
+					&:hover:not(.swiper-button-disabled):before {
 						transform: translate3d(-5px, 0, 0);
 					}
 				}
@@ -304,7 +327,7 @@
 					order: 3;
 					font-size: em($p);
 					margin-left: em($p*2, $p);
-					&:hover:before {
+					&:hover:not(.swiper-button-disabled):before {
 						transform: translate3d(5px, 0, 0);
 					}
 				}
@@ -417,22 +440,69 @@
 		&certification {
 			display: flex;
 			flex-wrap: wrap;
+			border-top: 1px solid $light-border;
+			@include grow('small');
+			.section__cell & {
+				&:nth-last-child(1) {
+					padding-bottom: 0!important;
+				}
+			}
+			@include breakpoint() {
+				flex-wrap: nowrap;
+				align-items: center;
+			}
 			.section__figure {
 				flex: 1;
 				@include breakpoint(640px) {
 					flex: 0 0 auto;
-					max-width: em(200px);
+					max-width: em(120px);
+					img {
+						width: $f!important;
+						height: auto!important;
+					}
 				}
 			}
 			.section__content {
 				flex: 0 0 auto;
 				text-align: center;
 				width: $f;
+				color: $dark-gray;
 				@include breakpoint(640px) {
-					width: auto;
+					flex: 1;
 					text-align: left;
-					padding-right: em($p*2);
+					padding-left: em($p*2);
 				}
+				.section__title {
+					font-size: em(18px);
+				}
+			}
+		}
+		// RECENSIONI
+		&average {
+			&s {
+				position: relative;
+				display: flex;
+				align-items: flex-end;
+				flex-wrap: wrap;
+			}
+			@extend %average;
+		}
+		&total {
+			color: $light-color;
+			margin-left: em($p);
+			display: inline-block;
+		}
+		&star {
+			&s {
+				display: flex;
+				margin-left: em($p);
+			}
+			@extend %star;
+			&--active {
+				color: $highlight-color;
+			}
+			&half {
+				@extend %star_half;
 			}
 		}
 	}	
