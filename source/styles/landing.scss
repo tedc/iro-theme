@@ -18,4 +18,12 @@
 	&__title {
 		color: $w;
 	}
+	&_figure {
+		display: inline-block;
+		max-width: $f;
+		margin: 0 em($p*2);
+		img {
+			width: $f!important;
+		}
+	}
 }
