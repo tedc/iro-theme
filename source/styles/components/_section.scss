@@ -101,7 +101,7 @@
 					}
 				}
 				.section__top {
-					justify-content: space-between;
+					justify-content: center;
 					align-items: center;
 				}
 			}
@@ -304,7 +304,6 @@
 				}
 				i {
 					cursor: pointer;
-					text-shadow: 0 0 5px $w;
 					&:before {
 						display: inline-block;
 						transition: transform $speed;
