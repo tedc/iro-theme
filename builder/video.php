@@ -5,7 +5,7 @@
 	$file = preg_replace('/\\.[^.\\s]{3,4}$/', '', get_sub_field('video')['url']);
 	$video_id = $video.'_video_'. get_the_ID().'_'.$row;
 	$is_waves = get_sub_field('video_waves') && !is_handheld();
-	if(!is_singular('product')) :
+	
 ?>
 <div class="video video--cover video--grow-md<?php echo ($is_waves) ? ' video--waves' : ''; ?>" id="video_<?php $row; ?>" ng-style="{backgroundImage : 'url(<?php echo $file; ?>.jpg)'}" ng-class="{'video--playing' : isVideoPlaying}">
 	<video class="video__video" muted loop poster="<?php echo $file; ?>.jpg" ng-video>
@@ -57,4 +57,4 @@
 <div class="<?php echo $video; ?>__iframe" player-id="<?php echo $video; ?>_video_<?php echo get_the_ID(); ?>" ng-player="<?php echo $src; ?>" ng-class="{'<?php echo $video; ?>__iframe--visible': isVideo['<?php echo $video_id; ?>']}">
 	<?php include(locate_template( 'builder/commons/video.php', false, true )); ?>
 </div>
-<?php endif; endif; endif; ?>
+<?php endif; endif; ?>
