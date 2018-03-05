@@ -394,9 +394,6 @@
 		display: flex;
 		min-height: calc(100vh - #{em(80px)});
 		flex-direction: column;
-		&--page {
-			min-height: 0;
-		}
 		&__image {
 			position: absolute;
 			top: 0;
@@ -459,7 +456,10 @@
 				width: $f;
 				flex: 0 0 auto;
 			}
-			.header--page & {
+		}
+		&--page {
+			min-height: 0;
+			.header__container {
 				min-height: 0;
 			}
 		}
