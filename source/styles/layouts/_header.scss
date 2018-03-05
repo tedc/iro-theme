@@ -468,7 +468,7 @@
 		line-height: percentage(64px/55px);
 	}
 	&__container {
-		@include grow('md');
+		@include grow();
 		&--grid {
 			.woocommerce-page & {
 				justify-content: space-between;

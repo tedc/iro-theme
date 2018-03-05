@@ -89,7 +89,7 @@
 	&__{
 		&content {
 			@include grow();
-			@include grow('small', 'top');
+			@include grow('md', 'bottom');
 			@include normalize_padding_half;
 			position: relative;
 			@extend %content, %cntnt;		
