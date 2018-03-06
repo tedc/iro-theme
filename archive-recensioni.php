@@ -63,7 +63,10 @@
 	if($query->have_posts()) : ?>
 	<div class="reviews">
 		<header class="reviews__header reviews__header--shrink-fw reviews__header--grid reviews__header--cell-s12">
-			<?php echo wp_get_attachment_image( get_field('review_product_image', 'prodotto_associato_'.$current->term_id), 'full', false, array('class' => 'reviews__image') ); ?>
+			<figure class="reviews__figure reviews__figure--cell-s6">
+				<?php echo wp_get_attachment_image( get_field('review_product_image', 'prodotto_associato_'.$current->term_id), 'full', false, array('class' => 'reviews__image') ); ?>		
+			</figure>
+			
 			<?php 
 				$average = 0;
 				foreach ($totals as $key => $value) {

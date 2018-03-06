@@ -239,14 +239,14 @@
 			&image {
 				width: $f!important;
 				height: auto!important;
-				@include breakpoint() {
-					position: absolute;
-					left: 0;
-					right: 0;
-					top: 0;
-					object-fit: cover;
-					height: $f!important;
-				}
+				// @include breakpoint() {
+				// 	position: absolute;
+				// 	left: 0;
+				// 	right: 0;
+				// 	top: 0;
+				// 	object-fit: cover;
+				// 	height: $f!important;
+				// }
 			}
 			&pagination {
 				@extend %pagination;
