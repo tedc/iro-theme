@@ -147,6 +147,9 @@
 	}
 	&s {
 		&__{
+			&aside {
+				@include grow('md', 'top');
+			}
 			&header {
 				display: flex;
 				min-height: calc(100vh - #{em(80px)});

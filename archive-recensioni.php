@@ -143,7 +143,7 @@
 			
 		</header>
 	<div class="reviews__wrapper reviews__wrapper--grow-lg reviews__wrapper--shrink-fw reviews__wrapper--grid">
-		<aside class="reviews__aside reviews__aside--shrink-right-only reviews__aside--cell-s3">
+		<aside class="reviews__aside reviews__aside--grow-md-top reviews__aside--shrink-right-only reviews__aside--cell-s3">
 			<?php _e('Mostra voto', 'iro'); ?>
 			<div class="reviews__select">
 				<span class="reviews__value"><?php echo get_query_var('rating') ? __('Voto', 'iro') .' '.get_field('rating', 'rating_'.get_term_by( 'slug', get_query_var( 'rating' ), 'rating' )->term_id) : __('Seleziona', 'iro'); ?></span>
