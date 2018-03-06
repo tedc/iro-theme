@@ -38,15 +38,15 @@
 		get_template_part( 'templates/footer', 'rating' ); ?>
 	</div>
 	<div class="footer__container footer__container--grow footer__container--grid footer__container--dark footer__container--shrink-fw">
-		<div class="footer__cell footer__cell--first">
+		<div class="footer__cell footer__cell--s4 footer__cell--first">
 			<i class="icon-luna"></i><strong><?php _e('Sogni d\'oro', 'iro'); ?></strong>
 		</div>
-		<div class="footer__cell">
+		<div class="footer__cell footer__cell--s4">
             <?php acf_set_language_to_default(); 
             the_field('info', 'options'); 
             acf_unset_language_to_default(); ?>
         </div>
-        <div class="footer__cell footer__cell--last">
+        <div class="footer__cell footer__cell--s4 footer__cell--last">
         	<a href="http://www.bspkn.it" target="_blank" class="icon-credits"></a>
         </div>
 	</div>
