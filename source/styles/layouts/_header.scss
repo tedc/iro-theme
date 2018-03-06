@@ -484,6 +484,9 @@
 		text-align: center;
 		cursor: pointer;
 		z-index: 500;
+		.header--clear & {
+			color: $w;
+		}
 		span {
 			display: block;
 		}
@@ -491,6 +494,9 @@
 			display: inline-flex;
 			justify-content: center;
 			border: 1px solid $highlight-color;
+			.header--clear & {
+				border-color: $w;
+			}
 			padding: 5px 0;
 			border-radius: 10px;
 			width: 30px;
