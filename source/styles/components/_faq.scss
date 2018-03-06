@@ -10,6 +10,7 @@
 		&header {
 			justify-content: space-between;
 			align-items: center;
+			overflow: visible;
 		}
 		&item {
 			border-bottom: 1px solid $dark-border;
@@ -37,7 +38,7 @@
 		&close {
 			font-family: $alternate-font;
 			color: $brand-main;
-			font-size: em($p);
+			font-size: em($p*2);
 			transition: transform $speed;
 			backface-visibility: hidden;
 			perspective: 1000px;
