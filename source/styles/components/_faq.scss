@@ -22,6 +22,11 @@
 			}
 		}
 		&subtitle {
+			line-height: percentage($lh);
+			margin-bottom: lh_mb(18px, $lh);
+			@include breakpoint() {
+				margin-bottom: lh_mb(18px, $lh);
+			}
 			.faq__item--active & {
 				color: $main-color;
 			}
