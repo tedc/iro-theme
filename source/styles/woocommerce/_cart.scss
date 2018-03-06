@@ -102,6 +102,9 @@
 			border-bottom: 1px solid $light-border;
 			@include grow('small');
 		}
+		&__remove {
+
+		}
 		&__bottom {
 			align-items: center;;
 		}
@@ -145,6 +148,7 @@
 		}
 		&__remove {
 			@extend %remove;
+			font-size: 12px;
 		}
 		&__total, &__subtotal {
 			@include grow('small');

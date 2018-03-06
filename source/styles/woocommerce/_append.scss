@@ -14,9 +14,11 @@
 }
 %remove {
 	color: $error;
-	font-size: 8px;
 	position: relative;
 	top: 5px;
+	i {
+		font-size: 8px;
+	}
 }
 %cart_item_qty {
 	font-size: em(14px);

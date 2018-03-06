@@ -479,7 +479,7 @@
 			padding-top: em($p/2, 12px);
 			font-size: 12px;
 			display: block;
-			animation: scroll 1s infinite;
+			animation: scroll 1.5s infinite;
 		}
 	}
 	&__title {
@@ -504,6 +504,7 @@
 	visibility: hidden;
 	margin: 0;
 	padding: 0;
+	border: 0;
 }
 
 
