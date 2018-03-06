@@ -29,7 +29,7 @@
 		</span>
 		<?php endif; ?>
 	</div>
-	<span class="header__goto" go-to="#header-trigger"><?php _e('Scroll' ,'iro'); ?><i class="icon-arrow-down"></i></span>
+	<span class="header__goto" go-to="#header-trigger"><span><?php _e('Scroll' ,'iro'); ?></span><i class="icon-arrow-down"></i></span>
 </div>
 <hr id="header-trigger" />
 <?php 

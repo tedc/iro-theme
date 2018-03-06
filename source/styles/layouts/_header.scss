@@ -484,14 +484,24 @@
 		text-align: center;
 		cursor: pointer;
 		z-index: 500;
+		span {
+			display: block;
+		}
 		i {
-			padding-top: em($p/2, 12px);
-			font-size: 12px;
 			display: inline-flex;
+			justify-content: center;
 			border: 1px solid $highlight-color;
+			padding: 5px 0;
+			border-radius: 10px;
+			width: 30px;
+			height: 40px;
 			&:before {
 				display: inline-block;
 				animation: scroll 1.5s infinite;
+				font-size: 10px;
+				position: relative;
+				align-self: flex-end;
+				top: -10px;
 			}
 		}
 	}
@@ -523,6 +533,6 @@
 
 @keyframes scroll {
 	0% { transform: translate3d(0, 0, 0); }
-	50% {  transform: translate3d(0, em($p/2, 12px), 0); }
+	50% {  transform: translate3d(0, em($p/2), 0); }
 	100% {  transform: translate3d(0, 0, 0); }
 }
