@@ -156,7 +156,7 @@
 			</div>
 			
 		</header>
-	<div class="reviews__wrapper reviews__wrapper--grow-lg reviews__wrapper--shrink-fw reviews__wrapper--grid">
+	<div class="reviews__wrapper reviews__wrapper--grow-md reviews__wrapper--shrink-fw reviews__wrapper--grid">
 		<aside class="reviews__aside reviews__aside--grow-md-top reviews__aside--shrink-right-only reviews__aside--cell-s3">
 			<?php _e('Mostra voto', 'iro'); ?>
 			<div class="reviews__select">

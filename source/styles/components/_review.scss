@@ -232,7 +232,7 @@
 				transition: width $speed $speed;
 			}
 			&wrapper {
-				@include grow('lg');
+				@include grow('md');
 			}
 			&select {
 				margin-top: em($p/2);
