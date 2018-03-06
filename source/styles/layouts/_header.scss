@@ -293,6 +293,9 @@
 			.icon-bag {
 				font-size: 38px;
 			}
+			&-filled {
+				color: $alternate-color;
+			}
 		}
 	}
 	&__count {
@@ -337,18 +340,18 @@
 			}
 		}
 		&--loading {
-			&:not(.banner__count--filled) {
+			.banner__btn:not(.banner__btn--cart-filled) {
 				&:after {
 					animation: moon_count 1.5s forward;
 				}
 			}
-			&.banner__count--filled {
+			.banner__btn--cart-filled & {
 				&:after {
 					animation: moon_count_filled 1.5s forward;
 				}
 			}
 		}
-		&--filled {
+		.banner__btn--cart-filled & {
 			&:after {
 				transform: rotate(180deg) translate3d(0, -2px, 0);
 			}

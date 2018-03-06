@@ -2,9 +2,9 @@
 <?php wc_get_template_part('myaccount/form', 'login'); ?>
 <?php wc_get_template_part('myaccount/form', 'register'); ?>
 <script type="text/ng-template" id="cart-summary.html">
-  <a href="#cart" class="banner__btn banner__btn--cart">
+  <a href="#cart" class="banner__btn banner__btn--cart" ng-class="{'banner__btn--cart-filled' : ngCart.getTotalItems() > 0}">
   	<i class="icon-bag"></i>
-  	<span class="banner__count" ng-class="{'banner__count--loading':ngCart.isCounting, 'banner__count--filled' : ngCart.getTotalItems() > 0}">
+  	<span class="banner__count" ng-class="{'banner__count--loading':ngCart.isCounting}">
   		<span class="banner__count-number" ng-bind-html="ngCart.getTotalItems()" ng-if="ngCart.getTotalItems() > 0"></span>
   	</span>
   </a>

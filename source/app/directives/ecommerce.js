@@ -146,7 +146,8 @@ module.exports = () => {
 					var desc = '';
 					if(item_data.attributes) {
 						if(item_data.attributes.attribute_pa_misure) {
-							desc += `${item_data.attributes.attribute_pa_misure.replace(/\-/g, ' ')} ${item_data.dimensions_html.replace(/\s+/g, '')}<br/>`;
+							//desc += `${item_data.attributes.attribute_pa_misure.replace(/\-/g, ' ')} ${item_data.dimensions_html.replace(/\s+/g, '')}<br/>`;
+							desc += `${item_data.attributes.attribute_pa_misure.replace(/\-/g, ' ')}<br/>`;
 						}
 					}
 					if(item_data.attributes && item_data.attributes.attribute_pa_color) {

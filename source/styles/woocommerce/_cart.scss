@@ -148,7 +148,7 @@
 		}
 		&__remove {
 			@extend %remove;
-			font-size: 12px;
+			font-size: 10px;
 		}
 		&__total, &__subtotal {
 			@include grow('small');
