@@ -158,7 +158,10 @@
 				<?php endforeach; ?>
 				</ul>
 			</div>
-			<?php _e('Recensioni per', 'iro'); ?>
+			<?php 
+			$products = get_terms(array('taxonomy' => 'prodotto_associato'));
+			if(count($products) > 1) :
+			_e('Recensioni per', 'iro'); ?>
 			<div class="reviews__select">
 				<?php if(get_query_var('rating')) : ?>
 				<?php endif; ?>
@@ -167,7 +170,7 @@
 				</span>
 				<span class="reviews__icons"><i class="icon-arrow-down"></i></span>
 				<ul class="reviews__options">
-				<?php foreach (get_terms(array('taxonomy' => 'prodotto_associato')) as $p) : 
+				<?php foreach ($products as $p) : 
 				?>
 				<li class="review__option">	
 					<a ui-sref="app.reviews({'review_product' : '<?php echo $p->slug; ?>'})">
@@ -177,6 +180,7 @@
 				<?php endforeach; ?>
 				</ul>
 			</div>
+			<?php endif; ?>
 			<a href="<?php echo get_permalink($review_base); ?>" ui-sref="app.page({slug : '<?php echo basename(get_permalink($review_base)); ?>', productId : <?php echo $current->term_id; ?>})" class="reviews__button reviews__button--dark"><?php _e('Scrivi una recensione', 'iro'); ?></a>
 		</aside>
 		<div class="reviews__container reviews__container--shrink-left-only reviews__container--cell-s9">
