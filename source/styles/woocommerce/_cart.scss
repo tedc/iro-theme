@@ -71,8 +71,7 @@
 			height: em(80px);
 			align-items: center;
 			justify-content: space-between;
-			border-bottom: 1px solid $light-border;
-			
+			border-bottom: 1px solid $light-border;		
 		}
 		&__close {
 			font-size: 12px;
@@ -84,7 +83,7 @@
 			.icon-chiudi {
 				font-size: $p/2;
 				display: inline-block;
-				margin-left: 1em;
+				margin-left: 5px;
 			}
 		}
 		&__wrapper {

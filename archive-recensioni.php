@@ -95,7 +95,7 @@
 						<li class="reviews__row">
 							<span><?php _e('Voto 5', 'iro'); ?></span>
 							<span class="reviews__bar">
-								<span class="reviews__percentage" rating-percentage="<?php get_percentage($totals[5], $main_total); ?>"></span>
+								<span class="reviews__percentage" rating-percentage="100"></span>
 							</span>
 							<span class="reviews__subtotal"><?php echo $totals[5]; ?></span>
 						</li>
@@ -104,7 +104,7 @@
 						<li class="reviews__row">
 							<span><?php _e('Voto 4', 'iro'); ?></span>
 							<span class="reviews__bar">
-								<span class="reviews__percentage" rating-percentage="<?php get_percentage($totals[4], $main_total); ?>"></span>
+								<span class="reviews__percentage" rating-percentage="<?php get_percentage(4, 5); ?>"></span>
 							</span>
 							<span class="reviews__subtotal"><?php echo $totals[4]; ?></span>
 						</li>
@@ -113,7 +113,7 @@
 						<li class="reviews__row">
 							<span><?php _e('Voto 3', 'iro'); ?></span>
 							<span class="reviews__bar">
-								<span class="reviews__percentage" rating-percentage="<?php get_percentage($totals[3], $main_total); ?>"></span>
+								<span class="reviews__percentage" rating-percentage="<?php get_percentage(3, 5); ?>"></span>
 							</span>
 							<span class="reviews__subtotal"><?php echo $totals[3]; ?></span>
 						</li>
@@ -122,7 +122,7 @@
 						<li class="reviews__row">
 							<span><?php _e('Voto 2', 'iro'); ?></span>
 							<span class="reviews__bar">
-								<span class="reviews__percentage" rating-percentage="<?php get_percentage($totals[2], $main_total); ?>"></span>
+								<span class="reviews__percentage" rating-percentage="2"></span>
 							</span>
 							<span class="reviews__subtotal"><?php echo $totals[2]; ?></span>
 						</li>
@@ -131,7 +131,7 @@
 						<li class="reviews__row">
 							<span><?php _e('Voto 1', 'iro'); ?></span>
 							<span class="reviews__bar">
-								<span class="reviews__percentage" rating-percentage="<?php get_percentage($totals[1], $main_total); ?>"></span>
+								<span class="reviews__percentage" rating-percentage="<?php get_percentage(1, 5); ?>"></span>
 							</span>
 							<span class="reviews__subtotal"><?php echo $totals[1]; ?></span>
 						</li>
