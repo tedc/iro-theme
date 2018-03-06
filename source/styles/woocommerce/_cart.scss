@@ -72,12 +72,19 @@
 			align-items: center;
 			justify-content: space-between;
 			border-bottom: 1px solid $light-border;
+			
+		}
+		&__close {
+			font-size: 12px;
+			color: $brand-main;
+			transition: color $speed;
+			&:hover {
+				color: $alternate-color;;
+			}
 			.icon-chiudi {
 				font-size: $p/2;
-				color: $brand-main;
-				&:hover {
-					color: $alternate-color;
-				}
+				display: inline-block;
+				margin-left: 1em;
 			}
 		}
 		&__wrapper {

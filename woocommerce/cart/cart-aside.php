@@ -2,7 +2,7 @@
 	<div class="cart-aside__container">
 		<header class="cart-aside__header cart-aside__header--shrink">
 			<h3 class="cart-aside__title cart-aside__title--small"><?php _e('Carrello', 'iro'); ?></h3>
-			<span class="cart-aside__close" ng-click="ngCart.close()"><?php _e('Chiudi', 'iro'); ?> <i class="icon-chiudi"></i></span>
+			<span class="cart-aside__close" ng-click="ngCart.close()"><?php _e('Chiudi', 'iro'); ?><i class="icon-chiudi"></i></span>
 		</header>
 		<div class="cart-aside__wrapper" scroller options="{'freeMode':true, 'direction':'vertical','mousewheel':true,'slidesPerView':'auto', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true}}" ng-if="ngCart.getTotalItems() == 0">
 			<div class="swiper-wrapper swiper-wrapper--vertical">
