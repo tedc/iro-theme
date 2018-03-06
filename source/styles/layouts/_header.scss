@@ -474,11 +474,12 @@
 		text-transform: uppercase;
 		text-align: center;
 		cursor: pointer;
+		z-index: 500;
 		i {
-			padding-top: em($p, 12px);
+			padding-top: em($p/2, 12px);
 			font-size: 12px;
 			display: block;
-			animation: scroll 2s infinite;
+			animation: scroll 1s infinite;
 		}
 	}
 	&__title {
@@ -508,6 +509,6 @@
 
 @keyframes scroll {
 	0% { transform: translate3d(0, 0, 0); }
-	50% {  transform: translate3d(0, em($p, 12px), 0); }
+	50% {  transform: translate3d(0, em($p/2, 12px), 0); }
 	100% {  transform: translate3d(0, 0, 0); }
 }
