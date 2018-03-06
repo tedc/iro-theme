@@ -478,7 +478,7 @@
 		bottom: em($p*2);
 		left: 50%;
 		transform: translate3d(-50%, 0, 0);
-		color: $brand-main;
+		color: $highlight-color;
 		font-family: $alternate-font;
 		text-transform: uppercase;
 		text-align: center;
@@ -487,8 +487,12 @@
 		i {
 			padding-top: em($p/2, 12px);
 			font-size: 12px;
-			display: block;
-			animation: scroll 1.5s infinite;
+			display: inline-flex;
+			border: 1px solid $highlight-color;
+			&:before {
+				display: inline-block;
+				animation: scroll 1.5s infinite;
+			}
 		}
 	}
 	&__title {
