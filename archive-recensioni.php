@@ -159,7 +159,7 @@
 				</ul>
 			</div>
 			<?php _e('Recensioni per', 'iro'); ?>
-			<div class="reviews__select">
+			<!-- <div class="reviews__select">
 				<?php if(get_query_var('rating')) : ?>
 				<?php endif; ?>
 				<span class="reviews__value">
@@ -176,7 +176,7 @@
 				</li>
 				<?php endforeach; ?>
 				</ul>
-			</div>
+			</div> -->
 			<a href="<?php echo get_permalink($review_base); ?>" ui-sref="app.page({slug : '<?php echo basename(get_permalink($review_base)); ?>', productId : <?php echo $current->term_id; ?>})" class="reviews__button reviews__button--dark"><?php _e('Scrivi una recensione', 'iro'); ?></a>
 		</aside>
 		<div class="reviews__container reviews__container--shrink-left-only reviews__container--cell-s9">
