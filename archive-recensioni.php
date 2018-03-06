@@ -75,7 +75,7 @@
 				$average = $average / $main_total;
 				$average = round($average, 1);
 			?>
-			<div class="reviews__averages reviews__averages--shrink-left-only reviews__averages--cell-s6">
+			<div class="reviews__averages reviews__averages--grow-md reviews__averages--shrink-left-only reviews__averages--cell-s6">
 				<h1 class="reviews__title reviews__title--big"><?php _e('Recensioni degli utenti', 'iro'); ?></h1>
 				<div class="reviews__values reviews__values--grow-md-top">
 					<span class="reviews__average"><strong><?php echo $average?></strong> / 5</span>
