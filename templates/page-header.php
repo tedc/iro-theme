@@ -29,7 +29,9 @@
 		</span>
 		<?php endif; ?>
 	</div>
+	<span class="header__goto" go-to="#header-trigger"><?php _e('Scroll' ,'iro'); ?><i class="icon-arrow-down"></i></span>
 </div>
+<hr id="header-trigger" />
 <?php 
 else : 
 	if(is_account_page()) : ?>
@@ -44,7 +46,7 @@ else :
 	<?php 
 	else:
 ?>
-<div class="header header--shrink-fw">
+<div class="header header--page header--shrink-fw">
 	<div class="header__container header__container--grow-md header__container--grow-lg">
 		<?php get_template_part( 'templates/page', 'title'); ?>
 	</div>
