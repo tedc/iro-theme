@@ -122,6 +122,24 @@
 					}
 				}
 			}
+			.section--triple & {
+				&:nth-child(3n+1) {
+					@include breakpoint() {
+						padding-right: em($p);
+					}
+				}
+				&:nth-child(3n+2) {
+					@include breakpoint() {
+						padding-left: em($p/2);
+						padding-right: em($p/2);
+					}
+				}
+				&:nth-child(3n+3) {
+					@include breakpoint() {
+						padding-left: em($p);
+					}
+				}
+			}
 		}
 		&figure {
 			line-height: 0;

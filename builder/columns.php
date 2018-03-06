@@ -2,8 +2,8 @@
 $count = (count(get_sub_field('colonne')));
 $invert = get_sub_field('mobile_invert_columns');
 ?>
-<div class="section section--grid<?php echo ($invert) ? ' section--grid-invert' : ''; ?>">
-<?php 
+<div class="section section--grid<?php echo ($invert) ? ' section--grid-invert' : ''; ?><?php echo ($count%3==0) ? ' section--triple' : ''; ?>">
+<?php
 $col = 0;
 while(have_rows('colonne')) : the_row();
 if(get_sub_field('spaziatore')) :
@@ -39,7 +39,7 @@ while(have_rows('content')) : the_row();
 	$alignClass .= (get_sub_field('text_align_right') && get_sub_field('column_right')) ? ' section__cell--alignright' : '';
 ?>
 	
-	<?php 
+	<?php
 	while(have_rows('column')) : the_row(); ?>
 		<div id="col_<?php echo $col; ?>_<?php echo $row; ?>" class="section__cell section__cell--<?php echo get_row_layout(); echo $hideOnMobile; ?> section__cell--<?php echo ($col%2==0) ? 'odd' : 'even'; echo $sizeClass . $alignClass . $paddingClass; ?>">
 		<?php include( locate_template( 'builder/columns/'.get_row_layout().'.php', false, true ) ); ?>
