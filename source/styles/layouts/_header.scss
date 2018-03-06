@@ -294,7 +294,7 @@
 				font-size: 38px;
 			}
 			&-filled {
-				color: $alternate-color;
+				color: $highlight-color;
 			}
 		}
 	}
@@ -323,6 +323,9 @@
 			transition: opacity $speed;
 			.banner__count--loading & {
 				opacity: 0;
+			}
+			.banner__btn--cart-filled & {
+				color: $brand-main;
 			}
 		}
 		&:before {			
