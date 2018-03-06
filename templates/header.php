@@ -33,3 +33,4 @@
       <ngcart-summary template-url="cart-summary.html"></ngcart-summary>
     </nav>
 </header>
+<?php do_action( 'iro_header' ); ?>

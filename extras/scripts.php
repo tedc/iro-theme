@@ -125,3 +125,32 @@
 	}
 
 	add_action( 'wp_footer', 'templates');
+
+function header_scripts()
+	{ ?>
+		<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '192305908199271');
+  fbq('track', 'PageView');
+</script>
+<!-- End Facebook Pixel Code -->
+	<?php }
+	add_action( 'wp_head','header_scripts');
+
+	function body_scripts()
+	{ ?>
+		
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=192305908199271&ev=PageView&noscript=1"
+/></noscript>
+	<?php }
+
+	add_action('iro_header', 'body_scripts');
