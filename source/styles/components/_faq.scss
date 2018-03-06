@@ -38,11 +38,25 @@
 		&close {
 			font-family: $alternate-font;
 			color: $brand-main;
-			font-size: em($p*2);
 			transition: transform $speed;
 			backface-visibility: hidden;
 			perspective: 1000px;
+			width: em($p);
+			height: em($p);
 			transform: rotate(0deg) translateZ(0);
+			position: relative;
+			&:before, &:after {
+				width: em(8px);
+				height: $f;
+				position: absolute;
+				top: 0;
+				left: em(6px);
+				border-top-right-radius: em(6px);
+				border-bottom-right-radius: em(6px);
+			}
+			&:after {
+				transform: rotate(90deg) translateZ(0);
+			}
 			.faq__item--active & {
 				transform: rotate(90deg) translateZ(0);
 			}

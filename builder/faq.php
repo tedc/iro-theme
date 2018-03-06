@@ -21,7 +21,7 @@ if($faq) : ?>
 	<li class="faq__item faq__item--grow-md" ng-class="{'faq__item--active':isFaq['<?php echo sanitize_title($faq_title); ?>']}">
 		<header class="faq__header faq__header--grid-nowrap" ng-click="isFaq['<?php echo sanitize_title($faq_title); ?>']=!isFaq['<?php echo sanitize_title($faq_title); ?>']">
 			<h3 class="faq__subtitle"><?php echo $faq_title; ?></h3>
-			<span class="faq__close">+</span>
+			<span class="faq__close"></span>
 		</header>
 		<div class="faq__content faq__content--grow-top slide-toggle" ng-class="{'slide-toggle--visible':isFaq['<?php echo sanitize_title($faq_title); ?>']}">
 			<div class="faq__text faq__text--grow-top">
