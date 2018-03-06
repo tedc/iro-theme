@@ -43,22 +43,22 @@ a, span, button, input[type="button"], input[type="submit"] {
 				background-color: $w;
 			}
 		}
-		// &[class*="-light"] {
-		// 	min-width: 0;
-		// 	color: $brand-main;
-		// 	border: 1px solid $alternate-color;
-		// 	background-color: transparentize($w, 0);
-		// 	&:not([class*="-loading"]):not(:disabled):hover {
-		// 		color: $w;
-		// 		background-color: $alternate-color;
-		// 	}
-		// 	&:before {
-		// 		background-color: $alternate-color;
-		// 	}
-		// 	&:after {
-		// 		background-color: $w;
-		// 	}
-		// }
+		&[class*="-light"] {
+			min-width: 0;
+			color: $brand-main;
+			border: 1px solid $alternate-color;
+			background-color: transparentize($w, 0);
+			&:not([class*="-loading"]):not(:disabled):hover {
+				color: $w;
+				background-color: $alternate-color;
+			}
+			&:before {
+				background-color: $alternate-color;
+			}
+			&:after {
+				background-color: $w;
+			}
+		}
 		&[class*="-radius-right"] {
 			min-width: 0;
 			border-top-left-radius: 0;
