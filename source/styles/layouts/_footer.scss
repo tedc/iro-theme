@@ -32,14 +32,23 @@
 			};
 		}
 		@include breakpoint() {
-			.footer__container--gray &{
+			.footer__container--gray & {
 				width: auto;
+			}
+		}
+		.footer__container--dark & {
+			text-align: center;
+			p {
+				width: $f;
 			}
 		}
 		&--first {
 			@include breakpoint() {
 				padding-left: 0;
 				padding-right: em($p*2);
+				.footer__container--dark & {
+					text-align: left;
+				}
 			}
 		}
 		&--last {
@@ -47,6 +56,9 @@
 			@include breakpoint() {
 				padding-right: 0;
 				padding-left: em($p*2);
+				.footer__container--dark & {
+					text-align: right;
+				}
 			}
 		}
 		&--menus {
