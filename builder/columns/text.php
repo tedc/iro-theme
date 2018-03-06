@@ -56,7 +56,7 @@ if(!$mw && !$centered) {
 		endif;
 		if(get_sub_field('col_link')) {
 			$button_class = 'section__button';
-			$section__link = 'section__link';
+			$link_class = 'section__link';
 			if(!get_sub_field('text') && get_sub_field('title')['title_text']) {
 				$link_class .= ' section__link section__link--grow-md-top';
 			} elseif(get_sub_field('text')) {
