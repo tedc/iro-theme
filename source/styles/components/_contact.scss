@@ -2,7 +2,7 @@
 	align-items: flex-start;
 	&__ {
 		&cell {
-			@include grow('lg');
+			@include grow();
 			&--figure {
 				img {
 					width: $f!important;
@@ -20,8 +20,13 @@
 					}
 					img {
 						height: $f!important;
-						object-fit: cover;
+						object-fit: contain;
 					}
+				}
+			}
+			&--s8 {
+				@include breakpoint() {
+					border-left: 1px solid $light-border;
 				}
 			}
 		}
