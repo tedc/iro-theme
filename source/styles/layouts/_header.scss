@@ -464,6 +464,22 @@
 			}
 		}
 	}
+	&__scroll {
+		position: absolute;
+		bottom: em($p*2);
+		left: 50%
+		transform: translate3d(-50%, 0, 0);
+		color: $brand-main;
+		font-family: $alternate-font;
+		text-transform: uppercase;
+		text-align: center;
+		i {
+			padding-top: em($p, 12px);
+			font-size: 12px;
+			display: block;
+			animation: scroll 2s infinite;
+		}
+	}
 	&__title {
 		line-height: percentage(64px/55px);
 	}
@@ -479,4 +495,16 @@
 	&__btns {
 		@include grow('md', 'top');
 	}
+}
+
+#header-trigger {
+	height: 0;
+	visibility: hidden;
+}
+
+
+@keyframes scroll {
+	0% { transform: translate3d(0, 0, 0); }
+	50% {  transform: translate3d(0, em($p, 12px), 0); }
+	100% {  transform: translate3d(0, 0, 0); }
 }
