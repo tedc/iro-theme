@@ -172,9 +172,9 @@
 			}
 			&-inview {
 				transform: translate3d(-50%, 0%, 0);
-				&-hidden {
-					transform: translate3d(-50%, 100%, 0);
-				}
+				// &-hidden {
+				// 	transform: translate3d(-50%, 100%, 0);
+				// }
 			}
 			.add-to-cart__button {
 				border-bottom-right-radius: 0!important;

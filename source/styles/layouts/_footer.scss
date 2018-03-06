@@ -102,6 +102,12 @@
 					color: $w;
 				}
 			}
+			.single-product & {
+				padding-bottom: em(67px);
+				@include breakpoint() {
+					padding-bottom: em(74px);
+				}
+			}
 		}
 		p {
 			font-size: 12px;	
