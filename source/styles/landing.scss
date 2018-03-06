@@ -29,10 +29,10 @@
 	}
 	&__figure {
 		display: block;
-		margin:  em($p*2) auto;
+		margin:  em($p) auto;
 		img {
 			width: $f;
-			max-width: em(400px);
+			max-width: em(280px);
 		}
 	}
 }

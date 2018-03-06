@@ -28,7 +28,7 @@ do_action( 'woocommerce_before_account_navigation' );
 	<ul>
 		<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : 
 			if($endpoint != 'dashboard' && $endpoint != 'edit-address') {
-			$btn_class = ($endpoint == 'customer-logout') ? 'account__button--light' : 'account__button--dark';
+			$btn_class = ($endpoint == 'customer-logout') ? 'account__button--dark' : 'account__button--dark';
 		?>
 			<li class="<?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
 				<?php if($endpoint=='customer-logout') : ?>

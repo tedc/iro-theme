@@ -44,7 +44,7 @@ if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
 	<div class="account__cell account__cell--address account__cell--grow-md">
 		<header class="account__header account__header--grid">
 			<h3 class="account__subtitle"><?php echo $title; ?></h3>
-			<span class="account__button accont__button--slim-light" ng-click="isAccount['<?php echo $name; ?>']=!isAccount['<?php echo $name; ?>']"><?php _e( 'Edit', 'woocommerce' ); ?></span>
+			<span class="account__button accont__button--slim-dark" ng-click="isAccount['<?php echo $name; ?>']=!isAccount['<?php echo $name; ?>']"><?php _e( 'Edit', 'woocommerce' ); ?></span>
 		</header>
 		<address class="account__desc account__desc--grow-md-top slide-toggle slide-toggle--visible" ng-class="{'slide-toggle--visible' : !isAccount['<?php echo $name; ?>']}"><?php
 			$address = wc_get_account_formatted_address( $name );

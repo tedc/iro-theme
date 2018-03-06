@@ -58,7 +58,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 			<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
 			</div>
 			<nav class="checkout__nav checkout__nav--grow-md checkout__nav--grid">
-				<a class="checkout__button checkout__button--light" href="<?php echo home_url('/'); ?>" ui-sref="app.root({lang : '<?php echo ICL_LANGUAGE_CODE; ?>'})"><?php _e('Continua lo shopping', 'iro'); ?></a>
+				<a class="checkout__button checkout__button--dark" href="<?php echo home_url('/'); ?>" ui-sref="app.root({lang : '<?php echo ICL_LANGUAGE_CODE; ?>'})"><?php _e('Continua lo shopping', 'iro'); ?></a>
 				<span class="checkout__button" ng-class="{'checkout__button--loading':isCheckoutUpdating}" ng-click="next(true, 2)"><?php _e('Continua', 'iro'); ?></span>
 			</nav>
 		</div>

@@ -1,4 +1,5 @@
 <?php 
+    do_action( 'iro_header' );
     acf_set_language_to_default();
     $phone = get_field('phone', 'options');
     $phone_unformatted = preg_replace('/[^0-9,.]/','',str_replace('+', '00', $phone)); 
@@ -33,4 +34,3 @@
       <ngcart-summary template-url="cart-summary.html"></ngcart-summary>
     </nav>
 </header>
-<?php do_action( 'iro_header' ); ?>

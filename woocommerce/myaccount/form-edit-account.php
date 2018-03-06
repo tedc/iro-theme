@@ -24,7 +24,7 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 <div class="account__cell account__cell--grow-md" ng-init="isAccount = []">
 	<header class="account__header account__header--grid">
 		<h3 class="account__subtitle"><?php _e('Dati dell\'account', 'iro'); ?></h3>
-		<span class="account__button account__button--slim-light" ng-click="isAccount['details']=!isAccount['details']; reload()"><?php _e('Modifica', 'iro'); ?></span>
+		<span class="account__button account__button--slim-dark" ng-click="isAccount['details']=!isAccount['details']; reload()"><?php _e('Modifica', 'iro'); ?></span>
 	</header><!-- /header -->
 	<div class="account__desc account__desc--grow-md-top slide-toggle slide-toggle--visible" ng-class="{'slide-toggle--visible' : !isAccount['details']}">
 		<?php echo esc_attr( $user->first_name ); ?> <?php echo esc_attr( $user->last_name ); ?>

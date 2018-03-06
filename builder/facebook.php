@@ -21,7 +21,7 @@
 		</div>
 	</div>
 	<footer class="facebook__footer facebook__footer--grow-md facebook__footer--cell-s6">
-		<a ng-attr-href="{{fb.info.link}}" target="_blank" class="facebook__button facebook__button--light">
+		<a ng-attr-href="{{fb.info.link}}" target="_blank" class="facebook__button facebook__button--dark">
 			<?php _e('Seguici su Facebook', 'iro'); ?>
 		</a>
 	</footer>
