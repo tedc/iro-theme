@@ -18,12 +18,23 @@
 			}
 		}
 		&subtitle {
-			&--active {
+			.faq__item--active & {
 				color: $main-color;
 			}
 		}
 		&text {
 			@include grow('small', 'top');
+		}
+		&close {
+			font-family: $alternate-font;
+			color: $brand-main;
+			transition: transform $speed;
+			backface-visibility: hidden;
+			perspective: 1000px;
+			transform: rotate(0deg) translateZ(0);
+			.faq__item--active & {
+				transform: rotate(90deg) translateZ(0);
+			}
 		}
 	}
 }

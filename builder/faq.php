@@ -18,9 +18,10 @@ if($faq) : ?>
 	<?php foreach($faq as $f) : 
 		$faq_title = get_the_title($f->ID);
 	?>
-	<li class="faq__item faq__item--grow-md">
-		<header class="faq__header" ng-click="isFaq['<?php echo sanitize_title($faq_title); ?>']=!isFaq['<?php echo sanitize_title($faq_title); ?>']">
-			<h3 class="faq__subtitle" ng-class="{'faq__subtitle--active':isFaq['<?php echo sanitize_title($faq_title); ?>']}"><?php echo $faq_title; ?></h3>
+	<li class="faq__item faq__item--grow-md" ng-class="{'faq__item--active':isFaq['<?php echo sanitize_title($faq_title); ?>']}">
+		<header class="faq__header faq__header--grid-nowrap" ng-click="isFaq['<?php echo sanitize_title($faq_title); ?>']=!isFaq['<?php echo sanitize_title($faq_title); ?>']">
+			<h3 class="faq__subtitle"><?php echo $faq_title; ?></h3>
+			<span class="faq__close">+</span>
 		</header>
 		<div class="faq__content faq__content--grow-top slide-toggle" ng-class="{'slide-toggle--visible':isFaq['<?php echo sanitize_title($faq_title); ?>']}">
 			<div class="faq__text faq__text--grow-top">
