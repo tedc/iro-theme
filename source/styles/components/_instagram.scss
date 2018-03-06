@@ -59,7 +59,7 @@
 			transition: opacity $speed;
 			background-color: transparentize($b, .4);
 			img {
-				max-width: em($p*4);
+				max-width: em($p*3);
 				margin-bottom: em($p/2);
 				position: static;
 				height: auto;
