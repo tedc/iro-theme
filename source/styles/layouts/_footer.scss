@@ -32,7 +32,9 @@
 			};
 		}
 		@include breakpoint() {
-			width: auto;
+			.footer__container--gray &{
+				width: auto;
+			}
 		}
 		&--first {
 			@include breakpoint() {
