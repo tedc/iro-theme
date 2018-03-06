@@ -156,6 +156,7 @@
 				align-items: center;
 				justify-content: flex-end;
 				position: relative;
+				border-bottom: 1px solid $light-border;
 			}
 			&values {
 				display: inline-flex;
