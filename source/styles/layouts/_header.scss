@@ -493,6 +493,7 @@
 		i {
 			display: inline-flex;
 			justify-content: center;
+			margin-top: 10px;
 			border: 1px solid $highlight-color;
 			.header--clear & {
 				border-color: $w;
@@ -504,10 +505,11 @@
 			&:before {
 				display: inline-block;
 				animation: scroll 1.5s infinite;
-				font-size: 10px;
+				font-size: 8px;
 				position: relative;
 				align-self: flex-end;
 				top: -10px;
+				left: 2px;
 			}
 		}
 	}
