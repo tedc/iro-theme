@@ -464,7 +464,7 @@
 			}
 		}
 	}
-	&__scroll {
+	&__goto {
 		position: absolute;
 		bottom: em($p*2);
 		left: 50%;
@@ -473,6 +473,7 @@
 		font-family: $alternate-font;
 		text-transform: uppercase;
 		text-align: center;
+		cursor: pointer;
 		i {
 			padding-top: em($p, 12px);
 			font-size: 12px;
@@ -500,6 +501,8 @@
 #header-trigger {
 	height: 0;
 	visibility: hidden;
+	margin: 0;
+	padding: 0;
 }
 
 
