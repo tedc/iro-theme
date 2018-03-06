@@ -24,11 +24,11 @@
 					}
 				}
 			}
-			&--s8 {
-				@include breakpoint() {
-					border-left: 1px solid $light-border;
-				}
-			}
+			// &--s8 {
+			// 	@include breakpoint() {
+			// 		border-left: 1px solid $light-border;
+			// 	}
+			// }
 		}
 		&header, &content {
 			@include grow('md', 'bottom');
