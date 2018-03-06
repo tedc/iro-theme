@@ -7,7 +7,13 @@
 	$field = get_query_var( 'review_product' ) ? 'slug' : 'term_id';
 	$paged =  (get_query_var('paged')) ? get_query_var('paged') : 1;
 	$ratings = get_terms(array('taxonomy'=>'rating'));	
-	$current = get_term_by( $field, $var, 'prodotto_associato' );			
+	$current = get_term_by( $field, $var, 'prodotto_associato' );
+	$products = get_terms(array('taxonomy' => 'prodotto_associato'));
+	$products_ids = array();
+	$pr_ids = array();
+	foreach ($products as $pr) {
+		array_push($pr_ids, $pr->term_id);
+	}		
 	$args = array(
 		'post_type' => 'recensioni',
 		'paged' => $paged
@@ -22,6 +28,9 @@
 	);
 	$main_total = count(get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $args['tax_query'])));
 	$totals = array();
+	foreach (get_posts(array('post_type'=>'product', 'posts_per_page' => -1, 'tax_query' => array('taxonomy' => 'prodotto_associato', 'field' => 'term_id', 'terms' => $pr_ids))) as $pro) {
+		array_push($products_ids, $pro->ID);
+	}
 	foreach ($ratings as $rate) {
 		$tx = array(
 			'relation' => 'AND',
@@ -138,7 +147,9 @@
 						<?php } ?>
 					</ul>
 				</div>
+				<?php if(is_user_logged_in() && has_bought_items($products_ids)) : ?>
 				<a href="<?php echo get_permalink($review_base); ?>" ui-sref="app.page({slug : '<?php echo basename(get_permalink($review_base)); ?>', productId : <?php echo $current->term_id; ?>})" class="reviews__button reviews__button--dark"><?php _e('Scrivi una recensione', 'iro'); ?></a>
+			<?php endif; ?>
 			</div>
 			
 		</header>
@@ -159,7 +170,6 @@
 				</ul>
 			</div>
 			<?php 
-			$products = get_terms(array('taxonomy' => 'prodotto_associato'));
 			if(count($products) > 1) :
 			_e('Recensioni per', 'iro'); ?>
 			<div class="reviews__select">
@@ -180,8 +190,10 @@
 				<?php endforeach; ?>
 				</ul>
 			</div>
+			<?php endif;  
+			if(is_user_logged_in() && has_bought_items($products_ids)) : ?>
+				<a href="<?php echo get_permalink($review_base); ?>" ui-sref="app.page({slug : '<?php echo basename(get_permalink($review_base)); ?>', productId : <?php echo $current->term_id; ?>})" class="reviews__button reviews__button--dark"><?php _e('Scrivi una recensione', 'iro'); ?></a>
 			<?php endif; ?>
-			<a href="<?php echo get_permalink($review_base); ?>" ui-sref="app.page({slug : '<?php echo basename(get_permalink($review_base)); ?>', productId : <?php echo $current->term_id; ?>})" class="reviews__button reviews__button--dark"><?php _e('Scrivi una recensione', 'iro'); ?></a>
 		</aside>
 		<div class="reviews__container reviews__container--shrink-left-only reviews__container--cell-s9">
 		<?php

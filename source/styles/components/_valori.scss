@@ -144,8 +144,8 @@
 			.swiper-slide-current & {
 				opacity: 1;
 				transform: translate3d(0, 0, 0);
-				transition-delay: $speed;
-				transition-duration: $speed;
+				transition-delay: $speed/2;
+				transition-duration: $speed/2;
 			}
 		}
 		&title {
