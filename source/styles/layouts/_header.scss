@@ -292,6 +292,8 @@
 			position: relative;
 			.icon-bag {
 				font-size: 38px;
+				backface-visibility: hidden;
+				perspective: 1000px;
 			}
 			&-filled {
 				color: $highlight-color;
@@ -354,8 +356,9 @@
 				}
 			}
 		}
-		.banner__btn--cart-filled & {
+		.banner__btn--cart-filled:not(:hover) & {
 			&:after {
+				background-color: $highlight-color;
 				transform: rotate(180deg) translate3d(0, -2px, 0);
 			}
 		}
