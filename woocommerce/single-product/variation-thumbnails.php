@@ -8,14 +8,14 @@
 	$variation_array = array();
 
 	foreach ($variations as $variation) :
-
 	$variation_id = $variation['variation_id'];
 	$image_ids = get_post_meta( $variation_id, '_wc_additional_variation_images', true );
 	
 	$image_ids = array_filter( explode( ',', $image_ids ) );
 
 	$the_product = wc_get_product( $variation_id );
-
+	$default = $the_product->get_variation_default_attribute( 'pa_color' );
+	
 	$variation_main_image = get_post_meta( $variation_id, '_thumbnail_id', true );
 	if ( ! empty( $variation_main_image ) ) {
 			array_unshift( $image_ids, $variation_main_image );
@@ -146,7 +146,7 @@
 	}
 
 	$main_images .= '</div></div>';
-	if(!in_array($variation['attributes']['attribute_pa_color'], $variation_array)){
+	if(!in_array($variation['attributes']['attribute_pa_color'], $variation_array) && $variation['attributes']['attribute_pa_color'] != $default){
 		echo $main_images;
 	}
 	array_push($variation_array, $variation['attributes']['attribute_pa_color']);
