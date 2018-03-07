@@ -5,9 +5,11 @@
 
 	$product_obj = new WC_Product_Variable( $post_id );
 	$variations = $product_obj->get_available_variations();
+	$variation_array = array();
 
 	foreach ($variations as $variation) :
-		$variation_id = $variation['variation_id'];
+	var_dump($variation);
+	$variation_id = $variation['variation_id'];
 	$image_ids = get_post_meta( $variation_id, '_wc_additional_variation_images', true );
 	
 	$image_ids = array_filter( explode( ',', $image_ids ) );
