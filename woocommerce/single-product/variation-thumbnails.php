@@ -121,10 +121,9 @@
 		$pages_html .= get_the_post_thumbnail( $post_id, 'shop_thumbnail', $attributes );
 		$pages_html .= '</span>';
 		$main_images .= apply_filters( 'woocommerce_single_product_image_thumbnail_html', $pages_html, get_post_thumbnail_id( $post_id ) );
-		$attachment_ids = $the_product->get_gallery_image_ids();
-		if ( $attachment_ids ) {
+		if ( $image_ids ) {
 			$thumb = 1;
-			foreach ( $attachment_ids as $attachment_id ) {
+			foreach ( $image_ids as $attachment_id ) {
 				$full_size_image = wp_get_attachment_image_src( $attachment_id, 'full' );
 				$thumbnail       = wp_get_attachment_image_src( $attachment_id, 'shop_thumbnail' );
 				$attributes      = array(
