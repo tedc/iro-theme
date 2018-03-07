@@ -59,34 +59,30 @@
 
 			// See if we need to get the first image of the variation
 			// only run one time.
-			if ( ( apply_filters( 'wc_additional_variation_images_get_first_image', false ) || $this->cloud_zoom_exists() ) && 0 === $loop ) {
+			// if ( ( apply_filters( 'wc_additional_variation_images_get_first_image', false ) || $this->cloud_zoom_exists() ) && 0 === $loop ) {
 
-				$html  = '<div data-thumb="' . esc_url( $thumbnail[0] ) . '" class="woocommerce-product-gallery__image flex-active-slide">';
+			// 	$html  = '<div data-thumb="' . esc_url( $thumbnail[0] ) . '" class="woocommerce-product-gallery__image flex-active-slide">';
 
-				if ( $add_image_link ) {
-					$html .= '<a href="' . wp_get_attachment_url( $id ) . '">';
-				}
+			// 	if ( $add_image_link ) {
+			// 		$html .= '<a href="' . wp_get_attachment_url( $id ) . '">';
+			// 	}
 
-				$html .= wp_get_attachment_image( $id, 'shop_single', false, $attributes );
+			// 	$html .= wp_get_attachment_image( $id, 'shop_single', false, $attributes );
 
-				if ( $add_image_link ) {
-					$html .= '</a>';
-				}
+			// 	if ( $add_image_link ) {
+			// 		$html .= '</a>';
+			// 	}
 
-				$html .= '</div>';
+			// 	$html .= '</div>';
 
-				$main_images .= apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $id );
+			// 	$main_images .= apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $id );
 
-				$loop++;
-				continue;
-			}
+			// 	$loop++;
+			// 	continue;
+			// }
 
-			if ( $add_image_link ) {
-				$attach_image = '<a href="' . wp_get_attachment_url( $id ) . '">' . wp_get_attachment_image( $id, 'shop_single', false, $attributes ) . '</a>';
-			} else {
-				$attach_image = wp_get_attachment_image( $id, 'shop_single', false, $attributes );
-			}
-
+			$attach_image = wp_get_attachment_image( $id, 'shop_single', false, $attributes );
+			
 			// Build the list of variations as main images in case a custom
 			// theme has flexslider type lightbox.
 			$main_images .= apply_filters( 'woocommerce_single_product_image_html', sprintf( '<div data-thumb="%s" class="woocommerce-product-gallery__image flex-active-slide">%s</div>', esc_url( $thumbnail[0] ), $attach_image ), $post_id );
