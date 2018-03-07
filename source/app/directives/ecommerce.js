@@ -369,17 +369,17 @@ module.exports = () => {
 
 				// PRODUCTS SLIDER
 
-				$scope.product_slider = getInstances.getInstance('product');
-				$scope.product_slider.then((swiper) => {
-					$scope.currentProductSlide = 0;
-					if(swiper.destroyed) return;
-					$scope.productSlideTo = (index)=> {
-						swiper.slideTo(index);
-					}
-					swiper.on('slideChange', ()=> {
-						$scope.currentProductSlide = swiper.activeIndex;
-					})	
-				});
+				// $scope.product_slider = getInstances.getInstance('product');
+				// $scope.product_slider.then((swiper) => {
+				// 	$scope.currentProductSlide = 0;
+				// 	if(swiper.destroyed) return;
+				// 	$scope.productSlideTo = (index)=> {
+				// 		swiper.slideTo(index);
+				// 	}
+				// 	swiper.on('slideChange', ()=> {
+				// 		$scope.currentProductSlide = swiper.activeIndex;
+				// 	})	
+				// });
 
 				// FEATURES SLIDER
 
