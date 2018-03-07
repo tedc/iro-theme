@@ -29,8 +29,8 @@
 	}
 	$columns           = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
 	$thumbnail_size    = apply_filters( 'woocommerce_product_thumbnails_large_size', 'full' );
-	$placeholder       = has_post_thumbnail() ? 'with-images' : 'without-images';
-	$swiper_container = ($the_product->get_gallery_image_ids() && has_post_thumbnail()) ? 'swiper-container' : '';
+	$placeholder       = 'with-images';
+	$swiper_container = 'swiper-container';
 	$wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_classes', array(
 		'product__gallery',
 		'product__gallery--' . $placeholder,
@@ -40,9 +40,9 @@
 		//'product__gallery--grow-md',
 		$swiper_container
 	) );
-	$swiper_wrapper = ($the_product->get_gallery_image_ids() && has_post_thumbnail()) ? ' swiper-wrapper' : '';
-	$swiper_slide = ($the_product->get_gallery_image_ids() && has_post_thumbnail()) ? ' swiper-slide' : '';
-	$options = ($the_product->get_gallery_image_ids() && has_post_thumbnail()) ? ' scroller="product" options="{\'effect\':\'fade\',\'fadeEffect\':{\'crossFade\':true}}"' : '';
+	$swiper_wrapper = ' swiper-wrapper';
+	$swiper_slide = ' swiper-slide';
+	$options = ' scroller="product" options="{\'effect\':\'fade\',\'fadeEffect\':{\'crossFade\':true}}"';
 
 
 	$main_images = '<div class="'. esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ).'"'. $options.'><div class="product__gallery-wrapper'. $swiper_wrapper.'">';
