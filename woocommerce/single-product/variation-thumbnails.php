@@ -1,6 +1,6 @@
 <?php
 	global $product;
-	if(!$product->is_type('variable')) :
+	if($product->is_type('variable')) :
 
 	$variations = $product->get_available_variations();
 	foreach ($variations as $variation) {
