@@ -27,7 +27,8 @@
 				array_unshift( $image_ids, $main_image_id );
 			}
 	}
-
+	$columns           = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
+	$thumbnail_size    = apply_filters( 'woocommerce_product_thumbnails_large_size', 'full' );
 	$placeholder       = has_post_thumbnail() ? 'with-images' : 'without-images';
 	$swiper_container = ($the_product->get_gallery_image_ids() && has_post_thumbnail()) ? 'swiper-container' : '';
 	$wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_classes', array(
