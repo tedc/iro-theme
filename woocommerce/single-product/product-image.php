@@ -99,4 +99,4 @@ $options = ($product->get_gallery_image_ids() && has_post_thumbnail()) ? ' scrol
 	</div>
 	<?php endif; ?>
 </div>
-<?php wc_get_template_part('single-product/variaiton-thumbnails.php'); ?>
+<?php wc_get_template_part('single-product/variation-thumbnails.php'); ?>
