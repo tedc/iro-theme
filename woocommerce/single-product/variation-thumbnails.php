@@ -97,6 +97,6 @@
 	}
 
 	$main_images .= '</figure></div>';
-	echo $main_images;
+	//echo $main_images;
 	endforeach;
 	endif;
