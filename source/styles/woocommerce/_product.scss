@@ -85,8 +85,7 @@
 			}
 		}
 	}
-	&__images {
-		order: 2;
+	&__gallery {
 		&-image {
 			width: $f!important;
 			flex: 0 0 auto;
@@ -99,6 +98,9 @@
 				// }
 			}
 		}
+	}
+	&__images {
+		order: 2;
 		@include breakpoint() {
 			order: 1;
 		}
