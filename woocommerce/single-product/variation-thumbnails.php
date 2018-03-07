@@ -2,7 +2,9 @@
 	global $product;
 	if($product->is_type('variable')) :
 
-	$variations = $product->get_available_variations();
+	$product_obj = new WC_Product_Variable( $product->get_id() );
+	$variations = $product_obj->get_available_variations();
+
 	foreach ($variations as $variation) {
 		var_dump($variation);
 	}
