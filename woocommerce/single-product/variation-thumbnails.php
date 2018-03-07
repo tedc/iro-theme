@@ -8,7 +8,6 @@
 	$variation_array = array();
 
 	foreach ($variations as $variation) :
-		var_dump($variation);
 
 	$variation_id = $variation['variation_id'];
 	$image_ids = get_post_meta( $variation_id, '_wc_additional_variation_images', true );
@@ -147,9 +146,9 @@
 	}
 
 	$main_images .= '</div></div>';
-	if(!in_array($variation['attribute_pa_color'], $variation_array)){
+	if(!in_array($variation['attributes']['attribute_pa_color'], $variation_array)){
 		echo $main_images;
 	}
-	array_push($variation_array, $variation['attribute_pa_color']);
+	array_push($variation_array, $variation['attributes']['attribute_pa_color']);
 	endforeach;
 	endif;
