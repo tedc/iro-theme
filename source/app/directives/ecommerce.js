@@ -158,11 +158,12 @@ module.exports = () => {
 	
 				// DELETE ITEM
 	
-				ngCart.delete = (url, item)=> {
+				ngCart.delete = (item_key, item)=> {
 					ngCart.isCounting = true;
+					let url = vars.wc.remove + '&item_key=' + item_key;
 					ecommerce
 						.get(url)
-						.then( ()=>{
+						.then( (res)=>{
 							ngCart.removeItem(item);
 							ngCart.isCounting = true;
 						});

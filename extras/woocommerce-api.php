@@ -134,12 +134,11 @@
 	        wp_send_json( $data ); 
 	    }
 	    public static function iro_remove_cart_item() {
-	    	wp_send_json( $_REQUEST['item_key'] );
-	    	// if($_REQUEST['item_key']) {
-	    	// 	die();
-	    	// } 
-	    	// $cart_item_key = $_REQUEST['item_key'];
-	    	// WC()->cart->remove_cart_item($cart_item_key);
+	    	if(!isset($_REQUEST['item_key'])) {
+	    		die();
+	    	} 
+	    	$cart_item_key = $_REQUEST['item_key'];
+	    	WC()->cart->remove_cart_item($cart_item_key);
 	    	die();
 	    }
 	    public static function iro_empty_cart() {

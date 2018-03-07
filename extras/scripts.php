@@ -68,6 +68,7 @@
 			'register' => WC_AJAX::get_endpoint('iro_register'),
 			'empty' => WC_AJAX::get_endpoint('iro_empty_cart'),
 			'cart' => WC_AJAX::get_endpoint('iro_get_cart'),
+			'remove' => WC_AJAX::get_endpoint('iro_remove_cart_item'),
 			'address' => WC_AJAX::get_endpoint('iro_save_address'),
 			'checkout' => WC_AJAX::get_endpoint('checkout'),
 			'accountBase' => basename(wc_get_page_permalink('myaccount')),
