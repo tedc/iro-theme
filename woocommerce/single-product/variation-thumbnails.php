@@ -28,8 +28,23 @@
 			}
 	}
 
+	$placeholder       = has_post_thumbnail() ? 'with-images' : 'without-images';
+	$swiper_container = ($the_product->get_gallery_image_ids() && has_post_thumbnail()) ? 'swiper-container' : '';
+	$wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_classes', array(
+		'product__gallery',
+		'product__gallery--' . $placeholder,
+		'product__gallery--columns-' . absint( $columns ),
+		'product__gallery--align-start',
+		'product__gallery--shrink-right-only',
+		//'product__gallery--grow-md',
+		$swiper_container
+	) );
+	$swiper_wrapper = ($the_product->get_gallery_image_ids() && has_post_thumbnail()) ? ' swiper-wrapper' : '';
+	$swiper_slide = ($the_product->get_gallery_image_ids() && has_post_thumbnail()) ? ' swiper-slide' : '';
+	$options = ($the_product->get_gallery_image_ids() && has_post_thumbnail()) ? ' scroller="product" options="{\'effect\':\'fade\',\'fadeEffect\':{\'crossFade\':true}}"' : '';
 
-	$main_images = '<div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-' . apply_filters( 'woocommerce_product_thumbnails_columns', 4 ) . ' images" data-columns="' . apply_filters( 'woocommerce_product_thumbnails_columns', 4 ) . '"><figure class="woocommerce-product-gallery__wrapper">';
+
+	$main_images = '<div class="'. esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ).'"'. $options.'><div class="product__gallery-wrapper'. $swiper_wrapper.'">';
 
 	$loop = 0;
 
@@ -52,7 +67,9 @@
 			$thumbnail       = wp_get_attachment_image_src( $id, 'shop_thumbnail' );
 
 			$attributes = array(
-				'title'                   => $image_title,
+				'title'                   => get_post_field( 'post_title', $id ),
+				'data-caption'            => get_post_field( 'post_excerpt', $id ),
+				'data-src'                => $full_size_image[0],
 				'data-large_image'        => $full_size_image[0],
 				'data-large_image_width'  => $full_size_image[1],
 				'data-large_image_height' => $full_size_image[2],
@@ -86,9 +103,39 @@
 			
 			// Build the list of variations as main images in case a custom
 			// theme has flexslider type lightbox.
-			$main_images .= apply_filters( 'woocommerce_single_product_image_html', sprintf( '<div data-thumb="%s" class="woocommerce-product-gallery__image flex-active-slide">%s</div>', esc_url( $thumbnail[0] ), $attach_image ), $post_id );
+
+			if($the_product->get_gallery_image_ids()) {
+				ob_start();
+				do_action( 'woocommerce_product_thumbnails' );
+				$html .= ob_get_clean();
+			}
+			$main_images .= apply_filters( 'woocommerce_single_product_image_html', sprintf( '<figure data-thumb="%s" class="product__gallery-image'.$swiper_slide.'">%s</figure>', esc_url( $thumbnail[0] ), $attach_image ), $post_id );
 
 			$loop++;
+		}
+		if($the_product->get_gallery_image_ids() && has_post_thumbnail()) {
+			$main_images .= '<div class="product__gallery-pagination swiper-pagination swiper-pagination-bullets">';
+		$pages_html  = '<span class="product__gallery-page swiper-pagination-bullet" ng-click="productSlideTo(0)" ng-class="{\'swiper-pagination-bullet-active\' : currentProductSlide == 0}">';
+		$pages_html .= get_the_post_thumbnail( $post_id, 'shop_thumbnail', $attributes );
+		$pages_html .= '</span>';
+		$main_images .= apply_filters( 'woocommerce_single_product_image_thumbnail_html', $pages_html, get_post_thumbnail_id( $post_id ) );
+		$attachment_ids = $the_product->get_gallery_image_ids();
+			if ( $attachment_ids && has_post_thumbnail() ) {
+				$thumb = 1;
+				foreach ( $attachment_ids as $attachment_id ) {
+					$full_size_image = wp_get_attachment_image_src( $attachment_id, 'full' );
+					$thumbnail       = wp_get_attachment_image_src( $attachment_id, 'shop_thumbnail' );
+					$attributes      = array(
+						'title'                   => get_post_field( 'post_title', $attachment_id ),
+					);
+					$pages_html  = '<span class="product__gallery-page swiper-pagination-bullet" ng-click="productSlideTo('.$thumb.')" ng-class="{\'swiper-pagination-bullet-active\' : currentProductSlide == '.$thumb.'}">';
+					$pages_html .= wp_get_attachment_image( $attachment_id, 'shop_thumbnail', false, $attributes );
+			 		$pages_html .= '</span>';
+
+					$main_images .= apply_filters( 'woocommerce_single_product_image_thumbnail_html', $pages_html, $attachment_id );
+					$thumb++;
+				}
+			}
 		}
 	} else {
 		$main_images .= '<div class="woocommerce-product-gallery__image--placeholder">';
@@ -96,7 +143,7 @@
 		$main_images .= '</div>';
 	}
 
-	$main_images .= '</figure></div>';
+	$main_images .= '</div></div>';
 	//echo $main_images;
 	endforeach;
 	endif;
