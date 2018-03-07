@@ -1,7 +1,7 @@
 <?php
 	global $product;
 	if(!$product->is_type('variable')) :
-
+		
 	$variation_id = '';
 
 	if ( ! isset( $_POST['variation_id'] ) ) {
