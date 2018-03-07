@@ -134,7 +134,7 @@
 	        wp_send_json( $data ); 
 	    }
 	    public static function iro_remove_cart_item() {
-	    	echo $_REQUEST['item_key'];
+	    	wp_send_json( $_REQUEST['item_key'] );
 	    	// if($_REQUEST['item_key']) {
 	    	// 	die();
 	    	// } 
