@@ -144,6 +144,6 @@
 	}
 
 	$main_images .= '</div></div>';
-	//echo $main_images;
+	echo $main_images;
 	endforeach;
 	endif;
