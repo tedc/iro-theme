@@ -106,6 +106,7 @@
 		}
 	}
 	&__images {
+		position: relative;
 		order: 2;
 		@include breakpoint() {
 			order: 1;
