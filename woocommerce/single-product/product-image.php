@@ -21,6 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 global $post, $product;
+$default = $product->get_variation_default_attribute( 'pa_color' );
 $columns           = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
 $thumbnail_size    = apply_filters( 'woocommerce_product_thumbnails_large_size', 'full' );
 $post_thumbnail_id = get_post_thumbnail_id( $post->ID );
@@ -31,8 +32,6 @@ $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_cl
 	'product__gallery',
 	'product__gallery--' . $placeholder,
 	'product__gallery--columns-' . absint( $columns ),
-	'product__gallery--align-start',
-	'product__gallery--shrink-right-only',
 	//'product__gallery--grow-md',
 	$swiper_container
 ) );
@@ -40,7 +39,8 @@ $swiper_wrapper = ($product->get_gallery_image_ids() && has_post_thumbnail()) ? 
 $swiper_slide = ($product->get_gallery_image_ids() && has_post_thumbnail()) ? ' swiper-slide' : '';
 $options = ($product->get_gallery_image_ids() && has_post_thumbnail()) ? ' scroller="product" options="{\'effect\':\'fade\',\'fadeEffect\':{\'crossFade\':true}}"' : '';
 ?>
-<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>"<?php echo $options; ?>>
+<div class="product__images product__gallery--align-start product__gallery--shrink-right-only">
+<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>"<?php echo $options; ?> ng-show="singleProductVariation.attribute_pa_color == '<?php echo $default; ?>'">
 	<div class="product__gallery-wrapper<?php echo $swiper_wrapper; ?>">
 		<?php
 		$attributes = array(
@@ -100,3 +100,4 @@ $options = ($product->get_gallery_image_ids() && has_post_thumbnail()) ? ' scrol
 	<?php endif; ?>
 </div>
 <?php wc_get_template_part('single-product/variation-thumbnails'); ?>
+</div>

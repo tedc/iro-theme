@@ -60,7 +60,7 @@
 		}
 		@include grow('small', 'top');
 	}
-	&__summary, &__gallery {
+	&__summary, &__images {
 		width: $f;
 		flex: 0 0 auto;
 		flex-wrap: wrap;
@@ -85,7 +85,7 @@
 			}
 		}
 	}
-	&__gallery {
+	&__images {
 		order: 2;
 		&-image {
 			width: $f!important;
