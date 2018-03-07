@@ -83,7 +83,8 @@
 	            'iro_udapte_item_quantity' => true,
 	            'iro_form' => true,
 	            'iro_save_address' => true,
-	            'iro_get_cart' => true
+	            'iro_get_cart' => true,
+	            'iro_remove_cart_item' => true
 	        );
 	        foreach ( $ajax_events as $ajax_event => $nopriv ) {
 	            add_action( 'wp_ajax_woocommerce_' . $ajax_event, array( __CLASS__, $ajax_event ) );
@@ -131,6 +132,15 @@
 	         - Used 'return' here instead of 'wp_send_json()';
 	         */
 	        wp_send_json( $data ); 
+	    }
+	    public static function iro_remove_cart_item() {
+	    	echo $_REQUEST['item_key'];
+	    	// if($_REQUEST['item_key']) {
+	    	// 	die();
+	    	// } 
+	    	// $cart_item_key = $_REQUEST['item_key'];
+	    	// WC()->cart->remove_cart_item($cart_item_key);
+	    	die();
 	    }
 	    public static function iro_empty_cart() {
 	    	WC()->cart->empty_cart();
