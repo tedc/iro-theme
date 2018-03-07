@@ -2,7 +2,7 @@
 	global $product;
 	if(!$product->is_type('variable')) :
 
-	$variations = get_available_variations();
+	$variations = $product->get_available_variations();
 	foreach ($variations as $variation) {
 		var_dump($variation);
 	}
