@@ -2,7 +2,8 @@
 	global $product;
 	$post_id = $product->get_id();
 	if($product->is_type('variable')) :
-
+	$default = $product->get_variation_default_attribute( 'pa_color' );
+	
 	$product_obj = new WC_Product_Variable( $post_id );
 	$variations = $product_obj->get_available_variations();
 	$variation_array = array();
@@ -14,7 +15,6 @@
 	$image_ids = array_filter( explode( ',', $image_ids ) );
 
 	$the_product = wc_get_product( $variation_id );
-	$default = $the_product->get_variation_default_attribute( 'pa_color' );
 	
 	$variation_main_image = get_post_meta( $variation_id, '_thumbnail_id', true );
 	if ( ! empty( $variation_main_image ) ) {
