@@ -37,7 +37,6 @@
 		'product__gallery',
 		'product__gallery--' . $placeholder,
 		'product__gallery--columns-' . absint( $columns ),
-		'product__gallery--align-start',
 		'product__gallery--shrink-right-only',
 		//'product__gallery--grow-md',
 		$swiper_container
