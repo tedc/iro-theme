@@ -46,7 +46,7 @@
 	$options = ' scroller="product" options="{\'effect\':\'fade\',\'fadeEffect\':{\'crossFade\':true}}"';
 
 
-	$main_images = '<div class="'. esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ).'"'. $options.' ng-show="singleProductVariation.attribute_pa_color == \''.$variation['attributes']['attribute_pa_color'].'\'"><div class="product__gallery-wrapper'. $swiper_wrapper.'">';
+	$main_images = '<div class="'. esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ).'"'. $options.' ng-class="{\'product__gallery--visible\' : singleProductVariation.attribute_pa_color == \''.$variation['attributes']['attribute_pa_color'].'\'}"><div class="product__gallery-wrapper'. $swiper_wrapper.'">';
 
 	$loop = 0;
 

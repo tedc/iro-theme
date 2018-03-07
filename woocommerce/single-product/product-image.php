@@ -32,6 +32,7 @@ $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_cl
 	'product__gallery',
 	'product__gallery--' . $placeholder,
 	'product__gallery--shrink-right-only',
+	'product__gallery--visible',
 	'product__gallery--columns-' . absint( $columns ),
 	//'product__gallery--grow-md',
 	$swiper_container
@@ -41,7 +42,7 @@ $swiper_slide = ($product->get_gallery_image_ids() && has_post_thumbnail()) ? ' 
 $options = ($product->get_gallery_image_ids() && has_post_thumbnail()) ? ' scroller="product" options="{\'effect\':\'fade\',\'fadeEffect\':{\'crossFade\':true}}"' : '';
 ?>
 <div class="product__images product__images--align-start">
-<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>"<?php echo $options; ?> ng-show="singleProductVariation.attribute_pa_color == '<?php echo $default; ?>'">
+<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>"<?php echo $options; ?> ng-class="{'product__gallery--visible' : singleProductVariation.attribute_pa_color == '<?php echo $default; ?>'}">
 	<div class="product__gallery-wrapper<?php echo $swiper_wrapper; ?>">
 		<?php
 		$attributes = array(

@@ -80,3 +80,46 @@ iro
 			}
 		}
 	}])
+	.animation('.product__gallery', ['$rootScope', ($rootScope)=> {
+		return {
+			addClass : (element, className, done)=> {
+				if(className != 'product__gallery--visible') return;
+				TweenMax.set(element, {
+					visibility : 'hidden',
+					opacity : 0,
+					display : 'block',
+					zIndex : 2,
+					position : 'absolute'
+				});
+				TweenMax.to(element, .5, {
+					visibility : 'visible',
+					opacity : 1,
+					onComplete : ()=> {
+						$rootScope.$broadcast('update_scroller');
+						TweenMax.set(element, {
+							clearProps : 'all'
+						});
+						done();
+					}
+				});
+			},
+			removeClass : (element, className, done)=> {
+				if(className != 'product__gallery--visible') return;
+				TweenMax.set(element, {
+					display : 'block',
+					zIndex : 1
+				});
+				TweenMax.to(element, .5, {
+					visibility : 'hidden',
+					opacity : 0,
+					onComplete : ()=> {
+						$rootScope.$broadcast('update_scroller');
+						TweenMax.set(element, {
+							clearProps : 'all'
+						});
+						done();
+					}
+				});
+			}
+		}
+	}]);

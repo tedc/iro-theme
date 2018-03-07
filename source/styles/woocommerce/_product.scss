@@ -98,6 +98,12 @@
 				// }
 			}
 		}
+		display: none;
+		top: 0;
+		left: 0;
+		&--visible {
+			display: block;
+		}
 	}
 	&__images {
 		order: 2;
