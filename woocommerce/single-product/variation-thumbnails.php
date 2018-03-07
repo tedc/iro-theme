@@ -120,18 +120,20 @@
 		$pages_html .= get_the_post_thumbnail( $post_id, 'shop_thumbnail', $attributes );
 		$pages_html .= '</span>';
 		$main_images .= apply_filters( 'woocommerce_single_product_image_thumbnail_html', $pages_html, get_post_thumbnail_id( $post_id ) );
-		$thumb = 1;
+		$thumb = 0;
 		foreach ( $image_ids as $attachment_id ) {
-			$full_size_image = wp_get_attachment_image_src( $attachment_id, 'full' );
-			$thumbnail       = wp_get_attachment_image_src( $attachment_id, 'shop_thumbnail' );
-			$attributes      = array(
-				'title'                   => get_post_field( 'post_title', $attachment_id ),
-			);
-			$pages_html  = '<span class="product__gallery-page swiper-pagination-bullet" ng-click="productSlideTo('.$thumb.')" ng-class="{\'swiper-pagination-bullet-active\' : currentProductSlide == '.$thumb.'}">';
-			$pages_html .= wp_get_attachment_image( $attachment_id, 'shop_thumbnail', false, $attributes );
-	 		$pages_html .= '</span>';
-
-			$main_images .= apply_filters( 'woocommerce_single_product_image_thumbnail_html', $pages_html, $attachment_id );
+			if($thumb > 0) {
+				$full_size_image = wp_get_attachment_image_src( $attachment_id, 'full' );
+				$thumbnail       = wp_get_attachment_image_src( $attachment_id, 'shop_thumbnail' );
+				$attributes      = array(
+					'title'                   => get_post_field( 'post_title', $attachment_id ),
+				);
+				$pages_html  = '<span class="product__gallery-page swiper-pagination-bullet" ng-click="productSlideTo('.$thumb.')" ng-class="{\'swiper-pagination-bullet-active\' : currentProductSlide == '.$thumb.'}">';
+				$pages_html .= wp_get_attachment_image( $attachment_id, 'shop_thumbnail', false, $attributes );
+		 		$pages_html .= '</span>';
+	
+				$main_images .= apply_filters( 'woocommerce_single_product_image_thumbnail_html', $pages_html, $attachment_id );
+			}
 			$thumb++;
 		}
 		$main_images .= '</div>';
