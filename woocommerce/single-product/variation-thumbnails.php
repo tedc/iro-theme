@@ -116,11 +116,11 @@
 		}
 		if($the_product->get_gallery_image_ids() && has_post_thumbnail()) {
 			$main_images .= '<div class="product__gallery-pagination swiper-pagination swiper-pagination-bullets">';
-		$pages_html  = '<span class="product__gallery-page swiper-pagination-bullet" ng-click="productSlideTo(0)" ng-class="{\'swiper-pagination-bullet-active\' : currentProductSlide == 0}">';
-		$pages_html .= get_the_post_thumbnail( $post_id, 'shop_thumbnail', $attributes );
-		$pages_html .= '</span>';
-		$main_images .= apply_filters( 'woocommerce_single_product_image_thumbnail_html', $pages_html, get_post_thumbnail_id( $post_id ) );
-		$attachment_ids = $the_product->get_gallery_image_ids();
+			$pages_html  = '<span class="product__gallery-page swiper-pagination-bullet" ng-click="productSlideTo(0)" ng-class="{\'swiper-pagination-bullet-active\' : currentProductSlide == 0}">';
+			$pages_html .= get_the_post_thumbnail( $post_id, 'shop_thumbnail', $attributes );
+			$pages_html .= '</span>';
+			$main_images .= apply_filters( 'woocommerce_single_product_image_thumbnail_html', $pages_html, get_post_thumbnail_id( $post_id ) );
+			$attachment_ids = $the_product->get_gallery_image_ids();
 			if ( $attachment_ids && has_post_thumbnail() ) {
 				$thumb = 1;
 				foreach ( $attachment_ids as $attachment_id ) {
@@ -137,6 +137,7 @@
 					$thumb++;
 				}
 			}
+			$main_images .= '</div>';
 		}
 	} else {
 		$main_images .= '<div class="woocommerce-product-gallery__image--placeholder">';
