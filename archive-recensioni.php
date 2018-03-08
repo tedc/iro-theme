@@ -93,6 +93,7 @@
 								echo '<span class="'.$starClass.'">'.$stars.'</span>';
 							}
 							$resto = round((5 - $average), 0, PHP_ROUND_HALF_UP);
+							echo $resto;
 							for($c = 0; $c<$resto; $c++) {
 								echo $c;
 								echo '<span class="reviews__star"><i class="icon-stella"></i></span>';
