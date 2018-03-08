@@ -91,10 +91,11 @@
 								$stars = (!$is_half) ? '<i class="icon-stella"></i>' : '<span class="reviews__starhalf"><i class="icon-stella"></i></span><i class="icon-stella"></i>';
 								echo '<span class="'.$starClass.'">'.$stars.'</span>';
 							}
-							$resto = round((5 - $average), 0, PHP_ROUND_HALF_UP);
-							echo $resto;
-							for($c = 0; $c<$resto; $c++) {
-								echo '<span class="reviews__star"><i class="icon-stella"></i></span>';
+							if(5 - $average > 0) {
+								$resto = round((5 - $average), 0, PHP_ROUND_HALF_UP);
+								for($c = 0; $c<$resto; $c++) {
+									echo '<span class="reviews__star"><i class="icon-stella"></i></span>';
+								}
 							}
 						?>
 					</span>
