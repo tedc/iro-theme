@@ -91,6 +91,7 @@
 								$stars = (!$is_half) ? '<i class="icon-stella"></i>' : '<span class="reviews__starhalf"><i class="icon-stella"></i></span><i class="icon-stella"></i>';
 								echo '<span class="'.$starClass.'">'.$stars.'</span>';
 							}
+							echo 5 - $average + 1;
 							if(5 - $average + 1 > 0) {
 								$resto = round((5 - $average), 0, PHP_ROUND_HALF_UP);
 								for($c = 0; $c<$resto; $c++) {
