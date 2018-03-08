@@ -40,20 +40,7 @@
 	<span class="footer__average"><strong><?php echo $average?></strong> / 5</span>
 	<span class="footer__stars">
 		<?php 
-			for($i= 1; $i<= round($average, 0, PHP_ROUND_HALF_UP); $i++ ) {
-				if (($average + 1) - $i > 0 && ($average + 1) - $i < 1) {
-					$is_half = true;
-				} else {
-					$is_half = false;
-				}
-				$starClass = ($is_half) ? 'footer__star footer__star--active-half' : 'footer__star footer__star--active';
-				$stars = (!$is_half) ? '<i class="icon-stella"></i>' : '<span class="footer__starhalf"><i class="icon-stella"></i></span><i class="icon-stella"></i>';
-				echo '<span class="'.$starClass.'">'.$stars.'</span>';
-			}
-			$resto = round((5 - $average), 0, PHP_ROUND_HALF_UP);
-			for($c = 0; $c<$resto; $c++) {
-				echo '<span class="footer__star"><i class="icon-stella"></i></span>';
-			}
+			stars($average, 'footer');
 		?>
 	</span>
 </div>

@@ -80,23 +80,8 @@
 				<div class="reviews__values reviews__values--grow-md-top">
 					<span class="reviews__average"><strong><?php echo $average?></strong> / 5</span>
 					<span class="reviews__stars">
-						<?php 
-							for($i= 1; $i<= round($average + 1, 0, PHP_ROUND_HALF_UP); $i++ ) {
-								if (($average + 1) - $i > 0 && ($average + 1) - $i < 1) {
-									$is_half = true;
-								} else {
-									$is_half = false;
-								}
-								$starClass = ($is_half) ? 'reviews__star reviews__star--active-half' : 'reviews__star reviews__star--active';
-								$stars = (!$is_half) ? '<i class="icon-stella"></i>' : '<span class="reviews__starhalf"><i class="icon-stella"></i></span><i class="icon-stella"></i>';
-								echo '<span class="'.$starClass.'">'.$stars.'</span>';
-							}
-							if(5 - $average >= 1) {
-								$resto = round((5 - $average), 0, PHP_ROUND_HALF_UP);
-								for($c = 0; $c<$resto; $c++) {
-									echo '<span class="reviews__star"><i class="icon-stella"></i></span>';
-								}
-							}
+						<?php
+							stars($average, 'reviews');
 						?>
 					</span>
 					<span class="reviews__total">

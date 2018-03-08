@@ -126,20 +126,7 @@ if($reviews->have_posts()) :
 				<span class="section__average"><strong><?php echo $average?></strong> / 5</span>
 				<span class="section__stars">
 					<?php 
-						for($i= 1; $i<= round($average, 0, PHP_ROUND_HALF_UP); $i++ ) {
-							if (($average + 1) - $i > 0 && ($average + 1) - $i < 1) {
-								$is_half = true;
-							} else {
-								$is_half = false;
-							}
-							$starClass = ($is_half) ? 'section__star section__star--active-half' : 'section__star section__star--active';
-							$stars = (!$is_half) ? '<i class="icon-stella"></i>' : '<span class="section__starhalf"><i class="icon-stella"></i></span><i class="icon-stella"></i>';
-							echo '<span class="'.$starClass.'">'.$stars.'</span>';
-						}
-						$resto = round((5 - $average), 0, PHP_ROUND_HALF_UP);
-						for($c = 0; $c<$resto; $c++) {
-							echo '<span class="section__star"><i class="icon-stella"></i></span>';
-						}
+						stars($average, 'section');
 					?>
 				</span>
 				<span class="section__total"><?php echo $main_total; ?> <?php _e('Recensioni', 'iro'); ?></span>
