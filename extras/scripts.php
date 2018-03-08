@@ -150,6 +150,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5TPC55T');</script>
 <!-- End Google Tag Manager -->
+
+<script>
+      /*!
+      Modified for brevity from https://github.com/filamentgroup/loadCSS
+      loadCSS: load a CSS file asynchronously.
+      [c]2014 @scottjehl, Filament Group, Inc.
+      Licensed MIT
+      */
+      function loadCSS(href){
+        var ss = window.document.createElement('link'),
+            ref = window.document.getElementsByTagName('head')[0];
+
+        ss.rel = 'stylesheet';
+        ss.href = href;
+
+        // temporarily, set media to something non-matching to ensure it'll
+        // fetch without blocking render
+        ss.media = 'only x';
+
+        ref.parentNode.insertBefore(ss, ref);
+
+        setTimeout( function(){
+          // set media back to `all` so that the stylesheet applies once it loads
+          ss.media = 'all';
+        },0);
+      }
+      loadCSS('<?php echo Assets\asset_path('styles/main.css'); ?>');
+    </script>
+    <noscript>
+      <!-- Let's not assume anything -->
+      <link rel="stylesheet" href="<?php echo Assets\asset_path('styles/main.css'); ?>">
+    </noscript>
 	<?php }
 	add_action( 'wp_head','header_scripts');
 

@@ -7,6 +7,9 @@
 		wp_deregister_style( 'sb_instagram_icons' );
 		wp_deregister_style( 'glossary-hint' );
 		wp_deregister_style( 'jquery-ui-css' );
+		if(!is_admin()) {
+			wp_deregister_style( 'irocss' );
+		}
 		//wp_deregister_style( 'catellanicss' );
 	}	
 	add_action( 'wp_print_styles', 'deregister_styles', 1001 );
