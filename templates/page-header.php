@@ -29,7 +29,9 @@
 		</span>
 		<?php endif; ?>
 	</div>
+	<?php if(!is_404()) : ?>
 	<span class="header__goto" go-to="#header-trigger"><span><?php _e('Scroll' ,'iro'); ?></span><i class="icon-arrow-down"></i></span>
+	<?php endif; ?>
 </div>
 <hr id="header-trigger" />
 <?php 
