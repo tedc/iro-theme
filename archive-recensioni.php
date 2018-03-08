@@ -82,7 +82,7 @@
 					<span class="reviews__stars">
 						<?php 
 							for($i= 1; $i<= round($average, 0, PHP_ROUND_HALF_UP); $i++ ) {
-								echo $i;
+								echo ($average + 1) - $i ;
 								if (($average + 1) - $i > 0 && ($average + 1) - $i < 1) {
 									$is_half = true;
 								} else {
