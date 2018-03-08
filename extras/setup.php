@@ -193,7 +193,7 @@
     	$value = $new_value['facebook_extended_at'];
     	return $value;
     }
-    add_filter('acf/update_value/name=facebook_extended_at', 'extend_facebook_at', 10, 3);
+    //add_filter('acf/update_value/name=facebook_extended_at', 'extend_facebook_at', 10, 3);
     //add_action( 'acf/save_post', 'extend_facebook_at', 100 );
 
 
