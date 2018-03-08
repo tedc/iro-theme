@@ -155,7 +155,7 @@ if($reviews->have_posts()) :
 			<div class="review review--grow-md review--grid">
 				<div class="review__content review__content--cell-s8">
 				<h2 class="review__title">
-					<?php echo $name; ?> <time><?php the_time(); ?></time>
+					<?php echo $name; ?> <time pubdate="<?php the_time('Y/m/d'); ?>" class="review__time"><?php the_time(); ?></time>
 				</h2>
 				<div class="review__content review__content--grow">
 					<?php the_excerpt(); ?>
