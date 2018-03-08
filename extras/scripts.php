@@ -113,7 +113,7 @@
 		wp_deregister_script( 'wp-embed' );
 		wp_deregister_script( 'extra-shipping-options' );
 		wp_deregister_script( 'jquery-ui-datepicker' );
-
+		wp_deregister_script( 'wc_additional_variation_images_script' );
 
 		remove_action( 'wp_head', array( $GLOBALS['woocommerce'], 'generator' ) );
 		// Unless we're in the store, remove all the cruft!
