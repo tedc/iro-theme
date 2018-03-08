@@ -17,7 +17,7 @@ function title() {
   } elseif (is_search()) {
     return sprintf(__('Search Results for %s', 'iro'), get_search_query());
   } elseif (is_404()) {
-    return __('Not Found', 'iro');
+    return __('Errore, pagina non trovata', 'iro');
   } else {
     return get_the_title();
   }
