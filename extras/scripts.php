@@ -150,7 +150,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5TPC55T');</script>
 <!-- End Google Tag Manager -->
-<?php get_template_part( 'extras/critical', null ); ?>
+<?php 
+ob_start();
+get_template_part( 'extras/critical', null );
+$critical = ob_get_clean();
+$critical = str_replace('../fonts/', get_stylesheet_directory_uri() . '/assets/fonts/', $critical);
+echo $critical;
+?>
 <script>
       /*!
       Modified for brevity from https://github.com/filamentgroup/loadCSS
