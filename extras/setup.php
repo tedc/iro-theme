@@ -190,9 +190,7 @@
     function extend_facebook_at($value, $post_id, $field) {
     	$group = get_field('facebook_api', 'options');
     	$new_value = extend_access_token($group);
-    	if($new_value){
-    	   	$value = $new_value['facebook_extended_at'];
-    	}
+    	$value = $new_value['facebook_extended_at'];
     	return $value;
     }
     add_filter('acf/update_value/name=facebook_extended_at', 'extend_facebook_at', 10, 3);
