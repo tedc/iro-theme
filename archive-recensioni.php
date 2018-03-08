@@ -82,7 +82,6 @@
 					<span class="reviews__stars">
 						<?php 
 							for($i= 1; $i<= round($average + 1, 0, PHP_ROUND_HALF_UP); $i++ ) {
-								echo ($average + 1) - $i ;
 								if (($average + 1) - $i > 0 && ($average + 1) - $i < 1) {
 									$is_half = true;
 								} else {
@@ -95,7 +94,6 @@
 							$resto = round((5 - $average), 0, PHP_ROUND_HALF_UP);
 							echo $resto;
 							for($c = 0; $c<$resto; $c++) {
-								echo $c;
 								echo '<span class="reviews__star"><i class="icon-stella"></i></span>';
 							}
 						?>
