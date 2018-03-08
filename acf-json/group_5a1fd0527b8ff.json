@@ -59,7 +59,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "100",
                         "class": "",
                         "id": ""
                     },
@@ -3316,6 +3316,15 @@
                             ],
                             "min": "",
                             "max": ""
+                        },
+                        "5aa1674e04174": {
+                            "key": "5aa1674e04174",
+                            "name": "newsletter",
+                            "label": "Newsletter",
+                            "display": "block",
+                            "sub_fields": [],
+                            "min": "",
+                            "max": ""
                         }
                     },
                     "button_label": "Aggiungi layout",
@@ -3365,5 +3374,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1520267231
+    "modified": 1520527197
 }
