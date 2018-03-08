@@ -96,3 +96,7 @@
 		}
 	}
 }
+
+.alert {
+	@include grow('lg', 'bottom');
+}
