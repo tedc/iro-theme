@@ -2,5 +2,6 @@
 
 <div class="alert alert--grow-lg-bottom alert--shrink alert--mw-large alert--aligncenter">
   <?php _e('Spiacenti, la pagina che cerchi non esiste.', 'iro'); ?>
+  <a href="<?php echo home_url('/'); ?>" ui-sref="app.root()" class="alert__button" style="margin-top:<?php echo (40/16); ?>em"><?php _e('Vai alla home', 'iro'); ?></a>
 </div>
 
