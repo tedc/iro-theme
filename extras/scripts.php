@@ -150,7 +150,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5TPC55T');</script>
 <!-- End Google Tag Manager -->
-
+<?php get_template_part( 'extras/critical', null ); ?>
 <script>
       /*!
       Modified for brevity from https://github.com/filamentgroup/loadCSS
@@ -169,7 +169,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         // fetch without blocking render
         ss.media = 'only x';
 
-        ref.parentNode.insertBefore(ss, ref);
+        ref.appendChild(ss);
 
         setTimeout( function(){
           // set media back to `all` so that the stylesheet applies once it loads
