@@ -18,6 +18,7 @@ $age = get_field('review_age', 'user_'.$user);
 	<div class="review__meta">
 		<strong><?php echo $name; ?></strong>
 		<span><?php echo $age .', '. $city; ?></span>
+		<time pubdate="<?php the_time('Y/m/d'); ?>" class="review__time"> - <?php the_time(); ?></time>
 	</div>
 	</div>
 	<div class="review__rating review__rating--grow review__rating--cell-s4">
