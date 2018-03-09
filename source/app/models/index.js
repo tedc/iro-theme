@@ -9,6 +9,7 @@ iro
 		var oldUrl = $location.absUrl();
 		$rootScope.isMenu = false;
 		$rootScope.isUserLoggedIn = vars.wc.logged;
+		$rootScope.sizeSelected = {};
 		// var langCookie = $cookies.get('lang');
 		// if(!langCookie) {
 		// 	let currentDate = new Date();
