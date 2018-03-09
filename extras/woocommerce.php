@@ -231,9 +231,9 @@
     }
 
     function my_woocommerce_structured_data_product($markup, $product) {
-        $markup['sku'] = $product->get_sku() ? $product->get_sku() : $product->getId();
-        $markup['gtin'] = $product->get_sku() ? $product->get_sku() : $product->getId();
-        $prodotto_associato = wp_get_post_terms($product->getId(), 'prodotto_associato');
+        $markup['sku'] = $product->get_sku() ? $product->get_sku() : $product->get_id();
+        $markup['gtin'] = $product->get_sku() ? $product->get_sku() : $product->get_id();
+        $prodotto_associato = wp_get_post_terms($product->get_id(), 'prodotto_associato');
         $ratings = get_terms(array('taxonomy'=>'rating'));
         if($prodotto_associato) {
             foreach ($ratings as $rate) {
