@@ -36,11 +36,18 @@ module.exports = function ($stateProvider, $locationProvider, $provide, cfpLoadi
 			controller : ['$rootScope', '$scope', 'data', require('./html')]
 		})
 		.state('app.page', {
-			url : '/{slug:(?!tab$)[a-zA-Z0-9\-]*}?productId',
+			url : '/{slug:(?!tab$)[a-zA-Z0-9\-]*}?productId&attribute_pa_color&attribute_pa_misure',
 			template : tpl,
 			resolve : {
 				data : ['getData', '$stateParams', function(getData, $stateParams) {
 					let base_url = ($stateParams.productId) ? `${$stateParams.slug}?productId=${$stateParams.productId}`: $stateParams.slug;
+					if($stateParams.attribute_pa_color) {
+						base_url += 'attribute_pa_color=' + $stateParams.attribute_pa_color;
+					}
+					if($stateParams.attribute_pa_misure) {
+						let and = ($stateParams.attribute_pa_color) ? '&' : '?';
+						base_url += and + 'attribute_pa_misure=' + $stateParams.attribute_pa_misure;
+					}
 					return getData(base_url);
 				}],
 			},

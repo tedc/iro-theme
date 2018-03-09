@@ -267,7 +267,7 @@
             $average = $average / $main_total;
             $markup['aggregateRating'] = array(
                 '@type'       => 'AggregateRating',
-                'ratingValue' => $average,
+                'ratingValue' => round($average, 1),
                 'reviewCount' => $main_total,
             );
         }

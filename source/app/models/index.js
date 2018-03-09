@@ -45,7 +45,6 @@ iro
 					delete $rootScope.menuItem;
 				}
 			}
-			console.log($rootScope.menuItem);
 			if((newUrl.split('#')[0] === oldUrl.split('#')[0])) return false;
 			oldUrl = newUrl;
 			$rootScope.isAnim = true;
