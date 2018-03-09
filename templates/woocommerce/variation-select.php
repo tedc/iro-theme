@@ -36,7 +36,7 @@
     } 
  
     $html .= '</select>';
-    $html .= '<ul class="variation__options">';
+    $html .= '<div class="variation__options swiper-container" scroller="product_selector" options="{\'freeMode\':true, \'direction\':\'vertical\',\'mousewheel\':true,\'slidesPerView\':\'auto\', \'scrollbar\':{\'el\':\'.swiper-scrollbar\', \'draggable\':true}}"><div class="swiper-wrapper">';
     if ( ! empty( $options ) ) { 
         if ( $product && taxonomy_exists( $attribute ) ) { 
             // Get terms if this is a taxonomy - ordered. We need the names too. 
@@ -44,7 +44,7 @@
  
             foreach ( $terms as $term ) { 
                 if ( in_array( $term->slug, $options ) ) {
-                    $html .= '<li  class="variation__option" ng-click="singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '=\''.esc_attr( $term->slug ) .'\'; sizeSelected={name :\''.$term->name.'\', sizes :\''.$term->description.'\'};getVariation()" ng-class="{\'variation__option--selected\':singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '==\''.esc_attr( $term->slug ) .'\'}"><strong>' . esc_html( $term->name  ) . '</strong>'.esc_html($term->description).'</li>'; 
+                    $html .= '<div  class="variation__option swiper-slide" ng-click="singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '=\''.esc_attr( $term->slug ) .'\'; sizeSelected={name :\''.$term->name.'\', sizes :\''.$term->description.'\'};getVariation()" ng-class="{\'variation__option--selected\':singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '==\''.esc_attr( $term->slug ) .'\'}"><strong>' . esc_html( $term->name  ) . '</strong>'.esc_html($term->description).'</div>'; 
                 } 
             } 
         } else { 
@@ -56,6 +56,8 @@
         } 
     } 
  
-    $html .= '</ul>';
+    $html .= '</div></<div>
+        
+    </div>>';
     $html .= '</div>';
     echo $html;
