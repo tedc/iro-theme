@@ -108,6 +108,9 @@
 	[class*="--selected"] {
 		color: $dark-color;
 		font-weight: 400;
+		strong {
+			color: $dark-gray;
+		}
 	}
 }
 %checks {
