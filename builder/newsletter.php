@@ -1,0 +1,2 @@
+<form class="newsletter">
+</form>
