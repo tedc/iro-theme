@@ -1,5 +1,17 @@
 <?php
 	use WooCommerce_Extra_Shipping_Options\WESO_Field_Has_Choices;
+	function is_user_subscribed($email) {
+		acf_set_language_to_default();
+		$mc = get_field('mailchimp', 'options');
+		$list_id = $mc['list_id'];
+		$api_key = $mc['api_key'];
+		$user_url = $mc['user_url'];
+		acf_unset_language_to_default();
+		$MailChimp = new MailChimp($api_key);
+		$subscriberHash = $MailChimp->subscriberHash($email);
+	    $result = $MailChimp->get('lists/' . $list_id . '/members/' . $subscriberHash);
+	    return ($MailChimp->success() && isset($result['id']));
+	}
 	class Iro_WC_AJAX extends WC_AJAX {
 
 	    /**
@@ -530,6 +542,13 @@
 	            $bcc = explode(',', $_POST['_bcc']);
 	            $sender = $name;
 	            $message = $_POST['message'];
+	            acf_set_language_to_default();
+				$mc = get_field('mailchimp', 'options');
+				$list_id = $mc['list_id'];
+				$api_key = $mc['api_key'];
+				$user_url = $mc['user_url'];
+				acf_unset_language_to_default();
+				$MailChimp = new MailChimp($api_key);
 	            //var_dump($_POST['security_check']);
 	            //$pTo = array('form@bspkn.it');
 	            //$pTo = array('e.grandinetti@bspkn.it');
@@ -550,6 +569,18 @@
 	                $html = '<html><head><meta charset="utf-8" /></head><body style="background-color:#f8f8f8"><div style="background-color:#fff;font-family:\'Helvetica Neue\', Helvetica, Arial, san-serif;font-size:18px;color:#58595b;max-width:550px;margin:0 auto;"><table style="width:100%;border-collapse:collapse;"><thead><tr><td style="padding: 20px;text-align:center; background-color:#fff"><a href="'.get_bloginfo('url').'" style="text-decoration:none"><img src="'.get_stylesheet_directory_uri().'/assets/images/logo.gif" style="border:0;width:100%;max-width:100px;height:auto"/></a></td></tr></thead><tfoot><tr><td style="padding:20px; text-align:center;color:#7f7f7f;font-size:11px">'.get_field('info', 'options').'<br /><a href="'.get_bloginfo('url').'" style="text-decoration:none;font-weight:bold;color:#123f6d">'.str_replace('http://', '', get_bloginfo('url')).'</a></td></tr></tfoot><tbody>'.$body.'</tbody></table></div></body></html>';
 	                return $html;
 	            }
+	            if(is_user_subscribed($email)) {
+		        	$subscriber_hash = $MailChimp->subscriberHash($email);
+		        	$result = $MailChimp->patch('lists/'.$list_id.'/members/'.$subscriber_hash, array(
+						'merge_fields' => array('FNAME'=>$sender, 'TEL'=>$tel)
+					));
+		        } else {
+		        	$result = $MailChimp->post('lists/'.$list_id.'/members', array(
+		        		'email_address' => $email,
+		        		'status' => 'subscribed',
+		        		'merge_fields' => array('FNAME'=>$sender, 'TEL'=>$tel)
+		        	));
+		        }
 	            if(get_field('custom_smtp', 'option') && have_rows('smtp', 'option') ) {
 	                while (have_rows('smtp', 'option')) : the_row();
 	                    $transport = Swift_SmtpTransport::newInstance(get_sub_field('url_provider'), get_sub_field('porta'), get_sub_field('encrypt'))->setUsername(get_sub_field('user'))->setPassword(get_sub_field('password'));
@@ -696,6 +727,9 @@
 	    		$data['cart_empty'] = true;
 	    	endif;
 	    	wp_send_json( $data );
+	    }
+	    public static function iro_newsletter() {
+	    	
 	    }
 	}
 
