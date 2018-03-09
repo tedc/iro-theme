@@ -150,7 +150,7 @@
     add_filter( 'woocommerce_shipping_package_name', 'shipping_title', 10 );
 
     // DROPDOWN VARIATIONS
-    $filters = array(array('filter_woocommerce_dropdown_variation_attribute_options_args', 1), array('woocommerce_dropdown_variation_attribute_options_html', 2), array('woocommerce_account_menu_items', 1), array('woocommerce_account_menu_item_classes', 2), array('woocommerce_account_orders_columns', 1), array('woocommerce_my_account_my_address_formatted_address', 3), array('woocommerce_formatted_address_replacements', 2), array('woocommerce_localisation_address_formats', 1), array('woocommerce_order_formatted_billing_address', 2), array('woocommerce_ajax_variation_threshold', 1));
+    $filters = array(array('filter_woocommerce_dropdown_variation_attribute_options_args', 1), array('woocommerce_dropdown_variation_attribute_options_html', 2), array('woocommerce_account_menu_items', 1), array('woocommerce_account_menu_item_classes', 2), array('woocommerce_account_orders_columns', 1), array('woocommerce_my_account_my_address_formatted_address', 3), array('woocommerce_formatted_address_replacements', 2), array('woocommerce_localisation_address_formats', 1), array('woocommerce_order_formatted_billing_address', 2), array('woocommerce_ajax_variation_threshold', 1), array('woocommerce_structured_data_product', 2));
     function my_filter_woocommerce_dropdown_variation_attribute_options_args($args) {
         $args['is_radio'] = false;
         return $args;
@@ -228,6 +228,42 @@
     function my_woocommerce_account_orders_columns($columns) {
         $columns['order-actions'] = '';
         return $columns;
+    }
+
+    function my_woocommerce_structured_data_product($markup, $product) {
+        $markup['sku'] = $product->get_sku() ? $product->get_sku() : $product->getId();
+        $markup['gtin'] = $product->get_sku() ? $product->get_sku() : $product->getId();
+        $prodotto_associato = wp_get_post_terms($product->getId(), 'prodotto_associato');
+        $ratings = get_terms(array('taxonomy'=>'rating'));
+        if($prodotto_associato) {
+            foreach ($ratings as $rate) {
+                $tx = array(
+                    'relation' => 'AND',
+                    array(
+                        'taxonomy' => 'rating',
+                        'field' => 'term_id',
+                        'terms' => array($rate->term_id)
+                    ),
+                    array(
+                        'taxonomy' => 'prodotto_associato',
+                        'field' => 'term_id',
+                        'terms' => ($prodotto_associato[0]->term_id)
+                    )
+                );
+                $totals[get_field('rating', 'rating_'.$rate->term_id)] = count(get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $tx)));
+            }
+            $average = 0;
+            foreach ($totals as $key => $value) {
+                $average += (intval($key) * $value);
+            }
+            $average = $average / $main_total;
+            $markup['aggregateRating'] = array(
+                '@type'       => 'AggregateRating',
+                'ratingValue' => $average,
+                'reviewCount' => $main_total,
+            );
+        }
+        return $markup;
     }
 
     // FORMS
