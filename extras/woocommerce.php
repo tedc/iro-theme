@@ -321,9 +321,10 @@
                     $custom_attributes[] = esc_attr( $attribute ) . '="' . esc_attr( $attribute_value ) . '"';
                 }
             }
+            $count_states = 0;
+            $stateInitialSlde = $count_states;
+                
             if(is_array( $states ) && !empty( $states )) {
-                $count_states = 0;
-                $stateInitialSlde = $count_states;
                 foreach ( $states as $ckey => $cvalue ) {
                     if($ckey == $value) {
                         $default_value = ' ng-init="'.$key.'_value=\''.$cvalue.'\'"';
@@ -340,7 +341,7 @@
             $prepend = '<div ng-if="getCountries('.$model.')" class="'.$base_class.'__select"><span class="search__value" ng-bind-html="('.$key.'_value) ? '.$key.'_value : \''.$args['label'].'\'"></span><span class="search__icons"><i class="icon-arrow-down"></i></span>';
             $field .= $prepend;
             $field .= '<select name="'.$key.'"'. implode(' ', $custom_attributes) .' ng-options="key as val for (key, val) in getCountries('.$model.')"'.$required.'></select>';
-            $ul = '<div class="'.$base_class.'__options" scroller="'.$key.'" options="{initialSlide : '.$initialSlide.', slideToClickedSlide: true, \'freeMode\':true, \'direction\':\'vertical\',\'mousewheel\':true,\'slidesPerView\':\'auto\', \'scrollbar\':{\'el\':\'.swiper-scrollbar\', \'draggable\':true}}"><div class="swiper-wrapper"><div class="'.$base_class.'__option swiper-slide" ng-class="{\''.$base_class.'__option--selected\':'.$args['custom_attributes']['ng-model'].'==key}" ng-click="'.$args['custom_attributes']['ng-model'].'=key;'.$key.'_value=val" ng-repeat="(key, val) in getCountries('.str_replace('state', 'country', $args['custom_attributes']['ng-model']).')" ng-bind-html="val" on-finish-render="update_scroller"></div>';
+            $ul = '<div class="'.$base_class.'__options" scroller="'.$key.'" options="{initialSlide : '.$stateInitialSlde.', slideToClickedSlide: true, \'freeMode\':true, \'direction\':\'vertical\',\'mousewheel\':true,\'slidesPerView\':\'auto\', \'scrollbar\':{\'el\':\'.swiper-scrollbar\', \'draggable\':true}}"><div class="swiper-wrapper"><div class="'.$base_class.'__option swiper-slide" ng-class="{\''.$base_class.'__option--selected\':'.$args['custom_attributes']['ng-model'].'==key}" ng-click="'.$args['custom_attributes']['ng-model'].'=key;'.$key.'_value=val" ng-repeat="(key, val) in getCountries('.str_replace('state', 'country', $args['custom_attributes']['ng-model']).')" ng-bind-html="val" on-finish-render="update_scroller"></div>';
             
             $ul .= '</div><span class="swiper-scrollbar"></span></div></div>';
             $ul .= '<input type="text" id="'.$key.'" class="'.$base_class.'__input" name="'.$key.'"'. implode(' ', $custom_attributes).'" ng-if="!getCountries('.$model.')"'.$required.'/>';
