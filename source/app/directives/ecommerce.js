@@ -58,6 +58,7 @@ module.exports = () => {
 					//$scope.product.price = `€ ${$scope.attributes.display_price}`;
 					$scope.product.price = $filter('currency')($scope.attributes.display_price, '€ ', 2*($scope.attributes.display_price % 1 !== 0));
 					$scope.product.product_id = $scope.attributes.variation_id;
+					console.log($scope.sizeSelected);
 				}
 				var addToCart = (item)=> {
 					ngCart.isUpdating = true;
