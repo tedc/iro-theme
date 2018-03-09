@@ -56,6 +56,6 @@
         } 
     } 
  
-    $html .= '</div><span class="swiper-scrollbar"></span></div>';
+    $html .= '</div></div>';
     $html .= '</div>';
     echo $html;
