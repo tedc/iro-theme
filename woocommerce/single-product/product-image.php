@@ -77,7 +77,7 @@ $options = ($product->get_gallery_image_ids() && has_post_thumbnail()) ? ' scrol
 	<?php if($product->get_gallery_image_ids() && has_post_thumbnail()) : ?>
 	<div class="product__gallery-pagination swiper-pagination swiper-pagination-bullets">
 		<?php
-		$pages_html  = '<span class="product__gallery-page swiper-pagination-bullet" ng-click="productSlideTo(0)" ng-class="{\'swiper-pagination-bullet-active\' : currentProductSlide == 0}">';
+		$pages_html  = '<span class="product__gallery-page swiper-pagination-bullet swiper-pagination-bullet-active" data-slidet-to="0">';
 		$pages_html .= get_the_post_thumbnail( $post->ID, 'shop_thumbnail', $attributes );
 		$pages_html .= '</span>';
 		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $pages_html, get_post_thumbnail_id( $post->ID ) );
@@ -90,7 +90,7 @@ $options = ($product->get_gallery_image_ids() && has_post_thumbnail()) ? ' scrol
 				$attributes      = array(
 					'title'                   => get_post_field( 'post_title', $attachment_id ),
 				);
-				$pages_html  = '<span class="product__gallery-page swiper-pagination-bullet" ng-click="productSlideTo('.$thumb.')" ng-class="{\'swiper-pagination-bullet-active\' : currentProductSlide == '.$thumb.'}">';
+				$pages_html  = '<span class="product__gallery-page swiper-pagination-bullet" data-slide-to="'.$thumb.'">';
 				$pages_html .= wp_get_attachment_image( $attachment_id, 'shop_thumbnail', false, $attributes );
 		 		$pages_html .= '</span>';
 
