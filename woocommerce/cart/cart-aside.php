@@ -23,7 +23,7 @@
 							<a ui-sref="app.page({slug : item.getData().href})" ng-bind-html="item.getName()"></a>
 							<div class="cart-aside__desc" ng-bind-html="ngCart.getDesc(item)" ng-if="ngCart.getDesc(item)"></div>
 						</div>
-						<a class="cart-aside__remove" ng-attr-href="{{item.getData().remove_item_url}}" ng-click="$event.preventDefault(); ngCart.delete(item.getData().item_key, $index)">
+						<a class="cart-aside__remove" ng-attr-href="{{item.getData().remove_item_url}}" ng-click="$event.preventDefault(); ngCart.delete(item.getData().item_key, $index, item.getId())">
 							<?php _e('Rimuovi', 'iro'); ?> <i class="icon-chiudi"></i>
 						</a>
 					</div>
