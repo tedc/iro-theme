@@ -44,7 +44,7 @@
  
             foreach ( $terms as $term ) { 
                 if ( in_array( $term->slug, $options ) ) {
-                    $html .= '<li  class="variation__option" ng-click="singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '=\''.esc_attr( $term->slug ) .'\'; sizeSelected={name :\''.$term->name.'\', sizes :\''.$term->description.'\'};getVariation()" ng-class="{\'variation__option--selected\':singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '==\''.esc_attr( $term->slug ) .'\'}"><strong>' . esc_html( $term->name  ) . '</strong>'.esc_html($term->description).'</li>'; 
+                    $html .= '<div class="variation__option swiper-slide" ng-click="singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '=\''.esc_attr( $term->slug ) .'\'; sizeSelected={name :\''.$term->name.'\', sizes :\''.$term->description.'\'};getVariation()" ng-class="{\'variation__option--selected\':singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '==\''.esc_attr( $term->slug ) .'\'}"><strong>' . esc_html( $term->name  ) . '</strong>'.esc_html($term->description).'</div>'; 
                 } 
             } 
         } else { 
@@ -56,6 +56,6 @@
         } 
     } 
  
-    $html .= '</div></div>';
+    $html .= '</div><span class="swiper-scrollbar"></span></div>';
     $html .= '</div>';
     echo $html;
