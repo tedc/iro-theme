@@ -11,7 +11,7 @@
 		$button_link = get_sub_field('header_button_link')['url'];
 		$button_text = get_sub_field('header_button_link')['title'];
 	?>
-	<nav class="header__btns header__btns--grow-md-top">
+	<nav class="header__btns header__btns--grow-top">
 		
 		<a href="<?php echo $button_link; ?>" class="<?php echo $button_class; ?>" ui-sref="app.page({slug : '<?php echo basename($button_link); ?>'})">
 			<?php echo $button_text; ?>
