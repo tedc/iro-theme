@@ -59,7 +59,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 			</div>
 			<nav class="checkout__nav checkout__nav--grow-md checkout__nav--grid">
 				<a class="checkout__button checkout__button--dark" href="<?php echo home_url('/'); ?>" ui-sref="app.root({lang : '<?php echo ICL_LANGUAGE_CODE; ?>'})"><?php _e('Continua lo shopping', 'iro'); ?></a>
-				<span class="checkout__button" ng-class="{'checkout__button--loading':isCheckoutUpdating}" ng-click="next(true, 2)"><?php _e('Continua', 'iro'); ?></span>
+				<span class="checkout__button" ng-class="{'checkout__button--loading':isCheckoutUpdating}" ng-click="next(checkout.$valid, 2)"><?php _e('Continua', 'iro'); ?></span>
 			</nav>
 		</div>
 	</div>
