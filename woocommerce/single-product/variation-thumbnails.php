@@ -129,7 +129,7 @@
 					'title'                   => get_post_field( 'post_title', $attachment_id ),
 				);
 				$active_Class = ($thumb==0) ? ' swiper-pagination-bullet-active' : '';
-				$pages_html  = '<span class="product__gallery-page swiper-pagination-bullet'.$active_Class.'" data-slidet-to="'.$thumb.'" ng-click="productSlideTo('.$thumb.')" ng-class="{\'swiper-pagination-bullet-active\' : currentProductSlide == '.$thumb.'}">';
+				$pages_html  = '<span class="product__gallery-page swiper-pagination-bullet'.$active_Class.'" data-slidet-to="'.$thumb.'">';
 				$pages_html .= wp_get_attachment_image( $attachment_id, 'shop_thumbnail', false, $attributes );
 		 		$pages_html .= '</span>';
 	
