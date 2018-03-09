@@ -101,15 +101,29 @@
 				color: $highlight-color;
 			}
 		}
+		display: flex;
+		align-items: center;
+		&:before {
+			transition: width $speed, margin-right $speed;
+			height: 5px;
+			background-color: $alternate-color;
+			content: '';
+			width: 0;
+			margin-left: 0;
+		}
 	}
 	[class*="-gray"] & {
 		background-color: $w;
 	}
-	[class*="--selected"] {
+	[class*="__option--selected"] {
 		color: $dark-color;
 		font-weight: 400;
 		strong {
-			color: $dark-gray;
+			color: $main-color;
+		}
+		&:before {	
+			width: $p;
+			margin-left: $p/2;
 		}
 	}
 }
