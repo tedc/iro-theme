@@ -49,7 +49,7 @@ module.exports = () => {
 				
 				// ADD AND UPDATE
 				$scope.singleProductVariation = {}
-				console.log($rootScope.sizeSelected);
+				// console.log($rootScope.sizeSelected);
 				$scope.attributes = [];
 				$scope.product = {};
 				ngCart.isUpdating = false;
