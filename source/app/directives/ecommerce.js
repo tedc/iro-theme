@@ -2,6 +2,7 @@ module.exports = () => {
 	return {
 		controller : ['$scope', '$rootScope', 'ngCart', '$element', 'ecommerce', '$state', 'getInstances', '$timeout', '$window', '$filter', '$location', ($scope, $rootScope, ngCart, $element, ecommerce, $state, getInstances, $timeout, $window, $filter, $location)=> {
 			// CART
+			$rootScope.sizeSelected = {};
 			$rootScope.isCartChanged = false;
 			$rootScope.initEcommerce = ()=>{
 				// EMPTY ON LOAD
