@@ -36,7 +36,24 @@
     } 
  
     $html .= '</select>';
-    $html .= '<div class="variation__options swiper-container" scroller="product_selector" options="{\'freeMode\':true, \'direction\':\'vertical\',\'mousewheel\':true,\'slidesPerView\':\'auto\', \'scrollbar\':{\'el\':\'.swiper-scrollbar\', \'draggable\':true}}"><div class="swiper-wrapper">';
+    if ( ! empty( $options ) ) { 
+        if ( $product && taxonomy_exists( $attribute ) ) { 
+            // Get terms if this is a taxonomy - ordered. We need the names too. 
+            $terms = wc_get_product_terms( $product->get_id(), $attribute, array( 'fields' => 'all' ) ); 
+            $c = 0;
+            $initialSlide = $c;
+            foreach ( $terms as $term ) { 
+                if ( in_array( $term->slug, $options ) ) {
+                    if($term->slug != $args['selected'] ) {
+                        $initialSlide = $c;
+                    } else {
+                        $c++;
+                    }
+                }
+            }
+        }
+    }
+    $html .= '<div class="variation__options swiper-container" scroller="product_selector" options="{initialSlide: '.$initialSlide.', slideToClickedSlide: true, \'freeMode\':true, \'direction\':\'vertical\',\'mousewheel\':true,\'slidesPerView\':\'auto\', \'scrollbar\':{\'el\':\'.swiper-scrollbar\', \'draggable\':true}}"><div class="swiper-wrapper">';
     if ( ! empty( $options ) ) { 
         if ( $product && taxonomy_exists( $attribute ) ) { 
             // Get terms if this is a taxonomy - ordered. We need the names too. 
