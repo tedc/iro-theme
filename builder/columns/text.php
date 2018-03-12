@@ -57,6 +57,7 @@ if(!$mw && !$centered) {
 		if(get_sub_field('col_link')) {
 			$button_class = 'section__button';
 			$link_class = 'section__link';
+			$ga_click = '';
 			if(!get_sub_field('text') && get_sub_field('title')['title_text']) {
 				$link_class .= ' section__link section__link--grow-md-top';
 			} elseif(get_sub_field('text')) {
@@ -64,8 +65,14 @@ if(!$mw && !$centered) {
 			} else {
 				$link_class .= '';
 			}
+			foreach (get_posts(array('post_type'=>'product', 'posts_per_page'=>-1)) as $p) {
+				if(get_permalink($p->ID) == get_sub_field('col_link')['url']) {
+					$ga_click = ' ga-click';
+					break;
+				}
+			}
 			$button_class .= get_sub_field('col_link_color') ? ' section__button--'.get_sub_field('col_link_color') : '';
-			echo '<div class="'.$link_class.'"><a class="'.$button_class.'" ui-sref="app.page({slug : \''.basename(get_sub_field('col_link')['url']).'\'})" href="'.get_sub_field('col_link')['url'].'">'.get_sub_field('col_link')['title'].'</a></div>';
+			echo '<div class="'.$link_class.'"><a class="'.$button_class.'" ui-sref="app.page({slug : \''.basename(get_sub_field('col_link')['url']).'\'})" href="'.get_sub_field('col_link')['url'].'"'.$ga_click.'>'.get_sub_field('col_link')['title'].'</a></div>';
 		}
 	?>
 </div>

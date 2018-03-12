@@ -14,6 +14,7 @@
 		align-items: center;
 		width: 280px;
 		flex: 0 0 auto;
+		text-align: center;
 		@include breakpoint(640px) {
 			width: $f/3;
 		}

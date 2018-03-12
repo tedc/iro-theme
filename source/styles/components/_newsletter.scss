@@ -1,0 +1,45 @@
+.newsletter {
+	&__{
+		&fieldset {
+			border: 0;
+			margin: 0 auto;
+			padding: 0;
+			p {
+				padding-bottom: em($p*2);
+			}
+		}
+		&title {
+			display: block;
+			padding-bottom: em(40px, 30px);
+		    @include breakpoint($bp) {
+		        padding-bottom: em(40px, 35px);
+		    }
+		}
+		&row {
+			display: flex;
+			flex-wrap: wrap;
+			@include breakpoint() {
+				flex-wrap: nowrap;
+			}
+		}
+		&input {
+			width: $f;
+			flex: 0 0 auto;
+			@include breakpoint() {
+				flex: 3;
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+				height: em(54px);
+			}
+		}
+		&button {
+			width: $f;
+			flex: 0 0 auto;
+			@include breakpoint() {
+				flex: 1;
+				border-top-left-radius: 0!important;
+				border-bottom-left-radius: 0!important;
+			}
+		}
+	}
+}

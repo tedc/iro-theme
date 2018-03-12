@@ -37,8 +37,8 @@ var uglifyify    = require('uglifyify');
 var modernizr    = require('gulp-modernizr');
 var pug          = require('gulp-pug');
 var ngTemplates  = require('gulp-ng-templates');
-var critical = require('critical').stream;
 var gutil = require('gulp-util');
+var cutil = require('gulp-concat-util');
 
 
 // See https://github.com/austinpray/asset-builder
@@ -124,7 +124,7 @@ var cssTasks = function(filename) {
             return postcss(
                 [
                     autoprefixer({
-                        browsers: ['> 1%', 'ff > 3', 'ie >= 8', 'Safari >= 6']
+                        browsers: ['> 0.1%', 'ff > 3', 'ie >= 8', 'Safari >= 6']
                     })
                 ]
             )
@@ -379,10 +379,18 @@ gulp.task('Iconfont', function(done){
 });
 
 gulp.task('critical', function() {
-    return gulp.src(path.dist + 'styles/critical.css')
-        .pipe(critical({base: 'templates/', dest: 'critical-css.php', html: '<style></style>', ignore: ['@font-face',/url\(/], inline: true, pathPrefix: '/app/themes/iro-theme/assets', css: ['assets/styles/critical.css']}))
-        .on('error', function(err) { gutil.log(gutil.colors.red(err.message)); })
-        .pipe(gulp.dest('templates'));
+      return gulp.src(path.dist + 'styles/critical.css')
+        // minify it
+        // wrap with style tags
+        .pipe(cutil.header('<style>'))
+        .pipe(cutil.footer('</style>'))
+        // convert it to a php file
+        .pipe(rename({
+            basename: 'critical',
+            extname: '.php'
+          }))
+        // insert it Wordpress theme folder
+        .pipe(gulp.dest('extras/'));
 });
 
 // ### Clean

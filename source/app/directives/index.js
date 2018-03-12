@@ -22,6 +22,25 @@ iro
 				scope.$on('$destroy', ()=> {
 					getInstances.destroyInstance(name);
 				});
+				//scope.product_slider = getInstances.getInstance('product');
+				//scope.product_slider.then((swiper) => {
+				scope.currentProductSlide = 0;
+				if(s.destroyed) return;
+				let slidesTo = element[0].querySelectorAll('[data-slide-to]');
+				if(slidesTo) {
+					angular.forEach(element[0].querySelectorAll('[data-slide-to]'), (item, i)=> {
+						let index = item.getAttribute('data-slide-to');
+						angular.element(item).on('click', ()=> {
+							s.slideTo(index);
+						});
+					});
+					s.on('slideChange', ()=> {
+						angular.element(element[0].querySelector('.swiper-pagination-bullet-active')).removeClass('swiper-pagination-bullet-active');
+						angular.element(element[0].querySelector('[data-slide-to="'+s.activeIndex+'"]')).addClass('swiper-pagination-bullet-active');
+						//scope.currentProductSlide = s.activeIndex;
+					});
+				}
+				//});
 			}
 		}
 	}])
@@ -234,6 +253,20 @@ iro
 		            	}
 	            	});
 			}]
+		}
+	})
+	.directive('goTo', ()=> {
+		return {
+			link: (scope, element, attr)=> {
+				let pos = attr.goTo;
+				let top = document.querySelector('.banner').offsetHeight;
+				window.controller.scrollTo( (newpos)=>{
+					TweenMax.to(window, 0.5, {scrollTo: {y: newpos - top}});
+				});
+				element.on('click', ()=> {
+					window.controller.scrollTo(pos);
+				});
+			}
 		}
 	})
 	.directive('ratingPercentage', ()=> {

@@ -38,27 +38,40 @@
 		&close {
 			font-family: $alternate-font;
 			color: $brand-main;
-			transition: transform $speed;
+			transition: transform $speed, opacity $speed;
 			backface-visibility: hidden;
 			perspective: 1000px;
-			width: em($p);
-			height: em($p);
+			width: 20px;
+			opacity: 0;
+			height: 20px;
 			transform: rotate(0deg) translateZ(0);
 			position: relative;
+			margin-left: em($p);
 			&:before, &:after {
-				width: em(8px);
+				background-color: $brand-main;
+				content: '';
+				width: 6px;
 				height: $f;
 				position: absolute;
 				top: 0;
-				left: em(6px);
-				border-top-right-radius: em(6px);
-				border-bottom-right-radius: em(6px);
+				left: 7px;
+				border-radius: 2px;
+				transition: $speed background-color;
 			}
 			&:after {
 				transform: rotate(90deg) translateZ(0);
 			}
+			.faq__item:hover & {
+				&:after, &:before {
+					background-color: $alternate-color;
+				}
+			}
 			.faq__item--active & {
-				transform: rotate(90deg) translateZ(0);
+				opacity: 1;
+				transform: rotate(45deg) translateZ(0);
+				&:after, &:before {
+					background-color: $highlight-color;
+				}
 			}
 		}
 	}

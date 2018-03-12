@@ -79,10 +79,10 @@ strong {
 
 [class*="__title"] {
 	line-height: 0.8;
-    font-size: em(20px);
     color: $brand-main;
     font-family: $alternate-font;
     font-weight: normal;
+    font-size: em(20px);
     @include breakpoint($bp) {
         font-size: em(22px);
     }

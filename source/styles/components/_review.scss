@@ -107,6 +107,17 @@
 		       margin-bottom: lh_mb(42px, $lh);
 		    }
 		}
+		&time {
+			font-size: em(14px);
+			color: $light-color;
+			.review__title & {
+				font-size: em(14px, 20px);
+				font-family: $main-font;
+			    @include breakpoint($bp) {
+			        font-size: em(14px, 22px);
+			    }
+			}
+		}
 		&product {
 			display: inline-block;
 			padding-bottom: em($p/2);

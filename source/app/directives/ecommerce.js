@@ -91,8 +91,23 @@ module.exports = () => {
 						.post(url, data)
 						.then( (res)=> {
 							let item_data = angular.extend({}, item.getData(), {remove_item_url : res.data.remove_item_url, item_key: res.data.item_key, qty : item.getQuantity()});
-							console.log(item_data);
 							item.setData(item_data);
+							$window.dataLayer.push({
+							  'event': 'addToCart',
+							  'ecommerce': {
+							    'currencyCode': 'EUR',
+							    'add': {                                // 'add' actionFieldObject measures.
+							      'products': [{                        //  adding a product to a shopping cart.
+							        'name': item.getName(),
+							        'id': item.getId(),
+							        'price': item.getPrice(),
+							        'brand': 'Iro',
+							        'variant': item.getData().attributes.attribute_pa_color + ' ' +item.getData().attributes.attribute_pa_misure,
+							        'quantity': item.getQuantity()
+							       }]
+							    }
+							  }
+							});
 							$rootScope.$broadcast('ngCart:change');
 							ngCart.isUpdating = false;
 							$location.hash('cart');
@@ -118,6 +133,22 @@ module.exports = () => {
 							$rootScope.$broadcast('ngCart:change');
 							$location.hash('cart');
 							ngCart.isUpdating = false;	
+							$window.dataLayer.push({
+							  'event': 'addToCart',
+							  'ecommerce': {
+							    'currencyCode': 'EUR',
+							    'add': {                                // 'add' actionFieldObject measures.
+							      'products': [{                        //  adding a product to a shopping cart.
+							        'name': item.getName(),
+							        'id': item.getId(),
+							        'price': item.getPrice(),
+							        'brand': 'Iro',
+							        'variant': item.getData().attributes.attribute_pa_color + ' ' +item.getData().attributes.attribute_pa_misure,
+							        'quantity': item.getQuantity()
+							       }]
+							    }
+							  }
+							});
 						});
 				}
 				
@@ -159,12 +190,28 @@ module.exports = () => {
 	
 				// DELETE ITEM
 	
-				ngCart.delete = (item_key, item)=> {
+				ngCart.delete = (item_key, item, id)=> {
 					ngCart.isCounting = true;
 					let url = vars.wc.remove + '&item_key=' + item_key;
 					ecommerce
 						.get(url)
 						.then( (res)=>{
+							let layer_item = ngCart.getItemById(id);
+							$window.dataLayer.push({
+							  'event': 'removeFromCart',
+							  'ecommerce': {
+							    'remove': {                                // 'add' actionFieldObject measures.
+							      'products': [{                        //  adding a product to a shopping cart.
+							        'name': layer_item.getName(),
+							        'id': layer_item.getId(),
+							        'price': layer_item.getPrice(),
+							        'brand': 'Iro',
+							        'variant': layer_item.getData().attributes.attribute_pa_color + ' ' +layer_item.getData().attributes.attribute_pa_misure,
+							        'quantity': layer_item.getQuantity()
+							       }]
+							    }
+							  }
+							});
 							ngCart.removeItem(item);
 							ngCart.isCounting = true;
 						});
@@ -350,7 +397,7 @@ module.exports = () => {
 								return;
 							}
 							$scope.isConfirm = false;
-							if(idx) {
+							if(typeof idx !== 'undefined') {
 								swiper.slideTo(idx);	
 							} else {
 								swiper.slideNext();
