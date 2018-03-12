@@ -21,9 +21,10 @@
  
             foreach ( $terms as $term ) { 
                 if ( in_array( $term->slug, $options ) ) {
+                    var_dump(display_price_in_variation_option_name($term->name, $produc));
                     $term_name = '<strong>'.preg_replace('/([0-9]{1,3}([x][0-9]{1,3})([x][0-9]{1,3})?)/', '<span>$1</span>', $term->name) . '</strong><em>'.display_price_in_variation_option_name($term->name, $product).'</em>';
                     
-                     $ngselected = $args['selected'] == $term->slug ? ' ng-init="singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '=\''.$args['selected'].'\'; sizeSelected={name :\''.$term_name.'\', sizes :\''.$term->description.'\'}"' : '';
+                     //$ngselected = $args['selected'] == $term->slug ? ' ng-init="singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '=\''.$args['selected'].'\'; sizeSelected={name :\''.$term_name.'\', sizes :\''.$term->description.'\'}"' : '';
                     
                     $html .= '<option value="' . esc_attr( $term->slug ) . '" ' . selected( sanitize_title( $args['selected'] ), $term->slug, false ) . $ngselected . '>' . esc_html( apply_filters( 'woocommerce_variation_option_name', $term->name ) ) . '</option>'; 
                 } 
@@ -63,8 +64,8 @@
  
             foreach ( $terms as $term ) { 
                 if ( in_array( $term->slug, $options ) ) {
-                    $term_name = '<strong>'.preg_replace('/([0-9]{1,3}([x][0-9]{1,3})([x][0-9]{1,3})?)/', '<span>$1</span>', $term->name) . '</strong><em>'.display_price_in_variation_option_name($term->name, $product).'</em>';
-                    $html .= '<div class="variation__option swiper-slide" ng-click="$event.stopPropagation();singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '=\''.esc_attr( $term->slug ) .'\'; sizeSelected={name :\''.$term_name.'\', sizes :\''.$term->description.'\'};getVariation();isSelected=false;" ng-class="{\'variation__option--selected\':singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '==\''.esc_attr( $term->slug ) .'\'}">' . $term_name . '</div>'; 
+                    // $term_name = '<strong>'.preg_replace('/([0-9]{1,3}([x][0-9]{1,3})([x][0-9]{1,3})?)/', '<span>$1</span>', $term->name) . '</strong><em>'.display_price_in_variation_option_name($term->name, $product).'</em>';
+                    // $html .= '<div class="variation__option swiper-slide" ng-click="$event.stopPropagation();singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '=\''.esc_attr( $term->slug ) .'\'; sizeSelected={name :\''.$term_name.'\', sizes :\''.$term->description.'\'};getVariation();isSelected=false;" ng-class="{\'variation__option--selected\':singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '==\''.esc_attr( $term->slug ) .'\'}">' . $term_name . '</div>'; 
                 } 
             } 
         } else { 

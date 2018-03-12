@@ -540,7 +540,7 @@ function display_price_in_variation_option_name( $term, $product ) {
     AND products.post_parent = $product->id";
 
     $variation_id = $wpdb->get_col( $query );
-
+    
     $parent = wp_get_post_parent_id( $variation_id[0] );
     $string = '';
     if ( $parent > 0 ) {
@@ -549,5 +549,5 @@ function display_price_in_variation_option_name( $term, $product ) {
         //this is where you can actually customize how the price is displayed
         $string = woocommerce_price( $_product->get_price() );
     }
-    return $string;
+    return $variation_id;
 } 
