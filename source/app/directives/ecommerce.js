@@ -53,12 +53,16 @@ module.exports = () => {
 				$scope.attributes = [];
 				$scope.product = {};
 				ngCart.isUpdating = false;
+				$scope.variationPrices = [];
 				$scope.getVariation = () => {
 					$scope.attributes = ecommerce.findMatchingVariations($scope.product.product_variations, $scope.singleProductVariation).shift();
 					//$scope.product.price = `€ ${$scope.attributes.display_price}`;
 					$scope.product.price = $filter('currency')($scope.attributes.display_price, '€ ', 2*($scope.attributes.display_price % 1 !== 0));
 					$scope.product.product_id = $scope.attributes.variation_id;
 					
+				}
+				$scope.variationValue = (n, i)=> {
+					return n + '<em>' + $scope.variationPrices[i][$scope.singleProductVariation.attribute_pa_color] + '</em>';
 				}
 				$scope.inLineHtml = (string)=> {
 					return $sce.trustAsHtml(string);

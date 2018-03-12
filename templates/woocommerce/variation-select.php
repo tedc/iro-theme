@@ -11,21 +11,22 @@
         $attributes = $product->get_variation_attributes(); 
         $options = $attributes[ $attribute ]; 
     } 
-    $html = '<div class="variation__select" ng-click="isSelected=!isSelected" click-outside="isSelected=false"><span class="variation__value" ng-bind-html="sizeSelected.name"></span><span class="variation__icons"><i class="icon-arrow-down"></i></span>';
+    $html = '<div class="variation__select" ng-click="isSelected=!isSelected" click-outside="isSelected=false"><span class="variation__value" ng-bind-html="variationValue(sizeSelected.name, variationPriceIndex)"></span><span class="variation__icons"><i class="icon-arrow-down"></i></span>';
     $html .= '<select id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . '" name="' . esc_attr( $name ) . '" ng-model="singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '">'; 
    
     if ( ! empty( $options ) ) { 
         if ( $product && taxonomy_exists( $attribute ) ) { 
             // Get terms if this is a taxonomy - ordered. We need the names too. 
             $terms = wc_get_product_terms( $product->get_id(), $attribute, array( 'fields' => 'all' ) ); 
- 
+            $count_opt = 0;
             foreach ( $terms as $term ) { 
                 if ( in_array( $term->slug, $options ) ) {
-                    $term_name = '<strong>'.preg_replace('/([0-9]{1,3}([x][0-9]{1,3})([x][0-9]{1,3})?)/', '<span>$1</span>', $term->name) . '</strong><em>'.display_price_in_variation_option_name($term->name, $product).'</em>';
+                    $term_name = '<strong>'.preg_replace('/([0-9]{1,3}([x][0-9]{1,3})([x][0-9]{1,3})?)/', '<span>$1</span>', $term->name) . '</strong>';
                     
-                     //$ngselected = $args['selected'] == $term->slug ? ' ng-init="singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '=\''.$args['selected'].'\'; sizeSelected={name :\''.$term_name.'\', sizes :\''.$term->description.'\'}"' : '';
+                     $ngselected = $args['selected'] == $term->slug ? ' ng-init=";variationPriceIndex='.$count_opt.';singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '=\''.$args['selected'].'\'; sizeSelected={name :\''.$term_name.'\', sizes :\''.$term->description.'\'}"' : '';
                     
                     $html .= '<option value="' . esc_attr( $term->slug ) . '" ' . selected( sanitize_title( $args['selected'] ), $term->slug, false ) . $ngselected . '>' . esc_html( apply_filters( 'woocommerce_variation_option_name', $term->name ) ) . '</option>'; 
+                    $count_opt++;
                 } 
             } 
         } else { 
@@ -60,12 +61,13 @@
         if ( $product && taxonomy_exists( $attribute ) ) { 
             // Get terms if this is a taxonomy - ordered. We need the names too. 
             $terms = wc_get_product_terms( $product->get_id(), $attribute, array( 'fields' => 'all' ) ); 
- 
+            $count_select = 0;
             foreach ( $terms as $term ) { 
                 if ( in_array( $term->slug, $options ) ) {
-                    var_dump(display_price_in_variation_option_name($term->name, $product));
-                    // $term_name = '<strong>'.preg_replace('/([0-9]{1,3}([x][0-9]{1,3})([x][0-9]{1,3})?)/', '<span>$1</span>', $term->name) . '</strong><em>'.display_price_in_variation_option_name($term->name, $product).'</em>';
-                    // $html .= '<div class="variation__option swiper-slide" ng-click="$event.stopPropagation();singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '=\''.esc_attr( $term->slug ) .'\'; sizeSelected={name :\''.$term_name.'\', sizes :\''.$term->description.'\'};getVariation();isSelected=false;" ng-class="{\'variation__option--selected\':singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '==\''.esc_attr( $term->slug ) .'\'}">' . $term_name . '</div>'; 
+                    $_prices = htmlspecialchars( wp_json_encode( display_price_in_variation_option_name($term->name, $product) ) );
+                    $term_name = '<strong>'.preg_replace('/([0-9]{1,3}([x][0-9]{1,3})([x][0-9]{1,3})?)/', '<span>$1</span>', $term->name) . '</strong>';
+                    $html .= '<div class="variation__option swiper-slide" ng-click="$event.stopPropagation();singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '=\''.esc_attr( $term->slug ) .'\'; sizeSelected={name :\''.$term_name.'\', sizes :\''.$term->description.'\'};getVariation();isSelected=false;variationPriceIndex='.$count_select.'" ng-class="{\'variation__option--selected\':singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '==\''.esc_attr( $term->slug ) .'\'}" ng-init="variationPrices['.$count_select.']='.$_prices.'">' . $term_name . '<em ng-bind-html="variationsPrices['.$count_select.'][singleProductVariation.attribute_pa_color]"></em></div>'; 
+                    $count_select++;
                 } 
             } 
         } else { 
