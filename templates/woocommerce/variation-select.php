@@ -11,7 +11,7 @@
         $attributes = $product->get_variation_attributes(); 
         $options = $attributes[ $attribute ]; 
     } 
-    $html = '<div class="variation__select"><span class="search__value"><strong ng-bind-html="sizeSelected.name"></strong></span><span class="search__icons"><i class="icon-arrow-down"></i></span>';
+    $html = '<div class="variation__select" ng-click="isSelected=!isSelected" click-outside="isSelected=false" ><span class="search__value"><strong ng-bind-html="sizeSelected.name"></strong></span><span class="search__icons"><i class="icon-arrow-down"></i></span>';
     $html .= '<select id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . '" name="' . esc_attr( $name ) . '" ng-model="singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '">'; 
    
     if ( ! empty( $options ) ) { 
@@ -55,7 +55,7 @@
             }
         }
     }
-    $html .= '<div class="variation__options swiper-container" scroller="product_selector" options="{initialSlide: '.$initialSlide.', slideToClickedSlide: true, \'freeMode\':true, \'direction\':\'vertical\',\'mousewheel\':true,\'slidesPerView\':\'auto\', \'scrollbar\':{\'el\':\'.swiper-scrollbar\', \'draggable\':true}}"><div class="swiper-wrapper">';
+    $html .= '<div class="variation__options swiper-container" scroller="product_selector" options="{initialSlide: '.$initialSlide.', slideToClickedSlide: true, \'freeMode\':true, \'direction\':\'vertical\',\'mousewheel\':true,\'slidesPerView\':\'auto\', \'scrollbar\':{\'el\':\'.swiper-scrollbar\', \'draggable\':true}}" ng-class="{\'variation__options--visible\':isSelected}"><div class="swiper-wrapper">';
     if ( ! empty( $options ) ) { 
         if ( $product && taxonomy_exists( $attribute ) ) { 
             // Get terms if this is a taxonomy - ordered. We need the names too. 
@@ -64,7 +64,7 @@
             foreach ( $terms as $term ) { 
                 if ( in_array( $term->slug, $options ) ) {
                     $term_name = preg_replace('/([0-9]{1,3}([x][0-9]{1,3})([x][0-9]{1,3})?)/', '<span>$1</span>', $term->name);
-                    $html .= '<div class="variation__option swiper-slide" ng-click="singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '=\''.esc_attr( $term->slug ) .'\'; sizeSelected={name :\''.$term_name.'\', sizes :\''.$term->description.'\'};getVariation()" ng-class="{\'variation__option--selected\':singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '==\''.esc_attr( $term->slug ) .'\'}"><strong>' . $term_name . '</strong><span>'.display_price_in_variation_option_name($term->name, $product).'</span></div>'; 
+                    $html .= '<div class="variation__option swiper-slide" ng-click="ng-click="$event.stopPropagation();singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '=\''.esc_attr( $term->slug ) .'\'; sizeSelected={name :\''.$term_name.'\', sizes :\''.$term->description.'\'};getVariation();isSelected=false;" ng-class="{\'variation__option--selected\':singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '==\''.esc_attr( $term->slug ) .'\'}"><strong>' . $term_name . '</strong><span>'.display_price_in_variation_option_name($term->name, $product).'</span></div>'; 
                 } 
             } 
         } else { 

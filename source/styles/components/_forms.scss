@@ -238,11 +238,11 @@
 } 
 [class*="__options"] {
 	@extend %options;
-	[class*="__select"]:hover & {
-		visibility: visible;
-		transition: visibility $speed, opacity $speed;
-		opacity: 1;
-	}
+	// [class*="__select"]:hover & {
+	// 	visibility: visible;
+	// 	transition: visibility $speed, opacity $speed;
+	// 	opacity: 1;
+	// }
 }
 [class*="__options--visible"] {
 	visibility: visible;
