@@ -543,7 +543,7 @@ function display_price_in_variation_option_name( $term, $product ) {
     $array = array();
     foreach ($variation_ids as $variation_id) {
         $_product = new WC_Product_Variation($variation_id);
-        $array = array($_product->get_attribute('color'));
+        $array = array_push(woocommerce_price( $_product->get_price()));
     }
     $parent = wp_get_post_parent_id( $variation_id[0] );
     $string = '';
