@@ -20,9 +20,9 @@
 	//  */
 	// do_action( 'woocommerce_after_add_to_cart_quantity' );
 ?>
-<span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top" ng-class="{'add-to-cart__wrapper--loading' : ngCart.isUpdating}">
+<span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top" id="product-button" ng-class="{'add-to-cart__wrapper--loading' : ngCart.isUpdating}">
 <span class="add-to-cart__button" ng-class="{'add-to-cart__button--loading' : ngCart.isUpdating}" ng-transclude ng-click="ngCart.addItem(id, name, price, qty, data)"></span>
 </span>
-<span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top add-to-cart__wrapper--fixed" ng-sm="{'triggerHook' : 'onLeave','triggerElement':'#product-trigger', 'class':'add-to-cart__wrapper--fixed-inview'}">
+<span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top add-to-cart__wrapper--fixed" ng-sm="{'triggerHook' : 'onLeave','triggerElement':'#product-button', offset : 120, 'class':'add-to-cart__wrapper--fixed-inview'}">
 <span class="add-to-cart__button" go-to="#product-<?php the_ID(); ?>"><?php _e('Aggiungi al carrello', 'iro'); ?></span>
 </span>
