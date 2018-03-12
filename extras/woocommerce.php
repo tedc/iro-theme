@@ -539,8 +539,12 @@ function display_price_in_variation_option_name( $term, $product ) {
     AND postmeta.meta_value = '$term_slug'
     AND products.post_parent = $product->id";
 
-    $variation_id = $wpdb->get_col( $query );
-    
+    $variation_ids = $wpdb->get_col( $query );
+    $array = array();
+    foreach ($variation_ids as $variation_id) {
+        $_product = new WC_Product_Variation($variation_id);
+        $array = array($_product->get_variation_attributes());
+    }
     $parent = wp_get_post_parent_id( $variation_id[0] );
     $string = '';
     if ( $parent > 0 ) {
@@ -549,5 +553,5 @@ function display_price_in_variation_option_name( $term, $product ) {
         //this is where you can actually customize how the price is displayed
         $string = woocommerce_price( $_product->get_price() );
     }
-    return $variation_id;
+    return $array;
 } 
