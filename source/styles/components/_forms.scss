@@ -75,6 +75,10 @@
 		display: flex;
 		justify-content: space-between;
 		flex: 1;
+		em {
+			font-style: normal;
+			color: $light-color;
+		}
 		&:before, &:after {
 			display: none;
 		}
@@ -125,7 +129,10 @@
 				margin-right: 0;
 			}
 		}
-			
+		em {
+			font-style: normal;
+			color: $light-color;
+		}	
 		&.variation__option {
 			justify-content: space-between;
 		}
