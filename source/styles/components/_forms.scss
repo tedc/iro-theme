@@ -68,6 +68,10 @@
 		@extend %select_strong;
 		display: flex;
 		justify-content: space-between;
+		flex: 1;
+		&:before, &:after {
+			display: none;
+		}
 	}
 	select {
 		display: none;
@@ -118,7 +122,6 @@
 				font-weight: normal;
 				color: $dark-gray;
 				display: inline-block;
-				padding-left: em($p);
 			}
 		}
 		&.variation__option {
