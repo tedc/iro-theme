@@ -458,6 +458,7 @@
 			display: flex;
 			flex-wrap: wrap;
 			border-top: 1px solid $light-border;
+			justify-content: center;
 			@include grow('small');
 			.section__cell & {
 				&:nth-last-child(1) {
@@ -467,9 +468,10 @@
 			@include breakpoint() {
 				flex-wrap: nowrap;
 				align-items: center;
+				justify-content: flex-start;
 			}
 			.section__figure {
-				flex: 1;
+				max-width: $f;
 				img {
 					width: $f!important;
 					height: auto!important;
