@@ -61,9 +61,11 @@ module.exports = () => {
 					$scope.product.product_id = $scope.attributes.variation_id;
 					
 				}
+				$scope.variationPrice = (i)=> {
+					return $scope.variationPrices[i][$scope.singleProductVariation.attribute_pa_color];
+				}
 				$scope.variationValue = (n, i)=> {
-					console.log($scope.variationPrices[i], $scope.singleProductVariation.attribute_pa_color);
-					return n + '<em>' + $scope.variationPrices[i][$scope.singleProductVariation.attribute_pa_color] + '</em>';
+					return n + '<em>' + $scope.variationPrice(i) + '</em>';
 				}
 				$scope.inLineHtml = (string)=> {
 					return $sce.trustAsHtml(string);
