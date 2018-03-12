@@ -78,6 +78,8 @@
 		em {
 			font-style: normal;
 			color: $light-color;
+			display: inline-block;
+			padding-right: em($p);
 		}
 		&:before, &:after {
 			display: none;
@@ -132,6 +134,8 @@
 		em {
 			font-style: normal;
 			color: $light-color;
+			display: inline-block;
+			padding-right: em($p);
 		}	
 		&.variation__option {
 			justify-content: space-between;
