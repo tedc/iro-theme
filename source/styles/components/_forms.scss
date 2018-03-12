@@ -66,6 +66,8 @@
 	}
 	[class*="__value"] {
 		@extend %select_strong;
+		display: flex;
+		justify-content: space-between;
 	}
 	select {
 		display: none;
@@ -104,8 +106,6 @@
 		display: flex;
 		align-items: center;
 		strong{
-			display: flex;
-			align-items: center;
 			&:before {
 				transition: width $speed/2, margin-right $speed/2;
 				height: 2px;
@@ -116,7 +116,9 @@
 			}
 			span {
 				font-weight: normal;
-				color: $light-color;
+				color: $dark-gray;
+				display: inline-block;
+				padding-left: em($p);
 			}
 		}
 		&.variation__option {
