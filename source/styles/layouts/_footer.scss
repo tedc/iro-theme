@@ -149,6 +149,7 @@
 		@extend %star;
 		&s {
 			display: flex;
+			justify-content: center;
 		}
 		&--active {
 			color: $highlight-color;
