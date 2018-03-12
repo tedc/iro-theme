@@ -11,7 +11,7 @@
         $attributes = $product->get_variation_attributes(); 
         $options = $attributes[ $attribute ]; 
     } 
-    $html = '<div class="variation__select"><span class="search__value"><strong>{{sizeSelected.name}}</strong>{{sizeSelected.sizes}}</span><span class="search__icons"><i class="icon-arrow-down"></i></span>';
+    $html = '<div class="variation__select"><span class="search__value"><strong ng-bind-html="sizeSelected.name"></strong></span><span class="search__icons"><i class="icon-arrow-down"></i></span>';
     $html .= '<select id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . '" name="' . esc_attr( $name ) . '" ng-model="singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '">'; 
    
     if ( ! empty( $options ) ) { 

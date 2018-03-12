@@ -1,6 +1,6 @@
 module.exports = () => {
 	return {
-		controller : ['$scope', '$rootScope', 'ngCart', '$element', 'ecommerce', '$state', 'getInstances', '$timeout', '$window', '$filter', '$location', ($scope, $rootScope, ngCart, $element, ecommerce, $state, getInstances, $timeout, $window, $filter, $location)=> {
+		controller : ['$scope', '$rootScope', 'ngCart', '$element', 'ecommerce', '$state', 'getInstances', '$timeout', '$window', '$filter', '$location', '$sce', ($scope, $rootScope, ngCart, $element, ecommerce, $state, getInstances, $timeout, $window, $filter, $location, $sce)=> {
 			// CART
 			$rootScope.isCartChanged = false;
 			$rootScope.initEcommerce = ()=>{
@@ -59,6 +59,9 @@ module.exports = () => {
 					$scope.product.price = $filter('currency')($scope.attributes.display_price, '€ ', 2*($scope.attributes.display_price % 1 !== 0));
 					$scope.product.product_id = $scope.attributes.variation_id;
 					
+				}
+				$scope.inLineHtml = (string)=> {
+					return $sce.trustAsHtml(string);
 				}
 				var addToCart = (item)=> {
 					ngCart.isUpdating = true;
