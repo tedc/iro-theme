@@ -176,9 +176,7 @@
 			// .logged-in.admin-bar & {
 			// 	margin-top: 32px;
 			// }
-			&-transition {
-				transition: transform $speed;
-			}
+			transition: transform $speed;
 			&-inview {
 				transform: translate3d(-50%, 0%, 0);
 				// &-hidden {

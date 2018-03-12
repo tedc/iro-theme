@@ -23,3 +23,6 @@
 <span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top" ng-class="{'add-to-cart__wrapper--loading' : ngCart.isUpdating}" ng-sm="[{'triggerHook' : 'onLeave', 'triggerElement':'#product-trigger', 'offset': 80, 'class':'add-to-cart__wrapper--fixed'}, {'triggerHook' : 'onLeave', 'triggerElement':'#product-trigger', 'offset': 120, 'class':'add-to-cart__wrapper--fixed-transition'},  {'triggerHook' : 'onLeave','triggerElement':'#product-trigger', offset: 200, 'class':'add-to-cart__wrapper--fixed-inview'}, {'triggerHook' : 'onEnter','triggerElement':'#footer', offset: 40, 'class':'add-to-cart__wrapper--fixed-inview-hidden'}]">
 <span class="add-to-cart__button" ng-class="{'add-to-cart__button--loading' : ngCart.isUpdating}" ng-transclude ng-click="ngCart.addItem(id, name, price, qty, data)"></span>
 </span>
+<span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top add-to-cart__wrapper--fixed" ng-sm="[{'triggerHook' : 'onLeave','triggerElement':'#product-trigger', 'class':'add-to-cart__wrapper--fixed-inview'}}]">
+<span class="add-to-cart__button" go-to="#product-<?php the_ID(); ?>"><?php _e('Aggiungi al carrello', 'iro'); ?></span>
+</span>
