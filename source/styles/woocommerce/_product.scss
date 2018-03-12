@@ -76,14 +76,14 @@
 			order: 2;
 			text-align: left;
 		}
-		ngcart-addtocart {
-			display: flex;
-			align-items: flex-end;
-			flex-wrap: wrap;
-			.quantity + .add-to-cart__wrapper:not(.add-to-cart__wrapper--fixed) {
-				margin-left: em($p);
-			}
-		}
+		// ngcart-addtocart {
+		// 	display: flex;
+		// 	align-items: flex-end;
+		// 	flex-wrap: wrap;
+		// 	.quantity + .add-to-cart__wrapper:not(.add-to-cart__wrapper--fixed) {
+		// 		margin-left: em($p);
+		// 	}
+		// }
 	}
 	&__gallery {
 		&-image {
