@@ -21,7 +21,7 @@
  
             foreach ( $terms as $term ) { 
                 if ( in_array( $term->slug, $options ) ) {
-                    $term_name = preg_replace('/([0-9]{1,3}([x][0-9]{1,3})([x][0-9]{1,3})?)/', '<span>$1</span>', $term->name);
+                    $term_name = '<strong>'.preg_replace('/([0-9]{1,3}([x][0-9]{1,3})([x][0-9]{1,3})?)/', '<span>$1</span>', $term->name) . '</strong><span>'.display_price_in_variation_option_name($term->name, $product).'</span>';
                     
                      $ngselected = $args['selected'] == $term->slug ? ' ng-init="singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '=\''.$args['selected'].'\'; sizeSelected={name :\''.$term_name.'\', sizes :\''.$term->description.'\'}"' : '';
                     
