@@ -63,7 +63,7 @@
  
             foreach ( $terms as $term ) { 
                 if ( in_array( $term->slug, $options ) ) {
-                    $term_name = preg_replace('/([0-9]{1,3}([x][0-9]{1,3})([x][0-9]{1,3})?)/g', '<span>$1</span>', $term->name);
+                    $term_name = preg_replace('/([0-9]{1,3}([x][0-9]{1,3})([x][0-9]{1,3})?)/', '<span>$1</span>', $term->name);
                     $html .= '<div class="variation__option swiper-slide" ng-click="singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '=\''.esc_attr( $term->slug ) .'\'; sizeSelected={name :\''.$term_name.'\', sizes :\''.$term->description.'\'};getVariation()" ng-class="{\'variation__option--selected\':singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '==\''.esc_attr( $term->slug ) .'\'}"><strong>' . esc_html( $term_name  ) . '</strong>'.esc_html($term->description).'</div>'; 
                 } 
             } 
