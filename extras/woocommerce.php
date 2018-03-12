@@ -543,15 +543,19 @@ function display_price_in_variation_option_name( $term, $product ) {
     $array = array();
     foreach ($variation_ids as $variation_id) {
         $_product = new WC_Product_Variation($variation_id);
-        array_push($array, woocommerce_price( $_product->get_price()));
-    }
-    $parent = wp_get_post_parent_id( $variation_id[0] );
-    $string = '';
-    if ( $parent > 0 ) {
-        $_product = new WC_Product_Variation( $variation_id[0] );
 
-        //this is where you can actually customize how the price is displayed
-        $string = woocommerce_price( $_product->get_price() );
+        $_color = get_term_by( 'name', $_product->get_attribute('color'), 'pa_color');
+        if($_color) {
+            array_push($array, array($_color->slug => woocommerce_price( $_product->get_price())));
+        }
     }
+    // $parent = wp_get_post_parent_id( $variation_id[0] );
+    // $string = '';
+    // if ( $parent > 0 ) {
+    //     $_product = new WC_Product_Variation( $variation_id[0] );
+
+    //     //this is where you can actually customize how the price is displayed
+    //     $string = woocommerce_price( $_product->get_price() );
+    // }
     return $array;
 } 
