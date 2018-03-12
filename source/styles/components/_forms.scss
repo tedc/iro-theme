@@ -114,6 +114,10 @@
 				width: 0;
 				margin-right: 0;
 			}
+			span {
+				font-weight: normal;
+				color: $light-color;
+			}
 		}
 		&.variation__option {
 			justify-content: space-between;
