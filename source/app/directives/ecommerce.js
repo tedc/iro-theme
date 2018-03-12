@@ -62,6 +62,7 @@ module.exports = () => {
 					
 				}
 				$scope.variationPrice = (i)=> {
+					console.log($scope.variationPrices[i][$scope.singleProductVariation.attribute_pa_color]);
 					return $scope.variationPrices[i][$scope.singleProductVariation.attribute_pa_color];
 				}
 				$scope.variationValue = (n, i)=> {
