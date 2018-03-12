@@ -470,13 +470,13 @@
 			}
 			.section__figure {
 				flex: 1;
+				img {
+					width: $f!important;
+					height: auto!important;
+				}
 				@include breakpoint(640px) {
 					flex: 0 0 auto;
 					max-width: em(120px);
-					img {
-						width: $f!important;
-						height: auto!important;
-					}
 				}
 			}
 			.section__content {
