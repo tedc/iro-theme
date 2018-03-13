@@ -364,13 +364,18 @@
 	    	$user_id = username_exists($username);
 	    	if(!$user_id && email_exists($email) == false && $password_confirmation) {
 	    		$user_id = wp_create_user(
-	    			$username, $password_confirmation, $user_email
+	    			$username, $password_confirmation, $email
 	    		);
 	    		$info = array();
     			$info['user_login'] = $username;
     			$info['user_password'] = $password_confirmation;
+    			$info['remember'] = true;
     			$user_signon = wp_signon( $info, false );
-	    		echo json_encode(array('loggedin'=>true, 'message'=>__('Registrazione avvenuta.', 'iro'), 'redirect' => basename(wc_get_page_permalink('myaccount'))));
+    			if ( is_wp_error($user_signon) ){
+		        	echo json_encode(array('loggedin'=>false, 'message'=>__('Username o password sbagliati.', 'iro')));
+			    } else {
+		    		echo json_encode(array('loggedin'=>true, 'message'=>__('Registrazione avvenuta.', 'iro'), 'redirect' => basename(wc_get_page_permalink('myaccount'))));
+		    	}
 	    	} else {
 	    		if($user_id) {
 	    			echo json_encode(array('loggedin'=>false, 'message'=>__('Nome utente in uso da un altro utente.', 'iro')));
