@@ -3,6 +3,7 @@ iro
 	.config(['$stateProvider', '$locationProvider', '$provide', 'cfpLoadingBarProvider', require('./state')])
 	.run(["$location", "$rootScope", "$window", "$state", "$cookies", "$transitions", "webFontLoader", 'angularLoad',  '$animate', ($location, $rootScope, $window, $state, $cookies, $transitions, webFontLoader, angularLoad, $animate) => {
 		webFontLoader(['Baloo Bhaina','Encode Sans:300,400,600,800']);
+		$window.scrollTo(0, 0);
 		angularLoad.loadScript('https://www.youtube.com/iframe_api')
 		FastClick.attach(document.body);
 		$rootScope.isAnim = false;

@@ -27,10 +27,12 @@
 .iro {
 	> .view {
 		transition: visibility $speed, opacity $speed, top $speed;
+		transition-delay: $speed;
 		position: relative;
 	}
 	&--anim {
-		> .view {	
+		> .view {
+			transition-delay: $speed/2;
 			opacity: 0;
 			visibility: hidden;
 			top: em($p*-2);
