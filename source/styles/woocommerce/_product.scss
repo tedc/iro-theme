@@ -132,15 +132,13 @@
 		@extend %star;
 		&s {
 			display: flex;
-			.product__star:nth-last-child(1) {
-				margin-left: 10px;
-			}
 		}
 		&--active {
 			color: $highlight-color;
 		}
 		&-label {
 			color: $light-color;
+			margin-right: 10px;
 		}
 		&half {
 			@extend %star_half;
