@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<div class="swiper-container" scroller options="{slidesPerView: 'auto', direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true}}">
+<div class="swiper-container" scroller options="{freeMode: true, slidesPerView: 'auto', direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true}}">
 	<div class="swiper-wrapper">
 		<div class="swiper-slide">
 		<script type="text/ng-template" id="order-review.html">
