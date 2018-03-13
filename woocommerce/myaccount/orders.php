@@ -71,6 +71,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 								
 								if ( ! empty( $actions ) ) {
 									foreach ( $actions as $key => $action ) {
+										var_dump($key, $action);
 										$base_path = str_replace(wc_get_page_permalink('myaccount') . '/', '', esc_url( $action['url'] ));
 										echo '<a ui-sref="app.account({\'path\': \''.$base_path.'\'})" href="' . esc_url( $action['url'] ) . '" class="woocommerce-button button ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
 									}

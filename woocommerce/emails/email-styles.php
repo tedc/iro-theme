@@ -165,7 +165,7 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 }
 
 #header_wrapper {
-	padding: 10px 48px;
+	padding: 10px 48px 20px;
 	display: block;
 }
 
