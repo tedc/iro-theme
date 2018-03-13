@@ -132,13 +132,17 @@
 		@extend %star;
 		&s {
 			display: flex;
+			justify-content: center;
+			@include breakpoint() {
+				justify-content: flex-start;
+			}
 		}
 		&--active {
 			color: $highlight-color;
 		}
 		&-label {
 			color: $light-color;
-			margin-right: 10px;
+			margin-left: 10px;
 		}
 		&half {
 			@extend %star_half;
