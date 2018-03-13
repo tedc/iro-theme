@@ -1,7 +1,6 @@
 <?php
     $options = $args['options']; 
     $product = $args['product'];
-    var_dump($product->get_id());
     $attribute = $args['attribute']; 
     $name = isset($args['name']) ? $args['name'] : 'attribute_' . sanitize_title( $attribute ); 
     $id = isset($args['id']) ? $args['id'] : sanitize_title( $attribute ); 
