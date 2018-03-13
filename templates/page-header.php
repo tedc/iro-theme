@@ -49,7 +49,7 @@ else :
 	else:
 ?>
 <div class="header header--page header--shrink-fw">
-	<div class="header__container header__container--grow-md header__container--grow-lg">
+	<div class="header__container header__container--grow-md">
 		<?php get_template_part( 'templates/page', 'title'); ?>
 	</div>
 </div>
