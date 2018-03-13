@@ -471,7 +471,7 @@
 				justify-content: flex-start;
 			}
 			.section__figure {
-				max-width: $f;
+				max-width: em(180px);
 				img {
 					width: $f!important;
 					height: auto!important;

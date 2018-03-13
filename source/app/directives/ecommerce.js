@@ -36,6 +36,7 @@ module.exports = () => {
 										if(price != item.getPrice()){
 											item.setPrice(price);
 										}
+										console.log(quantity, item.getQuantity());
 										if(quantity != item.getQuantity()) {
 											item.setQuantity(quantity);
 										}
@@ -164,18 +165,21 @@ module.exports = () => {
 				
 				$scope.$on('ngCart:itemRemoved', (evt, item)=> {
 					ngCart.isCounting = true;
+					console.log('removed');
 					$timeout(()=> {
 						ngCart.isCounting = false;
 					}, 1500);
 				});
 				$scope.$on('ngCart:itemAdded', (evt, item)=> {
 					ngCart.isCounting = true;
+					console.log('addedd');
 					$timeout(()=> {
 						ngCart.isCounting = false;
 					}, 1500);
 					addToCart(item);
 				});
 				$scope.$on('ngCart:itemUpdated', (evt, item)=> {
+					console.log('updated');
 					ngCart.isCounting = true;
 					$timeout(()=> {
 						ngCart.isCounting = false;
