@@ -183,7 +183,9 @@
 			position: fixed;
 			left: 0;
 			top: em(80px);
-			width: $f;
+			@include breakpoint($min: false) {
+				width: $f;
+			}
 		}
 		@include breakpoint() {	
 			&--order-review, &--slider {
