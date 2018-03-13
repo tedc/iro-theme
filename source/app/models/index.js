@@ -54,7 +54,7 @@ iro
 		});
 		$transitions.onSuccess({}, ()=> {
 			console.log(true);
-			$rootScope.initEcommerce();
+			//$rootScope.initEcommerce();
 		});	
 		$rootScope.$on('$locationChangeSuccess', ()=> {
 			let popup_visible = angular.element(document.querySelector('.popup--visible'));
