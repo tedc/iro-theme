@@ -155,15 +155,7 @@
 			color: $highlight-color;
 		}
 		&half {
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 50%;
-			bottom: 0;
-			overflow: hidden;
-			i {
-				color: $highlight-color;
-			}
+			@extend %star_half;
 		}
 	}
 }

@@ -115,10 +115,10 @@
 	}
 	&__images {
 		position: relative;
-		order: 2;
-		@include breakpoint() {
-			order: 1;
-		}
+		// order: 2;
+		// @include breakpoint() {
+		// 	order: 1;
+		// }
 		@include breakpoint($min: false) {
 			padding-top: 0!important;
 		}
@@ -126,6 +126,18 @@
 			position: absolute;
 			top: 0;
 			left: 0;
+		}
+	}
+	&__star {
+		@extend %star;
+		&s {
+			display: flex;
+		}
+		&--active {
+			color: $highlight-color;
+		}
+		&half {
+			@extend %star_half;
 		}
 	}
 }
