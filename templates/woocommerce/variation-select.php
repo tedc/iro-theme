@@ -2,8 +2,8 @@
     $options = $args['options']; 
     $product = $args['product']; 
     $attribute = $args['attribute']; 
-    $name = $args['name'] ? $args['name'] : 'attribute_' . sanitize_title( $attribute ); 
-    $id = $args['id'] ? $args['id'] : sanitize_title( $attribute ); 
+    $name = isset($args['name']) ? $args['name'] : 'attribute_' . sanitize_title( $attribute ); 
+    $id = isset($args['id']) ? $args['id'] : sanitize_title( $attribute ); 
     $class = $args['class']; 
     $show_option_none_text = $args['show_option_none'] ? $args['show_option_none'] : __( 'Choose an option', 'woocommerce' ); // We'll do our best to hide the placeholder, but we'll need to show something when resetting options. 
  
