@@ -357,6 +357,9 @@ module.exports = () => {
 						});
 				}
 				$scope.billing_state_value = false;
+				$scope.$watch('billing_state_value', (newValue, oldValue)=> {
+					console.log(newValue, oldValue);
+				})
 				$scope.sendCheckout = (form)=> {
 					//console.log($scope.checkoutFields);
 					$scope.isOrdering = true;
