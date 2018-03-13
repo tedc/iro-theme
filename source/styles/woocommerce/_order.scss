@@ -65,13 +65,13 @@
 			}
 		}
 		&__wrapper {
-			height: calc(100vh - #{em(80px)});
+			height: calc(100vh - #{em(131px)});
 			overflow: hidden;
 			.order-review__header {
 				display: none;
 			}
 			.swiper-container {
-				height: calc(100vh - #{em(80px)});
+				height: calc(100vh - #{em(131px)});
 				overflow: hidden;
 				@include breakpoint() {
 					height: auto;
