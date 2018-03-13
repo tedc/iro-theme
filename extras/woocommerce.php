@@ -527,28 +527,28 @@ function has_bought_items($prod_arr) {
 
 function display_price_in_variation_option_name( $term, $product ) {
     global $wpdb;
-    
-    // $result = $wpdb->get_col( "SELECT slug FROM {$wpdb->prefix}terms WHERE name = '$term'" );
+    $id = $product->get_id();
+    $result = $wpdb->get_col( "SELECT slug FROM {$wpdb->prefix}terms WHERE name = '$term'" );
 
-    // $term_slug = ( !empty( $result ) ) ? $result[0] : $term;
+    $term_slug = ( !empty( $result ) ) ? $result[0] : $term;
 
-    // $query = "SELECT postmeta.post_id AS product_id
-    // FROM {$wpdb->prefix}postmeta AS postmeta
-    // LEFT JOIN {$wpdb->prefix}posts AS products ON ( products.ID = postmeta.post_id )
-    // WHERE postmeta.meta_key LIKE 'attribute_%'
-    // AND postmeta.meta_value = '$term_slug'
-    // AND products.post_parent = $product->get_id()";
+    $query = "SELECT postmeta.post_id AS product_id
+    FROM {$wpdb->prefix}postmeta AS postmeta
+    LEFT JOIN {$wpdb->prefix}posts AS products ON ( products.ID = postmeta.post_id )
+    WHERE postmeta.meta_key LIKE 'attribute_%'
+    AND postmeta.meta_value = '$term_slug'
+    AND products.post_parent = $id";
 
-    // $variation_ids = $wpdb->get_col( $query );
-    // $array = array();
-    // foreach ($variation_ids as $variation_id) {
-    //     $_product = new WC_Product_Variation($variation_id);
+    $variation_ids = $wpdb->get_col( $query );
+    $array = array();
+    foreach ($variation_ids as $variation_id) {
+        $_product = new WC_Product_Variation($variation_id);
 
-    //     $_color = get_term_by( 'name', $_product->get_attribute('color'), 'pa_color');
-    //     if($_color) {
-    //        $array[$_color->slug] = wc_price( $_product->get_price());
-    //     }
-    // }
+        $_color = get_term_by( 'name', $_product->get_attribute('color'), 'pa_color');
+        if($_color) {
+           $array[$_color->slug] = wc_price( $_product->get_price());
+        }
+    }
     // $parent = wp_get_post_parent_id( $variation_id[0] );
     // $string = '';
     // if ( $parent > 0 ) {
