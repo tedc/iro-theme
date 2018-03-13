@@ -52,10 +52,10 @@ iro
 			$rootScope.$broadcast('sceneDestroy');
 			$rootScope.$broadcast('updateScenes');
 		});
-		$transitions.onSuccess({}, ()=> {
-			console.log(true);
-			//$rootScope.initEcommerce();
-		});	
+		// $transitions.onSuccess({}, ()=> {
+		// 	console.log(true);
+		// 	//$rootScope.initEcommerce();
+		// });	
 		$rootScope.$on('$locationChangeSuccess', ()=> {
 			let popup_visible = angular.element(document.querySelector('.popup--visible'));
 			let cart_visible = angular.element(document.querySelector('.cart-aside--visible'));
