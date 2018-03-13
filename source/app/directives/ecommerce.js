@@ -356,7 +356,7 @@ module.exports = () => {
 							}
 						});
 				}
-	
+				$scope.billing_state_value = false;
 				$scope.sendCheckout = (form)=> {
 					//console.log($scope.checkoutFields);
 					$scope.isOrdering = true;
