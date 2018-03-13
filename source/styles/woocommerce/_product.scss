@@ -121,6 +121,8 @@
 		}
 		@include breakpoint($min: false) {
 			padding-top: 0!important;
+		}
+		@include breakpoint() {		
 			position: absolute;
 			top: 0;
 			left: 0;
