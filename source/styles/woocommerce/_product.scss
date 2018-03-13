@@ -41,6 +41,7 @@
 .product {
 	//@include grow('md');
 	@include grow('md', 'bottom');
+	position: relative;
 	&:after {
 		content: '';
 		width: $f;
@@ -48,6 +49,13 @@
 		height: 1px;
 		background-color: $light-border;
 		order: 10;
+	}
+	&:before {
+		@include breakpoint() {
+			content: '';
+			width: $f/2;
+			padding-bottom: em(112px);
+		}
 	}
 	&__description {
 		@include grow('small');
@@ -113,6 +121,9 @@
 		}
 		@include breakpoint($min: false) {
 			padding-top: 0!important;
+			position: absolute;
+			top: 0;
+			left: 0;
 		}
 	}
 }
