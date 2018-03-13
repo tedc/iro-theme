@@ -106,6 +106,9 @@
 			text-transform: uppercase;
 			@extend .banner__btn--phone;
 			font-family: $alternate-font;
+			@include breakpoint($min: false) {
+				display: flex!important;
+			}
 		}
 		&-nav {
 			display: flex;

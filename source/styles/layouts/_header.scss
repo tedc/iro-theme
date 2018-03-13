@@ -393,6 +393,11 @@
 
 .header {
 	position: relative;
+	.woocommerce-checkout & {
+		@include breakpoint($min: false) {
+			margin-top: em(70px);
+		}
+	}
 	body:not(.woocommerce-page) & {
 		&--clear {
 			color: $w;
