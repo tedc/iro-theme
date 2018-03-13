@@ -358,7 +358,7 @@
 	    	if(is_user_logged_in()) {
 	    		wp_die();
 	    	}
-	    	$username = ($_POST['username']) ? $_POST['username'] : $_POST['email'];
+	    	$username = (isset($_POST['username'])) ? $_POST['username'] : $_POST['email'];
 	    	$password_confirmation = ($_POST['password'] === $_POST['password_confirm']);
 	    	$email = $_POST['email'];
 	    	$user_id = username_exists($username);
