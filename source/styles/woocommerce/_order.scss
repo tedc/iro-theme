@@ -73,6 +73,7 @@
 			.swiper-container {
 				height: calc(100vh - #{em(131px)});
 				overflow: hidden;
+				position: relative;
 				@include breakpoint() {
 					height: auto;
 					overflow: visible;
