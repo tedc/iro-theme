@@ -70,6 +70,9 @@
 			.order-review__header {
 				display: none;
 			}
+			.swiper-wrapper {
+				display: block;
+			}
 			@include breakpoint() {
 				max-height: none;
 				display: block!important;
