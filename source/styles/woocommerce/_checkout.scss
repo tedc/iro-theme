@@ -176,6 +176,12 @@
 	}
 	&__cell {
 		@include grow('md', 'bottom');
+		&--order-review {
+			position: fixed;
+			left: 0;
+			top: em(80px);
+			width: $f;
+		}
 		@include breakpoint() {	
 			&--order-review, &--slider {
 				&.ng-animate {
@@ -184,10 +190,7 @@
 				}
 			}
 			&--order-review {
-				position: fixed;
-				left: 0;
-				top: em(80px);
-				width: $f;
+				position: static;
 				&-last {
 					width: 0%!important;
 					opacity: 0;
