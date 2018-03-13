@@ -341,7 +341,7 @@
                     } else {
                         $count_opts++;
                     }
-                    $li .= '<div class="'.$base_class.'__option swiper-slide" ng-class="{\''.$base_class.'__option--selected\':'.$args['custom_attributes']['ng-model'].'==\'' . esc_attr( $skey ) . '\'}" ng-click="$event.stopPropagation();isCountrySelected=false;'.$args['custom_attributes']['ng-model'].'=\'' . esc_attr( $skey ) . '\';checkoutFields.'.$key.'_value=\''.addslashes($svalue).'\'"'.$value_selected.'>' . $svalue . '</div>';
+                    $li .= '<div class="'.$base_class.'__option swiper-slide" ng-class="{\''.$base_class.'__option--selected\':'.$args['custom_attributes']['ng-model'].'==\'' . esc_attr( $skey ) . '\'}" ng-click="'.$args['custom_attributes']['ng-model'].'=\'' . esc_attr( $skey ) . '\';checkoutFields.'.$key.'_value=\''.addslashes($svalue).'\'"'.$value_selected.'>' . $svalue . '</div>';
                 }
                 $ul = '<div class="'.$base_class.'__options swiper-container" ng-class="{\''.$base_class.'__options--visible\':isCountrySelected}" scroller="'.$key.'" options="{initialSlide : '.$initialSlide.', slideToClickedSlide: true,\'freeMode\':true, \'direction\':\'vertical\',\'mousewheel\':true,\'slidesPerView\':\'auto\', \'scrollbar\':{\'el\':\'.swiper-scrollbar\', \'draggable\':true}}"><div class="swiper-wrapper">';
                 $ul .= $li;
