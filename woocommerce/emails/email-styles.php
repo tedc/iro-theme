@@ -86,6 +86,7 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 	border-left: 1px solid <?php echo esc_attr( $bg_darker_10 ); ?>;
 	border-right: 1px solid <?php echo esc_attr( $bg_darker_10 ); ?>;
 	border-top: 1px solid <?php echo esc_attr( $bg_darker_10 ); ?>;
+	padding-bottom: 48px;
 }
 
 #template_footer #credit {
@@ -216,5 +217,7 @@ img {
 	outline: none;
 	text-decoration: none;
 	text-transform: capitalize;
+	margin: 0 auto;
+	max-width: 180px;
 }
 <?php
