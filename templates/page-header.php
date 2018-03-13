@@ -33,7 +33,7 @@
 	<span class="header__goto" go-to="#header-trigger"><span><?php _e('Scroll' ,'iro'); ?></span><i class="icon-arrow-down"></i></span>
 	<?php endif; ?>
 </div>
-<hr id="header-trigger" />
+<hr id="header-trigger" class="trigger" />
 <?php 
 else : 
 	if(is_account_page()) : ?>

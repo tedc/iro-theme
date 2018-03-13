@@ -43,4 +43,4 @@ if($plus) :
 	</ul>
 </div>
 <?php endif; ?>
-<hr id="product-trigger" />
+<hr id="product-trigger" class="trigger" />

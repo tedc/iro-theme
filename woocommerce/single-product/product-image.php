@@ -103,3 +103,4 @@ $options = ($product->get_gallery_image_ids() && has_post_thumbnail()) ? ' scrol
 </div>
 <?php wc_get_template_part('single-product/variation-thumbnails'); ?>
 </div>
+<hr id="product-price-trigger" class="trigger" />
