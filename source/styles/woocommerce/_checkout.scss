@@ -184,6 +184,10 @@
 				}
 			}
 			&--order-review {
+				position: fixed;
+				left: 0;
+				top: em(80px);
+				width: $f;
 				&-last {
 					width: 0%!important;
 					opacity: 0;

@@ -18,6 +18,7 @@
 		top: em(120px);
 		left: 0;
 		z-index: 99999;
+		width: $f;
 		background-color: $lighter-color;
 		.admin-bar.logged-in & {
 			top: calc(#{em(120px)} + 32px);
@@ -32,7 +33,6 @@
 		// .admin-bar.logged-in & {
 		// 	margin-top: 32px;
 		// }
-		margin-bottom: em($p);
 		&__header {
 			display: flex;
 			justify-content: space-between;
@@ -65,7 +65,7 @@
 			}
 		}
 		&__wrapper {
-			max-height: calc(100vh - #{em(80px)});
+			height: calc(100vh - #{em(80px)});
 			overflow: hidden;
 			.order-review__header {
 				display: none;
