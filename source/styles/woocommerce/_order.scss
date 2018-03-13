@@ -217,6 +217,17 @@
 				}
 				&-actions {
 					padding-right: 0;
+					a {
+						vertical-align: middle;
+					}
+					.icon-invoice {
+						color: $error;
+						font-size: em($p*2);
+						margin-left: 10px;
+						&:hover {
+							color: $alternate-color;
+						}
+					}
 				}
 			}
 		}
