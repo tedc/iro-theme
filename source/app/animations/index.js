@@ -127,7 +127,7 @@ iro
 		return {
 			addClass : (element, className, done)=> {
 				if(className != 'iro--anim') return;
-				let view = element[0].querySelector('> .view');
+				let view = element[0].querySelector('.view');
 				let tl = new TimlineMax();
 				tl
 					.to('body', .25, {
@@ -146,7 +146,7 @@ iro
 			},
 			removeClass : (element, className, done)=> {
 				if(className != 'iro--anim') return;
-				let view = element[0].querySelector('> .view');
+				let view = element[0].querySelector('.view');
 				TweenMax.to(view, .75, {
 					top: 0,
 					opacity: 1,
