@@ -19,6 +19,7 @@ module.exports = ()=> {
 				ecommerce
 					.post(ajax_url, data)
 					.then((res)=> {
+						console.log(res);
 						$rootScope.isUserLoggedIn = res.data.loggedin;
 						$rootScope.isLogging = false;
 						if($rootScope.isUserLoggedIn) {
