@@ -128,7 +128,7 @@ iro
 			addClass : (element, className, done)=> {
 				if(className != 'iro--anim') return;
 				let view = element[0].querySelector('.view');
-				let tl = new TimlineMax();
+				let tl = new TimelineMax();
 				tl
 					.to('body', .25, {
 						scrollTo : {
