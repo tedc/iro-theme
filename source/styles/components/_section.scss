@@ -465,7 +465,7 @@
 					padding-bottom: 0!important;
 				}
 			}
-			@include breakpoint() {
+			@include breakpoint(480px) {
 				flex-wrap: nowrap;
 				align-items: center;
 				justify-content: flex-start;
@@ -476,7 +476,7 @@
 					width: $f!important;
 					height: auto!important;
 				}
-				@include breakpoint(640px) {
+				@include breakpoint(480px) {
 					flex: 0 0 auto;
 					max-width: em(120px);
 				}
@@ -486,7 +486,7 @@
 				text-align: center;
 				width: $f;
 				color: $dark-gray;
-				@include breakpoint(640px) {
+				@include breakpoint(480px) {
 					flex: 1;
 					text-align: left;
 					padding-left: em($p*2);
