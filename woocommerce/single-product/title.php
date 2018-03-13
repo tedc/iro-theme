@@ -54,4 +54,4 @@ foreach ($totals as $key => $value) {
 $average = $average / $main_total;
 $average = round($average, 1);
 ?>
-<div class="product__stars"><?php stars($average, 'product'); ?></div>
+<div class="product__stars"><?php stars($average, 'product'); ?> <?php echo $main_total; ?> <?php _e('recensioni', 'iro'); ?></div>
