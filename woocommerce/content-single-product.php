@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 if(has_post_thumbnail()) {
 	 	$img = get_post_thumbnail_id();
 	 	$pt = wp_get_attachment_image_src( $img, 'full', false );
-	 	$pt = ($pt[2] * 100 / $pt[1])*50;
+	 	$pt = ($pt[2] * 100 / $pt[1])/2;
 	 	echo '<style>@media screen and (min-width:'.(850/16).'em){#product-'.get_the_ID().':before, #product-'.get_the_ID().'::before {padding-top: '.$pt.'vw;}}</style>'; 
 	 }
 ?>
