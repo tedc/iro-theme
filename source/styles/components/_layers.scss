@@ -113,18 +113,26 @@
 				}
 			}
 			.layers__title {
-				font-size: 1em;
 				padding-bottom: em($p/2, 22px);
 				transition: color $speed;
-			}
-			p {
-				font-size: em(12px);
+				line-height: 1;
+				@include breakpoint() {	
+					font-size: 1em;
+				}
 			}
 			//padding-top: em($p*2);
 			text-align: center;
 			width: $f;
 			flex: 0 0 auto;
-			@include breakpoint() {
+			padding-top: em($p);
+			@include breakpoint($min: false) {
+				opacity: 1!important;
+			}
+			@include breakpoint() {	
+				p {
+					font-size: em(12px);
+				}
+				padding-top: 0;
 				width: auto;
 				position: relative;
 				flex: 1;
