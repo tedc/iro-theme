@@ -64,10 +64,6 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 	line-height: 100%;
 	vertical-align: middle;
 	font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-	-webkit-border-top-left-radius: 6px;
-	-webkit-border-top-right-radius: 6px;
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
 }
 
 #template_header h1,
@@ -91,6 +87,10 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 	border-right: 1px solid <?php echo esc_attr( $bg_darker_10 ); ?>;
 	border-top: 1px solid <?php echo esc_attr( $bg_darker_10 ); ?>;
 	padding-bottom: 48px;
+	-webkit-border-top-left-radius: 6px;
+	-webkit-border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
 }
 
 #template_footer #credit {
