@@ -329,7 +329,7 @@
         if($type == 'country') {
             $options = 'shipping_country' === $key ? WC()->countries->get_shipping_countries() : WC()->countries->get_allowed_countries();
             if(count($options) > 1){
-                $prepend = '<div class="'.$base_class.'__select" ng-click="isCountrySelected=!isCountrySelected" click-outside="isCountrySelected=false"><span class="'.$base_class.'__value" ng-bind-html="(checkoutFields.'.$key.'_value) ? checkoutFields.'.$key.'_value : \''.$args['label'].'\'"></span><span class="'.$base_class.'__icons"><i class="icon-arrow-down"></i></span>';
+                $prepend = '<div class="'.$base_class.'__select" ng-click="isCountrySelected=!isCountrySelected"><span class="'.$base_class.'__value" ng-bind-html="(checkoutFields.'.$key.'_value) ? checkoutFields.'.$key.'_value : \''.$args['label'].'\'"></span><span class="'.$base_class.'__icons"><i class="icon-arrow-down"></i></span>';
                 $field = str_replace('</label>', '</label>'.$prepend, $field);
                 $li = '';
                 $count_opts = 0;
