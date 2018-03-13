@@ -25,7 +25,7 @@ $args = array(
 	array(
 		'taxonomy' => 'prodotto_associato',
 		'field' => 'term_id',
-		'terms' => array($$pid[0]->term_id)
+		'terms' => array($pid[0]->term_id)
 	)
 );
 $main_total = count(get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $args)));
@@ -42,7 +42,7 @@ foreach ($ratings as $rate) {
 		array(
 			'taxonomy' => 'prodotto_associato',
 			'field' => 'term_id',
-			'terms' => array($$pid[0]->term_id)
+			'terms' => array($pid[0]->term_id)
 		)
 	);
 	$totals[get_field('rating', 'rating_'.$rate->term_id)] = count(get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $tx)));
