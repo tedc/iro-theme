@@ -20,14 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<div class="swiper-container" scroller options="{freeMode: true, mousewheel: true, slidesPerView: 'auto', direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true}}">
-	<div class="swiper-wrapper">
-		<div class="swiper-slide">
-		<script type="text/ng-template" id="order-review.html">
-			<?php wc_get_template_part('checkout/order', 'review'); ?>
-		</script>
-		<ngcart-cart template-url="order-review.html"></ngcart-cart>
-		</div>
-	</div>
-	<div class="swiper-scrollbar"></div>
-</div>
+
+<script type="text/ng-template" id="order-review.html">
+	<?php wc_get_template_part('checkout/order', 'review'); ?>
+</script>
+<ngcart-cart template-url="order-review.html"></ngcart-cart>

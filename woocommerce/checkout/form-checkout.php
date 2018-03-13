@@ -71,9 +71,15 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 				<span class="order-review__header-toggle"><strong>{{ngCart.totalCost() | currency:'€'}}</strong><i class="icon-arrow-down"></i></span>
 			</header>
 		<div class="order-review__wrapper slide-toggle" ng-class="{'slide-toggle--visible':isOrderToggle}">
-			<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
-			<?php do_action( 'woocommerce_checkout_order_review' ); ?>
-			<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
+			<div class="swiper-container" scroller options="{freeMode: true, mousewheel: true, slidesPerView: 'auto', direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true}}">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
+						<?php do_action( 'woocommerce_checkout_order_review' ); ?>
+						<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
+					</div>
+				</div>
+			</div>
 		</div>
 		</div>
 	</aside>
