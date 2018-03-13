@@ -53,6 +53,7 @@ iro
 			$rootScope.$broadcast('updateScenes');
 		});
 		$transitions.onSuccess({}, ()=> {
+			console.log(true);
 			$rootScope.initEcommerce();
 		});	
 		$rootScope.$on('$locationChangeSuccess', ()=> {
