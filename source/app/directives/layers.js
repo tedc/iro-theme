@@ -1,7 +1,10 @@
-module.exports = (getInstances)=> {
+module.exports = (getInstances, screenSize)=> {
 	return {
 		scope : true,
 		link : (scope, element, attrs)=> {
+			screenSize.rules = {
+				min : "screen and (min-width: #{(850/16)}em)"
+			}
 			if(attrs.ngLayers == 'slider') {
 				let layers_slider = getInstances.getInstance('layers');
 				layers_slider.then((swiper)=> {
@@ -40,6 +43,7 @@ module.exports = (getInstances)=> {
 				angular.forEach( layers, function(item, index) {
 					let layers = item.getAttribute('data-layer-to').replace(/\s/g, '').split(',');
 					angular.element(item).on('mouseenter', ()=> {
+						if(!screenSize.is('min')) return;
 						//if(!element.hasClass('layers--inview')) return;
 						TweenMax.set(element[0].querySelectorAll('[data-layer]'), {className : '+=animate'});
 						TweenMax.to([element[0].querySelectorAll('[data-layer]'),element[0].querySelectorAll('[data-layer-to]')], .5, {
@@ -73,6 +77,7 @@ module.exports = (getInstances)=> {
 						}
 					});
 					angular.element(item).on('mouseleave', ()=> {
+						if(!screenSize.is('min')) return;
 						TweenMax.to('#stop_1', .5, {
 							attr : {
 								offset : 0.33

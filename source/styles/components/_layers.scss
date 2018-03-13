@@ -125,9 +125,6 @@
 			width: $f;
 			flex: 0 0 auto;
 			padding-top: em($p);
-			@include breakpoint($min: false) {
-				opacity: 1!important;
-			}
 			@include breakpoint() {	
 				p {
 					font-size: em(12px);
@@ -292,6 +289,9 @@
 						color: $alternate-color;
 					}
 				}
+			}
+			@include breakpoint($min: false) {
+				opacity: 1!important;
 			}
 		}
 		&line {
