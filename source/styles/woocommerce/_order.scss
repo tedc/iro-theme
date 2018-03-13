@@ -70,11 +70,18 @@
 			.order-review__header {
 				display: none;
 			}
+			.swiper-container {
+				height: calc(100vh - #{em(80px)});
+				overflow: hidden;
+				@include breakpoint() {
+					height: auto;
+					overflow: visible;
+				}
+			}
 			.swiper-wrapper {
 				display: block;
 			}
 			@include breakpoint() {
-				max-height: none;
 				display: block!important;
 				height: auto!important;
 				.order-review__header {
