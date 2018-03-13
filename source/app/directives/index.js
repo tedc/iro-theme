@@ -40,6 +40,44 @@ iro
 						//scope.currentProductSlide = s.activeIndex;
 					});
 				}
+				scope.features_slider = getInstances.getInstance('features');
+				scope.features_slider.then((swiper)=> {
+					swiper.on('progress', ()=> {
+						angular.forEach(swiper.slides, (item, i)=> {
+							let p = (i%2==0) ? swiper.progress*-1 : swiper.progress;
+							p = 40 * p;
+							TweenMax.to(item, .5, {y : p});
+						});
+					})
+				});
+				// VALUES SLIDER
+				scope.valueIsStart = true;
+				scope.valueIsEnd = false;
+				scope.values_slider = getInstances.getInstance('values');
+				scope.values_slider.then((swiper)=> {
+					if(swiper.destroyed) return;
+					let currentClass = ()=> {
+						swiper.update();
+						angular.element(swiper.slides[swiper.activeIndex]).addClass('swiper-slide-current')
+					}
+					swiper.on('init', currentClass);
+					swiper.init();
+					swiper.on('slideChangeTransitionStart', (evt)=> {		
+						angular.element(swiper.$el.find('.swiper-slide-current')).removeClass('swiper-slide-current')
+					});
+					swiper.on('progress', ()=> {
+						scope.valueIsEnd = swiper.isEnd;
+						scope.valueIsStart = swiper.isBeginning;
+					});
+					swiper.on('slideChangeTransitionEnd', currentClass);
+					scope.valueMove = (cond)=> {
+						if(cond) {
+							swiper.slideNext();
+						} else {
+							swiper.slidePrev();
+						}
+					}
+				});
 				//});
 			}
 		}
