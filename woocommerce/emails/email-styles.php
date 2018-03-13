@@ -82,17 +82,6 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 	border: 1px solid <?php echo esc_attr( $bg_darker_10 ); ?>;
 }
 
-#template_body {
-	border-left: 1px solid <?php echo esc_attr( $bg_darker_10 ); ?>;
-	border-right: 1px solid <?php echo esc_attr( $bg_darker_10 ); ?>;
-	border-top: 1px solid <?php echo esc_attr( $bg_darker_10 ); ?>;
-	padding-bottom: 48px;
-	-webkit-border-top-left-radius: 6px;
-	-webkit-border-top-right-radius: 6px;
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
-}
-
 #template_footer #credit {
 	border:0;
 	color: <?php echo esc_attr( $base_lighter_40 ); ?>;
@@ -105,6 +94,14 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 
 #body_content {
 	background-color: <?php echo esc_attr( $body ); ?>;
+	border-left: 1px solid <?php echo esc_attr( $bg_darker_10 ); ?>;
+	border-right: 1px solid <?php echo esc_attr( $bg_darker_10 ); ?>;
+	border-top: 1px solid <?php echo esc_attr( $bg_darker_10 ); ?>;
+	padding-bottom: 48px;
+	-webkit-border-top-left-radius: 6px;
+	-webkit-border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
 }
 
 #body_content table td {
