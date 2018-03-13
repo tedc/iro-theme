@@ -74,12 +74,18 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 #template_footer td {
 	padding: 0;
 	-webkit-border-radius: 6px;
+	-webkit-border-top-left-radius: 0;
+	-webkit-border-top-right-radius: 0;
+	border-radius: 6px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
 	border: 1px solid <?php echo esc_attr( $bg_darker_10 ); ?>;
 }
 
 #template_body {
 	border-left: 1px solid <?php echo esc_attr( $bg_darker_10 ); ?>;
 	border-right: 1px solid <?php echo esc_attr( $bg_darker_10 ); ?>;
+	border-top: 1px solid <?php echo esc_attr( $bg_darker_10 ); ?>;
 }
 
 #template_footer #credit {
