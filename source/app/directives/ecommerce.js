@@ -265,7 +265,11 @@ module.exports = () => {
 					terms : true,
 					shipping_method : $scope.shipping_method,
 					post_data : $scope.post_data,
-					countries : JSON.parse(vars.wc.country_select_params.countries)
+					countries : JSON.parse(vars.wc.country_select_params.countries),
+					billing_state_value : false,
+					billing_country_value : false,
+					shipping_state_value : false,
+					shipping_country_value : false,
 				}
 				$scope.checkoutObj = {
 					current : 0
@@ -356,8 +360,8 @@ module.exports = () => {
 							}
 						});
 				}
-				$scope.billing_state_value = false;
-				$scope.$watch('billing_state_value', (newValue, oldValue)=> {
+				$rootScope.billing_state_value = false;
+				$rootScope.$watch('billing_state_value', (newValue, oldValue)=> {
 					console.log(newValue, oldValue);
 				})
 				$scope.sendCheckout = (form)=> {
