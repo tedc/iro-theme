@@ -24,16 +24,3 @@
 // 	@extend %ng_enter;
 // }
 
-body {
-	> .view {
-		transition: visibility $speed, opacity $speed, top $speed;
-		position: relative;
-	}
-	&.is-anim {
-		> .view {	
-			opacity: 0;
-			visibility: hidden;
-			top: em($p*-2);
-		}
-	}
-}

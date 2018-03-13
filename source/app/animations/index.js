@@ -122,4 +122,42 @@ iro
 				});
 			}
 		}
-	}]);
+	}])
+	.animation('.iro', ()=> {
+		return {
+			addClass : (element, className, done)=> {
+				if(className != 'iro--anim') return;
+				let view = element[0].querySelector('> .view');
+				let tl = new TimlineMax();
+				tl
+					.to('body', .25, {
+						scrollTo : {
+							y : 0
+						}
+					})
+					.to(view, .75, {
+						top: -40,
+						opacity: 0,
+						visibility: 'hidden',
+						onComplete : ()=> {
+							done();
+						}
+					})
+			},
+			removeClass : (element, className, done)=> {
+				if(className != 'iro--anim') return;
+				let view = element[0].querySelector('> .view');
+				TweenMax.to(view, .75, {
+					top: 0,
+					opacity: 1,
+					visibility: 'visible',
+					onComplete : ()=> {
+						TweenMax.set(view, {
+							clearProps : 'all'
+						})
+						done();
+					}
+				})
+			}
+		}
+	});

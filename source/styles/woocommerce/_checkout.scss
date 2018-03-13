@@ -183,9 +183,9 @@
 			position: fixed;
 			left: 0;
 			top: em(80px);
-			z-index: 9999;
 			@include breakpoint($min: false) {
 				width: $f;
+				z-index: 9999;
 			}
 		}
 		@include breakpoint() {	
