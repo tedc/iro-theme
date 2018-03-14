@@ -484,9 +484,14 @@ module.exports = () => {
 					let url = vars.wc.password;
 					let data = $scope.passwordFields;
 					console.log(url, data);
-					ecommerce
-						.post(url, data)
-						.then( (res)=> {
+					// ecommerce
+					// 	.post(url, data)
+					// 	.then( (res)=> {
+					// 		var result = res.data;
+					// 		console.log(result);
+					// 		$scope.passwordRecovering = false;
+					// 	});
+					ecommerce.get(url).then( (res)=> {
 							var result = res.data;
 							console.log(result);
 							$scope.passwordRecovering = false;
