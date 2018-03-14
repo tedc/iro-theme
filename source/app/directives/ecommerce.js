@@ -60,8 +60,21 @@ module.exports = () => {
 					//$scope.product.price = `€ ${$scope.attributes.display_price}`;
 					$scope.product.price = $filter('currency')($scope.attributes.display_price, '€ ', 2*($scope.attributes.display_price % 1 !== 0));
 					$scope.product.product_id = $scope.attributes.variation_id;
-					console.log($scope.attributes);
-					
+					$window.dataLayer.push({
+					  'event': 'addToCart',
+					  'ecommerce': {
+					  	'actionField': {'list': 'Variation'},    // 'detail' actions have an optional list property.
+					    'detail': {                                // 'add' actionFieldObject measures.
+					      'products': [{                        //  adding a product to a shopping cart.
+					        'name': $scope.attributes.title,
+					        'id': ($scope.attributes.sku) ? $scope.attributes.sku : $scope.attributes.variation_id,
+					        'price': $scope.attributes.display_price,
+					        'brand': 'Iro',
+					        'variant': $scope.attributes.attributes.attribute_pa_color + ' ' +$scope.attributes.attributes.attribute_pa_misure,
+					       }]
+					    }
+					  }
+					});
 				}
 				$scope.variationPrice = (i)=> {
 					return $scope.variationPrices[i][$scope.singleProductVariation.attribute_pa_color];

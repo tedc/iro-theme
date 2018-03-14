@@ -96,7 +96,8 @@
 	            'iro_form' => true,
 	            'iro_save_address' => true,
 	            'iro_get_cart' => true,
-	            'iro_remove_cart_item' => true
+	            'iro_remove_cart_item' => true,
+	            'iro_process_lost_password' => true
 	        );
 	        foreach ( $ajax_events as $ajax_event => $nopriv ) {
 	            add_action( 'wp_ajax_woocommerce_' . $ajax_event, array( __CLASS__, $ajax_event ) );
@@ -145,6 +146,22 @@
 	         */
 	        wp_send_json( $data ); 
 	    }
+	    public static function iro_process_lost_password() {
+	    	check_ajax_referer( 'lost_password', '_wpnonce' );
+	    	
+			if ( isset( $_POST['wc_reset_password'] ) && isset( $_POST['user_login'] )) {
+				$success = WC_Shortcode_My_Account::retrieve_password();
+				// If successful, redirect to my account with query arg set.
+				if ( $success ) {
+					$data = array('url' => add_query_arg( 'reset-link-sent', 'true', wc_get_account_endpoint_url( 'lost-password' ) ), 'success' => true );
+				} else {
+					$data = array('error'=> true);
+				}
+			} else {
+				$data = array('error'=> true);
+			}
+			wp_send_json( $data );
+		}
 	    public static function iro_remove_cart_item() {
 	    	if(!isset($_REQUEST['item_key'])) {
 	    		die();

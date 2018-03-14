@@ -71,6 +71,7 @@
 			'remove' => WC_AJAX::get_endpoint('iro_remove_cart_item'),
 			'address' => WC_AJAX::get_endpoint('iro_save_address'),
 			'checkout' => WC_AJAX::get_endpoint('checkout'),
+			'password' => WC_AJAX::get_endpoint('iro_process_lost_password'),
 			'accountBase' => basename(wc_get_page_permalink('myaccount')),
 			'checkoutPage' => basename(wc_get_page_permalink('checkout')),
 			'orderBase' => basename(wc_get_page_permalink('checkout')) . '/'. basename(wc_get_endpoint_url('order-received')),
