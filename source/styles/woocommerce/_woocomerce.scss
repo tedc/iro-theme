@@ -1,0 +1,15 @@
+.woocomemrce {
+	&-notice {
+		@include grow('md', 'bottom');
+		&--error {
+			color: $error;
+		}
+	}
+}
+.overview {
+	padding: em($p/2) 0;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	align-items: center;
+}
