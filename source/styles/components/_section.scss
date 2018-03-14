@@ -309,6 +309,8 @@
 				.section__wrapper {
 					order: 1;
 					align-items: stretch;
+					margin-left: em($p*2);
+					flex: 0 0 auto;
 				}
 				.section__item {
 					text-align: center;
@@ -335,7 +337,6 @@
 				.icon-arrow-left {
 					order: 2;
 					font-size: em($p);
-					margin-right: em($p*2, $p);
 					&:hover:not(.swiper-button-disabled):before {
 						transform: translate3d(-5px, 0, 0);
 					}
@@ -343,7 +344,6 @@
 				.icon-arrow-right {
 					order: 3;
 					font-size: em($p);
-					margin-left: em($p*2, $p);
 					&:hover:not(.swiper-button-disabled):before {
 						transform: translate3d(5px, 0, 0);
 					}
@@ -352,14 +352,13 @@
 					flex-wrap: nowrap;
 					.section__wrapper {
 						order: 2;
+						margin: 0 em($p*2 + 13px)*-1;
 					}
 					.icon-arrow-left {
 						order: 1;
-						margin-left: em($p*2 + 13px)*-1;
 					}
 					.icon-arrow-right {
 						order: 3;
-						margin-right: em($p*2 + 13px)*-1;
 					}
 				}
 			}

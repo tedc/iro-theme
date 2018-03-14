@@ -280,10 +280,14 @@ module.exports = () => {
 	
 				// COUPONS
 				ngCart.applyCoupon = (coupon, nonce)=> {
+					if(ngCart.couponError) delete ngCart.couponError;
 					ecommerce
 						.post(vars.wc.coupons, {coupon_code : coupon, security : nonce})
 						.then( (res) => {
-							console.log(res);
+							if(res.data.error) {
+								ngCart.couponError = res.data.error;
+								return;
+							}
 							var discount = 0;
 							var extras = ngCart.getExtras();
 							for(coupon of res.data) {

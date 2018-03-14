@@ -11,6 +11,8 @@
 	[class*="__button"] {
 		font-size: 12px;
 		height: em(50px, 12px);
+		display: inline-flex;
+		align-items: center;
 	}
 }
 %remove {

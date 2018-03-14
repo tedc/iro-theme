@@ -117,6 +117,7 @@
 			background-color: $w;
 			padding: em($p);
 			@extend %order_row;
+			flex-wrap: wrap;
 			&--meta {
 				border-top: 1px solid $light-border;
 			}
