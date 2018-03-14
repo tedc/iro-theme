@@ -453,6 +453,7 @@ module.exports = () => {
 
 				$scope.checkShippingCoupon = (v, c)=> {
 					let cond = true;
+					console.log(ngCart.getExtras().free_shipping);
 					if(ngCart.getExtras().free_shipping) {
 						if(/(free_shipping)/.test(c) && v != c) {
 							cond = false;
