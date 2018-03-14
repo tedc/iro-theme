@@ -151,49 +151,7 @@
 	    	check_ajax_referer( 'lost_password', '_wpnonce' );
 	    	$data = array();
 			if ( isset( $_POST['wc_reset_password'] ) && isset( $_POST['user_login'] )) {
-				// $login = isset( $_POST['user_login'] ) ? sanitize_user( wp_unslash( $_POST['user_login'] ) ) : ''; // WPCS: input var ok, CSRF ok.
-				// if ( empty( $login ) ) {
-				// 	$data = array('error'=> __( 'Enter a username or email address.', 'woocommerce' ));
-				// 	wp_send_json( $data );
-				// } else {
-				// 	// Check on username first, as customers can use emails as usernames.
-				// 	$user_data = get_user_by( 'login', $login );
-				// }
-				// // If no user found, check if it login is email and lookup user based on email.
-				// if ( ! $user_data && is_email( $login ) && apply_filters( 'woocommerce_get_username_from_email', true ) ) {
-				// 	$user_data = get_user_by( 'email', $login );
-				// }
-				// $errors = new WP_Error();
-				// do_action( 'lostpassword_post', $errors );
-				// if ( $errors->get_error_code() ) {
-				// 	$data = array('error'=> $errors->get_error_message() );
-				// 	wp_send_json( $data );
-				// }
-				// if ( ! $user_data ) {
-				// 	$data = array('error'=> __( 'Invalid username or email.', 'woocommerce' ));
-				// 	wp_send_json( $data );
-				// }
-				// if ( is_multisite() && ! is_user_member_of_blog( $user_data->ID, get_current_blog_id() ) ) {
-				// 	$data = array('error'=> __( 'Invalid username or email.', 'woocommerce' ) );
-				// 	wp_send_json( $data );
-				// }
-				// // Redefining user_login ensures we return the right case in the email.
-				// $user_login = $user_data->user_login;
-				// do_action( 'retrieve_password', $user_login );
-				// $allow = apply_filters( 'allow_password_reset', true, $user_data->ID );
-				// if ( ! $allow ) {
-				// 	$data = array('error'=> __( 'Password reset is not allowed for this user', 'woocommerce' ) );
-				// 	wp_send_json( $data );
-				// } elseif ( is_wp_error( $allow ) ) {
-				// 	$data = array('error' => $allow->get_error_message());
-				// 	wp_send_json( $data );
-				// }
-				// // Get password reset key (function introduced in WordPress 4.4).
-				// $key = get_password_reset_key( $user_data );
-				// // Send email notification.
-				// WC()->mailer(); // Load email classes.
-				// do_action( 'woocommerce_reset_password_notification', $user_login, $key );
-				// $data = array('url' => esc_url(add_query_arg( 'reset-link-sent', 'true', wc_get_account_endpoint_url( 'lost-password' ) )), 'success' => true );
+				
 				wp_send_json( $data );
 			} else {
 				$data = array('error'=> __('Assicurati di aver compilato tutti i campi correttamente', 'iro'));
