@@ -22,13 +22,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 wc_print_notices(); ?>
 
-<form method="post" class="resetpassword resetpassword--grow-md-bottom resetpassword--shrink resetpassword--mw-large" ng-submit="lostPassword(formPassword)" name="formPassword">
+<form class="resetpassword resetpassword--grow-md-bottom resetpassword--shrink resetpassword--mw-large" ng-submit="lostPassword(formPassword)" name="formPassword">
 
 	<p><?php echo apply_filters( 'woocommerce_lost_password_message', esc_html__( 'Lost your password? Please enter your username or email address. You will receive a link to create a new password via email.', 'woocommerce' ) ); ?></p><?php // @codingStandardsIgnoreLine ?>
 
 	<p class="resetpassword__row">
 		<label for="user_login" class="resetpassword__label"><?php esc_html_e( 'Username or email', 'woocommerce' ); ?></label>
-		<input class="resetpassword__input" type="text" name="user_login" ng-model="passwordFields.user_login" id="user_login" />
+		<input class="resetpassword__input" required type="text" name="user_login" ng-model="passwordFields.user_login" id="user_login" />
 	</p>
 
 	
