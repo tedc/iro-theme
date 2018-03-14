@@ -483,13 +483,13 @@ module.exports = () => {
 					let url = vars.wc.password;
 					let data = $scope.passwordFields;
 					console.log(url, data);
-					// ecommerce
-					// 	.post(vars.wc.password, $scope.passwordFields)
-					// 	.then( (res)=> {
-					// 		var result = res.data;
-					// 		console.log(result);
-					// 		$scope.passwordRecovering = false;
-					// 	});
+					ecommerce
+						.post(url, data)
+						.then( (res)=> {
+							var result = res.data;
+							console.log(result);
+							$scope.passwordRecovering = false;
+						});
 				}
 			}
 			$rootScope.initEcommerce();
