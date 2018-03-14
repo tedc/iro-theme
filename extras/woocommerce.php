@@ -156,7 +156,7 @@
 
     function my_woocommerce_available_variation($obj) {
         global $product;
-        $obj['title'] = $product->get_title();
+        $obj['title'] = get_the_title($product->get_id());
         return $obj;
     }
 
