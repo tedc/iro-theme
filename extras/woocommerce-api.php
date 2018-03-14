@@ -887,7 +887,7 @@
 	    		$data['cart_empty'] = false;
 	    		$data['products'] = array();
 	    		foreach(WC()->cart->get_cart() as $cart_item_key => $cart_item) {
-	    			$_product = wc_get_product($cart_item['product_id']);
+	    			$_product = new WC_Product($cart_item['product_id']);
 	    			//$variations = $_product->get_available_variations();
 	    // 			$variation_details = null;
 					// if($cart_item['variation_id'] > 0) {
