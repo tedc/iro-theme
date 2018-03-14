@@ -20,7 +20,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-var_dump($chosen_method);
 ?>
 <div class="shipping" ng-repeat="shipping in shippings track by $index">
 	<h2 class="shipping__subtitle" ng-bind-html="shipping.package_name"></h2>
@@ -30,7 +29,7 @@ var_dump($chosen_method);
 				<span><?php _e('Modalità', 'iro'); ?></span>
 				<span><?php _e('Prezzo', 'iro'); ?></span>
 			</li>
-			<li class="shipping__row" ng-repeat="s in shipping.methods" on-finish-render="update_scroller">
+			<li class="shipping__row" ng-repeat="s in shipping.methods" on-finish-render="update_scroller" ng-if="checkShippingCoupon(s.value, shipping.chosen_method)">
 				<div class="shipping__wrapper shipping__wrapper--grow-md">
 					<input type="radio" ng-model="checkoutFields.shipping_method[shipping.index]" name="shipping_method[{{shipping.index}}]" id="shipping_method_{{shipping.index}}_{{s.id}}" ng-value="s.value" class="shipping__radio">
 					<label for="shipping_method_{{shipping.index}}_{{s.id}}" ng-bind-html="s.label"></label>

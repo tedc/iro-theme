@@ -279,7 +279,7 @@ module.exports = () => {
 				// }
 	
 				// COUPONS
-				ngCart.applyCoupon = (coupon, nonce)=> {
+				ngCart.applyCoupon = (coupon, nonce, isCheckout)=> {
 					if(ngCart.couponError) delete ngCart.couponError;
 					if(ngCart.isDescountLoading) return;
 					ngCart.isDescountLoading = true;
@@ -306,6 +306,7 @@ module.exports = () => {
 									extras.free_shipping;
 								}
 							}
+							if(isCheckout) $scope.updateShipping(false);
 							ngCart.setExtras(extras);
 							$rootScope.$broadcast('ngCart:change');
 						})
@@ -450,7 +451,17 @@ module.exports = () => {
 					swiper.on('init', getCurrentIndex);
 				});
 
-				
+				$scope.checkShippingCoupon = (v, c)=> {
+					if(ngCart.getExtras().free_shipping) {
+						if(/(free_shipping)/.test(c) && v != c) {
+							return false;
+						} else {
+							return true;
+						}
+					} else {
+						return true;
+					}
+				}
 			}
 			$rootScope.initEcommerce();
 		}]
