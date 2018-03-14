@@ -97,8 +97,8 @@
 	            'iro_save_address' => true,
 	            'iro_get_cart' => true,
 	            'iro_remove_cart_item' => true,
-	            'iro_process_lost_password' => true,
-	            'iro_process_reset_password' => true
+	            'iro_recover_password' => true,
+	            'iro_reset_password' => true
 	        );
 	        foreach ( $ajax_events as $ajax_event => $nopriv ) {
 	            add_action( 'wp_ajax_woocommerce_' . $ajax_event, array( __CLASS__, $ajax_event ) );
@@ -147,7 +147,7 @@
 	         */
 	        wp_send_json( $data ); 
 	    }
-	    public static function iro_process_lost_password() {
+	    public static function iro_recover_password() {
 	    	check_ajax_referer( 'lost_password', '_wpnonce' );
 	    	$data = array();
 			if ( isset( $_POST['wc_reset_password'] ) && isset( $_POST['user_login'] )) {
@@ -848,7 +848,7 @@
 	        wp_send_json( $data );
 	        wp_die();
 	    }
-	    public static function iro_process_reset_password() {
+	    public static function iro_reset_password() {
 			$posted_fields = array( 'wc_reset_password', 'password_1', 'password_2', 'reset_key', 'reset_login', '_wpnonce' );
 			foreach ( $posted_fields as $field ) {
 				if ( ! isset( $_POST[ $field ] ) ) {
