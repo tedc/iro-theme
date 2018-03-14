@@ -278,6 +278,7 @@
 				strong {
 					color: $brand-main;
 					padding-top: em($p/2);
+					display: inline-block;
 				}
 				address {
 					padding-bottom: em($p/2);
@@ -302,6 +303,8 @@
 					@extend %order_desc;
 				}
 				strong {
+					width: $f/2;
+					display: inline-block;
 					color: $brand-main;
 					small, span {
 						display: block;

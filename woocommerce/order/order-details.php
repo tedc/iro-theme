@@ -70,7 +70,7 @@ if ( $show_customer_details ) {
 					?>
 					<div class="order-details__row">
 						<strong><?php echo str_replace(':', '', $total['label']); ?></strong>
-						<strong class="order-details_price"><?php echo str_replace(array(' <small', '&&nbsp;<small'), '<small', $total['value']); ?></strong>
+						<strong class="order-details__price"><?php echo str_replace(array(' <small', '&&nbsp;<small'), '<small', $total['value']); ?></strong>
 					</div>
 					<?php
 				}
