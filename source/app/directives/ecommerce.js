@@ -481,12 +481,12 @@ module.exports = () => {
 				$scope.passwordFields = {}
 				$scope.lostPassword = (form)=> {
 					if(!form.$valid) return;
-					$scop.passwordRecovering = true;
+					$scope.passwordRecovering = true;
 					ecommerce
 						.post(vars.wc.password, $scope.passwordFields)
 						.then((res)=> {
 							console.log(res);
-							$scop.passwordRecovering = false;
+							$scope.passwordRecovering = false;
 						});
 				}
 			}

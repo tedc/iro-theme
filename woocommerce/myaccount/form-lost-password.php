@@ -26,15 +26,15 @@ wc_print_notices(); ?>
 
 	<p><?php echo apply_filters( 'woocommerce_lost_password_message', esc_html__( 'Lost your password? Please enter your username or email address. You will receive a link to create a new password via email.', 'woocommerce' ) ); ?></p><?php // @codingStandardsIgnoreLine ?>
 
-	<p class="resetpassword__row resetpassword__row--grow">
-		<label for="user_login"><?php esc_html_e( 'Username or email', 'woocommerce' ); ?></label>
+	<p class="resetpassword__row">
+		<label for="user_login" class="resetpassword__label"><?php esc_html_e( 'Username or email', 'woocommerce' ); ?></label>
 		<input class="resetpassword__input" type="text" name="user_login" ng-model="passwordFields.user_login" id="user_login" />
 	</p>
 
 	
 	<?php do_action( 'woocommerce_lostpassword_form' ); ?>
 
-	<p class="resetpassword__row resetpassword__row--aligncenter resetpassword__row--grow">
+	<p class="resetpassword__row resetpassword__row--aligncenter">
 		<input type="hidden" name="wc_reset_password" ng-init="passwordFields.wc_reset_password=true" value="true" />
 		<button type="submit" ng-class="{'resetpassword__button--loading' : passwordRecovering}" class="resetpassword__button" value="<?php esc_attr_e( 'Reset password', 'woocommerce' ); ?>"><?php esc_html_e( 'Reset password', 'woocommerce' ); ?></button>
 	</p>
