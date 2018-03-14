@@ -3,7 +3,12 @@
 	$title = (get_field('header_alt_title')) ? get_field('header_alt_title') : Titles\title();
 	var_dump(is_order_received_page());
 ?>
-	<h1 class="header__title header__title--big"><?= $title; ?></h1>
+	<?php if(is_order_received_page()) : ?>
+	<figure class="header__success">
+		<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/superhero-ordine-effettuato.gif" />
+	</figure>
+	<?php endif; ?>
+	<h1 class="header__title header__title--big<?php echo (is_order_received_page()) ? ' header__title--aligncenter' : ''; ?>"><?= $title; ?></h1>
 
 	<?php while(have_rows('header_button')) : the_row();
 		$button_class = 'header__button';
