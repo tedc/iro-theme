@@ -58,7 +58,7 @@ module.exports = function ($stateProvider, $locationProvider, $provide, cfpLoadi
 			template : tpl,
 			params: {
 				path: {
-					type : 'string',
+					type : 'any',
 					raw: true
 				}
 			},
