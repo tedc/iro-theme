@@ -312,7 +312,7 @@ module.exports = () => {
 					coupons.splice(idx, 1);
 					extras.coupons = coupons;
 					ecommerce
-						.removeItem(remove)
+						.get(remove)
 						.then( ()=> {
 							ngCart.setExtras(extras);
 							$rootScope.$broadcast('ngCart:change');
