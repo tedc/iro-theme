@@ -1,4 +1,4 @@
-.woocomemrce {
+.woocommerce {
 	&-notice {
 		@include grow('md', 'bottom');
 		&--error {
@@ -7,6 +7,9 @@
 	}
 }
 .overview {
+	&s {
+		padding: em($p/2) 0;
+	}
 	padding: em($p/2) 0;
 	display: flex;
 	justify-content: space-between;
