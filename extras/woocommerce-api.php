@@ -898,8 +898,8 @@
 					// 	// }
 	    // 				$cart_item['variation_details'] = $variation_details;
 	    // 			}
-	    			var_dump($_product);
-	    			array_push($data['products'], $cart_item);
+	    			//var_dump($_product);
+	    			array_push($data['products'], $_product);
 	    		}
 	    	else :
 	    		$data['cart_empty'] = true;
