@@ -456,9 +456,9 @@ module.exports = () => {
 					if(ngCart.getExtras().free_shipping) {
 						if(/(free_shipping)/.test(c) && v != c) {
 							cond = false;
+							console.log(v != c, /(free_shipping)/.test(c));
 						}
 					}
-					console.log(cond, /(free_shipping)/.test(c));
 					return cond;
 				}
 			}
