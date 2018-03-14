@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<div class="woocommerce-order woocommerce-order--mw-large">
+<div class="woocommerce-order woocommerce-order--shrink woocommerce-order--mw-large">
 
 	<?php if ( $order ) : ?>
 

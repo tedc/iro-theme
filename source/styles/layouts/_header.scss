@@ -542,6 +542,13 @@
 		@include grow('small', 'top');
 		@include grow('md', 'top');
 	}
+	&__success {
+		text-align: center;
+		img {
+			max-width: em(350px);
+			width: $f;
+		}
+	}
 }
 
 
