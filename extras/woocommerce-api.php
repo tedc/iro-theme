@@ -401,7 +401,6 @@
 
 		            WC()->session->set( 'chosen_shipping_methods', $chosen_shipping_methods );
 
-		            self::iro_update_shipping_method();
 
 		            //$coupons['free_shipping']=true;
 		        }
