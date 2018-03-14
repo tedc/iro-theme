@@ -30,8 +30,8 @@ if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 			$is_visible        = $product && $product->is_visible();
 			$product_permalink = apply_filters( 'woocommerce_order_item_permalink', $is_visible ? $product->get_permalink( $item ) : '', $item, $order );
 
-			echo apply_filters( 'woocommerce_order_item_name', $product_permalink ? sprintf( '<a href="%s" class="order-details__name">%s', $product_permalink, str_replace(':', '', $item->get_name()) ) : str_replace(':', '', $item->get_name()), $item, $is_visible );
-			echo apply_filters( 'woocommerce_order_item_quantity_html', ' ' . sprintf( '&times; %s', $item->get_quantity() ) . '</a>', $item );
+			echo apply_filters( 'woocommerce_order_item_name', $product_permalink ? sprintf( '<a href="%s" class="order-details__name">%s', $product_permalink, str_replace(':', '', $item->get_name()) ) : str_replace(' - ', '<small>', $item->get_name()), $item, $is_visible );
+			echo apply_filters( 'woocommerce_order_item_quantity_html', ' ' . sprintf( '&times; %s', $item->get_quantity() ) . '</small></a>', $item );
 
 		?>
 	<span class="order-details__price">
