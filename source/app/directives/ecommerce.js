@@ -179,14 +179,12 @@ module.exports = () => {
 				
 				$scope.$on('ngCart:itemRemoved', (evt, item)=> {
 					ngCart.isCounting = true;
-					console.log('removed');
 					$timeout(()=> {
 						ngCart.isCounting = false;
 					}, 1500);
 				});
 				$scope.$on('ngCart:itemAdded', (evt, item)=> {
 					ngCart.isCounting = true;
-					console.log('addedd');
 					$timeout(()=> {
 						ngCart.isCounting = false;
 					}, 1500);
@@ -484,8 +482,9 @@ module.exports = () => {
 					$scope.passwordRecovering = true;
 					ecommerce
 						.post(vars.wc.password, $scope.passwordFields)
-						.then((res)=> {
-							console.log(res);
+						.then( (res)=> {
+							var result = res.data;
+							console.log(result);
 							$scope.passwordRecovering = false;
 						});
 				}
