@@ -299,13 +299,13 @@ module.exports = () => {
 							// $scope.shippings = ngCart.getExtras().shippings.packages;
 							var discount = 0;
 							var extras = ngCart.getExtras();
+							extras = angular.extend({}, extras, {discount : discount, coupons : res.data});
 							for(coupon of res.data) {
 								discount -= coupon.price;
 								if(coupon.free_shipping) {
-									$scope.updateShipping(false);
+									extras.free_shipping;
 								}
 							}
-							extras = angular.extend({}, extras, {discount : discount, coupons : res.data});
 							ngCart.setExtras(extras);
 							$rootScope.$broadcast('ngCart:change');
 						})

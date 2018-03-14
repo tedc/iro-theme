@@ -401,6 +401,8 @@
 
 		            WC()->session->set( 'chosen_shipping_methods', $chosen_shipping_methods );
 
+		            self::calculate_shipping();
+
 		            //$coupons['free_shipping']=true;
 		        }
 
