@@ -482,7 +482,7 @@ module.exports = () => {
 					$scope.passwordRecovering = true;
 					let url = vars.wc.password;
 					let data = $scope.passwordFields;
-					console.log(url, data);
+					if($scope.passwordMessage) delete $scope.passwordMessage;
 					// ecommerce
 					// 	.post(url, data)
 					// 	.then( (res)=> {
@@ -492,7 +492,13 @@ module.exports = () => {
 					// 	});
 					ecommerce.post(url, data).then( (res)=> {
 							var result = res.data;
-							console.log(result);
+							if(result.error) {
+								$scope.passwordMessage = result.error;
+								$scope.isPasswordError = true;
+							} else {
+								$scope.passwordMessage = vars.wc.passwordMessage;
+								$scope.isPasswordError = true;
+							}
 							$scope.passwordRecovering = false;
 						});
 				}
