@@ -167,3 +167,15 @@
 		}
 	}
 }
+
+.resetpassword {
+	&__{
+		&row {
+			@include grow('small');
+		}
+		&label {
+			font-weight: bold;
+			color: $brand-main;
+		}
+	}
+}

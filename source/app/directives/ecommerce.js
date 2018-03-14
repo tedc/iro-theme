@@ -478,6 +478,17 @@ module.exports = () => {
 							$state.go('app.page', {slug : vars.wc.accountBase});
 						});
 				}
+				$scope.passwordFields = {}
+				$scope.lostPassword = (form)=> {
+					if(!form.$valid) return;
+					$scop.passwordRecovering = true;
+					ecommerce
+						.post(vars.wc.password, $scope.passwordFields)
+						.then((res)=> {
+							console.log(res);
+							$scop.passwordRecovering = false;
+						});
+				}
 			}
 			$rootScope.initEcommerce();
 		}]
