@@ -230,6 +230,20 @@
 					padding-right: 0;
 					a {
 						vertical-align: middle;
+						&.pay, &.cancel {
+							display: block;
+						}
+						&.pay {
+							color: $alternate-color;
+							margin-bottom: em($p/2);
+							&:hover {
+								color: $highlight-color;
+							}
+						}
+						&.cancel {
+							margin-top: em($p/2);
+							color: $error;
+						}
 					}
 					.icon-invoice {
 						color: $error;

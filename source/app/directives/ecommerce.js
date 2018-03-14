@@ -302,9 +302,6 @@ module.exports = () => {
 							extras = angular.extend({}, extras, {discount : discount, coupons : res.data});
 							for(coupon of res.data) {
 								discount -= coupon.price;
-								if(coupon.free_shipping) {
-									extras.free_shipping;
-								}
 							}
 							if(isCheckout) $scope.updateShipping(false);
 							ngCart.setExtras(extras);
@@ -453,13 +450,10 @@ module.exports = () => {
 
 				$scope.checkShippingCoupon = (v, c)=> {
 					let cond = true;
-					console.log(ngCart.getExtras().free_shipping);
-					if(ngCart.getExtras().free_shipping) {
-						if(/(free_shipping)/.test(c) && v != c) {
-							cond = false;
-							console.log(v != c, /(free_shipping)/.test(c));
-						}
-					}
+					// if(/(free_shipping)/.test(c) && v != c) {
+					// 	cond = false;
+					// 	console.log(v != c, /(free_shipping)/.test(c));
+					// }
 					return cond;
 				}
 			}
