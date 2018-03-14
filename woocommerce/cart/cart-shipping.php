@@ -20,6 +20,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+var_dump($$available_methods );
 ?>
 <div class="shipping" ng-repeat="shipping in shippings track by $index">
 	<h2 class="shipping__subtitle" ng-bind-html="shipping.package_name"></h2>
