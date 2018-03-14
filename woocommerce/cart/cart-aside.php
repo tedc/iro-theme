@@ -48,9 +48,9 @@
 					<div class="cart-aside__coupon cart-aside__coupon--shrink cart-aside__coupon--grid-nowrap slide-toggle" ng-class="{'slide-toggle--visible':isCoupon}">
 						<input type="text" name="coupon_code" class="cart-aside__input" ng-model="coupon_code" placeholder="<?php esc_attr_e( 'Inserire codice sconto', 'iro' ); ?>" id="coupon_code" value="" />
 						<input type="hidden" ng-model="coupon_nonce" ng-init="coupon_nonce='<?php echo wp_create_nonce( 'apply-coupon' ); ?>'" />
-						<span class="cart-aside__button cart-aside__button--dark cart-aside__button--radius-right" ng-click="ngCart.applyCoupon(coupon_code, coupon_nonce)"><?php _e( 'Applica', 'iro' ); ?></span>
-						<div class="cart-aside__error" ng-if="ngCart.couponError" ng-bind-html="ngCart.couponError"></div>
+						<span class="cart-aside__button cart-aside__button--dark cart-aside__button--radius-right" ng-class="{'cart-aside__button--loading':ngCart.isDescountLoading}" ng-click="ngCart.applyCoupon(coupon_code, coupon_nonce)"><?php _e( 'Applica', 'iro' ); ?></span>
 					</div>
+					<div class="cart-aside__error" ng-if="ngCart.couponError" ng-bind-html="ngCart.couponError"></div>
 					<div class="cart-aside__coupons cart-aside__coupons--shrink" ng-if="ngCart.getExtras().coupons" ng-repeat="coupon in ngCart.getExtras().coupons track by $index" on-finish-render="update_scroller">
 						<div class="cart-aside__coupon">
 							<div class="cart-aside__top">

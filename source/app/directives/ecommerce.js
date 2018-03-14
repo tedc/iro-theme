@@ -281,9 +281,12 @@ module.exports = () => {
 				// COUPONS
 				ngCart.applyCoupon = (coupon, nonce)=> {
 					if(ngCart.couponError) delete ngCart.couponError;
+					if(ngCart.isDescountLoading) return;
+					ngCart.isDescountLoading = true;
 					ecommerce
 						.post(vars.wc.coupons, {coupon_code : coupon, security : nonce})
 						.then( (res) => {
+							ngCart.isDescountLoading = false;
 							if(res.data.error) {
 								ngCart.couponError = res.data.error;
 								return;

@@ -309,8 +309,9 @@
 				.section__wrapper {
 					order: 1;
 					align-items: stretch;
-					margin-left: em($p*2);
+					margin: em($p*2);
 					flex: 0 0 auto;
+					width: $f;
 				}
 				.section__item {
 					text-align: center;
@@ -352,7 +353,7 @@
 					flex-wrap: nowrap;
 					.section__wrapper {
 						order: 2;
-						margin: 0 em($p*2 + 13px)*-1;
+						margin: 0 em($p*2 + 13px);
 					}
 					.icon-arrow-left {
 						order: 1;

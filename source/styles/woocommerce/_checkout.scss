@@ -219,6 +219,12 @@
 	&__info {
 		@include grow('md', 'bottom');
 	}
+	&__error {
+		color: $error;
+		font-size: 11px;
+		font-style: italic;
+		padding-top: em($p,11px);
+	}
 }
 
 %table_header {
