@@ -1,6 +1,7 @@
 %order_row {
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
 }
 %order_desc {
 	width: $f;
@@ -11,7 +12,6 @@
 	font-weight: 600;
 	color: $brand-main;
 	display: inline-block;
-	color: $brand-main;
 	width: $f/2;
 	small, span {
 		display: block;
@@ -119,6 +119,9 @@
 			@extend %order_row;
 			&--meta {
 				border-top: 1px solid $light-border;
+			}
+			strong {
+				@extend %order_span;
 			}
 		}
 		&__remove {

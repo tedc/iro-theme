@@ -283,6 +283,7 @@ module.exports = () => {
 					ecommerce
 						.post(vars.wc.coupons, {coupon_code : coupon, security : nonce})
 						.then( (res) => {
+							console.log(res);
 							var discount = 0;
 							var extras = ngCart.getExtras();
 							for(coupon of res.data) {
@@ -360,10 +361,6 @@ module.exports = () => {
 							}
 						});
 				}
-				$rootScope.billing_state_value = false;
-				$rootScope.$watch('billing_state_value', (newValue, oldValue)=> {
-					console.log(newValue, oldValue);
-				})
 				$scope.sendCheckout = (form)=> {
 					//console.log($scope.checkoutFields);
 					$scope.isOrdering = true;
