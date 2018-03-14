@@ -322,13 +322,13 @@
 	    public static function iro_apply_coupon() {
 
 	        check_ajax_referer( 'apply-coupon', 'security' );
-
+	        $coupons = array();
+	        
 	        if ( ! empty( $_POST['coupon_code'] ) ) {
 	            WC()->cart->add_discount( sanitize_text_field( $_POST['coupon_code'] ) );
 	        } else {
-	            wc_add_notice( WC_Coupon::get_generic_coupon_error( WC_Coupon::E_WC_COUPON_PLEASE_ENTER ), 'error' );
+	        	$coupons['error'] = WC_Coupon::get_generic_coupon_error( WC_Coupon::E_WC_COUPON_PLEASE_ENTER );
 	        }
-	        $coupons = array();
 	        foreach(WC()->cart->get_applied_coupons() as $code ) {
 	        	array_push($coupons, self::get_coupon($code));
 	        }
