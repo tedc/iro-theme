@@ -65,6 +65,7 @@ module.exports = function ($stateProvider, $locationProvider, $provide, cfpLoadi
 			resolve : {
 				data : ['getData', '$stateParams', function(getData, $stateParams) {
 					let url = `${vars.wc.accountBase}/${$stateParams.path}`
+					console.log(url);
 					return getData(url);
 				}]
 			},
