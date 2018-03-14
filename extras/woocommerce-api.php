@@ -324,16 +324,96 @@
 	        check_ajax_referer( 'apply-coupon', 'security' );
 	        $coupons = array();
 	        
+
+		    if ( ! wc_coupons_enabled() ) {
+		    	$coupons['error'] = __('Iro al momento non ammette codici sconto', 'iro');
+		    	wp_send_json( $coupons );
+	        }
 	        if ( ! empty( $_POST['coupon_code'] ) ) {
-	            WC()->cart->add_discount( sanitize_text_field( $_POST['coupon_code'] ) );
-	        } else {
-	        	$coupons['error'] = WC_Coupon::get_generic_coupon_error( WC_Coupon::E_WC_COUPON_PLEASE_ENTER );
-	        }
-	        foreach(WC()->cart->get_applied_coupons() as $code ) {
-	        	array_push($coupons, self::get_coupon($code));
-	        }
-	        wp_send_json( $coupons );
-	        wp_die();
+		        // Sanitize coupon code.
+		        $coupon_code = wc_format_coupon_code( $_POST['coupon_code'] );
+
+		        // Get the coupon.
+		        $the_coupon = new WC_Coupon( $coupon_code );
+
+		        // Prevent adding coupons by post ID.
+		        if ( $the_coupon->get_code() !== $coupon_code ) {
+		            $the_coupon->set_code( $coupon_code );
+		            $coupons['error'] = WC_Coupon::E_WC_COUPON_NOT_EXIST;
+		            wp_send_json( $coupons );
+		        }
+
+		        // Check it can be used with cart.
+		        if ( ! $the_coupon->is_valid() ) {
+		            $coupons['error'] = $the_coupon->get_error_message();
+		            wp_send_json( $coupons );
+		        }
+
+		        // Check if applied.
+		        if ( $this->has_discount( $coupon_code ) ) {
+		            $coupons['error'] = WC_Coupon::E_WC_COUPON_ALREADY_APPLIED;
+		            wp_send_json( $coupons );
+		        }
+
+		        // If its individual use then remove other coupons.
+		        if ( $the_coupon->get_individual_use() ) {
+		            $coupons_to_keep = apply_filters( 'woocommerce_apply_individual_use_coupon', array(), $the_coupon, $this->applied_coupons );
+
+		            foreach ( WC()->cart->applied_coupons as $applied_coupon ) {
+		                $keep_key = array_search( $applied_coupon, $coupons_to_keep, true );
+		                if ( false === $keep_key ) {
+		                    WC()->cart->remove_coupon( $applied_coupon );
+		                } else {
+		                    unset( $coupons_to_keep[ $keep_key ] );
+		                }
+		            }
+
+		            if ( ! empty( $coupons_to_keep ) ) {
+		                WC()->cart->applied_coupons += $coupons_to_keep;
+		            }
+		        }
+
+		        // Check to see if an individual use coupon is set.
+		        if ( WC()->cart->applied_coupons ) {
+		            foreach ( WC()->cart->applied_coupons as $code ) {
+		                $coupon = new WC_Coupon( $code );
+
+		                if ( $coupon->get_individual_use() && false === apply_filters( 'woocommerce_apply_with_individual_use_coupon', false, $the_coupon, $coupon, WC()->cart->applied_coupons ) ) {
+
+		                    // Reject new coupon.
+		                    $coupons['error'] = WC_Coupon::E_WC_COUPON_ALREADY_APPLIED_INDIV_USE_ONLY;
+
+		                    wp_send_json( $coupons );
+		                }
+		            }
+		        }
+
+		        WC()->cart->applied_coupons[] = $coupon_code;
+
+		        // Choose free shipping.
+		        if ( $the_coupon->get_free_shipping() ) {
+		            $packages = WC()->shipping->get_packages();
+		            $chosen_shipping_methods = WC()->session->get( 'chosen_shipping_methods' );
+
+		            foreach ( $packages as $i => $package ) {
+		                $chosen_shipping_methods[ $i ] = 'free_shipping';
+		            }
+
+		            WC()->session->set( 'chosen_shipping_methods', $chosen_shipping_methods );
+		        }
+
+		        $the_coupon->add_coupon_message( WC_Coupon::WC_COUPON_SUCCESS );
+
+		        do_action( 'woocommerce_applied_coupon', $coupon_code );
+
+		        foreach(WC()->cart->get_applied_coupons() as $code ) {
+		        	array_push($coupons, self::get_coupon($code));
+		        }
+		        wp_send_json( $coupons );
+	    	} else {
+	    		$coupons['error'] = __('Coupon assente', 'iro');
+				wp_send_json( $coupons );
+	    	}        
 	    }
 	    public static function iro_login() {
 	    	//check_ajax_referer('iro-login', 'ea234fc388');
