@@ -889,9 +889,9 @@
 	    		foreach(WC()->cart->get_cart() as $cart_item_key => $cart_item) {
 	    			if($cart_item['variation_id']) {
 		    			$_product = new WC_Product_Variable($cart_item['product_id']);
-		    			if($_product){
-		    				$variations = $_product->get_available_variations();
-			    			var_dump($variations);
+		    			if($_product) {
+		    				//$variations = $_product->get_available_variations();
+			    			var_dump($_product->get_available_variations());
 			    			$variation_details = null;
 							if($cart_item['variation_id'] > 0) {
 								foreach($variations as $variation) {
