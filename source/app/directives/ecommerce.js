@@ -305,9 +305,10 @@ module.exports = () => {
 									$scope.updateShipping(false);
 								}
 							}
-							extras = angular.extend({}, extras, {discount : discount, coupons : res.data});
-							ngCart.setExtras(extras);
-							$rootScope.$broadcast('ngCart:change');
+							console.log(res.data);
+							// extras = angular.extend({}, extras, {discount : discount, coupons : res.data});
+							// ngCart.setExtras(extras);
+							// $rootScope.$broadcast('ngCart:change');
 						})
 				}
 	
