@@ -890,7 +890,8 @@
 	    			if($cart_item['variation_id']) {
 		    			$_product = new WC_Product_Variable($cart_item['product_id']);
 		    			if($_product) {
-		    				$variation_details = null;
+		    				$variations = $_product->get_available_variations();
+			    			$variation_details = null;
 							if($cart_item['variation_id'] > 0) {
 								foreach($variations as $variation) {
 									if($variation['variation_id'] == $cart_item['variation_id']) {
