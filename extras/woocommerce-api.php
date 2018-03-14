@@ -406,7 +406,7 @@
 
 		        do_action( 'woocommerce_applied_coupon', $coupon_code );
 		        foreach(WC()->cart->get_applied_coupons() as $code ) {
-		        	array_push($coupons['coupons'], self::get_coupon($code));
+		        	array_push($coupons, self::get_coupon($code));
 		        }
 		        wp_send_json( $coupons );
 	    	} else {
