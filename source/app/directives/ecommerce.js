@@ -368,7 +368,7 @@ module.exports = () => {
 					//console.log($scope.checkoutFields);
 					$scope.isOrdering = true;
 					var data = {
-						posted : {post_data : $scope.checkoutFields.post_data},			
+						//posted : {post_data : $scope.checkoutFields.post_data},			
 						shipping_method : $scope.checkoutFields.shipping_method,
 						payment_method : $scope.checkoutFields.payment_method,
 						ship_to_different_address : $scope.checkShippingAddress ? 1 : 0,
@@ -376,6 +376,7 @@ module.exports = () => {
 						terms : $scope.checkoutFields.terms
 					}
 					data = angular.extend({}, data, $scope.checkoutFields.customer);
+					console.log($$scope.checkoutFields.post_data);
 					ecommerce
 						.post(vars.wc.checkout, data)
 						.then( (res)=> {
@@ -394,10 +395,10 @@ module.exports = () => {
 								}
 							} else if( 'failure' === result.result ){
 								$scope.error = result.message;
-								$state.go('app.page', {slug : checkoutPage}, {reload : true});
+								$state.go('app.page', {slug : vars.wc.checkoutPage}, {reload : true});
 							} else {
 								$scope.error = result.message;
-								$state.go('app.page', {slug : checkoutPage}, {reload : true});
+								$state.go('app.page', {slug : vars.wc.checkoutPage}, {reload : true});
 							}
 							$scope.isOrdering = false;
 						});
@@ -436,22 +437,6 @@ module.exports = () => {
 					swiper.on('slideChange', getCurrentIndex);
 					swiper.on('init', getCurrentIndex);
 				});
-
-				// PRODUCTS SLIDER
-
-				// $scope.product_slider = getInstances.getInstance('product');
-				// $scope.product_slider.then((swiper) => {
-				// 	$scope.currentProductSlide = 0;
-				// 	if(swiper.destroyed) return;
-				// 	$scope.productSlideTo = (index)=> {
-				// 		swiper.slideTo(index);
-				// 	}
-				// 	swiper.on('slideChange', ()=> {
-				// 		$scope.currentProductSlide = swiper.activeIndex;
-				// 	})	
-				// });
-
-				// FEATURES SLIDER
 
 				
 			}
