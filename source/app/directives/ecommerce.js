@@ -36,7 +36,6 @@ module.exports = () => {
 										if(price != item.getPrice()){
 											item.setPrice(price);
 										}
-										console.log(quantity, item.getQuantity());
 										if(quantity != item.getQuantity()) {
 											item.setQuantity(quantity);
 										}
@@ -491,7 +490,7 @@ module.exports = () => {
 					// 		console.log(result);
 					// 		$scope.passwordRecovering = false;
 					// 	});
-					ecommerce.post(url, data).then( (res)=> {
+					ecommerce.post(url, {prova : true}).then( (res)=> {
 							var result = res.data;
 							console.log(result);
 							$scope.passwordRecovering = false;
