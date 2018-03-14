@@ -60,6 +60,7 @@ module.exports = () => {
 					//$scope.product.price = `€ ${$scope.attributes.display_price}`;
 					$scope.product.price = $filter('currency')($scope.attributes.display_price, '€ ', 2*($scope.attributes.display_price % 1 !== 0));
 					$scope.product.product_id = $scope.attributes.variation_id;
+					console.log($scope.attributes);
 					
 				}
 				$scope.variationPrice = (i)=> {
@@ -110,7 +111,7 @@ module.exports = () => {
 							    'add': {                                // 'add' actionFieldObject measures.
 							      'products': [{                        //  adding a product to a shopping cart.
 							        'name': item.getName(),
-							        'id': item.getId(),
+							        'id': (item_data.sku) ? item_data.sku : item.getId(),
 							        'price': item.getPrice(),
 							        'brand': 'Iro',
 							        'variant': item.getData().attributes.attribute_pa_color + ' ' +item.getData().attributes.attribute_pa_misure,
@@ -455,6 +456,14 @@ module.exports = () => {
 					// 	console.log(v != c, /(free_shipping)/.test(c));
 					// }
 					return cond;
+				}
+
+				$scope.cancelOrder = (link)=> {
+					ecommerce
+						.get(link)
+						.then(()=> {
+							$state.go('app.page', {slug : vars.wc.accountBase});
+						});
 				}
 			}
 			$rootScope.initEcommerce();
