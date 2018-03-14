@@ -452,15 +452,14 @@ module.exports = () => {
 				});
 
 				$scope.checkShippingCoupon = (v, c)=> {
+					let cond = true;
 					if(ngCart.getExtras().free_shipping) {
 						if(/(free_shipping)/.test(c) && v != c) {
-							return false;
-						} else {
-							return true;
+							cond = false;
 						}
-					} else {
-						return true;
 					}
+					console.log(cond, /(free_shipping)/.test(c));
+					return cond;
 				}
 			}
 			$rootScope.initEcommerce();
