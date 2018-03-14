@@ -69,8 +69,8 @@ if ( $show_customer_details ) {
 				foreach ( $order->get_order_item_totals() as $key => $total ) {
 					?>
 					<div class="order-details__row">
-						<span><?php echo str_replace(':', '', $total['label']); ?></span>
-						<span class="order-details_price"><?php echo str_replace(array(' <small', '&&nbsp;<small'), '<small', $total['value']); ?></span>
+						<strong><?php echo str_replace(':', '', $total['label']); ?></strong>
+						<strong class="order-details_price"><?php echo str_replace(array(' <small', '&&nbsp;<small'), '<small', $total['value']); ?></strong>
 					</div>
 					<?php
 				}

@@ -301,6 +301,14 @@
 				.wc-item-meta {
 					@extend %order_desc;
 				}
+				strong {
+					color: $brand-main;
+					small, span {
+						display: block;
+						font-weight: normal;
+						color: $dark-gray;
+					}
+				}
 			}
 			&price, &name {
 				@extend %order_span;
