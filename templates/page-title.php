@@ -1,6 +1,7 @@
 <?php
 	use Roots\Sage\Titles; 
 	$title = (get_field('header_alt_title')) ? get_field('header_alt_title') : Titles\title();
+	var_dump(is_order_received_page());
 ?>
 	<h1 class="header__title header__title--big"><?= $title; ?></h1>
 
