@@ -400,6 +400,8 @@
 		            }
 
 		            WC()->session->set( 'chosen_shipping_methods', $chosen_shipping_methods );
+
+		            array_push($coupons, array('free_shipping'=>true));
 		        }
 
 		        do_action( 'woocommerce_applied_coupon', $coupon_code );
