@@ -376,7 +376,7 @@ module.exports = () => {
 						terms : $scope.checkoutFields.terms
 					}
 					data = angular.extend({}, data, $scope.checkoutFields.customer);
-					console.log($$scope.checkoutFields.post_data);
+					console.log($scope.checkoutFields.post_data);
 					ecommerce
 						.post(vars.wc.checkout, data)
 						.then( (res)=> {
