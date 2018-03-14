@@ -887,19 +887,20 @@
 	    		$data['cart_empty'] = false;
 	    		$data['products'] = array();
 	    		foreach(WC()->cart->get_cart() as $cart_item_key => $cart_item) {
-	    			$_product = new WC_Product($cart_item['product_id']);
-	    			//$variations = $_product->get_available_variations();
-	    // 			$variation_details = null;
-					// if($cart_item['variation_id'] > 0) {
-					// 	// foreach($variations as $variation) {
-					// 	// 	if($variation['variation_id'] == $cart_item['variation_id']) {
-					// 	// 		$variation_details = $variation;
-					// 	// 	}
-					// 	// }
-	    // 				$cart_item['variation_details'] = $variation_details;
-	    // 			}
-	    			//var_dump($_product);
-	    			array_push($data['products'], $_product);
+	    			if($cart_item['variation_id']) {
+		    			$_product = new WC_Product_Variable($cart_item['product_id']);
+		    			$variations = $_product->get_available_variations();
+		    			$variation_details = null;
+						if($cart_item['variation_id'] > 0) {
+							foreach($variations as $variation) {
+								if($variation['variation_id'] == $cart_item['variation_id']) {
+									$variation_details = $variation;
+								}
+							}
+		    				$cart_item['variation_details'] = $variation_details;
+		    			}
+	    			}
+	    			array_push($data['products'], $cart_item);
 	    		}
 	    	else :
 	    		$data['cart_empty'] = true;
