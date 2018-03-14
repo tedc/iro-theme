@@ -291,7 +291,7 @@
 			}
 			&row {
 				@extend %order_row;
-				padding-bottom: em($p);
+				padding-bottom: em($p/2);
 				.wc-item-meta {
 					@extend %order_desc;
 				}
