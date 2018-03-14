@@ -193,7 +193,7 @@
 				// // Send email notification.
 				// WC()->mailer(); // Load email classes.
 				// do_action( 'woocommerce_reset_password_notification', $user_login, $key );
-				$data = array('url' => esc_url(add_query_arg( 'reset-link-sent', 'true', wc_get_account_endpoint_url( 'lost-password' ) )), 'success' => true );
+				// $data = array('url' => esc_url(add_query_arg( 'reset-link-sent', 'true', wc_get_account_endpoint_url( 'lost-password' ) )), 'success' => true );
 				wp_send_json( $data );
 			} else {
 				$data = array('error'=> __('Assicurati di aver compilato tutti i campi correttamente', 'iro'));
