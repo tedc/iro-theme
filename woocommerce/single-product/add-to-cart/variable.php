@@ -23,7 +23,7 @@ global $product;
 
 $attribute_keys = array_keys( $attributes );
 
-$available_variations['title'] = $product->get_title();
+array_push($available_variations, array('title' => $product->get_title()));
 
 do_action( 'woocommerce_before_add_to_cart_form' );
 
