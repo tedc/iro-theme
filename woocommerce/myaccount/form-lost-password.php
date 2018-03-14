@@ -36,7 +36,7 @@ wc_print_notices(); ?>
 
 	<p class="resetpassword__row resetpassword__row--aligncenter">
 		<input type="hidden" name="wc_reset_password" ng-init="passwordFields.wc_reset_password=true" value="true" />
-		<button type="submit" ng-class="{'resetpassword__button--loading' : passwordRecovering}" class="resetpassword__button" value="<?php esc_attr_e( 'Reset password', 'woocommerce' ); ?>"><?php esc_html_e( 'Reset password', 'woocommerce' ); ?></button>
+		<button ng-class="{'resetpassword__button--loading' : passwordRecovering}" class="resetpassword__button"><?php esc_html_e( 'Reset password', 'woocommerce' ); ?></button>
 	</p>
 
 	<input type="hidden" ng-init="passwordFields._wpnonce='<?php echo wp_create_nonce( 'lost_password' ); ?>'" />
