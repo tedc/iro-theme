@@ -350,14 +350,14 @@
 		        }
 
 		        // Check if applied.
-		        if ( $this->has_discount( $coupon_code ) ) {
+		        if ( WC()->cart->has_discount( $coupon_code ) ) {
 		            $coupons['error'] = WC_Coupon::E_WC_COUPON_ALREADY_APPLIED;
 		            wp_send_json( $coupons );
 		        }
 
 		        // If its individual use then remove other coupons.
 		        if ( $the_coupon->get_individual_use() ) {
-		            $coupons_to_keep = apply_filters( 'woocommerce_apply_individual_use_coupon', array(), $the_coupon, $this->applied_coupons );
+		            $coupons_to_keep = apply_filters( 'woocommerce_apply_individual_use_coupon', array(), $the_coupon, WC()->cart->applied_coupons );
 
 		            foreach ( WC()->cart->applied_coupons as $applied_coupon ) {
 		                $keep_key = array_search( $applied_coupon, $coupons_to_keep, true );
