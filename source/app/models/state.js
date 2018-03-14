@@ -54,18 +54,18 @@ module.exports = function ($stateProvider, $locationProvider, $provide, cfpLoadi
 			controller : ['$rootScope', '$scope', 'data', require('./html')]
 		})
 		.state('app.account', {
-			url : `/${vars.wc.accountBase}/:path`,
+			url : `/${vars.wc.accountBase}/:path?show-reset-form`,
 			template : tpl,
 			params: {
 				path: {
-					type : 'any',
+					type : 'string',
 					raw: true
 				}
 			},
 			resolve : {
 				data : ['getData', '$stateParams', function(getData, $stateParams) {
 					let url = `${vars.wc.accountBase}/${$stateParams.path}`
-					console.log(url);
+					console.log($stateParams);
 					return getData(url);
 				}]
 			},

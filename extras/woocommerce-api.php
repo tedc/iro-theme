@@ -192,7 +192,6 @@
 				// Send email notification.
 				WC()->mailer(); // Load email classes.
 				do_action( 'woocommerce_reset_password_notification', $user_login, $key );
-				// If successful, redirect to my account with query arg set.
 				$data = array('url' => add_query_arg( 'reset-link-sent', 'true', wc_get_account_endpoint_url( 'lost-password' ) ), 'success' => true );
 				wp_send_json( $data );
 			} else {
