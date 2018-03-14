@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-wc_print_notices(); ?>
+//wc_print_notices(); ?>
 
 <form class="resetpassword resetpassword--grow-md-bottom resetpassword--shrink resetpassword--mw-large" name="formPassword" novalidate>
 

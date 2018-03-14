@@ -178,5 +178,15 @@
 			font-weight: bold;
 			color: $brand-main;
 		}
+		&message {
+			padding-top: em($p, 12px);
+			font-size: 12px;
+			text-align: center;
+			line-height: 1.25;
+			color: $dark-gray;
+			&--error {
+				color: $error;
+			}
+		}
 	}
 }
