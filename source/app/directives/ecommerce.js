@@ -291,6 +291,13 @@ module.exports = () => {
 								ngCart.couponError = res.data.error;
 								return;
 							}
+							console.log(res.data);
+							// var extras = ngCart.getExtras();
+							// extras.shippings = res.data;
+							// ngCart.setExtras(extras);
+							// ngCart.setShipping(res.data.total);
+							// $rootScope.$broadcast('ngCart:change');
+							// $scope.shippings = ngCart.getExtras().shippings.packages;
 							var discount = 0;
 							var extras = ngCart.getExtras();
 							for(coupon of res.data) {

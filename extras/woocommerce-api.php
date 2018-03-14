@@ -402,8 +402,6 @@
 		            WC()->session->set( 'chosen_shipping_methods', $chosen_shipping_methods );
 		        }
 
-		        $the_coupon->add_coupon_message( WC_Coupon::WC_COUPON_SUCCESS );
-
 		        do_action( 'woocommerce_applied_coupon', $coupon_code );
 
 		        foreach(WC()->cart->get_applied_coupons() as $code ) {

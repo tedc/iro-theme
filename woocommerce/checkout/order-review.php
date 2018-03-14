@@ -24,7 +24,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="order-review__row order-review__row--meta" ng-if="ngCart.getExtras().coupons">
+	<div class="order-review__row order-review__row--meta" ng-if="ngCart.getExtras().coupons.length > 0">
 		<strong><?php _e('Codici sconto', 'iro'); ?></strong>
 		<div class="order-review__coupon" ng-repeat="coupon in ngCart.getExtras().coupons track by $index">
 			<strong class="order-review__name">{{coupon.label}}</strong>
