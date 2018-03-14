@@ -491,7 +491,7 @@ module.exports = () => {
 					// 		console.log(result);
 					// 		$scope.passwordRecovering = false;
 					// 	});
-					ecommerce.get(url).then( (res)=> {
+					ecommerce.post(url, data).then( (res)=> {
 							var result = res.data;
 							console.log(result);
 							$scope.passwordRecovering = false;
