@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 wc_print_notices(); ?>
 
-<form class="resetpassword resetpassword--grow-md-bottom resetpassword--shrink resetpassword--mw-large" name="formPassword"  ng-submit="lostPassword(formPassword)" novalidate>
+<form class="resetpassword resetpassword--grow-md-bottom resetpassword--shrink resetpassword--mw-large" name="formPassword" novalidate>
 
 	<p><?php echo apply_filters( 'woocommerce_lost_password_message', esc_html__( 'Lost your password? Please enter your username or email address. You will receive a link to create a new password via email.', 'woocommerce' ) ); ?></p><?php // @codingStandardsIgnoreLine ?>
 
@@ -36,7 +36,7 @@ wc_print_notices(); ?>
 
 	<p class="resetpassword__row resetpassword__row--aligncenter">
 		<input type="hidden" name="wc_reset_password" ng-init="passwordFields.wc_reset_password=true" value="true" />
-		<button ng-class="{'resetpassword__button--loading' : passwordRecovering}" class="resetpassword__button"><?php esc_html_e( 'Reset password', 'woocommerce' ); ?></button>
+		<button ng-click="lostPassword(formPassword)" ng-disabled="formPassword.$invalid" ng-class="{'resetpassword__button--loading' : passwordRecovering}" class="resetpassword__button"><?php esc_html_e( 'Reset password', 'woocommerce' ); ?></button>
 	</p>
 
 	<input type="hidden" ng-init="passwordFields._wpnonce='<?php echo wp_create_nonce( 'lost_password' ); ?>'" />

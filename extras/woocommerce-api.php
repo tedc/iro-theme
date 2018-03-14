@@ -97,6 +97,7 @@
 	            'iro_save_address' => true,
 	            'iro_get_cart' => true,
 	            'iro_remove_cart_item' => true,
+	            'iro_process_lost_password' => true,
 	            'iro_process_reset_password' => true
 	        );
 	        foreach ( $ajax_events as $ajax_event => $nopriv ) {
