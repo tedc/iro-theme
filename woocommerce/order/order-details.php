@@ -69,7 +69,7 @@ if ( $show_customer_details ) {
 				foreach ( $order->get_order_item_totals() as $key => $total ) {
 					?>
 					<div class="order-details__row">
-					<?php echo $total['label']; ?>
+						<span><?php echo $total['label']; ?></span>
 						<span class="order-details_price"><?php echo $total['value']; ?></span>
 					</div>
 					<?php
@@ -77,7 +77,7 @@ if ( $show_customer_details ) {
 			?>
 			<?php if ( $order->get_customer_note() ) : ?>
 				<tr>
-					<th><?php _e( 'Note:', 'woocommerce' ); ?></th>
+					<th><?php _e( 'Note', 'iro' ); ?></th>
 					<td><?php echo wptexturize( $order->get_customer_note() ); ?></td>
 				</tr>
 			<?php endif; ?>
