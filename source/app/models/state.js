@@ -71,7 +71,7 @@ module.exports = function ($stateProvider, $locationProvider, $provide, cfpLoadi
 			controller : ['$rootScope', '$scope', 'data', require('./html')]
 		})
 		.state('app.order', {
-			url : `/${vars.wc.orderBase}/:order`,
+			url : `/${vars.wc.orderBase}/:order?key`,
 			template : tpl,
 			params: {
 				order: {
@@ -84,8 +84,7 @@ module.exports = function ($stateProvider, $locationProvider, $provide, cfpLoadi
 			resolve : {
 				data : ['getData', '$stateParams', 'ngCart', function(getData, $stateParams, ngCart) {
 					ngCart.empty();
-					let url = `${vars.wc.orderBase}/${$stateParams.order}`;
-					console.log(url);
+					let url = `${vars.wc.orderBase}/${$stateParams.order}?key=$stateParams.key`
 					return getData(url);
 				}]
 			},
