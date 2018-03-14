@@ -478,7 +478,8 @@ module.exports = () => {
 				}
 				$scope.passwordFields = {}
 				$scope.lostPassword = (form)=> {
-					if(!form.$valid) return;
+					console.log(form);
+					if(form.$invalid) return;
 					$scope.passwordRecovering = true;
 					let url = vars.wc.password;
 					let data = $scope.passwordFields;
