@@ -1,7 +1,6 @@
 %order_row {
 	display: flex;
 	justify-content: space-between;
-	flex-wrap: wrap;
 }
 %order_desc {
 	width: $f;
@@ -11,6 +10,14 @@
 %order_span {
 	font-weight: 600;
 	color: $brand-main;
+	display: inline-block;
+	color: $brand-main;
+	width: $f/2;
+	small, span {
+		display: block;
+		font-weight: normal;
+		color: $dark-gray;
+	}
 }
 .order {
 	&-review {
@@ -303,18 +310,14 @@
 					@extend %order_desc;
 				}
 				strong {
-					width: $f/2;
-					display: inline-block;
-					color: $brand-main;
-					small, span {
-						display: block;
-						font-weight: normal;
-						color: $dark-gray;
-					}
+					
 				}
 			}
 			&price, &name {
 				@extend %order_span;
+			}
+			&price {
+				text-align: right;
 			}
 		}
 	}
