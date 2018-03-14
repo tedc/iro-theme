@@ -368,7 +368,7 @@ module.exports = () => {
 					//console.log($scope.checkoutFields);
 					$scope.isOrdering = true;
 					var data = {
-						//posted : {post_data : $scope.checkoutFields.post_data},			
+						posted : {post_data : $scope.checkoutFields.post_data},			
 						shipping_method : $scope.checkoutFields.shipping_method,
 						payment_method : $scope.checkoutFields.payment_method,
 						ship_to_different_address : $scope.checkShippingAddress ? 1 : 0,
@@ -376,7 +376,6 @@ module.exports = () => {
 						terms : $scope.checkoutFields.terms
 					}
 					data = angular.extend({}, data, $scope.checkoutFields.customer);
-					console.log($scope.checkoutFields.post_data);
 					ecommerce
 						.post(vars.wc.checkout, data)
 						.then( (res)=> {
