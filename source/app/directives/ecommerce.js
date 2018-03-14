@@ -291,7 +291,6 @@ module.exports = () => {
 								ngCart.couponError = res.data.error;
 								return;
 							}
-							console.log(res.data);
 							// var extras = ngCart.getExtras();
 							// extras.shippings = res.data;
 							// ngCart.setExtras(extras);
@@ -302,6 +301,9 @@ module.exports = () => {
 							var extras = ngCart.getExtras();
 							for(coupon of res.data) {
 								discount -= coupon.price;
+								if(coupon.free_shipping) {
+									$scope.updateShipping(false);
+								}
 							}
 							extras = angular.extend({}, extras, {discount : discount, coupons : res.data});
 							ngCart.setExtras(extras);

@@ -339,7 +339,7 @@
 		        // Prevent adding coupons by post ID.
 		        if ( $the_coupon->get_code() !== $coupon_code ) {
 		            $the_coupon->set_code( $coupon_code );
-		            $coupons['error'] = WC_Coupon::E_WC_COUPON_NOT_EXIST;
+		            $coupons['error'] = __('Codice sconto inesistente', 'iro');
 		            wp_send_json( $coupons );
 		        }
 
@@ -351,7 +351,7 @@
 
 		        // Check if applied.
 		        if ( WC()->cart->has_discount( $coupon_code ) ) {
-		            $coupons['error'] = WC_Coupon::E_WC_COUPON_ALREADY_APPLIED;
+		            $coupons['error'] = __('Sconto già applicato', 'iro');
 		            wp_send_json( $coupons );
 		        }
 
@@ -381,7 +381,7 @@
 		                if ( $coupon->get_individual_use() && false === apply_filters( 'woocommerce_apply_with_individual_use_coupon', false, $the_coupon, $coupon, WC()->cart->applied_coupons ) ) {
 
 		                    // Reject new coupon.
-		                    $coupons['error'] = WC_Coupon::E_WC_COUPON_ALREADY_APPLIED_INDIV_USE_ONLY;
+		                    $coupons['error'] = __('Sconto utilizzabile una volta sola', 'iro');
 
 		                    wp_send_json( $coupons );
 		                }
@@ -484,6 +484,7 @@
 		    	$discount['label'] = __( 'Free shipping coupon', 'woocommerce' );
 		       	$discount['code'] =  $coupon->get_code();
 		       	$discount['price'] = $amount;
+		       	$discount['free_shipping'] = true;
 		    }
 		    $discount['remove'] = esc_url( add_query_arg( 'remove_coupon', urlencode( $coupon->get_code() ), defined( 'WOOCOMMERCE_CHECKOUT' ) ? wc_get_checkout_url() : wc_get_cart_url() ) );
 
