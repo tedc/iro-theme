@@ -5,48 +5,48 @@ module.exports = () => {
 			$rootScope.isCartChanged = false;
 			$rootScope.initEcommerce = ()=>{
 				// EMPTY ON LOAD
-				if(ngCart.isEmpty()){ 
-					ecommerce.empty();
-				} else {
-					let url = vars.wc.cart;
-					ecommerce
-						.get(url)
-						.then((res)=> {
-							let data = res.data;
-							if(data.cart_empty == true) {
-								ngCart.empty();
-							} else {
-								for(let i = 0; i < data.products.length; i++) {
-									let pId = (data.products[i].variation_id > 0) ? data.products[i].variation_id : data.products[i].product_id;
-									pId = pId.toString();
-									let item = ngCart.getItemById(pId);
-									if(!ngCart.getItemById(pId)) {
-										ngCart.removeItem(i);
-									} else {
-										let quantity = data.products[i].quantity;
-										let price = data.products[i].line_subtotal / data.products[i].quantity;
-										let item_data = item.getData();
-										if(item_data.attributes != data.products[i].variation_details.attributes) {
-											item_data.attributes = data.products[i].variation_details.attributes;
-										}
-										if(item_data.dimensions_html != data.products[i].variation_details.dimensions_html) {
-											item_data.dimensions_html = data.products[i].variation_details.dimensions_html;
-										}
-										item.setData(item_data);
-										if(price != item.getPrice()){
-											item.setPrice(price);
-										}
-										console.log(quantity, item.getQuantity());
-										if(quantity != item.getQuantity()) {
-											item.setQuantity(quantity);
-										}
-										$rootScope.isCartChanged = true;
-										$rootScope.$broadcast('ngCart:change');
-									}
-								}
-							}
-						})
-				}
+				// if(ngCart.isEmpty()){ 
+				// 	ecommerce.empty();
+				// } else {
+				// 	let url = vars.wc.cart;
+				// 	ecommerce
+				// 		.get(url)
+				// 		.then((res)=> {
+				// 			let data = res.data;
+				// 			if(data.cart_empty == true) {
+				// 				ngCart.empty();
+				// 			} else {
+				// 				for(let i = 0; i < data.products.length; i++) {
+				// 					let pId = (data.products[i].variation_id > 0) ? data.products[i].variation_id : data.products[i].product_id;
+				// 					pId = pId.toString();
+				// 					let item = ngCart.getItemById(pId);
+				// 					if(!ngCart.getItemById(pId)) {
+				// 						ngCart.removeItem(i);
+				// 					} else {
+				// 						let quantity = data.products[i].quantity;
+				// 						let price = data.products[i].line_subtotal / data.products[i].quantity;
+				// 						let item_data = item.getData();
+				// 						if(item_data.attributes != data.products[i].variation_details.attributes) {
+				// 							item_data.attributes = data.products[i].variation_details.attributes;
+				// 						}
+				// 						if(item_data.dimensions_html != data.products[i].variation_details.dimensions_html) {
+				// 							item_data.dimensions_html = data.products[i].variation_details.dimensions_html;
+				// 						}
+				// 						item.setData(item_data);
+				// 						if(price != item.getPrice()){
+				// 							item.setPrice(price);
+				// 						}
+				// 						console.log(quantity, item.getQuantity());
+				// 						if(quantity != item.getQuantity()) {
+				// 							item.setQuantity(quantity);
+				// 						}
+				// 						$rootScope.isCartChanged = true;
+				// 						$rootScope.$broadcast('ngCart:change');
+				// 					}
+				// 				}
+				// 			}
+				// 		})
+				// }
 				
 				// ADD AND UPDATE
 				$scope.singleProductVariation = {}

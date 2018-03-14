@@ -169,9 +169,10 @@
 }
 
 .resetpassword {
+	@include grow('md', 'bottom');
 	&__{
 		&row {
-			padding-top: em($p/2);
+			padding-top: em($p);
 		}
 		&label {
 			font-weight: bold;
