@@ -40,7 +40,7 @@ module.exports = (getInstances)=> {
 				angular.forEach( layers, function(item, index) {
 					let layers = item.getAttribute('data-layer-to').replace(/\s/g, '').split(',');
 					let clicked = false;
-					angular.element(item).on('mouseenter', ()=> {
+					angular.element(item).on('click', ()=> {
 						//if(!element.hasClass('layers--inview')) return;
 						clicked = !clicked;
 						if(clicked) {

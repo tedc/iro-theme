@@ -11,7 +11,7 @@
 			<?php the_sub_field('layers_title'); ?>
 		</h2>
 		<?php endif; if(get_sub_field('layers_text')) :  ?>
-		<div class="layers__content<?php echo (get_sub_field('layers_title')) ? ' layers__content--grow-top' : ''; ?>">
+		<div class="layers__content slide-toggle<?php echo (get_sub_field('layers_title')) ? ' layers__content--grow-top' : ''; ?>">
 			<?php the_sub_field('layers_text'); ?>
 		</div>
 		<?php endif; ?>

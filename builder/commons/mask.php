@@ -11,7 +11,7 @@
 	<svg class="mask__svg" viewBox="0 0 <?php echo $w; ?> <?php echo $h; ?>" id="mask_svg_<?php echo $id; ?>">
 		<defs>
 			<clippath id="mask_<?php echo $id; ?>" mask="clip_<?php echo $id; ?>">
-				<circle r="<?php echo $r; ?>" cy="<?php echo $h/2; ?>" cx="<?php echo $w/2; ?>" class="mask__circle" id="circle_<?php echo $id; ?>" />
+				<circle r="<?php echo $r + 50; ?>" cy="<?php echo $h/2; ?>" cx="<?php echo $w/2; ?>" class="mask__circle" id="circle_<?php echo $id; ?>" />
 			</clippath>
 		</defs>
 		<g clip-path="url(#mask_<?php echo $id; ?>)">
