@@ -42,10 +42,10 @@
 				</div>
 				<div class="cart-aside__variation swiper-slide cart-aside__variation--grow">
 					<?php 
-			$info_message = apply_filters( 'woocommerce_checkout_coupon_message', ' <a href="#" class="cart-aside__showcoupon cart-aside__showcoupon--shrink" ng-if="ngCart.getExtras().coupons.length < 1">' . __( 'Hai un codice sconto?', 'iro' ) . '</a>' );
+			$info_message = apply_filters( 'woocommerce_checkout_coupon_message', ' <a href="#" class="cart-aside__showcoupon cart-aside__showcoupon--shrink" ng-if="!ngCart.getExtras().coupons">' . __( 'Hai un codice sconto?', 'iro' ) . '</a>' );
 			wc_print_notice( $info_message, 'notice' );
 		?>
-					<div class="cart-aside__coupon cart-aside__coupon--shrink cart-aside__coupon--grid-nowrap slide-toggle" ng-class="{'slide-toggle--visible':isCoupon}" ng-if="ngCart.getExtras().coupons.length < 1">
+					<div class="cart-aside__coupon cart-aside__coupon--shrink cart-aside__coupon--grid-nowrap slide-toggle" ng-class="{'slide-toggle--visible':isCoupon}" ng-if="!ngCart.getExtras().coupons">
 						<input type="text" name="coupon_code" class="cart-aside__input" ng-model="coupon_code" placeholder="<?php esc_attr_e( 'Inserire codice sconto', 'iro' ); ?>" id="coupon_code" value="" />
 						<input type="hidden" ng-model="coupon_nonce" ng-init="coupon_nonce='<?php echo wp_create_nonce( 'apply-coupon' ); ?>'" />
 						<span class="cart-aside__button cart-aside__button--dark cart-aside__button--radius-right" ng-class="{'cart-aside__button--loading':ngCart.isDescountLoading}" ng-click="ngCart.applyCoupon(coupon_code, coupon_nonce)"><?php _e( 'Applica', 'iro' ); ?></span>

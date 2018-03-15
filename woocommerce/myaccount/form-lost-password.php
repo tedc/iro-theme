@@ -42,5 +42,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<input type="hidden" ng-init="passwordFields._wpnonce='<?php echo wp_create_nonce( 'lost_password' ); ?>'" />
 
 	<div class="resetpassword__message" ng-if="passwordMessage" ng-bind-html="passwordMessage" ng-class="{'resetpassword__message--error' :isPasswordError}"></div>
-	{{passwordUrl}}
+	<div ng-bind-html="passwordUrl"></div>
 </form>

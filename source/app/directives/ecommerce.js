@@ -323,6 +323,7 @@ module.exports = () => {
 							var discount = 0;
 							var extras = ngCart.getExtras();
 							extras = angular.extend({}, extras, {discount : discount, coupons : res.data});
+							console.log(extras, result)
 							for(coupon of res.data) {
 								discount -= coupon.price;
 							}
@@ -589,6 +590,7 @@ module.exports = () => {
 									$scope.passwordMessage = vars.wc.passwordMessage;
 									$scope.passwordUrl = result.url;
 									$scope.isPasswordError = false;
+									console.log(result.url);
 								}
 							}
 							$scope.passwordRecovering = false;
