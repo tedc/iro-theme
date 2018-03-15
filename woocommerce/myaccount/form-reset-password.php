@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</p>
 	<p class="resetpassword__row">
 		<label for="password_2" class="resetpassword__label"><?php esc_html_e( 'Re-enter new password', 'woocommerce' ); ?> <span class="resetpassword__required">*</span></label>
-		<input type="password" ng-model="passwordFields.password_2" ng-attr-placeholder="{{(formPassword.password_2.$error.required && formPassword.passowrd_2.$touched) ? '<?php _e('Campo obbligatorio', 'iro'); ?>' : '<?php esc_html_e( 'Re-enter new password', 'woocommerce' ); ?>'}}" class="resetpassword__input" required name="password_2" id="password_2" />
+		<input type="password" ng-model="passwordFields.password_2" ng-attr-placeholder="{{(formPassword.password_2.$error.required && formPassword.passowrd_2.$touched) ? '<?php _e('Campo obbligatorio', 'iro'); ?>' : '<?php esc_html_e( 'Re-enter new password', 'woocommerce' ); ?>'}}" class="resetpassword__input" required name="password_2" id="password_2" ng-change="resetPwdMatch(passwordFields)" />
 	</p>
 
 	<input type="hidden" ng-model="passwordFields.reset_key" ng-init="passwordFields.reset_key='<?php echo esc_attr( $args['key'] ); ?>'" name="reset_key" value="<?php echo esc_attr( $args['key'] ); ?>" />

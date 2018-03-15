@@ -539,6 +539,9 @@ module.exports = () => {
 						});
 				}
 				$scope.passwordFields = {}
+				$scope.resetPwdMatch = (form, user)=> {
+					form.password_2.$setValidity('pwdmatch', user.password_2 == user.password_1);
+				}
 				$scope.lostPassword = (form, reset)=> {
 					if(form.$invalid) return;
 					$scope.passwordRecovering = true;
