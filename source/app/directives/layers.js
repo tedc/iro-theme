@@ -50,10 +50,11 @@ module.exports = (getInstances, $animate)=> {
 						}
 						clicked[index] = !clicked[index];
 						if(clicked[index]) {
+							$animate.removeClass(angular.element(element.querySelector('.layers__text.slide-toggle--visible')), 'slide-toggle--visible');		
 							$animate.addClass(angular.element(item.querySelector('.layers__text')), 'slide-toggle--visible');
 							TweenMax.set(element[0].querySelectorAll('[data-layer]'), {className : '+=animate'});
 							TweenMax.to([element[0].querySelectorAll('[data-layer]'),element[0].querySelectorAll('[data-layer-to]')], .5, {
-								opacity: .35
+								opacity: .15
 							});
 							if(layers == 'cover') {
 								angular.element(element[0].querySelectorAll('.layer-active')).removeClass('layer-active');

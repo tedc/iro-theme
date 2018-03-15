@@ -17,7 +17,7 @@
 			@include grow('small', 'top');
 		}
 		&text {
-			@include breakpoint($min: true) {
+			@include breakpoint($min: false) {
 				display: block!important;
 			}
 		}
