@@ -22,13 +22,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 //wc_print_notices(); ?>
 
-<form class="resetpassword resetpassword--grow-md-bottom resetpassword--shrink resetpassword--mw-large" name="formPassword" novalidate>
+<form class="resetpassword resetpassword--grow-md-bottom resetpassword--shrink resetpassword--mw-large" name="formPassword" novalidate ng-submit="lostPassword(formPassword)">
 
 	<p><?php echo apply_filters( 'woocommerce_lost_password_message', esc_html__( 'Lost your password? Please enter your username or email address. You will receive a link to create a new password via email.', 'woocommerce' ) ); ?></p><?php // @codingStandardsIgnoreLine ?>
 
 	<p class="resetpassword__row">
 		<label for="user_login" class="resetpassword__label"><?php esc_html_e( 'Username or email', 'woocommerce' ); ?></label>
-		<input class="resetpassword__input" required type="text" name="user_login" ng-model="passwordFields.user_login" id="user_login" />
+		<input class="resetpassword__input" ng-attr-placeholder="{{(formPassword.user_login.$error.required && formPassword.user_login.$touched) ? '<?php _e('Campo obbligatorio', 'iro'); ?>' : '<?php esc_html_e( 'Username or email', 'woocommerce' ); ?>'}}" required type="text" name="user_login" ng-model="passwordFields.user_login" id="user_login" />
 	</p>
 
 	
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<p class="resetpassword__row resetpassword__row--aligncenter">
 		<input type="hidden" name="wc_reset_password" ng-init="passwordFields.wc_reset_password=true" value="true" />
-		<button ng-click="lostPassword(formPassword)" ng-disabled="formPassword.$invalid" ng-class="{'resetpassword__button--loading' : passwordRecovering}" class="resetpassword__button"><?php esc_html_e( 'Reset password', 'woocommerce' ); ?></button>
+		<button ng-disabled="formPassword.$invalid" ng-class="{'resetpassword__button--loading' : passwordRecovering}" class="resetpassword__button"><?php esc_html_e( 'Reset password', 'woocommerce' ); ?></button>
 	</p>
 
 	<input type="hidden" ng-init="passwordFields._wpnonce='<?php echo wp_create_nonce( 'lost_password' ); ?>'" />

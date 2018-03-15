@@ -30,7 +30,7 @@ if ( ! wc_coupons_enabled() ) {
 
 ?>
 
-<div class="checkout__coupon checkout__coupon--grid-nowrap slide-toggle" ng-class="{'slide-toggle--visible':isCoupon}">
+<div class="checkout__coupon checkout__coupon--grid-nowrap slide-toggle" ng-class="{'slide-toggle--visible':isCoupon}" ng-if="ngCart.getExtras().coupons.length > 0">
 	<input type="hidden" ng-model="coupon_nonce" ng-init="heckoutFields.coupon_nonce='<?php echo wp_create_nonce( 'apply-coupon' ); ?>'" />
 	<span class="checkout__button checkout__button--dark checkout__button--radius-right" ng-class="{'checkout__button--loading':ngCart.isDescountLoading}" ng-click="ngCart.applyCoupon(heckoutFields.coupon_code,heckoutFields. coupon_nonce)"><?php _e( 'Applica', 'iro' ); ?></span>
 </div>

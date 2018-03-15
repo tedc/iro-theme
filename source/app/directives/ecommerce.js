@@ -398,6 +398,32 @@ module.exports = () => {
 						terms : $scope.checkoutFields.terms
 					}
 					data = angular.extend({}, data, $scope.checkoutFields.customer);
+					let coupon = '';
+					angular.forEach( ngCart.getExtras().coupons, (element, index)=> {
+						coupon = element.code;
+					});
+					let products = [];
+					angular.forEach(ngCart.getCart().item, (item, i)=> {
+						obj = {
+							'name' : item.getName(),
+							'id' : item.getExtras().sku ? item.getExtras().sku : item.getId(),
+							'price' : item.getPrice(),
+							'brand' : 'Iro',
+							'variant': item.getData().attributes.attribute_pa_color + ' ' +item.getData().attributes.attribute_pa_misure,
+						    'quantity': item.getQuantity()
+						}
+						products.push(obj);
+					});
+					let purchase = {
+						action : {
+							'affiliation' : 'Online Store',
+							'revenue' : ngCart.totalCost() + ngCart.getExtras().discount,
+							'shipping' : ngCart.getShipping(),
+							'tax' : ngCart.getTax(),
+							'coupon' : coupon
+						},
+						products : products
+					};
 					ecommerce
 						.post(vars.wc.checkout, data)
 						.then( (res)=> {
@@ -412,6 +438,11 @@ module.exports = () => {
 									state = state.split('?key=');
 									var order = state[0];
 									var key = state[1];
+									// dataLayer.push({
+									//   'ecommerce': {
+									//     'purchase': 
+									//   }
+									// });
 									$state.go('app.order', {order : order, key : key});
 								}
 							} else if( 'failure' === result.result ){
@@ -454,6 +485,35 @@ module.exports = () => {
 					}
 					var getCurrentIndex = ()=> {
 						$scope.checkoutObj.current = swiper.realIndex;
+						if($scope.checkoutObj.current - 1 >= 1 && $scope.checkoutObj.current - 1 <= 2) {
+							let option;
+							if($scope.checkoutObj.current - 1 == 1) {
+								option = `Spese di spedizione: ${$scope.checkoutFields.shipping_method}`
+							} else if($scope.checkoutObj.current - 1 == 2) {
+								option = `Metodo di pagamento: ${$scope.checkoutFields.payment_method}`
+							}
+							let products = [];
+							angular.forEach(ngCart.getCart().item, (item, i)=> {
+								obj = {
+									'name' : item.getName(),
+									'id' : item.getExtras().sku ? item.getExtras().sku : item.getId(),
+									'price' : item.getPrice(),
+									'brand' : 'Iro',
+									'variant': item.getData().attributes.attribute_pa_color + ' ' +item.getData().attributes.attribute_pa_misure,
+								    'quantity': item.getQuantity()
+								}
+								products.push(obj);
+							});
+							dataLayer.push({
+							    'event': 'checkout',
+							    'ecommerce': {
+							      'checkout': {
+							        'actionField': {'step': $scope.checkoutObj.current - 1, 'option': option},
+							        'products': products
+							     }
+							   }
+							});
+						}
 					}
 					swiper.on('slideChange', getCurrentIndex);
 					swiper.on('init', getCurrentIndex);
@@ -497,7 +557,7 @@ module.exports = () => {
 								$scope.isPasswordError = true;
 							} else {
 								$scope.passwordMessage = vars.wc.passwordMessage;
-								$scope.isPasswordError = true;
+								$scope.isPasswordError = false;
 							}
 							$scope.passwordRecovering = false;
 						});
