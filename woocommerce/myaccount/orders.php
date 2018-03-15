@@ -109,11 +109,17 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 	<?php endif; ?>
 
 <?php else : ?>
-	<div class="woocommerce-message woocommerce-message--info woocommerce-Message woocommerce-Message--info woocommerce-info">
-		<a class="woocommerce-Button button" href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>">
-			<?php _e( 'Go shop', 'woocommerce' ) ?>
+	<div class="woocommerce-message woocommerce-message--aligncenter woocommerce-message--info woocommerce-Message woocommerce-Message--info woocommerce-info">
+		<p><?php _e( 'No order has been made yet.', 'woocommerce' );
+			acf_set_language_to_default();
+			$main_product = get_field('main_product', 'options');
+			acf_unset_language_to_default();
+			$materasso = get_posts(array('post_type' => 'product', 'tax_query'=> array(array('taxonomy'=> 'prodotto_associato', 'field'=> 'term_id', 'terms' => array($main_product)))));
+			$url = get_permalink($materasso[0]->ID);
+		 ?></p>
+		<a class="woocommerce-message__button"  href="<?php echo $url; ?>" ui-sref="app.page({slug : '<?php echo basename($url); ?>'}">
+			<?php _e( 'Acquista Iro', 'iro' ) ?>
 		</a>
-		<?php _e( 'No order has been made yet.', 'woocommerce' ); ?>
 	</div>
 <?php endif; ?>
 

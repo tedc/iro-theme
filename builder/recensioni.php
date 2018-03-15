@@ -1,4 +1,5 @@
-<?php acf_set_language_to_default();
+<?php 
+	acf_set_language_to_default();
 	$main_product = get_field('main_product', 'options');
 	acf_unset_language_to_default();
 	$paper_review = get_sub_field('review');
