@@ -104,13 +104,14 @@ iro
 			get : (url) => {
 				var deferred = $q.defer();
 				$http
-					.get(url)
+					.get(url, { ignoreLoadingBar: true })
 					.then((res) => {deferred.resolve(res)})
 				return deferred.promise;
 			},
 			post : (url, data) => {
 				var deferred = $q.defer();
 				let config = {
+					ignoreLoadingBar: true,
 					headers: {
 	      				'Content-Type': 'application/x-www-form-urlencoded'
 	    			}

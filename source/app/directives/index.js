@@ -224,7 +224,7 @@ iro
 				    }
 				}
 				$http
-	            	.get(url)
+	            	.get(url, { ignoreLoadingBar: true })
 	            	.then( (res)=> {
 	            		let data = res.data.data;
 		            	if(data.length < 1) return;
@@ -257,7 +257,7 @@ iro
         			});
 				} );
         		$http
-	            	.get(url)
+	            	.get(url, { ignoreLoadingBar: true })
 	            	.then( (res)=> {
 	            		let data = res.data;
 		            	if(data.length < 1) return;
