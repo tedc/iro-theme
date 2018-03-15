@@ -65,13 +65,13 @@
 			?>
 			<div class="layers__pointer layers__pointer--<?php echo ($l%2==0) ? 'odd':'even'; ?>">
 				<div class="layers__content" data-layer-to="<?php the_sub_field('pointer_layer'); ?>">
-					<?php if($l%2==0) : ?>
+					<?php if($l%2!=0) : ?>
 					<div class="layers__text">
 					<?php endif; ?>
 					<?php if(get_sub_field('pointer_icon')){ echo print_svg(get_sub_field('pointer_icon'));} ?>
 				
 					<h3 class="layers__title"><?php the_sub_field('pointer_title'); ?></h3>
-					<?php if($l%2!=0) : ?>
+					<?php if($l%2==0) : ?>
 						<div class="layers__text">
 						<?php endif; ?>
 						<?php the_sub_field('pointer_text'); ?>
