@@ -437,7 +437,7 @@ module.exports = () => {
 									var state = redirect.replace(vars.main.base + '/'+vars.wc.orderBase+'/', '');
 									state = state.split('?key=');
 									var order = state[0];
-									order.replace('/', '');
+									order.replace(/\//g, '');
 									console.log(order);
 									var key = state[1];
 									purchase.action['id'] = order;

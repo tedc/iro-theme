@@ -85,7 +85,7 @@ module.exports = function ($stateProvider, $locationProvider, $provide, cfpLoadi
 			resolve : {
 				data : ['getData', '$stateParams', 'ngCart', function(getData, $stateParams, ngCart) {
 					ngCart.empty();
-					let url = `${vars.wc.orderBase}/${$stateParams.order}?key=$stateParams.key`
+					let url = `${vars.wc.orderBase}/${$stateParams.order}?key=${$stateParams.key}`
 					console.log(url);
 					return getData(url);
 				}]

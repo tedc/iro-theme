@@ -328,6 +328,10 @@
                 $required = ' ng-required="checkShippingAddress"';
             }
         }
+        if($args['required']) {
+            $field = str_replace('</label>', ' <span>*</span></label>', $field);
+        }
+                
         //$field = str_replace('placeholder', $placeholder.'placeholder', $field);
         $field = str_replace('<input', '<input'.$required, $field);
 
