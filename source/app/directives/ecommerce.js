@@ -393,7 +393,6 @@ module.exports = () => {
 							ngCart.setShipping(res.data.total);
 							$rootScope.$broadcast('ngCart:change');
 							$scope.shippings = ngCart.getExtras().shippings.packages;
-							console.log(extras.shippings);
 							if(fn) {
 								$timeout(fn);
 							}
@@ -584,11 +583,11 @@ module.exports = () => {
 								}
 							} else {
 								if(reset){
-									console.log(result);
-									$scope.resetPasswordMessage = vars.wc.resetPasswordMessage;
+									$scope.resetPasswordMessage = result.url;
 									$scope.isResetPasswordError = false;
 								} else {
 									$scope.passwordMessage = vars.wc.passwordMessage;
+									$scope.passwordUrl = result.url;
 									$scope.isPasswordError = false;
 								}
 							}
