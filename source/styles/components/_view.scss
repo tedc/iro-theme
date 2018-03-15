@@ -39,4 +39,17 @@
 	.view + .view {
 		display: none;
 	}
+	> {
+		.woocommerce-error[role="alert"] {
+			position: fixed;
+			width: $f;
+			top: em($p*4);
+			padding: em(10px, 12px);
+			font-size: 12px;
+			text-align: center;
+			background: lighten($erro, 70%);
+			color: $error;
+			z-index: 9999;
+		}
+	}
 }
