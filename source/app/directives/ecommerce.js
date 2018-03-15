@@ -393,6 +393,7 @@ module.exports = () => {
 							ngCart.setExtras(extras);
 							ngCart.setShipping(res.data.total);
 							$rootScope.$broadcast('ngCart:change');
+							console.log(extras.shippings, res.data);
 							$scope.shippings = ngCart.getExtras().shippings.packages;
 							if(fn) {
 								$timeout(fn);
