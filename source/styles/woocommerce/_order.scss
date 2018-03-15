@@ -95,6 +95,9 @@
 				.order-review__header {
 					display: block;
 				}
+				.swiper-wrapper {
+					transform: none!important;
+				}
 			}
 			.woocommerce-message, .checkout__coupon {
 				padding: {

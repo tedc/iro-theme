@@ -2,15 +2,25 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	height: 5px;
+	height: 2px;
 	width: $f;
 	background-color: $alternate-color;
 	z-index: 9999999;
+	&.ng-animate {
+		transition: $speed opacity!important;
+	}
+	&.ng-enter, &.ng-leave.ng-leave-active {
+		opacity: 0;
+	}
+	&.ng-leave, &.ng-enter.ng-enter-active {
+		opacity: 1;
+	}
 	.bar {
 		position: absolute;
 		left: 0;
 		top: 0;
 		height: $f;
 		background-color: $highlight-color;
+		transition: width $speed;
 	}
 }
