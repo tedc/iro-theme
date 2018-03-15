@@ -60,7 +60,7 @@ module.exports = () => {
 					$scope.product.price = $filter('currency')($scope.attributes.display_price, '€ ', 2*($scope.attributes.display_price % 1 !== 0));
 					$scope.product.product_id = $scope.attributes.variation_id;
 					$window.dataLayer.push({
-					  'event': 'addToCart',
+					  'event': 'actionField',
 					  'ecommerce': {
 					  	'actionField': {'list': 'Variation'},    // 'detail' actions have an optional list property.
 					    'detail': {                                // 'add' actionFieldObject measures.
@@ -539,13 +539,16 @@ module.exports = () => {
 						});
 				}
 				$scope.passwordFields = {}
-				$scope.lostPassword = (form)=> {
-					console.log(form);
+				$scope.lostPassword = (form, reset)=> {
 					if(form.$invalid) return;
 					$scope.passwordRecovering = true;
-					let url = vars.wc.password;
+					let url = (reset) ? vars.wc.reset : vars.wc.password;
 					let data = $scope.passwordFields;
-					if($scope.passwordMessage) delete $scope.passwordMessage;
+					if(reset) {
+						if($scope.resetPasswordMessage) delete $scope.resetPasswordMessage;
+					} else {
+						if($scope.passwordMessage) delete $scope.passwordMessage;
+					}
 					// ecommerce
 					// 	.post(url, data)
 					// 	.then( (res)=> {
@@ -556,11 +559,21 @@ module.exports = () => {
 					ecommerce.post(url, data).then( (res)=> {
 							var result = res.data;
 							if(result.error) {
-								$scope.passwordMessage = result.error;
-								$scope.isPasswordError = true;
+								if(reset) {
+									$scope.resetPasswordMessage = result.error;
+									$scope.isResetPasswordError = true;
+								} else {
+									$scope.passwordMessage = result.error;
+									$scope.isPasswordError = true;
+								}
 							} else {
-								$scope.passwordMessage = vars.wc.passwordMessage;
-								$scope.isPasswordError = false;
+								if(reset){
+									$scope.resetPasswordMessage = vars.wc.resetPasswordMessage;
+									$scope.isResetPasswordError = false;
+								} else {
+									$scope.passwordMessage = vars.wc.passwordMessage;
+									$scope.isPasswordError = false;
+								}
 							}
 							$scope.passwordRecovering = false;
 						});

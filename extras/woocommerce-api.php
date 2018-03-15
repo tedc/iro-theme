@@ -849,14 +849,16 @@
 	        wp_die();
 	    }
 	    public static function iro_reset_password() {
+			check_ajax_referer( 'reset_password', '_wpnonce' );
+			$empty_error = false;
 			$posted_fields = array( 'wc_reset_password', 'password_1', 'password_2', 'reset_key', 'reset_login', '_wpnonce' );
 			foreach ( $posted_fields as $field ) {
 				if ( ! isset( $_POST[ $field ] ) ) {
-					return;
+					$empty_error = true;	
 				}
 				$posted_fields[ $field ] = $_POST[ $field ];
 			}
-			if ( ! wp_verify_nonce( $posted_fields['_wpnonce'], 'reset_password' ) ) {
+			if($empty_error) {
 				$data = array('error'=>__('Assicurati di aver compilato tutti i campi', 'iro'));
 				wp_send_json( $data);
 			}

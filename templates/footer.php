@@ -51,4 +51,3 @@
         </div>
 	</div>
 </footer>
-<div ui-view="tab"></div>

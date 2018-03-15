@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 //wc_print_notices(); ?>
 
-<form class="resetpassword resetpassword--grow-md-bottom resetpassword--shrink resetpassword--mw-large" name="formPassword" novalidate ng-submit="lostPassword(formPassword)">
+<form class="resetpassword resetpassword--grow-md-bottom resetpassword--shrink resetpassword--mw-large" name="formPassword" novalidate ng-submit="lostPassword(formPassword, true)">
 
 	<p><?php echo apply_filters( 'woocommerce_reset_password_message', esc_html__( 'Enter a new password below.', 'woocommerce' ) ); ?></p><?php // @codingStandardsIgnoreLine ?>
 
