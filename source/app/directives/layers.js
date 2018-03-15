@@ -1,4 +1,4 @@
-module.exports = (getInstances)=> {
+module.exports = (getInstances, $animate)=> {
 	return {
 		scope : true,
 		link : (scope, element, attrs)=> {
@@ -50,12 +50,13 @@ module.exports = (getInstances)=> {
 						}
 						clicked[index] = !clicked[index];
 						if(clicked[index]) {
-							angular.element(item.querySelector('.layers__text')).addClass('slide-toggle--visible');
+							$animate.addClass(angular.element(item.querySelector('.layers__text')), 'slide-toggle--visible');
 							TweenMax.set(element[0].querySelectorAll('[data-layer]'), {className : '+=animate'});
 							TweenMax.to([element[0].querySelectorAll('[data-layer]'),element[0].querySelectorAll('[data-layer-to]')], .5, {
 								opacity: .35
 							});
 							if(layers == 'cover') {
+								angular.element(element[0].querySelectorAll('.layer-active')).removeClass('layer-active');
 								angular.element(element[0].querySelectorAll('[data-layer-to="cover"]')).addClass('layer-active');			
 								TweenMax.to('.layers__stop', .5, {
 									attr : {
@@ -75,6 +76,7 @@ module.exports = (getInstances)=> {
 								});
 								
 								for(let i of layers) {
+									angular.element(element[0].querySelectorAll('.layer-active')).removeClass('layer-active');
 									angular.element(element[0].querySelectorAll(`[data-layer-to*="${i}"]`)).addClass('layer-active');
 									TweenMax.to(element[0].querySelectorAll(`[data-layer*="${i}"]`), .5, {
 										opacity: 1
@@ -82,7 +84,7 @@ module.exports = (getInstances)=> {
 								}
 							}
 						} else {
-							angular.element(item.querySelector('.layers__text')).removeClass('slide-toggle--visible');
+							$animate.removeClass(angular.element(item.querySelector('.layers__text')), 'slide-toggle--visible');
 							TweenMax.to('#stop_1', .5, {
 								attr : {
 									offset : 0.33
