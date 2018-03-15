@@ -47,6 +47,7 @@ iro
 				}
 			}
 			if((newUrl.split('#')[0] === oldUrl.split('#')[0])) return false;
+			console.log(true);
 			oldUrl = newUrl;
 			$rootScope.isAnim = true;
 			$rootScope.$broadcast('sceneDestroy');

@@ -1,7 +1,9 @@
 .popup {
 	@include full($pos: fixed);
 	z-index: 9999999;
-	background: linear-gradient(to top, #0c386c, #7dcdf3);
+	//background: linear-gradient(to top, #0c386c, #7dcdf3);
+	background: url(../images/iro-sogno-accedi-stelle-BG.gif) repeat;
+	background-size: 250px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -95,7 +97,7 @@
 		width: em(125px);
 		height: em(130px);
 		top: em(67px)*-1;
-		background-image: url(../images/login-svg.svg);
+		background-image: url(../images/liro-sogno-accedi-luna.png);
 		@include cover;
 		.popup--visible-add &, .popup--visible-remove & {
 			transform: translate3d(0, $p*-1, 0);
