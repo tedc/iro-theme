@@ -135,3 +135,10 @@ iro
 			},
 		}
 	});
+	.animation('.view', ()=> {
+		return {
+			enter : (element, done)=> {
+				
+			}
+		}
+	})

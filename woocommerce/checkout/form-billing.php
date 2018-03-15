@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php else : ?>
 		<header class="checkout-billing-fields__header checkout-billing-fields__header--grow-md-bottom">
 			<h3 class="checkout-billing-fields__subtitle"><?php _e( 'Indirizzo di fatturazione', 'iro' ); ?></h3>
-			<span class="checkout-billing-fields__required"><?php _e('Tutti i campi sono obbligatori', 'iro'); ?></span>
+			<span class="checkout-billing-fields__required"><?php _e('* Campi sono obbligatori', 'iro'); ?></span>
 		</header>
 	<?php endif; ?>
 

@@ -1,0 +1,16 @@
+#loading-bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 5px;
+	width: $f;
+	background-color: $alternate-color;
+	z-index: 9999999;
+	.bar {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: $f;
+		background-color: $highlight-color;
+	}
+}

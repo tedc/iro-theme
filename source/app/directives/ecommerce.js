@@ -393,7 +393,6 @@ module.exports = () => {
 							ngCart.setExtras(extras);
 							ngCart.setShipping(res.data.total);
 							$rootScope.$broadcast('ngCart:change');
-							console.log(extras.shippings, res.data);
 							$scope.shippings = ngCart.getExtras().shippings.packages;
 							if(fn) {
 								$timeout(fn);
@@ -456,9 +455,10 @@ module.exports = () => {
 									var key = state[1];
 									purchase.action['id'] = order;
 									$window.dataLayer.push({
-									  'ecommerce': {
-									    'purchase': purchase
-									  }
+										'event' : 'purchase',
+										'ecommerce': {
+											'purchase': purchase
+										}
 									});
 									$state.go('app.order', {order : order, key : key});
 								}
@@ -585,13 +585,11 @@ module.exports = () => {
 								}
 							} else {
 								if(reset){
-									$scope.resetPasswordMessage = result.url;
+									$scope.resetPasswordMessage = vars.wc.resetPasswordMessage;
 									$scope.isResetPasswordError = false;
 								} else {
 									$scope.passwordMessage = vars.wc.passwordMessage;
-									$scope.passwordUrl = result.url;
 									$scope.isPasswordError = false;
-									console.log(result.url);
 								}
 							}
 							$scope.passwordRecovering = false;

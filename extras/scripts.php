@@ -81,7 +81,8 @@
 			'countries'              => json_encode( array_merge( WC()->countries->get_allowed_country_states(), WC()->countries->get_shipping_country_states() ) )) ),
 			'review_base' => basename(get_permalink($review_base)),
 			'reviews' => basename(get_post_type_archive_link('recensioni')),
-			'passwordMessage' => __('Abbiamo inviato un\'email per reimpostare la password all\'indirizzo di posta elettronica associato al tuo account, la sua effettiva visualizzazione in Posta in Arrivo potrebbe richiedere alcuni minuti. Per favore attendi almeno 10 minuti prima di effettuare un\'ulteriore richiesta.', 'iro')
+			'passwordMessage' => __('Abbiamo inviato un\'email per reimpostare la password all\'indirizzo di posta elettronica associato al tuo account, la sua effettiva visualizzazione in Posta in Arrivo potrebbe richiedere alcuni minuti. Per favore attendi almeno 10 minuti prima di effettuare un\'ulteriore richiesta.', 'iro'),
+			'resetPasswordMessage' => __('<p>Password modificata con successo. <a href="#login">Accedi a Iro</a>', 'iro')
 		);
 		$vars = array(
 			"main" => array(
