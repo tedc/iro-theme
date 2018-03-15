@@ -334,7 +334,7 @@
 			background-color: $w;
 		}
 		&:after {
-			transition: background $speed, transform 0 1.5s;
+			transition: background $speed, transform 0s 1.5s;
 			background-color: $dark-color;
 			transform-origin: right 70%;
 			transform: rotate(45deg) translate3d(0, -2px, 0);
