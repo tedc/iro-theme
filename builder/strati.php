@@ -11,8 +11,8 @@
 			<?php the_sub_field('layers_title'); ?>
 		</h2>
 		<?php endif; if(get_sub_field('layers_text')) :  ?>
-		<div class="layers__content slide-toggle<?php echo (get_sub_field('layers_title')) ? ' layers__content--grow-top' : ''; ?>">
-			<?php the_sub_field('layers_text'); ?>
+		<div class="layers__content<?php echo (get_sub_field('layers_title')) ? ' layers__content--grow-top' : ''; ?>">
+			<div class="layers__text slide-toggle"><?php the_sub_field('layers_text'); ?></div>
 		</div>
 		<?php endif; ?>
 	</header>
@@ -26,7 +26,7 @@
 		</h2>
 		<?php endif; if(get_sub_field('layers_title') && !get_sub_field('layers_content_above')) : ?>
 		<div class="layers__content<?php echo (get_sub_field('layers_title')) ? ' layers__content--grow-top' : ''; ?>">
-			<?php the_sub_field('layers_text'); ?>
+			<div class="layers__text slide-toggle"><?php the_sub_field('layers_text'); ?></div>
 		</div>
 		<?php endif; ?>
 	</header>
@@ -67,7 +67,9 @@
 				<div class="layers__content" data-layer-to="<?php the_sub_field('pointer_layer'); ?>">
 					<?php if(get_sub_field('pointer_icon')){ echo print_svg(get_sub_field('pointer_icon'));} ?>
 					<h3 class="layers__title"><?php the_sub_field('pointer_title'); ?></h3>
-					<?php the_sub_field('pointer_text'); ?>
+					<div class="layers__text slide-toggle">
+						<?php the_sub_field('pointer_text'); ?>
+					</div>
 				</div>
 			</div>
 			<?php $l++;endwhile; ?>
