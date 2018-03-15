@@ -437,12 +437,14 @@ module.exports = () => {
 									var state = redirect.replace(vars.main.base + '/'+vars.wc.orderBase+'/', '');
 									state = state.split('?key=');
 									var order = state[0];
+									order.replace('/', '');
 									var key = state[1];
-									// dataLayer.push({
-									//   'ecommerce': {
-									//     'purchase': 
-									//   }
-									// });
+									purchase.action['id'] = order;
+									$window.dataLayer.push({
+									  'ecommerce': {
+									    'purchase': purchase
+									  }
+									});
 									$state.go('app.order', {order : order, key : key});
 								}
 							} else if( 'failure' === result.result ){
@@ -504,7 +506,7 @@ module.exports = () => {
 								}
 								products.push(obj);
 							});
-							dataLayer.push({
+							$window.dataLayer.push({
 							    'event': 'checkout',
 							    'ecommerce': {
 							      'checkout': {

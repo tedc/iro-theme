@@ -12,7 +12,6 @@
 	font-weight: 600;
 	color: $brand-main;
 	display: inline-block;
-	width: $f/2;
 	small, span {
 		display: block;
 		font-weight: normal;
@@ -92,6 +91,7 @@
 			@include breakpoint() {
 				display: block!important;
 				height: auto!important;
+				padding-bottom: em($p*2);
 				.order-review__header {
 					display: block;
 				}
@@ -333,6 +333,7 @@
 			}
 			&price, &name {
 				@extend %order_span;
+				width: $f/2;
 			}
 			&price {
 				text-align: right;

@@ -35,12 +35,12 @@ if ( $show_downloads ) {
 ?>
 <section class="order-details order-details--gray order-details--grid">
 	<?php do_action( 'woocommerce_order_details_before_order_table', $order ); ?>
-	<div class="order-details__cell order-details__cell--customer order-details__cell--s6">
 	<?php
 if ( $show_customer_details ) {
+	echo '<div class="order-details__cell order-details__cell--customer order-details__cell--s6">';
 	wc_get_template( 'order/order-details-customer.php', array( 'order' => $order ) );
+	echo '</div>';
 } ?>
-	</div>
 	<div class="order-details__cell order-details__cell--order order-details__cell--s6">
 	<div class="order-details__table">
 
