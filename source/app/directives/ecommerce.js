@@ -323,7 +323,7 @@ module.exports = () => {
 							var discount = 0;
 							var extras = ngCart.getExtras();
 							extras = angular.extend({}, extras, {discount : discount, coupons : res.data});
-							console.log(extras, result)
+							console.log(extras, res.data)
 							for(coupon of res.data) {
 								discount -= coupon.price;
 							}
