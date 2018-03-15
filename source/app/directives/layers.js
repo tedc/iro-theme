@@ -1,10 +1,7 @@
-module.exports = (getInstances, screenSize)=> {
+module.exports = (getInstances)=> {
 	return {
 		scope : true,
 		link : (scope, element, attrs)=> {
-			screenSize.rules = {
-				min : "screen and (min-width: #{(850/16)}em)"
-			}
 			if(attrs.ngLayers == 'slider') {
 				let layers_slider = getInstances.getInstance('layers');
 				layers_slider.then((swiper)=> {
@@ -42,65 +39,87 @@ module.exports = (getInstances, screenSize)=> {
 				var layers = element[0].querySelectorAll('[data-layer-to]');
 				angular.forEach( layers, function(item, index) {
 					let layers = item.getAttribute('data-layer-to').replace(/\s/g, '').split(',');
+					let clicked = false;
 					angular.element(item).on('mouseenter', ()=> {
-						if(!screenSize.is('min')) return;
 						//if(!element.hasClass('layers--inview')) return;
-						TweenMax.set(element[0].querySelectorAll('[data-layer]'), {className : '+=animate'});
-						TweenMax.to([element[0].querySelectorAll('[data-layer]'),element[0].querySelectorAll('[data-layer-to]')], .5, {
-							opacity: .35
-						});
-						if(layers == 'cover') {
-							angular.element(element[0].querySelectorAll('[data-layer-to="cover"]')).addClass('layer-active');			
-							TweenMax.to('.layers__stop', .5, {
-								attr : {
-									offset : 1
-								}
+						clicked = !clicked;
+						if(clicked) {
+							TweenMax.set(element[0].querySelectorAll('[data-layer]'), {className : '+=animate'});
+							TweenMax.to([element[0].querySelectorAll('[data-layer]'),element[0].querySelectorAll('[data-layer-to]')], .5, {
+								opacity: .35
 							});
+							if(layers == 'cover') {
+								angular.element(element[0].querySelectorAll('[data-layer-to="cover"]')).addClass('layer-active');			
+								TweenMax.to('.layers__stop', .5, {
+									attr : {
+										offset : 1
+									}
+								});
+							} else {
+								TweenMax.to('#stop_1', .5, {
+									attr : {
+										offset : 0.03
+									}
+								});
+								TweenMax.to('#stop_2', .5, {
+									attr : {
+										offset : 0.1
+									}
+								});
+								
+								for(let i of layers) {
+									angular.element(element[0].querySelectorAll(`[data-layer-to*="${i}"]`)).addClass('layer-active');
+									TweenMax.to(element[0].querySelectorAll(`[data-layer*="${i}"]`), .5, {
+										opacity: 1
+									});
+								}
+							}
 						} else {
 							TweenMax.to('#stop_1', .5, {
 								attr : {
-									offset : 0.03
+									offset : 0.33
 								}
 							});
 							TweenMax.to('#stop_2', .5, {
 								attr : {
-									offset : 0.1
+									offset : 0.5
 								}
 							});
-							
-							for(let i of layers) {
-								angular.element(element[0].querySelectorAll(`[data-layer-to*="${i}"]`)).addClass('layer-active');
-								TweenMax.to(element[0].querySelectorAll(`[data-layer*="${i}"]`), .5, {
-									opacity: 1
-								});
-							}
+							TweenMax.set(element[0].querySelectorAll('[data-layer]'), {className : '-=animate'});
+							angular.element(element[0].querySelectorAll('.layer-active')).removeClass('layer-active');
+							TweenMax.to([element[0].querySelectorAll('[data-layer]'),element[0].querySelectorAll('[data-layer-to]')], .5, {
+								// y: 0,
+								// x: 0,
+								opacity: 1
+							});
 						}
+						
 					});
-					angular.element(item).on('mouseleave', ()=> {
-						if(!screenSize.is('min')) return;
-						TweenMax.to('#stop_1', .5, {
-							attr : {
-								offset : 0.33
-							}
-						});
-						TweenMax.to('#stop_2', .5, {
-							attr : {
-								offset : 0.5
-							}
-						});
-						TweenMax.set(element[0].querySelectorAll('[data-layer]'), {className : '-=animate'});
-						angular.element(element[0].querySelectorAll('.layer-active')).removeClass('layer-active');
-						TweenMax.to([element[0].querySelectorAll('[data-layer]'),element[0].querySelectorAll('[data-layer-to]')], .5, {
-							// y: 0,
-							// x: 0,
-							opacity: 1
-						});
-						// TweenMax.to(element[0].querySelectorAll('[data-layer="cover-full"]'), .5, {
-						// 	// y: 0,
-						// 	// x: 0,
-						// 	opacity: 0
-						// });
-					});
+					// angular.element(item).on('mouseleave', ()=> {
+					// 	if(!screenSize.is('min')) return;
+					// 	TweenMax.to('#stop_1', .5, {
+					// 		attr : {
+					// 			offset : 0.33
+					// 		}
+					// 	});
+					// 	TweenMax.to('#stop_2', .5, {
+					// 		attr : {
+					// 			offset : 0.5
+					// 		}
+					// 	});
+					// 	TweenMax.set(element[0].querySelectorAll('[data-layer]'), {className : '-=animate'});
+					// 	angular.element(element[0].querySelectorAll('.layer-active')).removeClass('layer-active');
+					// 	TweenMax.to([element[0].querySelectorAll('[data-layer]'),element[0].querySelectorAll('[data-layer-to]')], .5, {
+					// 		// y: 0,
+					// 		// x: 0,
+					// 		opacity: 1
+					// 	});
+					// 	// TweenMax.to(element[0].querySelectorAll('[data-layer="cover-full"]'), .5, {
+					// 	// 	// y: 0,
+					// 	// 	// x: 0,
+					// 	// 	opacity: 0
+					// 	// });
+					// });
 				});
 			}
 		}
