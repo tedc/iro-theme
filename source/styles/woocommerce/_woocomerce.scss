@@ -5,6 +5,9 @@
 			color: $error;
 		}
 	}
+	&-order {
+		padding-bottom: em($p*2);
+	}
 }
 .overview {
 	&s {

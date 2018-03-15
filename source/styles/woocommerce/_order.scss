@@ -330,7 +330,8 @@
 					@extend %order_desc;
 				}
 				strong {
-					
+					@extend %order_span;
+					width: $f/2;
 				}
 			}
 			&price, &name {
