@@ -357,7 +357,7 @@
 			}
 		}
 		&:after {
-			.banner__btn--cart-filled:not(:hover) & {
+			.banner__btn--cart-filled & {
 				background-color: $highlight-color;
 				transform: rotate(180deg) translate3d(0, -2px, 0);
 			}
