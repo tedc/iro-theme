@@ -41,7 +41,7 @@ if ( $show_customer_details ) {
 	wc_get_template( 'order/order-details-customer.php', array( 'order' => $order ) );
 	echo '</div>';
 } ?>
-	<div class="order-details__cell order-details__cell--order order-details__cell--s6">
+	<div class="order-details__cell order-details__cell--order<?php echo ($show_customer_details) ? ' order-details__cell--s6' : ''; ?>">
 	<div class="order-details__table">
 
 		
