@@ -3,7 +3,7 @@ module.exports = () => {
 		controller : ['$scope', '$rootScope', 'ngCart', '$element', 'ecommerce', '$state', 'getInstances', '$timeout', '$window', '$filter', '$location', '$sce', ($scope, $rootScope, ngCart, $element, ecommerce, $state, getInstances, $timeout, $window, $filter, $location, $sce)=> {
 			// CART
 			$rootScope.isCartChanged = false;
-			let errorAlert = element[0].querySelector('ul.woocommerce-error');
+			let errorAlert = $element[0].querySelector('ul.woocommerce-error');
 			if(errorAlert) {
 				errorAlert = angular.element(errorAlert);
 				TweenMax.to(errorAlert, .5, {
@@ -14,6 +14,7 @@ module.exports = () => {
 					}
 				});
 			}
+
 			$rootScope.initEcommerce = ()=>{
 				//EMPTY ON LOAD
 				if(ngCart.isEmpty()){ 
