@@ -339,7 +339,7 @@
 			transform-origin: right 70%;
 			transform: rotate(45deg) translate3d(0, -2px, 0);
 		}
-		.banner__btn--cart:hover & {
+		.banner__btn--cart:not(.banner__btn--cart-filled):hover & {
 			&:after {
 				background-color: $alternate-color;
 			}
@@ -356,8 +356,8 @@
 				}
 			}
 		}
-		.banner__btn--cart-filled:not(:hover) & {
-			&:after {
+		&:after {
+			.banner__btn--cart-filled:not(:hover) & {
 				background-color: $highlight-color;
 				transform: rotate(180deg) translate3d(0, -2px, 0);
 			}
