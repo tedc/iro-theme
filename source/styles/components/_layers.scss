@@ -15,10 +15,20 @@
 		}
 		&content {
 			@include grow('small', 'top');
+			@include breakpoint() {
+				overflow: hidden;
+			}
 		}
 		&text {
 			@include breakpoint($min: false) {
 				display: block!important;
+			}
+			@include breakpoint() {
+				transition: transform $speed;
+				transform: translate3d(0, 100%, 0);
+				.layer-active & {
+					transform: translate3d(0, 0%, 0);
+				}
 			}
 		}
 		&header {
@@ -151,6 +161,13 @@
 						display: block;
 						content: '';
 						padding-bottom: em($p*4);
+					}
+					.layers__title {
+						transition: transform $speed;
+						transform: translate3d(0, 150%, 0);
+					}
+					.layer-active .layers__title {
+						transform: translate3d(0, 0%, 0);
 					}
 				}
 				.layers[data-count="1"] & {

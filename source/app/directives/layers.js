@@ -50,8 +50,8 @@ module.exports = (getInstances, $animate)=> {
 						}
 						clicked[index] = !clicked[index];
 						if(clicked[index]) {
-							$animate.removeClass(angular.element(element[0].querySelector('.layers__text.slide-toggle--visible')), 'slide-toggle--visible');		
-							$animate.addClass(angular.element(item.querySelector('.layers__text')), 'slide-toggle--visible');
+							// $animate.removeClass(angular.element(element[0].querySelector('.layers__text.slide-toggle--visible')), 'slide-toggle--visible');		
+							// $animate.addClass(angular.element(item.querySelector('.layers__text')), 'slide-toggle--visible');
 							TweenMax.set(element[0].querySelectorAll('[data-layer]'), {className : '+=animate'});
 							TweenMax.to([element[0].querySelectorAll('[data-layer]'),element[0].querySelectorAll('[data-layer-to]')], .5, {
 								opacity: .15
@@ -85,7 +85,7 @@ module.exports = (getInstances, $animate)=> {
 								}
 							}
 						} else {
-							$animate.removeClass(angular.element(item.querySelector('.layers__text')), 'slide-toggle--visible');
+							//$animate.removeClass(angular.element(item.querySelector('.layers__text')), 'slide-toggle--visible');
 							TweenMax.to('#stop_1', .5, {
 								attr : {
 									offset : 0.33
