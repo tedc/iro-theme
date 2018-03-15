@@ -16,6 +16,11 @@
 		&content {
 			@include grow('small', 'top');
 		}
+		&text {
+			@include breakpoint($min: true) {
+				display: block!important;
+			}
+		}
 		&header {
 			@include breakpoint() {
 				.layers--grid & {
