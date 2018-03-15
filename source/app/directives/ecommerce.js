@@ -571,6 +571,7 @@ module.exports = () => {
 								}
 							} else {
 								if(reset){
+									console.log(result);
 									$scope.resetPasswordMessage = vars.wc.resetPasswordMessage;
 									$scope.isResetPasswordError = false;
 								} else {
