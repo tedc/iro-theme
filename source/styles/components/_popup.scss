@@ -97,7 +97,7 @@
 		width: em(125px);
 		height: em(130px);
 		top: em(67px)*-1;
-		background-image: url(../images/liro-sogno-accedi-luna.png);
+		background-image: url(../images/iro-sogno-accedi-luna.png);
 		@include cover;
 		.popup--visible-add &, .popup--visible-remove & {
 			transform: translate3d(0, $p*-1, 0);
