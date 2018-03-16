@@ -20,7 +20,7 @@
 		echo $image;
 	endif;
 	?>
-	<div class="header__container header__container--grow-<?php echo (!is_page_template() || get_field('header_small')) ? 'md' : 'lg'; ?> header__container--grow-lg">
+	<div class="header__container header__container--grow-<?php echo (!is_page_template() || get_field('header_small')) ? 'md' : 'lg'; ?>">
 		<?php get_template_part( 'templates/page', 'title'); ?>
 		<?php if(get_field('header_iframe') && get_field('is_video')) : ?>
 		<span class="header__play" ng-class="{'header__play--ready': playerReady['header_video_<?php echo get_the_ID(); ?>']}" ng-click="playIframe('header_video_<?php echo get_the_ID(); ?>')">
@@ -38,7 +38,7 @@
 else : 
 	if(is_account_page()) : ?>
 	<div class="header header--shrink header--mw-large">
-		<div class="header__container<?php if(is_wc_endpoint_url()):?> header__container--grid<?php endif; ?> header__container--grow-md header__container--grow-lg">
+		<div class="header__container<?php if(is_wc_endpoint_url()):?> header__container--grid<?php endif; ?> header__container--grow-md">
 			<?php get_template_part( 'templates/page', 'title'); ?>
 			<?php if(is_wc_endpoint_url()) : ?>
 				<a href="<?php echo wc_get_page_permalink('myaccount'); ?>" class="account__back" ui-sref="app.page({slug : '<?php echo basename(wc_get_page_permalink('myaccount')); ?>'})"><i class="icon-arrow-left"></i><?php _e('Indietro', 'iro'); ?></a>
