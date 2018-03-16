@@ -45,6 +45,7 @@
 			text-align: center;
 			padding: em($p) 0;
 			overflow: hidden;
+			color: $brand-main;
 			&--error {
 				color: $error;
 			}
