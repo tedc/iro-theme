@@ -25,11 +25,17 @@
 		&input {
 			width: $f;
 			flex: 0 0 auto;
+			.row--gradient-light & {
+				border-color: $light-border;
+			}
 			@include breakpoint() {
 				flex: 3;
 				border-top-right-radius: 0;
 				border-bottom-right-radius: 0;
 				height: em(54px);
+				.row--gradient-light & {
+					border-right-color: transparent;
+				}
 			}
 		}
 		&button {
@@ -55,7 +61,7 @@
 				max-height: 0;
 				&-active {
 					opacity: 1;
-					max-height: $f;
+					max-height: em($p*100);
 				}
 			}
 			&.ng-leave {
