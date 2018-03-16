@@ -3,10 +3,10 @@
     "title": "Mailchimp",
     "fields": [
         {
-            "key": "field_5aab9c18b5424",
-            "label": "List id",
-            "name": "list_id",
-            "type": "text",
+            "key": "field_5aab9fd98fa59",
+            "label": "Mailchimp",
+            "name": "mailchimp",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,53 +17,72 @@
             },
             "show_in_rest": 0,
             "edit_in_rest": 0,
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5aab9c29b5425",
-            "label": "Api key",
-            "name": "api_key",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "show_in_rest": 0,
-            "edit_in_rest": 0,
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5aab9c2fb5426",
-            "label": "User url",
-            "name": "user_url",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "show_in_rest": 0,
-            "edit_in_rest": 0,
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_5aab9c18b5424",
+                    "label": "List id",
+                    "name": "list_id",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_rest": 0,
+                    "edit_in_rest": 0,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5aab9c29b5425",
+                    "label": "Api key",
+                    "name": "api_key",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_rest": 0,
+                    "edit_in_rest": 0,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5aab9c2fb5426",
+                    "label": "User url",
+                    "name": "user_url",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_rest": 0,
+                    "edit_in_rest": 0,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -83,5 +102,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1521196251
+    "modified": 1521197062
 }

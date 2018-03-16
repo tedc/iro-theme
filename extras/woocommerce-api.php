@@ -914,6 +914,7 @@
 	    }
 	    public static function iro_newsletter() {
 	    	check_ajax_referer( 'iro-newsletter', '_newsletter_nonce' );
+	    	$data = array();
 	    	if($_POST['email']){
 		    	acf_set_language_to_default();
 				$mc = get_field('mailchimp', 'options');
@@ -922,7 +923,6 @@
 				$user_url = $mc['user_url'];
 				acf_unset_language_to_default();
 				$MailChimp = new MailChimp($api_key);
-				$data = array();
 				if(is_user_subscribed($email)) {
 		        	$subscriber_hash = $MailChimp->subscriberHash($email);
 		        	$result = $MailChimp->patch('lists/'.$list_id.'/members/'.$subscriber_hash, array(
