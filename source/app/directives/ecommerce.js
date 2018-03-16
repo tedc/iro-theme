@@ -362,9 +362,11 @@ module.exports = () => {
 				ngCart.getCouponAumount = (coupon)=> {
 					if(coupon.price <= 0) return;
 					if(coupon.type == 'percent') {
-						return `-${coupon.amount}%`;
-					} else {
-						return `-€ ${coupon.amount}`;
+						return `-${coupon.price * 100}%`;
+					} else if(coupon.type == 'fixed_product') {
+						return `-€ ${coupon.price} (€ ${coupon.amount} ${varswc.fixed_product_coupon})`;
+					} else  {
+						return `-€ ${coupon.price}`;
 					}
 				}
 	
