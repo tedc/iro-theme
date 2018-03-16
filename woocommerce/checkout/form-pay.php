@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div class="pay" ng-pay>
+<div class="pay pay--shrink-fw" ng-pay>
 <form method="post" ng-submit="pay(payForm)" name="payForm" novalidate>
 	<?php var_dump($order->get_id()); ?>
 	<table class="shop_table">
