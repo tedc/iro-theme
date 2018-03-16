@@ -922,18 +922,15 @@
 			$user_url = $mc['user_url'];
 			acf_unset_language_to_default();
 			if(isset($_POST['email'])) {
+				$email = $_POST['email'];
 		    	$MailChimp = new MailChimp($api_key);
 				if(is_user_subscribed($email)) {
 		        	$subscriber_hash = $MailChimp->subscriberHash($email);
-		        	$result = $MailChimp->patch('lists/'.$list_id.'/members/'.$subscriber_hash, array(
-						'merge_fields' => array('FNAME'=>$sender, 'TEL'=>$tel)
-					));
 					$data = array('message' => __('L\'indirizzo email risulta già iscritto alla newsletter di Iro', 'iro'));
 		        } else {
 		        	$result = $MailChimp->post('lists/'.$list_id.'/members', array(
 		        		'email_address' => $email,
-		        		'status' => 'subscribed',
-		        		'merge_fields' => array('FNAME'=>$sender, 'TEL'=>$tel)
+		        		'status' => 'subscribed'
 		        	));
 		        	$data = array('message' => __('Iscrizione completata con successo.', 'iro'));
 		        }
