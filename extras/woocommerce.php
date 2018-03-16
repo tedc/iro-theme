@@ -566,3 +566,10 @@ function display_price_in_variation_option_name( $term, $product ) {
     // }
     return $array;
 } 
+
+
+function my_woocommerce_cancelled_order($id) {
+    $url = is_user_logged_in() ? wc_get_page_permalink('myaccount') : home_url();
+    wp_redirect( esc_url( add_query_arg( 'order_cancelled', $id, home_url() ) ) );
+}
+add_action('woocommerce_cancelled_order', 'my_woocommerce_cancelled_order', 10, 1);
