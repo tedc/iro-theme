@@ -23,53 +23,55 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div class="pay pay--shrink-fw" ng-pay>
 <form method="post" ng-submit="pay(payForm)" name="payForm" novalidate>
-	<?php var_dump($order->get_id()); ?>
-	<table class="shop_table">
-		<thead>
-			<tr>
-				<th class="product-name"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
-				<th class="product-quantity"><?php esc_html_e( 'Qty', 'woocommerce' ); ?></th>
-				<th class="product-total"><?php esc_html_e( 'Totals', 'woocommerce' ); ?></th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php if ( count( $order->get_items() ) > 0 ) : ?>
-				<?php foreach ( $order->get_items() as $item_id => $item ) : ?>
-					<?php
-					if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
-						continue;
-					}
-					?>
-					<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
-						<td class="product-name">
-							<?php
-								echo apply_filters( 'woocommerce_order_item_name', esc_html( $item->get_name() ), $item, false ); // @codingStandardsIgnoreLine
+	<div class="pay__review pay__review--grid">
+		<div class="pay__order pay__order--cell-s6">
+		<table class="shop_table">
+			<thead>
+				<tr>
+					<th class="product-name"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
+					<th class="product-quantity"><?php esc_html_e( 'Qty', 'woocommerce' ); ?></th>
+					<th class="product-total"><?php esc_html_e( 'Totals', 'woocommerce' ); ?></th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php if ( count( $order->get_items() ) > 0 ) : ?>
+					<?php foreach ( $order->get_items() as $item_id => $item ) : ?>
+						<?php
+						if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
+							continue;
+						}
+						?>
+						<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
+							<td class="product-name">
+								<?php
+									echo apply_filters( 'woocommerce_order_item_name', esc_html( $item->get_name() ), $item, false ); // @codingStandardsIgnoreLine
 
-								do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order, false );
+									do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order, false );
 
-								wc_display_item_meta( $item );
+									wc_display_item_meta( $item );
 
-								do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, false );
-							?>
-						</td>
-						<td class="product-quantity"><?php echo apply_filters( 'woocommerce_order_item_quantity_html', ' <strong class="product-quantity">' . sprintf( '&times; %s', esc_html( $item->get_quantity() ) ) . '</strong>', $item ); ?></td><?php // @codingStandardsIgnoreLine ?>
-						<td class="product-subtotal"><?php echo $order->get_formatted_line_subtotal( $item ); ?></td><?php // @codingStandardsIgnoreLine ?>
-					</tr>
-				<?php endforeach; ?>
-			<?php endif; ?>
-		</tbody>
-		<tfoot>
-			<?php if ( $totals = $order->get_order_item_totals() ) : ?>
-				<?php foreach ( $totals as $total ) : ?>
-					<tr>
-						<th scope="row" colspan="2"><?php echo $total['label']; ?></th><?php // @codingStandardsIgnoreLine ?>
-						<td class="product-total"><?php echo $total['value']; ?></td><?php // @codingStandardsIgnoreLine ?>
-					</tr>
-				<?php endforeach; ?>
-			<?php endif; ?>
-		</tfoot>
-	</table>
-	<div id="payment">
+									do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, false );
+								?>
+							</td>
+							<td class="product-quantity"><?php echo apply_filters( 'woocommerce_order_item_quantity_html', ' <strong class="product-quantity">' . sprintf( '&times; %s', esc_html( $item->get_quantity() ) ) . '</strong>', $item ); ?></td><?php // @codingStandardsIgnoreLine ?>
+							<td class="product-subtotal"><?php echo $order->get_formatted_line_subtotal( $item ); ?></td><?php // @codingStandardsIgnoreLine ?>
+						</tr>
+					<?php endforeach; ?>
+				<?php endif; ?>
+			</tbody>
+			<tfoot>
+				<?php if ( $totals = $order->get_order_item_totals() ) : ?>
+					<?php foreach ( $totals as $total ) : ?>
+						<tr>
+							<th scope="row" colspan="2"><?php echo $total['label']; ?></th><?php // @codingStandardsIgnoreLine ?>
+							<td class="product-total"><?php echo $total['value']; ?></td><?php // @codingStandardsIgnoreLine ?>
+						</tr>
+					<?php endforeach; ?>
+				<?php endif; ?>
+			</tfoot>
+		</table>
+	</div>
+	<div id="payment" class="pay__payment pay__payment--cell-s6">
 		<?php if ( $order->needs_payment() ) : ?>
 			<ul class="wc_payment_methods payment_methods methods">
 				<?php
