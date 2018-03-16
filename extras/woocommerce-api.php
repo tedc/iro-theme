@@ -1,5 +1,4 @@
 <?php
-	include( locate_template( 'extras/vendor/autoload.php', false, false) );
 	use \DrewM\MailChimp\MailChimp;
 	use WooCommerce_Extra_Shipping_Options\WESO_Field_Has_Choices;
 	function is_user_subscribed($email) {
@@ -922,10 +921,7 @@
 			$api_key = $mc['api_key'];
 			$user_url = $mc['user_url'];
 			acf_unset_language_to_default();
-			$data = array($list_id = $mc['list_id'],
-			$api_key = $mc['api_key'],
-			$user_url = $mc['user_url']);
-	    	if($_POST['email']){
+			if($_POST['email']){
 		    	$MailChimp = new MailChimp($api_key);
 				if(is_user_subscribed($email)) {
 		        	$subscriber_hash = $MailChimp->subscriberHash($email);
