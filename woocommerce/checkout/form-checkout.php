@@ -44,7 +44,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 		</div>
 		<?php 
         if($phone) : ?>
-		<a href="tel:<?php echo $phone_unformatted; ?>" class="checkout__banner-btn checkout__banner-btn--phone"><i class="icon-phone"></i><span><?php _e('Assistenza', 'iro'); ?><br/><?php echo $phone; ?></span></a> <?php endif; ?>
+		<a href="tel:<?php echo $phone_unformatted; ?>" class="checkout__banner-btn checkout__banner-btn--phone"><i class="icon-phone"></i><span><?php _e('Assistenza', 'iro'); ?><br/><?php echo $phone; ?></span></a> <?php else : echo '<i class="icon-logo placeholder"></i>'; endif;  ?>
 	</nav>
 	<div class="checkout__main checkout__main--grid slide-toggle slide-toggle--visible" ng-class="{'slide-toggle--visible' : !isConfirm}">
 	<?php if ( $checkout->get_checkout_fields() ) : ?>

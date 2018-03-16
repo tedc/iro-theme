@@ -101,6 +101,9 @@
 			font-size: em(40px);
 			position: relative;
 			top: em($p/5, 40px)*-1;
+			&.placehoder {
+				visibility: hidden;
+			}
 		}
 		&-btn {
 			text-transform: uppercase;

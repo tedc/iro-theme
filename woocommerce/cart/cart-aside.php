@@ -41,7 +41,7 @@
 					<span class="cart-aside__price" ng-bind-html="(ngCart.getSubTotal() | currency:'€ ':0)"></span>
 				</div>
 				<div class="cart-aside__variation swiper-slide cart-aside__variation--grow">
-					<div class="cart-aside__coupons"  ng-if="!ngCart.getExtras().coupons">
+					<div class="cart-aside__coupons" ng-if="!ngCart.getExtras().coupons || ngCart.getExtras().coupons.length > 0">
 					<?php 
 			$info_message = apply_filters( 'woocommerce_checkout_coupon_message', ' <a href="#" class="cart-aside__showcoupon cart-aside__showcoupon--shrink">' . __( 'Hai un codice sconto?', 'iro' ) . '</a>' );
 			wc_print_notice( $info_message, 'notice' );
