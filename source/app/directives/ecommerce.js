@@ -371,19 +371,24 @@ module.exports = () => {
 				}
 	
 				ngCart.deleteCoupon = (remove, idx)=> {
+					if(ngCart.isCounting) return;
+					ngCart.isCounting = true;
 					var extras = ngCart.getExtras();
-					if(!extras) return;
-					var coupons = extras.coupons;
-					extras.discount += coupons[idx].price;
-					coupons.splice(idx, 1);
-					extras.coupons = coupons;
-					if(extras.coupons.length == 0) {
-						delete extras.coupons;
+					if(!extras) {
+						ngCart.isCounting = false;
+						return;
 					}
 					ecommerce
 						.get(remove)
 						.then( ()=> {
+							let coupons = extras.coupons;
+							coupons.splice(idx, 1);
+							extras.coupons = coupons;
+							if(extras.coupons.length == 0) {
+								delete extras.coupons;
+							}
 							ngCart.setExtras(extras);
+							ngCart.isCounting = false;
 							$rootScope.$broadcast('ngCart:change');
 						});
 				}
@@ -461,7 +466,7 @@ module.exports = () => {
 					let purchase = {
 						action : {
 							'affiliation' : 'Online Store',
-							'revenue' : ngCart.totalCost() + ngCart.getExtras().discount,
+							'revenue' : ngCart.getDiscountTotal(ngCart.totalCost()),
 							'shipping' : ngCart.getShipping(),
 							'tax' : ngCart.getTax(),
 							'coupon' : coupon

@@ -135,6 +135,12 @@
 			'menu_slug' => 'facebook',
 			'icon_url' => 'dashicons-facebook'
 		));
+		acf_add_options_page(array(
+			'page_title' 	=> 'Mailchimp Settings',
+			'menu_title'	=> 'Mailchimp',
+			'menu_slug' => 'mailchimp',
+			'icon_url' => 'dashicons-email'
+		));
 		acf_add_options_sub_page(array(
 			'page_title' 	=> 'Campi comuni',
 			'menu_title'	=> 'Campi comuni',
