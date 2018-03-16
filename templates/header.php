@@ -17,8 +17,9 @@
          bem_menu('primary_navigation', 'menu', 'menu--shrink swiper-wrapper', null, $append);
           
         endif;
+        if($phone) :
         ?>
-        <a href="tel:<?php echo $phone_unformatted; ?>" class="banner__btn banner__btn--phone"><i class="icon-phone"></i><span><?php _e('Assistenza', 'iro'); ?> <?php echo $phone; ?></span></a>
+        <a href="tel:<?php echo $phone_unformatted; ?>" class="banner__btn banner__btn--phone"><i class="icon-phone"></i><span><?php _e('Assistenza', 'iro'); ?> <?php echo $phone; ?></span></a><?php endif; ?>
 
         <span class="banner__swiper swiper-scrollbar"></span>
       </div>

@@ -42,7 +42,9 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 			<span ng-click="slideTo(checkout.$valid, 2, 2)" ng-class="{current : checkoutObj.current == 2 && !isConfirm}"><?php _e('Pagamento', 'iro'); ?></span>
 			<span ng-click="slideTo(checkout.$valid, 2)" ng-class="{current : isConfirm}"><?php _e('Conferma', 'iro'); ?></span>
 		</div>
-		<a href="tel:<?php echo $phone_unformatted; ?>" class="checkout__banner-btn checkout__banner-btn--phone"><i class="icon-phone"></i><span><?php _e('Assistenza', 'iro'); ?><br/><?php echo $phone; ?></span></a>
+		<?php 
+        if($phone) : ?>
+		<a href="tel:<?php echo $phone_unformatted; ?>" class="checkout__banner-btn checkout__banner-btn--phone"><i class="icon-phone"></i><span><?php _e('Assistenza', 'iro'); ?><br/><?php echo $phone; ?></span></a> <?php endif; ?>
 	</nav>
 	<div class="checkout__main checkout__main--grid slide-toggle slide-toggle--visible" ng-class="{'slide-toggle--visible' : !isConfirm}">
 	<?php if ( $checkout->get_checkout_fields() ) : ?>

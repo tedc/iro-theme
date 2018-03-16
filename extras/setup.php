@@ -8,6 +8,7 @@
 	//add_filter( 'language_attributes', 'ng_app', 100 );
 	function theme_setup() {
 		add_theme_support( 'custom-logo' );
+		add_theme_support('woocommerce');
 		register_nav_menus([
 		    'footer_pages_menu' => __('Iro', 'iro'),
 		    'footer_products_menu' => __('Prodotti', 'iro'),
