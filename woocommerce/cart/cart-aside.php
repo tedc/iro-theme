@@ -33,12 +33,12 @@
 							<span class="cart-aside__value">{{ item.getQuantity() | number }}</span>
 							<span class="cart-aside__plus" ng-click="ngCart.changeQty(item, true, +1)">+</span>
 						</div>
-						<span class="cart-aside__price">{{ item.getPrice() | currency:'€ ':0}}</span>
+						<span class="cart-aside__price">{{'€ ' + item.getPrice()}}</span>
 					</div>
 				</div>
 				<div class="cart-aside__subtotal swiper-slide cart-aside__subtotal--grow cart-aside__subtotal--shrink">
 					<span class="cart-aside__label"><?php _e('Subtotale', 'iro'); ?></span>
-					<span class="cart-aside__price" ng-bind-html="(ngCart.getSubTotal() | currency:'€ ':0)"></span>
+					<span class="cart-aside__price" ng-bind-html="'€ ' + (ngCart.getSubTotal())"></span>
 				</div>
 				<div class="cart-aside__variation swiper-slide cart-aside__variation--grow">
 					<div class="cart-aside__coupons" ng-if="!ngCart.getExtras().coupons || ngCart.getExtras().coupons.length > 0">
@@ -70,7 +70,7 @@
 				</div>
 				<div class="cart-aside__total swiper-slide cart-aside__total--grow cart-aside__total--shrink">
 					<span class="cart-aside__label"><?php _e('Totale', 'iro'); ?></span>
-					<span class="cart-aside__price" ng-bind-html="((ngCart.getDiscountTotal(ngCart.totalCost()) - ngCart.getShipping()) | currency:'€ ')"></span>
+					<span class="cart-aside__price" ng-bind-html="'€ ' + ((ngCart.getDiscountTotal(ngCart.totalCost()) - ngCart.getShipping()))"></span>
 				</div>
 			</div>
 			<span class="swiper-scrollbar"></span>
