@@ -75,7 +75,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 											$base_path = str_replace(wc_get_page_permalink('myaccount') . '/', '', esc_url( $action['url'] ));
 										echo '<a title="'.esc_html( $action['name'] ).'" href="' . esc_url( $action['url'] ) . '" class="icon-' . sanitize_html_class( $key ) . '"></a>';
 										} elseif ($key == 'cancel') {
-											echo '<a href="' . esc_url( $action['url'] ) . '" ng-click="$event.preventDefault();cancelOrdere('. esc_url( $action['url'] ) .')" class="woocommerce-button button ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
+											echo '<a href="' . esc_url( $action['url'] ) . '" class="woocommerce-button button ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
 										} elseif($key == 'pay') {
 											echo '<a href="' . esc_url( $action['url'] ) . '" class="woocommerce-button button ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
 										} else {

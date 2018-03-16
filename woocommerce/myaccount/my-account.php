@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-wc_print_notices();
+//wc_print_notices();
 ?>
 <div class="account account--grow-lg-bottom account--grid account--shrink account--mw-large" wc-account>
 <?php

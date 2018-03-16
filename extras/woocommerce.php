@@ -570,7 +570,8 @@ function display_price_in_variation_option_name( $term, $product ) {
 
 function my_woocommerce_cancelled_order($id) {
     $url = is_user_logged_in() ? wc_get_page_permalink('myaccount') : home_url();
-    wc_add_notice( sprintf( __( 'Il tuo ordine numero %s è stato cancellato con successo.', 'iro' ), $id ), 'error' );
+    wc_add_notice( sprintf( __( 'Il tuo ordine numero %1$s è stato cancellato con successo. %2$s', 'iro' ), $id , $url ), 'error' );
     wp_redirect( $url );
+    exit;
 }
 add_action('woocommerce_cancelled_order', 'my_woocommerce_cancelled_order', 10, 1);

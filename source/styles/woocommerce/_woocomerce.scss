@@ -8,6 +8,17 @@
 	&-order {
 		padding-bottom: em($p*2);
 	}
+	&-error[role="alert"] {
+		position: fixed;
+		width: $f;
+		top: em($p*4);
+		padding: em(10px, 12px);
+		font-size: 12px;
+		text-align: center;
+		background: transparentize($error, .6);
+		color: $error;
+		z-index: 9999;
+	}
 }
 .overview {
 	&s {
