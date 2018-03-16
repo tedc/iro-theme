@@ -83,15 +83,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				?>
 			</ul>
 		<?php endif; ?>
-		<div class="form-row">
-			
-			<?php wc_get_template( 'checkout/terms.php' ); ?>
-			<?php do_action( 'woocommerce_pay_order_before_submit' ); ?>		
-			<?php do_action( 'woocommerce_pay_order_after_submit' ); ?>
-		</div>
 	</div>
-	<input type="hidden" ng-init="checkoutFields.key=<?php //echo $order; ?>" />
-	<input type="hidden" ng-init="checkoutFields.order_pay=<?php //echo $order; ?>" />
+	<input type="hidden" name="terms-field" ng-init="checkoutFields['terms-field']=1" value="1" />
+	<input type="hidden" ng-init="checkoutFields.key='<?php echo $order->get_order_key(); ?>'" />
+	<input type="hidden" ng-init="checkoutFields.order_pay='<?php echo $order->get_id(); ?>'" />
 	<input type="hidden" name="_wpnonce" value="1" ng-init="checkoutFields._wpnonce='<?php echo wp_create_nonce( 'woocommerce-pay' ); ?>'" />
 	<input type="hidden" name="woocommerce_pay" value="1" ng-init="checkoutFields.woocommerce_pay=1" />
 	<nav class="checkout__nav checkout__nav--submit checkout__nav--grow-md checkout__nav--grid">
