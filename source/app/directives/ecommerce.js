@@ -346,13 +346,16 @@ module.exports = () => {
 
 				ngCart.getDiscountTotal = (total)=> {
 					let coupons = ngCart.getExtras().coupons;
-					for(let discount of coupons) {
-						if(discount.type == 'percent') {
-							total = total * discount.price;
-						} else {
-							total -= discount.price;
+					if(coupons && coupons.length > 0){
+						for(let discount of coupons) {
+							if(discount.type == 'percent') {
+								total = total * discount.price;
+							} else {
+								total -= discount.price;
+							}
 						}
 					}
+					console.log(total);
 					return total;
 				}
 	
