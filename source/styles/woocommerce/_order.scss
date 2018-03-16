@@ -188,6 +188,22 @@
 			justify-content: space-between;
 			flex-wrap: wrap;
 		}
+		&__coupons {
+			&.ng-enter {
+				opacity: 0;
+				transition: opacity $speed, max-height $speed;
+				max-height: 0;
+				&-active {
+					opacity: 1;
+					max-height: $f;
+				}
+			}
+			&.ng-leave {
+				opacity: 0;
+				transition: opacity $speed, max-height $speed;
+				max-height: 0;
+			}
+		}
 		.checkout__confirm & {
 			position: static !important;
 		}

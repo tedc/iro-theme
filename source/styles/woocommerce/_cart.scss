@@ -142,6 +142,10 @@
 		}
 		&__desc {
 			@extend %cart_item_desc;
+			span {
+				font-size: 11px;
+				color: $light-color;
+			}
 		}
 		&__remove {
 			@extend %remove;
@@ -161,6 +165,22 @@
 		}
 		&__coupon {
 			@extend %coupon_form;
+			&s {
+				&.ng-enter {
+					opacity: 0;
+					transition: opacity $speed, max-height $speed;
+					max-height: 0;
+					&-active {
+						opacity: 1;
+						max-height: $f;
+					}
+				}
+				&.ng-leave {
+					opacity: 0;
+					transition: opacity $speed, max-height $speed;
+					max-height: 0;
+				}
+			}
 		}
 		&__button {
 			& + {
