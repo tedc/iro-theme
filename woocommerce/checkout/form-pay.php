@@ -25,15 +25,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 <form method="post" ng-submit="pay(payForm)" name="payForm" novalidate>
 	<div class="pay__review pay__review--grid">
 		<div class="pay__order pay__order--cell-s6">
-		<table class="shop_table">
-			<thead>
-				<tr>
-					<th class="product-name"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
-					<th class="product-quantity"><?php esc_html_e( 'Qty', 'woocommerce' ); ?></th>
-					<th class="product-total"><?php esc_html_e( 'Totals', 'woocommerce' ); ?></th>
-				</tr>
-			</thead>
-			<tbody>
+			<header class="pay__header pay__header--grid-nowrap">
+				<div class="pay__product-name"><?php esc_html_e( 'Product', 'woocommerce' ); ?></div>
+				<div class="pay__product-quantity"><?php esc_html_e( 'Qty', 'woocommerce' ); ?></div>
+				<div class="pay__product-total"><?php esc_html_e( 'Totals', 'woocommerce' ); ?></div>
+			</header>
+			<div class="pay__body">
 				<?php if ( count( $order->get_items() ) > 0 ) : ?>
 					<?php foreach ( $order->get_items() as $item_id => $item ) : ?>
 						<?php
@@ -41,8 +38,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 							continue;
 						}
 						?>
-						<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
-							<td class="product-name">
+						<div class="pay__row pay__row--grid-nowrap">
+							<div class="pay__product-name">
 								<?php
 									echo apply_filters( 'woocommerce_order_item_name', esc_html( $item->get_name() ), $item, false ); // @codingStandardsIgnoreLine
 
@@ -52,24 +49,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 									do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, false );
 								?>
-							</td>
-							<td class="product-quantity"><?php echo apply_filters( 'woocommerce_order_item_quantity_html', ' <strong class="product-quantity">' . sprintf( '&times; %s', esc_html( $item->get_quantity() ) ) . '</strong>', $item ); ?></td><?php // @codingStandardsIgnoreLine ?>
-							<td class="product-subtotal"><?php echo $order->get_formatted_line_subtotal( $item ); ?></td><?php // @codingStandardsIgnoreLine ?>
-						</tr>
+							</div>
+							<div class="pay__product-quantity"><?php echo apply_filters( 'woocommerce_order_item_quantity_html', ' <strong class="product-quantity">' . sprintf( '&times; %s', esc_html( $item->get_quantity() ) ) . '</strong>', $item ); ?></td><?php // @codingStandardsIgnoreLine ?>
+							<div class="pay__product-subtotal"><?php echo $order->get_formatted_line_subtotal( $item ); ?></td><?php // @codingStandardsIgnoreLine ?>
+						</div>
 					<?php endforeach; ?>
 				<?php endif; ?>
-			</tbody>
-			<tfoot>
+			</div>
+			<footer class="pay__footer pay__footer--grid-nowrap">
 				<?php if ( $totals = $order->get_order_item_totals() ) : ?>
 					<?php foreach ( $totals as $total ) : ?>
-						<tr>
-							<th scope="row" colspan="2"><?php echo $total['label']; ?></th><?php // @codingStandardsIgnoreLine ?>
-							<td class="product-total"><?php echo $total['value']; ?></td><?php // @codingStandardsIgnoreLine ?>
-						</tr>
+						<div scope="row" colspan="2"><?php echo $total['label']; ?></div><?php // @codingStandardsIgnoreLine ?>
+						<div class="product-total"><?php echo $total['value']; ?></div><?php // @codingStandardsIgnoreLine ?>
+						
 					<?php endforeach; ?>
 				<?php endif; ?>
-			</tfoot>
-		</table>
+			</footer>
+		</div>
 	</div>
 	<div id="payment" class="pay__payment pay__payment--cell-s6">
 		<?php if ( $order->needs_payment() ) : ?>
@@ -93,7 +89,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<input type="hidden" name="woocommerce_pay" value="1" ng-init="checkoutFields.woocommerce_pay=1" />
 	<nav class="checkout__nav checkout__nav--submit checkout__nav--grow-md checkout__nav--grid">
 		<input required type="checkbox" class="checkout__checkbox" ng-model="checkoutFields.terms" id="checkout_terms" /><label for="checkout_terms" class="checkout__terms"><span><?php _e('Dichiaro di aver letto e accetto i ', 'iro'); ?><a class="checkout__terms" href="<?php $term_cond_id = apply_filters('wpml_object_id', wc_get_page_id('terms'), 'page', true, ICL_LANGUAGE_CODE ); echo get_permalink($term_cond_id); ?>" target="_blank"><?php echo lcfirst(get_the_title($term_cond_id)); ?></a></span></label>
-		<button class="checkout__button" ng-class="{'checkout__button--loading':isOrdering}" ng-disabled="checkout.$invalid"><?php _e('Acquista', 'iro'); ?></button>
+		<button class="checkout__button" ng-class="{'checkout__button--loading':isOrdering}" ng-disabled="checkout.$invalid"><?php _e('Paga l\'ordine', 'iro'); ?></button>
 	</nav>
 </form>
 </div>
