@@ -400,8 +400,10 @@ module.exports = () => {
 					}
 					return selected;
 				}
+				$scope.checkoutErrorMessage = false;
 				$scope.isCheckoutUpdating = false;
 				$scope.updateShipping = (fn)=> {
+					$scope.checkoutErrorMessage = false;
 					$scope.isCheckoutUpdating = true;
 					var model_prefix = ($scope.checkShippingAddress) ? 'shipping_' : 'billing_',
 						calc_country = ($scope.checkoutFields.customer[model_prefix + 'country']) ? $scope.checkoutFields.customer[model_prefix + 'country'] : '',
@@ -432,10 +434,15 @@ module.exports = () => {
 							if(fn) {
 								$timeout(fn);
 							}
-						});
+						})
+						.catch( (err)=> {
+							$scope.checkoutErrorMessage = true;
+							$scope.isCheckoutUpdating = false;
+						})
 				}
 				$scope.sendCheckout = (form)=> {
 					//console.log($scope.checkoutFields);
+					$scope.checkoutErrorMessage = false;
 					$scope.isOrdering = true;
 					var data = {
 						posted : {post_data : $scope.checkoutFields.post_data},			
@@ -503,6 +510,10 @@ module.exports = () => {
 								$scope.error = result.message;
 								$state.go('app.page', {slug : vars.wc.checkoutPage}, {reload : true});
 							}
+							$scope.isOrdering = false;
+						})
+						.catch((err) => {
+							$scope.checkoutErrorMessage = true;
 							$scope.isOrdering = false;
 						});
 					//console.log(form);

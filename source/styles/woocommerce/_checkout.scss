@@ -214,6 +214,29 @@
 				}
 			}
 		}
+		&--error {
+			text-align: center;
+			padding: em($p) 0;
+			p {
+				font-size: em(14px);
+				font-style: italic;
+				color: $error;
+			}
+			&.ng-enter {
+				opacity: 0;
+				transition: opacity $speed, max-height $speed;
+				max-height: 0;
+				&-active {
+					opacity: 1;
+					max-height: em(200px);
+				}
+			}
+			&.ng-leave {
+				opacity: 0;
+				transition: opacity $speed, max-height $speed;
+				max-height: 0;
+			}
+		}
 	}
 	&__confirm {
 		.checkout__cell--shrink-right-only {

@@ -87,6 +87,9 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 	</aside>
 	</div>
 	<?php wc_get_template_part('checkout/form', 'confirm'); ?>
+	<div class="checkout__cell checkout__cell--error" ng-if="checkoutErrorMessage">
+		<p><?php _e('Si è verificato un errore. Riprova', 'iro'); ?></p>
+	</div>
 </form>
 
 <?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>
