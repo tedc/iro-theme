@@ -17,6 +17,7 @@
 		text-align: center;
 		@include breakpoint(640px) {
 			width: $f/3;
+			justify-content: center;
 		}
 		i {
 			color: $highlight-color;

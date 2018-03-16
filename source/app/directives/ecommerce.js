@@ -355,7 +355,6 @@ module.exports = () => {
 							}
 						}
 					}
-					console.log(total);
 					return total;
 				}
 	
