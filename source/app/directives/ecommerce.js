@@ -19,6 +19,7 @@ module.exports = () => {
 				//EMPTY ON LOAD
 				if(ngCart.isEmpty()){ 
 					ecommerce.empty();
+					ngCart.setExtras({});
 				} else {
 					let url = vars.wc.cart;
 					ecommerce
@@ -58,6 +59,12 @@ module.exports = () => {
 							}
 						})
 				}
+
+				$scope.$on('ngCart:change', ()=> {
+					if(ngCart.isEmpty()) {
+						ngCart.setExtras({});
+					}
+				});
 				
 				// ADD AND UPDATE
 				$scope.singleProductVariation = {}
@@ -364,6 +371,9 @@ module.exports = () => {
 					extras.discount += coupons[idx].price;
 					coupons.splice(idx, 1);
 					extras.coupons = coupons;
+					if(extras.coupons.length == 0) {
+						delete extras.coupons;
+					}
 					ecommerce
 						.get(remove)
 						.then( ()=> {
