@@ -921,7 +921,7 @@
 			$api_key = $mc['api_key'];
 			$user_url = $mc['user_url'];
 			acf_unset_language_to_default();
-			if($_POST['email']){
+			if(isset($_POST['email'])) {
 		    	$MailChimp = new MailChimp($api_key);
 				if(is_user_subscribed($email)) {
 		        	$subscriber_hash = $MailChimp->subscriberHash($email);
