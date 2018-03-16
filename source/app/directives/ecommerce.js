@@ -451,7 +451,7 @@ module.exports = () => {
 						coupon = element.code;
 					});
 					let products = [];
-					angular.forEach(ngCart.getCart().item, (item, i)=> {
+					angular.forEach(ngCart.getCart().items, (item, i)=> {
 						obj = {
 							'name' : item.getName(),
 							'id' : item.getExtras().sku ? item.getExtras().sku : item.getId(),
@@ -547,7 +547,7 @@ module.exports = () => {
 								option = `purchase: ${$scope.checkoutFields.payment_method}`
 							}
 							let products = [];
-							angular.forEach(ngCart.getCart().item, (item, i)=> {
+							angular.forEach(ngCart.getCart().items, (item, i)=> {
 								obj = {
 									'name' : item.getName(),
 									'id' : item.getExtras().sku ? item.getExtras().sku : item.getId(),
@@ -557,6 +557,7 @@ module.exports = () => {
 								    'quantity': item.getQuantity()
 								}
 								products.push(obj);
+								console.log(products);
 							});
 							$window.dataLayer.push({
 							    'event': 'checkout',
