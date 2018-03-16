@@ -56,12 +56,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php endforeach; ?>
 			<?php endif; ?>
 		</div>
-		<footer class="pay__footer pay__footer--grid-nowrap">
+		<footer class="pay__footer">
 			<?php if ( $totals = $order->get_order_item_totals() ) : ?>
 				<?php foreach ( $totals as $total ) : ?>
+				<div class="pay__row pay__row--grid-nowrap">
 					<div scope="row" colspan="2"><?php echo $total['label']; ?></div><?php // @codingStandardsIgnoreLine ?>
 					<div class="product-total"><?php echo $total['value']; ?></div><?php // @codingStandardsIgnoreLine ?>
-					
+				</div>	
 				<?php endforeach; ?>
 			<?php endif; ?>
 		</footer>
