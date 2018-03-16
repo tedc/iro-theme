@@ -1,4 +1,6 @@
 <?php
+	include( locate_template( 'extras/vendor/autoload.php', false, false) );
+	use \DrewM\MailChimp\MailChimp;
 	use WooCommerce_Extra_Shipping_Options\WESO_Field_Has_Choices;
 	function is_user_subscribed($email) {
 		acf_set_language_to_default();
@@ -914,15 +916,17 @@
 	    }
 	    public static function iro_newsletter() {
 	    	check_ajax_referer( 'iro-newsletter', '_newsletter_nonce' );
-	    	$data = array();
+	    	acf_set_language_to_default();
+			$mc = get_field('mailchimp', 'options');
+			$list_id = $mc['list_id'];
+			$api_key = $mc['api_key'];
+			$user_url = $mc['user_url'];
+			acf_unset_language_to_default();
+			$data = array($list_id = $mc['list_id'],
+			$api_key = $mc['api_key'],
+			$user_url = $mc['user_url']);
 	    	if($_POST['email']){
-		    	acf_set_language_to_default();
-				$mc = get_field('mailchimp', 'options');
-				$list_id = $mc['list_id'];
-				$api_key = $mc['api_key'];
-				$user_url = $mc['user_url'];
-				acf_unset_language_to_default();
-				$MailChimp = new MailChimp($api_key);
+		    	$MailChimp = new MailChimp($api_key);
 				if(is_user_subscribed($email)) {
 		        	$subscriber_hash = $MailChimp->subscriberHash($email);
 		        	$result = $MailChimp->patch('lists/'.$list_id.'/members/'.$subscriber_hash, array(

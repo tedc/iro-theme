@@ -4,9 +4,52 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e7f25003f30e93bb783bad27c330d2f1",
-    "content-hash": "1e0b09f54141bc75dbbce1e1e9910660",
+    "hash": "cf41277d9e7cd2acd04f813583498274",
+    "content-hash": "12a3ae5ada92a141f0911667326c95c3",
     "packages": [
+        {
+            "name": "drewm/mailchimp-api",
+            "version": "v2.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/drewm/mailchimp-api.git",
+                "reference": "f532fa26cd6e7d17c9ba40a757d8c6bfee47dace"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/drewm/mailchimp-api/zipball/f532fa26cd6e7d17c9ba40a757d8c6bfee47dace",
+                "reference": "f532fa26cd6e7d17c9ba40a757d8c6bfee47dace",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "7.0.*",
+                "vlucas/phpdotenv": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DrewM\\MailChimp\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Drew McLellan",
+                    "email": "drew.mclellan@gmail.com",
+                    "homepage": "http://allinthehead.com/"
+                }
+            ],
+            "description": "Super-simple, minimum abstraction MailChimp API v3 wrapper",
+            "homepage": "https://github.com/drewm/mailchimp-api",
+            "time": "2018-02-16 15:31:05"
+        },
         {
             "name": "facebook/graph-sdk",
             "version": "5.6.1",
