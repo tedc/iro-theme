@@ -7,7 +7,7 @@
 				<input type="hidden" ng-model="nlFields._newsletter_nonce" ng-init="nlFields._newsletter_nonce='<?php echo wp_create_nonce( 'iro-newsletter' ); ?>'" />
 				<button type="submit" ng-class="{'newsletter__button--loading':isSubscribing}" ng-disabled="newsletter.$invalid" class="newsletter__button"><?php _e('Invia', 'iro'); ?></button>
 			</div>
-			<div class="newsletter__message" ng-clas="{'newlsetter__message--error' : isNlError}" ng-if="nlMessage">
+			<div class="newsletter__message" ng-clas="{'newsletter__message--error' : isNlError}" ng-if="nlMessage">
 				<p ng-bind-html="nlMessage"></p>
 			</div>
 		</fieldset>
