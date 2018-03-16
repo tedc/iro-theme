@@ -7,7 +7,7 @@
 			<a class="order-review__name" href="#" ui-sref="app.page({slug : item.getData().href})" ng-bind-html="item.getName()"></a>
 			<span class="order-review__qty"">x{{item.getQuantity()}}</span>
 		</span>
-		<strong class="order-review__price" ng-bind-html="'€ ' + (item.getPrice() | 2*(item.getPrice() % 1 !== 0))"></strong>
+		<strong class="order-review__price" ng-bind-html="'€ ' + (item.getPrice())"></strong>
 		<div class="order-review__desc" ng-bind-html="ngCart.getDesc(item)" ng-if="ngCart.getDesc(item)"></div>
 	</div>
 	<div class="order-review__row order-review__row--meta" ng-if="ngCart.getExtras().shippings.packages">
@@ -20,7 +20,7 @@
 					<strong ng-bind-html="extra.extra_title"></strong><br />
 					<span ng-repeat="c in extra.choices.choices" ng-bind-html="c"></span>
 				</span> 
-				<strong class="order-review__price" ng-bind-html="'€ ' + (extra.extra_price | 2*(extra.extra_price % 1 !== 0))"></strong>	
+				<strong class="order-review__price" ng-bind-html="'€ ' + (extra.extra_price)"></strong>	
 			</div>
 		</div>
 	</div>
@@ -36,6 +36,6 @@
 	</div>
 	<div class="order-review__total">
 		<strong class="order-review__total-label"><?php _e('Totale', 'iro'); ?></strong>
-		<span class="order-review__total-price" ng-bind-html="'€ ' + ((ngCart.totalCost() + ngCart.getExtras().discount) | 2*((ngCart.totalCost() + ngCart.getExtras().discount) % 1 !== 0))"></span>
+		<span class="order-review__total-price" ng-bind-html="'€ ' + ((ngCart.totalCost() + ngCart.getExtras().discount))"></span>
 	</div>
 </div>
