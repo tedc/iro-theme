@@ -31,41 +31,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div class="pay__product-total"><?php esc_html_e( 'Totals', 'woocommerce' ); ?></div>
 			</header>
 			<div class="pay__body">
-				<?php if ( count( $order->get_items() ) > 0 ) : ?>
-					<?php foreach ( $order->get_items() as $item_id => $item ) : ?>
-						<?php
-						if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
-							continue;
-						}
-						?>
-						<div class="pay__row pay__row--grid-nowrap">
-							<div class="pay__product-name">
-								<?php
-									echo apply_filters( 'woocommerce_order_item_name', esc_html( $item->get_name() ), $item, false ); // @codingStandardsIgnoreLine
+			<?php if ( count( $order->get_items() ) > 0 ) : ?>
+				<?php foreach ( $order->get_items() as $item_id => $item ) : ?>
+					<?php
+					if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
+						continue;
+					}
+					?>
+					<div class="pay__row pay__row--grid-nowrap">
+						<div class="pay__product-name">
+							<?php
+								echo apply_filters( 'woocommerce_order_item_name', esc_html( $item->get_name() ), $item, false ); // @codingStandardsIgnoreLine
 
-									do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order, false );
+								do_action( 'woocommerce_order_item_meta_start', $item_id, $item, $order, false );
 
-									wc_display_item_meta( $item );
+								wc_display_item_meta( $item );
 
-									do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, false );
-								?>
-							</div>
-							<div class="pay__product-quantity"><?php echo apply_filters( 'woocommerce_order_item_quantity_html', ' <strong class="product-quantity">' . sprintf( '&times; %s', esc_html( $item->get_quantity() ) ) . '</strong>', $item ); ?></div><?php // @codingStandardsIgnoreLine ?>
-							<div class="pay__product-subtotal"><?php echo $order->get_formatted_line_subtotal( $item ); ?></div><?php // @codingStandardsIgnoreLine ?>
+								do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, false );
+							?>
 						</div>
-					<?php endforeach; ?>
-				<?php endif; ?>
-			</div>
-			<footer class="pay__footer pay__footer--grid-nowrap">
-				<?php if ( $totals = $order->get_order_item_totals() ) : ?>
-					<?php foreach ( $totals as $total ) : ?>
-						<div scope="row" colspan="2"><?php echo $total['label']; ?></div><?php // @codingStandardsIgnoreLine ?>
-						<div class="product-total"><?php echo $total['value']; ?></div><?php // @codingStandardsIgnoreLine ?>
-						
-					<?php endforeach; ?>
-				<?php endif; ?>
-			</footer>
+						<div class="pay__product-quantity"><?php echo apply_filters( 'woocommerce_order_item_quantity_html', ' <strong class="product-quantity">' . sprintf( '&times; %s', esc_html( $item->get_quantity() ) ) . '</strong>', $item ); ?></div><?php // @codingStandardsIgnoreLine ?>
+						<div class="pay__product-subtotal"><?php echo $order->get_formatted_line_subtotal( $item ); ?></div><?php // @codingStandardsIgnoreLine ?>
+					</div>
+				<?php endforeach; ?>
+			<?php endif; ?>
 		</div>
+		<footer class="pay__footer pay__footer--grid-nowrap">
+			<?php if ( $totals = $order->get_order_item_totals() ) : ?>
+				<?php foreach ( $totals as $total ) : ?>
+					<div scope="row" colspan="2"><?php echo $total['label']; ?></div><?php // @codingStandardsIgnoreLine ?>
+					<div class="product-total"><?php echo $total['value']; ?></div><?php // @codingStandardsIgnoreLine ?>
+					
+				<?php endforeach; ?>
+			<?php endif; ?>
+		</footer>
 	</div>
 	<div id="payment" class="pay__payment pay__payment--cell-s6">
 		<?php if ( $order->needs_payment() ) : ?>
