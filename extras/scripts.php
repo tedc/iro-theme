@@ -72,6 +72,7 @@
 			'address' => WC_AJAX::get_endpoint('iro_save_address'),
 			'checkout' => WC_AJAX::get_endpoint('checkout'),
 			'password' => WC_AJAX::get_endpoint('iro_recover_password'),
+			'newsletter' => WC_AJAX::get_endpoint('iro_newsletter'),
 			'reset' => WC_AJAX::get_endpoint('iro_reset_password'),
 			'accountBase' => basename(wc_get_page_permalink('myaccount')),
 			'checkoutPage' => basename(wc_get_page_permalink('checkout')),
