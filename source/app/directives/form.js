@@ -1,6 +1,6 @@
 module.exports = ()=> {
 	return {
-		 controller: [ "$scope", "$http", "$timeout", "$httpParamSerializerJQLike", '$window', ($scope, $http, $timeout, $httpParamSerializerJQLike, $window)=> {
+		controller: [ "$scope", "$http", "$timeout", "$httpParamSerializerJQLike", '$window', ($scope, $http, $timeout, $httpParamSerializerJQLike, $window)=> {
 		 	$scope.formData = {}
 		 	$scope.isContactSent = false;
 		 	$scope.isSubmitted = false;

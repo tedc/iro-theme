@@ -77,7 +77,7 @@ module.exports = () => {
 					  	'actionField': {'list': 'Variation'},    // 'detail' actions have an optional list property.
 					    'detail': {                                // 'add' actionFieldObject measures.
 					      'products': [{                        //  adding a product to a shopping cart.
-					        'name': $scope.attributes.title,
+					        'name': $scope.attributes.title + ' - ' + $scope.attributes.attributes.attribute_pa_color + ' ' +$scope.attributes.attributes.attribute_pa_misure,
 					        'id': ($scope.attributes.sku) ? $scope.attributes.sku : $scope.attributes.variation_id,
 					        'price': $scope.attributes.display_price,
 					        'brand': 'Iro',
@@ -134,7 +134,7 @@ module.exports = () => {
 							    'currencyCode': 'EUR',
 							    'add': {                                // 'add' actionFieldObject measures.
 							      'products': [{                        //  adding a product to a shopping cart.
-							        'name': item.getName(),
+							        'name': item.getName() + ' - ' +item.getData().attributes.attribute_pa_color + ' ' +item.getData().attributes.attribute_pa_misure,
 							        'id': (item_data.sku) ? item_data.sku : item.getId(),
 							        'price': item.getPrice(),
 							        'brand': 'Iro',
@@ -320,17 +320,32 @@ module.exports = () => {
 							// ngCart.setShipping(res.data.total);
 							// $rootScope.$broadcast('ngCart:change');
 							// $scope.shippings = ngCart.getExtras().shippings.packages;
-							var discount = 0;
+							var discounts = [];
 							var extras = ngCart.getExtras();
-							extras = angular.extend({}, extras, {discount : discount, coupons : res.data});
-							console.log(extras, res.data)
-							for(coupon of res.data) {
-								discount -= coupon.price;
-							}
+							// for(coupon of res.data) {
+							// 	discounts.push({
+							// 		type : coupon.type,
+							// 		price : coupon.price
+							// 	})
+							// }
+							//extras = angular.extend({}, extras, {discounts : discounts, coupons : res.data});
+							extras = angular.extend({}, extras, {coupons : res.data});
 							if(isCheckout) $scope.updateShipping(false);
 							ngCart.setExtras(extras);
 							$rootScope.$broadcast('ngCart:change');
 						})
+				}
+
+				ngCart.getDiscountTotal = (total)=> {
+					let discounts = ngCart.getExtras().discounts;
+					for(discount of coupons) {
+						if(discount.type == 'percent') {
+							total = total * discount.price;
+						} else {
+							total -= discount.price;
+						}
+					}
+					return total;
 				}
 	
 				ngCart.getCouponAumount = (coupon)=> {
@@ -576,26 +591,26 @@ module.exports = () => {
 					// 		$scope.passwordRecovering = false;
 					// 	});
 					ecommerce.post(url, data).then( (res)=> {
-							var result = res.data;
-							if(result.error) {
-								if(reset) {
-									$scope.resetPasswordMessage = result.error;
-									$scope.isResetPasswordError = true;
-								} else {
-									$scope.passwordMessage = result.error;
-									$scope.isPasswordError = true;
-								}
+						var result = res.data;
+						if(result.error) {
+							if(reset) {
+								$scope.resetPasswordMessage = result.error;
+								$scope.isResetPasswordError = true;
 							} else {
-								if(reset){
-									$scope.resetPasswordMessage = vars.wc.resetPasswordMessage;
-									$scope.isResetPasswordError = false;
-								} else {
-									$scope.passwordMessage = vars.wc.passwordMessage;
-									$scope.isPasswordError = false;
-								}
+								$scope.passwordMessage = result.error;
+								$scope.isPasswordError = true;
 							}
-							$scope.passwordRecovering = false;
-						});
+						} else {
+							if(reset){
+								$scope.resetPasswordMessage = vars.wc.resetPasswordMessage;
+								$scope.isResetPasswordError = false;
+							} else {
+								$scope.passwordMessage = vars.wc.passwordMessage;
+								$scope.isPasswordError = false;
+							}
+						}
+						$scope.passwordRecovering = false;
+					});
 				}
 			}
 			$rootScope.initEcommerce();

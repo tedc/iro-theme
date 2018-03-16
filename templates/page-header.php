@@ -29,7 +29,7 @@
 		</span>
 		<?php endif; ?>
 	</div>
-	<?php if(!is_404()) : ?>
+	<?php if(!is_404() && !is_page_template() && get_field('header_small')) : ?>
 	<span class="header__goto" go-to="#header-trigger"><span><?php _e('Scroll' ,'iro'); ?></span><i class="icon-arrow-down"></i></span>
 	<?php endif; ?>
 </div>

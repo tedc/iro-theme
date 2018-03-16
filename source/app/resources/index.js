@@ -122,7 +122,7 @@ iro
 				return deferred.promise;
 			},
 			empty : ()=> {
-				$http.post(vars.wc.empty);
+				$http.post(vars.wc.empty, { ignoreLoadingBar: true });
 			},
 		}
 		return obj;

@@ -41,5 +41,31 @@
 				border-bottom-left-radius: 0!important;
 			}
 		}
+		&message {
+			text-align: center;
+			padding: em($p) 0;
+			overflow: hidden;
+			&--error {
+				color: $error;
+			}
+			&.ng-enter {
+				opacity: 0;
+				transition: opacity $speed, max-height $speed;
+				max-height: 0;
+				&-active {
+					opacity: 1;
+					max-height: $f;
+				}
+			}
+			&.ng-leave {
+				opacity: 0;
+				transition: opacity $speed, max-height $speed;
+				max-height: 0;
+			}
+			p {
+				font-size: 12px;
+				font-style: italic;
+			}
+		}
 	}
 }

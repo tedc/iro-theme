@@ -29,7 +29,6 @@ iro
 				Params : trans.params(),
 				Url : newUrl
 			}
-			if(newUrl === oldUrl) $rootScope.isAnim = '';
 			var hash = $location.hash();
 			if (hash.trim() === '') {
 				if (newUrl === oldUrl) {
@@ -47,16 +46,11 @@ iro
 				}
 			}
 			if((newUrl.split('#')[0] === oldUrl.split('#')[0])) return false;
-			console.log(true);
 			oldUrl = newUrl;
 			$rootScope.isAnim = true;
 			$rootScope.$broadcast('sceneDestroy');
 			$rootScope.$broadcast('updateScenes');
 		});
-		// $transitions.onSuccess({}, ()=> {
-		// 	console.log(true);
-		// 	//$rootScope.initEcommerce();
-		// });	
 		$rootScope.$on('$locationChangeSuccess', ()=> {
 			let popup_visible = angular.element(document.querySelector('.popup--visible'));
 			let cart_visible = angular.element(document.querySelector('.cart-aside--visible'));
