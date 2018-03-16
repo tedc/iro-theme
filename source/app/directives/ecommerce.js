@@ -20,6 +20,7 @@ module.exports = () => {
 				if(ngCart.isEmpty()){ 
 					ecommerce.empty();
 					ngCart.setExtras({});
+					$rootScope.$broadcast('ngCart:change');
 				} else {
 					let url = vars.wc.cart;
 					ecommerce
