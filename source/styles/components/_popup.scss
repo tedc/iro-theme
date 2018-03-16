@@ -62,6 +62,7 @@
 			margin-bottom: em(20px);
 			.icon-chiudi {
 				font-size: 12px;
+				margin-left: 10px;
 			}
 		}
 		&--aligncenter {
@@ -70,6 +71,10 @@
 				font-size: 12px;
 			}
 		}
+	}
+	&__close {
+		display: flex;
+		align-items: center;
 	}
 	&__footer {
 		border-top: 1px solid $dark-border;

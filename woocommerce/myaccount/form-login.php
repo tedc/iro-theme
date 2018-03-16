@@ -36,7 +36,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 		<header class="popup__header">
 			<div class="popup__row popup__row--close">
 				<div class="popup__image"></div>
-				<i class="icon-chiudi" ng-click="close()"></i>
+				<div class="popup__close" ng-click="close()"><i class="icon-chiudi"></i></div>
 			</div>
 			<div class="popup__row popup__row--grid">
 				<h2 class="popup__title popup__title--small"><?php _e( 'Login', 'woocommerce' ); ?></h2>
