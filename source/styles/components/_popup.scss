@@ -94,9 +94,12 @@
 	&__image {
 		position: absolute;
 		left: em(30px);
-		width: em(125px);
-		height: em(130px);
-		top: em(67px)*-1;
+		// width: em(125px);
+		// height: em(130px);
+		// top: em(67px)*-1;
+		width: em(100px);
+		height: em(104px);
+		top: em(54px)*-1;
 		background-image: url(../images/iro-sogno-accedi-luna.png);
 		@include cover($size: contain);
 		.popup--visible-add &, .popup--visible-remove & {
