@@ -34,6 +34,7 @@
 	}
 	$average = $average / $main_total;
 	$average = round($average, 1);
+	if(is_numeric($average) && $average > 0) :
 ?>
 <div class="footer__cell footer__cell--grow footer__cell--last">
 	<h4 class="footer__subtitle"><?php _e('Voto degli utenti', 'iro'); ?></h4>
@@ -44,3 +45,4 @@
 		?>
 	</span>
 </div>
+<?php endif; ?>

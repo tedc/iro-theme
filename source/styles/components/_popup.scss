@@ -98,7 +98,7 @@
 		height: em(130px);
 		top: em(67px)*-1;
 		background-image: url(../images/iro-sogno-accedi-luna.png);
-		@include cover;
+		@include cover($size: contain);
 		.popup--visible-add &, .popup--visible-remove & {
 			transform: translate3d(0, $p*-1, 0);
 			opacity: 0;
