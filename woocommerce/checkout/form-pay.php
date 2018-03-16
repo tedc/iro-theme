@@ -50,8 +50,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 									do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, false );
 								?>
 							</div>
-							<div class="pay__product-quantity"><?php echo apply_filters( 'woocommerce_order_item_quantity_html', ' <strong class="product-quantity">' . sprintf( '&times; %s', esc_html( $item->get_quantity() ) ) . '</strong>', $item ); ?></td><?php // @codingStandardsIgnoreLine ?>
-							<div class="pay__product-subtotal"><?php echo $order->get_formatted_line_subtotal( $item ); ?></td><?php // @codingStandardsIgnoreLine ?>
+							<div class="pay__product-quantity"><?php echo apply_filters( 'woocommerce_order_item_quantity_html', ' <strong class="product-quantity">' . sprintf( '&times; %s', esc_html( $item->get_quantity() ) ) . '</strong>', $item ); ?></div><?php // @codingStandardsIgnoreLine ?>
+							<div class="pay__product-subtotal"><?php echo $order->get_formatted_line_subtotal( $item ); ?></div><?php // @codingStandardsIgnoreLine ?>
 						</div>
 					<?php endforeach; ?>
 				<?php endif; ?>
