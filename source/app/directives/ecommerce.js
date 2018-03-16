@@ -364,7 +364,7 @@ module.exports = () => {
 					if(coupon.type == 'percent') {
 						return `-${coupon.price * 100}%`;
 					} else if(coupon.type == 'fixed_product') {
-						return `-€ ${coupon.price} (€ ${coupon.amount} ${varswc.fixed_product_coupon})`;
+						return `-€ ${coupon.price} (€ ${coupon.amount} ${vars.wc.fixed_product_coupon})`;
 					} else  {
 						return `-€ ${coupon.price}`;
 					}
