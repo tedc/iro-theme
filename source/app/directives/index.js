@@ -27,7 +27,7 @@ iro
 				scope.currentProductSlide = 0;
 				if(s.destroyed) return;
 				let slidesTo = element[0].querySelectorAll('[data-slide-to]');
-				if(slidesTo) {
+				if(slidesTo.length > 0) {
 					angular.forEach(element[0].querySelectorAll('[data-slide-to]'), (item, i)=> {
 						let index = item.getAttribute('data-slide-to');
 						angular.element(item).on('click', ()=> {
