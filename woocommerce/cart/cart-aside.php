@@ -70,7 +70,7 @@
 				</div>
 				<div class="cart-aside__total swiper-slide cart-aside__total--grow cart-aside__total--shrink">
 					<span class="cart-aside__label"><?php _e('Totale', 'iro'); ?></span>
-					<span class="cart-aside__price" ng-bind-html="((ngCart.getDiscountTotal(ngCart.totalCost()) - ngCart.getShipping()) | currency:'€ ':0)"></span>
+					<span class="cart-aside__price" ng-bind-html="((ngCart.getDiscountTotal(ngCart.totalCost()) - ngCart.getShipping()) | currency:'€ ')"></span>
 				</div>
 			</div>
 			<span class="swiper-scrollbar"></span>
