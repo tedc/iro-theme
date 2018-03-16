@@ -454,7 +454,7 @@ module.exports = () => {
 					angular.forEach(ngCart.getCart().items, (item, i)=> {
 						obj = {
 							'name' : item.getName(),
-							'id' : item.getExtras().sku ? item.getExtras().sku : item.getId(),
+							'id' : item.getData().sku ? item.getData().sku : item.getId(),
 							'price' : item.getPrice(),
 							'brand' : 'Iro',
 							'variant': item.getData().attributes.attribute_pa_color + ' ' +item.getData().attributes.attribute_pa_misure,
@@ -550,7 +550,7 @@ module.exports = () => {
 							angular.forEach(ngCart.getCart().items, (item, i)=> {
 								obj = {
 									'name' : item.getName(),
-									'id' : item.getExtras().sku ? item.getExtras().sku : item.getId(),
+									'id' : item.getData().sku ? item.getData().sku : item.getId(),
 									'price' : item.getPrice(),
 									'brand' : 'Iro',
 									'variant': item.getData().attributes.attribute_pa_color + ' ' +item.getData().attributes.attribute_pa_misure,
