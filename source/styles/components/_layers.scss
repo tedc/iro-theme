@@ -134,6 +134,7 @@
 				padding-bottom: em($p/2, 22px);
 				transition: color $speed;
 				line-height: 1;
+				transition: color $speed;
 				@include breakpoint() {	
 					font-size: 1em;
 				}

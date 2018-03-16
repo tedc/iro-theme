@@ -179,6 +179,7 @@
 	}
 	&__cell {
 		@include grow('md', 'bottom');
+		@include grow('md');
 		&--order-review {
 			position: fixed;
 			left: 0;

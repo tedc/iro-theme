@@ -8,7 +8,7 @@ module.exports = () => {
 				errorAlert = angular.element(errorAlert);
 				TweenMax.to(errorAlert, .5, {
 					opacity : 0,
-					delay : 1,
+					delay : 5,
 					onComplete : ()=> {
 						errorAlert.remove();
 					}
@@ -502,12 +502,14 @@ module.exports = () => {
 					}
 					var getCurrentIndex = ()=> {
 						$scope.checkoutObj.current = swiper.realIndex;
-						if($scope.checkoutObj.current - 1 >= 1 && $scope.checkoutObj.current - 1 <= 2) {
+						if($scope.checkoutObj.current > 0) {
 							let option;
-							if($scope.checkoutObj.current - 1 == 1) {
-								option = `Spese di spedizione: ${$scope.checkoutFields.shipping_method}`
+							if($scope.checkoutObj.current - 1 == 0) {
+								option = 'account';
+							} else if($scope.checkoutObj.current - 1 == 1) {
+								option = `spedizione: ${$scope.checkoutFields.shipping_method}`
 							} else if($scope.checkoutObj.current - 1 == 2) {
-								option = `Metodo di pagamento: ${$scope.checkoutFields.payment_method}`
+								option = `purchase: ${$scope.checkoutFields.payment_method}`
 							}
 							let products = [];
 							angular.forEach(ngCart.getCart().item, (item, i)=> {

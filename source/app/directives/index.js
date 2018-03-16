@@ -34,11 +34,11 @@ iro
 							s.slideTo(index);
 						});
 					});
-					s.on('slideChange', ()=> {
-						angular.element(element[0].querySelector('.swiper-pagination-bullet-active')).removeClass('swiper-pagination-bullet-active');
-						angular.element(element[0].querySelector('[data-slide-to="'+s.activeIndex+'"]')).addClass('swiper-pagination-bullet-active');
-						//scope.currentProductSlide = s.activeIndex;
-					});
+					// s.on('slideChange', ()=> {
+					// 	angular.element(element[0].querySelector('.swiper-pagination-bullet-active')).removeClass('swiper-pagination-bullet-active');
+					// 	angular.element(element[0].querySelector('[data-slide-to="'+s.activeIndex+'"]')).addClass('swiper-pagination-bullet-active');
+					// 	//scope.currentProductSlide = s.activeIndex;
+					// });
 				}
 				scope.features_slider = getInstances.getInstance('features');
 				scope.features_slider.then((swiper)=> {
