@@ -27,7 +27,7 @@ if ( ! wc_coupons_enabled() ) {
 <div class="checkout__coupons" ng-if="!ngCart.getExtras().coupons || ngCart.getExtras().coupons.length > 0">
 <?php
 
-	$info_message = apply_filters( 'woocommerce_checkout_coupon_message', ' <a href="#" class="checkout__showcoupon" ng-if="ngCart.getExtras().coupons.length < 1">' . __( 'Hai un codice sconto?', 'iro' ) . '</a>' );
+	$info_message = apply_filters( 'woocommerce_checkout_coupon_message', ' <a href="#" class="checkout__showcoupon">' . __( 'Hai un codice sconto?', 'iro' ) . '</a>' );
 	wc_print_notice( $info_message, 'notice' );
 
 ?>
