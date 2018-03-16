@@ -33,8 +33,9 @@ if ( ! wc_coupons_enabled() ) {
 ?>
 
 <div class="checkout__coupon checkout__coupon--grid-nowrap slide-toggle" ng-class="{'slide-toggle--visible':isCoupon}">
-	<input type="hidden" ng-model="coupon_nonce" ng-init="heckoutFields.coupon_nonce='<?php echo wp_create_nonce( 'apply-coupon' ); ?>'" />
-	<span class="checkout__button checkout__button--dark checkout__button--radius-right" ng-class="{'checkout__button--loading':ngCart.isDescountLoading}" ng-click="ngCart.applyCoupon(heckoutFields.coupon_code,heckoutFields. coupon_nonce)"><?php _e( 'Applica', 'iro' ); ?></span>
+	<input type="text" name="coupon_code" class="checkout__input" ng-model="checkoutFields.coupon_code" placeholder="<?php esc_attr_e( 'Inserire codice sconto', 'iro' ); ?>" value="" />
+	<input type="hidden" ng-model="coupon_nonce" ng-init="checkoutFields.coupon_nonce='<?php echo wp_create_nonce( 'apply-coupon' ); ?>'" />
+	<span class="checkout__button checkout__button--dark checkout__button--radius-right" ng-class="{'checkout__button--loading':ngCart.isDescountLoading}" ng-click="ngCart.applyCoupon(checkoutFields.coupon_code,checkoutFields. coupon_nonce)"><?php _e( 'Applica', 'iro' ); ?></span>
 </div>
 <div class="checkout__error" ng-if="ngCart.couponError" ng-bind-html="ngCart.couponError"></div>
 </div>
