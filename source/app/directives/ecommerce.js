@@ -452,7 +452,7 @@ module.exports = () => {
 					});
 					let products = [];
 					angular.forEach(ngCart.getCart().items, (item, i)=> {
-						obj = {
+						let obj = {
 							'name' : item.getName(),
 							'id' : item.getData().sku ? item.getData().sku : item.getId(),
 							'price' : item.getPrice(),
@@ -486,7 +486,6 @@ module.exports = () => {
 									state = state.split('?key=');
 									var order = state[0];
 									order.replace(/\//g, '');
-									console.log(order);
 									var key = state[1];
 									purchase.action['id'] = order;
 									$window.dataLayer.push({
@@ -548,7 +547,7 @@ module.exports = () => {
 							}
 							let products = [];
 							angular.forEach(ngCart.getCart().items, (item, i)=> {
-								obj = {
+								let obj = {
 									'name' : item.getName(),
 									'id' : item.getData().sku ? item.getData().sku : item.getId(),
 									'price' : item.getPrice(),
