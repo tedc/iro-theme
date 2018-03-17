@@ -19,18 +19,20 @@
 		color: $error;
 		z-index: 9999;
 	}
-	&-bacs-bank-details {
+	&-instructions {
 		padding: em($p*2) 0;
+	}
+	&-bacs-bank-details {
 		h2 {
 			@extend [class*="__title"];
 		}
 		h3 {
-			@extend [class*="__subtitle"];
+			font-size: 1em;
 		}
 		.order_details {
 			li {
 				display: flex;
-				justify-content: center;
+				justify-content: space-between;
 				align-items: center;
 				strong {
 					flex: 0 0 auto;;
