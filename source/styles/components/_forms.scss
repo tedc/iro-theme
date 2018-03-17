@@ -12,6 +12,7 @@
 	border: 1px solid transparent;
 	box-shadow: none !important;
 	appearance: none;
+	font-size: 16px!important;
 	&::placeholder {
 		font-size: em(14px);
 		color: $light-color;
@@ -20,6 +21,7 @@
 	}
 	&:focus, &:hover {
 		outline: none !important;
+		font-size: 16px!important;
 	}
 	&.ng-invalid.ng-pristine.ng-touched, &.ng-invalid.ng-dirty.ng-touched {
 		border-color: $error;
@@ -277,12 +279,4 @@
 [class*="__options--visible"] {
 	visibility: visible;
 	opacity: 1;
-}
-
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-	select:focus,
-	textarea:focus,
-	input:focus {
-		font-size: 16px;
-	}
 }
