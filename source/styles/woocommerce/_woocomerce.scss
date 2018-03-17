@@ -19,7 +19,12 @@
 		color: $error;
 		z-index: 9999;
 	}
+	&-instructions {
+		border-top: 1px solid $light-border;
+		padding-top: em($p);
+	}
 	&-bacs-bank-details {
+		padding-top: em($p);
 		h2 {
 			@extend [class*="__title"];
 		}
