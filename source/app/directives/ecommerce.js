@@ -219,12 +219,11 @@ module.exports = () => {
 					addToCart(item);
 				});
 				$scope.$on('ngCart:itemUpdated', (evt, item)=> {
-					console.log('updated');
 					ngCart.isCounting = true;
 					$timeout(()=> {
 						ngCart.isCounting = false;
 					}, 1500);
-					ngCart.changeQty(item, false);
+					ngCart.changeQty(item, true, +1);
 				});
 	
 				ngCart.getDesc = (item)=> {
