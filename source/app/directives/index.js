@@ -57,7 +57,9 @@ iro
 							TweenMax.to(item, .5, {y : p});
 						});
 					});			
-					s.update();
+					$timeout(()=> {
+						s.update();
+					}, 500);
 				});
 				// VALUES SLIDER
 				scope.valueIsStart = true;
@@ -86,7 +88,9 @@ iro
 							swiper.slidePrev();
 						}
 					}
-					s.update();
+					$timeout(()=> {
+						s.update();
+					}, 500);
 				});
 				//});
 			}

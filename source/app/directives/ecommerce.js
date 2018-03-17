@@ -15,6 +15,14 @@ module.exports = () => {
 				});
 			}
 
+			let isSliderUpdated = false;
+
+			$element.on('scroll mouseenter mousemove', ()=> {
+				if(!isSliderUpdated ) {
+					$rootScope.$broadcast('update_scroller');
+				}
+			});
+
 			$rootScope.initEcommerce = ()=>{
 				//EMPTY ON LOAD
 				if(ngCart.isEmpty()){ 
@@ -65,6 +73,7 @@ module.exports = () => {
 					if(ngCart.isEmpty()) {
 						ngCart.setExtras({});
 					}
+					$rootScope.$broadcast('update_scroller');
 				});
 				
 				// ADD AND UPDATE
@@ -176,7 +185,7 @@ module.exports = () => {
 						.then((res)=> {
 							$rootScope.$broadcast('ngCart:change');
 							$location.hash('cart');
-							ngCart.isUpdating = false;	
+							ngCart.isUpdating = false;
 							$window.dataLayer.push({
 							  'event': 'addToCart',
 							  'ecommerce': {
