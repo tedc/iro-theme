@@ -71,9 +71,13 @@
 			// 	right: em($p);
 			// };
 			padding: {
-				left: 0;
-				right: 0;
+				left: 10px;
+				right: 10px;
 			};
+			@include breakpoint(500px) {
+				padding-left: em($p);
+				padding-right: em($p);
+			}
 			@include breakpoint() {
 				padding-left: em($p*2);
 				padding-right: em($p*2);
@@ -132,10 +136,14 @@
 		    	width: $f!important;
 				height: auto!important;
 		    }
+		    @include breakpoint(500px, false) {
+		    	width: $f!important;
+		    }
 		    .swiper-slide-prev &, .swiper-slide-next & {
-		    	max-width: 50%;
-		    	transition: max-width $speed;
-			    @include breakpoint(1250px) {
+		    		max-width: 50%;
+		    		transition: max-width $speed;
+		    	}
+		    	@include breakpoint(1250px) {
 			    	max-width: none;
 			    }
 		    }

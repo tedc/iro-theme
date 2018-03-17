@@ -3,7 +3,6 @@ iro
 	.config(['$stateProvider', '$locationProvider', '$provide', 'cfpLoadingBarProvider', require('./state')])
 	.run(["$location", "$rootScope", "$window", "$state", "$cookies", "$transitions", "webFontLoader", 'angularLoad',  '$animate', '$timeout', ($location, $rootScope, $window, $state, $cookies, $transitions, webFontLoader, angularLoad, $animate, $timeout) => {
 		webFontLoader(['Baloo Bhaina','Encode Sans:300,400,600,800']);
-		$window.scrollTo(0, 0);
 		angularLoad.loadScript('https://www.youtube.com/iframe_api')
 		FastClick.attach(document.body);
 		$rootScope.isAnim = false;
@@ -24,6 +23,7 @@ iro
 		let refreshSliders = ()=> {
 			if(!window.cssLoaded) return;
 			$timeout(()=> {
+				$window.scrollTo(0, 0);
 				$timeout(()=> {$rootScope.$broadcast('update_scroller')}, 250);
 				refreshSliders();
 			}, 10);
