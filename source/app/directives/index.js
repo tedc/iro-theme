@@ -25,6 +25,7 @@ iro
 				//scope.product_slider = getInstances.getInstance('product');
 				//scope.product_slider.then((swiper) => {
 				scope.currentProductSlide = 0;
+				s.update();
 				if(s.destroyed) return;
 				let slidesTo = element[0].querySelectorAll('[data-slide-to]');
 				if(slidesTo.length > 0) {
@@ -48,7 +49,8 @@ iro
 							p = 40 * p;
 							TweenMax.to(item, .5, {y : p});
 						});
-					})
+					});			
+					s.update();
 				});
 				// VALUES SLIDER
 				scope.valueIsStart = true;
@@ -77,6 +79,7 @@ iro
 							swiper.slidePrev();
 						}
 					}
+					s.update();
 				});
 				//});
 			}

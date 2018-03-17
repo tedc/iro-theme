@@ -138,7 +138,10 @@
 }
 %star {
 	overflow: hidden;
-	width: em(16px);
+	width: em(16px, $base_font_size - 2px);
+	@include breakpoint() {
+		width: 1em;
+	}
 	position: relative;
 	margin: 0 2px;
 	i {
