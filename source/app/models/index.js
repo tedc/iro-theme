@@ -1,7 +1,7 @@
 var iro = angular.module('iro');
 iro
 	.config(['$stateProvider', '$locationProvider', '$provide', 'cfpLoadingBarProvider', require('./state')])
-	.run(["$location", "$rootScope", "$window", "$state", "$cookies", "$transitions", "webFontLoader", 'angularLoad',  '$animate', ($location, $rootScope, $window, $state, $cookies, $transitions, webFontLoader, angularLoad, $animate) => {
+	.run(["$location", "$rootScope", "$window", "$state", "$cookies", "$transitions", "webFontLoader", 'angularLoad',  '$animate', '$timeout', ($location, $rootScope, $window, $state, $cookies, $transitions, webFontLoader, angularLoad, $animate, $timeout) => {
 		webFontLoader(['Baloo Bhaina','Encode Sans:300,400,600,800']);
 		$window.scrollTo(0, 0);
 		angularLoad.loadScript('https://www.youtube.com/iframe_api')

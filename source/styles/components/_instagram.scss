@@ -4,6 +4,7 @@
 			display: flex;
 			align-items: center;
 			flex-wrap: wrap;
+			padding-bottom: em($p/2);
 		}
 		&figure {
 			display: none;
@@ -23,10 +24,10 @@
 		}
 		&title {
 			margin-right: em($p*2, 18px);
-			padding-bottom: em($p, 18px);
+			padding-bottom: em($p/2, 18px);
 			@include breakpoint($bp) {
 		        margin-right: em($p*2, 24px);
-				padding-bottom: em($p, 24px);
+				padding-bottom: em($p/2, 24px);
 		    }
 		}
 		&button {
