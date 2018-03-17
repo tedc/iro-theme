@@ -174,8 +174,10 @@ module.exports = () => {
 					var item_key = item_data.item_key;
 					if(inCart) {
 						item.setQuantity(plus, true);
+						var quantity = item.getQuantity();
+					} else {
+						var quantity = item.getQuantity() + 1;
 					}
-					var quantity = item.getQuantity();
 					let data = {
 						item_key : item_key,
 						quantity : quantity
@@ -223,7 +225,7 @@ module.exports = () => {
 					$timeout(()=> {
 						ngCart.isCounting = false;
 					}, 1500);
-					ngCart.changeQty(item, true, +1);
+					ngCart.changeQty(item, false);
 				});
 	
 				ngCart.getDesc = (item)=> {
