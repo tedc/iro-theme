@@ -36,8 +36,12 @@
 		background-color: $lighter-color;
 		border-radius: $r;
 		max-width: $f;
-		margin-top: em(74px);
-		margin-bottom: em(74px);
+		margin-top: em(74px, 14px);
+		margin-bottom: em(74px, 14px);
+		@include breakpoint() {
+			margin-top: em(74px);
+			margin-bottom: em(74px);
+		}
 		// .ng-enter &, .ng-leave & {
 		// 	transform: translate3d(0, $p, 0);
 		// }
