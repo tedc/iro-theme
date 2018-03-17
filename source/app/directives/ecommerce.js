@@ -176,6 +176,7 @@ module.exports = () => {
 						item.setQuantity(plus, true);
 						var quantity = item.getQuantity();
 					} else {
+						console.log(item);
 						item.setQuantity(+1, true);
 						var quantity = item.getQuantity();
 						console.log(quantity);
