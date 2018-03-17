@@ -11,6 +11,7 @@
 		&title {
 			display: block;
 			padding-bottom: em(40px, 30px);
+			line-height: 1;
 		    @include breakpoint($bp) {
 		        padding-bottom: em(40px, 35px);
 		    }
@@ -25,6 +26,7 @@
 		&input {
 			width: $f;
 			flex: 0 0 auto;
+			margin-top: em($p);
 			.row--gradient-light & {
 				border-color: $dark-border;
 			}
@@ -33,6 +35,7 @@
 				border-top-right-radius: 0;
 				border-bottom-right-radius: 0;
 				height: em(54px);
+				margin-top: 0;
 				.row--gradient-light & {
 					border-right-color: transparent;
 				}

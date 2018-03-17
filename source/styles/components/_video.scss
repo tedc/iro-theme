@@ -209,6 +209,7 @@
 		}
 		&title {
 			color: $w;
+			line-height: 1;
 		}
 		&open {
 			@extend %play;

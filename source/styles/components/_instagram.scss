@@ -4,6 +4,7 @@
 			display: flex;
 			align-items: center;
 			padding-bottom: em($p);
+			flex-wrap: wrap;
 		}
 		&figure {
 			display: none;
@@ -21,8 +22,13 @@
 		&image {
 			width: $f;
 		}
+		&title {
+			margin-left: em($p*2, 18px);	
+			@include breakpoint($bp) {
+		        margin-left: em($p*2, 24px);
+		    }
+		}
 		&button {
-			margin: 0 em($p*2);
 			span {
 				font-size: 12px;
 			}
