@@ -178,9 +178,9 @@ module.exports = () => {
 					} else {
 						let cart_item = ngCart.getItemById(item.getId())
 						console.log(cart_item);
-						item.setQuantity(+1, true);
+						// item.setQuantity(+1, true);
 						var quantity = item.getQuantity();
-						console.log(quantity);
+						// console.log(quantity);
 					}
 					let data = {
 						item_key : item_key,
