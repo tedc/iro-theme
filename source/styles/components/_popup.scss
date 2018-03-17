@@ -4,12 +4,29 @@
 	//background: linear-gradient(to top, #0c386c, #7dcdf3);
 	background: url(../images/iro-sogno-accedi-stelle-BG.gif) repeat;
 	background-size: 250px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	opacity: 0;
 	visibility: hidden;
 	transition: $speed opacity $speed, visibility $speed $speed;
+	.handheld & {
+		overflow-x: hidden;
+		overflow-y: scroll;
+		-webkit-overflow-scrolling: touch;	
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.swiper-container {
+		@include full;
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.swiper-wrapper {
+		display: block;
+		margin: auto;
+		width: $f;
+	}
 	&--visible {
 		opacity: 1;
 		visibility: visible;
