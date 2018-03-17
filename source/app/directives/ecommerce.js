@@ -1,6 +1,6 @@
 module.exports = () => {
 	return {
-		controller : ['$scope', '$rootScope', 'ngCart', '$element', 'ecommerce', '$state', 'getInstances', '$timeout', '$window', '$filter', '$location', '$sce', ($scope, $rootScope, ngCart, $element, ecommerce, $state, getInstances, $timeout, $window, $filter, $location, $sce)=> {
+		controller : ['$scope', '$rootScope', 'ngCart', '$element', 'ecommerce', '$state', 'getInstances', '$timeout', '$window', '$filter', '$location', '$sce',  ($scope, $rootScope, ngCart, $element, ecommerce, $state, getInstances, $timeout, $window, $filter, $location, $sce)=> {
 			// CART
 			$rootScope.isCartChanged = false;
 			let errorAlert = $element[0].querySelector('ul.woocommerce-error');
@@ -176,6 +176,7 @@ module.exports = () => {
 						item.setQuantity(plus, true);
 						var quantity = item.getQuantity();
 					} else {
+						console.log(item.getQuantity());
 						var quantity = item.getQuantity() + 1;
 						console.log(quantity);
 						item.setQuantity(quantity);
