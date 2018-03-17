@@ -182,6 +182,7 @@ echo $critical;
       [c]2014 @scottjehl, Filament Group, Inc.
       Licensed MIT
       */
+      window.cssLoaded = false;
       function loadCSS(href){
         var ss = window.document.createElement('link'),
             ref = window.document.getElementsByTagName('head')[0];
@@ -198,6 +199,7 @@ echo $critical;
         setTimeout( function(){
           // set media back to `all` so that the stylesheet applies once it loads
           ss.media = 'all';
+          window.cssLoaded = true;
         },0);
       }
       loadCSS('<?php echo Assets\asset_path('styles/main.css'); ?>');

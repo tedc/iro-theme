@@ -8,7 +8,7 @@
 			margin: 0 auto;
 			position: relative;
 			overflow: hidden;
-			max-width: calc(100% - #{em($p*8)});
+			max-width: calc(100% - #{em(70px)});
 			@include breakpoint(500px) {
 				max-width: em(500px);
 			}
@@ -66,9 +66,13 @@
 			position: relative;
 			flex-wrap: wrap;
 			//background-color: $w;
+			// padding: {
+			// 	left: em($p);
+			// 	right: em($p);
+			// };
 			padding: {
-				left: em($p);
-				right: em($p);
+				left: 0;
+				right: 0;
 			};
 			@include breakpoint() {
 				padding-left: em($p*2);

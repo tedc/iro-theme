@@ -21,6 +21,14 @@ iro
 		// 		$window.location.href = url;
 		// 	}
 		// }
+		let refreshSliders = ()=> {
+			if(!window.cssLoaded) return;
+			$timeout(()=> {
+				$rootScope.$broadcast('update_scroller');
+				refreshSliders();
+			}, 10);
+		}
+		refreshSliders();
 		$transitions.onStart({}, (trans) => {
 			$rootScope.isMenu = false;
 			let newUrl = trans.router.stateService.href(trans.to().name, trans.params(), {absolute : true});
@@ -45,6 +53,7 @@ iro
 					delete $rootScope.menuItem;
 				}
 			}
+			$rootScope.$broadcast('update_scroller');
 			if((newUrl.split('#')[0] === oldUrl.split('#')[0])) return false;
 			oldUrl = newUrl;
 			$rootScope.isAnim = true;

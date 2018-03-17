@@ -26,7 +26,6 @@
 		&input {
 			width: $f;
 			flex: 0 0 auto;
-			margin-top: em($p);
 			.row--gradient-light & {
 				border-color: $dark-border;
 			}
@@ -35,7 +34,6 @@
 				border-top-right-radius: 0;
 				border-bottom-right-radius: 0;
 				height: em(54px);
-				margin-top: 0;
 				.row--gradient-light & {
 					border-right-color: transparent;
 				}
@@ -44,8 +42,10 @@
 		&button {
 			width: $f;
 			flex: 0 0 auto;
+			margin-top: em($p);
 			@include breakpoint() {
 				flex: 1;
+				margin-top: 0;
 				border-top-left-radius: 0!important;
 				border-bottom-left-radius: 0!important;
 			}

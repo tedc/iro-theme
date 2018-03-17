@@ -20,7 +20,6 @@
 	}
 	&:focus, &:hover {
 		outline: none !important;
-		font-size: inherit;
 	}
 	&.ng-invalid.ng-pristine.ng-touched, &.ng-invalid.ng-dirty.ng-touched {
 		border-color: $error;
@@ -278,4 +277,12 @@
 [class*="__options--visible"] {
 	visibility: visible;
 	opacity: 1;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	select:focus,
+	textarea:focus,
+	input:focus {
+		font-size: 16px;
+	}
 }

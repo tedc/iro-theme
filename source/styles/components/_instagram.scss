@@ -3,7 +3,6 @@
 		&header {
 			display: flex;
 			align-items: center;
-			padding-bottom: em($p);
 			flex-wrap: wrap;
 		}
 		&figure {
@@ -23,9 +22,11 @@
 			width: $f;
 		}
 		&title {
-			margin-left: em($p*2, 18px);	
+			margin-right: em($p*2, 18px);
+			padding-bottom: em($p, 18px);
 			@include breakpoint($bp) {
-		        margin-left: em($p*2, 24px);
+		        margin-right: em($p*2, 24px);
+				padding-bottom: em($p, 24px);
 		    }
 		}
 		&button {
