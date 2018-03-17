@@ -25,6 +25,7 @@
 	.swiper-wrapper {
 		display: block;
 		margin: auto;
+		overflow: visible;
 	}
 	&--visible {
 		opacity: 1;

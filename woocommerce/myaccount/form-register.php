@@ -29,7 +29,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) : ?>
 
 <div class="popup" ng-if="!isUserLoggedIn" id="register" login-form>
-		<form method="post" name="registerForm" class="popup__form" novalidate ng-submit="sign('register')">
+		<?php if(!is_handheld()) { ?>
+		<div class="swiper-container" scroller options="{freeMode: true, slidesPerView: 'auto', mousewheel: true, direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true} }">
+		<div class="swiper-wrapper">
+		<?php } ?>
+	
+		<form class="popup__form<?php echo (!is_handheld()) ? ' swiper-slide' : ''; ?>" method="post" name="registerForm" novalidate ng-submit="sign('register')">
 			<header class="popup__header">
 				<div class="popup__row popup__row--close">
 					<div class="popup__image"></div>
@@ -81,6 +86,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php do_action( 'woocommerce_register_form_end' ); ?>
 	</form>
 	<div class="popup__error" ng-if="error" ng-bind-html="errorMessage"></div>
+	<?php if(!is_handheld()) {
+		echo '</div><div class="swiper-scrollbar"></div></div>';
+	} ?>
 </div>
 <?php endif; ?>
 

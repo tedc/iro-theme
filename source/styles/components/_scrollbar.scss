@@ -13,6 +13,9 @@
 			background-color: $alternate-color;
 			border-radius: 0;
 		}
+		.popup & {
+			background-color: $w;
+		}
 	}
 	&.facebook__scrollbar {	
 		background-color: $dark-border;

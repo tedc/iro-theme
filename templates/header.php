@@ -8,7 +8,7 @@
 <header class="banner banner--shrink-fw" ng-class="{'banner--active-menu':isMenu}">
     <nav class="banner__nav">
       <a class="icon-logo" href="<?= esc_url(home_url('/')); ?>" ui-sref="app.root({lang : '<?php echo ICL_LANGUAGE_CODE; ?>'})"></a>
-      <div class="banner__menu" scroller options="{freeMode: true, slidesPerView: 'auto', breakpoints:{1024:{direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true} } }  }">
+      <div class="banner__menu" scroller options="{freeMode: true, slidesPerView: 'auto', breakpoints:{1024:{mousewheel: true, direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true} } }  }">
       <?php
         if (has_nav_menu('primary_navigation')) :
           $append_sting = (is_user_logged_in()) ? __('Profilo', 'iro') : __('Login', 'iro');
