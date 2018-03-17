@@ -1,6 +1,6 @@
 var iro = angular.module('iro');
 iro
-	.directive('scroller', ['getInstances', (getInstances) => {
+	.directive('scroller', ['getInstances','$timeout', (getInstances, $timeout) => {
 		var defaults = {};
 		return {
 			link : (scope, element, attrs) => {
@@ -25,7 +25,14 @@ iro
 				//scope.product_slider = getInstances.getInstance('product');
 				//scope.product_slider.then((swiper) => {
 				scope.currentProductSlide = 0;
-				s.update();
+				if(!attrs.name && typeof attrs.scroller !== 'undefined') {
+					getInstances.getInstance(name)
+						.then(()=> {
+							$timeout(()=> {
+								s.update();
+							}, 500);
+						});
+				}
 				if(s.destroyed) return;
 				let slidesTo = element[0].querySelectorAll('[data-slide-to]');
 				if(slidesTo.length > 0) {
