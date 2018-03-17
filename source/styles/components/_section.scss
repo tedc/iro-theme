@@ -105,6 +105,13 @@
 					align-items: center;
 				}
 			}
+			&--even {
+				&:not(.section__cell--grow):not(.section__cell--grow-md):not(.section__cell--grow-lg):not(.section__cell--grow-top):not(.section__cell--grow-md-top):not(.section__cell--grow-lg-top){
+					@include breakpoint($min: false) {
+						padding-top: em($p);
+					}
+				}
+			}
 			.section--grid-invert & {
 				order: 3;
 				&:nth-child(1) {

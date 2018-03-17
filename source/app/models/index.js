@@ -24,7 +24,7 @@ iro
 		let refreshSliders = ()=> {
 			if(!window.cssLoaded) return;
 			$timeout(()=> {
-				$rootScope.$broadcast('update_scroller');
+				$timeout(()=> {$rootScope.$broadcast('update_scroller')}, 250);
 				refreshSliders();
 			}, 10);
 		}

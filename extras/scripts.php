@@ -95,7 +95,8 @@
 				'error' => $error,
 				'errorTitle' => __('Pagina non trovata', 'catellani'),
 				'blog' => basename(get_permalink($blog_base)),
-				'category' => get_option( 'category_base' )
+				'category' => get_option( 'category_base' ),
+				'css' => Assets\asset_path('styles/main.css')
 			),
 			'lang' => array(
 				'default' => $sitepress->get_default_language(),
