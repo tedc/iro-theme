@@ -21,9 +21,10 @@ iro
 		// 	}
 		// }
 		let refreshSliders = ()=> {
-			if(!window.cssLoaded) return;
+			if(window.cssLoaded) return;
+			console.log(window.cssLoaded)
 			$timeout(()=> {
-				$window.scrollTo(0, 0);
+				//$window.scrollTo(0, 0);
 				$timeout(()=> {$rootScope.$broadcast('update_scroller')}, 250);
 				refreshSliders();
 			}, 10);

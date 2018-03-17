@@ -140,6 +140,7 @@
 		    	width: $f!important;
 		    }
 		    .swiper-slide-prev &, .swiper-slide-next & {
+		    	@include breakpoint(500px) {
 		    		max-width: 50%;
 		    		transition: max-width $speed;
 		    	}
