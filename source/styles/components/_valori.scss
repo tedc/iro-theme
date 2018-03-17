@@ -8,7 +8,7 @@
 			margin: 0 auto;
 			position: relative;
 			overflow: hidden;
-			max-width: calc(100% - #{em(70px)});
+			max-width: calc(100% - #{em(70px, $base_font_size - 2px)});
 			@include breakpoint(500px) {
 				max-width: em(500px);
 			}

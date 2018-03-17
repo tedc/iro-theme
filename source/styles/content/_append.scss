@@ -27,7 +27,7 @@ body {
         transition: opacity $speed;
         opacity: 1;
     }
-    @include breakpoint(1024px) {
+    @include breakpoint() {
         font-size: $base_font_size;
     }
     &.blog, &.category, &.single-post {
