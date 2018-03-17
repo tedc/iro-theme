@@ -176,10 +176,9 @@ module.exports = () => {
 						item.setQuantity(plus, true);
 						var quantity = item.getQuantity();
 					} else {
-						console.log(item.getQuantity());
-						var quantity = item.getQuantity() + 1;
+						item.setQuantity(+1, true);
+						var quantity = item.getQuantity();
 						console.log(quantity);
-						item.setQuantity(quantity);
 					}
 					let data = {
 						item_key : item_key,
