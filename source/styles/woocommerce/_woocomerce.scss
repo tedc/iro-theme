@@ -19,6 +19,25 @@
 		color: $error;
 		z-index: 9999;
 	}
+	&-bacs-bank-details {
+		padding: em($p*2) 0;
+		h2 {
+			@extend [class*="__title"];
+		}
+		h3 {
+			@extend [class*="__subtitle"];
+		}
+		.order_details {
+			li {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				strong {
+					flex: 0 0 auto;;
+				}
+			}
+		}
+	}
 }
 .overview {
 	&s {
