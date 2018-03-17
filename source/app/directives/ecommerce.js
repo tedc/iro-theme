@@ -174,14 +174,8 @@ module.exports = () => {
 					var item_key = item_data.item_key;
 					if(inCart) {
 						item.setQuantity(plus, true);
-						var quantity = item.getQuantity();
-					} else {
-						let cart_item = ngCart.getItemById(item.getId())
-						console.log(cart_item);
-						// item.setQuantity(+1, true);
-						var quantity = item.getQuantity();
-						// console.log(quantity);
 					}
+					var quantity = item.getQuantity();
 					let data = {
 						item_key : item_key,
 						quantity : quantity

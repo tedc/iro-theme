@@ -74,8 +74,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</ul>
 
 		<?php endif; ?>
-
+		<div class="cazzo">
 		<?php do_action( 'woocommerce_thankyou_' . $order->get_payment_method(), $order->get_id() ); ?>
+		</div>
 		<?php do_action( 'woocommerce_thankyou', $order->get_id() ); ?>
 
 	<?php else : ?>
