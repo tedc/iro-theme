@@ -680,7 +680,7 @@
 	        ) );
 	    }
 	    public static function iro_pay_action() {
-	    	check_ajax_referer( 'woocommerce-pay', '_wpnonce' );
+	    	//check_ajax_referer( 'woocommerce-pay', '_wpnonce' );
 	    	if ( isset( $_POST['woocommerce_pay'] ) && isset( $_POST['key'] ) && isset( $_POST['order_pay'] )  ) {
 				// Pay for existing order
 				$order_key  = $_POST['key'];
