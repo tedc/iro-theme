@@ -2,12 +2,15 @@ module.exports = ()=> {
 	return {
 		controller : ['$scope', 'ecommerce', ($scope, ecommerce)=> {
 			$scope.isPaying = false;
-			$scope.checkoutFields = {}
+			$scope.checkoutFields = {
+				terms: true
+			}
 			$scope.pay = (form)=> {
 				if(form.$invalid) return;
 				$scope.payErrorMessage = false;
 				$scope.isPaying = true;
 				let url = vars.wc.pay;
+				console.log($scope.checkoutFields);
 				ecommerce
 					.post(url, $scope.checkoutFields)
 					.then( (res) => {
