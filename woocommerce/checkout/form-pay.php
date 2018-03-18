@@ -85,7 +85,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<input type="hidden" ng-init="payFields.key='<?php echo $order->get_order_key(); ?>'" />
 	<input type="hidden" ng-init="payFields.order_pay='<?php echo $order->get_id(); ?>'" />
 	<input type="hidden" name="_wpnonce" value="1" ng-init="payFields._wpnonce='<?php echo wp_create_nonce( 'woocommerce-pay' ); ?>'" />
-	<input type="hidden" name="woocommerce_pay" value="1" ng-init="payFields.woocommerce_pay=1" />
+	<input type="hidden" name="woocommerce_pay" value="1" ng-init="payFields.woocommerce_pay=true" />
 	<nav class="checkout__nav checkout__nav--submit checkout__nav--grow-md checkout__nav--grid">
 		<input required type="checkbox" class="checkout__checkbox" ng-model="payFields.terms" id="checkout_terms" /><label for="checkout_terms" class="checkout__terms"><span><?php _e('Dichiaro di aver letto e accetto i ', 'iro'); ?><a class="checkout__terms" href="<?php $term_cond_id = apply_filters('wpml_object_id', wc_get_page_id('terms'), 'page', true, ICL_LANGUAGE_CODE ); echo get_permalink($term_cond_id); ?>" target="_blank"><?php echo lcfirst(get_the_title($term_cond_id)); ?></a></span></label>
 		<button class="checkout__button" ng-class="{'checkout__button--loading':isPaying}" ng-disabled="payForm.$invalid"><?php _e('Paga l\'ordine', 'iro'); ?></button>
