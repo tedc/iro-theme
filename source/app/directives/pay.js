@@ -3,14 +3,18 @@ module.exports = ()=> {
 		controller : ['$scope', 'ecommerce', ($scope, ecommerce)=> {
 			$scope.isPaying = false;
 			$scope.payFields = {
-				terms: true
+				terms: 1
 			}
 			$scope.pay = (form)=> {
 				if(form.$invalid) return;
 				$scope.payErrorMessage = false;
 				$scope.isPaying = true;
 				let url = vars.wc.pay;
-				let data = $scope.payFields;
+				let data = {
+					_wpnonce : $scope.payFields._wpnonce,
+					key : $scope.payFields.key,
+					payment_method : $scope.payFields.payment_method
+				}
 				console.log($scope.payFields);
 				ecommerce
 					.post(url, data)
