@@ -1,6 +1,6 @@
 module.exports = ()=> {
 	return {
-		controller : ['$scope', 'ecommerce', '$state', ($scope, ecommerce, $state)=> {
+		controller : ['$scope', 'ecommerce', '$state', '$window', ($scope, ecommerce, $state, $window)=> {
 			$scope.isPaying = false;
 			$scope.payFields = {
 				terms: true
