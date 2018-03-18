@@ -19,6 +19,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+var_dump(is_wc_endpoint_url( 'order-pay' ));
 $chosen = ( $gateway->chosen ) ? ' ng-init="checkoutFields.payment_method = \''.esc_attr( $gateway->id ) .'\'; checkoutFields.payment_label = \''. $gateway->get_title() .'\'"' : '';
 ?>
 <li class="payment__method payment__method--grow-md payment__method--grid payment__method--<?php echo $gateway->id; ?>">
