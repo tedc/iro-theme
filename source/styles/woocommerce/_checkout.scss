@@ -332,6 +332,7 @@
 	}
 }
 .payment {
+	@include grow('small');
 	@include grow('md');
 	&__header {
 		@extend %table_header;
