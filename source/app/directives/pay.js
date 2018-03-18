@@ -14,7 +14,7 @@ module.exports = ()=> {
 					_wpnonce : $scope.payFields._wpnonce,
 					key : $scope.payFields.key,
 					payment_method : $scope.payFields.payment_method,
-					woocommerce_pay : 1,
+					woocommerce_pay : true,
 					order_pay : $scope.payFields.order_pay
 				}
 				console.log($scope.payFields);
