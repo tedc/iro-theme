@@ -10,15 +10,13 @@ module.exports = ()=> {
 				let url = vars.wc.pay;
 				ecommerce
 					.post(url, $scope.checkoutFields)
-					.success( (res) => {
+					.then( (res) => {
 						console.log(res);
 						$scope.isPaying = false;
-					})
-					.error( (err)=> {
-						console.log(err);
+					}, (err) => {
 						$scope.payErrorMessage = true;
 						$scope.isPaying = false;
-					} );
+					});
 			}
 		}]
 	}
