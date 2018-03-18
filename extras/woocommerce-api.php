@@ -680,63 +680,64 @@
 	        ) );
 	    }
 	    public static function iro_pay_action() {
+	    	wp_send_json( array('prova'=> true) );
 	    	//check_ajax_referer( 'woocommerce-pay', '_wpnonce' );
-	    	if ( isset( $_POST['woocommerce_pay'] ) && isset( $_POST['key'] ) && isset( $_POST['order_pay'] )  ) {
-				// Pay for existing order
-				$order_key  = $_POST['key'];
-				$order_id   = absint( $_POST['order_pay'] );
-				$order      = wc_get_order( $order_id );
-				if ( $order_id === $order->get_id() && $order_key === $order->get_order_key() && $order->needs_payment() ) {
-					wp_send_json( $order );
-					// do_action( 'woocommerce_before_pay_action', $order );
-					// WC()->customer->set_props( array(
-					// 	'billing_country'  => $order->get_billing_country() ? $order->get_billing_country()   : null,
-					// 	'billing_state'    => $order->get_billing_state() ? $order->get_billing_state()       : null,
-					// 	'billing_postcode' => $order->get_billing_postcode() ? $order->get_billing_postcode() : null,
-					// 	'billing_city'     => $order->get_billing_city() ? $order->get_billing_city()         : null,
-					// ) );
-					// WC()->customer->save();
-					// // Terms
-					// if ( ! empty( $_POST['terms-field'] ) && empty( $_POST['terms'] ) ) {
-					// 	$data = array('error' => __( 'You must accept our Terms &amp; Conditions.', 'woocommerce' ));
-					// 	wp_send_json( $data );
-					// }
-					// // Update payment method
-					// if ( $order->needs_payment() ) {
-					// 	$payment_method     = isset( $_POST['payment_method'] ) ? wc_clean( $_POST['payment_method'] ) : false;
-					// 	$available_gateways = WC()->payment_gateways->get_available_payment_gateways();
-					// 	if ( ! $payment_method ) {
-					// 		$data = array('error' =>  __( 'Invalid payment method.', 'woocommerce' ));
-					// 		wp_send_json( $data );
-					// 	}
-					// 	// Update meta
-					// 	update_post_meta( $order_id, '_payment_method', $payment_method );
-					// 	if ( isset( $available_gateways[ $payment_method ] ) ) {
-					// 		$payment_method_title = $available_gateways[ $payment_method ]->get_title();
-					// 	} else {
-					// 		$payment_method_title = '';
-					// 	}
-					// 	update_post_meta( $order_id, '_payment_method_title', $payment_method_title );
-					// 	// Validate
-					// 	$available_gateways[ $payment_method ]->validate_fields();
-					// 	// Process
-					// 	if ( !isset($data['error']) ) {
-					// 		$result = $available_gateways[ $payment_method ]->process_payment( $order_id );
-					// 		// Redirect to success/confirmation/payment page
-					// 		if ( 'success' === $result['result'] ) {
-					// 			$data = array( 'success' => $result['redirect'] );
-					// 			wp_send_json( $data );
-					// 		}
-					// 	}
-					// } else {
-					// 	// No payment was required for order
-					// 	$order->payment_complete();
-					// 	$data = array( 'success' =>  $order->get_checkout_order_received_url() );
-					// 	wp_send_json( $data );
-					// }
-					// do_action( 'woocommerce_after_pay_action', $order );
-				}
-			}
+	  //   	if ( isset( $_POST['woocommerce_pay'] ) && isset( $_POST['key'] ) && isset( $_POST['order_pay'] )  ) {
+			// 	// Pay for existing order
+			// 	$order_key  = $_POST['key'];
+			// 	$order_id   = absint( $_POST['order_pay'] );
+			// 	$order      = wc_get_order( $order_id );
+			// 	if ( $order_id === $order->get_id() && $order_key === $order->get_order_key() && $order->needs_payment() ) {
+			// 		wp_send_json( $order );
+			// 		// do_action( 'woocommerce_before_pay_action', $order );
+			// 		// WC()->customer->set_props( array(
+			// 		// 	'billing_country'  => $order->get_billing_country() ? $order->get_billing_country()   : null,
+			// 		// 	'billing_state'    => $order->get_billing_state() ? $order->get_billing_state()       : null,
+			// 		// 	'billing_postcode' => $order->get_billing_postcode() ? $order->get_billing_postcode() : null,
+			// 		// 	'billing_city'     => $order->get_billing_city() ? $order->get_billing_city()         : null,
+			// 		// ) );
+			// 		// WC()->customer->save();
+			// 		// // Terms
+			// 		// if ( ! empty( $_POST['terms-field'] ) && empty( $_POST['terms'] ) ) {
+			// 		// 	$data = array('error' => __( 'You must accept our Terms &amp; Conditions.', 'woocommerce' ));
+			// 		// 	wp_send_json( $data );
+			// 		// }
+			// 		// // Update payment method
+			// 		// if ( $order->needs_payment() ) {
+			// 		// 	$payment_method     = isset( $_POST['payment_method'] ) ? wc_clean( $_POST['payment_method'] ) : false;
+			// 		// 	$available_gateways = WC()->payment_gateways->get_available_payment_gateways();
+			// 		// 	if ( ! $payment_method ) {
+			// 		// 		$data = array('error' =>  __( 'Invalid payment method.', 'woocommerce' ));
+			// 		// 		wp_send_json( $data );
+			// 		// 	}
+			// 		// 	// Update meta
+			// 		// 	update_post_meta( $order_id, '_payment_method', $payment_method );
+			// 		// 	if ( isset( $available_gateways[ $payment_method ] ) ) {
+			// 		// 		$payment_method_title = $available_gateways[ $payment_method ]->get_title();
+			// 		// 	} else {
+			// 		// 		$payment_method_title = '';
+			// 		// 	}
+			// 		// 	update_post_meta( $order_id, '_payment_method_title', $payment_method_title );
+			// 		// 	// Validate
+			// 		// 	$available_gateways[ $payment_method ]->validate_fields();
+			// 		// 	// Process
+			// 		// 	if ( !isset($data['error']) ) {
+			// 		// 		$result = $available_gateways[ $payment_method ]->process_payment( $order_id );
+			// 		// 		// Redirect to success/confirmation/payment page
+			// 		// 		if ( 'success' === $result['result'] ) {
+			// 		// 			$data = array( 'success' => $result['redirect'] );
+			// 		// 			wp_send_json( $data );
+			// 		// 		}
+			// 		// 	}
+			// 		// } else {
+			// 		// 	// No payment was required for order
+			// 		// 	$order->payment_complete();
+			// 		// 	$data = array( 'success' =>  $order->get_checkout_order_received_url() );
+			// 		// 	wp_send_json( $data );
+			// 		// }
+			// 		// do_action( 'woocommerce_after_pay_action', $order );
+			// 	}
+			// }
 	    }
 	    public static function iro_form(){
 	        check_ajax_referer( 'iro-contact-form', '_iro_form_nonce' );
