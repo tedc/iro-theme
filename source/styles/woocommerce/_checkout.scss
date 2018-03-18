@@ -402,9 +402,7 @@
 			}
 		}
 		&body, &footer {
-			margin-top: em($p);
 			padding-top: em($p);
-			border-top: 1px solid $light-border;
 		}
 		&footer .pay__row {
 			padding-bottom: em($p/2);
