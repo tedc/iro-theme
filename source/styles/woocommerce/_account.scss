@@ -174,11 +174,11 @@
 		padding-top: em($p);
 	}
 	&__button {
-		&--next {
-			margin-left: em($p);
-		}
 		&--prev {
 			margin-right: em($p);
+			& + .account__button--next {
+				margin-left: em($p);
+			}
 		}
 	}
 }
