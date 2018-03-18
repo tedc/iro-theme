@@ -385,3 +385,26 @@
 		}
 	}
 }
+
+
+
+.pay {
+	&__{
+		&row, &header {
+			> * {
+				flex: 1;
+			}
+		}
+		&header {
+			> * {
+				color: $brand-main;
+				font-weight: bold;
+			}
+		}
+		&body, &footer {
+			margin-top: em($p);
+			padding-top: em($p);
+			border-top: 1px solid $light-border;
+		}
+	}	
+}
