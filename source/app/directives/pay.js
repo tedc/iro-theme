@@ -10,6 +10,7 @@ module.exports = ()=> {
 				$scope.payErrorMessage = false;
 				$scope.isPaying = true;
 				let url = vars.wc.pay;
+				console.log($scope.payFields);
 				ecommerce
 					.post(url, {_wpnonce : $scope.payFields._wpnonce})
 					.then( (res) => {
