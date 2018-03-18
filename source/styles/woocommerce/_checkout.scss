@@ -332,13 +332,13 @@
 	}
 }
 .payment {
-	@include grow('small');
 	@include grow('md');
 	&__header {
 		@extend %table_header;
 	}
 	&__method {
 		@include grow('md');
+		@include grow('small');
 		border-top: 1px solid $light-border;
 		justify-content: space-between;
 		align-items: center;
@@ -425,19 +425,22 @@
 				}
 			}
 		}
-		&footer .pay__row {
-			padding-bottom: em($p/2);
-			&:nth-last-child(1) {
-				padding-bottom: 0;
-			}
-			> [scope="row"] {
-				flex: 2;
-				font-weight: bold;
-				color: $brand-main;
-			}
-			> * {
-				&:nth-child(2) {
-					text-align: right;
+		&footer { 
+			padding-bottom: em($p*2);
+			.pay__row {
+				padding-bottom: em($p/2);
+				&:nth-last-child(1) {
+					padding-bottom: 0;
+				}
+				> [scope="row"] {
+					flex: 2;
+					font-weight: bold;
+					color: $brand-main;
+				}
+				> * {
+					&:nth-child(2) {
+						text-align: right;
+					}
 				}
 			}
 		}
