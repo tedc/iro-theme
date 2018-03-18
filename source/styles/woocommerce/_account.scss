@@ -166,6 +166,21 @@
 			transform: rotate(45deg) translateZ(0);
 		}
 	}
+	&__pagination {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-top: 1px solid $light-border;
+		padding-top: em($p);
+	}
+	&__button {
+		&--next {
+			margin-left: em($p);
+		}
+		&--prev {
+			margin-right: em($p);
+		}
+	}
 }
 
 .resetpassword {
