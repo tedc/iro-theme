@@ -400,12 +400,30 @@
 			> * {
 				color: $brand-main;
 				font-weight: bold;
+				&:nth-child(2) {
+					text-align: center;
+				}
+				&:nth-child(3) {
+					text-align: right;
+				}
 			}
 		}
 		&body, &footer {
 			margin-top: em($p);
 			padding-top: em($p);
 			border-top: 1px solid $light-border;
+		}
+		&body {
+			.pay__row {
+				> * {
+					&:nth-child(2) {
+						text-align: center;
+					}
+					&:nth-child(3) {
+						text-align: right;
+					}
+				}
+			}
 		}
 		&footer .pay__row {
 			padding-bottom: em($p/2);
@@ -416,6 +434,11 @@
 				flex: 2;
 				font-weight: bold;
 				color: $brand-main;
+			}
+			> * {
+				&:nth-child(2) {
+					text-align: right;
+				}
 			}
 		}
 	}	
