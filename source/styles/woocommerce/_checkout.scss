@@ -411,7 +411,7 @@
 			&:nth-last-child(1) {
 				padding-bottom: 0;
 			}
-			> .row {
+			> [scope="row"] {
 				flex: 2;
 				font-weight: bold;
 				color: $brand-main;
