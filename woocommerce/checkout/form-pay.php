@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div class="pay pay--shrink-fw" ng-pay>
 <form method="post" ng-submit="pay(payForm)" name="payForm" novalidate>
-	<div class="pay__review pay__review--mw-large pay__review--grid">
+	<div class="pay__review pay__review--mw-large">
 		<div class="pay__order">
 			<header class="pay__header pay__header--grid-nowrap">
 				<div class="pay__product-name"><?php esc_html_e( 'Product', 'woocommerce' ); ?></div>
