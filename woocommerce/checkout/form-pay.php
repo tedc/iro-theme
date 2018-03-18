@@ -82,7 +82,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</ul>
 		<?php endif; ?>
 	</div>
-	<input type="hidden" name="terms-field" ng-init="payFields['terms-field']=1" value="1" />
 	<input type="hidden" ng-init="payFields.key='<?php echo $order->get_order_key(); ?>'" />
 	<input type="hidden" ng-init="payFields.order_pay='<?php echo $order->get_id(); ?>'" />
 	<input type="hidden" name="_wpnonce" value="1" ng-init="payFields._wpnonce='<?php echo wp_create_nonce( 'woocommerce-pay' ); ?>'" />
