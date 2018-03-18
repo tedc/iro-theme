@@ -118,7 +118,10 @@ iro
 				};
 				$http
 					.post(url, $httpParamSerializerJQLike(data), config)
-					.then((res) => {deferred.resolve(res)})
+					.then((res) => {
+						console.log(res);
+						deferred.resolve(res)
+					})
 				return deferred.promise;
 			},
 			empty : ()=> {
