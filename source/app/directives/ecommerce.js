@@ -495,15 +495,15 @@ module.exports = () => {
 									var order = state[0];
 									order.replace(/\//g, '');
 									var key = state[1];
-									purchase.action['id'] = order;
-									$window.dataLayer.push({
-										'event' : 'purchase',
-										'ecommerce': {
-											'purchase': purchase
-										}
-									});
+									purchase.action['id'] = order;							
 									$state.go('app.order', {order : order, key : key});
 								}
+								$window.dataLayer.push({
+									'event' : 'purchase',
+									'ecommerce': {
+										'purchase': purchase
+									}
+								});
 							} else if( 'failure' === result.result ){
 								$scope.error = result.message;
 								$state.go('app.page', {slug : vars.wc.checkoutPage}, {reload : true});
