@@ -680,7 +680,7 @@
 	        ) );
 	    }
 	    public static function iro_pay_action() {
-	    	echo 'prova';
+	    	check_ajax_referer( 'woocommerce-pay', '_wpnonce' );
 	    	die();
 	    	//check_ajax_referer( 'woocommerce-pay', '_wpnonce' );
 	  //   	if ( isset( $_POST['woocommerce_pay'] ) && isset( $_POST['key'] ) && isset( $_POST['order_pay'] )  ) {
