@@ -119,11 +119,10 @@ iro
 				$http
 					.post(url, $httpParamSerializerJQLike(data), config)
 					.then((res) => {
-						console.log(res);
 						deferred.resolve(res)
 					})
 					.catch((err)=> {
-						console.log(err);
+						deferred.reject(err);
 					});
 				return deferred.promise;
 			},
