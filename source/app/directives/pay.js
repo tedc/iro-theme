@@ -27,15 +27,15 @@ module.exports = ()=> {
 								var order = state[0];
 								order.replace(/\//g, '');
 								var key = state[1];
-								purchase.action['id'] = order;							
+								//purchase.action['id'] = order;							
 								$state.go('app.order', {order : order, key : key});
 							}
-							$window.dataLayer.push({
-								'event' : 'purchase',
-								'ecommerce': {
-									'purchase': purchase
-								}
-							});
+							// $window.dataLayer.push({
+							// 	'event' : 'purchase',
+							// 	'ecommerce': {
+							// 		'purchase': purchase
+							// 	}
+							// });
 						}
 						$scope.isPaying = false;
 					}, (err) => {
