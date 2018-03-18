@@ -20,6 +20,7 @@ module.exports = () => {
 			$element.on('scroll mouseenter mousemove', ()=> {
 				if(!isSliderUpdated ) {
 					$rootScope.$broadcast('update_scroller');
+					isSliderUpdated = true;
 				}
 			});
 
