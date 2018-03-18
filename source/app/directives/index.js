@@ -333,4 +333,5 @@ iro
 	.directive('ngVideo', ['$rootScope', '$timeout', require('./video')])
 	.directive('review', require('./review'))
 	.directive('loginForm', require('./login'))
+	.directive('ngPay', require('./pay'))
 	.directive('ngLayers', ['getInstances', '$animate', require('./layers')])
