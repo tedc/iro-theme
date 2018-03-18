@@ -95,11 +95,11 @@ module.exports = () => {
 					  	'actionField': {'list': 'Variation'},    // 'detail' actions have an optional list property.
 					    'detail': {                                // 'add' actionFieldObject measures.
 					      'products': [{                        //  adding a product to a shopping cart.
-					        'name': $scope.attributes.title + ' - ' + $scope.attributes.attributes.attribute_pa_color + ' ' +$scope.attributes.attributes.attribute_pa_misure,
+					        'name': $scope.attributes.variation_description ? $scope.attributes.variation_description : $scope.attributes.title,
 					        'id': ($scope.attributes.sku) ? $scope.attributes.sku : $scope.attributes.variation_id,
 					        'price': $scope.attributes.display_price,
 					        'brand': 'Iro',
-					        'variant': $scope.attributes.attributes.attribute_pa_color + ' ' +$scope.attributes.attributes.attribute_pa_misure,
+					        'variant': $scope.attributes.variation_description.replace($scope.attributes.title + ' ', ''),
 					       }]
 					    }
 					  }
@@ -152,11 +152,11 @@ module.exports = () => {
 							    'currencyCode': 'EUR',
 							    'add': {                                // 'add' actionFieldObject measures.
 							      'products': [{                        //  adding a product to a shopping cart.
-							        'name': item.getName() + ' - ' +item.getData().attributes.attribute_pa_color + ' ' +item.getData().attributes.attribute_pa_misure,
+							        'name': item.getData().variation_description ? item.getData().variation_description : item.getName(),
 							        'id': (item_data.sku) ? item_data.sku : item.getId(),
 							        'price': item.getPrice(),
 							        'brand': 'Iro',
-							        'variant': item.getData().attributes.attribute_pa_color + ' ' +item.getData().attributes.attribute_pa_misure,
+							        'variant': ngCart.getDesc(item),
 							        'quantity': item.getQuantity()
 							       }]
 							    }
@@ -193,11 +193,11 @@ module.exports = () => {
 							    'currencyCode': 'EUR',
 							    'add': {                                // 'add' actionFieldObject measures.
 							      'products': [{                        //  adding a product to a shopping cart.
-							        'name': item.getName(),
+							        'name': item.getData().variation_description ? item.getData().variation_description : item.getName(),
 							        'id': item.getId(),
 							        'price': item.getPrice(),
 							        'brand': 'Iro',
-							        'variant': item.getData().attributes.attribute_pa_color + ' ' +item.getData().attributes.attribute_pa_misure,
+							        'variant': ngCart.getDesc(item),
 							        'quantity': item.getQuantity()
 							       }]
 							    }
@@ -229,16 +229,8 @@ module.exports = () => {
 	
 				ngCart.getDesc = (item)=> {
 					var item_data = item.getData();
-					var desc = '';
-					if(item_data.attributes) {
-						if(item_data.attributes.attribute_pa_misure) {
-							//desc += `${item_data.attributes.attribute_pa_misure.replace(/\-/g, ' ')} ${item_data.dimensions_html.replace(/\s+/g, '')}<br/>`;
-							desc += `${item_data.attributes.attribute_pa_misure.replace(/\-/g, ' ')}<br/>`;
-						}
-					}
-					if(item_data.attributes && item_data.attributes.attribute_pa_color) {
-						desc += `${item_data.attributes.attribute_pa_color}`;
-					}
+					var name = item.getName();
+					var desc = (item_data.variation_description) ? item_data.variation_description.replace(name + ' ', '') : false;
 					return desc;
 				}
 	
@@ -256,11 +248,11 @@ module.exports = () => {
 							  'ecommerce': {
 							    'remove': {                                // 'add' actionFieldObject measures.
 							      'products': [{                        //  adding a product to a shopping cart.
-							        'name': layer_item.getName(),
+							        'name': layer_item.getData().variation_description ? layer_item.getData().variation_description : layer_item.getName(),
 							        'id': layer_item.getId(),
 							        'price': layer_item.getPrice(),
 							        'brand': 'Iro',
-							        'variant': layer_item.getData().attributes.attribute_pa_color + ' ' +layer_item.getData().attributes.attribute_pa_misure,
+							        'variant': ngCart.getDesc(layer_item),
 							        'quantity': layer_item.getQuantity()
 							       }]
 							    }
@@ -473,7 +465,7 @@ module.exports = () => {
 							'id' : item.getData().sku ? item.getData().sku : item.getId(),
 							'price' : item.getPrice(),
 							'brand' : 'Iro',
-							'variant': item.getData().attributes.attribute_pa_color + ' ' +item.getData().attributes.attribute_pa_misure,
+							'variant': ngCart.getDesc(item),
 						    'quantity': item.getQuantity()
 						}
 						products.push(obj);
@@ -568,11 +560,11 @@ module.exports = () => {
 							let products = [];
 							angular.forEach(ngCart.getCart().items, (item, i)=> {
 								let obj = {
-									'name' : item.getName(),
+									'name' : item.getData().variation_description,
 									'id' : item.getData().sku ? item.getData().sku : item.getId(),
 									'price' : item.getPrice(),
 									'brand' : 'Iro',
-									'variant': item.getData().attributes.attribute_pa_color + ' ' +item.getData().attributes.attribute_pa_misure,
+									'variant': ngCart.getDesc(item),
 								    'quantity': item.getQuantity()
 								}
 								products.push(obj);
