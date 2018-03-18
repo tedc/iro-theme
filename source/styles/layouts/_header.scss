@@ -528,6 +528,9 @@
 	}
 	&__title {
 		line-height: percentage(64px/55px);
+		.woocommerce-order-pay & {
+			text-align: center;
+		}
 	}
 	&__container {
 		@include grow();
