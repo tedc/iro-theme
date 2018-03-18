@@ -89,7 +89,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<input type="hidden" name="woocommerce_pay" value="1" ng-init="checkoutFields.woocommerce_pay=1" />
 	<nav class="checkout__nav checkout__nav--submit checkout__nav--grow-md checkout__nav--grid">
 		<input required type="checkbox" class="checkout__checkbox" ng-model="checkoutFields.terms" id="checkout_terms" /><label for="checkout_terms" class="checkout__terms"><span><?php _e('Dichiaro di aver letto e accetto i ', 'iro'); ?><a class="checkout__terms" href="<?php $term_cond_id = apply_filters('wpml_object_id', wc_get_page_id('terms'), 'page', true, ICL_LANGUAGE_CODE ); echo get_permalink($term_cond_id); ?>" target="_blank"><?php echo lcfirst(get_the_title($term_cond_id)); ?></a></span></label>
-		<button class="checkout__button" ng-class="{'checkout__button--loading':isOrdering}" ng-disabled="checkout.$invalid"><?php _e('Paga l\'ordine', 'iro'); ?></button>
+		<button class="checkout__button" ng-class="{'checkout__button--loading':isPaying}" ng-disabled="payForm.$invalid"><?php _e('Paga l\'ordine', 'iro'); ?></button>
 	</nav>
 </form>
 </div>
