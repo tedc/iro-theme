@@ -681,7 +681,7 @@
 	    }
 	    public static function iro_pay_action() {
 	    	check_ajax_referer( 'woocommerce-pay', '_wpnonce' );
-	    	if ( isset( $_POST['woocommerce_pay'] ) && isset( $_POST['woocommerce_pay'] ) && isset($_POST['order_pay'])  ) {
+	    	if ( isset( $_POST['woocommerce_pay'] ) && isset( $_POST['key'] ) && isset($_POST['order_pay'])  ) {
 				// Pay for existing order
 				$order_key  = $_POST['key'];
 				$order_id   = absint( $_POST['order_pay'] );
@@ -696,7 +696,7 @@
 					) );
 					WC()->customer->save();
 					// Terms
-					if ( ! empty( $_POST['terms_field'] ) && empty( $_POST['terms'] ) ) {
+					if ( ! empty( $_POST['terms-field'] ) && empty( $_POST['terms'] ) ) {
 						$data = array('error' => __( 'You must accept our Terms &amp; Conditions.', 'woocommerce' ));
 						wp_send_json( $data );
 					}
@@ -719,7 +719,7 @@
 						// Validate
 						$available_gateways[ $payment_method ]->validate_fields();
 						// Process
-						if ( 0 === wc_notice_count( 'error' ) ) {
+						if ( !isset($data['error']) ) {
 							$result = $available_gateways[ $payment_method ]->process_payment( $order_id );
 							// Redirect to success/confirmation/payment page
 							if ( 'success' === $result['result'] ) {
