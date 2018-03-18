@@ -122,6 +122,9 @@ iro
 						console.log(res);
 						deferred.resolve(res)
 					})
+					.catch((err)=> {
+						console.log(err);
+					});
 				return deferred.promise;
 			},
 			empty : ()=> {
