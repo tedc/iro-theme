@@ -406,5 +406,16 @@
 			padding-top: em($p);
 			border-top: 1px solid $light-border;
 		}
+		&footer .pay__row {
+			padding-bottom: em($p/2);
+			&:nth-last-child(1) {
+				padding-bottom: 0;
+			}
+			> .row {
+				flex: 2;
+				font-weight: bold;
+				color: $brand-main;
+			}
+		}
 	}	
 }
