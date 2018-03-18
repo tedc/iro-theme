@@ -2,7 +2,7 @@ module.exports = ()=> {
 	return {
 		controller : ['$scope', 'ecommerce', ($scope, ecommerce)=> {
 			$scope.isPaying = false;
-			$scope.checkoutFields = {
+			$scope.payFields = {
 				terms: true
 			}
 			$scope.pay = (form)=> {
@@ -11,7 +11,7 @@ module.exports = ()=> {
 				$scope.isPaying = true;
 				let url = vars.wc.pay;
 				ecommerce
-					.post(url, $scope.checkoutFields)
+					.post(url, $scope.payFields)
 					.then( (res) => {
 						console.log(res);
 						$scope.isPaying = false;
