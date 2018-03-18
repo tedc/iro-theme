@@ -10,11 +10,11 @@ module.exports = ()=> {
 				let url = vars.wc.pay;
 				ecommerce
 					.post(url, $scope.checkoutFields)
-					.then( (res) => {
+					.success( (res) => {
 						console.log(res);
 						$scope.isPaying = false;
 					})
-					.catch( (err)=> {
+					.error( (err)=> {
 						console.log(err);
 						$scope.payErrorMessage = true;
 						$scope.isPaying = false;
