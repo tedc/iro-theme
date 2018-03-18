@@ -69,6 +69,7 @@
 			'empty' => WC_AJAX::get_endpoint('iro_empty_cart'),
 			'cart' => WC_AJAX::get_endpoint('iro_get_cart'),
 			'remove' => WC_AJAX::get_endpoint('iro_remove_cart_item'),
+			'pay' => WC_AJAX::get_endpoint('iro_pay_action'),
 			'address' => WC_AJAX::get_endpoint('iro_save_address'),
 			'checkout' => WC_AJAX::get_endpoint('checkout'),
 			'password' => WC_AJAX::get_endpoint('iro_recover_password'),

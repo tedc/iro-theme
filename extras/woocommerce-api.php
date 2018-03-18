@@ -100,7 +100,8 @@
 	            'iro_remove_cart_item' => true,
 	            'iro_recover_password' => true,
 	            'iro_reset_password' => true,
-	            'iro_newsletter' => true
+	            'iro_newsletter' => true,
+	            'iro_pay_action' => true
 	        );
 	        foreach ( $ajax_events as $ajax_event => $nopriv ) {
 	            add_action( 'wp_ajax_woocommerce_' . $ajax_event, array( __CLASS__, $ajax_event ) );
