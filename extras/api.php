@@ -42,7 +42,7 @@
             // $api->setAccessToken($access_token);
             // $items = $api->Users->Recent($user_id, array('count'=>$count));
             //$cached = get_transient($user_id);
-            return $items;
+            //return $items;
             // if($cached !== false) {
             //     return $cached;
             // } else {
