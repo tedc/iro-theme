@@ -221,7 +221,7 @@ echo $critical;
   src="https://www.facebook.com/tr?id=192305908199271&ev=PageView&noscript=1"
 /></noscript>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo $gmt; ?>"
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php $gmt = (preg_match('/(dnative)/', home_url('/'))) ? 'GTM-KMJZWDC' : 'GTM-5TPC55T'; echo $gmt; ?>"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 	<?php }
