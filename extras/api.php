@@ -22,10 +22,8 @@
                 'http_connect_timeout' => 2000,
                 'count' => $count
             );
-            $curl = curl_init($url);    // we init curl by passing the url
-
-            curl_setopt($curl,CURLOPT_POST,true);   // to send a POST request
-            curl_setopt($curl,CURLOPT_POSTFIELDS,$access_token_parameters);   // indicate the data to send
+            $curl = curl_init($url . http_build_query($access_token_parameters));    // we init curl by passing the url
+            //curl_setopt($curl,CURLOPT_POST,true);   // to send a POST request
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);   // to return the transfer as a string of the return value of curl_exec() instead of outputting it out directly.
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);   // to stop cURL from verifying the peer's certificate.
             $items = curl_exec($curl);   // to perform the curl session
