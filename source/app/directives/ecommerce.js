@@ -46,6 +46,7 @@ module.exports = () => {
 									if(!ngCart.getItemById(pId)) {
 										ngCart.removeItem(i);
 									} else {
+										console.log(data.products[i]);
 										let quantity = data.products[i].quantity;
 										let price = data.products[i].line_subtotal / data.products[i].quantity;
 										let item_data = item.getData();
