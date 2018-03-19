@@ -134,7 +134,6 @@
 	}
 
 	add_action( 'wp_footer', 'templates');
-$gmt = (preg_match('/(dnative)/', home_url('/'))) ? 'GTM-KMJZWDC' : 'GTM-5TPC55T';
 function header_scripts()
 
 	{ ?>
@@ -161,7 +160,8 @@ function header_scripts()
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer', '<?php echo home_url('/'); ?>');</script>
+})(window,document,'script','dataLayer', '<?php $gmt = (preg_match('/(dnative)/', home_url('/'))) ? 'GTM-KMJZWDC' : 'GTM-5TPC55T';
+echo $gmt; ?>');</script>
 <!-- Page hiding snippet (recommended) -->
 <style>.async-hide { opacity: 0 !important} </style>
 <script>
