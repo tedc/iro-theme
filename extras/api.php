@@ -12,7 +12,6 @@
             $access_token = get_field('instagram_access_token', 'options');
             $user_id = get_field('instagram_user_id', 'options');
             $count = get_field('instagram_count', 'options');
-            $url = "https://api.instagram.com/v1/users/".$user_id."/media/recent";
             $access_token_parameters = array(
                 'client_id'                =>     $client_id,
                 'client_secret'            =>     $client_secret,
@@ -22,10 +21,12 @@
                 'http_connect_timeout' => 2000,
                 'count' => $count
             );
-            $curl = curl_init($url . http_build_query($access_token_parameters));    // we init curl by passing the url
-            //curl_setopt($curl,CURLOPT_POST,true);   // to send a POST request
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);   // to return the transfer as a string of the return value of curl_exec() instead of outputting it out directly.
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);   // to stop cURL from verifying the peer's certificate.
+            $url = "https://api.instagram.com/v1/users/".$user_id."/media/recent?".http_build_query($access_token_parameters);
+            $curl = curl_init($url);    // we init curl by passing the url
+            //curl_setopt($curl,CURLOPT_POST,true);   // to send a POST request   
+            curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 30);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
             $items = curl_exec($curl);   // to perform the curl session
             curl_close($curl);   // to close the curl session
             // $api = new Instaphp\Instaphp([
