@@ -513,8 +513,8 @@
     			if ( is_wp_error($user_signon) ){
 		        	echo json_encode(array('loggedin'=>false, 'message'=>__('Username o password sbagliati.', 'iro')));
 			    } else {
-			    	if ( apply_filters( 'woocommerce_registration_auth_new_customer', true, $new_customer ) ) {
-						wc_set_customer_auth_cookie( $new_customer );
+			    	if ( apply_filters( 'woocommerce_registration_auth_new_customer', true, $user_id ) ) {
+						wc_set_customer_auth_cookie( $user_id );
 					}
 		    		echo json_encode(array('loggedin'=>true, 'message'=>__('Registrazione avvenuta.', 'iro'), 'redirect' => basename(wc_get_page_permalink('myaccount'))));
 		    	}
