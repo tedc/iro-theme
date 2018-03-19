@@ -12,18 +12,36 @@
             $access_token = get_field('instagram_access_token', 'options');
             $user_id = get_field('instagram_user_id', 'options');
             $count = get_field('instagram_count', 'options');
-            $api = new Instaphp\Instaphp([
-                    'client_id' => $client_id,
-                    'client_secret' => $client_secret,
-                    'redirect_uri' => get_bloginfo('url'),
-                    'http_timeout' => 6000,
-                    'http_connect_timeout' => 2000
-                ]);
-            if(!$api) {
-                return;
-            }
-            $api->setAccessToken($access_token);
-            $items = $api->Users->Recent($user_id, array('count'=>$count));
+            $url = "https://api.instagram.com/v1/users/".$user_id."/media/recent";
+            $access_token_parameters = array(
+                'client_id'                =>     $client_id,
+                'client_secret'            =>     $client_secret,
+                'access_token'             =>     $access_token, 
+                'redirect_uri'             =>     get_bloginfo('url'),
+                'http_timeout'             => 600,
+                'http_connect_timeout' => 2000,
+                'count' => $count
+            );
+            $curl = curl_init($url);    // we init curl by passing the url
+
+            curl_setopt($curl,CURLOPT_POST,true);   // to send a POST request
+            curl_setopt($curl,CURLOPT_POSTFIELDS,$access_token_parameters);   // indicate the data to send
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);   // to return the transfer as a string of the return value of curl_exec() instead of outputting it out directly.
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);   // to stop cURL from verifying the peer's certificate.
+            $items = curl_exec($curl);   // to perform the curl session
+            curl_close($curl);   // to close the curl session
+            // $api = new Instaphp\Instaphp([
+            //         'client_id' => $client_id,
+            //         'client_secret' => $client_secret,
+            //         'redirect_uri' => get_bloginfo('url'),
+            //         'http_timeout' => 6000,
+            //         'http_connect_timeout' => 2000
+            //     ]);
+            // if(!$api) {
+            //     return;
+            // }
+            // $api->setAccessToken($access_token);
+            // $items = $api->Users->Recent($user_id, array('count'=>$count));
             $cached = get_transient($user_id);
             return $items;
             // if($cached !== false) {
