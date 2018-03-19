@@ -354,7 +354,7 @@ module.exports = () => {
 					if(coupons && coupons.length > 0){
 						for(let discount of coupons) {
 							if(discount.type == 'percent') {
-								total = total * discount.price;
+								total = total * (discount.amount / 100);
 							} else {
 								total -= discount.price;
 							}

@@ -52,7 +52,7 @@
 						<span class="cart-aside__button cart-aside__button--dark cart-aside__button--radius-right" ng-class="{'cart-aside__button--loading':ngCart.isDescountLoading}" ng-click="ngCart.applyCoupon(coupon_code, coupon_nonce)"><?php _e( 'Applica', 'iro' ); ?></span>
 					</div>
 				</div>
-					<div class="cart-aside__error" ng-if="ngCart.couponError" ng-bind-html="ngCart.couponError"></div>
+					<div class="cart-aside__error cart-aside__error--shrink" ng-if="ngCart.couponError"><p ng-bind-html="ngCart.couponError"></p></div>
 					<div class="cart-aside__coupons cart-aside__coupons--shrink" ng-if="ngCart.getExtras().coupons" ng-repeat="coupon in ngCart.getExtras().coupons track by $index" on-finish-render="update_scroller">
 						<div class="cart-aside__coupon">
 							<div class="cart-aside__top">
