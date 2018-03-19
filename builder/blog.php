@@ -1,7 +1,7 @@
 <div class="blog blog--grid blog--grow-lg blog--shrink-fw">	
 	<!-- <div class="blog__flowers blog__flowers--top blog__flowers--flipped"></div> -->
 	<header class="blog__header blog__header--aligncenter">
-		<h2 class="blog__title blog__title--big"><?php _e('Iro Blog', 'iro'); ?></h2>
+		<h2 class="blog__title blog__title--big"><?php _e('IRO Blog', 'iro'); ?></h2>
 	</header>
 	<?php 
 		$blog = new WP_Query(array('posts_per_page' => 1));
