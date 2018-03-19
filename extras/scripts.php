@@ -134,7 +134,7 @@
 	}
 
 	add_action( 'wp_footer', 'templates');
-$gmt = preg_match('/(dnative)/', home_url('/')) ? 'GTM-KMJZWDC' : 'GTM-5TPC55T';
+$gmt = (preg_match('/(dnative)/', home_url('/'))) ? 'GTM-KMJZWDC' : 'GTM-5TPC55T';
 function header_scripts()
 
 	{ ?>
