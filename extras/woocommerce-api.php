@@ -951,7 +951,6 @@
 	    		$data['cart_empty'] = false;
 	    		$data['products'] = array();
 	    		foreach(WC()->cart->get_cart() as $cart_item_key => $cart_item) {
-	    			$_product = new WC_Product($cart_item['product_id']);
 	    			if($cart_item['variation_id']) {
 		    			$_product = new WC_Product_Variable($cart_item['product_id']);
 		    			if($_product) {
@@ -965,9 +964,12 @@
 								}
 			    				$cart_item['variation_details'] = $variation_details;
 			    			}
+	    					$cart_item['price'] = $_product->get_price();	
 		    			}
+	    			} else {
+	    				$_product = new WC_Product($cart_item['product_id']);
+	    				$cart_item['price'] = $_product->get_price();	
 	    			}
-	    			$cart_item['price'] = $_product->get_price();
 	    			array_push($data['products'], $cart_item);
 	    		}
 	    	else :
