@@ -354,7 +354,7 @@ module.exports = () => {
 					if(coupons && coupons.length > 0){
 						for(let discount of coupons) {
 							if(discount.type == 'percent') {
-								total = total * (discount.amount / 100);
+								total = (total * discount.amount ) / 100;
 							} else {
 								total -= discount.price;
 							}
@@ -366,7 +366,7 @@ module.exports = () => {
 				ngCart.getCouponAumount = (coupon)=> {
 					if(coupon.price <= 0) return;
 					if(coupon.type == 'percent') {
-						return `-${coupon.price * 100}%`;
+						return `-${coupon.amount}%`;
 					} else if(coupon.type == 'fixed_product') {
 						return `-€ ${coupon.price} <span>(€ ${coupon.amount} ${vars.wc.fixed_product_coupon})</span>`;
 					} else  {
