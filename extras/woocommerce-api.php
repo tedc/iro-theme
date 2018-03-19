@@ -964,7 +964,7 @@
 								}
 			    				$cart_item['variation_details'] = $variation_details;
 			    			}
-	    					$cart_item['price'] = $_product->get_price();	
+	    					$cart_item['price'] = $variation['display_price'];	
 		    			}
 	    			} else {
 	    				$_product = new WC_Product($cart_item['product_id']);
