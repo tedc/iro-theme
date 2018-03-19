@@ -314,7 +314,7 @@
 				justify-content: center;
 				overflow: visible;
 				.section__wrapper {
-					order: 1;
+					order: 3;
 					align-items: stretch;
 					margin: em($p*2);
 					flex: 0 0 auto;
@@ -343,15 +343,16 @@
 					}
 				}
 				.icon-arrow-left {
-					order: 2;
 					font-size: em($p);
+					margin-right: em($p/2, $p);
 					&:hover:not(.swiper-button-disabled):before {
 						transform: translate3d(-5px, 0, 0);
 					}
 				}
 				.icon-arrow-right {
-					order: 3;
+					order: 2;
 					font-size: em($p);
+					margin-left: em($p/2, $p);
 					&:hover:not(.swiper-button-disabled):before {
 						transform: translate3d(5px, 0, 0);
 					}
@@ -364,9 +365,11 @@
 					}
 					.icon-arrow-left {
 						order: 1;
+						margin-left: 0;
 					}
 					.icon-arrow-right {
 						order: 3;
+						margin-right: 0;
 					}
 				}
 			}
