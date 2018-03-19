@@ -951,7 +951,7 @@
 	    		$data['cart_empty'] = false;
 	    		$data['products'] = array();
 	    		foreach(WC()->cart->get_cart() as $cart_item_key => $cart_item) {
-	    			$_product = new WP_Product($cart_item['product_id']);
+	    			$_product = new WC_Product($cart_item['product_id']);
 	    			if($cart_item['variation_id']) {
 		    			$_product = new WC_Product_Variable($cart_item['product_id']);
 		    			if($_product) {
