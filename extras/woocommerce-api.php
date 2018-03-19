@@ -501,9 +501,10 @@
 	    	$email = $_POST['email'];
 	    	$user_id = username_exists($username);
 	    	if(!$user_id && email_exists($email) == false && $password_confirmation) {
-	    		$user_id = wp_create_user(
-	    			$username, $password_confirmation, $email
-	    		);
+	    		$user_id = wc_create_new_customer(sanitize_email( $email ), wc_clean( $username ), $password_confirmation);
+	    		// $user_id = wp_create_user(
+	    		// 	$username, $password_confirmation, $email
+	    		// );
 	    		$info = array();
     			$info['user_login'] = $username;
     			$info['user_password'] = $password_confirmation;
