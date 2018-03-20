@@ -6,7 +6,7 @@
 	acf_unset_language_to_default();
 ?>
 
-<div class="instagram" ng-instagram strings="{s : ['<?php _e('secondo', 'iro'); ?>', '<?php _e('secondi', 'iro'); ?>'], m : ['<?php _e('minuto', 'iro'); ?>', '<?php _e('minuti', 'iro'); ?>'], h :['<?php _e('ora', 'iro'); ?>', '<?php _e('ore', 'iro'); ?>'], d :['<?php _e('giorno', 'iro'); ?>', '<?php _e('giorni', 'iro'); ?>'], mo :['<?php _e('mese', 'iro'); ?>', '<?php _e('mesi', 'iro'); ?>'], y :['<?php _e('anno', 'iro'); ?>', '<?php _e('anni', 'iro'); ?>'], ago: '<?php _e('fa', 'iro'); ?>'}" obj="<?php echo  wp_json_encode(instagram_object()  ); ?>">
+<div class="instagram" ng-instagram strings="{s : ['<?php _e('secondo', 'iro'); ?>', '<?php _e('secondi', 'iro'); ?>'], m : ['<?php _e('minuto', 'iro'); ?>', '<?php _e('minuti', 'iro'); ?>'], h :['<?php _e('ora', 'iro'); ?>', '<?php _e('ore', 'iro'); ?>'], d :['<?php _e('giorno', 'iro'); ?>', '<?php _e('giorni', 'iro'); ?>'], mo :['<?php _e('mese', 'iro'); ?>', '<?php _e('mesi', 'iro'); ?>'], y :['<?php _e('anno', 'iro'); ?>', '<?php _e('anni', 'iro'); ?>'], ago: '<?php _e('fa', 'iro'); ?>'}"">
 	<header class="instagram__header instagram__header--shrink-fw-left instagram__header--grow" ng-if="items.length > 0">
 		<h3 class="instagram__title">@{{username}}</h3><a class="instagram__button" ng-attr-href="https://instagram.com/{{username}}" target="_blank"><?php _e('Seguici su instagram', 'iro'); ?></a>
 		<!-- <figure class="instagram__figure"<?php if($img_mb > 0) : ?> style="margin-bottom: <?php echo $img_mb; ?>%"<?php endif; ?>>
