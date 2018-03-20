@@ -42,10 +42,11 @@ module.exports = function ($stateProvider, $locationProvider, $provide, cfpLoadi
 				data : ['getData', '$stateParams', function(getData, $stateParams) {
 					let base_url = ($stateParams.productId) ? `${$stateParams.slug}?productId=${$stateParams.productId}`: $stateParams.slug;
 					if($stateParams.attribute_pa_color) {
-						base_url += 'attribute_pa_color=' + $stateParams.attribute_pa_color;
+						let and = ($stateParams.productId) ? '&' : '?';
+						base_url += and + 'attribute_pa_color=' + $stateParams.attribute_pa_color;
 					}
 					if($stateParams.attribute_pa_misure) {
-						let and = ($stateParams.attribute_pa_color) ? '&' : '?';
+						let and = ($stateParams.attribute_pa_color || $stateParams.productId) ? '&' : '?';
 						base_url += and + 'attribute_pa_misure=' + $stateParams.attribute_pa_misure;
 					}
 					return getData(base_url);
