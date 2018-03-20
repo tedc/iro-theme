@@ -1,5 +1,6 @@
 <?php
 	use Roots\Sage\Assets;
+	remove_action('wp_head', 'woosea_hook_header');
 	function in_array_r($item , $array){
     	return preg_match('/"'.json_encode($item).'"/i' , json_encode($array));
 	}
