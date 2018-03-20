@@ -1,3 +1,4 @@
+require('babel-polyfill');
 require('angular');
 require('angular-cookies');
 require('@uirouter/angularjs');
