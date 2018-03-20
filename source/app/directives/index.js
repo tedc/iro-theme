@@ -237,8 +237,8 @@ iro
 				        return Math.round(elapsed/msPerYear ) + ' ' +years+ ' ' + $scope.strings.ago;    
 				    }
 				}
-				$scope.items = vars.main.instagram;
-		        $scope.username = $scope.items[0].user.username;
+				$scope.items = vars.main.instagram.data;
+				$scope.username = $scope.items[0].user.username;
 		        $scope.userpicture = $scope.items[0].user.profile_picture;
 				// $http
 	   //          	.get(url, { ignoreLoadingBar: true })
