@@ -22,11 +22,11 @@ if(!$mw && !$centered && !get_sub_field('full_image')) {
 		$mv_mob = (get_sub_field('move_top_image')) ? 'top:' .(get_sub_field('move_top_image')/16) . 'em' : null;	
 	}
 	?>
-	<span class="section__image<?php echo (get_sub_field('mobile_image')) ? ' section__image--mobile-hide' : ''; ?>"<?php if(!get_sub_field('double_image')) : ?> style="max-width: <?php echo ($w/15); ?>em"<?php endif; ?>>
+	<span class="section__image<?php echo (get_sub_field('mobile_image')) ? ' section__image--mobile-hide' : ''; ?>"<?php if(!get_sub_field('double_image')) : ?> style="max-width: <?php echo ($w/15); ?>em; background-image:url(<?php echo wp_get_attachment_image_src(et_sub_field('mobile_image')['ID'], $thumb)[0] ?>"<?php else : ?> style="background-image:url(<?php echo wp_get_attachment_image_src(et_sub_field('mobile_image')['ID'], $thumb)[0] ?>"<?php endif; ?>>
 	<?php echo wp_get_attachment_image( get_sub_field('immagine')['ID'], $thumb, false, array('class'=>'section__thumb', 'style' => $mv, 'data-object-fit' => true) ); ?>
 	</span>
 	<?php if(get_sub_field('mobile_image')) : ?>
-	<span class="section__image section__image--mobile" style="max-width: <?php echo ($w/15); ?>em">
+	<span class="section__image section__image--mobile" style="max-width: <?php echo ($w/15); ?>em; background-image:url(<?php echo wp_get_attachment_image_src(et_sub_field('mobile_image')['ID'], $thumb)[0] ?>" >
 	<?php echo wp_get_attachment_image( get_sub_field('mobile_image')['ID'], $thumb, false, array('class'=>'section__thumb', 'style' => $mv, 'data-object-fit' => true) ); ?>
 	</span>
 	<?php endif; ?>

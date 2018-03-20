@@ -137,6 +137,10 @@
 	&__slide {
 		width: $f!important;
 		flex: 0 0 auto;
+		background-size: cover;
+		@supports (object-fit: cover) and (object-fit: contain) {
+			background-image: none!important;
+		}
 	}
 	.full-slider &, .post__gallery & {
 		height: calc(100vh - #{em($p*4)});

@@ -133,7 +133,17 @@
 	}
 }
 [class*="__video"], [class*="__video-item"], .video__item {
-	@include full;
+	min-height: 100%;
+	min-width: 100%;
+	top: 50%;
+	left: 50%;
+	transform: translate3d(-50%, -50%, 0);
+	width: auto;
+	height: auto;
+	@supports (object-fit: cover) {
+		@include full;
+		transform: none;
+	}
 }
 [class*="__video"], [class*="__video-item"], .video__item {
 	object-fit: cover;

@@ -1,11 +1,11 @@
 <?php
 	if($images):
 ?>
-<div class="slider swiper-container" scroller ng-init='slider = <?php echo htmlspecialchars( wp_json_encode( $images ) ) ?>' options="{'pagination' : {'el' : '.swiper-pagination', 'clickable': true}, 'navigation': {'nextEl': '.swiper-button-next','prevEl': '.swiper-button-prev'}, 'loop' : true, 'effect': 'fade', 'fadeEffect': {'crossFade':true}}">
+<div class="slider swiper-container" scroller options="{'pagination' : {'el' : '.swiper-pagination', 'clickable': true}, 'navigation': {'nextEl': '.swiper-button-next','prevEl': '.swiper-button-prev'}, 'loop' : true, 'effect': 'fade', 'fadeEffect': {'crossFade':true}}">
 	<div class="slider__wrapper swiper-wrapper">
 		<?php foreach($images as $img) : ?>
-		<figure class="slider__slide swiper-slide" lazy-load-img="<?php echo $img['url']; ?>">
-			<?php echo wp_get_attachment_image( $img['ID'], 'fulla', null, array('class' => 'slider__image', 'data-object-fit') ); ?>
+		<figure class="slider__slide swiper-slide" lazy-load-img="<?php echo $img['url']; ?>" ng-style="{backgroundImage : 'url(<?php echo wp_get_attachment_image_src( $img['ID'], 'full' )[0]; ?>)'}">
+			<?php echo wp_get_attachment_image( $img['ID'], 'full', null, array('class' => 'slider__image', 'data-object-fit') ); ?>
 		</figure>
 		<?php endforeach; ?>
 	</div>

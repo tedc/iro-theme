@@ -171,6 +171,10 @@
 		&image {
 			display: inline-block;
 			max-width: $f;
+			background-size: contain;
+			@supports (object-fit: cover) and (object-fit: contain) {
+				background-image: none!important;
+			}
 			&--mobile {
 				@include breakpoint() {
 					display: none;

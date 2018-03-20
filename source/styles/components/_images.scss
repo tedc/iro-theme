@@ -9,3 +9,11 @@ figure {
 		@include cover($size : contain);
 	}
 }
+
+
+[data-object-fit] {
+	visibility: hidden;
+	@supports (object-fit: cover) and (object-fit: contain) {
+		visibility: visible;
+	}
+}
