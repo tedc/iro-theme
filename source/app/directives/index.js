@@ -237,15 +237,18 @@ iro
 				        return Math.round(elapsed/msPerYear ) + ' ' +years+ ' ' + $scope.strings.ago;    
 				    }
 				}
-				$http
-	            	.get(url, { ignoreLoadingBar: true })
-	            	.then( (res)=> {
-	            		let data = res.data.data;
-		            	if(data.length < 1) return;
-		            	$scope.items = data;
-		            	$scope.username = $scope.items[0].user.username;
-		          		$scope.userpicture = $scope.items[0].user.profile_picture;
-	            	});
+				$scope.items = vars.main.instagram;
+		        $scope.username = $scope.items[0].user.username;
+		        $scope.userpicture = $scope.items[0].user.profile_picture;
+				// $http
+	   //          	.get(url, { ignoreLoadingBar: true })
+	   //          	.then( (res)=> {
+	   //          		let data = res.data.data;
+		  //           	if(data.length < 1) return;
+		  //           	$scope.items = data;
+		  //           	$scope.username = $scope.items[0].user.username;
+		  //         		$scope.userpicture = $scope.items[0].user.profile_picture;
+	   //          	});
 			}]
 		}
 	})
