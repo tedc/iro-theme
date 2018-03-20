@@ -2,7 +2,7 @@
 	<header class="facebook__cover facebook__cover--cell-s12">	
 		<figure class="facebook__figure">
 			<a ng-attr-href="{{fb.info.link}}" target="_blank">
-				<?php echo wp_get_attachment_image( get_field('fb_cover', 'options'), 'full', false, '' ); ?>
+				<?php echo wp_get_attachment_image( get_field('fb_cover', 'options'), 'full', false, array('data-object-fit' => true) ); ?>
 			</a>
 		</figure>
 	</header>

@@ -1,3 +1,4 @@
+require('objectFitPolyfill');
 require('babel-polyfill');
 require('angular');
 require('angular-cookies');

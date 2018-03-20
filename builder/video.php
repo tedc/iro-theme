@@ -8,7 +8,7 @@
 	
 ?>
 <div class="video video--cover video--grow-md<?php echo ($is_waves) ? ' video--waves' : ''; ?>" id="video_<?php $row; ?>" ng-style="{backgroundImage : 'url(<?php echo $file; ?>.jpg)'}" ng-class="{'video--playing' : isVideoPlaying}">
-	<video class="video__video" muted loop poster="<?php echo $file; ?>.jpg" ng-video>
+	<video data-object-fit class="video__video" muted loop poster="<?php echo $file; ?>.jpg" ng-video>
 		<source src="<?php echo $file; ?>.webm">
 		<source src="<?php echo $file; ?>.mp4">
 	</video>

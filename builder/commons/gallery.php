@@ -5,7 +5,7 @@
 	<div class="slider__wrapper swiper-wrapper">
 		<?php foreach($images as $img) : ?>
 		<figure class="slider__slide swiper-slide" lazy-load-img="<?php echo $img['url']; ?>">
-			<?php echo wp_get_attachment_image( $img['ID'], 'fulla', null, array('class' => 'slider__image') ); ?>
+			<?php echo wp_get_attachment_image( $img['ID'], 'fulla', null, array('class' => 'slider__image', 'data-object-fit') ); ?>
 		</figure>
 		<?php endforeach; ?>
 	</div>
