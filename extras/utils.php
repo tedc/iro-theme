@@ -230,8 +230,8 @@
             // }
             // $api->setAccessToken($access_token);
             // $items = $api->Users->Recent($user_id, array('count'=>$count));
-            return $items;
             $items = json_decode($items);
+            return $items;
             $cached = get_transient($user_id);
             // return $items;
             if($cached !== false) {
