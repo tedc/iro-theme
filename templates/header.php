@@ -7,13 +7,15 @@
 ?>
 <header class="banner banner--shrink-fw" ng-class="{'banner--active-menu':isMenu}">
     <nav class="banner__nav">
-      <a class="icon-logo" href="<?= esc_url(home_url('/')); ?>" ui-sref="app.root({lang : '<?php echo ICL_LANGUAGE_CODE; ?>'})"></a>
+      <!-- <a class="icon-logo" href="<?= esc_url(home_url('/')); ?>" ui-sref="app.root({lang : '<?php echo ICL_LANGUAGE_CODE; ?>'})"></a> -->
+      <a class="icon-logo" href="<?= esc_url(home_url('/')); ?>"></a>
       <div class="banner__menu" scroller options="{freeMode: true, slidesPerView: 'auto', breakpoints:{1024:{mousewheel: true, direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true} } }  }">
       <?php
         if (has_nav_menu('primary_navigation')) :
           $append_sting = (is_user_logged_in()) ? __('Profilo', 'iro') : __('Login', 'iro');
           $append_url = (is_user_logged_in()) ? wc_get_page_permalink('myaccount') : '/tab/login/';
-          $append = '<li class="menu__item swiper-slide menu__item--account" ui-sref-active="menu__item--active"><a href="#register"class="menu__link" ng-class="{\'menu__link--active\':menuItem ==\''.basename(wc_get_page_permalink('myaccount')).'\'}" ng-bind-html="(isUserLoggedIn) ? \''.__('Profilo', 'iro').'\' : \''.__('Registrati', 'iro').'\'">'.$append_sting.'</a></li>';
+          //$append = '<li class="menu__item swiper-slide menu__item--account" ui-sref-active="menu__item--active"><a href="#register"class="menu__link" ng-class="{\'menu__link--active\':menuItem ==\''.basename(wc_get_page_permalink('myaccount')).'\'}" ng-bind-html="(isUserLoggedIn) ? \''.__('Profilo', 'iro').'\' : \''.__('Registrati', 'iro').'\'">'.$append_sting.'</a></li>';
+          $append = '<li class="menu__item swiper-slide menu__item--account"><a href="#register" class="menu__link" ng-bind-html="(isUserLoggedIn) ? \''.__('Profilo', 'iro').'\' : \''.__('Registrati', 'iro').'\'">'.$append_sting.'</a></li>';
          bem_menu('primary_navigation', 'menu', 'menu--shrink swiper-wrapper', null, $append);
           
         endif;

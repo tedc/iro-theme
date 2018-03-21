@@ -41,7 +41,8 @@ else :
 		<div class="header__container<?php if(is_wc_endpoint_url()):?> header__container--grid<?php endif; ?> header__container--grow-md">
 			<?php get_template_part( 'templates/page', 'title'); ?>
 			<?php if(is_wc_endpoint_url()) : ?>
-				<a href="<?php echo wc_get_page_permalink('myaccount'); ?>" class="account__back" ui-sref="app.page({slug : '<?php echo basename(wc_get_page_permalink('myaccount')); ?>'})"><i class="icon-arrow-left"></i><?php _e('Indietro', 'iro'); ?></a>
+				<!-- <a href="<?php echo wc_get_page_permalink('myaccount'); ?>" class="account__back" ui-sref="app.page({slug : '<?php echo basename(wc_get_page_permalink('myaccount')); ?>'})"><i class="icon-arrow-left"></i><?php _e('Indietro', 'iro'); ?></a> -->
+				<a href="<?php echo wc_get_page_permalink('myaccount'); ?>" class="account__back"><i class="icon-arrow-left"></i><?php _e('Indietro', 'iro'); ?></a>
 			<?php endif; ?>
 		</div>
 	</div>

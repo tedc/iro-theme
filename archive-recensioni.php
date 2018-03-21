@@ -138,7 +138,8 @@
 					</ul>
 				</div>
 				<?php if(is_user_logged_in() && has_bought_items($products_ids)) : ?>
-				<a href="<?php echo get_permalink($review_base); ?>" ui-sref="app.page({slug : '<?php echo basename(get_permalink($review_base)); ?>', productId : <?php echo $current->term_id; ?>})" class="reviews__button reviews__button--dark"><?php _e('Scrivi una recensione', 'iro'); ?></a>
+				<!-- <a href="<?php echo get_permalink($review_base); ?>" ui-sref="app.page({slug : '<?php echo basename(get_permalink($review_base)); ?>', productId : <?php echo $current->term_id; ?>})" class="reviews__button reviews__button--dark"><?php _e('Scrivi una recensione', 'iro'); ?></a> -->
+				<a href="<?php echo get_permalink($review_base); ?>" class="reviews__button reviews__button--dark"><?php _e('Scrivi una recensione', 'iro'); ?></a>
 			<?php endif; ?>
 			</div>
 			
@@ -182,7 +183,8 @@
 			</div>
 			<?php endif;  
 			if(is_user_logged_in() && has_bought_items($products_ids)) : ?>
-				<a href="<?php echo get_permalink($review_base); ?>" ui-sref="app.page({slug : '<?php echo basename(get_permalink($review_base)); ?>', productId : <?php echo $current->term_id; ?>})" class="reviews__button reviews__button--dark"><?php _e('Scrivi una recensione', 'iro'); ?></a>
+				<!-- <a href="<?php echo get_permalink($review_base); ?>" ui-sref="app.page({slug : '<?php echo basename(get_permalink($review_base)); ?>', productId : <?php echo $current->term_id; ?>})" class="reviews__button reviews__button--dark"><?php _e('Scrivi una recensione', 'iro'); ?></a> -->
+				<a href="<?php echo get_permalink($review_base); ?>?productId=<?php echo $current->term_id; ?>" class="reviews__button reviews__button--dark"><?php _e('Scrivi una recensione', 'iro'); ?></a>
 			<?php endif; ?>
 		</aside>
 		<div class="reviews__container reviews__container--shrink-left-only reviews__container--cell-s9">

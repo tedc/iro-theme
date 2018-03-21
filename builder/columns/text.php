@@ -72,7 +72,8 @@ if(!$mw && !$centered) {
 				}
 			}
 			$button_class .= get_sub_field('col_link_color') ? ' section__button--'.get_sub_field('col_link_color') : '';
-			echo '<div class="'.$link_class.'"><a class="'.$button_class.'" ui-sref="app.page({slug : \''.basename(get_sub_field('col_link')['url']).'\'})" href="'.get_sub_field('col_link')['url'].'"'.$ga_click.'>'.get_sub_field('col_link')['title'].'</a></div>';
+			//echo '<div class="'.$link_class.'"><a class="'.$button_class.'" ui-sref="app.page({slug : \''.basename(get_sub_field('col_link')['url']).'\'})" href="'.get_sub_field('col_link')['url'].'"'.$ga_click.'>'.get_sub_field('col_link')['title'].'</a></div>';
+			echo '<div class="'.$link_class.'"><a class="'.$button_class.'" href="'.get_sub_field('col_link')['url'].'"'.$ga_click.'>'.get_sub_field('col_link')['title'].'</a></div>';
 		}
 	?>
 </div>

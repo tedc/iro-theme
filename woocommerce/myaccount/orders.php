@@ -80,7 +80,8 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 											echo '<a href="' . esc_url( $action['url'] ) . '" class="woocommerce-button button ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
 										} else {
 											$base_path = str_replace(wc_get_page_permalink('myaccount') . '/', '', esc_url( $action['url'] ));
-										echo '<a ui-sref="app.account({\'path\': \''.$base_path.'\'})" href="' . esc_url( $action['url'] ) . '" class="woocommerce-button button ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
+										//echo '<a ui-sref="app.account({\'path\': \''.$base_path.'\'})" href="' . esc_url( $action['url'] ) . '" class="woocommerce-button button ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
+										echo '<a href="' . esc_url( $action['url'] ) . '" class="woocommerce-button button ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
 										}
 										
 									}
@@ -99,11 +100,13 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 	<?php if ( 1 < $customer_orders->max_num_pages ) : ?>
 		<div class="account__pagination">
 			<?php if ( 1 !== $current_page ) : ?>
-				<a class="account__button account__button--prev account__button-light account__button--slim" ui-sref="app.account({path : '<?php echo str_replace(wc_get_page_permalink('myaccount') . '/', '', wc_get_endpoint_url( 'orders', $current_page - 1 ) ); ?>'})" href="<?php echo esc_url( wc_get_endpoint_url( 'orders', $current_page - 1 ) ); ?>"><?php _e( 'Previous', 'woocommerce' ); ?></a>
+				<!-- <a class="account__button account__button--prev account__button-light account__button--slim" ui-sref="app.account({path : '<?php echo str_replace(wc_get_page_permalink('myaccount') . '/', '', wc_get_endpoint_url( 'orders', $current_page - 1 ) ); ?>'})" href="<?php echo esc_url( wc_get_endpoint_url( 'orders', $current_page - 1 ) ); ?>"><?php _e( 'Previous', 'woocommerce' ); ?></a> -->
+				<a class="account__button account__button--prev account__button-light account__button--slim" href="<?php echo esc_url( wc_get_endpoint_url( 'orders', $current_page - 1 ) ); ?>"><?php _e( 'Previous', 'woocommerce' ); ?></a>
 			<?php endif; ?>
 
 			<?php if ( intval( $customer_orders->max_num_pages ) !== $current_page ) : ?>
-				<a class="account__button account__button--next account__button-light account__button--slim" href="<?php echo esc_url( wc_get_endpoint_url( 'orders', $current_page + 1 ) ); ?>" ui-sref="app.account({path : '<?php echo str_replace(wc_get_page_permalink('myaccount'). '/', '', wc_get_endpoint_url( 'orders', $current_page + 1 ) ); ?>'})"><?php _e( 'Next', 'woocommerce' ); ?></a>
+				<!-- <a class="account__button account__button--next account__button-light account__button--slim" href="<?php echo esc_url( wc_get_endpoint_url( 'orders', $current_page + 1 ) ); ?>" ui-sref="app.account({path : '<?php echo str_replace(wc_get_page_permalink('myaccount'). '/', '', wc_get_endpoint_url( 'orders', $current_page + 1 ) ); ?>'})"><?php _e( 'Next', 'woocommerce' ); ?></a> -->
+				<a class="account__button account__button--next account__button-light account__button--slim" href="<?php echo esc_url( wc_get_endpoint_url( 'orders', $current_page + 1 ) ); ?>"><?php _e( 'Next', 'woocommerce' ); ?></a>
 			<?php endif; ?>
 		</div>
 	<?php endif; ?>
@@ -117,7 +120,10 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 			$materasso = get_posts(array('post_type' => 'product', 'tax_query'=> array(array('taxonomy'=> 'prodotto_associato', 'field'=> 'term_id', 'terms' => array($main_product)))));
 			$url = get_permalink($materasso[0]->ID);
 		 ?></p>
-		<a class="woocommerce-message__button"  href="<?php echo $url; ?>" ui-sref="app.page({slug : '<?php echo basename($url); ?>'}">
+		<!-- <a class="woocommerce-message__button"  href="<?php echo $url; ?>" ui-sref="app.page({slug : '<?php echo basename($url); ?>'}">
+			<?php _e( 'Acquista Iro', 'iro' ) ?>
+		</a> -->
+		<a class="woocommerce-message__button"  href="<?php echo $url; ?>">
 			<?php _e( 'Acquista Iro', 'iro' ) ?>
 		</a>
 	</div>

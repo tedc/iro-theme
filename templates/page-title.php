@@ -25,7 +25,8 @@
 	?>
 	<nav class="header__btns header__btns--grow-top">
 		
-		<a href="<?php echo $button_link; ?>" class="<?php echo $button_class; ?>" ui-sref="app.page({slug : '<?php echo basename($button_link); ?>'})"<?php echo $ga_click; ?>>
+		<!-- <a href="<?php echo $button_link; ?>" class="<?php echo $button_class; ?>" ui-sref="app.page({slug : '<?php echo basename($button_link); ?>'})"<?php echo $ga_click; ?>> -->
+		<a href="<?php echo $button_link; ?>" class="<?php echo $button_class; ?>"<?php echo $ga_click; ?>>
 			<?php echo $button_text; ?>
 		</a>
 	</nav>

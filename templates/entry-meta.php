@@ -6,7 +6,8 @@ endif;
 	$count_cat = 0;
 	foreach ($categories as $c) {
 		$cat = get_category($c);
-		echo (($count_cat >0) ? ', ': '') . '<a class="post__cat" href="'.get_term_link($c).'" ui-sref="app.category({name : \''.$cat->slug.'\'})">'.$cat->name.'</a>';
+		//echo (($count_cat >0) ? ', ': '') . '<a class="post__cat" href="'.get_term_link($c).'" ui-sref="app.category({name : \''.$cat->slug.'\'})">'.$cat->name.'</a>';
+		echo (($count_cat >0) ? ', ': '') . '<a class="post__cat" href="'.get_term_link($c).'" href="'.get_term_link($cat->term_id).'">'.$cat->name.'</a>';
 		$count_cat++;
 	}
 ?>

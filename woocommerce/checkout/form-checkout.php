@@ -35,7 +35,8 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 ?>
 <form name="checkout" method="post" class="checkout checkout--shrink-fw" ng-submit="sendCheckout(checkout)" novalidate>
 	<nav class="checkout__banner checkout__banner--grid checkout__banner--shrink-fw">
-		<a href="<?php echo home_url('/'); ?>" ui-sref="app.root({lang : '<?php echo ICL_LANGUAGE_CODE; ?>'})" class="icon-logo"></a>
+		<!-- <a href="<?php echo home_url('/'); ?>" ui-sref="app.root({lang : '<?php echo ICL_LANGUAGE_CODE; ?>'})" class="icon-logo"></a> -->
+		<a href="<?php echo home_url('/'); ?>" class="icon-logo"></a>
 		<div class="checkout__banner-nav">
 			<span ng-click="slideTo(checkout.$valid, 2, 0)" ng-class="{current : checkoutObj.current == 0 && !isConfirm}"><?php _e('I tuoi dati', 'iro'); ?></span>
 			<span ng-click="slideTo(checkout.$valid, 2, 1)" ng-class="{current : checkoutObj.current == 1 && !isConfirm}"><?php _e('Spedizione', 'iro'); ?></span>
@@ -60,7 +61,8 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 			<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
 			</div>
 			<nav class="checkout__nav checkout__nav--grow-md checkout__nav--grid">
-				<a class="checkout__button checkout__button--dark" href="<?php echo home_url('/'); ?>" ui-sref="app.root({lang : '<?php echo ICL_LANGUAGE_CODE; ?>'})"><?php _e('Continua lo shopping', 'iro'); ?></a>
+				<!-- <a class="checkout__button checkout__button--dark" href="<?php echo home_url('/'); ?>" ui-sref="app.root({lang : '<?php echo ICL_LANGUAGE_CODE; ?>'})"><?php _e('Continua lo shopping', 'iro'); ?></a> -->
+				<a class="checkout__button checkout__button--dark" href="<?php echo home_url('/'); ?>"><?php _e('Continua lo shopping', 'iro'); ?></a>
 				<span class="checkout__button" ng-class="{'checkout__button--loading':isCheckoutUpdating}" ng-click="next(checkout.$valid, 2)"><?php _e('Continua', 'iro'); ?></span>
 			</nav>
 		</div>

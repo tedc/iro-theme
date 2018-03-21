@@ -40,7 +40,7 @@
 			} else {
 				$sref = (is_category()) ? ' ui-sref="app.category({name : \''.$term->slug.'\'})"' : ' ui-sref="app.page({slug : \'blog\'})"';
 			}
-			$page = str_replace('<a', '<a'.$sref, $page);
+			//$page = str_replace('<a', '<a'.$sref, $page);
 		}
 		echo $page;
 		$count++;

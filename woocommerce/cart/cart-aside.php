@@ -20,7 +20,8 @@
 					</figure>
 					<div class="cart-aside__top cart-aside__top--grow-top">
 						<div class="cart-aside__info">
-							<a ui-sref="app.page({slug : item.getData().href})" ng-bind-html="item.getName()"></a>
+							<!-- <a ui-sref="app.page({slug : item.getData().href})" ng-bind-html="item.getName()"></a> -->
+							<a ng-href="{{item.getData().href}}" ng-bind-html="item.getName()"></a>
 							<div class="cart-aside__desc" ng-bind-html="ngCart.getDesc(item)" ng-if="ngCart.getDesc(item)"></div>
 						</div>
 						<a class="cart-aside__remove" ng-attr-href="{{item.getData().remove_item_url}}" ng-click="$event.preventDefault(); ngCart.delete(item.getData().item_key, $index, item.getId())">
@@ -79,7 +80,9 @@
 	<span ng-if="ngCart.getTotalItems() == 0" class="cart-aside__button cart-aside__button--noradius" ng-click="ngCart.close()"><?php _e('Continua lo shopping', 'iro'); ?></span>
 	<!-- <a ng-if="!ngCart.logged" href="#login" class="cart-aside__button cart-aside__button--noradius"><?php _e('Entra per proseguire', 'iro'); ?>
 	</a> -->
-	<a ng-if="ngCart.getTotalItems() > 0" href="<?php echo wc_get_page_permalink('checkout'); ?>" ui-sref="app.page({slug : '<?php echo basename(wc_get_page_permalink('checkout')); ?>'})" class="cart-aside__button cart-aside__button--noradius"><?php _e('Vai al checkout', 'iro'); ?>
+	<!-- <a ng-if="ngCart.getTotalItems() > 0" href="<?php echo wc_get_page_permalink('checkout'); ?>" ui-sref="app.page({slug : '<?php echo basename(wc_get_page_permalink('checkout')); ?>'})" class="cart-aside__button cart-aside__button--noradius"><?php _e('Vai al checkout', 'iro'); ?>
+	</a> -->
+	<a ng-if="ngCart.getTotalItems() > 0" href="<?php echo wc_get_page_permalink('checkout'); ?>" class="cart-aside__button cart-aside__button--noradius"><?php _e('Vai al checkout', 'iro'); ?>
 	</a>
 	</div>
 </aside>

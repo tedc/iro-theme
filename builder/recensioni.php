@@ -164,7 +164,8 @@ if($reviews->have_posts()) :
 			</div>
 		<?php endwhile; wp_reset_postdata(); wp_reset_query(); ?>
 		<footer class="section__link section__link--aligncenter section__link--grow-md-top">
-				<a class="section__button section__button--dark" href="<?php echo get_post_type_archive_link('recensioni'); ?>" ui-sref="<?php echo $sref; ?>"><?php _e('Leggi tutte', 'iro'); ?></a>
+				<!-- <a class="section__button section__button--dark" href="<?php echo get_post_type_archive_link('recensioni'); ?>" ui-sref="<?php echo $sref; ?>"><?php _e('Leggi tutte', 'iro'); ?></a> -->
+				<a class="section__button section__button--dark" href="<?php echo get_post_type_archive_link('recensioni'); ?>"><?php _e('Leggi tutte', 'iro'); ?></a>
 		
 		</footer>
 	</div>

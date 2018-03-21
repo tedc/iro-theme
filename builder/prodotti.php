@@ -44,7 +44,8 @@ if($prodotti->have_posts() && !is_singular('product')) : ?>
 				<h3 class="<?php echo $base_class; ?>__title <?php echo $base_class; ?>__title--medium"><?php the_title(); ?></h3>
 				<?php the_excerpt(); ?>
 			</div>
-			<a href="<?php the_permalink(); ?>" ui-sref="app.page({slug:'<?php echo basename(get_permalink()); ?>'})" class="<?php echo $base_class; ?>__permalink"><?php the_title(); ?></a>
+			<!-- <a href="<?php the_permalink(); ?>" ui-sref="app.page({slug:'<?php echo basename(get_permalink()); ?>'})" class="<?php echo $base_class; ?>__permalink"><?php the_title(); ?></a> -->
+			<a href="<?php the_permalink(); ?>" href="<?php echo get_permalink(); ?>" class="<?php echo $base_class; ?>__permalink"><?php the_title(); ?></a>
 		</div>
 		<?php $count++; endwhile; wp_reset_postdata(); wp_reset_query(); ?>
 	</div>
@@ -54,7 +55,8 @@ if($prodotti->have_posts() && !is_singular('product')) : ?>
 			<?php while($prodotti->have_posts()) : $prodotti->the_post();
 			?>
 			<li class="<?php echo $base_class; ?>__cell <?php echo $base_class; ?>__cell--shrink <?php echo $base_class; ?>__cell--s4 swiper-slide <?php echo $base_class; ?>__cell--grow-md">
-				<a class="<?php echo $base_class; ?>__link" relahref="<?php the_permalink(); ?>" ui-sref="app.page({slug:'<?php echo basename(get_permalink()); ?>'})">
+				<!-- <a class="<?php echo $base_class; ?>__link" relahref="<?php the_permalink(); ?>" ui-sref="app.page({slug:'<?php echo basename(get_permalink()); ?>'})"> -->
+				<a class="<?php echo $base_class; ?>__link" href="<?php the_permalink(); ?>" >
 					<?php the_post_thumbnail('large', array('class'=> 'related__image')); ?>
 					<span class="<?php echo $base_class; ?>__button <?php echo $base_class; ?>__button--dark"><?php the_title(); ?></span>
 				</a>

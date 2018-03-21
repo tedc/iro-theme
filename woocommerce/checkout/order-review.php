@@ -4,7 +4,8 @@
 	</header>
 	<div class="order-review__row" ng-repeat="item in ngCart.getCart().items track by $index">
 		<span>
-			<a class="order-review__name" href="#" ui-sref="app.page({slug : item.getData().href})" ng-bind-html="item.getName()"></a>
+			<!-- <a class="order-review__name" ng-href="{{item.getData().href}}}" ui-sref="app.page({slug : item.getData().href})" ng-bind-html="item.getName()"></a> -->
+			<a class="order-review__name" ng-href="{{item.getData().href}}}" ng-bind-html="item.getName()"></a>
 			<span class="order-review__qty"">x{{item.getQuantity()}}</span>
 		</span>
 		<strong class="order-review__price" ng-bind-html="'€ ' + (item.getPrice())"></strong>

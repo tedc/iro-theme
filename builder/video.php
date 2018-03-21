@@ -48,7 +48,8 @@
 			}
 		}
 	?>
-	<a class="video__button video__button--dark" class="<?php echo $button_class; ?>" ui-sref="app.page({slug : '<?php echo basename($button_link); ?>'})"<?php echo $ga_click; ?>>
+	<!-- <a class="video__button video__button--dark" class="<?php echo $button_class; ?>" ui-sref="app.page({slug : '<?php echo basename($button_link); ?>'})"<?php echo $ga_click; ?>> -->
+	<a class="video__button video__button--dark" class="<?php echo $button_class; ?>" href="<?php echo $button_link; ?>"<?php echo $ga_click; ?>>
 		<?php echo $button_text; ?>
 	</a>
 	<?php endif; ?>

@@ -88,8 +88,8 @@ class walker_texas_ranger extends Walker_Nav_Menu {
         $class_string = implode("  ", array_filter($item_classes));
 
         // Add the classes to the wrapping <li>
-        $output .= $indent . '<li class="' . $class_string . ' swiper-slide" ui-sref-active="'.$prefix . $suffix['active_item'].'">';
-
+        //$output .= $indent . '<li class="' . $class_string . ' swiper-slide" ui-sref-active="'.$prefix . $suffix['active_item'].'">';
+        $output .= $indent . '<li class="' . $class_string . ' swiper-slide">';
         // Link classes
         $link_classes = array(
             'item_link'             => $depth == 0 ? $prefix . $suffix['link'] : '',
@@ -111,7 +111,8 @@ class walker_texas_ranger extends Walker_Nav_Menu {
 
         // Creatre link markup
         $item_output = $args->before;
-        $item_output .= '<a' . $attributes . ' ' . $link_class_output . $sref . '>';
+        //$item_output .= '<a' . $attributes . ' ' . $link_class_output . $sref . '>';
+        $item_output .= '<a' . $attributes . ' ' . $link_class_output . '>';
         $item_output .=     $args->link_before;
         $item_output .=     apply_filters('the_title', $item->title, $item->ID);
         $item_output .=     $args->link_after;
