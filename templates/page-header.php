@@ -12,7 +12,7 @@
 	$header_class .= (!is_page_template() || get_field('header_small')) ? ' header--page' : '';
 	$header_class .= (get_field('white_text')) ? ' header--clear' : '';
 ?>
-<div class="<?= $header_class; ?>"<?php (!get_field('is_video') && has_post_thumbnail()) ? ' style="background-image:url('.wp_get_attachment_image_src( $thumb_id, 'full' ).')"' : ''; ?>>
+<div class="<?= $header_class; ?>"<?php echo (!get_field('is_video') && has_post_thumbnail()) ? ' style="background-image:url('.wp_get_attachment_image_src( $thumb_id, 'full' ).')"' : ''; ?>>
 	<?php 
 	if(get_field('is_video')) :
 		get_template_part( 'templates/header', 'video');
