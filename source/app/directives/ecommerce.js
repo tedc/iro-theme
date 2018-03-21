@@ -503,6 +503,15 @@ module.exports = () => {
 									$state.go('app.order', {order : order, key : key});
 								}
 								$window.dataLayer.push({
+								    'event': 'checkout',
+								    'ecommerce': {
+								      'checkout': {
+								        'actionField': {'step': 4, 'option': 'conferma'},
+								        'products': products
+								     }
+								   }
+								});
+								$window.dataLayer.push({
 									'event' : 'purchase',
 									'ecommerce': {
 										'purchase': purchase
@@ -578,7 +587,7 @@ module.exports = () => {
 							    'event': 'checkout',
 							    'ecommerce': {
 							      'checkout': {
-							        'actionField': {'step': $scope.checkoutObj.current - 1, 'option': option},
+							        'actionField': {'step': $scope.checkoutObj.current, 'option': option},
 							        'products': products
 							     }
 							   }
