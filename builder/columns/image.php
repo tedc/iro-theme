@@ -26,7 +26,7 @@ if(!$mw && !$centered && !get_sub_field('full_image')) {
 	<?php echo wp_get_attachment_image( get_sub_field('immagine')['ID'], $thumb, false, array('class'=>'section__thumb', 'style' => $mv, 'data-object-fit' => true) ); ?>
 	</span>
 	<?php if(get_sub_field('mobile_image')) : ?>
-	<span class="section__image section__image--mobile" style="max-width: <?php echo ($w/15); ?>em; background-image:url(<?php echo wp_get_attachment_image_src(et_sub_field('mobile_image')['ID'], $thumb)[0] ?>" >
+	<span class="section__image section__image--mobile" style="max-width: <?php echo ($w/15); ?>em; background-image:url(<?php echo wp_get_attachment_image_src(get_sub_field('mobile_image')['ID'], $thumb)[0] ?>" >
 	<?php echo wp_get_attachment_image( get_sub_field('mobile_image')['ID'], $thumb, false, array('class'=>'section__thumb', 'style' => $mv, 'data-object-fit' => true) ); ?>
 	</span>
 	<?php endif; ?>
