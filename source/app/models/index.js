@@ -20,7 +20,7 @@ iro
 		// 		$window.location.href = url;
 		// 	}
 		// }
-		objectFitPolyfill();
+		//objectFitPolyfill();
 		let refreshSliders = ()=> {
 			if(window.cssLoaded) return;
 			$timeout(()=> {
@@ -63,7 +63,7 @@ iro
 		});
 		$transitions.onSuccess({}, ()=> {
 			$rootScope.$broadcast('get_cart');
-			objectFitPolyfill();
+		//	objectFitPolyfill();
 		});
 		$rootScope.$on('$locationChangeSuccess', ()=> {
 			let popup_visible = angular.element(document.querySelector('.popup--visible'));

@@ -9,8 +9,8 @@
 ?>
 <div class="video video--cover video--grow-md<?php echo ($is_waves) ? ' video--waves' : ''; ?>" id="video_<?php $row; ?>" ng-style="{backgroundImage : 'url(<?php echo $file; ?>.jpg)'}" ng-class="{'video--playing' : isVideoPlaying}">
 	<video data-object-fit class="video__video" muted loop poster="<?php echo $file; ?>.jpg" ng-video>
-		<source src="<?php echo $file; ?>.webm">
-		<source src="<?php echo $file; ?>.mp4">
+		<source src="<?php echo $file; ?>.webm" type="video/webm">
+		<source src="<?php echo $file; ?>.mp4" type="video/mp4">
 	</video>
 	<?php if($is_waves) : 
 		$video_waves_class = get_sub_field('video_waves');
