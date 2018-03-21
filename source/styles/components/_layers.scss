@@ -24,8 +24,10 @@
 				display: block!important;
 			}
 			@include breakpoint() {
-				transition: transform $speed;
-				transform: translate3d(0, 100%, 0);
+				.layers__pointer & {
+					transition: transform $speed;
+					transform: translate3d(0, 100%, 0);
+				}
 				.layers__pointer--even & {
 					transform: translate3d(0, calc(100% - #{em(24px)}), 0);
 				}
@@ -137,6 +139,9 @@
 				transition: color $speed;
 				@include breakpoint() {	
 					font-size: 1em;
+				}
+				&:hover {
+					color: $alternate-color;
 				}
 			}
 			//padding-top: em($p*2);
