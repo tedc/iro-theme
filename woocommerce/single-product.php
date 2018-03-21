@@ -19,6 +19,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
+
 ?>
 
 	<?php
@@ -33,7 +34,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php wc_get_template_part( 'content', 'single-product' ); ?>
+			<?php $body_html = get_post_meta($id, 'post_content_html', true);
+// if(!empty($body_html)) {
+// 	echo $body_html;
+// } else { 
+	wc_get_template_part( 'content', 'single-product' ); 
+//} ?>
 
 		<?php endwhile; // end of the loop. ?>
 
