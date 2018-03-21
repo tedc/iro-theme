@@ -190,15 +190,18 @@ echo $critical;
       window.cssLoaded = false;
       function loadCSS(href){
         var ss = window.document.createElement('link'),
-            ref = window.document.getElementsByTagName('head')[0];
+            ref = window.document.getElementsByTagName('head')[0],
+            gf = window.document.createElement('link');
+
 
         ss.rel = 'stylesheet';
         ss.href = href;
-
+        gf.rel = 'stylesheet';
+        gf.href = 'https://fonts.googleapis.com/css?family=Baloo+Bhaina|Encode+Sans:300,400,600,800';
         // temporarily, set media to something non-matching to ensure it'll
         // fetch without blocking render
         ss.media = 'only x';
-
+        ref.appendChild(gf);
         ref.appendChild(ss);
 
         setTimeout( function(){

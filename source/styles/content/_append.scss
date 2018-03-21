@@ -11,7 +11,7 @@ html {
 
 
 body {
-    opacity: 0;
+    opacity: 1;
     font-size: $base_font_size - 2px;
     letter-spacing: $spacing;
     margin: 0;
@@ -23,10 +23,10 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     //overflow-x: hidden;
-    .wf-active &, .wf-inactive & {
-        transition: opacity $speed;
-        opacity: 1;
-    }
+    // .wf-active &, .wf-inactive & {
+    //     transition: opacity $speed;
+    //     opacity: 1;
+    // }
     @include breakpoint() {
         font-size: $base_font_size;
     }
