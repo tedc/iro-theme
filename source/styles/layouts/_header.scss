@@ -393,6 +393,9 @@
 
 .header {
 	position: relative;
+	@supports (object-fit: cover) {
+		background-image: none!important;
+	}
 	.woocommerce-checkout & {
 		@include breakpoint($min: false) {
 			margin-top: em(70px);

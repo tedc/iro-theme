@@ -7,12 +7,12 @@
 	$image_size = (is_mobile()) ? 'large' : 'full';
 	$image_class = 'header__image';
 	$image_class .= (get_field('background_position')) ? ' header__image'.get_field('background_position') : '';
-	$image = wp_get_attachment_image( $thumb_id, $image_size, false, array('class' => 'header__image', 'alt' => $alt) );
+	$image = wp_get_attachment_image( $thumb_id, $image_size, false, array('class' => 'header__image', 'alt' => $alt, 'data-object-fit' => true) );
 	$header_class = 'header header--shrink-fw';
 	$header_class .= (!is_page_template() || get_field('header_small')) ? ' header--page' : '';
 	$header_class .= (get_field('white_text')) ? ' header--clear' : '';
 ?>
-<div class="<?= $header_class; ?>">
+<div class="<?= $header_class; ?>"<?php (!get_field('is_video') && has_post_thumbnail()) ? ' style="background-image:url('.wp_get_attachment_image_src( $thumb_id, 'full' ).')"' : ''; ?>>
 	<?php 
 	if(get_field('is_video')) :
 		get_template_part( 'templates/header', 'video');

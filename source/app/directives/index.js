@@ -17,7 +17,7 @@ iro
 				var service = getInstances.createInstance(name, s);
 				scope.$on('update_scroller', ()=> {
 					s.update();
-					objectFitPolyfill();
+					//objectFitPolyfill();
 					//if(!attrs.smooth) s.updateSlides();
 				})
 				scope.$on('$destroy', ()=> {
