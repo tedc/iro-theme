@@ -29,7 +29,8 @@
 					transform: translate3d(0, 100%, 0);
 				}
 				.layers__pointer--even & {
-					transform: translate3d(0, calc(100% - #{em(24px)}), 0);
+					//transform: translate3d(0, calc(100% - #{em(24px)}), 0);
+					transform: translateY(100%) translateY(em(-24px)) translateZ(0);
 				}
 				.layer-active & {
 					transform: translate3d(0, 0%, 0);
