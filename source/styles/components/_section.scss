@@ -26,6 +26,11 @@
 				.row:not(.row--inverted) &{
 					color: $dark-gray;
 				}
+				.row.row--handheld-dark & {
+					@include breakpoint($min: false) {
+						color: $w;
+					}
+				}
 			}
 			img {
 				width: $f!important;
