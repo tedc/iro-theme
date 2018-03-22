@@ -11,6 +11,7 @@
 	$header_class = 'header header--shrink-fw';
 	$header_class .= (!is_page_template() || get_field('header_small')) ? ' header--page' : '';
 	$header_class .= (get_field('white_text')) ? ' header--clear' : '';
+	var_dump(get_field('is_video'));
 ?>
 <div class="<?= $header_class; ?>"<?php echo (!get_field('is_video') && $thumb_id) ? ' style="background-image:url('.wp_get_attachment_image_src( $thumb_id, 'full' )[0].')"' : ''; ?>>
 	<?php 
