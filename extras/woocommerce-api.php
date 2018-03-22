@@ -798,7 +798,7 @@
 	            // } else {
 	            // 	$transport = Swift_MailTransport::newInstance();
 	            // }
-	            $transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')->setUsername('support@gmail.com')->setPassword(FORM_PASSWORD);
+	            $transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')->setUsername('support@dreamiro.it')->setPassword(FORM_PASSWORD);
 	           	$transport = Swift_MailTransport::newInstance();
 	            $mMailer = Swift_Mailer::newInstance($transport);
 	            $rEmail = Swift_Message::newInstance();
