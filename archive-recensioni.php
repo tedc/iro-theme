@@ -154,8 +154,13 @@
 				<?php foreach ($ratings as $r) : ?>
 				<li class="review__option">	
 				
-					
-					<a ui-sref="app.reviews({'rating' : '<?php echo $r->slug; ?>'})">
+					<?php $data = array(
+						'productId' => get_query_var( 'productId' ),
+						'review_product' => get_query_var( 'review_product' ),
+						'rating' => $r->slug
+					); ?>
+					<!-- <a ui-sref="app.reviews({'rating' : '<?php echo $r->slug; ?>'})"> -->
+					<a href="<?php echo  get_post_type_archive_link('recensioni'). '?' . http_build_query($data); ?>">
 						<?php _e('Voto', 'iro'); ?> <?php the_field('rating', 'rating_'.$r->term_id); ?>
 					</a>
 				</li>
@@ -176,7 +181,12 @@
 				<?php foreach ($products as $p) : 
 				?>
 				<li class="review__option">	
-					<a ui-sref="app.reviews({'review_product' : '<?php echo $p->slug; ?>'})">
+					<?php $data = array(
+						'productId' => get_query_var( 'productId' ),
+						'review_product' => $p->slug,
+						'rating' => get_query_var( 'rating' )
+					); ?>
+					<a href="<?php echo  get_post_type_archive_link('recensioni') . '?' . http_build_query($data); ?>">
 						<?php echo $p->name; ?>
 					</a>
 				</li>
