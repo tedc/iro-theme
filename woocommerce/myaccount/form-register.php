@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php if ( 'no' === get_option( 'woocommerce_registration_generate_username' ) ) : ?>
 
 				<p class="popup__row">
-					<input type="text" ng-model="user.username" placeholder="<?php _e('Nome utente (campo obbligatorio)', 'iro'); ?>" required class="popup__input popup__input--white" name="username" id="reg_username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( $_POST['username'] ) : ''; ?>" />
+					<input type="text" ng-model="user.register_security" placeholder="<?php _e('Nome utente (campo obbligatorio)', 'iro'); ?>" required class="popup__input popup__input--white" name="username" id="reg_username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( $_POST['username'] ) : ''; ?>" />
 				</p>
 
 			<?php endif; ?>
