@@ -393,6 +393,9 @@
 
 .header {
 	position: relative;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 	@supports (object-fit: cover) {
 		background-image: none!important;
 	}
