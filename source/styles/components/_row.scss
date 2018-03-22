@@ -77,7 +77,7 @@
 				}
 			}
 		}
-		&--handheld-dark {
+		&handheld-dark {
 			@include breakpoint($min: false) {
 				color: $w;
 			}
