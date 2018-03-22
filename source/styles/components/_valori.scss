@@ -2,6 +2,10 @@
 	overflow: hidden;
 	position: relative;
 	@include grow('md');
+	margin-bottom: em($p);
+	@include breakpoint() {
+		margin-bottom: 0;
+	}
 	&__{		
 		&main {
 			width: $f;
