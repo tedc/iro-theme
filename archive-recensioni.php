@@ -147,10 +147,10 @@
 	<div class="reviews__wrapper reviews__wrapper--grow-md reviews__wrapper--shrink-fw reviews__wrapper--grid">
 		<aside class="reviews__aside reviews__aside--grow-md-top reviews__aside--shrink-right-only reviews__aside--cell-s3">
 			<?php _e('Mostra voto', 'iro'); ?>
-			<div class="reviews__select">
+			<div class="reviews__select" ng-click="isRatingSelected=!isRatingSelected" click-outside="isRatingSelected=false">
 				<span class="reviews__value"><?php echo get_query_var('rating') ? __('Voto', 'iro') .' '.get_field('rating', 'rating_'.get_term_by( 'slug', get_query_var( 'rating' ), 'rating' )->term_id) : __('Seleziona', 'iro'); ?></span>
 				<span class="reviews__icons"><i class="icon-arrow-down"></i></span>
-				<ul class="reviews__options">
+				<ul class="reviews__options" ng-class="{'reviews__options--visible':isRatingSelected}">
 				<?php foreach ($ratings as $r) : ?>
 				<li class="review__option">	
 				
@@ -170,14 +170,14 @@
 			<?php 
 			if(count($products) > 1) :
 			_e('Recensioni per', 'iro'); ?>
-			<div class="reviews__select">
+			<div class="reviews__select" ng-click="isProductSelected=!isProductSelected" click-outside="isProductSelected=false">
 				<?php if(get_query_var('rating')) : ?>
 				<?php endif; ?>
 				<span class="reviews__value">
 					<?php echo $current->name; ?>
 				</span>
 				<span class="reviews__icons"><i class="icon-arrow-down"></i></span>
-				<ul class="reviews__options">
+				<ul class="reviews__options" ng-class="{'reviews__options--visible':isProductSelected}">
 				<?php foreach ($products as $p) : 
 				?>
 				<li class="review__option">	
