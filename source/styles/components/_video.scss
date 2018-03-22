@@ -140,6 +140,7 @@
 	transform: translate3d(-50%, -50%, 0);
 	width: auto;
 	height: auto;
+	position: absolute;
 	@supports (object-fit: cover) {
 		@include full;
 		transform: none;
