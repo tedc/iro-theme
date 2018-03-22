@@ -38,7 +38,7 @@ do_action( 'woocommerce_before_account_navigation' );
 				</div>
 				<?php endif; ?>
 				<!-- <a<?php if($endpoint!='customer-logout'){?> ui-sref="app.account({path : '<?php echo basename(wc_get_account_endpoint_url( $endpoint )); ?>'})"<?php } else { ?> ng-class="{'account__button--loading' : isLoggingOut}" ng-click="isLogout=!isLogout"<?php } ?> class="account__button <?php echo $btn_class; ?>"><?php echo esc_html( $label ); ?></a> -->
-				<a<?php if($endpoint!='customer-logout'){?> href="<?php echo wc_get_account_endpoint_url( $endpoint ); ?>'})"<?php } else { ?> ng-class="{'account__button--loading' : isLoggingOut}" ng-click="isLogout=!isLogout"<?php } ?> class="account__button <?php echo $btn_class; ?>"><?php echo esc_html( $label ); ?></a>
+				<a<?php if($endpoint!='customer-logout'){?> href="<?php echo wc_get_account_endpoint_url( $endpoint ); ?>"<?php } else { ?> ng-class="{'account__button--loading' : isLoggingOut}" ng-click="isLogout=!isLogout"<?php } ?> class="account__button <?php echo $btn_class; ?>"><?php echo esc_html( $label ); ?></a>
 			</li>
 		<?php } endforeach; ?>
 	</ul>
