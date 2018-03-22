@@ -42,6 +42,9 @@
 	}
 	&.popup--visible-remove {
 		display: block;
+		.handheld & {
+			display: flex;
+		}
 		&.popup--visible-remove-active {
 			opacity: 0;
 			visibility: hidden;
