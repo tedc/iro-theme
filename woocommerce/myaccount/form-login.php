@@ -58,6 +58,7 @@ if(!is_user_logged_in()) :
 		<p class="popup__row">
 			<input type="password" ng-model="user.password" placeholder="<?php _e('Password (campo obbligatorio)', 'iro'); ?>" class="popup__input popup__input--white" type="password" name="password" id="password" />
 		</p>
+		<p class="popup__row popup__row--error" ng-if="error"><span ng-bind-html="errorMessage"></span></p>
 
 		<?php do_action( 'woocommerce_login_form' ); ?>
 

@@ -22,14 +22,13 @@ module.exports = ()=> {
 					.then((res)=> {
 						$rootScope.isUserLoggedIn = res.data.loggedin;
 						$rootScope.isLogging = false;
-						if($rootScope.isUserLoggedIn) {
-							$scope.error = true;
-							$scope.errorMessage = res.data.message;
+						if(res.data.loggedin) {
+							$scope.error = false;
 							$window.location = vars.main.base + '/' + vars.wc.accountBase;
 							//$state.go('app.page', {slug : vars.wc.accountBase});
 						} else {
-							$scope.error = false;
-							$scope.close();
+							$scope.error = true;
+							$scope.errorMessage = res.data.message;
 						}
 					});
 			}
