@@ -475,20 +475,23 @@
 	    }
 	    public static function iro_login() {
 	    	//check_ajax_referer('iro-login', 'ea234fc388');
-	    	if(is_user_logged_in()) {
-	    		die();
-	    	}
 	    	check_ajax_referer('iro-login', 'security');
 	    	$info = array();
     		$info['user_login'] = $_POST['username'];
     		$info['user_password'] = $_POST['password'];
     		$info['remember'] = true;
     		$user_signon = wp_signon( $info, false );
+    		if(is_user_logged_in()) {
+	    		 echo json_encode(array('loggedin'=>false, 'message'=>__('Utente già loggato.', 'iro')));
+	    		 die();
+	    	}	
 	    	if ( is_wp_error($user_signon) ){
 		        echo json_encode(array('loggedin'=>false, 'message'=>__('Username o password sbagliati.', 'iro')));
 		    } else {
 		       //echo json_encode(array('loggedin'=>true, 'message'=>__('Login avvenuto con successo', 'iro'), 'redirect' => basename(wc_get_page_permalink('myaccount'))));
-		       echo json_encode(array('loggedin'=>true, 'message'=>__('Login avvenuto con successo', 'iro'), 'redirect' => wc_get_page_permalink('myaccount')));
+		       echo json_encode(
+		       	array('loggedin'=>true, 'message'=>__('Login avvenuto con successo', 'iro'), 'redirect' => wc_get_page_permalink('myaccount'))
+		       );
 		    }
 	    	die();
 	    }

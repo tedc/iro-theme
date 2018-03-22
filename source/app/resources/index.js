@@ -104,6 +104,7 @@ iro
 			get : (url) => {
 				var deferred = $q.defer();
 				$http
+					//.get(url, { ignoreLoadingBar: true })
 					.get(url, { ignoreLoadingBar: true })
 					.then((res) => {deferred.resolve(res)})
 				return deferred.promise;
@@ -111,7 +112,7 @@ iro
 			post : (url, data) => {
 				var deferred = $q.defer();
 				let config = {
-					ignoreLoadingBar: true,
+					//ignoreLoadingBar: true,
 					headers: {
 	      				'Content-Type': 'application/x-www-form-urlencoded'
 	    			}
@@ -127,7 +128,8 @@ iro
 				return deferred.promise;
 			},
 			empty : ()=> {
-				$http.post(vars.wc.empty, { ignoreLoadingBar: true });
+				//$http.post(vars.wc.empty, { ignoreLoadingBar: true });
+				$http.post(vars.wc.empty);
 			},
 		}
 		return obj;
