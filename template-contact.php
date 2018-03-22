@@ -5,8 +5,8 @@
 ?>
 <?php while (have_posts()) : the_post(); ?>
 <article <?php post_class('contact contact--grid'); ?>>
-	<figure class="contact__cell contact__cell--figure contact__cell--s4">
-		<?php the_post_thumbnail('full', array('class' => 'contact__image')); ?>
+	<figure class="contact__cell contact__cell--figure contact__cell--s4" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>)">
+		<?php the_post_thumbnail('full', array('class' => 'contact__image', 'data-object-fit' => true)); ?>
 	</figure>
 	<div class="contact__cell contact__cell--grow-md contact__cell--shrink-fw-right contact__cell--s8">
 		<header  class="contact__header contact__header--shrink-left-only contact__header--grow-md-bottom">

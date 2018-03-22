@@ -4,6 +4,9 @@
 		&cell {
 			@include grow();
 			&--figure {
+				@supports (object-fit: contain) {
+					background-image: none!important;
+				}
 				img {
 					width: $f!important;
 					height: auto!important;
