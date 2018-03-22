@@ -172,6 +172,8 @@
 			display: inline-block;
 			max-width: $f;
 			background-size: contain;
+			background-repeat: no-repeat;
+			backgrond-position: center;
 			@supports (object-fit: cover) or (object-fit: contain) {
 				background-image: none!important;
 			}

@@ -133,17 +133,19 @@
 	}
 }
 [class*="__video"], [class*="__video-item"], .video__item {
-	min-height: 100%;
-	min-width: 100%;
-	top: 50%;
-	left: 50%;
-	transform: translate3d(-50%, -50%, 0);
-	width: auto;
-	height: auto;
-	position: absolute;
-	@supports (object-fit: cover) {
-		@include full;
-		transform: none;
+	&:not(.header__video) {
+		min-height: 100%;
+		min-width: 100%;
+		top: 50%;
+		left: 50%;
+		transform: translate3d(-50%, -50%, 0);
+		width: auto;
+		height: auto;
+		position: absolute;
+		@supports (object-fit: cover) {
+			@include full;
+			transform: none;
+		}
 	}
 }
 [class*="__video"], [class*="__video-item"], .video__item {

@@ -138,6 +138,8 @@
 		width: $f!important;
 		flex: 0 0 auto;
 		background-size: cover;
+		background-repeat: no-repeat;
+		backgrond-position: center;
 		@supports (object-fit: cover) and (object-fit: contain) {
 			background-image: none!important;
 		}

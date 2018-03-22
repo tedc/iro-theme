@@ -5,6 +5,8 @@
 			@include grow();
 			&--figure {
 				background-size: contain;
+				background-repeat: no-repeat;
+				backgrond-position: center;
 				@supports (object-fit: contain) {
 					background-image: none!important;
 				}

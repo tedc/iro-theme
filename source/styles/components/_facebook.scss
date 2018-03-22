@@ -61,6 +61,8 @@
 		&figure {
 			line-height: 0;
 			background-size: cover;
+			background-repeat: no-repeat;
+			backgrond-position: center;
 			@include breakpoint() {
 				order: 1;
 				height: 0;
