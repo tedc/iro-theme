@@ -1,11 +1,16 @@
 var iro = angular.module('iro');
 iro
-	.config(['$provide', ($provide)=> {
+	.config(['$provide', '$locationProvider', ($provide, $locationProvider)=> {
 		$provide.decorator('$locale', ['$delegate', function ($delegate) {
 			$delegate.NUMBER_FORMATS.GROUP_SEP = '.';
 	        $delegate.NUMBER_FORMATS.DECIMAL_SEP = ',';
 	        return $delegate;
 	    }]);
+	    $locationProvider.html5Mode({
+			enabled : true,
+			rewriteLinks : false,
+			requireBase : false
+		});
 	}])
 	.run(["$location", "$rootScope", "$window", "$cookies", 'angularLoad',  '$animate', '$timeout', ($location, $rootScope, $window, $cookies, angularLoad, $animate, $timeout) => {
 		//webFontLoader(['Baloo Bhaina','Encode Sans:300,400,600,800']);
