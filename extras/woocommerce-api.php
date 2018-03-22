@@ -791,14 +791,14 @@
 		   //      		'merge_fields' => array('FNAME'=>$sender, 'TEL'=>$tel)
 		   //      	));
 		   //      }
-	            // if(get_field('custom_smtp', 'option') && have_rows('smtp', 'option') ) {
-	            //     while (have_rows('smtp', 'option')) : the_row();
-	            //         $transport = Swift_SmtpTransport::newInstance(get_sub_field('url_provider'), get_sub_field('porta'), get_sub_field('encrypt'))->setUsername(get_sub_field('user'))->setPassword(get_sub_field('password'));
-	            //     endwhile;
-	            // } else {
-	            // 	$transport = Swift_MailTransport::newInstance();
-	            // }
-	            $transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')->setUsername('support@dreamiro.it')->setPassword(FORM_PASSWORD);
+	            if(get_field('custom_smtp', 'option') && have_rows('smtp', 'option') ) {
+	                while (have_rows('smtp', 'option')) : the_row();
+	                    $transport = Swift_SmtpTransport::newInstance(get_sub_field('url_provider'), get_sub_field('porta'), get_sub_field('encrypt'))->setUsername(get_sub_field('user'))->setPassword(get_sub_field('password'));
+	                endwhile;
+	            } else {
+	            	$transport = Swift_MailTransport::newInstance();
+	            }
+	            //$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')->setUsername('support@dreamiro.it')->setPassword(FORM_PASSWORD);
 	           	$transport = Swift_MailTransport::newInstance();
 	            $mMailer = Swift_Mailer::newInstance($transport);
 	            $rEmail = Swift_Message::newInstance();
