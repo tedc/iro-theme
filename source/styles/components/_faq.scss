@@ -2,10 +2,10 @@
 	&__{
 		&header, &item {
 			@include grow('md');
-			text-align: center;
-			@include breakpoint() {
-				text-align: left;
-			}
+			// text-align: center;
+			// @include breakpoint() {
+			// 	text-align: left;
+			// }
 		}
 		&header {
 			justify-content: space-between;
