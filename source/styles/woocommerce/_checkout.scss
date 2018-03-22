@@ -28,6 +28,19 @@
 			@include grow('md');
 		}
 	}
+	&__back {
+		i {
+			transition: transform $speed;
+			font-size: 1em;
+			margin-left: em($p/2);
+			color: $alternate-color;
+		}
+		&:hover {
+			i {
+				transform: translate3d(-5px, 0, 0);
+			}
+		}
+	}
 	&__select {
 		max-width: none;
 		+ input {
