@@ -11,7 +11,7 @@ html {
 
 
 body {
-    opacity: 1;
+    //opacity: 1;
     font-size: $base_font_size - 2px;
     letter-spacing: $spacing;
     margin: 0;
@@ -22,7 +22,7 @@ body {
     font-family: $main-font;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    transition: opacity .2s;
+    //transition: opacity .2s;
     //overflow-x: hidden;
     // .wf-active &, .wf-inactive & {
     //     transition: opacity $speed;
