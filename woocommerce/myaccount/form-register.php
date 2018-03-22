@@ -74,7 +74,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php do_action( 'woocommerce_register_form' ); ?>
 
 			<p class="popup__row">
-				<input type="hidden" name="security" ng-model="user.security" ng-init="user.security='<?php echo wp_create_nonce('iro-register'); ?>'" />
+				<input type="hidden" name="register_security" ng-model="user.register_security" ng-init="user.register_security='<?php echo wp_create_nonce('iro-register'); ?>'" />
 				<?php //wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
 				<button class="popup__button" type="submit"  ng-class="{'popup__button--loading':isLogging}" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>"><?php _e( 'Register', 'woocommerce' ); ?></button>
 			</p>

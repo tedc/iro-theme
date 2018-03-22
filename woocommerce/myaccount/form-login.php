@@ -63,7 +63,7 @@ if(!is_user_logged_in()) :
 
 		<p class="popup__row">
 			<?php //wp_nonce_field( 'iro-login', 'security' ); ?>
-			<input type="hidden" name="security" ng-model="user.login_security" ng-init="user.security='<?php echo wp_create_nonce('iro-login'); ?>'" />
+			<input type="hidden" name="login_security" ng-model="user.login_security" ng-init="user.login_security='<?php echo wp_create_nonce('iro-login'); ?>'" />
 			<button class="popup__button" ng-class="{'popup__button--loading':isLogging}" type="submit" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>"><?php _e( 'Login', 'woocommerce' ); ?></button>
 		</p>
 		<p class="popup__row popup__row--aligncenter">
