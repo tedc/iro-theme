@@ -22,6 +22,7 @@ module.exports = ()=> {
 					.then((res)=> {
 						$rootScope.isUserLoggedIn = res.data.loggedin;
 						$rootScope.isLogging = false;
+						console.log(res);
 						if(res.data.loggedin) {
 							$scope.error = false;
 							$window.location = vars.main.base + '/' + vars.wc.accountBase;
