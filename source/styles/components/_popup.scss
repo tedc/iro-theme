@@ -4,9 +4,7 @@
 	//background: linear-gradient(to top, #0c386c, #7dcdf3);
 	background: url(../images/iro-sogno-accedi-stelle-BG.gif) repeat;
 	background-size: 250px;
-	opacity: 0;
-	visibility: hidden;
-	transition: $speed opacity $speed, visibility $speed $speed;
+	display: none;
 	.handheld & {
 		overflow-x: hidden;
 		overflow-y: scroll;
@@ -27,11 +25,32 @@
 		margin: auto;
 		overflow: visible;
 	}
-	&--visible {
-		opacity: 1;
-		visibility: visible;
-		transition-delay: 0;
+	&.popup--visible {
+		display: block;
 	}
+	&.popup--visible-add {
+		display: block;
+		visibility: hidden;
+		opacity: 0;
+		&.popup--visible-add-active {
+			opacity: 1;
+			visibility: visible;
+			transition: $speed opacity $speed, visibility $speed $speed;
+		}
+	}
+	&.popup--visible-remove {
+		display: block;
+		&.popup--visible-remove-active {
+			opacity: 0;
+			visibility: hidden;
+			transition: $speed opacity $speed, visibility $speed $speed;
+		}
+	}
+	// &--visible {
+	// 	opacity: 1;
+	// 	visibility: visible;
+	// 	transition-delay: 0;
+	// }
 	&__form {
 		background-color: $lighter-color;
 		border-radius: $r;
