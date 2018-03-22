@@ -239,6 +239,11 @@
 			&--forcewhite {
 				color: $w;
 			}
+			.row--handheld-dark & {
+				@include breakpoint($min: false) {
+					color: $w;
+				}
+			}
 			&--medium {	
 		        margin-bottom: lh_mb(30px, $lh);
 		        @include breakpoint($bp) {     
@@ -298,6 +303,14 @@
 				path {
 					fill: $w!important;
 				}
+			}
+			.row--handheld-dark & {
+				@include breakpoint($min: false) {
+					color: $w;
+					path {
+						fill: $w!important;
+					}
+				}	
 			}
 			&s {
 				@include grow('small', 'bottom');

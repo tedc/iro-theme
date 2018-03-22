@@ -77,6 +77,11 @@
 				}
 			}
 		}
+		&--handheld-dark {
+			@include breakpoint($min: false) {
+				color: $w;
+			}
+		}
 		&hide-bg {
 			@include breakpoint($min: false) {
 				background-image: none!important;
