@@ -1,6 +1,6 @@
 module.exports = ()=> {
 	return {
-		controller : ['$scope', 'ecommerce', '$state', '$window', ($scope, ecommerce, $state, $window)=> {
+		controller : ['$scope', 'ecommerce', '$window', ($scope, ecommerce, $window)=> {
 			$scope.isPaying = false;
 			$scope.payFields = {
 				terms: true
@@ -27,8 +27,9 @@ module.exports = ()=> {
 								var order = state[0];
 								order.replace(/\//g, '');
 								var key = state[1];
-								//purchase.action['id'] = order;							
-								$state.go('app.order', {order : order, key : key});
+								//purchase.action['id'] = order;
+								$window.location = redirect;						
+								//$state.go('app.order', {order : order, key : key});
 							}
 							// $window.dataLayer.push({
 							// 	'event' : 'purchase',

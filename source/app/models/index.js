@@ -1,12 +1,18 @@
 var iro = angular.module('iro');
 iro
-	.config(['$stateProvider', '$locationProvider', '$provide', 'cfpLoadingBarProvider', require('./state')])
-	.run(["$location", "$rootScope", "$window", "$state", "$cookies", "$transitions", "webFontLoader", 'angularLoad',  '$animate', '$timeout', ($location, $rootScope, $window, $state, $cookies, $transitions, webFontLoader, angularLoad, $animate, $timeout) => {
+	.config(['$provide', ($provide)=> {
+		$provide.decorator('$locale', ['$delegate', function ($delegate) {
+			$delegate.NUMBER_FORMATS.GROUP_SEP = '.';
+	        $delegate.NUMBER_FORMATS.DECIMAL_SEP = ',';
+	        return $delegate;
+	    }]);
+	}])
+	.run(["$location", "$rootScope", "$window", "$cookies", 'angularLoad',  '$animate', '$timeout', ($location, $rootScope, $window, $cookies, angularLoad, $animate, $timeout) => {
 		//webFontLoader(['Baloo Bhaina','Encode Sans:300,400,600,800']);
 		angularLoad.loadScript('https://www.youtube.com/iframe_api')
 		FastClick.attach(document.body);
-		$rootScope.isAnim = false;
-		var oldUrl = $location.absUrl();
+		//$rootScope.isAnim = false;
+		//var oldUrl = $location.absUrl();
 		$rootScope.isMenu = false;
 		$rootScope.isUserLoggedIn = vars.wc.logged;
 		// var langCookie = $cookies.get('lang');
@@ -30,41 +36,6 @@ iro
 			}, 10);
 		}
 		refreshSliders();
-		$transitions.onStart({}, (trans) => {
-			$rootScope.isMenu = false;
-			let newUrl = trans.router.stateService.href(trans.to().name, trans.params(), {absolute : true});
-			$rootScope.fromState = {
-				Name : trans.to().name,
-				Params : trans.params(),
-				Url : newUrl
-			}
-			var hash = $location.hash();
-			if (hash.trim() === '') {
-				if (newUrl === oldUrl) {
-					if (trans.params().slug) {
-						$rootScope.menuItem = trans.params().slug;
-					} else if(trans.to().name == 'app.blog' || trans.to().name == 'app.category' ) {
-						$rootScope.menuItem = vars.main.blog;
-					} else if(trans.to().name == 'app.reviews') {
-						$rootScope.menuItem = vars.wc.reviews;
-					} else if (oldUrl.replace(/\/$/g, '') === vars.main.base.replace(/\/$/g, '')) {
-						$rootScope.menuItem = 'root';
-					}
-				} else {
-					delete $rootScope.menuItem;
-				}
-			}
-			$rootScope.$broadcast('update_scroller');
-			if((newUrl.split('#')[0] === oldUrl.split('#')[0])) return false;
-			oldUrl = newUrl;
-			$rootScope.isAnim = true;
-			$rootScope.$broadcast('sceneDestroy');
-			$rootScope.$broadcast('updateScenes');
-		});
-		$transitions.onSuccess({}, ()=> {
-			$rootScope.$broadcast('get_cart');
-		//	objectFitPolyfill();
-		});
 		$rootScope.$on('$locationChangeSuccess', ()=> {
 			let popup_visible = angular.element(document.querySelector('.popup--visible'));
 			let cart_visible = angular.element(document.querySelector('.cart-aside--visible'));

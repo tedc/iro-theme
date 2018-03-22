@@ -1,6 +1,6 @@
 module.exports = ()=> {
 	return {
-		controller : ['$scope', '$rootScope', 'ecommerce', '$state', '$window', ($scope, $rootScope, ecommerce, $state, $window)=> {
+		controller : ['$scope', '$rootScope', 'ecommerce', '$window', ($scope, $rootScope, ecommerce, $window)=> {
 			$scope.isLoggingOut = false;
 			$scope.logout = (url)=> {
 				$scope.isLoggingOut = true;
@@ -26,7 +26,8 @@ module.exports = ()=> {
 						if(res.data.success) {
 							$scope.saveMessage = res.success;
 							$scope.messageClass = 'success';
-							$state.go('app.account', {path : res.data.redirect}, {reload : true});
+							$window.location = res.data.redirect;
+							//$state.go('app.account', {path : res.data.redirect}, {reload : true});
 						} else {
 							$scope.saveMessage = res.error;
 							$scope.messageClass = 'error';

@@ -1,6 +1,6 @@
 module.exports = () => {
 	return {
-		controller : ['$scope', '$rootScope', 'ngCart', '$element', 'ecommerce', '$state', 'getInstances', '$timeout', '$window', '$filter', '$location', '$sce',  ($scope, $rootScope, ngCart, $element, ecommerce, $state, getInstances, $timeout, $window, $filter, $location, $sce)=> {
+		controller : ['$scope', '$rootScope', 'ngCart', '$element', 'ecommerce', 'getInstances', '$timeout', '$window', '$filter', '$location', '$sce',  ($scope, $rootScope, ngCart, $element, ecommerce, getInstances, $timeout, $window, $filter, $location, $sce)=> {
 			// CART
 			$rootScope.isCartChanged = false;
 			let errorAlert = $element[0].querySelector('ul.woocommerce-error');
@@ -287,7 +287,8 @@ module.exports = () => {
 				$scope.account = ($event)=> {
 					if($rootScope.isUserLoggedIn) {
 						$event.preventDefault();
-						$state.go('app.page', {slug : vars.wc.accountBase});
+						//$state.go('app.page', {slug : vars.wc.accountBase});
+						$window.location = vars.main.base + '/' + vars.wc.accountBase;
 					}
 				}
 	
@@ -499,8 +500,9 @@ module.exports = () => {
 									var order = state[0];
 									order.replace(/\//g, '');
 									var key = state[1];
-									purchase.action['id'] = order;							
-									$state.go('app.order', {order : order, key : key});
+									purchase.action['id'] = order;
+									$window.location = redirect;					
+									//$state.go('app.order', {order : order, key : key});
 								}
 								$window.dataLayer.push({
 								    'event': 'checkout',
@@ -519,10 +521,12 @@ module.exports = () => {
 								});
 							} else if( 'failure' === result.result ){
 								$scope.error = result.message;
-								$state.go('app.page', {slug : vars.wc.checkoutPage}, {reload : true});
+								$window.location = vars.main.base +'/'+ vars.wc.checkoutPage;
+								//$state.go('app.page', {slug : vars.wc.checkoutPage}, {reload : true});
 							} else {
 								$scope.error = result.message;
-								$state.go('app.page', {slug : vars.wc.checkoutPage}, {reload : true});
+								$window.location = vars.main.base +'/'+ vars.wc.checkoutPage;
+								//$state.go('app.page', {slug : vars.wc.checkoutPage}, {reload : true});
 							}
 							$scope.isOrdering = false;
 						})
@@ -611,7 +615,8 @@ module.exports = () => {
 					ecommerce
 						.get(link)
 						.then(()=> {
-							$state.go('app.page', {slug : vars.wc.accountBase});
+							$window.location = vars.main.base +'/'+ vars.wc.accountBase;
+							//$state.go('app.page', {slug : vars.wc.accountBase});
 						});
 				}
 				$scope.passwordFields = {}

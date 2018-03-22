@@ -487,7 +487,8 @@
 	    	if ( is_wp_error($user_signon) ){
 		        echo json_encode(array('loggedin'=>false, 'message'=>__('Username o password sbagliati.', 'iro')));
 		    } else {
-		        echo json_encode(array('loggedin'=>true, 'message'=>__('Login avvenuto con successo', 'iro'), 'redirect' => basename(wc_get_page_permalink('myaccount'))));
+		       //echo json_encode(array('loggedin'=>true, 'message'=>__('Login avvenuto con successo', 'iro'), 'redirect' => basename(wc_get_page_permalink('myaccount'))));
+		       echo json_encode(array('loggedin'=>true, 'message'=>__('Login avvenuto con successo', 'iro'), 'redirect' => wc_get_page_permalink('myaccount')));
 		    }
 	    	die();
 	    }
@@ -516,7 +517,8 @@
 			    	if ( apply_filters( 'woocommerce_registration_auth_new_customer', true, $user_id ) ) {
 						wc_set_customer_auth_cookie( $user_id );
 					}
-		    		echo json_encode(array('loggedin'=>true, 'message'=>__('Registrazione avvenuta.', 'iro'), 'redirect' => basename(wc_get_page_permalink('myaccount'))));
+		    		//echo json_encode(array('loggedin'=>true, 'message'=>__('Registrazione avvenuta.', 'iro'), 'redirect' => basename(wc_get_page_permalink('myaccount'))));
+		    		echo json_encode(array('loggedin'=>true, 'message'=>__('Registrazione avvenuta.', 'iro'), 'redirect' => wc_get_page_permalink('myaccount')));
 		    	}
 	    	} else {
 	    		if($user_id) {
@@ -907,7 +909,8 @@
 
 	            do_action( 'woocommerce_customer_save_address', $user_id, $load_address );
 
-	            $data['redirect'] = basename( wc_get_endpoint_url( 'edit-account', '', wc_get_page_permalink( 'myaccount' ) ) );
+	            //$data['redirect'] = basename( wc_get_endpoint_url( 'edit-account', '', wc_get_page_permalink( 'myaccount' ) ) );
+	            $data['redirect'] = wc_get_endpoint_url( 'edit-account', '', wc_get_page_permalink( 'myaccount' ) ) ;
 				
 	        }
 	        wp_send_json( $data );
