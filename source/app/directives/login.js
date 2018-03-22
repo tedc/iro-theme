@@ -1,5 +1,6 @@
 module.exports = ()=> {
 	return {
+		scope: true,
 		controller : ['$scope', 'ecommerce', '$rootScope', '$window', '$location', ($scope, ecommerce, $rootScope, $window, $location)=> {
 			$scope.close = ()=> {
 				if( $window.history && $window.history.pushState ) {
