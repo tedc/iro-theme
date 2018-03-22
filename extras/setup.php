@@ -240,7 +240,7 @@
 		}
 		$sref = str_replace($base_link, '', $link);
 		$sref = (is_category()) ? '" ui-sref="app.category({name : \''.$term->slug.'\', path : \''.$sref.'\'})' : '" ui-sref="app.blog({path : \''.$sref.'\'})';
-		$link = $link . $sref;
+		//$link = $link . $sref;
 		return $link;
 	}
 	//add_filter( 'paginate_links', 'custom_paginate_links', 10, 1 );

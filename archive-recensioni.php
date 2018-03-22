@@ -235,7 +235,7 @@
 				$sref_obj .= $append."rating:'".get_query_var( 'rating' )."'";
 			}
 			$sref = ($sref[0] != '') ? ' ui-sref="app.reviews({'.$sref_obj.'})"' : ' ui-sref="app.page({slug : \''.basename($base_link).'\'})"';
-			$page = str_replace('<a', '<a'.$sref, $page);
+			//$page = str_replace('<a', '<a'.$sref, $page);
 		}
 		echo $page;
 	} endif; ?></nav>
