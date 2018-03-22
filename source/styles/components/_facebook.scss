@@ -60,6 +60,7 @@
 		}
 		&figure {
 			line-height: 0;
+			background-size: cover;
 			@include breakpoint() {
 				order: 1;
 				height: 0;
@@ -68,6 +69,9 @@
 				top: 0;
 				left: 0;
 				padding-top: calc( ((486 / 691) * 100vh) - #{em($p*4)});
+				@supports (object-fit: cover) {
+					background-image: none!important;
+				}
 				img {
 					position: absolute;
 					top: 0;

@@ -1,6 +1,6 @@
 <div class="facebook facebook--grow-lg-top facebook--grid" ng-facebook>
 	<header class="facebook__cover facebook__cover--cell-s12">	
-		<figure class="facebook__figure">
+		<figure class="facebook__figure" style="background-image: url(<?php echo wp_get_attachment_image_src( get_field('fb_cover', 'options'), 'full', false )[0]; ?>)">
 			<a ng-attr-href="{{fb.info.link}}" target="_blank">
 				<?php echo wp_get_attachment_image( get_field('fb_cover', 'options'), 'full', false, array('data-object-fit' => true) ); ?>
 			</a>
