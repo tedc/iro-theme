@@ -36,7 +36,8 @@
         if($phone) : ?>
 
       <a href="tel:<?php echo $phone_unformatted; ?>" class="banner__btn banner__btn--phone"><i class="icon-phone"></i><span><?php _e('Assistenza', 'iro'); ?><br><?php echo $phone; ?></span></a><?php endif; ?>
-      <a class="banner__btn banner__btn--account" href="<?php echo (is_user_logged_in()) ? wc_get_page_permalink('myaccount') : '#register'; ?>" ng-click="account($event)" ng-bind-html="(isUserLoggedIn) ? '<?php _e('Profilo', 'iro'); ?>' : '<?php _e('Registrati', 'iro'); ?>'"><?php echo (is_user_logged_in()) ? __('Profilo', 'iro') : __('Registrati', 'iro'); ?></a>
+     <!--  <a class="banner__btn banner__btn--account" href="<?php echo (is_user_logged_in()) ? wc_get_page_permalink('myaccount') : '#register'; ?>" ng-click="account($event)" ng-bind-html="(isUserLoggedIn) ? '<?php _e('Profilo', 'iro'); ?>' : '<?php _e('Registrati', 'iro'); ?>'"><?php echo (is_user_logged_in()) ? __('Profilo', 'iro') : __('Registrati', 'iro'); ?></a> -->
+     <a class="banner__btn banner__btn--account" href="<?php echo (is_user_logged_in()) ? wc_get_page_permalink('myaccount') : '#register'; ?>"><?php echo (is_user_logged_in()) ? __('Profilo', 'iro') : __('Registrati', 'iro'); ?></a>
       <ngcart-summary template-url="cart-summary.html"></ngcart-summary>
     </nav>
 </header>

@@ -30,8 +30,10 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 <?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) : ?>
 
 
-<?php endif; ?>
-<div class="popup" ng-if="!isUserLoggedIn" login-form id="login">
+<?php endif; 
+if(!is_user_logged_in()) :
+?>
+<div class="popup" login-form id="login">
 	<?php if(!is_handheld()) { ?>
 		<div class="swiper-container" scroller options="{freeMode: true, slidesPerView: 'auto', mousewheel: true, direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true} }">
 		<div class="swiper-wrapper">
@@ -77,4 +79,4 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 		echo '</div><div class="swiper-scrollbar"></div></div>';
 	} ?>
 </div>
-<?php do_action( 'woocommerce_after_customer_login_form' ); endif; ?>
+<?php  endif;  do_action( 'woocommerce_after_customer_login_form' );endif; ?>

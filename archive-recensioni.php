@@ -153,6 +153,8 @@
 				<ul class="reviews__options">
 				<?php foreach ($ratings as $r) : ?>
 				<li class="review__option">	
+				
+					
 					<a ui-sref="app.reviews({'rating' : '<?php echo $r->slug; ?>'})">
 						<?php _e('Voto', 'iro'); ?> <?php the_field('rating', 'rating_'.$r->term_id); ?>
 					</a>

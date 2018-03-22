@@ -1,6 +1,6 @@
 module.exports = ()=> {
 	return {
-		controller : ['$scope', 'ecommerce', '$rootScope', '$window', '$location', '$state', ($scope, ecommerce, $rootScope, $window, $location, $state)=> {
+		controller : ['$scope', 'ecommerce', '$rootScope', '$window', '$location', ($scope, ecommerce, $rootScope, $window, $location)=> {
 			$scope.close = ()=> {
 				if( $window.history && $window.history.pushState ) {
 					history.pushState('', document.title, $location.path());
@@ -24,7 +24,8 @@ module.exports = ()=> {
 						if($rootScope.isUserLoggedIn) {
 							$scope.error = true;
 							$scope.errorMessage = res.data.message;
-							$state.go('app.page', {slug : vars.wc.accountBase});
+							$window.location = vars.main.base + '/' + vars.wc.accountBase;
+							//$state.go('app.page', {slug : vars.wc.accountBase});
 						} else {
 							$scope.error = false;
 							$scope.close();

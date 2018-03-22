@@ -69,6 +69,7 @@ iro
 			let popup_visible = angular.element(document.querySelector('.popup--visible'));
 			let cart_visible = angular.element(document.querySelector('.cart-aside--visible'));
 			let hash = $location.hash();
+			console.log(hash);
 			if(hash) {
 				let class_to_add = (hash == 'cart') ? 'cart-aside--visible' : 'popup--visible';
 				if(hash != 'login' && hash != 'register' && hash != 'cart') return;

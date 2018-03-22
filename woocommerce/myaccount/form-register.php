@@ -26,9 +26,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php wc_print_notices(); ?>
 
 <?php if(!is_user_logged_in()) : do_action( 'woocommerce_before_customer_login_form' ); ?>
-<?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) : ?>
+<?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) : if(!is_user_logged_in()) : ?>
 
-<div class="popup" ng-if="!isUserLoggedIn" id="register" login-form>
+<div class="popup" id="register" login-form>
 		<?php if(!is_handheld()) { ?>
 		<div class="swiper-container" scroller options="{freeMode: true, slidesPerView: 'auto', mousewheel: true, direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true} }">
 		<div class="swiper-wrapper">
@@ -90,6 +90,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		echo '</div><div class="swiper-scrollbar"></div></div>';
 	} ?>
 </div>
-<?php endif; ?>
+<?php endif; endif; ?>
 
 <?php do_action( 'woocommerce_after_customer_login_form' ); endif; ?>
