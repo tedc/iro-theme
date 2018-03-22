@@ -74,6 +74,19 @@
 			right: em(30px);
 			bottom: em(10px);
 		}
+		&--error {
+			color: $error;
+			span {
+				font-size: 11px;
+				font-style: italic;
+				a {
+					color: $brand-main;
+					&:hover {
+						color: $alternate-color;
+					}
+				}
+			}
+		}
 		&--close {
 			height: em(87px);
 			text-align: right;
