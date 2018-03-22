@@ -350,7 +350,7 @@
 				}
 				.icon-arrow-left {
 					font-size: em($p);
-					//margin-right: em($p/2, $p);
+					margin-right: em($p/2, $p);
 					&:hover:not(.swiper-button-disabled):before {
 						transform: translate3d(-5px, 0, 0);
 					}
@@ -358,7 +358,7 @@
 				.icon-arrow-right {
 					order: 2;
 					font-size: em($p);
-					//margin-left: em($p/2, $p);
+					margin-left: em($p/2, $p);
 					&:hover:not(.swiper-button-disabled):before {
 						transform: translate3d(5px, 0, 0);
 					}
@@ -493,6 +493,10 @@
 				img {
 					width: $f!important;
 					height: auto!important;
+					margin-bottom: em($p);
+					@include breakpoint() {
+						margin-bottom: 0;
+					}
 				}
 				@include breakpoint(480px) {
 					flex: 0 0 auto;
