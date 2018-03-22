@@ -9,7 +9,6 @@
 		overflow-x: hidden;
 		overflow-y: scroll;
 		-webkit-overflow-scrolling: touch;	
-		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
@@ -27,6 +26,9 @@
 	}
 	&.popup--visible {
 		display: block;
+		.handheld & {
+			display: flex;
+		}
 	}
 	&.popup--visible-add {
 		display: block;
