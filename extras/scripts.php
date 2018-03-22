@@ -200,12 +200,14 @@ echo $critical;
         gf.href = 'https://fonts.googleapis.com/css?family=Baloo+Bhaina|Encode+Sans:300,400,600,800';
         // temporarily, set media to something non-matching to ensure it'll
         // fetch without blocking render
+        gf.media = 'only x';
         ss.media = 'only x';
         ref.appendChild(gf);
         ref.appendChild(ss);
 
         setTimeout( function(){
           // set media back to `all` so that the stylesheet applies once it loads
+          gf.media = 'all';
           ss.media = 'all';
           window.cssLoaded = true;
         },0);
