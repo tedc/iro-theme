@@ -493,7 +493,7 @@
 				img {
 					width: $f!important;
 					height: auto!important;
-					margin-bottom: em($p);
+					margin-bottom: em($p/2);
 					@include breakpoint() {
 						margin-bottom: 0;
 					}
