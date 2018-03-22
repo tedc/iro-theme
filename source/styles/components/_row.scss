@@ -79,7 +79,7 @@
 		}
 		&handheld-dark {
 			@include breakpoint($min: false) {
-				color: $w;
+				color: $w!important;
 			}
 		}
 		&hide-bg {
