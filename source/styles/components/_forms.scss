@@ -132,6 +132,7 @@
 				content: '';
 				width: 0;
 				margin-right: 0;
+				display: block;
 			}
 		}
 		em {
@@ -155,6 +156,7 @@
 			&:before {	
 				width: $p/2;
 				margin-right: $p/2;
+				display: block;
 			}
 		}
 	}
