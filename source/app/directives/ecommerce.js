@@ -548,6 +548,11 @@ module.exports = () => {
 							if($scope.checkoutObj.current + 1 > max && typeof idx == 'undefined') {
 								$scope.isConfirm = true;
 								$scope.isCheckoutUpdating = false;
+								TweenMax.to(window, .25, {
+									scrollTo : {
+										y : 0
+									}
+								});
 								return;
 							}
 							$scope.isConfirm = false;
@@ -557,6 +562,11 @@ module.exports = () => {
 								swiper.slideNext();
 							}
 							$scope.isCheckoutUpdating = false;
+							TweenMax.to(window, .25, {
+								scrollTo : {
+									y : 0
+								}
+							});
 						});	
 					}
 					$scope.next = (cond, max)=> {
@@ -565,7 +575,11 @@ module.exports = () => {
 					$scope.prev = (cond)=> {
 						if(!cond) return;
 						$scope.updateShipping(()=> {
-							$scope.isConfirm = false;
+							if($scope.isConfirm) {
+								$scope.isConfirm = false;
+								$scope.isCheckoutUpdating = false;
+								return
+							}
 							swiper.slidePrev();
 							$scope.isCheckoutUpdating = false;
 						});
