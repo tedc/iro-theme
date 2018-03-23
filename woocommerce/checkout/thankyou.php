@@ -45,18 +45,16 @@ echo "window._tt.push({ event: \"setOrderId\", order_id: '" . $TPtpi['orderid'] 
 echo "window._tt.push({ event: \"setEmail\", email: '" . $TPtpi['email'] . "' });";
 foreach( $order->get_items() as $item_id => $item ){
 	$mixed = wc_get_order_item_meta( $item_id, '_product_id', true );
+	$_order_product = $order->get_product_from_item( $item );
 	$prodID = $mixed[0];
+	$sku = ($_order_product->get_sku()) ? $_order_product->get_sku() : $mixed[0];
 	$prodName = $products[$item_id]['name'];
 	$prodName = str_replace("'", "", $prodName);
-	echo "window._tt.push({ event: \"addItem\", sku: '" . $prodID . "', product_name: '" . $prodName . "' });";
+	echo "window._tt.push({ event: \"addItem\", sku: '" . $sku . "', product_name: '" . $prodName . "' });";
 }
 echo "window._tt.push({ event: \"setAmount\", amount: '" . $TPtpi['amount'] . "' });";
 echo "window._tt.push({ event: \"orderSubmit\"});";
 echo "</script>";
-foreach( $order->get_items() as $item_id => $item ){
-	$product = $order->get_product_from_item( $item );
-	var_dump($product->get_sku());
-}
 /*TP implementation END*/
 ?>
 
