@@ -53,6 +53,10 @@ foreach( $order->get_items() as $item_id => $item ){
 echo "window._tt.push({ event: \"setAmount\", amount: '" . $TPtpi['amount'] . "' });";
 echo "window._tt.push({ event: \"orderSubmit\"});";
 echo "</script>";
+foreach( $order->get_items() as $item_id => $item ){
+	$product = $order->get_product_from_item( $item );
+	var_dump($product);
+}
 /*TP implementation END*/
 ?>
 
