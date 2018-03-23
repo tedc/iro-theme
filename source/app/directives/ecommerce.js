@@ -574,6 +574,11 @@ module.exports = () => {
 					}
 					$scope.prev = (cond)=> {
 						if(!cond) return;
+						TweenMax.to(window, .25, {
+							scrollTo : {
+								y : 0
+							}
+						});
 						$scope.updateShipping(()=> {
 							if($scope.isConfirm) {
 								$scope.isConfirm = false;

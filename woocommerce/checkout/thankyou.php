@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /*TP implementation*/
 $products = $order->get_items();
 $current_user = wp_get_current_user();
-$TPtpi['chiaveMerchant'] = 'yourMerchantKey';
+$TPtpi['chiaveMerchant'] = 'bGNaM014SDZrYitJMWVKSm1JNUdxV0J3Mjg5N3cwa2Q1';
 if($current_user->user_email != ""){
 	$TPtpi['email'] = $current_user->user_email;
 }elseif($order->get_billing_email()!=""){
