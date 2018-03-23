@@ -562,7 +562,7 @@ module.exports = () => {
 					$scope.next = (cond, max)=> {
 						$scope.slideTo(cond, max);
 					}
-					$scope.prev = ()=> {
+					$scope.prev = (cond)=> {
 						if(!cond) return;
 						$scope.updateShipping(()=> {
 							$scope.isConfirm = false;
