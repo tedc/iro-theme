@@ -561,7 +561,14 @@ module.exports = () => {
 					}
 					$scope.next = (cond, max)=> {
 						$scope.slideTo(cond, max);
+					}
+					$scope.prev = ()=> {
 						if(!cond) return;
+						$scope.updateShipping(()=> {
+							$scope.isConfirm = false;
+							swiper.slidePrev();
+							$scope.isCheckoutUpdating = false;
+						});
 					}
 					var getCurrentIndex = ()=> {
 						$scope.checkoutObj.current = swiper.realIndex;
@@ -585,7 +592,6 @@ module.exports = () => {
 								    'quantity': item.getQuantity()
 								}
 								products.push(obj);
-								console.log(products);
 							});
 							$window.dataLayer.push({
 							    'event': 'checkout',

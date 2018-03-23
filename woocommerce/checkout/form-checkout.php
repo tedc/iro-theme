@@ -43,10 +43,10 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 			<span ng-click="slideTo(checkout.$valid, 2, 2)" ng-class="{current : checkoutObj.current == 2 && !isConfirm}"><?php _e('Pagamento', 'iro'); ?></span>
 			<span ng-click="slideTo(checkout.$valid, 2)" ng-class="{current : isConfirm}"><?php _e('Conferma', 'iro'); ?></span>
 		</div>
-		<span ng-click="next(checkout.$valid, 2)" class="checkout__back"><i class="icon-arrow-left"></i><?php _e('Indietro', 'iro'); ?></span>
+		<span ng-click="prev()" class="checkout__back"><i class="icon-arrow-left"></i><?php _e('Indietro', 'iro'); ?></span>
 		<?php 
-        if($phone) : ?>
-		<a href="tel:<?php echo $phone_unformatted; ?>" class="checkout__banner-btn checkout__banner-btn--phone"><i class="icon-phone"></i><span><?php _e('Assistenza', 'iro'); ?><br/><?php echo $phone; ?></span></a> <?php else : echo '<i class="icon-logo placeholder"></i>'; endif;  ?>
+        if($phone) : /* ?>
+		<a href="tel:<?php echo $phone_unformatted; ?>" class="checkout__banner-btn checkout__banner-btn--phone"><i class="icon-phone"></i><span><?php _e('Assistenza', 'iro'); ?><br/><?php echo $phone; ?></span></a> <?php else : echo '<i class="icon-logo placeholder"></i>'; */endif;  ?>
 	</nav>
 	<div class="checkout__main checkout__main--grid slide-toggle slide-toggle--visible" ng-class="{'slide-toggle--visible' : !isConfirm}">
 	<?php if ( $checkout->get_checkout_fields() ) : ?>
