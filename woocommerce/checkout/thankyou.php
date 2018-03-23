@@ -55,7 +55,7 @@ echo "window._tt.push({ event: \"orderSubmit\"});";
 echo "</script>";
 foreach( $order->get_items() as $item_id => $item ){
 	$product = $order->get_product_from_item( $item );
-	var_dump($product);
+	var_dump($product->get_sku());
 }
 /*TP implementation END*/
 ?>
