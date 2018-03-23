@@ -186,11 +186,12 @@
         $vars[] = 'productId';
         $vars[] = 'review_product';
         $vars[] = 'rating';
+        $vars[] = 'step';
         return $vars;
     }
     function rewrite_popup_url() {
-        $name = __('tab', 'iro');
-        add_rewrite_endpoint($name, EP_ROOT );
+        $name = 'step';
+        add_rewrite_endpoint($name, EP_PERMALINK );
     }
     add_action('init', 'rewrite_popup_url' );
 

@@ -36,7 +36,7 @@ if($current_user->user_email != ""){
 $TPtpi['orderid'] = $order->get_order_number();
 $TPtpi['amount'] = number_format ( $order->get_total() , 2, '.','');
 //Printing Script
-//echo "<script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js\"></script>";
+echo "<script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js\"></script>";
 echo "<script type=\"text/javascript\" src=\"https://tracking.trovaprezzi.it/javascripts/tracking.min.js\"></script>";
 echo "<script type=\"text/javascript\">";
 echo "window._tt = window._tt || [];";
