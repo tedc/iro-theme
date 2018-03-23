@@ -969,11 +969,11 @@
 								foreach($variations as $variation) {
 									if($variation['variation_id'] == $cart_item['variation_id']) {
 										$variation_details = $variation;
+	    								$cart_item['price'] = $variation['display_price'];	
 									}
 								}
 			    				$cart_item['variation_details'] = $variation_details;
 			    			}
-	    					$cart_item['price'] = $variation['display_price'];	
 		    			}
 	    			} else {
 	    				$_product = new WC_Product($cart_item['product_id']);
