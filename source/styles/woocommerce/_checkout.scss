@@ -30,12 +30,19 @@
 	}
 	&__back {
 		font-size: 12px;
+		display: flex;
+		align-items: center;
+		opacity: 0;
+		visibility: hidden;
+		transition: visibility $speed, opacity $speed;
+		&--visible {
+			opacity: 1;
+			visibility: visible;
+		}
 		i {
 			transition: transform $speed;
 			font-size: em(16px, 12px);
 			margin-right: em($p/2);
-			display: flex;
-			align-items: center;
 			color: $alternate-color;
 		}
 		&:hover {
