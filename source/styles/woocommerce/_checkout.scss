@@ -58,7 +58,8 @@
 		}
 	}
 	&__mandatory {
-		font-weight: bold;	
+		font-weight: 600;
+		color: $brand-main;
 		width: $f;
 		height: em(50px);
 		position: relative;
