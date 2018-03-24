@@ -33,7 +33,7 @@ foreach ( $packages as $i => $package ) {
 	}
 	$package_name = apply_filters( 'woocommerce_shipping_package_name', ( ( $i + 1 ) > 1 ) ? sprintf( _x( 'Shipping %d', 'shipping packages', 'woocommerce' ), ( $i + 1 ) ) : _x( 'Shipping', 'shipping package', 'woocommerce' ), $i, $package );
 	$available_methods = array();
-	foreach($packages['rate'] as $m) {
+	foreach($packages['rates'] as $m) {
 		$checked = ($m->id == $chosen_method) ? true : false;
 		ob_start();
 		do_action( 'woocommerce_after_shipping_rate', $m, $i );
