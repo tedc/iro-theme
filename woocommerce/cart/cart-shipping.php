@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 $script = '<script> var shippings = {';
 $script .= 'package_name:"'.$package_name.'",';
-$script .= 'methods:' .htmlspecialchars( wp_json_encode( $available_variations ) ).'}</script>';
+$script .= 'methods:' .htmlspecialchars( wp_json_encode( $available_methods ) ).'}</script>';
 echo $script;
 ?>
 <div class="shipping" ng-repeat="shipping in shippings track by $index">
