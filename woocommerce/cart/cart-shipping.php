@@ -21,7 +21,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 $shippings = array();
-$first = true;
 $packages = WC()->shipping->get_packages();
 foreach ( $packages as $i => $package ) {
 	$chosen_method = isset( WC()->session->chosen_shipping_methods[ $i ] ) ? WC()->session->chosen_shipping_methods[ $i ] : '';
@@ -32,15 +31,29 @@ foreach ( $packages as $i => $package ) {
 		}
 		$product_names = apply_filters( 'woocommerce_shipping_package_details_array', $product_names, $package );
 	}
+	$package_name = apply_filters( 'woocommerce_shipping_package_name', ( ( $i + 1 ) > 1 ) ? sprintf( _x( 'Shipping %d', 'shipping packages', 'woocommerce' ), ( $i + 1 ) ) : _x( 'Shipping', 'shipping package', 'woocommerce' ), $i, $package );
+	$available_methods = array();
+	foreach($packages['rate'] as $m) {
+		$checked = ($m->id == $chosen_method) ? true : false;
+		ob_start();
+		do_action( 'woocommerce_after_shipping_rate', $m, $i );
+		$e = ob_get_clean();
+		$price = ($m->cost == 0) ? __('Gratuita', 'iro') : wc_price( $m->cost );
+		$array = array('id' => sanitize_title( $m->id ), 'label' => wc_cart_totals_shipping_method_label( $m ), 'value' => esc_attr( $m->id ), 'checked' => $checked, 'extras' => $e, 'price' => $price);
+		array_push($available_methods, $array);
+	}
 	array_push($shippings, array('package' => $package,
 				'available_methods'        => $package['rates'],
+				'methods' => $available_methods,
 				'show_package_details'     => count( $packages ) > 1,
-				'show_shipping_calculator' => is_cart() && $first,
 				'package_details'          => implode( ', ', $product_names ),
 				/* translators: %d: shipping package number */
 				'package_name'             => apply_filters( 'woocommerce_shipping_package_name', ( ( $i + 1 ) > 1 ) ? sprintf( _x( 'Shipping %d', 'shipping packages', 'woocommerce' ), ( $i + 1 ) ) : _x( 'Shipping', 'shipping package', 'woocommerce' ), $i, $package ),
 				'index'                    => $i,
-				'chosen_method'            => $chosen_method));
+				'chosen_method'            => $chosen_method,
+	            'chosen_label' => wc_cart_totals_shipping_method_label( $method ),
+	            'chosen_price' => strip_tags($price),
+	));
 }
 echo '<script>var shippings='.wp_json_encode($shippings).'</script>';
 ?>
