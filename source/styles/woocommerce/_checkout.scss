@@ -57,6 +57,14 @@
 			display: none;
 		}
 	}
+	&__mandatory {
+		font-weight: bold;	
+		width: $f;
+		height: em(50px);
+		position: relative;
+		display: flex;
+		align-items: center;
+	}
 	&__slide{
 		&r {
 			overflow: hidden;
