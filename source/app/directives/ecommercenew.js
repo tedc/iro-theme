@@ -447,13 +447,14 @@ module.exports = () => {
 						})
 				}
 				// NEW SHIPPING FROM VARS
-				var extras = ngCart.getExtras();
-				extras.shippings = shippings;
-				ngCart.setExtras(extras);
-				ngCart.setShipping(shippings.total);
-				$rootScope.$broadcast('ngCart:change');
-				$scope.shippings = ngCart.getExtras().shippings.packages;
-
+				if(typeof shipping !== 'undefined' && shipping) {
+					var extras = ngCart.getExtras();
+					extras.shippings = shippings;
+					ngCart.setExtras(extras);
+					ngCart.setShipping(shippings.total);
+					$rootScope.$broadcast('ngCart:change');
+					$scope.shippings = ngCart.getExtras().shippings.packages;
+				}
 				//CHECKOUT
 				$scope.sendCheckout = (form)=> {
 					//console.log($scope.checkoutFields);
