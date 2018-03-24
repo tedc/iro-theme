@@ -20,6 +20,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+$script = '<script> var shippings = {';
+$script .= 'package_name:"'.$package_name.'",';
+$script .= 'methods:' .htmlspecialchars( wp_json_encode( $available_variations ) ).'}</sctipt>';
+echo $script;
 ?>
 <div class="shipping" ng-repeat="shipping in shippings track by $index">
 	<h2 class="shipping__subtitle" ng-bind-html="shipping.package_name"></h2>
