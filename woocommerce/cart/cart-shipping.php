@@ -20,10 +20,29 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-$script = '<script> var shippings = {';
-$script .= 'package_name:"'.$package_name.'",';
-$script .= 'methods:' .htmlspecialchars( wp_json_encode( $available_methods ) ).'}</script>';
-echo $script;
+$shippings = array();
+$first = true;
+$packages = WC()->shipping->get_packages();
+foreach ( $packages as $i => $package ) {
+	$chosen_method = isset( WC()->session->chosen_shipping_methods[ $i ] ) ? WC()->session->chosen_shipping_methods[ $i ] : '';
+	$product_names = array();
+	if ( count( $packages ) > 1 ) {
+		foreach ( $package['contents'] as $item_id => $values ) {
+			$product_names[ $item_id ] = $values['data']->get_name() . ' &times;' . $values['quantity'];
+		}
+		$product_names = apply_filters( 'woocommerce_shipping_package_details_array', $product_names, $package );
+	}
+	array_push($shippings, array('package' => $package,
+				'available_methods'        => $package['rates'],
+				'show_package_details'     => count( $packages ) > 1,
+				'show_shipping_calculator' => is_cart() && $first,
+				'package_details'          => implode( ', ', $product_names ),
+				/* translators: %d: shipping package number */
+				'package_name'             => apply_filters( 'woocommerce_shipping_package_name', ( ( $i + 1 ) > 1 ) ? sprintf( _x( 'Shipping %d', 'shipping packages', 'woocommerce' ), ( $i + 1 ) ) : _x( 'Shipping', 'shipping package', 'woocommerce' ), $i, $package ),
+				'index'                    => $i,
+				'chosen_method'            => $chosen_method));
+}
+echo '<script>var shippings='.wp_json_encode($shippings).'</script>';
 ?>
 <div class="shipping" ng-repeat="shipping in shippings track by $index">
 	<h2 class="shipping__subtitle" ng-bind-html="shipping.package_name"></h2>
