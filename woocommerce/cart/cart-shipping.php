@@ -51,7 +51,7 @@ foreach ( $packages as $i => $package ) {
 				'package_name'             => apply_filters( 'woocommerce_shipping_package_name', ( ( $i + 1 ) > 1 ) ? sprintf( _x( 'Shipping %d', 'shipping packages', 'woocommerce' ), ( $i + 1 ) ) : _x( 'Shipping', 'shipping package', 'woocommerce' ), $i, $package ),
 				'index'                    => $i,
 				'chosen_method'            => $chosen_method,
-	            'chosen_label' => wc_cart_totals_shipping_method_label( $method ),
+	            'chosen_label' => wc_cart_totals_shipping_method_label( $chosen_method ),
 	            'chosen_price' => strip_tags($price),
 	));
 }
