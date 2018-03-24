@@ -357,6 +357,8 @@
                 $ul .= '</div><span class="swiper-scrollbar"></span></div></div>';
                 $field = str_replace('</div>',$ul.'</div>', $field);
             } else {
+                $field = str_replace('</label>', '</label><p class="checkout__mandatory">', $field);
+                $field = str_replace('<input', '</p><input', $field);
                 $field = str_replace('input-text', ''.$base_class.'__input', $field);
             }
         }

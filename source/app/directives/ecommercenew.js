@@ -586,15 +586,13 @@ module.exports = () => {
 								y : 0
 							}
 						});
-						$scope.updateShipping(()=> {
-							if($scope.isConfirm) {
-								$scope.isConfirm = false;
-								$scope.isCheckoutUpdating = false;
-								return
-							}
-							swiper.slidePrev();
+						if($scope.isConfirm) {
+							$scope.isConfirm = false;
 							$scope.isCheckoutUpdating = false;
-						});
+							return
+						}
+						swiper.slidePrev();
+						$scope.isCheckoutUpdating = false;
 					}
 					var getCurrentIndex = ()=> {
 						$scope.checkoutObj.current = swiper.realIndex;
