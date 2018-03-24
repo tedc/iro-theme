@@ -450,7 +450,7 @@ module.exports = () => {
 				var extras = ngCart.getExtras();
 				extras.shippings = shippings;
 				ngCart.setExtras(extras);
-				ngCart.setShipping(res.data.total);
+				ngCart.setShipping(shippings.total);
 				$rootScope.$broadcast('ngCart:change');
 				$scope.shippings = ngCart.getExtras().shippings.packages;
 

@@ -58,7 +58,7 @@ foreach ( $packages as $i => $package ) {
 	            'chosen_price' => strip_tags($price),
 	));
 }
-echo '<script>var shippings={packages : '.wp_json_encode($shippings).'}</script>';
+echo '<script>var shippings={total :'. WC()->cart->shipping_total + weso_get_extra_shipping_option_cost().', packages : '.wp_json_encode($shippings).'}</script>';
 ?>
 <div class="shipping" ng-repeat="shipping in shippings track by $index">
 	<h2 class="shipping__subtitle" ng-bind-html="shipping.package_name"></h2>
