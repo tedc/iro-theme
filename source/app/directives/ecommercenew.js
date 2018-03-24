@@ -447,7 +447,7 @@ module.exports = () => {
 						})
 				}
 				// NEW SHIPPING FROM VARS
-				if(typeof shipping !== 'undefined') {
+				if(typeof shippings !== 'undefined') {
 					var extras = ngCart.getExtras();
 					extras.shippings = shippings;
 					ngCart.setExtras(extras);
