@@ -98,7 +98,7 @@ iro
 		}
 	}])
 	.directive('ngSm', ['$rootScope', '$timeout', require('./sm.coffee')])
-	.directive('ecommerce', require('./ecommerce'))
+	.directive('ecommerce', require('./ecommercenew'))
 	.directive('wcAccount', require('./account'))
 	.directive('ngPlayer', ['$rootScope', '$timeout', require('./player')])
 	.directive('ngForm', require('./form'))
