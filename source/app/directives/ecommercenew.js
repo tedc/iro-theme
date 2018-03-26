@@ -523,12 +523,12 @@ module.exports = () => {
 								     }
 								   }
 								});
-								$window.dataLayer.push({
-									'event' : 'purchase',
-									'ecommerce': {
-										'purchase': purchase
-									}
-								});
+								// $window.dataLayer.push({
+								// 	'event' : 'purchase',
+								// 	'ecommerce': {
+								// 		'purchase': purchase
+								// 	}
+								// });
 							} else if( 'failure' === result.result ){
 								$scope.error = result.message;
 								$window.location = vars.main.base +'/'+ vars.wc.checkoutPage;

@@ -54,42 +54,53 @@ $TPtpi['amount'] = number_format ( $order->get_total() , 2, '.','');
 // }
 // echo "window._tt.push({ event: \"setAmount\", amount: '" . $TPtpi['amount'] . "' });";
 // echo "window._tt.push({ event: \"orderSubmit\"});";
-var_dump($order);
 ?>
-
-<!-- window.dataLayer.push({
-event:purchase
-ecommerce:{
-	purchase:{
-		action: {
-			affiliation : 'Online Store',
-			revenue : <?php echo $TPtpi['amount']; ?>,
-			shipping : ngCart.getShipping(),
-			tax : ngCart.getTax(),
-			coupon : coupon
-			id:<?php echo $TPtpi['orderid']; ?>
-		},
-		products : [ -->
-			<?php foreach( $order->get_items() as $item_id => $item ): 
-				$mixed = wc_get_order_item_meta( $item_id, '_product_id', true );
-				$_order_product = $item->get_product();
-				$prodID = $mixed[0];
-				$sku = ($_order_product->get_sku()) ? $_order_product->get_sku() : $mixed[0];
-			?>
-			{
-				'name' : '<?php echo $products[$item_id]['name']; ?>,'
-				'id' : '<?php echo $sku; ?>',
-				'price' : <?php echo $_order_product->get_price(); ?>,
-				'brand' : 'Iro',
-				<?php if($item['variation_id']) : ?>
-				'variant': '<?php echo $_order_product->get_variation_description(); ?>',
+window.dataLayer.push({
+	event:purchase,
+	ecommerce:{
+		purchase:{
+			action: {
+				affiliation : 'Online Store',
+				revenue : <?php echo $TPtpi['amount']; ?>,
+				shipping : <?php echo $order->get_shipping_total() ?>,
+				tax : <?php echo $order->get_total_tax(); ?>,
+				<?php if( $order->get_used_coupons() ) : 
+					$coupons_count = count( $order->get_used_coupons() );
+					$i = 1;
+					foreach( $order->get_used_coupons() as $coupon ) :
+					$coupons_list .=  $coupon;
+			        if( $i < $coupons_count ) {
+			        	$coupons_list .= ', ';
+			        }
+					$i++;
+					endforeach;
+					echo 'coupon : "'.$coupons_list.'",';
+				?>
 				<?php endif; ?>
-			    'quantity': <?php echo $item['quantity']; ?>
+				id:<?php echo $TPtpi['orderid']; ?>
 			},
-			<?php endforeach; ?>
-		]
+			products : [ 
+				<?php foreach( $order->get_items() as $item_id => $item ): 
+					$mixed = wc_get_order_item_meta( $item_id, '_product_id', true );
+					$_order_product = $item->get_product();
+					$prodID = $mixed[0];
+					$sku = ($_order_product->get_sku()) ? $_order_product->get_sku() : $mixed[0];
+				?>
+				{
+					'name' : '<?php echo $products[$item_id]['name']; ?>,'
+					'id' : '<?php echo $sku; ?>',
+					'price' : <?php echo $_order_product->get_price(); ?>,
+					'brand' : 'Iro',
+					<?php if($item['variation_id']) : ?>
+					'variant': '<?php echo $_order_product->get_variation_description(); ?>',
+					<?php endif; ?>
+				    'quantity': <?php echo $item['quantity']; ?>
+				},
+				<?php endforeach; ?>
+			]
+		}
 	}
-<!-- }); -->
+});
 <?php /*TP implementation END*/
 
 echo "</script>";
