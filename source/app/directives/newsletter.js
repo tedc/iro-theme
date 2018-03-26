@@ -8,6 +8,7 @@ module.exports = ()=> {
 			$scope.subscribe = (form)=> {
 				if(form.$invalid) return;
 				if($scope.isSubscribing) return;
+				$scope.isSubscribing = true;
 				let data = $scope.nlFields;
 				let ajax_url = vars.wc.newsletter;
 				ecommerce
@@ -16,7 +17,6 @@ module.exports = ()=> {
 						$scope.isSubscribing = false;
 						$scope.nlMessage = res.data.message;
 						$scope.isNlError = res.data.error;
-						$scope.isSubscribing = true;
 						$scope.nlTimeout = $timeout(()=> {
 							$timeout.cancel($scope.nlTimeout);
 							delete $scope.nlMessage;
