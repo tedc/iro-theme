@@ -185,6 +185,7 @@
             } else {
                 if($temp_star >= 0.5) {
                     echo '<span class="'. $class_base .'__starhalf"><i class="icon-stella"></i></span><i class="icon-stella"></i>';
+                    $temp_star -= 0.5;
                 } else {
                     echo '<span class="'. $class_base .'__star"><i class="icon-stella"></i></span>';
                 }
