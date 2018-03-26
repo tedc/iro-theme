@@ -1,5 +1,5 @@
 <?php
-	//use \DrewM\MailChimp\MailChimp;
+	use \DrewM\MailChimp\MailChimp;
 	use WooCommerce_Extra_Shipping_Options\WESO_Field_Has_Choices;
 	function is_user_subscribed($email) {
 		acf_set_language_to_default();
@@ -996,23 +996,23 @@
 			acf_unset_language_to_default();
 			if(isset($_POST['email'])) {
 				$email = $_POST['email'];
-		    	$MailChimp = new Mailchimp($api_key);
-		    	$post_params = array('email_address'=>$email, 'status'=>'subscribed');
-		    	if($MailChimp->lists($list_id)->members()->POST($post_params)) {
-		    		$data = array('message' => __('Iscrizione completata con successo.', 'iro'));
-		    	} else {
-		    		$data = array('message' => __('L\'indirizzo email risulta già iscritto alla newsletter di Iro', 'iro'));
-		    	}
-				// if(is_user_subscribed($email)) {
-		  //       	$subscriber_hash = $MailChimp->subscriberHash($email);
-				// 	$data = array('message' => __('L\'indirizzo email risulta già iscritto alla newsletter di Iro', 'iro'));
-		  //       } else {
-		  //       	$result = $MailChimp->post('lists/'.$list_id.'/members', array(
-		  //       		'email_address' => $email,
-		  //       		'status' => 'subscribed'
-		  //       	));
-		  //       	$data = array('message' => __('Iscrizione completata con successo.', 'iro'));
-		  //       }
+		    	$MailChimp = new MailChimp($api_key);
+		    	// $post_params = array('email_address'=>$email, 'status'=>'subscribed');
+		    	// if($MailChimp->lists($list_id)->members()->POST($post_params)) {
+		    	// 	$data = array('message' => __('Iscrizione completata con successo.', 'iro'));
+		    	// } else {
+		    	// 	$data = array('message' => __('L\'indirizzo email risulta già iscritto alla newsletter di Iro', 'iro'));
+		    	// }
+				if(is_user_subscribed($email)) {
+		        	$subscriber_hash = $MailChimp->subscriberHash($email);
+					$data = array('message' => __('L\'indirizzo email risulta già iscritto alla newsletter di Iro', 'iro'));
+		        } else {
+		        	$result = $MailChimp->post('lists/'.$list_id.'/members', array(
+		        		'email_address' => $email,
+		        		'status' => 'subscribed'
+		        	));
+		        	$data = array('message' => __('Iscrizione completata con successo.', 'iro'));
+		        }
 	    	} else {
 	    		$data = array('message' => __('Devi inserire un indirizzo email valido per iscriverti', 'iro'), 'error' => true);
 	    	}
