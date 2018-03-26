@@ -23,39 +23,74 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php
 /*TP implementation*/
-// $products = $order->get_items();
-// $current_user = wp_get_current_user();
-// $TPtpi['chiaveMerchant'] = 'bGNaM014SDZrYitJMWVKSm1JNUdxV0J3Mjg5N3cwa2Q1';
-// if($current_user->user_email != ""){
-// 	$TPtpi['email'] = $current_user->user_email;
-// }elseif($order->get_billing_email()!=""){
-// 	$TPtpi['email'] = $order->get_billing_email();
-// }else{
-// 	$TPtpi['email'] = $order->billing_email;
-// }
-// $TPtpi['orderid'] = $order->get_order_number();
-// $TPtpi['amount'] = number_format ( $order->get_total() , 2, '.','');
-// //Printing Script
-// echo "<script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js\"></script>";
-// echo "<script type=\"text/javascript\" src=\"https://tracking.trovaprezzi.it/javascripts/tracking.min.js\"></script>";
-// echo "<script type=\"text/javascript\">";
-// echo "window._tt = window._tt || [];";
-// echo "window._tt.push({ event: \"setAccount\", id: '". $TPtpi['chiaveMerchant'] ."' });";
-// echo "window._tt.push({ event: \"setOrderId\", order_id: '" . $TPtpi['orderid'] . "' });";
-// echo "window._tt.push({ event: \"setEmail\", email: '" . $TPtpi['email'] . "' });";
-// foreach( $order->get_items() as $item_id => $item ){
-// 	$mixed = wc_get_order_item_meta( $item_id, '_product_id', true );
-// 	$_order_product = $order->get_product_from_item( $item );
-// 	$prodID = $mixed[0];
-// 	$sku = ($_order_product->get_sku()) ? $_order_product->get_sku() : $mixed[0];
-// 	$prodName = $products[$item_id]['name'];
-// 	$prodName = str_replace("'", "", $prodName);
-// 	echo "window._tt.push({ event: \"addItem\", sku: '" . $sku . "', product_name: '" . $prodName . "' });";
-// }
-// echo "window._tt.push({ event: \"setAmount\", amount: '" . $TPtpi['amount'] . "' });";
-// echo "window._tt.push({ event: \"orderSubmit\"});";
-// echo "</script>";
-/*TP implementation END*/
+$products = $order->get_items();
+$current_user = wp_get_current_user();
+$TPtpi['chiaveMerchant'] = 'bGNaM014SDZrYitJMWVKSm1JNUdxV0J3Mjg5N3cwa2Q1';
+if($current_user->user_email != ""){
+	$TPtpi['email'] = $current_user->user_email;
+}elseif($order->get_billing_email()!=""){
+	$TPtpi['email'] = $order->get_billing_email();
+}else{
+	$TPtpi['email'] = $order->billing_email;
+}
+$TPtpi['orderid'] = $order->get_order_number();
+$TPtpi['amount'] = number_format ( $order->get_total() , 2, '.','');
+//Printing Script
+echo "<script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js\"></script>";
+echo "<script type=\"text/javascript\" src=\"https://tracking.trovaprezzi.it/javascripts/tracking.min.js\"></script>";
+echo "<script type=\"text/javascript\">";
+echo "window._tt = window._tt || [];";
+echo "window._tt.push({ event: \"setAccount\", id: '". $TPtpi['chiaveMerchant'] ."' });";
+echo "window._tt.push({ event: \"setOrderId\", order_id: '" . $TPtpi['orderid'] . "' });";
+echo "window._tt.push({ event: \"setEmail\", email: '" . $TPtpi['email'] . "' });";
+foreach( $order->get_items() as $item_id => $item ){
+	$mixed = wc_get_order_item_meta( $item_id, '_product_id', true );
+	$_order_product = $order->get_product_from_item( $item );
+	$prodID = $mixed[0];
+	$sku = ($_order_product->get_sku()) ? $_order_product->get_sku() : $mixed[0];
+	$prodName = $products[$item_id]['name'];
+	$prodName = str_replace("'", "", $prodName);
+	echo "window._tt.push({ event: \"addItem\", sku: '" . $sku . "', product_name: '" . $prodName . "' });";
+}
+echo "window._tt.push({ event: \"setAmount\", amount: '" . $TPtpi['amount'] . "' });";
+echo "window._tt.push({ event: \"orderSubmit\"});";
+?>
+
+<!-- window.dataLayer.push({
+event:purchase
+ecommerce:{
+	purchase:{
+		action: {
+			affiliation : 'Online Store',
+			revenue : <?php echo $TPtpi['amount']; ?>,
+			shipping : ngCart.getShipping(),
+			tax : ngCart.getTax(),
+			coupon : coupon
+			id:<?php echo $TPtpi['orderid']; ?>
+		},
+		product : [ -->
+			<?php foreach( $order->get_items() as $item_id => $item ): 
+				$mixed = wc_get_order_item_meta( $item_id, '_product_id', true );
+				$_order_product = $item->get_product();
+				$prodID = $mixed[0];
+				$sku = ($_order_product->get_sku()) ? $_order_product->get_sku() : $mixed[0];
+				var_dump($item, $_order_product);
+			?>
+			<!-- {
+				'name' : '<?php echo $products[$item_id]['name']; ?>,'
+				'id' : '<?php echo $sku; ?>',
+				'price' : <?php echo $_order_product; ?>,
+				'brand' : 'Iro',
+				'variant': ngCart.getDesc(item),
+			    'quantity': item.getQuantity()
+			}, -->
+			<?php endforeach; ?>
+		]
+	}
+<!-- }); -->
+<?php /*TP implementation END*/
+
+echo "</script>";
 ?>
 
 <div class="woocommerce-order woocommerce-order--shrink woocommerce-order--mw-large">
