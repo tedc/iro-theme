@@ -987,7 +987,7 @@
 	    	wp_send_json( $data );
 	    }
 	    public static function iro_newsletter() {
-	    	check_ajax_referer( 'iro-newsletter', '_newsletter_nonce' );
+	    	//check_ajax_referer( 'iro-newsletter', '_newsletter_nonce' );
 	    	acf_set_language_to_default();
 			$mc = get_field('mailchimp', 'options');
 			$list_id = $mc['list_id'];
