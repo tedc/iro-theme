@@ -13,13 +13,14 @@
 	$video_id = $video.'_video_'. get_the_ID();
 ?>
 <div class="<?php echo $video; ?>__video" ng-style="{backgroundImage : 'url(<?php echo $file; ?>.jpg)'}">
-	<video<?php if(!is_handheld()): ?> loop<?php endif; ?> class="<?php echo $video; ?>__video-item" ng-video muted poster="<?php echo $file; ?>.jpg">
+	<video loop class="<?php echo $video; ?>__video-item" ng-video muted poster="<?php echo $file; ?>.jpg">
 		<source src="<?php echo $file; ?>.mp4" type="video/mp4"/>
 		<source src="<?php echo $file; ?>.webm" type="video/webm"/>
 	</video>
 </div>
 <?php else :
-	$image_size = (is_mobile()) ? 'large' : 'full';
+	//$image_size = (is_mobile()) ? 'large' : 'full';
+	$image_size = 'full';
 	$thumb_id = get_post_thumbnail_id($post->ID);
 	$image_class = 'header__image';
 	$image_class .= (get_field('background_position')) ? ' header__image'.get_field('background_position') : '';

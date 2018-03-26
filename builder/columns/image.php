@@ -6,13 +6,14 @@ if(!$mw && !$centered && !get_sub_field('full_image')) {
 } ?>
 <figure class="<?php echo $section__figure; echo (get_sub_field('double_image')) ? ' section__figure--double' : ''; ?>">
 	<?php 
-	if(is_mobile()) {
-		$thumb = 'medium';
-	} elseif(is_tablet()) {
-		$thumb = 'large';
-	} else {
-		$thumb = 'full';
-	}
+	// if(is_mobile()) {
+	// 	$thumb = 'medium';
+	// } elseif(is_tablet()) {
+	// 	$thumb = 'large';
+	// } else {
+	// 	$thumb = 'full';
+	// }
+	$thumb = 'full';
 	$w = wp_get_attachment_image_src( get_sub_field('immagine')['ID'], 'full' )[1];
 	$w = (get_sub_field('col_image_mw')) ? $w * 0.5 : $w;
 	$mv = (get_sub_field('move_top_image')) ? 'top:' .(get_sub_field('move_top_image')/16) . 'em' : null;

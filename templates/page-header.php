@@ -4,7 +4,8 @@
 	$the_id = get_the_ID();
 	$thumb_id = get_post_thumbnail_id($the_id);
 	$alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true) ? get_post_meta($thumb_id, '_wp_attachment_image_alt', true) : get_bloginfo('name') . ': '.Titles\title();
-	$image_size = (is_mobile()) ? 'large' : 'full';
+	//$image_size = (is_mobile()) ? 'large' : 'full';
+	$image_size = 'full';
 	$image_class = 'header__image';
 	$image_class .= (get_field('background_position')) ? ' header__image'.get_field('background_position') : '';
 	$image = wp_get_attachment_image( $thumb_id, $image_size, false, array('class' => 'header__image', 'alt' => $alt, 'data-object-fit' => true) );

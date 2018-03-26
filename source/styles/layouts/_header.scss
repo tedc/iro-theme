@@ -72,10 +72,10 @@
 	}
 	.menu {
 		//flex: 20;
-		.handheld & {
-			overflow: scroll;
-			-webkit-overflow-scroll: touch;
-		}
+		// .handheld & {
+		// 	overflow: scroll;
+		// 	-webkit-overflow-scroll: touch;
+		// }
 		flex-direction: column;
 		overflow: visible;
 		@include breakpoint(1024px) {

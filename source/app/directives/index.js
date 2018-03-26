@@ -334,7 +334,7 @@ iro
 		}
 	})
 	.directive('ngNewsletter', require('./newsletter'))
-	.directive('ngVideo', ['$rootScope', '$timeout', require('./video')])
+	.directive('ngVideo', ['$rootScope', '$timeout', 'screenSize', require('./video')])
 	.directive('review', require('./review'))
 	.directive('loginForm', require('./login'))
 	.directive('ngPay', require('./pay'))

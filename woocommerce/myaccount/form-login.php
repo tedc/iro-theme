@@ -34,12 +34,10 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 if(!is_user_logged_in()) :
 ?>
 <div class="popup" login-form id="login">
-	<?php if(!is_handheld()) { ?>
-		<div class="swiper-container" scroller options="{freeMode: true, slidesPerView: 'auto', mousewheel: true, direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true} }">
+	<div class="swiper-container" scroller options="{freeMode: true, slidesPerView: 'auto', mousewheel: true, direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true} }">
 		<div class="swiper-wrapper">
-	<?php } ?>
 	
-	<form class="popup__form<?php echo (!is_handheld()) ? ' swiper-slide' : ''; ?>" name="loginForm" method="post" novalidate ng-submit="sign('login')">
+	<form class="popup__form swiper-slide" name="loginForm" method="post" novalidate ng-submit="sign('login')">
 		<header class="popup__header">
 			<div class="popup__row popup__row--close">
 				<div class="popup__image"></div>
@@ -76,8 +74,8 @@ if(!is_user_logged_in()) :
 		<?php do_action( 'woocommerce_login_form_end' ); ?>
 	</form>
 	<div class="popup__error" ng-if="error" ng-bind-html="errorMessage"></div>
-	<?php if(!is_handheld()) {
+	<?php 
 		echo '</div><div class="swiper-scrollbar"></div></div>';
-	} ?>
+	 ?>
 </div>
 <?php  endif;  do_action( 'woocommerce_after_customer_login_form' );endif; ?>

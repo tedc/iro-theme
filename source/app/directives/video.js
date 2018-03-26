@@ -1,8 +1,11 @@
-module.exports = ($rootScope, $timeout)=> {
+module.exports = ($rootScope, $timeout, screenSize)=> {
     return {
         scope: true,
         link : (scope, element)=> {
-            if(vars.main.mobile) {
+            screenSize.rules = {
+                min : `screen and (min-width: ${(850/16)}em)`
+            }
+            if(vars.main.mobile && !screenSize.is( 'min' )) {
                 scope.isLoading = false;
                 scope.isPaused = true;
                 scope.isLoaded = false
@@ -37,7 +40,7 @@ module.exports = ($rootScope, $timeout)=> {
                 }
                 scope.isPaused = element[0].paused;
             }
-            if(vars.main.mobile) return;
+            if(vars.main.mobile  && !screenSize.is( 'min' )) return;
             $rootScope.isVideoPlaying = false;
             let tween = TweenMax.to({index:0}, 5, {
                 index: 10,
