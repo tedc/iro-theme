@@ -160,7 +160,7 @@ module.exports = () => {
 							        'id': (item_data.sku) ? item_data.sku : item.getId(),
 							        'price': item.getPrice(),
 							        'brand': 'Iro',
-							        'variant': ngCart.getDesc(item),
+							        'variant': ngCart.getDesc(item).replace(name + ' ', '').replace(/<[^>]+>/gm, '').replace(/(&#215;)/g, 'x'),
 							        'quantity': item.getQuantity()
 							       }]
 							    }
@@ -201,7 +201,7 @@ module.exports = () => {
 							        'id': item.getId(),
 							        'price': item.getPrice(),
 							        'brand': 'Iro',
-							        'variant': ngCart.getDesc(item),
+							        'variant': ngCart.getDesc(item).replace(name + ' ', '').replace(/<[^>]+>/gm, '').replace(/(&#215;)/g, 'x'),
 							        'quantity': item.getQuantity()
 							       }]
 							    }
@@ -256,7 +256,7 @@ module.exports = () => {
 							        'id': layer_item.getId(),
 							        'price': layer_item.getPrice(),
 							        'brand': 'Iro',
-							        'variant': ngCart.getDesc(layer_item),
+							        'variant': ngCart.getDesc(layer_item).replace(name + ' ', '').replace(/<[^>]+>/gm, '').replace(/(&#215;)/g, 'x'),
 							        'quantity': layer_item.getQuantity()
 							       }]
 							    }
@@ -470,7 +470,7 @@ module.exports = () => {
 							'id' : item.getData().sku ? item.getData().sku : item.getId(),
 							'price' : item.getPrice(),
 							'brand' : 'Iro',
-							'variant': ngCart.getDesc(item),
+							'variant': ngCart.getDesc(item).replace(name + ' ', '').replace(/<[^>]+>/gm, '').replace(/(&#215;)/g, 'x'),
 						    'quantity': item.getQuantity()
 						}
 						products.push(obj);
@@ -607,7 +607,7 @@ module.exports = () => {
 									'id' : item.getData().sku ? item.getData().sku : item.getId(),
 									'price' : item.getPrice(),
 									'brand' : 'Iro',
-									'variant': ngCart.getDesc(item),
+									'variant': ngCart.getDesc(item).replace(name + ' ', '').replace(/<[^>]+>/gm, '').replace(/(&#215;)/g, 'x'),
 								    'quantity': item.getQuantity()
 								}
 								products.push(obj);

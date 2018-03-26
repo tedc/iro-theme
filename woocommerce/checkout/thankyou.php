@@ -92,7 +92,7 @@ window.dataLayer.push({
 					'price' : <?php echo $_order_product->get_price(); ?>,
 					'brand' : 'Iro',
 					<?php if($item['variation_id']) : ?>
-					'variant': '<?php echo $_order_product->get_variation_description(); ?>',
+					'variant': '<?php echo strip_tags($_order_product->get_variation_description()); ?>',
 					<?php endif; ?>
 				    'quantity': <?php echo $item['quantity']; ?>
 				},
