@@ -12,7 +12,7 @@
 		<source src="<?php echo $file; ?>.webm" type="video/webm">
 		<source src="<?php echo $file; ?>.mp4" type="video/mp4">
 	</video>
-	<?php if($is_waves) : 
+	<?php// if($is_waves) : 
 		$video_waves_class = get_sub_field('video_waves');
 	?>
 	<div class="<?php echo $video_waves_class; ?>">
@@ -20,7 +20,7 @@
 		<div class="video__wave"></div>
 		<div class="video__wave"></div>
 	</div>
-	<?php endif; ?>
+	<?php// endif; ?>
 	<div class="video__content video__content--mw video__content--shrink">
 		<?php if(get_sub_field('video_title')) : ?>
 		<h3 class="video__title video__title--big"><?php the_sub_field('video_title'); ?></h3>
