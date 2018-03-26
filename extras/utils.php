@@ -177,7 +177,6 @@
     }
 
     function stars($average, $class_base) {
-
         for($i= 1; $i<= round($average + 1, 0, PHP_ROUND_HALF_UP) && $i<= 5; $i++ ) {
             if (($average + 1) - $i > 0 && ($average + 1) - $i < 1) {
                 $is_half = (($average + 1) - $i > 0.8) ? false : true;
