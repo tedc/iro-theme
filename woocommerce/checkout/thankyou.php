@@ -87,7 +87,7 @@ window.dataLayer.push({
 					$sku = ($_order_product->get_sku()) ? $_order_product->get_sku() : $mixed[0];
 				?>
 				{
-					'name' : '<?php echo $products[$item_id]['name']; ?>,'
+					'name' : '<?php echo $products[$item_id]['name']; ?>',
 					'id' : '<?php echo $sku; ?>',
 					'price' : <?php echo $_order_product->get_price(); ?>,
 					'brand' : 'Iro',
