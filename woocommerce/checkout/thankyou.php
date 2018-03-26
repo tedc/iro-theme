@@ -68,22 +68,21 @@ ecommerce:{
 			coupon : coupon
 			id:<?php echo $TPtpi['orderid']; ?>
 		},
-		product : [ -->
+		products : [ -->
 			<?php foreach( $order->get_items() as $item_id => $item ): 
 				$mixed = wc_get_order_item_meta( $item_id, '_product_id', true );
 				$_order_product = $item->get_product();
 				$prodID = $mixed[0];
 				$sku = ($_order_product->get_sku()) ? $_order_product->get_sku() : $mixed[0];
-				var_dump($item, $_order_product);
 			?>
-			<!-- {
+			{
 				'name' : '<?php echo $products[$item_id]['name']; ?>,'
 				'id' : '<?php echo $sku; ?>',
-				'price' : <?php echo $_order_product; ?>,
+				'price' : <?php echo $_order_product->get_price(); ?>,
 				'brand' : 'Iro',
-				'variant': ngCart.getDesc(item),
-			    'quantity': item.getQuantity()
-			}, -->
+				'variant': '<?php $variation = new WC_Produc_Variable($_order_product->get_id()); $variation->get_description(); ?>',
+			    'quantity': <?php echo $item['quantity']; ?>
+			},
 			<?php endforeach; ?>
 		]
 	}
