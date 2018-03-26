@@ -181,11 +181,11 @@
         echo $temp_star;
         for($i=1; $i<=5; $i++){
             if($temp_star >= 1) {
-                echo '<i class="icon-stella"></i>';
+                echo '<span class="'. $class_base .'__star '. $class_base .'__star--active"><i class="icon-stella"></i></span>';
                 $temp_star--;
             } else {
                 if($temp_star >= 0.5) {
-                    echo '<span class="'. $class_base .'__starhalf"><i class="icon-stella"></i></span><i class="icon-stella"></i>';
+                    echo '<span class="'. $class_base .'__star '. $class_base .'__star--active-half"><i class="icon-stella"></i></span><i class="icon-stella"></i>';
                     $temp_star -= 0.5;
                 } else {
                     echo '<span class="'. $class_base .'__star"><i class="icon-stella"></i></span>';
