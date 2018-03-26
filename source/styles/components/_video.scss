@@ -239,6 +239,10 @@
 				top: em(-100px);
 				bottom: em(-100px);
 				margin-left: -50%;
+				display: none;
+				@include breakpoint(1024px) {
+					display: block;
+				}
 			}
 			z-index: 1;
 			position: absolute;
