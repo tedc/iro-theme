@@ -181,13 +181,14 @@
         echo $temp_star;
         for($i=1; $i<=5; $i++){
             if($i <= $average) {
+                echo '<span class="'. $class_base .'__star '. $class_base .'__star--active"><i class="icon-stella"></i></span>';
+            } else {
                 if($average > $i+0.1 && $average < $i + 0.8) {
                     echo '<span class="'. $class_base .'__star '. $class_base .'__star--active-half"><span class="'. $class_base .'__starhalf"><i class="icon-stella"></i></span><i class="icon-stella"></i></span>';
                 } else {
-                    echo '<span class="'. $class_base .'__star '. $class_base .'__star--active"><i class="icon-stella"></i></span>';
+                    echo '<span class="'. $class_base .'__star"><i class="icon-stella"></i></span>';
+                    
                 }
-            } else {
-                echo '<span class="'. $class_base .'__star"><i class="icon-stella"></i></span>';
             }
             // if($temp_star >= 1) {
             //     echo '<span class="'. $class_base .'__star '. $class_base .'__star--active"><i class="icon-stella"></i></span>';
