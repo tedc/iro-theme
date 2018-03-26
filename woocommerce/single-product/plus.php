@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 global $product;
-$plus = wp_get_post_terms($product->get_id(), 'product_plus');
+$plus = wp_get_post_terms($product->get_id(), 'product_plus', array('oderby'=> 'term_order'));
 if($plus) :
 ?>
 <div class="plus plus--grow-md-bottom plus--shrink-fw" scroller options="{freeMode : true, slidesPerView: 'auto', initialSlide : <?php echo count($plus) > 2 ? 1 : 0; ?>, centeredSlides : true, breakpoints : {640 : {initialSlide : <?php echo count($plus) > 2 ? 1 : 0; ?>}}}">
