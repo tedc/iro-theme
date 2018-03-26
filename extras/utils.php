@@ -180,17 +180,26 @@
         $temp_star = $average;
         echo $temp_star;
         for($i=1; $i<=5; $i++){
-            if($temp_star >= 1) {
-                echo '<span class="'. $class_base .'__star '. $class_base .'__star--active"><i class="icon-stella"></i></span>';
-                $temp_star--;
-            } else {
-                if($temp_star >= 0.5) {
-                    echo '<span class="'. $class_base .'__star '. $class_base .'__star--active-half"><i class="icon-stella"></i></span><i class="icon-stella"></i>';
-                    $temp_star -= 0.5;
+            if($i <= $average) {
+                if($average > $i+0.1 && $average < $i + 0.8) {
+                    echo '<span class="'. $class_base .'__star '. $class_base .'__star--active-half"><span class="'. $class_base .'__starhalf"><i class="icon-stella"></i></span><i class="icon-stella"></i></span>';
                 } else {
-                    echo '<span class="'. $class_base .'__star"><i class="icon-stella"></i></span>';
+                    echo '<span class="'. $class_base .'__star '. $class_base .'__star--active"><i class="icon-stella"></i></span>';
                 }
+            } else {
+                echo '<span class="'. $class_base .'__star"><i class="icon-stella"></i></span>';
             }
+            // if($temp_star >= 1) {
+            //     echo '<span class="'. $class_base .'__star '. $class_base .'__star--active"><i class="icon-stella"></i></span>';
+            //     $temp_star--;
+            // } else {
+            //     if($temp_star >= 0.5) {
+            //         echo '<span class="'. $class_base .'__star '. $class_base .'__star--active-half"><i class="icon-stella"></i></span><i class="icon-stella"></i>';
+            //         $temp_star -= 0.5;
+            //     } else {
+            //         echo '<span class="'. $class_base .'__star"><i class="icon-stella"></i></span>';
+            //     }
+            // }
         }
 
         // for($i= 1; $i<= round($average + 1, 0, PHP_ROUND_HALF_UP); $i++ ) {
