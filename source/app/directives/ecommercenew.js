@@ -99,7 +99,7 @@ module.exports = () => {
 					  	'actionField': {'list': 'Variation'},    // 'detail' actions have an optional list property.
 					    'detail': {                                // 'add' actionFieldObject measures.
 					      'products': [{                        //  adding a product to a shopping cart.
-					        'name': $scope.attributes.variation_description ? $scope.attributes.variation_description : $scope.attributes.title,
+					        'name': $scope.attributes.variation_description ? $scope.attributes.variation_description.replace(/<[^>]+>/gm, '').replace(/(&#215;)/g, 'x') : $scope.attributes.title,
 					        'id': ($scope.attributes.sku) ? $scope.attributes.sku : $scope.attributes.variation_id,
 					        'price': $scope.attributes.display_price,
 					        'brand': 'Iro',
@@ -156,7 +156,7 @@ module.exports = () => {
 							    'currencyCode': 'EUR',
 							    'add': {                                // 'add' actionFieldObject measures.
 							      'products': [{                        //  adding a product to a shopping cart.
-							        'name': item.getData().variation_description ? item.getData().variation_description : item.getName(),
+							        'name': item.getData().variation_description ? item.getData().variation_description.replace(/<[^>]+>/gm, '').replace(/(&#215;)/g, 'x') : item.getName(),
 							        'id': (item_data.sku) ? item_data.sku : item.getId(),
 							        'price': item.getPrice(),
 							        'brand': 'Iro',
@@ -197,7 +197,7 @@ module.exports = () => {
 							    'currencyCode': 'EUR',
 							    'add': {                                // 'add' actionFieldObject measures.
 							      'products': [{                        //  adding a product to a shopping cart.
-							        'name': item.getData().variation_description ? item.getData().variation_description : item.getName(),
+							        'name': item.getData().variation_description ? item.getData().variation_description.replace(/<[^>]+>/gm, '').replace(/(&#215;)/g, 'x') : item.getName(),
 							        'id': item.getId(),
 							        'price': item.getPrice(),
 							        'brand': 'Iro',
@@ -234,7 +234,7 @@ module.exports = () => {
 				ngCart.getDesc = (item)=> {
 					var item_data = item.getData();
 					var name = item.getName();
-					var desc = (item_data.variation_description) ? item_data.variation_description.replace(name + ' ', '') : false;
+					var desc = (item_data.variation_description) ? item_data.variation_description.replace(name + ' ', '').replace(/<[^>]+>/gm, '').replace(/(&#215;)/g, 'x') : false;
 					return desc;
 				}
 	
@@ -252,7 +252,7 @@ module.exports = () => {
 							  'ecommerce': {
 							    'remove': {                                // 'add' actionFieldObject measures.
 							      'products': [{                        //  adding a product to a shopping cart.
-							        'name': layer_item.getData().variation_description ? layer_item.getData().variation_description : layer_item.getName(),
+							        'name': layer_item.getData().variation_description ? layer_item.getData().variation_description.replace(/<[^>]+>/gm, '').replace(/(&#215;)/g, 'x') : layer_item.getName(),
 							        'id': layer_item.getId(),
 							        'price': layer_item.getPrice(),
 							        'brand': 'Iro',
@@ -609,7 +609,7 @@ module.exports = () => {
 							let products = [];
 							angular.forEach(ngCart.getCart().items, (item, i)=> {
 								let obj = {
-									'name' : item.getData().variation_description,
+									'name' : item.getData().variation_description.replace(/<[^>]+>/gm, '').replace(/(&#215;)/g, 'x'),
 									'id' : item.getData().sku ? item.getData().sku : item.getId(),
 									'price' : item.getPrice(),
 									'brand' : 'Iro',

@@ -178,6 +178,7 @@
 
     function stars($average, $class_base) {
         $temp_star = $average;
+        echo $temp_star;
         for($i=1; $i<=5; $i++){
             if($temp_star >= 1) {
                 echo '<i class="icon-stella"></i>';
