@@ -177,25 +177,38 @@
     }
 
     function stars($average, $class_base) {
-        $average = 3.5;
-        for($i= 1; $i<= round($average + 1, 0, PHP_ROUND_HALF_UP); $i++ ) {
-            if($i <= 5) {
-                if (($average + 1) - $i > 0 && ($average + 1) - $i < 1) {
-                    $is_half = (($average + 1) - $i > 0.8) ? false : true;
+        $temp_star = $average;
+        for($i=1; $i<=5; $i++){
+            if($temp_star >= 1) {
+                echo '<i class="icon-stella"></i>';
+                $temp_star--;
+            } else {
+                if($temp_star >= 0.5) {
+                    echo '<span class="'. $class_base .'__starhalf"><i class="icon-stella"></i></span><i class="icon-stella"></i>';
                 } else {
-                    $is_half = false;
+                    echo '<span class="'. $class_base .'__star"><i class="icon-stella"></i></span>';
                 }
-                $starClass = ($is_half) ? $class_base .'__star '. $class_base .'__star--active-half' : $class_base .'__star '. $class_base .'__star--active';
-                $stars = (!$is_half) ? '<i class="icon-stella"></i>' : '<span class="'. $class_base .'__starhalf"><i class="icon-stella"></i></span><i class="icon-stella"></i>';
-                echo '<span class="'.$starClass.'">'.$stars.'</span>';
             }
         }
-        if(5 - $average >= 1) {
-            $resto = round((5 - $average), 0, PHP_ROUND_HALF_UP);
-            for($c = 0; $c<$resto; $c++) {
-                echo '<span class="'. $class_base .'__star"><i class="icon-stella"></i></span>';
-            }
-        }
+
+        // for($i= 1; $i<= round($average + 1, 0, PHP_ROUND_HALF_UP); $i++ ) {
+        //     if($i <= 5) {
+        //         if (($average + 1) - $i > 0 && ($average + 1) - $i < 1) {
+        //             $is_half = (($average + 1) - $i > 0.8) ? false : true;
+        //         } else {
+        //             $is_half = false;
+        //         }
+        //         $starClass = ($is_half) ? $class_base .'__star '. $class_base .'__star--active-half' : $class_base .'__star '. $class_base .'__star--active';
+        //         $stars = (!$is_half) ? '<i class="icon-stella"></i>' : '<span class="'. $class_base .'__starhalf"><i class="icon-stella"></i></span><i class="icon-stella"></i>';
+        //         echo '<span class="'.$starClass.'">'.$stars.'</span>';
+        //     }
+        // }
+        // if(5 - $average >= 1) {
+        //     $resto = round((5 - $average), 0, PHP_ROUND_HALF_UP);
+        //     for($c = 0; $c<$resto; $c++) {
+        //         echo '<span class="'. $class_base .'__star"><i class="icon-stella"></i></span>';
+        //     }
+        // }
     }
 
     function instagram_object() {
