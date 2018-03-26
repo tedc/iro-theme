@@ -36,27 +36,27 @@ if($current_user->user_email != ""){
 $TPtpi['orderid'] = $order->get_order_number();
 $TPtpi['amount'] = number_format ( $order->get_total() , 2, '.','');
 //Printing Script
-// echo "<script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js\"></script>";
-// echo "<script type=\"text/javascript\" src=\"https://tracking.trovaprezzi.it/javascripts/tracking.min.js\"></script>";
-// echo "<script type=\"text/javascript\">";
-// echo "window._tt = window._tt || [];";
-// echo "window._tt.push({ event: \"setAccount\", id: '". $TPtpi['chiaveMerchant'] ."' });";
-// echo "window._tt.push({ event: \"setOrderId\", order_id: '" . $TPtpi['orderid'] . "' });";
-// echo "window._tt.push({ event: \"setEmail\", email: '" . $TPtpi['email'] . "' });";
-// foreach( $order->get_items() as $item_id => $item ){
-// 	$mixed = wc_get_order_item_meta( $item_id, '_product_id', true );
-// 	$_order_product = $order->get_product_from_item( $item );
-// 	$prodID = $mixed[0];
-// 	$sku = ($_order_product->get_sku()) ? $_order_product->get_sku() : $mixed[0];
-// 	$prodName = $products[$item_id]['name'];
-// 	$prodName = str_replace("'", "", $prodName);
-// 	echo "window._tt.push({ event: \"addItem\", sku: '" . $sku . "', product_name: '" . $prodName . "' });";
-// }
-// echo "window._tt.push({ event: \"setAmount\", amount: '" . $TPtpi['amount'] . "' });";
-// echo "window._tt.push({ event: \"orderSubmit\"});";
+echo "<script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js\"></script>";
+echo "<script type=\"text/javascript\" src=\"https://tracking.trovaprezzi.it/javascripts/tracking.min.js\"></script>";
+echo "<script type=\"text/javascript\">";
+echo "window._tt = window._tt || [];";
+echo "window._tt.push({ event: \"setAccount\", id: '". $TPtpi['chiaveMerchant'] ."' });";
+echo "window._tt.push({ event: \"setOrderId\", order_id: '" . $TPtpi['orderid'] . "' });";
+echo "window._tt.push({ event: \"setEmail\", email: '" . $TPtpi['email'] . "' });";
+foreach( $order->get_items() as $item_id => $item ){
+	$mixed = wc_get_order_item_meta( $item_id, '_product_id', true );
+	$_order_product = $order->get_product_from_item( $item );
+	$prodID = $mixed[0];
+	$sku = ($_order_product->get_sku()) ? $_order_product->get_sku() : $mixed[0];
+	$prodName = $products[$item_id]['name'];
+	$prodName = str_replace("'", "", $prodName);
+	echo "window._tt.push({ event: \"addItem\", sku: '" . $sku . "', product_name: '" . $prodName . "' });";
+}
+echo "window._tt.push({ event: \"setAmount\", amount: '" . $TPtpi['amount'] . "' });";
+echo "window._tt.push({ event: \"orderSubmit\"});";
 ?>
 window.dataLayer.push({
-	event:purchase,
+	event:'purchase',
 	ecommerce:{
 		purchase:{
 			action: {
