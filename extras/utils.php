@@ -177,7 +177,7 @@
     }
 
     function stars($average, $class_base) {
-        $average = 3.75;
+        $average = 2.75;
         $split = false;
         for($i=1; $i<=5; $i++){
             if($i <= $average) {
