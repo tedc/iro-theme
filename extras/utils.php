@@ -177,14 +177,15 @@
     }
 
     function stars($average, $class_base) {
-        $temp_star = $average;
-        echo $temp_star;
+        $average = 4.85;
         for($i=1; $i<=5; $i++){
             if($i <= $average) {
                 echo '<span class="'. $class_base .'__star '. $class_base .'__star--active"><i class="icon-stella"></i></span>';
             } else {
                 if($average < $i-0.2 && $average < $i - 0.2) {
                     echo '<span class="'. $class_base .'__star '. $class_base .'__star--active-half"><span class="'. $class_base .'__starhalf"><i class="icon-stella"></i></span><i class="icon-stella"></i></span>';
+                } else if ($average > $i - 0.2) {
+                    echo '<span class="'. $class_base .'__star '. $class_base .'__star--active"><i class="icon-stella"></i></span>';
                 } else {
                     echo '<span class="'. $class_base .'__star"><i class="icon-stella"></i></span>';
                     
