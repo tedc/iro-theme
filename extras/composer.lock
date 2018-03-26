@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cf41277d9e7cd2acd04f813583498274",
-    "content-hash": "12a3ae5ada92a141f0911667326c95c3",
+    "hash": "1b87bcce8125f6344ece9faeb8fb6aff",
+    "content-hash": "e0316a262883583aeab0666a6fc8b38f",
     "packages": [
         {
             "name": "drewm/mailchimp-api",
@@ -362,6 +362,43 @@
                 "library"
             ],
             "time": "2015-03-26 15:00:43"
+        },
+        {
+            "name": "jhut89/mailchimp3php",
+            "version": "2.3.02",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Jhut89/Mailchimp-API-3.0-PHP.git",
+                "reference": "917c2252dd982fc8ca82c9d4eb906f66020dda46"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jhut89/Mailchimp-API-3.0-PHP/zipball/917c2252dd982fc8ca82c9d4eb906f66020dda46",
+                "reference": "917c2252dd982fc8ca82c9d4eb906f66020dda46",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/mailchimpRoot.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "John Hutcheson",
+                    "email": "hutch@theresearchgroup.io"
+                }
+            ],
+            "description": "A php library for version 3.0 of MailChimp's API",
+            "homepage": "https://github.com/Jhut89/Mailchimp-API-3.0-PHP",
+            "time": "2017-11-14 16:43:40"
         },
         {
             "name": "monolog/monolog",
