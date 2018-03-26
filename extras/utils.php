@@ -188,12 +188,10 @@
             $stars = (!$is_half) ? '<i class="icon-stella"></i>' : '<span class="'. $class_base .'__starhalf"><i class="icon-stella"></i></span><i class="icon-stella"></i>';
             echo '<span class="'.$starClass.'">'.$stars.'</span>';
         }
-        if($average <= 4) {
-            if(5 - $average >= 1) {
-                $resto = round((5 - $average), 0, PHP_ROUND_HALF_UP);
-                for($c = 0; $c<$resto; $c++) {
-                    echo '<span class="'. $class_base .'__star"><i class="icon-stella"></i></span>';
-                }
+        if(5 - $average >= 1) {
+            $resto = round((5 - $average), 0, PHP_ROUND_HALF_UP);
+            for($c = 0; $c<$resto; $c++) {
+                echo '<span class="'. $class_base .'__star"><i class="icon-stella"></i></span>';
             }
         }
     }
