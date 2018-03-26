@@ -54,6 +54,7 @@ $TPtpi['amount'] = number_format ( $order->get_total() , 2, '.','');
 // }
 // echo "window._tt.push({ event: \"setAmount\", amount: '" . $TPtpi['amount'] . "' });";
 // echo "window._tt.push({ event: \"orderSubmit\"});";
+var_dump($order);
 ?>
 
 <!-- window.dataLayer.push({
