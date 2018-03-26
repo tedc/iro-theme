@@ -997,8 +997,8 @@
 			if(isset($_POST['email'])) {
 				$email = $_POST['email'];
 		    	$MailChimp = new Mailchimp($api_key);
-		    	$post_params = ['email_address'=>'example@domain.com', 'status'=>'subscribed'];
-		    	if($mailchimp->lists('1a2b3c4d')->members()->POST($post_params)) {
+		    	$post_params = ['email_address'=>$email, 'status'=>'subscribed'];
+		    	if($mailchimp->lists($list_id)->members()->POST($post_params)) {
 		    		$data = array('message' => __('Iscrizione completata con successo.', 'iro'));
 		    	} else {
 		    		$data = array('message' => __('L\'indirizzo email risulta già iscritto alla newsletter di Iro', 'iro'));
