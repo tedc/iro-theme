@@ -80,7 +80,7 @@ ecommerce:{
 				'id' : '<?php echo $sku; ?>',
 				'price' : <?php echo $_order_product->get_price(); ?>,
 				'brand' : 'Iro',
-				'variant': '<?php $variation = new WC_Produc_Variable($_order_product->get_id()); $variation->get_description(); ?>',
+				'variant': '<?php $_order_product->get_variation_description(); ?>',
 			    'quantity': <?php echo $item['quantity']; ?>
 			},
 			<?php endforeach; ?>
