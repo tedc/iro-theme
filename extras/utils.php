@@ -177,6 +177,7 @@
     }
 
     function stars($average, $class_base) {
+
         for($i= 1; $i<= round($average + 1, 0, PHP_ROUND_HALF_UP); $i++ ) {
             if (($average + 1) - $i > 0 && ($average + 1) - $i < 1) {
                 $is_half = (($average + 1) - $i > 0.5) ? false : true;
@@ -187,10 +188,12 @@
             $stars = (!$is_half) ? '<i class="icon-stella"></i>' : '<span class="'. $class_base .'__starhalf"><i class="icon-stella"></i></span><i class="icon-stella"></i>';
             echo '<span class="'.$starClass.'">'.$stars.'</span>';
         }
-        if(5 - $average >= 1) {
-            $resto = round((5 - $average), 0, PHP_ROUND_HALF_UP);
-            for($c = 0; $c<$resto; $c++) {
-                echo '<span class="'. $class_base .'__star"><i class="icon-stella"></i></span>';
+        if(5 - $average < 4.5) {
+            if(5 - $average >= 1) {
+                $resto = round((5 - $average), 0, PHP_ROUND_HALF_UP);
+                for($c = 0; $c<$resto; $c++) {
+                    echo '<span class="'. $class_base .'__star"><i class="icon-stella"></i></span>';
+                }
             }
         }
     }
