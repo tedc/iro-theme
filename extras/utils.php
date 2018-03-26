@@ -177,7 +177,7 @@
     }
 
     function stars($average, $class_base) {
-        $average = 4.75;
+        $average = 3.75;
         for($i=1; $i<=5; $i++){
             if($i <= $average) {
                 echo '<span class="'. $class_base .'__star '. $class_base .'__star--active"><i class="icon-stella"></i></span>';
