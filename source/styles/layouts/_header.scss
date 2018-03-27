@@ -81,6 +81,7 @@
 		@include breakpoint(1024px) {
 			flex-direction: row;
 			align-items: stretch;
+			transform: none!important;
 		}
 		&__item {
 			position: relative;
