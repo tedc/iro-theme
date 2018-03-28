@@ -59,7 +59,7 @@ window.dataLayer.push({
 	event:'purchase',
 	ecommerce:{
 		purchase:{
-			action: {
+			actionField: {
 				affiliation : 'Online Store',
 				revenue : <?php echo $TPtpi['amount']; ?>,
 				shipping : <?php echo $order->get_shipping_total() ?>,
