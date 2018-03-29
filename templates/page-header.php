@@ -49,10 +49,11 @@ else :
 	</div>
 	<?php 
 	else:
+		if(!WC()->cart->is_empty()):
 ?>
 <div class="header header--page header--shrink-fw">
 	<div class="header__container header__container--grow-md">
 		<?php get_template_part( 'templates/page', 'title'); ?>
 	</div>
 </div>
-<?php endif; endif; ?>
+<?php endif; endif; endif; ?>
