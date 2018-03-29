@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 do_action( 'woocommerce_before_checkout_form', $checkout );
 
-if(WC()->cart->is_empty() ) :
+if(!WC()->cart->is_empty() ) :
 
 // If checkout registration is disabled and not logged in, the user cannot checkout
 if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_required() && ! is_user_logged_in() ) {
