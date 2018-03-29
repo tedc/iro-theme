@@ -23,6 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 do_action( 'woocommerce_before_checkout_form', $checkout );
 
+if(WC()->cart->is_empty() ) :
+
 // If checkout registration is disabled and not logged in, the user cannot checkout
 if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_required() && ! is_user_logged_in() ) {
 	echo apply_filters( 'woocommerce_checkout_must_be_logged_in_message', __( 'You must be logged in to checkout.', 'woocommerce' ) );
@@ -94,5 +96,8 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 		<p><?php _e('Si è verificato un errore. Riprova', 'iro'); ?></p>
 	</div>
 </form>
-
-<?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>
+<?php
+ else : 
+wc_get_template_part('checkout/form', 'empty');
+endif;
+ do_action( 'woocommerce_after_checkout_form', $checkout ); ?>

@@ -579,12 +579,3 @@ function my_woocommerce_cancelled_order($id) {
     exit;
 }
 add_action('woocommerce_cancelled_order', 'my_woocommerce_cancelled_order', 10, 1);
-
-
-function my_checkout_redirect() {
-    global $wp_query, $wp;
-    if( is_page( wc_get_page_id( 'checkout' ) ) && wc_get_page_id( 'checkout' ) !== wc_get_page_id( 'cart' ) && WC()->cart->is_empty() && empty( $wp->query_vars['order-pay'] ) && ! isset( $wp->query_vars['order-received'] ) ) {
-        return;
-    }
-}
-add_action( 'template_redirect', 'my_checkout_redirect', 9999, 1 );
