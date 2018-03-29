@@ -97,7 +97,5 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 	</div>
 </form>
 <?php
- else : 
-wc_get_template_part('checkout/form', 'empty');
 endif;
  do_action( 'woocommerce_after_checkout_form', $checkout ); ?>

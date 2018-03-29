@@ -56,4 +56,6 @@ else :
 		<?php get_template_part( 'templates/page', 'title'); ?>
 	</div>
 </div>
-<?php endif; endif; endif; ?>
+<?php else : 
+wc_get_template_part('checkout/form', 'empty');
+endif; endif; endif; ?>
