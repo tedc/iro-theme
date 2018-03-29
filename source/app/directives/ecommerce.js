@@ -689,6 +689,9 @@ module.exports = () => {
 				}
 			}
 			$rootScope.initEcommerce();
+			$timeout(()=> {
+				angular.element(document.body).addClass('iro--init');	
+			})
 		}]
 	}
 }

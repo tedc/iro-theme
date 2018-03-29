@@ -23,7 +23,4 @@ require('./models/index');
 require('./resources/index');
 require('./directives/index');
 require('./animations/index');
-angular.element(document).ready( () => {
-	angular.bootstrap(document, ['iro'])
-	angular.element(document.body).addClass('iro--init');
-});
+angular.element(document).ready( () => angular.bootstrap(document, ['iro']));
