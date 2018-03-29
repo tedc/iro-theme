@@ -119,6 +119,8 @@ module.exports = () => {
 					return $sce.trustAsHtml(string);
 				}
 				var addToCart = (item)=> {
+					if(!$element.hasClass('iro--init')) return;
+					if(ngCart.isUpdating) return;
 					ngCart.isUpdating = true;
 					var data = {
 						product_id : item.getId(),
