@@ -35,9 +35,11 @@
 		visibility: hidden;
 		opacity: 0;
 		&.popup--visible-add-active {
-			opacity: 1;
-			visibility: visible;
-			transition: $speed opacity $speed, visibility $speed $speed;
+			.iro--init & {
+				opacity: 1;
+				visibility: visible;
+				transition: $speed opacity $speed, visibility $speed $speed;
+			}
 		}
 	}
 	&.popup--visible-remove {

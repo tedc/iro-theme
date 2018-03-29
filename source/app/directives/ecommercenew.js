@@ -697,7 +697,7 @@ module.exports = () => {
 			$rootScope.initEcommerce();
 			$timeout(()=> {
 				$element.addClass('iro--init');
-			}, 20);
+			}, 100);
 		}]
 	}
 }

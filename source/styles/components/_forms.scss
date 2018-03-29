@@ -24,10 +24,12 @@
 		font-size: 16px!important;
 	}
 	&.ng-invalid.ng-pristine.ng-touched, &.ng-invalid.ng-dirty.ng-touched {
-		border-color: $error;
-		color: $error;
-		&::placeholder {
+		.iro--init & {
+			border-color: $error;
 			color: $error;
+			&::placeholder {
+				color: $error;
+			}
 		}
 	}
 	&[class*="--white"] {
