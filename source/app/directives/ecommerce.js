@@ -687,11 +687,9 @@ module.exports = () => {
 						$scope.passwordRecovering = false;
 					});
 				}
+				$element.addClass('iro--init');	
 			}
 			$rootScope.initEcommerce();
-			$timeout(()=> {
-				angular.element(document.body).addClass('iro--init');	
-			})
 		}]
 	}
 }
