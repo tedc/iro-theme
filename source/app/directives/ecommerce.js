@@ -687,7 +687,7 @@ module.exports = () => {
 						$scope.passwordRecovering = false;
 					});
 				}
-				$element.addClass('iro--init');	
+				$element.addClass('iro--cazzo');	
 			}
 			$rootScope.initEcommerce();
 		}]
