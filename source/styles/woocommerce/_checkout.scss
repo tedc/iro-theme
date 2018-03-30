@@ -388,10 +388,18 @@
 				transition: fill $speed;
 			}
 		}
+		&--satispay {
+			[class*="icon-"] {
+				font-size: em($p+4px);
+			}
+		}
 	}
 	&__icon {
 		width: em(100px);
 		text-align: center;
+		.payment__method--satispay & {
+			width: auto;
+		}
 	}
 	&__radio{
 		&:not(:checked) + label + .payment__icon {
