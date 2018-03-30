@@ -168,6 +168,7 @@ module.exports = () => {
 							    }
 							  }
 							});
+							$window.fbq('track', 'AddToCart');
 							$rootScope.$broadcast('ngCart:change');
 							ngCart.isUpdating = false;
 							$location.hash('cart');

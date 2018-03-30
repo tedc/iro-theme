@@ -139,6 +139,7 @@
 function header_scripts()
 
 	{ ?>
+<?php if(!preg_match('/(dnative)/', home_url('/'))) : ?>
 		<!-- Facebook Pixel Code -->
 <script>
   !function(f,b,e,v,n,t,s)
@@ -151,8 +152,12 @@ function header_scripts()
   'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '192305908199271');
   fbq('track', 'PageView');
+  <?php if(is_product( )) : ?>
+  fbq('track', 'ViewContent');
+  <?php endif; ?>
 </script>
 <!-- End Facebook Pixel Code -->
+<?php endif; ?>
 <!-- Start of dreamiro Zendesk Widget script -->
 <script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(e){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var e=this.createElement("script");n&&(this.domain=n),e.id="js-iframe-async",e.src="https://assets.zendesk.com/embeddable_framework/main.js",this.t=+new Date,this.zendeskHost="dreamiro.zendesk.com",this.zEQueue=a,this.body.appendChild(e)},o.write('<body onload="document._l();">'),o.close()}();
 /*]]>*/</script>
@@ -223,10 +228,12 @@ echo $critical;
 
 	function body_scripts()
 	{ ?>
+<?php if(!preg_match('/(dnative)/', home_url('/'))) : ?>
 		
 <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=192305908199271&ev=PageView&noscript=1"
 /></noscript>
+<?php endif; ?>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php $gmt = (preg_match('/(dnative)/', home_url('/'))) ? 'GTM-KMJZWDC' : 'GTM-5TPC55T'; echo $gmt; ?>"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
