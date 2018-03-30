@@ -414,6 +414,9 @@
 				[class*="icon-"] {
 					color: $alternate-color;
 				}
+				.payment__method--satispay & {
+					color: #ef4c3f;
+				}
 			}
 		}
 	}

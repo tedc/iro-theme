@@ -25,6 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /*TP implementation*/
 $products = $order->get_items();
 $current_user = wp_get_current_user();
+$total_items = count($order->get_items());
 $TPtpi['chiaveMerchant'] = 'bGNaM014SDZrYitJMWVKSm1JNUdxV0J3Mjg5N3cwa2Q1';
 if($current_user->user_email != ""){
 	$TPtpi['email'] = $current_user->user_email;
@@ -100,6 +101,28 @@ window.dataLayer.push({
 			]
 		}
 	}
+});
+fbq('track', 'Purchase', {
+  contents: [
+  <?php 
+  $fq = 0;
+  foreach( $order->get_items() as $item_id => $item ): 
+	$mixed = wc_get_order_item_meta( $item_id, '_product_id', true );
+	$_order_product = $item->get_product();
+	$prodID = $mixed[0];
+	$sku = ($_order_product->get_sku()) ? $_order_product->get_sku() : $mixed[0];
+?>
+    <?php echo ($fq > 0) ? ',' : ''; ?>{
+    	'name' : '<?php echo $products[$item_id]['name']; ?>',
+		'id': '<?php echo $sku; ?>',
+    	'quantity': <?php echo $item['quantity']; ?>,
+    	'item_price': <?php echo $_order_product->get_price(); ?>
+    }
+   <?php $fq++; endforeach; ?>
+  ],
+  content_type: 'product',
+  value: <?php echo $TPtpi['amount']; ?>,
+  currency: 'EURO'
 });
 <?php /*TP implementation END*/
 

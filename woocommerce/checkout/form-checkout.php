@@ -35,6 +35,9 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
     $phone_unformatted = preg_replace('/[^0-9,.]/','',str_replace('+', '00', $phone)); 
     acf_unset_language_to_default();
 ?>
+<script>
+	fbq('track', 'InitiateCheckout');
+</script>
 <form name="checkout" method="post" class="checkout checkout--shrink-fw" ng-submit="sendCheckout(checkout)" novalidate>
 	<nav class="checkout__banner checkout__banner--grid checkout__banner--shrink-fw">
 		<!-- <a href="<?php echo home_url('/'); ?>" ui-sref="app.root({lang : '<?php echo ICL_LANGUAGE_CODE; ?>'})" class="icon-logo"></a> -->
