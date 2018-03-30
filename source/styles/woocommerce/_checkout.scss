@@ -421,9 +421,9 @@
 			& + label + .payment__icon {
 				[class*="icon-"] {
 					color: $alternate-color;
-				}
-				.payment__method--satispay & {
-					color: #ef4c3f;
+					&.icon-satispay {
+						color: #ef4c3f;
+					}
 				}
 			}
 		}
