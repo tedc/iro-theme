@@ -37,6 +37,6 @@
 	</div>
 	<div class="order-review__total">
 		<strong class="order-review__total-label"><?php _e('Totale', 'iro'); ?></strong>
-		<span class="order-review__total-price" ng-bind-html="'€ ' + ((ngCart.totalCost() + ngCart.getExtras().discount))"></span>
+		<span class="order-review__total-price" ng-bind-html="'€ ' + ((ngCart.getDiscountTotal(ngCart.totalCost()) - ngCart.getShipping()))"></span>
 	</div>
 </div>
