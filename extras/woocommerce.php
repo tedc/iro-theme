@@ -589,6 +589,7 @@ function wpo_wcpdf_product_custom_field ( $template_type, $item, $order ) {
     $invoice_number = $invoice->get_number();
     // replace 'Location' with your custom field name!
     $lotto = get_field('lotto_dispositivo_medico', 'options');
+    echo $item['product']->id;
     if (!empty($lotto)) {
         foreach ($lotto as $l) {
             if($l['prodotto'] ==  $item['product']->id) :
