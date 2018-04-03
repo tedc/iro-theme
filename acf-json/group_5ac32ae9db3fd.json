@@ -6,7 +6,7 @@
             "key": "field_5ac32aed76634",
             "label": "Lotto dispositivo medico",
             "name": "lotto_dispositivo_medico",
-            "type": "text",
+            "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,11 +17,80 @@
             },
             "show_in_rest": 0,
             "edit_in_rest": 0,
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5ac336f338cf6",
+                    "label": "Numero lotto",
+                    "name": "numero_lotto",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_rest": 0,
+                    "edit_in_rest": 0,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5ac336fb38cf7",
+                    "label": "Numero fattura minima",
+                    "name": "numero_fattura_minima",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_rest": 0,
+                    "edit_in_rest": 0,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_5ac3370838cf8",
+                    "label": "Numero fattura massima",
+                    "name": "numero_fattura_massima",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_rest": 0,
+                    "edit_in_rest": 0,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -41,5 +110,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1522739962
+    "modified": 1522743058
 }

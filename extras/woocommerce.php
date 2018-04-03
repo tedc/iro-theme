@@ -585,10 +585,15 @@ add_action( 'wpo_wcpdf_after_item_meta', 'wpo_wcpdf_product_custom_field', 10, 3
 function wpo_wcpdf_product_custom_field ( $template_type, $item, $order ) {
     // check if product exists first
     if (empty($item['product'])) return;
-  
+    $invoice = wcpdf_get_invoice( $order, true ); // true makes sets 'init' which makes sure an invoice number is created;
+    $invoice_number = $invoice->get_number();
     // replace 'Location' with your custom field name!
     $lotto = get_field('lotto_dispositivo_medico', $item['product']->id);
     if (!empty($lotto)) {
-        echo '<div class="product-location">Lotto dispositivo medico: '.$lotto.'</div>';
+        foreach ($lotto as $l) {
+            if($invoice_number >= $l['numero_fattura_minima'] && $invoice_number <= $l['numero_fattura_massima']) {
+                echo '<div class="product-location">Lotto dispositivo medico: '.$l['lotto'].'</div>';
+            }
+        }
     }
 }
