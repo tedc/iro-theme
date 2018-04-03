@@ -12,6 +12,6 @@
 	?>
 	<nav class="blog__nav blog__nav--cell-s12 blog__nav--grow-md-top blog__nav--aligncenter">
 		<!-- <a href="<?php get_permalink(get_option('page_for_posts')); ?>" ui-sref="app.page({slug : '<?php echo basename( get_permalink(get_option('page_for_posts'))); ?>'})" class="blog__button blog__button--dark"><?php _e('Iro Blog', 'iro'); ?></a> -->
-	<a href="<?php get_permalink(get_option('page_for_posts')); ?>" class="blog__button blog__button--dark"><?php _e('Iro Blog', 'iro'); ?></a>
+	<a href="<?php echo get_permalink(get_option('page_for_posts')); ?>" class="blog__button blog__button--dark"><?php _e('Iro Blog', 'iro'); ?></a>
 </nav>
 </div>
