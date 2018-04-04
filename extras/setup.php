@@ -194,13 +194,11 @@
     function rewrite_popup_url() {
         $name = 'step';
         add_rewrite_endpoint($name, EP_PERMALINK );
-    }
-    add_action('init', 'rewrite_popup_url' );
-
-    function direct_download_files() {
         add_rewrite_endpoint('dichiarazione_di_conformita', EP_HOME );
         add_rewrite_endpoint('carta_di_identita', EP_HOME );
     }
+    add_action('init', 'rewrite_popup_url' );
+
 
     function storeUrlToFilesystem($source, $destination) {
 		try {
