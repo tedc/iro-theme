@@ -195,7 +195,7 @@
     function rewrite_popup_url() {
         $name = 'step';
         add_rewrite_endpoint($name, EP_PERMALINK );
-        add_rewrite_endpoint('downloads', EP_HOME );
+        add_rewrite_endpoint('downloads', EP_ROOT );
     }
     add_action('init', 'rewrite_popup_url' );
 
