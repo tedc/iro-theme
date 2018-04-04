@@ -233,7 +233,7 @@
 			    header('Pragma: public');
 			    header('Content-Length: ' . $size);
 			    //header('Set-Cookie: fileLoading=true');
-			    header( 'refresh:5;url='.home_url('/'));
+			    //header( 'refresh:5;url='.home_url('/'));
 			    echo file_get_contents($file);
 			    exit;
 			}
