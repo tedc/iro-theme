@@ -272,8 +272,13 @@ dd:after {
 	padding-left: 5mm;
 }
 
+.description {
+	color: #123f6d;
+}
+
 .product-medical {
 	font-size: 80%;
+	color: #7f7f7f;
 }
 
 /* Totals */

@@ -108,8 +108,7 @@
 				printf('<tr class="%s">', $row_class);
 				foreach ($item_columns as $column_key => $column_data) {
 					$data = str_replace('Materasso', 'Materasso IRO', $column_data['data']);
-					//printf('<td class="%s"><span>%s</span></td>', $column_data['class'], $data);
-					printf('<td class="%s"><span>%s</span></td>', $column_data['class'], $column_data['class']);
+					printf('<td class="%s"><span>%s</span></td>', $column_data['class'], $data);
 				}
 				echo '</tr>';
 			}
