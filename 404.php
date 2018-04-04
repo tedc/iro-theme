@@ -1,4 +1,4 @@
-<?php get_template_part('templates/page', 'header'); ?>
+<?php get_template_part('templates/page', 'header'); var_dump(get_query_var( 'downloads' )) ?>
 
 <div class="alert alert--grow-lg-bottom alert--shrink alert--mw-large alert--aligncenter">
   <p><?php _e('Spiacenti, la pagina che cerchi non esiste.', 'iro'); ?></p>
