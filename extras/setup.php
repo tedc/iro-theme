@@ -218,11 +218,14 @@
 	    	$base_file = get_field('downloads', 'options');
 	    	$file = $base_file[get_query_var( 'downloads' )];
 	    	if(storeUrlToFilesystem($file, home_url( '/' ))) {
-		        wp_redirect( home_url( '/' ) );
+		        //wp_redirect( home_url( '/' ) );
+
+	    		var_dump(storeUrlToFilesystem($file, home_url( '/' )));
 	    	} else {
-	    		wp_redirect( home_url( '/' ) );
+	    		//wp_redirect( home_url( '/' ) );
+	    		var_dump(storeUrlToFilesystem($file, home_url( '/' )));
 	    	}
-	    	exit;
+	    	//exit;
 	    }
 	}
 	add_action( 'template_redirect', 'download_template_redirect' );
