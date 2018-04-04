@@ -27,14 +27,14 @@ body {
 	background: #fff;
 	color: #58595b;
 	margin: 0cm;
-	font-family: 'Encode Sans';
+	font-family: 'Encode Sans', sans-serif;
 	line-height: 100%;
 	font-weight: normal;
 	font-size: 10pt;
 }
 
 h1, h2, h3, h4 {
-	font-family: 'Encode Sans';
+	font-family: 'Encode Sans', sans-serif;
 	font-weight: 700;
 	margin: 0;
 	color: #123f6d;
