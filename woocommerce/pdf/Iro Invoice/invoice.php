@@ -107,7 +107,8 @@
 				$row_class = apply_filters( 'wpo_wcpdf_item_row_class', $item_id, $this->get_type(), $this->order, $item_id );
 				printf('<tr class="%s">', $row_class);
 				foreach ($item_columns as $column_key => $column_data) {
-					printf('<td class="%s"></td>', $column_data['class'], $column_data['data']);
+					$data = str_replace('Materasso', 'Materasso IRO', $data);
+					printf('<td class="%s"><span>%s</span></td>', $column_data['class'], $data);
 				}
 				echo '</tr>';
 			}
