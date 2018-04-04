@@ -272,6 +272,10 @@ dd:after {
 	padding-left: 5mm;
 }
 
+.product-medical {
+	font-size: 80%;
+}
+
 /* Totals */
 table.notes-totals {
 	width: 100%;

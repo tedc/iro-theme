@@ -593,7 +593,7 @@ function wpo_wcpdf_product_custom_field ( $template_type, $item, $order ) {
         foreach ($lotto as $l) {
             if($l['prodotto'] ==  $item['product']->id) :
                 if($invoice_number >= $l['numero_fattura_minima'] && $invoice_number <= $l['numero_fattura_massima']) {
-                    echo '<div class="product-location">Lotto dispositivo medico: '.$l['numero_lotto'].'</div>';
+                    echo '<div class="product-medical">Lotto dispositivo medico: '.$l['numero_lotto'].'</div>';
                 }
             endif;
         }
