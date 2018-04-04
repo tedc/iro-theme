@@ -276,7 +276,7 @@ dd:after {
 	font-weight: bold;
 }
 
-.order-details tr.bundled-item td.description {
+td.description {
 	color: #123f6d;
 }
 
