@@ -272,7 +272,11 @@ dd:after {
 	padding-left: 5mm;
 }
 
-.description {
+.order-details th {
+	font-weight: bold;
+}
+
+.order-details tr.bundled-item td.description {
 	color: #123f6d;
 }
 
