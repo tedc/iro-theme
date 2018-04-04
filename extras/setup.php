@@ -235,6 +235,7 @@
 			    header('Pragma: no-cache');
 			    header('Content-Length: ' . $size);
 			    echo file_get_contents($file);
+			    wp_redirect( home_url('/') );
 			    exit;
 			}
 	    	//exit;
