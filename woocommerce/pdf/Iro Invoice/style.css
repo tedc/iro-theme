@@ -1,31 +1,36 @@
 <?php extract( wpo_wcpdf_templates_get_footer_settings( $this, '2cm' ) ); // $footer_height & $page_bottom ?>
 
 /* Load font */
+/* vietnamese */
 @font-face {
-	font-family: 'Roboto Slab';
+  font-family: 'Encode Sans';
+  font-style: normal;
+  font-weight: 400;
+	src: local('Encode Sans Regular'), local('EncodeSans-Regular'), url(<?php echo $this->get_template_path(); ?>/fonts/Encode_Sans/EncodeSans-Regular.ttf) format('truetype');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Encode Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Encode Sans Regular'), local('EncodeSans-Regular'), url(<?php echo $this->get_template_path(); ?>/fonts/Encode_Sans/EncodeSans-Regular.ttf) format('truetype');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Encode Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Encode Sans Regular'), local('EncodeSans-Regular'), url(<?php echo $this->get_template_path(); ?>/fonts/RobotoSlab-Normal.ttf) format('truetype');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+	font-family: 'Encode Sans';
 	font-style: normal;
 	font-weight: normal;
-	src: local('Roboto Slab Normal'), url(<?php echo $this->get_template_path(); ?>/fonts/RobotoSlab-Normal.ttf) format('truetype');
+	src: local('Encode Sans Regular'), local('EncodeSans-Regular'), url(<?php echo $this->get_template_path(); ?>/fonts/Encode_Sans/EncodeSans-Regular.ttf) format('truetype');
 }
-@font-face {
-	font-family: 'Roboto Slab';
-	font-style: normal;
-	font-weight: bold;
-	src: local('Roboto Slab Bold'), url(<?php echo $this->get_template_path(); ?>/fonts/RobotoSlab-Bold.ttf) format('truetype');
-}
-@font-face {
-	font-family: 'Roboto Slab';
-	font-style: italic;
-	font-weight: normal;
-	src: local('Roboto Italic'), url(<?php echo $this->get_template_path(); ?>/fonts/Roboto-Italic.ttf) format('truetype');
-}
-@font-face {
-	font-family: 'Roboto Slab';
-	font-style: italic;
-	font-weight: bold;
-	src: local('Roboto Bold Italic'), url(<?php echo $this->get_template_path(); ?>/fonts/Roboto-BoldItalic.ttf) format('truetype');
-}
-
 
 /* Main Body */
 @page {
@@ -38,7 +43,7 @@ body {
 	background: #fff;
 	color: #000;
 	margin: 0cm;
-	font-family: 'Roboto slab';
+	font-family: 'Encode Sans';
 	line-height: 100%;
 	font-weight: normal;
 	font-size: 10pt;
