@@ -272,9 +272,9 @@ dd:after {
 	padding-left: 5mm;
 }
 
-.order-details th {
+.order-details th span {
 	font-weight: bold;
-	font-size: 90%;
+	font-size: 80%;
 }
 
 td.description {
