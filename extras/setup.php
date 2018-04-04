@@ -187,6 +187,8 @@
         $vars[] = 'review_product';
         $vars[] = 'rating';
         $vars[] = 'step';
+        $vars[] = 'dichiarazione_di_conformita';
+        $vars[] = 'carta_di_identita';
         return $vars;
     }
     function rewrite_popup_url() {
@@ -194,6 +196,38 @@
         add_rewrite_endpoint($name, EP_PERMALINK );
     }
     add_action('init', 'rewrite_popup_url' );
+
+    function direct_download_files() {
+        add_rewrite_endpoint('dichiarazione_di_conformita', EP_HOME );
+        add_rewrite_endpoint('carta_di_identita', EP_HOME );
+    }
+
+    function storeUrlToFilesystem($source, $destination) {
+		try {
+			$data = file_get_contents($source);
+			$handle = fopen($destination, "w");
+			fwrite($handle, $data);
+			fclose($handle);
+			return true;	
+		} catch (Exception $e) {
+	    		echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+		return false;
+	}
+
+	function download_template_redirect() {
+	    if( get_query_var( 'dichiarazione_di_conformita' ) || get_query_var( 'carta_di_identita' )  ) {
+	    	$base_file = get_field('downloads', 'options');
+	    	$file = (get_query_var( 'dichiarazione_di_conformita' )) ? $base_file['dichiarazione_di_conformita'] : $base_file['carta_di_identita'];
+	    	if(storeUrlToFilesystem($file, home_url( '/' ))) {
+		        wp_redirect( home_url( '/' ) );
+	    	} else {
+	    		wp_redirect( home_url( '/' ) );
+	    	}
+	    	exit;
+	    }
+	}
+	add_action( 'template_redirect', 'download_template_redirect' );
 
     function extend_facebook_at($value, $post_id, $field) {
     	$group = get_field('facebook_api', 'options');

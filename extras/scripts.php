@@ -202,8 +202,8 @@ echo $critical;
         ss.rel = 'stylesheet';
         ss.href = href;
         gf.rel = 'stylesheet';
-        //gf.href = 'https://fonts.googleapis.com/css?family=Baloo+Bhaina|Encode+Sans:300,400,600,800';
-        gf.href = 'https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Encode+Sans:300,400,600,800';
+        gf.href = 'https://fonts.googleapis.com/css?family=Baloo+Bhaina|Encode+Sans:300,400,600,800';
+        //gf.href = 'https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Encode+Sans:300,400,600,800';
         // temporarily, set media to something non-matching to ensure it'll
         // fetch without blocking render
         gf.media = 'only x';
