@@ -233,7 +233,7 @@
         		header( "Pragma: no-cache" );
        			header( "Content-type: text/html" );
 			    header('Content-Description: File Transfer');
-			    header('Content-Disposition: attachment; filename='.basename($file));
+			    header('Content-Disposition: attachment; filename='.basename($file_name));
 			    //eader('Content-Length: ' . $size);
 			    header('Content-Type: application/force-download');
 			    //header('Cache-Control: must-revalidate');
