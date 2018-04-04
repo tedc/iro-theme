@@ -187,15 +187,15 @@
         $vars[] = 'review_product';
         $vars[] = 'rating';
         $vars[] = 'step';
-        $vars[] = 'dichiarazione_di_conformita';
-        $vars[] = 'carta_di_identita';
+        //$vars[] = 'dichiarazione_di_conformita';
+        //$vars[] = 'carta_di_identita';
+        $vars[] = 'downloads';
         return $vars;
     }
     function rewrite_popup_url() {
         $name = 'step';
         add_rewrite_endpoint($name, EP_PERMALINK );
-        add_rewrite_endpoint('dichiarazione_di_conformita', EP_HOME );
-        add_rewrite_endpoint('carta_di_identita', EP_HOME );
+        add_rewrite_endpoint('downloads', EP_HOME );
     }
     add_action('init', 'rewrite_popup_url' );
 
@@ -214,9 +214,9 @@
 	}
 
 	function download_template_redirect() {
-	    if( get_query_var( 'dichiarazione_di_conformita' ) || get_query_var( 'carta_di_identita' )  ) {
+	    if( get_query_var( 'downloads' )  ) {
 	    	$base_file = get_field('downloads', 'options');
-	    	$file = (get_query_var( 'dichiarazione_di_conformita' )) ? $base_file['dichiarazione_di_conformita'] : $base_file['carta_di_identita'];
+	    	$file = $base_file[get_query_var( 'downloads' )];
 	    	if(storeUrlToFilesystem($file, home_url( '/' ))) {
 		        wp_redirect( home_url( '/' ) );
 	    	} else {
