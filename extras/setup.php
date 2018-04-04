@@ -217,15 +217,23 @@
 	    if( get_query_var( 'downloads' )  ) {
 	    	$base_file = get_field('downloads', 'options');
 	    	$file = $base_file[get_query_var( 'downloads' )];
-	    	if (file_exists($file)) {
+	    	if ($file) {
+	    		$ch = curl_init($file);
+	    		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	    		curl_setopt($ch, CURLOPT_HEADER, TRUE);
+	    		curl_setopt($ch, CURLOPT_NOBODY, TRUE);
+	    		$data = curl_exec($ch);
+	    		$size = curl_getinfo($ch, CURLINFO_CONTENT_LENGTH_DOWNLOAD);
+	    		curl_close($ch);
 			    header('Content-Description: File Transfer');
 			    header('Content-Type: application/octet-stream');
 			    header('Content-Disposition: attachment; filename="'.basename($file).'"');
 			    header('Expires: 0');
 			    header('Cache-Control: must-revalidate');
 			    header('Pragma: public');
-			    header('Content-Length: ' . filesize($file));
-			    readfile($file);
+
+			    header('Content-Length: ' . $size);
+			    echo file_get_contents($file);
 			    exit;
 			}
 	    	//exit;
