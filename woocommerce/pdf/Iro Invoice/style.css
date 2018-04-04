@@ -12,7 +12,7 @@
 @font-face {
   font-family: 'Encode Sans';
   font-style: normal;
-  font-weight: 700;
+  font-weight: bold;
   src: local('Encode Sans Bold'), local('EncodeSans-Bold'), url(<?php echo $this->get_template_path(); ?>/fonts/Encode_Sans/EncodeSans-Bold.ttf) format('truetype');
 }
 
