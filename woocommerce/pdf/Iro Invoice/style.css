@@ -53,7 +53,7 @@
 }
 body {
 	background: #fff;
-	color: #000;
+	color: #58595b;
 	margin: 0cm;
 	font-family: 'Encode Sans';
 	line-height: 100%;
@@ -229,8 +229,8 @@ table.order-details tr:last-child {
 .order-details th {
 	font-weight: normal;
 	text-align: left;
-	border-bottom: 1px solid black;
-	border-top: 1px solid black;
+	border-bottom: 1px solid #123f6d;
+	border-top: 1px solid #123f6d;
 	padding-top: 0;
 }
 
