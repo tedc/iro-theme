@@ -219,8 +219,6 @@
 	    	$file = $base_file[get_query_var( 'downloads' )];
 	    	if ($file) {
 	    		$file_name = get_attached_file($file);
-			    header('Set-Cookie: fileLoading=true');
-			    header('refresh:5;url='.home_url('/'));
 	    		// $ch = curl_init($file);
 	    		// curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	    		// curl_setopt($ch, CURLOPT_HEADER, TRUE);
@@ -231,11 +229,12 @@
 			    header( "Cache-Control: no-cache, no-store, must-revalidate" );
         		header( 'Cache-Control: pre-check=0, post-check=0, max-age=0', false );
         		header( "Pragma: no-cache" );
-       			header( "Content-type: text/html" );
+       			//header( "Content-type: text/html" );
 			    header('Content-Description: File Transfer');
+			    header( "content-length: " . filesize( $file_name ) );
 			    header('Content-Disposition: attachment; filename='.basename($file_name));
 			    //eader('Content-Length: ' . $size);
-			    header('Content-Type: application/force-download');
+			    header('Content-Type: application/octet-stream');
 			    //header('Cache-Control: must-revalidate');
 			    readfile($file_name);
 			    //echo file_get_contents($file);
