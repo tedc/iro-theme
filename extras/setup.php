@@ -238,7 +238,7 @@
 			    //header('Cache-Control: must-revalidate');
 			    readfile($file_name);
 			    //echo file_get_contents($file);
-			    wp_redirect( home_url('/') );
+			    //wp_redirect( home_url('/') );
 			    exit;
 			}
 	    	//exit;
