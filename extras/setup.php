@@ -218,25 +218,27 @@
 	    	$base_file = get_field('downloads', 'options');
 	    	$file = $base_file[get_query_var( 'downloads' )];
 	    	if ($file) {
+	    		$file_name = get_attached_file($file);
 			    header('Set-Cookie: fileLoading=true');
 			    header('refresh:5;url='.home_url('/'));
-	    		$ch = curl_init($file);
-	    		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-	    		curl_setopt($ch, CURLOPT_HEADER, TRUE);
-	    		curl_setopt($ch, CURLOPT_NOBODY, TRUE);
-	    		$data = curl_exec($ch);
-	    		$size = curl_getinfo($ch, CURLINFO_CONTENT_LENGTH_DOWNLOAD);
-	    		curl_close($ch);
+	    		// $ch = curl_init($file);
+	    		// curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	    		// curl_setopt($ch, CURLOPT_HEADER, TRUE);
+	    		// curl_setopt($ch, CURLOPT_NOBODY, TRUE);
+	    		// $data = curl_exec($ch);
+	    		// $size = curl_getinfo($ch, CURLINFO_CONTENT_LENGTH_DOWNLOAD);
+	    		// curl_close($ch);
 			    header( "Cache-Control: no-cache, no-store, must-revalidate" );
         		header( 'Cache-Control: pre-check=0, post-check=0, max-age=0', false );
         		header( "Pragma: no-cache" );
        			header( "Content-type: text/html" );
 			    header('Content-Description: File Transfer');
 			    header('Content-Disposition: attachment; filename='.basename($file));
-			    header('Content-Length: ' . $size);
+			    //eader('Content-Length: ' . $size);
 			    header('Content-Type: application/force-download');
 			    //header('Cache-Control: must-revalidate');
-			    echo file_get_contents($file);
+			    readfile($file_name);
+			    //echo file_get_contents($file);
 			    wp_redirect( home_url('/') );
 			    exit;
 			}
