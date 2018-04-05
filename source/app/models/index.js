@@ -24,7 +24,8 @@ iro
 			let download_url = `${vars.main.base}/download/${vars.main.download}`;
 			ecommerce
 				.get(download_url)
-				.then(()=> {
+				.then((res)=> {
+					console.log(res);
 					//$window.location = vars.main.base;
 				});
 		}
