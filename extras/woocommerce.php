@@ -602,7 +602,7 @@ function wpo_wcpdf_product_custom_field ( $template_type, $item, $order ) {
     }
 }
 
-add_filter('wpo_wcpdf_raw_document_number', 'wpo_wcpdf_raw_document_number', 10, 4);
+//add_filter('wpo_wcpdf_raw_document_number', 'wpo_wcpdf_raw_document_number', 10, 4);
 function wpo_wcpdf_raw_document_number( $number, $settings, $document, $order ) {
     if ( $document->get_type() == 'invoice' ) {
         $invoice_date = $document->get_date();
