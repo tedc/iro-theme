@@ -23,7 +23,7 @@ iro
 		if(vars.main.download) {
 			let download_url = `${vars.main.base}/download/${vars.main.download}`;
 			ecommerce
-				.get(download_url)
+				.post(download_url, {})
 				.then((res)=> {
 					console.log(res);
 					//$window.location = vars.main.base;
