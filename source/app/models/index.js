@@ -25,7 +25,7 @@ iro
 			ecommerce
 				.get(download_url)
 				.then(()=> {
-					$window.location = vars.main.base;
+					//$window.location = vars.main.base;
 				});
 		}
 		// var langCookie = $cookies.get('lang');
