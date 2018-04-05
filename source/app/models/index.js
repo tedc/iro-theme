@@ -12,7 +12,7 @@ iro
 			requireBase : false
 		});
 	}])
-	.run(["$location", "$rootScope", "$window", "$cookies", 'angularLoad',  '$animate', '$timeout', ($location, $rootScope, $window, $cookies, angularLoad, $animate, $timeout) => {
+	.run(["$location", "$rootScope", "$window", "$cookies", 'angularLoad',  '$animate', '$timeout', 'ecommerce', ($location, $rootScope, $window, $cookies, angularLoad, $animate, $timeout, ecommerce) => {
 		//webFontLoader(['Baloo Bhaina','Encode Sans:300,400,600,800']);
 		angularLoad.loadScript('https://www.youtube.com/iframe_api')
 		FastClick.attach(document.body);
@@ -20,6 +20,14 @@ iro
 		//var oldUrl = $location.absUrl();
 		$rootScope.isMenu = false;
 		$rootScope.isUserLoggedIn = vars.wc.logged;
+		if(vars.main.download) {
+			let download_url = `${vars.main.base}/download/${vars.main.download}`;
+			ecommerce
+				.get(download_url)
+				.then(()=> {
+					$window.location = vars.main.base;
+				});
+		}
 		// var langCookie = $cookies.get('lang');
 		// if(!langCookie) {
 		// 	let currentDate = new Date();
