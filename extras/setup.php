@@ -246,7 +246,7 @@
 	}
 
 	function my_dlm_download_headers($headers) {
-		$headers['refresh'] = '5';
+		//$headers['refresh'] = '5';
 		return $headers;
 	}
 	add_filters('dlm_download_headers', 'my_dlm_download_headers', 10, 1);
