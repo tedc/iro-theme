@@ -25,8 +25,10 @@ iro
 			ecommerce
 				.post(download_url, {})
 				.then((res)=> {
-					console.log(res);
 					$window.location = `${vars.main.base}/download/${vars.main.download}`;
+					$timeout(function() {
+						$window.location = vars.main.base;
+					}, 1000);
 				});
 		}
 		// var langCookie = $cookies.get('lang');
