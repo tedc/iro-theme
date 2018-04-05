@@ -46,7 +46,10 @@ foreach ($ratings as $rate) {
 			'terms' => array($pid[0]->term_id)
 		)
 	);
-	$totals[get_field('rating', 'rating_'.$rate->term_id)] = count(get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $tx)));
+	$prods = get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $tx));
+	if($prods) {
+		$totals[get_field('rating', 'rating_'.$rate->term_id)] = count($prods);
+	}
 }
 $average = 0;
 foreach ($totals as $key => $value) {
