@@ -26,7 +26,7 @@ iro
 				.post(download_url, {})
 				.then((res)=> {
 					console.log(res);
-					//$window.location = vars.main.base;
+					$window.location = `${vars.main.base}/download/${vars.main.download}`;
 				});
 		}
 		// var langCookie = $cookies.get('lang');
