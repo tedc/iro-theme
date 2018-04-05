@@ -20,21 +20,6 @@ iro
 		//var oldUrl = $location.absUrl();
 		$rootScope.isMenu = false;
 		$rootScope.isUserLoggedIn = vars.wc.logged;
-		if(vars.main.download) {
-			let download_url = `${vars.main.base}/download/${vars.main.download}`;
-			ecommerce
-				.post(download_url, {})
-				.then((res)=> {
-					$window.location = download_url;
-					$timeout(function() {
-						ecommerce
-							.get(download_url)
-							.then(()=> {
-								$window.location = vars.main.base;
-							})
-					}, 1000);
-				});
-		}
 		// var langCookie = $cookies.get('lang');
 		// if(!langCookie) {
 		// 	let currentDate = new Date();
