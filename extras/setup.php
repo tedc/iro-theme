@@ -253,11 +253,11 @@
 	//add_action( 'template_redirect', 'download_template_redirect' );
 
 	function redirect_to_home_after_download() {
-		wp_redirect( home_url('/'), 302 );
+		wp_redirect( home_url('/') );
 		exit;
 	}
 
-	//add_action( 'dlm_downloading', 'redirect_to_home_after_download', 10, 1 );
+	add_action( 'dlm_downloading', 'redirect_to_home_after_download', 10, 1 );
 
     function extend_facebook_at($value, $post_id, $field) {
     	$group = get_field('facebook_api', 'options');
