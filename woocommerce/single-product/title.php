@@ -21,6 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 $pid = wp_get_post_terms( get_the_ID(), 'prodotto_associato' );
 the_title( '<h1 class="product__title product__title--big">', '</h1>' );
+if($pid) :
 $args = array(
 	array(
 		'taxonomy' => 'prodotto_associato',
@@ -55,4 +56,4 @@ $average = $average / $main_total;
 $average = round($average, 1);
 if(is_numeric($average) && $average > 0) :
 ?>
-<div class="product__stars"><?php stars($average, 'product'); ?> <span class="product__star-label"><?php echo $main_total; ?> <?php _e('recensioni', 'iro'); ?></span></div><?php endif; ?>
+<div class="product__stars"><?php stars($average, 'product'); ?> <span class="product__star-label"><?php echo $main_total; ?> <?php _e('recensioni', 'iro'); ?></span></div><?php endif; endif; ?>
