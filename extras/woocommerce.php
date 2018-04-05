@@ -601,13 +601,3 @@ function wpo_wcpdf_product_custom_field ( $template_type, $item, $order ) {
         }
     }
 }
-
-add_filter('wpo_wcpdf_raw_document_number', 'wpo_wcpdf_raw_document_number', 10, 4);
-function wpo_wcpdf_raw_document_number( $number, $settings, $document, $order ) {
-    if ( $document->get_type() == 'invoice' ) {
-        $invoice_date = $document->get_date();
-        $due_date = date_i18n( get_option( 'date_format' ), strtotime( $invoice_date->date_i18n('y')) );         
-        $number = $due_date. '.'.$number;
-    }
-    return $number;
-}
