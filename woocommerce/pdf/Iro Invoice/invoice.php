@@ -60,7 +60,15 @@
 				<?php if ( isset($this->settings['display_number'])) { ?>
 				<tr class="invoice-number">
 					<th><?php _e( 'Invoice Number:', 'woocommerce-pdf-invoices-packing-slips' ); ?></th>
-					<td><?php $invoice_date = $this->get_date('invoice'); echo $invoice_date->date_i18n('y'); ?>.<?php $this->invoice_number(); ?></td>
+					<td><?php 
+					$length = strlen($this->get_invoice_number());
+					$prefix = '';
+					if($length == 1) {
+						$prefix = '00';
+					} elseif($length == 2) {
+						$prefix = '0';
+					}
+					$invoice_date = $this->get_date('invoice'); echo $invoice_date->date_i18n('y'); ?>.<?php echo $prefix; $this->invoice_number(); ?></td>
 				</tr>
 				<?php } ?>
 				<tr class="order-number">
