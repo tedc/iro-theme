@@ -607,7 +607,7 @@ function wpo_wcpdf_raw_document_number( $number, $settings, $document, $order ) 
     if ( $document->get_type() == 'invoice' ) {
         $invoice_date = $document->get_date();
         //$due_date = date_i18n( get_option( 'date_format' ), strtotime( $invoice_date->date_i18n('y')) );         
-        $number = $number;
+        $number = '';
     }
     return $number;
 }
