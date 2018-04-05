@@ -99,9 +99,9 @@
 				'errorTitle' => __('Pagina non trovata', 'catellani'),
 				'blog' => basename(get_permalink($blog_base)),
 				'category' => get_option( 'category_base' ),
+				'download' => $dwn,
 				'css' => Assets\asset_path('styles/main.css'),
-				'instagram' => instagram_object(),
-				'download' => $dwn
+				'instagram' => instagram_object()
 			),
 			'lang' => array(
 				'default' => $sitepress->get_default_language(),
