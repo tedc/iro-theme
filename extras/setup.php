@@ -251,7 +251,7 @@
 		exit;
 	}
 
-	add_action( 'dlm_downloading', 'redirect_to_home_after_download', 10, 1 );
+	//add_action( 'dlm_downloading', 'redirect_to_home_after_download', 10, 1 );
 
     function extend_facebook_at($value, $post_id, $field) {
     	$group = get_field('facebook_api', 'options');
