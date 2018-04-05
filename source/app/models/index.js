@@ -25,9 +25,13 @@ iro
 			ecommerce
 				.post(download_url, {})
 				.then((res)=> {
-					$window.location = `${vars.main.base}/download/${vars.main.download}`;
+					$window.location = download_url;
 					$timeout(function() {
-						$window.location = vars.main.base;
+						ecommerce
+							.get(download_url)
+							.then(()=> {
+								$window.location = vars.main.base;
+							})
 					}, 1000);
 				});
 		}
