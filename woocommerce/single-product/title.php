@@ -21,3 +21,42 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 $pid = wp_get_post_terms( get_the_ID(), 'prodotto_associato' );
 the_title( '<h1 class="product__title product__title--big">', '</h1>' );
+if($pid) :
+$args = array(
+	array(
+		'taxonomy' => 'prodotto_associato',
+		'field' => 'term_id',
+		'terms' => array($pid[0]->term_id)
+	)
+);
+$main_total = count(get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $args)));
+$ratings = get_terms(array('taxonomy'=>'rating', 'hide_empty'=>0));
+$totals = array();
+foreach ($ratings as $rate) {
+	$tx = array(
+		'relation' => 'AND',
+		array(
+			'taxonomy' => 'rating',
+			'field' => 'term_id',
+			'terms' => array($rate->term_id)
+		),
+		array(
+			'taxonomy' => 'prodotto_associato',
+			'field' => 'term_id',
+			'terms' => array($pid[0]->term_id)
+		)
+	);
+	$prods = get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $tx));
+	if($prods) {
+		$totals[get_field('rating', 'rating_'.$rate->term_id)] = count($prods);
+	}
+}
+$average = 0;
+foreach ($totals as $key => $value) {
+	$average += (intval($key) * $value);
+}
+$average = $average / $main_total;
+$average = round($average, 1);
+if(is_numeric($average) && $average > 0) :
+?>
+<div class="product__stars"><?php stars($average, 'product'); ?> <span class="product__star-label"><?php echo $main_total; ?> <?php _e('recensioni', 'iro'); ?></span></div><?php endif; endif; ?>
