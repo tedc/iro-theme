@@ -244,6 +244,11 @@
 	    	//exit;
 	    }
 	}
+
+	function my_dlm_download_headers($headers) {
+		$headers['Refresh'] = '5; url='.home_url('/');
+	}
+	add_filters('dlm_download_headers', 'my_dlm_download_headers', 10, 1);
 	//add_action( 'template_redirect', 'download_template_redirect' );
 
 	function redirect_to_home_after_download() {
