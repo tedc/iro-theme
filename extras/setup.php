@@ -189,13 +189,13 @@
         $vars[] = 'step';
         //$vars[] = 'dichiarazione_di_conformita';
         //$vars[] = 'carta_di_identita';
-        $vars[] = 'downloads';
+        //$vars[] = 'downloads';
         return $vars;
     }
     function rewrite_popup_url() {
         $name = 'step';
         add_rewrite_endpoint($name, EP_PERMALINK );
-        add_rewrite_endpoint('downloads', EP_ROOT );
+        //add_rewrite_endpoint('downloads', EP_ROOT );
     }
     add_action('init', 'rewrite_popup_url' );
 
@@ -244,7 +244,14 @@
 	    	//exit;
 	    }
 	}
-	add_action( 'template_redirect', 'download_template_redirect' );
+	//add_action( 'template_redirect', 'download_template_redirect' );
+
+	function redirect_to_home_after_download() {
+		wp_redirect( home_url('/'), 302 );
+		exit;
+	}
+
+	add_action( 'dlm_downloading', 'redirect_to_home_after_download', 10, 1 );
 
     function extend_facebook_at($value, $post_id, $field) {
     	$group = get_field('facebook_api', 'options');
