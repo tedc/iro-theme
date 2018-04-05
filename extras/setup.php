@@ -199,7 +199,34 @@
     }
     add_action('init', 'rewrite_popup_url' );
 
+    function setup_seo_endpoint() {
+    // Ensures the $query_vars['item'] is available
+	    add_rewrite_tag( '%files%', '([^&]+)' );
 
+	    // Requires flushing endpoints whenever the 
+	    // front page is switched to a different page
+	    $page_on_front = get_option( 'page_on_front' );
+
+	    // Match the front page and pass item value as a query var.
+	    add_rewrite_rule( '^files/([^/]*)/?', 'index.php?page_id='.$page_on_front.'&files=$matches[1]', 'top' );
+	    // Match non-front page pages.
+	    add_rewrite_rule( '^(.*)/files/([^/]*)/?', 'index.php?pagename=$matches[1]&static=true&files=$matches[2]', 'top' );
+	}
+	add_action( 'init', 'setup_seo_endpoint', 1);
+
+	// http://wordpress.stackexchange.com/a/220484/52463
+	// In order to keep WordPress from forcing a redirect to the canonical
+	// home page, the redirect needs to be disabled.
+	function disable_canonical_redirect_for_front_page( $redirect ) {
+	    if ( is_page() && $front_page = get_option( 'page_on_front' ) ) {
+	        if ( is_page( $front_page ) ) {
+	            $redirect = false;
+	        }
+	    }
+
+	    return $redirect;
+	}
+	add_filter( 'redirect_canonical', 'disable_canonical_redirect_for_front_page' );
 
 
     function extend_facebook_at($value, $post_id, $field) {
