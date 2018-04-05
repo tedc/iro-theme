@@ -189,75 +189,18 @@
         $vars[] = 'step';
         //$vars[] = 'dichiarazione_di_conformita';
         //$vars[] = 'carta_di_identita';
-        //$vars[] = 'downloads';
+       	$vars[] = 'files';
         return $vars;
     }
     function rewrite_popup_url() {
         $name = 'step';
         add_rewrite_endpoint($name, EP_PERMALINK );
-        //add_rewrite_endpoint('downloads', EP_ROOT );
+        add_rewrite_endpoint('files', EP_ROOT );
     }
     add_action('init', 'rewrite_popup_url' );
 
 
-    function storeUrlToFilesystem($source, $destination) {
-		try {
-			$data = file_get_contents($source);
-			$handle = fopen($destination, "w");
-			fwrite($handle, $data);
-			fclose($handle);
-			return true;	
-		} catch (Exception $e) {
-	    		echo 'Caught exception: ',  $e->getMessage(), "\n";
-		}
-		return false;
-	}
 
-	function download_template_redirect() {
-	    if( get_query_var( 'downloads' )  ) {
-	    	$base_file = get_field('downloads', 'options');
-	    	$file = $base_file[get_query_var( 'downloads' )];
-	    	if ($file) {
-	    		$file_name = get_attached_file($file);
-	    		// $ch = curl_init($file);
-	    		// curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-	    		// curl_setopt($ch, CURLOPT_HEADER, TRUE);
-	    		// curl_setopt($ch, CURLOPT_NOBODY, TRUE);
-	    		// $data = curl_exec($ch);
-	    		// $size = curl_getinfo($ch, CURLINFO_CONTENT_LENGTH_DOWNLOAD);
-	    		// curl_close($ch);
-			    header( "Cache-Control: no-cache, no-store, must-revalidate" );
-        		header( 'Cache-Control: pre-check=0, post-check=0, max-age=0', false );
-        		header( "Pragma: no-cache" );
-       			//header( "Content-type: text/html" );
-			    header('Content-Description: File Transfer');
-			    header( "content-length: " . filesize( $file_name ) );
-			    header('Content-Disposition: attachment; filename='.basename($file_name));
-			    //eader('Content-Length: ' . $size);
-			    header('Content-Type: application/octet-stream');
-			    //header('Cache-Control: must-revalidate');
-			    readfile($file_name);
-			    //echo file_get_contents($file);
-			    //wp_redirect( home_url('/') );
-			    exit;
-			}
-	    	//exit;
-	    }
-	}
-
-	function my_dlm_download_headers($headers) {
-		$headers['Refresh'] = '5;url='.home_url('/');
-		return $headers;
-	}
-	add_filter('dlm_download_headers', 'my_dlm_download_headers', 10, 1);
-	//add_action( 'template_redirect', 'download_template_redirect' );
-
-	function redirect_to_home_after_download() {
-		wp_redirect( home_url('/') );
-		exit;
-	}
-
-	add_action( 'dlm_downloading', 'redirect_to_home_after_download', 10, 1 );
 
     function extend_facebook_at($value, $post_id, $field) {
     	$group = get_field('facebook_api', 'options');

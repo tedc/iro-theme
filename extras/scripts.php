@@ -88,6 +88,7 @@
 			'passwordMessage' => __('Abbiamo inviato un\'email per reimpostare la password all\'indirizzo di posta elettronica associato al tuo account, la sua effettiva visualizzazione in Posta in Arrivo potrebbe richiedere alcuni minuti. Per favore attendi almeno 10 minuti prima di effettuare un\'ulteriore richiesta.', 'iro'),
 			'resetPasswordMessage' => __('<p>Password modificata con successo. <a href="#login">Accedi a Iro</a>', 'iro')
 		);
+		$dwn = get_query_var( 'files' ) && is_front_page() ? get_query_var( 'files' ) : false;
 		$vars = array(
 			"main" => array(
 				'mobile' => (bool)is_handheld(),
@@ -99,7 +100,8 @@
 				'blog' => basename(get_permalink($blog_base)),
 				'category' => get_option( 'category_base' ),
 				'css' => Assets\asset_path('styles/main.css'),
-				'instagram' => instagram_object()
+				'instagram' => instagram_object(),
+				'download' => $dwn
 			),
 			'lang' => array(
 				'default' => $sitepress->get_default_language(),
