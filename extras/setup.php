@@ -247,6 +247,7 @@
 
 	function my_dlm_download_headers($headers) {
 		$headers['Refresh'] = '5; url='.home_url('/');
+		return $headers;
 	}
 	add_filters('dlm_download_headers', 'my_dlm_download_headers', 10, 1);
 	//add_action( 'template_redirect', 'download_template_redirect' );
