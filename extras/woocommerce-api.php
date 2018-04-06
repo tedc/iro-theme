@@ -379,7 +379,7 @@
 	    }
 	    public static function iro_apply_coupon() {
 
-	        check_ajax_referer( 'apply-coupon', 'security' );
+	        //check_ajax_referer( 'apply-coupon', 'security' );
 	        $coupons = array();
 	        
 
