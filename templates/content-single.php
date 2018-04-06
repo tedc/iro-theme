@@ -1,6 +1,8 @@
 <?php while (have_posts()) : the_post(); ?>
 <article <?php post_class('post--shrink-fw'); ?>>
-	<?php the_post_thumbnail('full', array('class' => 'post__thumbnail')); ?>
+	<figure class="post__header-image" style="background-image:url(<?php the_post_thumbnail_url('full'); ?>)">
+		<?php the_post_thumbnail('full', array('class' => 'post__thumbnail', 'data-object-fit' => true)); ?>
+	</figure>
 	<div class="post__content post__content--grow-lg post__content--mw-large">
 		<div class="post__meta post__meta--grid">
 			<?php get_template_part('templates/entry', 'meta'); ?>

@@ -68,6 +68,9 @@
 		    	.post--cell-s6:hover & {
 		    		color: $alternate-color;
 		    	}
+		    	&:hover {
+		    		color: $alternate-color;
+		    	}
 		    }
 		    &--big {
 		    	.single & {
@@ -119,20 +122,28 @@
 					}
 				}
 			}
-			.post--cell-s6 & {
-				&:after {
-					content: '';
-					background-color: $brand-main;
-					opacity: 0;
-					transition: opacity $speed;
-					@include full;
-				}
+			// .post--cell-s6 & {
+			// 	&:after {
+			// 		content: '';
+			// 		background-color: $brand-main;
+			// 		opacity: 0;
+			// 		transition: opacity $speed;
+			// 		@include full;
+			// 	}
+			// }
+			// .post--cell-s6:hover & {
+	  //   		&:after {
+			// 		opacity: 0.8;
+			// 	}
+	  //   	}
+		}
+		&header-image {
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			@supports (object-fit: cover) {
+				background-image: none!important;
 			}
-			.post--cell-s6:hover & {
-	    		&:after {
-					opacity: 0.8;
-				}
-	    	}
 		}
 		&content {
 			@include grow();
@@ -187,6 +198,7 @@
 				width: $f!important;
 				height: auto!important;
 			}
+
 		}
 		&thumbnail {
 			.single & {

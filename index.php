@@ -15,10 +15,14 @@
 			if($count_news == 2) :
 				$sn = 'facebook';
 			elseif($count_news == 4) :
-				$sn = 'instagram';
-				echo '</div>';
+				//$sn = 'instagram';
+				$sn = 'newsletter';
+				echo '</div><section class="row row--grow-lg row--shrink-fw row--gradient-light row--gradient-light-inverted row--relative">';
 			endif;
 			get_template_part( 'builder/'.$sn );
+			if($count_news == 4) :
+				echo '</section>';
+			endif;
 			
 		}
 	$count_news++; 
