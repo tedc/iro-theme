@@ -15,11 +15,13 @@ module.exports = ()=> {
 					.post(ajax_url, data)
 					.then((res)=> {
 						$scope.isSubscribing = false;
+						console.log(res.data);
 						$scope.nlMessage = res.data.message;
 						$scope.isNlError = res.data.error;
 						$scope.nlTimeout = $timeout(()=> {
 							$timeout.cancel($scope.nlTimeout);
 							delete $scope.nlMessage;
+							delete $scope.nlFields.email;
 						}, 5000);
 					});
 			}
