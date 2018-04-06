@@ -6,6 +6,9 @@
 	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	$count_news = 0;
 	while (have_posts()) : the_post(); 
+		if($count_news == '5' && $paged == 1 && !is_category()) {
+			echo '<div class="blog blog--grid blog--grow-lg blog--shrink-fw">';
+		}
 		include(locate_template('templates/content.php', false, false));
 		$sn = '';
 		if($paged == 1 && !is_category()) {
@@ -13,8 +16,10 @@
 				$sn = 'facebook';
 			elseif($count_news == 4) :
 				$sn = 'instagram';
+				echo '</div>';
 			endif;
 			get_template_part( 'builder/'.$sn );
+			
 		}
 	$count_news++; 
 	endwhile; ?>
