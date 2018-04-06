@@ -368,6 +368,9 @@ module.exports = () => {
 							if(isCheckout) $scope.updateShipping(false);
 							ngCart.setExtras(extras);
 							$rootScope.$broadcast('ngCart:change');
+							$timeout(()=> {
+								$rootScope.$broadcast('update_scroller');
+							}, 750);
 						})
 				}
 

@@ -317,7 +317,7 @@ iro
 				let pos = attr.goTo;
 				let top = document.querySelector('.banner').offsetHeight;
 				window.controller.scrollTo( (newpos)=>{
-					TweenMax.to(window, 0.5, {scrollTo: {y: newpos - top}});
+					TweenMax.to(window, 0.5, {scrollTo: {y: newpos - top, autoKill:false}});
 				});
 				element.on('click', ()=> {
 					window.controller.scrollTo(pos);
