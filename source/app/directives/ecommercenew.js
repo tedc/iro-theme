@@ -374,6 +374,10 @@ module.exports = () => {
 						})
 				}
 
+				$scope.applyCoupon = (coupon, nonce, isCheckout)=> {
+					ngCart.applyCoupon(coupon, nonce, isCheckout);
+				}
+
 				ngCart.getDiscountTotal = (total)=> {
 					let coupons = ngCart.getExtras().coupons;
 					if(coupons && coupons.length > 0){
