@@ -341,10 +341,12 @@ module.exports = () => {
 					if(ngCart.couponError) delete ngCart.couponError;
 					if(ngCart.isDescountLoading) return;
 					ngCart.isDescountLoading = true;
+					$scope.isDescountLoading = ngCart.isDescountLoading;
 					ecommerce
 						.post(vars.wc.coupons, {coupon_code : coupon, security : nonce})
 						.then( (res) => {
 							ngCart.isDescountLoading = false;
+							$scope.isDescountLoading = ngCart.isDescountLoading;
 							if(res.data.error) {
 								ngCart.couponError = res.data.error;
 								return;
