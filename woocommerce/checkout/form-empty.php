@@ -5,7 +5,8 @@
 			$url = get_permalink($materasso[0]->ID); ?>
 <div class="header header--page header--shrink-fw">
 	<div class="header__container header__container--grow-md">
-		<h1 class="header__title header__title--medium header__title--aligncenter"><?php _e('Il tuo carrello è vuoto', 'iro'); ?></h1>
+			<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/superhero-404.jpg" class="header__image header__image--error" />
+ 			<h1 class="header__title header__title--medium header__title--aligncenter"><?php _e('Il tuo carrello è vuoto', 'iro'); ?></h1>
 	</div>
 </div>
 <div class="alert alert--grow-lg-bottom alert--shrink alert--mw-large alert--aligncenter">

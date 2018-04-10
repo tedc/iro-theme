@@ -99,4 +99,9 @@
 
 .alert {
 	@include grow('lg', 'bottom');
+	&__image {
+		width: $f;
+		max-width: em(500px);
+		margin: 0 auto;
+	}
 }

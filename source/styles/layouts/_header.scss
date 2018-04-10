@@ -489,6 +489,11 @@
 			}
 		}
 	}
+	&__image--error {
+		width: $f;
+		max-width: em(500px);
+		margin: 0 auto;
+	}
 	body.home:not(.woocommerce-page) & {
 		&__container {
 			align-items: flex-start;
