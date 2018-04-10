@@ -37,6 +37,16 @@ module.exports = (getInstances, $animate)=> {
 				});
 			} else {
 				var layers = element[0].querySelectorAll('[data-layer-to]');
+				scope.layer = 0;
+				scope.move = (cond, max)=> {
+					if(cond) {
+						scope.layer = (scope.layer + 1 > max) ? 0 : scope.layer + 1;
+					} else {
+						scope.layer = (scope.layer - 1 < 0) ? max : scope.layer - 1;
+					}
+					let current = angular.element(layers[scope.layer]);
+					current.triggerHandler('click');
+				}
 				let clicked = []
 				angular.forEach( layers, function(item, index) {
 					let layers = item.getAttribute('data-layer-to').replace(/\s/g, '').split(',');

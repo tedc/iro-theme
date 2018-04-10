@@ -70,7 +70,9 @@
 					<?php endif; ?>
 					<?php if(get_sub_field('pointer_icon')){ echo print_svg(get_sub_field('pointer_icon'));} ?>
 				
-					<h3 class="layers__title"><?php the_sub_field('pointer_title'); ?></h3>
+					<h3 class="layers__title">
+						<i class="icon-arrow-left" ng-click="$event.stopPropagation(); move(false, <?php echo $count_layers - 1; ?>);"></i><?php the_sub_field('pointer_title'); ?><i class="icon-arrow-right" ng-click="$event.stopPropagation(); move(true, <?php echo $count_layers - 1; ?>);"></i>
+					</h3>
 					<?php if($l%2==0) : ?>
 						<div class="layers__text">
 						<?php endif; ?>
