@@ -101,7 +101,7 @@
 	@include grow('lg', 'bottom');
 	&__image {
 		width: $f;
-		max-width: em(500px);
-		margin: 0 auto;
+		max-width: em(250px);
+		margin: 0 auto em($p);
 	}
 }

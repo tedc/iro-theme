@@ -1,4 +1,4 @@
-<?php get_template_part('templates/page', 'header'); var_dump(get_query_var( 'downloads' )) ?>
+<?php get_template_part('templates/page', 'header'); ?>
 
 <div class="alert alert--grow-lg-bottom alert--shrink alert--mw-large alert--aligncenter">
 	<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/superhero-404.jpg" class="alert__image" />

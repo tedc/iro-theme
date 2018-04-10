@@ -491,8 +491,8 @@
 	}
 	&__image--error {
 		width: $f;
-		max-width: em(500px);
-		margin: 0 auto;
+		max-width: em(250px);
+		margin: 0 auto em($p);
 	}
 	body.home:not(.woocommerce-page) & {
 		&__container {

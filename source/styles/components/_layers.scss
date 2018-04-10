@@ -144,6 +144,39 @@
 				&:hover {
 					color: $alternate-color;
 				}
+				&--nav {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					i {
+						font-size: 6px;
+						width: 10px;
+						height: 10px;
+						margin: 0 5px;
+						border-radius: 10px;
+						background-color: $alternate-color;
+						color: $brand-main;
+						transition: background-color $speed;
+						&:before {
+							display: inline-block;
+							transition: transform $speed;
+						}
+						&:hover {
+							color: $w;
+							background-color: $brand-main;
+						}
+						&.icon-arrow-left:hover {
+							&:before {
+								transform: translate3d(-2px, 0, 0);
+							}
+						}
+						&.icon-arrow-left:hover {
+							&:before {
+								transform: translate3d(2px, 0, 0);
+							}
+						}
+					}
+				}
 			}
 			//padding-top: em($p*2);
 			text-align: center;
