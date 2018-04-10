@@ -71,7 +71,11 @@
 					<?php if(get_sub_field('pointer_icon')){ echo print_svg(get_sub_field('pointer_icon'));} ?>
 				
 					<h3 class="layers__title layers__title--nav">
-						<i class="icon-arrow-left" ng-click="$event.stopPropagation(); move(false, <?php echo $count_layers - 1; ?>);"></i><?php the_sub_field('pointer_title'); ?><i class="icon-arrow-right" ng-click="$event.stopPropagation(); move(true, <?php echo $count_layers - 1; ?>);"></i>
+						<?php 
+							$plus = ($l + 1 > $count_layers - 1) ? 0 : $l + 1;
+							$minus = ($l - 1 < 0) ? $count_layers - 1 : $l - 1; 
+						?>
+						<i class="icon-arrow-left" ng-click="$event.stopPropagation(); move(<?php echo $minus; ?>);"></i><?php the_sub_field('pointer_title'); ?><i class="icon-arrow-right" ng-click="$event.stopPropagation(); move(<?php echo $plus; ?>);"></i>
 					</h3>
 					<?php if($l%2==0) : ?>
 						<div class="layers__text">
