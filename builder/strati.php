@@ -65,6 +65,10 @@
 			?>
 			<div class="layers__pointer layers__pointer--<?php echo ($l%2==0) ? 'odd':'even'; ?>">
 				<div class="layers__content<?php echo ($l==0)? ' layer-active' : ''; ?>" data-layer-to="<?php the_sub_field('pointer_layer'); ?>">
+					<?php 
+							$plus = ($l + 1 > $count_layers - 1) ? 0 : $l + 1;
+							$minus = ($l - 1 < 0) ? $count_layers - 1 : $l - 1; 
+						?>
 					<i class="icon-arrow-left" ng-click="$event.stopPropagation(); move(<?php echo $minus; ?>);"></i>
 					<?php if($l%2==0) : ?>
 					<div class="layers__text">
@@ -72,10 +76,7 @@
 					<?php if(get_sub_field('pointer_icon')){ echo print_svg(get_sub_field('pointer_icon'));} ?>
 				
 					<h3 class="layers__title layers__title--nav">
-						<?php 
-							$plus = ($l + 1 > $count_layers - 1) ? 0 : $l + 1;
-							$minus = ($l - 1 < 0) ? $count_layers - 1 : $l - 1; 
-						?>
+						
 						<?php the_sub_field('pointer_title'); ?>
 					</h3>
 					<?php if($l%2!=0) : ?>
