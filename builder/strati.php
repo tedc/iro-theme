@@ -64,7 +64,7 @@
 			<?php $l=0;while(have_rows('layers_pointers')) : the_row();
 			?>
 			<div class="layers__pointer layers__pointer--<?php echo ($l%2==0) ? 'odd':'even'; ?>">
-				<div class="layers__content" data-layer-to="<?php the_sub_field('pointer_layer'); ?>">
+				<div class="layers__content<?php echo ($l==0)? ' layer-active' : ''; ?>" data-layer-to="<?php the_sub_field('pointer_layer'); ?>">
 					<?php if($l%2!=0) : ?>
 					<div class="layers__text">
 					<?php endif; ?>
