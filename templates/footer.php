@@ -51,4 +51,24 @@
         </div>
 	</div>
 </footer>
+<?php 
+	$main_product = get_field('main_product', 'options');
+	$materasso = get_posts(
+		array(
+			'post_type'=>'product',
+			'tax_query'=> array(
+				array(
+					'taxonomy' => 'prodotto_associato',
+					'field' => 'term_id',
+					'terms' => array($main_product)
+				)
+			)
+		)
+	);
+	if(!is_product($materasso[0]->ID)) : 
+?>
+<span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top add-to-cart__wrapper--fixed">
+<a class="add-to-cart__button" href="<?php echo get_permalink($materasso[0]->ID); ?>"><?php _e('Acquista IRO', 'iro'); ?></a>
+</span>
+<?php endif; ?>
 <cookie-law-banner accept-button="false" ng-class="{accepted: isClAccepted}" policy-button="true" policy-text="Cookie Policy" message="<?php _e('Il sito di IRO utilizza cookie: proseguendo nella navigazione, acconsenti al loro uso secondo le finalità illustrate dalle nostre policy.', 'iro'); ?>" policy-url="<?php the_field('cookie_policy', 'iro'); ?>"></cookie-law-banner>

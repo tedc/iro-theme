@@ -44,5 +44,6 @@
 			stars($average, 'footer');
 		?>
 	</span>
+	<a class="footer__permalink" href="<?php echo get_post_type_archive_link('recensioni'); ?>"></a>
 </div>
 <?php endif; ?>

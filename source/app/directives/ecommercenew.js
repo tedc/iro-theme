@@ -131,13 +131,15 @@ module.exports = () => {
 					    }
 					  }
 					});
-					$window.fbq('track', 'ViewContent', {
-						content_name: $scope.attributes.variation_description ? $scope.attributes.variation_description.replace(/<[^>]+>/gm, '').replace(/(&#215;)/g, 'x') : $scope.attributes.title,
-						content_type: 'product',
-						content_ids: [($scope.attributes.sku) ? $scope.attributes.sku : $scope.attributes.variation_id],
-						value: $scope.attributes.display_price,
-						currency: 'EUR'
-					});
+					if($window.fbq) {
+						$window.fbq('track', 'ViewContent', {
+							content_name: $scope.attributes.variation_description ? $scope.attributes.variation_description.replace(/<[^>]+>/gm, '').replace(/(&#215;)/g, 'x') : $scope.attributes.title,
+							content_type: 'product',
+							content_ids: [($scope.attributes.sku) ? $scope.attributes.sku : $scope.attributes.variation_id],
+							value: $scope.attributes.display_price,
+							currency: 'EUR'
+						});
+					}
 				}
 				$scope.variationPrice = (i)=> {
 					return $scope.variationPrices[i][$scope.singleProductVariation.attribute_pa_color];
@@ -212,18 +214,20 @@ module.exports = () => {
 							    }
 							  }
 							});
-							$window.fbq('track', 'AddToCart', {
-								contents : [
-									{
-										name: item.getData().variation_description ? item.getData().variation_description.replace(/<[^>]+>/gm, '').replace(/(&#215;)/g, 'x') : item.getName(),
-										id: (item_data.sku) ? item_data.sku : item.getId(),
-										quantity: item.getQuantity()
-									}
-								],
-								content_type: 'product',
-								value: item.getPrice(),
-								currency: 'EUR'
-							});
+							if($window.fbq) {
+								$window.fbq('track', 'AddToCart', {
+									contents : [
+										{
+											name: item.getData().variation_description ? item.getData().variation_description.replace(/<[^>]+>/gm, '').replace(/(&#215;)/g, 'x') : item.getName(),
+											id: (item_data.sku) ? item_data.sku : item.getId(),
+											quantity: item.getQuantity()
+										}
+									],
+									content_type: 'product',
+									value: item.getPrice(),
+									currency: 'EUR'
+								});
+							}
 							$rootScope.$broadcast('ngCart:change');
 							ngCart.isUpdating = false;
 							$location.hash('cart');
@@ -694,7 +698,9 @@ module.exports = () => {
 							     }
 							   }
 							});
-							$window.fbq('track', 'AddPaymentInfo');
+							if($window.fbq) {
+								$window.fbq('track', 'AddPaymentInfo');
+							}
 						}
 					}
 					swiper.on('slideChange', getCurrentIndex);
