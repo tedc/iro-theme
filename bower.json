@@ -13,6 +13,7 @@
     "swiper": "^4.0.5",
     "angular-bind-html-compile": "^1.4.1",
     "ngCart": "ngcart#^1.0.0",
-    "angular-timeago": "^0.4.6"
+    "angular-timeago": "^0.4.6",
+    "angular-cookie-law": "^0.2.4"
   }
 }

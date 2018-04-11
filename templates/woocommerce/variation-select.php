@@ -65,9 +65,10 @@
             foreach ( $terms as $term ) { 
                 if ( in_array( $term->slug, $options ) ) {
                     $_prices = htmlspecialchars( wp_json_encode( display_price_in_variation_option_name($term->name, $product) ) );
+                    $_is_custom = (get_field('is_custom_size', $term)) ? 'true' : 'false';
                     //$_prices = str_replace(array('[', ']'), '', $_prices);
                     $term_name = '<strong>'.preg_replace('/([0-9]{1,3}([x][0-9]{1,3})([x][0-9]{1,3})?)/', '<span>$1</span>', $term->name) . '</strong>';
-                    $html .= '<div class="variation__option swiper-slide" ng-click="$event.stopPropagation();singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '=\''.esc_attr( $term->slug ) .'\'; sizeSelected={name :\''.$term_name.'\', sizes :\''.$term->description.'\'};getVariation();isSelected=false;variationPriceIndex='.$count_select.'" ng-class="{\'variation__option--selected\':singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '==\''.esc_attr( $term->slug ) .'\'}" ng-init="variationPrices['.$count_select.']='.$_prices.'">' . $term_name . '<em ng-bind-html="variationPrice('.$count_select.')"></em></div>'; 
+                    $html .= '<div class="variation__option swiper-slide" ng-click="$event.stopPropagation();singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '=\''.esc_attr( $term->slug ) .'\'; sizeSelected={name :\''.$term_name.'\', sizes :\''.$term->description.'\'};getVariation();isSelected=false;variationPriceIndex='.$count_select.'" ng-class="{\'variation__option--selected\':singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '==\''.esc_attr( $term->slug ) .'\';isCustomSize=<?php echo $_is_custom; ?>}" ng-init="variationPrices['.$count_select.']='.$_prices.'">' . $term_name . '<em ng-bind-html="variationPrice('.$count_select.')"></em></div>'; 
                     $count_select++;
                 } 
             } 

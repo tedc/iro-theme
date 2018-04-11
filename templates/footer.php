@@ -51,3 +51,4 @@
         </div>
 	</div>
 </footer>
+<cookie-law-banner accept-button="false" ng-class="{accepted: isClAccepted}" policy-button="true" policy-text="Cookie Policy" message="<?php _e('Il sito di IRO utilizza cookie: proseguendo nella navigazione, acconsenti al loro uso secondo le finalità illustrate dalle nostre policy.', 'iro'); ?>" policy-url="<?php the_field('cookie_policy', 'iro'); ?>"></cookie-law-banner>

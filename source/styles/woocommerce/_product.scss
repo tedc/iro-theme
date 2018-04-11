@@ -178,6 +178,12 @@
 			margin-left: em($p/4);
 		}
 	}
+	&__unit{
+		&s {
+			align-items: center;
+		}
+		flex: 1;
+	}
 }
 
 .add-to-cart {

@@ -1,6 +1,6 @@
 module.exports = () => {
 	return {
-		controller : ['$scope', '$rootScope', 'ngCart', '$element', 'ecommerce', 'getInstances', '$timeout', '$window', '$filter', '$location', '$sce',  ($scope, $rootScope, ngCart, $element, ecommerce, getInstances, $timeout, $window, $filter, $location, $sce)=> {
+		controller : ['$scope', '$rootScope', 'ngCart', '$element', 'ecommerce', 'getInstances', '$timeout', '$window', '$filter', '$location', '$sce', 'CookieLawService', ($scope, $rootScope, ngCart, $element, ecommerce, getInstances, $timeout, $window, $filter, $location, $sce, CookieLawService)=> {
 			// CART
 			$rootScope.isCartChanged = false;
 			let errorAlert = $element[0].querySelector('ul.woocommerce-error');
@@ -23,6 +23,28 @@ module.exports = () => {
 					isSliderUpdated = true;
 				}
 			});
+			$scope.isClAccepted = false;
+			if(!CookieLawService.isEnabled()) {
+				let cookieTween = TweenMax.to({index : 0}, .25, 
+					{
+						index : 10,
+						onCompleteParams : ['{self}'],
+						onComplete : ()=> {
+							$timeout(()=> {
+								CookieLawService.accept();
+								$scope.isClAccepted = true;
+							})
+						}
+					}
+				);
+				let cookieLaw = new ScrollMagic.Scene({
+					triggerElement: $element[0],
+					triggerHook: 'onLeave',
+					offset : 120
+				});
+				cookieLaw.setTween(cookieTween);
+				cookieLaw.addTo(window.controller);
+			}
 
 			$rootScope.initEcommerce = ()=>{
 				let getCart = ()=>{
@@ -88,6 +110,7 @@ module.exports = () => {
 				$scope.product = {};
 				ngCart.isUpdating = false;
 				$scope.variationPrices = [];
+				$scope.isCustomSize = false;
 				$scope.getVariation = () => {
 					$scope.attributes = ecommerce.findMatchingVariations($scope.product.product_variations, $scope.singleProductVariation).shift();
 					//$scope.product.price = `€ ${$scope.attributes.display_price}`;
@@ -136,10 +159,23 @@ module.exports = () => {
 					if($scope.product.product_variations) {
 						$scope.attributes = ecommerce.findMatchingVariations($scope.product.product_variations, $scope.singleProductVariation).shift();
 						data = angular.extend({}, data, {variation_id : $scope.attributes.variation_id, variation : $scope.singleProductVariation});	
+						
 						var url = vars.wc.variation_add;
 						let item_data = angular.extend({}, item.getData(), $scope.attributes);
 						item_data = angular.extend({}, item_data, {variation : data.variation});
 						let price = $scope.attributes.display_price;
+						if($scope.isCustomSize) {
+							if($scope.productCustomSize.extent && $scope.productCustomSize.width && $scope.productCustomSize.height) {
+								let custom_size = `${$scope.productCustomSize.extent}x${$scope.productCustomSize.width}x${$scope.productCustomSize.height}`;
+								data = angular.extend({}, data, {_custom_size : custom_size});
+								item_data = angular.extend({}, item_data, {custom_size : custom_size})
+							}
+						} else {
+							if(data.custom_size) {
+								delete data._custom_size;
+								delete item_data.custom_size;
+							}
+						}
 						item.setData(item_data);	
 						item.setPrice(price);
 					} else {
@@ -154,6 +190,7 @@ module.exports = () => {
 							data = angular.extend({}, data, {product_id : $scope.product.original_id});
 						}
 					}
+						
 					ecommerce
 						.post(url, data)
 						.then( (res)=> {

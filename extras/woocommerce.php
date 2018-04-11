@@ -601,3 +601,106 @@ function wpo_wcpdf_product_custom_field ( $template_type, $item, $order ) {
         }
     }
 }
+/*
+ * Validate when adding to cart
+ * @param bool $passed
+ * @param int $product_id
+ * @param int $quantity
+ * @return bool
+ */
+function iro_custom_size_add_to_cart_validation($passed, $product_id, $qty){
+
+    if( isset( $_POST['_custom_size'] ) && sanitize_text_field( $_POST['_custom_size'] ) == '' ){
+        $product = wc_get_product( $product_id );
+        wc_add_notice( sprintf( __( '%s cannot be added to the cart until you enter some custom text.', 'kia-plugin-textdomain' ), $product->get_title() ), 'error' );
+        return false;
+    }
+
+    return $passed;
+
+}
+add_filter( 'woocommerce_add_to_cart_validation', 'iro_custom_size_add_to_cart_validation', 10, 3 );
+
+ /*
+ * Add custom data to the cart item
+ * @param array $cart_item
+ * @param int $product_id
+ * @return array
+ */
+function iro_custom_size_add_cart_item_data( $cart_item, $product_id ){
+
+    if( isset( $_POST['_custom_size'] ) ) {
+        $cart_item['custom_size'] = sanitize_text_field( $_POST['_custom_size'] );
+    }
+
+    return $cart_item;
+
+}
+add_filter( 'woocommerce_add_cart_item_data', 'iro_custom_size_add_cart_item_data', 10, 2 );
+
+
+/*
+ * Add meta to order item
+ * @param int $item_id
+ * @param array $values
+ * @return void
+ */
+function iro_custom_size_add_order_item_meta( $item_id, $values ) {
+
+    if ( ! empty( $values['custom_size'] ) ) {
+        woocommerce_add_order_item_meta( $item_id, 'custom_size', $values['custom_size'] );           
+    }
+}
+add_action( 'woocommerce_add_order_item_meta', 'iro_custom_size_add_order_item_meta', 10, 2 );
+
+
+/*
+ * Get item data to display in cart
+ * @param array $other_data
+ * @param array $cart_item
+ * @return array
+ */
+function iro_custom_size_get_item_data( $other_data, $cart_item ) {
+
+    if ( isset( $cart_item['custom_size'] ) ){
+
+        $other_data[] = array(
+            'name' => __( 'Misure personalizzate', 'iro' ),
+            'value' => sanitize_text_field( $cart_item['custom_size'] )
+        );
+
+    }
+
+    return $other_data;
+
+}
+add_filter( 'woocommerce_get_item_data', 'iro_custom_size_get_item_data', 10, 2 );
+
+/*
+ * Show custom field in order overview
+ * @param array $cart_item
+ * @param array $order_item
+ * @return array
+ */
+function iro_custom_size_order_item_product( $cart_item, $order_item ){
+
+    if( isset( $order_item['custom_size'] ) ){
+        $cart_item_meta['custom_size'] = $order_item['custom_size'];
+    }
+
+    return $cart_item;
+
+}
+add_filter( 'woocommerce_order_item_product', 'iro_custom_size_order_item_product', 10, 2 );
+
+
+/* 
+ * Add the field to order emails 
+ * @param array $keys 
+ * @return array 
+ */ 
+function iro_custom_size_email_order_meta_fields( $fields ) { 
+    $fields['custom_size'] = __( 'Misure personalizzate', 'iro' ); 
+    return $fields; 
+} 
+add_filter('woocommerce_email_order_meta_fields', 'iro_custom_size_email_order_meta_fields');
