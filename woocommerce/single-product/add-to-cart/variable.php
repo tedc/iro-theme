@@ -45,23 +45,23 @@ do_action( 'woocommerce_before_add_to_cart_form' );
 							
 						?>
 					</div>
-					<div class="variation__custom slide-toggle" ng-class="{'slide-toggle-visible': isCustomSize}">
-						<h4 class="variation_title"><?php _e('Scegli le tue dimensioni', 'iro'); ?></h4>
-						<div class="variation__units variation__units--grid">
-							<div class="variation__unit">
-								<input class="variation__input" type="text" ng-model="productCustomSize.extent" placeholder="<?php _e('Lunghezza', 'iro'); ?>">
-							</div>
-							<div class="variation__unit">
-								<input class="variation__input" type="text" ng-model="productCustomSize.width" placeholder="<?php _e('Larghezza', 'iro'); ?>">
-							</div>
-							<div class="variation__unit">
-								<input class="variation__input" type="text" ng-model="productCustomSize.height" placeholder="<?php _e('Altezza', 'iro'); ?>">
-							</div>
-							<div class="variation__unit"><strong><?php _e('cm', 'iro'); ?></strong></div>
-						</div>
-					</div>
 				</div>
 			<?php endforeach; ?>
+			<div class="variation__custom slide-toggle" ng-class="{'slide-toggle-visible': isCustomSize}">
+				<h4 class="variation_title"><?php _e('Scegli le tue dimensioni', 'iro'); ?></h4>
+				<div class="variation__units variation__units--grid">
+					<div class="variation__unit">
+						<input class="variation__input" type="text" ng-model="productCustomSize.extent" placeholder="<?php _e('Lunghezza', 'iro'); ?>">
+					</div>
+					<div class="variation__unit">
+						<input class="variation__input" type="text" ng-model="productCustomSize.width" placeholder="<?php _e('Larghezza', 'iro'); ?>">
+					</div>
+					<div class="variation__unit">
+						<input class="variation__input" type="text" ng-model="productCustomSize.height" placeholder="<?php _e('Altezza', 'iro'); ?>">
+					</div>
+					<div class="variation__unit"><strong><?php _e('cm', 'iro'); ?></strong></div>
+				</div>
+			</div>
 		</div>
 
 		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
