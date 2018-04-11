@@ -47,7 +47,7 @@ do_action( 'woocommerce_before_add_to_cart_form' );
 					</div>
 				</div>
 			<?php endforeach; ?>
-			<div class="variation__custom slide-toggle" ng-class="{'slide-toggle-visible': isCustomSize}">
+			<div class="variation__custom slide-toggle" ng-class="{'slide-toggle--visible': isCustomSize}">
 				<h4 class="variation_title"><?php _e('Scegli le tue dimensioni', 'iro'); ?></h4>
 				<div class="variation__units variation__units--grid">
 					<div class="variation__unit">
