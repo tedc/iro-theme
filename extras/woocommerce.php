@@ -648,10 +648,19 @@ add_filter( 'woocommerce_add_cart_item_data', 'iro_custom_size_add_cart_item_dat
 function iro_custom_size_add_order_item_meta( $item_id, $values ) {
 
     if ( ! empty( $values['custom_size'] ) ) {
-        woocommerce_add_order_item_meta( $item_id, 'custom_size', $values['custom_size'] );           
+        wc_add_order_item_meta( $item_id, 'custom_size', $values['custom_size'] );           
     }
 }
 add_action( 'woocommerce_add_order_item_meta', 'iro_custom_size_add_order_item_meta', 10, 2 );
+
+add_action( 'woocommerce_checkout_create_order_line_item', 'custom_checkout_create_order_line_item', 20, 4 );
+function custom_checkout_create_order_line_item( $item, $cart_item_key, $values, $order ) {
+    
+    // Get cart item custom data and update order item meta
+    if( isset( $values['custom_size'] ) ) {
+        $item->update_meta_data( 'custom_size', $values['custom_size'] );
+    }
+}
 
 
 /*
@@ -704,3 +713,12 @@ function iro_custom_size_email_order_meta_fields( $fields ) {
     return $fields; 
 } 
 add_filter('woocommerce_email_order_meta_fields', 'iro_custom_size_email_order_meta_fields');
+
+function iro_custom_size_order_item_display_meta_key($display_key) {
+    if($display_key == 'custom_size') {
+        $display_key == __('Misure', 'iro');
+    }
+    return $display_key;
+}
+
+add_filter('woocommerce_order_item_display_meta_key', 'iro_custom_size_order_item_display_meta_key');
