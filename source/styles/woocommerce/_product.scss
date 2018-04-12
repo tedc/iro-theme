@@ -178,17 +178,23 @@
 			margin-left: em($p/4);
 		}
 	}
+	&__custom {
+		.variation__title {
+			margin: 20px 0 10px;
+		}
+	}
 	&__unit{
 		&s {
 			align-items: center;
-			.variation__title {
-				margin: 20px 0 10px;
-			}
+			
 		}
 		flex: 1;
-		padding-right: em($p);
 		display: flex;
 		align-items: center;
+	}
+	&__per {
+		display: inline-block;
+		padding: 0 em($p/2);
 	}
 }
 
