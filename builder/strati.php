@@ -70,18 +70,16 @@
 							$minus = ($l - 1 < 0) ? $count_layers - 1 : $l - 1; 
 						?>
 					<i class="icon-arrow-left" ng-click="$event.stopPropagation(); move(<?php echo $minus; ?>);"></i>
-					<?php if($l%2==0) : ?>
+					<?php //if($l%2==0) : ?>
 					<div class="layers__text">
-					<?php endif; ?>
+					<?php //endif; ?>
 					<?php if(get_sub_field('pointer_icon')){ echo print_svg(get_sub_field('pointer_icon'));} ?>
 				
 					<h3 class="layers__title layers__title--nav">
 						
 						<?php the_sub_field('pointer_title'); ?>
 					</h3>
-					<?php if($l%2!=0) : ?>
-						<div class="layers__text">
-						<?php endif; ?>
+					<?php //if($l%2!=0) : echo '<div class="layers__text">';  endif; ?>
 						<?php the_sub_field('pointer_text'); ?>
 					</div>
 					<i class="icon-arrow-right" ng-click="$event.stopPropagation(); move(<?php echo $plus; ?>);"></i>
