@@ -181,9 +181,14 @@
 	&__unit{
 		&s {
 			align-items: center;
+			.variation__title {
+				margin: 20px 0 10px;
+			}
 		}
 		flex: 1;
 		padding-right: em($p);
+		display: flex;
+		align-items: center;
 	}
 }
 
