@@ -10,7 +10,7 @@
 		</span>
 		<strong class="order-review__price" ng-bind-html="'€ ' + (item.getPrice())"></strong>
 		<div class="order-review__desc" ng-bind-html="ngCart.getDesc(item)" ng-if="ngCart.getDesc(item)"></div>
-		<div class="order-review__desc" ng-bind-html="item.getData().custom_size" ng-if="ngCart.getExtras().custom_size"></div>
+		<div class="order-review__desc" ng-bind-html="item.getData().custom_size" ng-if="item.getData().custom_size"></div>
 	</div>
 	<div class="order-review__row order-review__row--meta" ng-if="ngCart.getExtras().shippings.packages">
 		<strong><?php _e('Spese di spedizione', 'iro'); ?></strong>
