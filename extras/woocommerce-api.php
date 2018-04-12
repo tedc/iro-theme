@@ -270,9 +270,19 @@
 	    	//var_dump($_POST);
 	    	if(!isset($_POST['item_key']) && !isset($_POST['quantity'])) die();
 	    	$quantity = WC()->cart->set_quantity($_POST['item_key'], $_POST['quantity']);
+	    	self::iro_update_cart_item_meta($_POST['item_key'], 'custom_size', $_POST['_custom_size']);
 	    	return $quantity;
 	    	die();
 	    }
+
+	    public static function iro_update_cart_item_meta($cart_item_key, $key, $value) {
+	    	if(empty($value)) return;
+	    	if(WC()->cart->cart_contents[$cart_item_key][$key]) {
+	    		WC()->cart->cart_contents[$cart_item_key][$key] = $value;
+	    	}
+	    	WC()->cart->set_session();
+	    }
+
 	    public static function iro_update_shipping_method() {
 			// Update Shipping
 			//var_dump($_POST['calc_shipping'] );			

@@ -55,7 +55,7 @@
 			<div class="layers__lines">
 			<?php $l=0;while(have_rows('layers_pointers')) : the_row();
 			?>
-			<div class="layers__line layers__line--<?php echo ($l%2==0) ? 'odd':'even'; ?>" data-layer-to="<?php the_sub_field('pointer_layer'); ?>"></div>
+			<div class="layers__line layers__line--<?php echo ($l%2==0) ? 'odd':'odd'; ?>" data-layer-to="<?php the_sub_field('pointer_layer'); ?>"></div>
 			<?php $l++; endwhile; ?>
 		</div>
 		</figure>
@@ -63,7 +63,7 @@
 		<div class="layers__pointers layers__pointers--grow-md-top">
 			<?php $l=0;while(have_rows('layers_pointers')) : the_row();
 			?>
-			<div class="layers__pointer layers__pointer--<?php echo ($l%2==0) ? 'odd':'even'; ?>">
+			<div class="layers__pointer layers__pointer--<?php echo ($l%2==0) ? 'odd':'odd'; ?>">
 				<div class="layers__content<?php echo ($l==0)? ' layer-active' : ''; ?>" data-layer-to="<?php the_sub_field('pointer_layer'); ?>">
 					<?php 
 							$plus = ($l + 1 > $count_layers - 1) ? 0 : $l + 1;
