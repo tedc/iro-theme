@@ -25,7 +25,7 @@
 		<?php get_template_part( 'templates/page', 'title'); ?>
 		<?php if(get_field('header_iframe') && get_field('is_video')) : ?>
 		<span class="header__play" ng-class="{'header__play--ready': playerReady['header_video_<?php echo get_the_ID(); ?>']}" ng-click="playIframe('header_video_<?php echo get_the_ID(); ?>')">
-			<i class="icon-play"></i>
+			<?php if(!is_front_page()): ?><i class="icon-play"></i><?php endif; ?>
 			<span><?php _e('Guarda il video', 'iro'); ?></span>
 		</span>
 		<?php endif; ?>
