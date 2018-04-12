@@ -508,6 +508,9 @@
 			// 	text-align: left;
 			// }
 		}
+		&__play {
+			padding-top: em($p);
+		}
 	}
 	&__goto {
 		position: absolute;

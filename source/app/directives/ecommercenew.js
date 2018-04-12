@@ -111,6 +111,18 @@ module.exports = () => {
 				ngCart.isUpdating = false;
 				$scope.variationPrices = [];
 				$scope.isCustomSize = false;
+				$scope.isValidSize = false;
+				$scope.$watch('isCustomSize', (newValue, oldValue)=> {
+					if(newValue != oldValue) {
+						ngCart.isCustomSize = $scope.isCustomSize;
+					}
+				});
+
+				$scope.$watch('isValidSize', (newValue, oldValue)=> {
+					if(newValue != oldValue) {
+						ngCart.isValidSize = $scope.isValidSize;
+					}
+				});
 				$scope.getVariation = () => {
 					$scope.attributes = ecommerce.findMatchingVariations($scope.product.product_variations, $scope.singleProductVariation).shift();
 					//$scope.product.price = `€ ${$scope.attributes.display_price}`;
@@ -170,7 +182,10 @@ module.exports = () => {
 							if($scope.productCustomSize.extent && $scope.productCustomSize.width && $scope.productCustomSize.height) {
 								let custom_size = `${$scope.productCustomSize.extent}x${$scope.productCustomSize.width}x${$scope.productCustomSize.height} cm`;
 								data = angular.extend({}, data, {_custom_size : custom_size});
-								item_data = angular.extend({}, item_data, {custom_size : custom_size})
+								item_data = angular.extend({}, item_data, {custom_size : custom_size});
+								$scope.isValidSize = true;
+							} else {
+								$scope.isValidSize = false;
 							}
 						} else {
 							if(data.custom_size) {

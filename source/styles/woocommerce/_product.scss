@@ -180,7 +180,8 @@
 	}
 	&__custom {
 		.variation__title {
-			margin: 20px 0 10px;
+			margin: em($p) 0 em($p/2);
+			font-size: 1em;
 		}
 	}
 	&__unit{
@@ -208,7 +209,7 @@
 			@include full;
 			z-index: 2;
 		}
-		&--loading {
+		&--loading, &--disabled {
 			&:after {
 				content: '';
 			}
@@ -235,6 +236,11 @@
 				border-bottom-left-radius: 0!important;
 				line-height: 1;
 				box-shadow: 0 0 em($p) transparentize($b, .75)!important;
+			}
+		}
+		&--disabled {
+			.add-to-cart__button {
+				opacity: .5;
 			}
 		}
 	}

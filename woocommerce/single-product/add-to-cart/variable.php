@@ -59,7 +59,7 @@ do_action( 'woocommerce_before_add_to_cart_form' );
 					<div class="variation__unit">
 						<input class="variation__input" type="text" ng-model="productCustomSize.height" placeholder="<?php _e('Altezza', 'iro'); ?>">
 					</div>
-					<div class="variation__unit"><strong><?php _e('cm', 'iro'); ?></strong></div>
+					<div class="variation__unit"><strong class="variation__per"><?php _e('cm', 'iro'); ?></strong></div>
 				</div>
 			</div>
 		</div>
