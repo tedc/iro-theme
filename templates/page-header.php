@@ -49,13 +49,16 @@ else :
 	</div>
 	<?php 
 	else:
-		if(!WC()->cart->is_empty() && !is_wc_endpoint_url( 'order-received' ) && !is_wc_endpoint_url( 'order-pay' )):
+		if(WC()->cart->is_empty() && !is_wc_endpoint_url( 'order-received' ) && !is_wc_endpoint_url( 'order-pay' )):
+
+wc_get_template_part('checkout/form', 'empty');
+else:
 ?>
 <div class="header header--page header--shrink-fw">
 	<div class="header__container header__container--grow-md">
 		<?php get_template_part( 'templates/page', 'title'); ?>
 	</div>
 </div>
-<?php else : 
-wc_get_template_part('checkout/form', 'empty');
+<?php 
+
 endif; endif; endif; ?>
