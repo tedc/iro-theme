@@ -8,9 +8,10 @@
 		$src = explode('&', $src[1]);
 		$src = $src[0];
 	}
+	
+	$video_id = $video.'_video_'. get_the_ID();
 	if($video_file) : 
 	$file = preg_replace('/\\.[^.\\s]{3,4}$/', '', $video_file['url']);
-	$video_id = $video.'_video_'. get_the_ID();
 ?>
 <div class="<?php echo $video; ?>__video" ng-style="{backgroundImage : 'url(<?php echo $file; ?>.jpg)'}">
 	<video loop class="<?php echo $video; ?>__video-item" ng-video muted poster="<?php echo $file; ?>.jpg">
