@@ -665,7 +665,7 @@ function iro_custom_size_get_item_data( $other_data, $cart_item ) {
     if ( isset( $cart_item['custom_size'] ) ){
 
         $other_data[] = array(
-            'name' => __( 'Misure personalizzate', 'iro' ),
+            'name' => __( 'Misure', 'iro' ),
             'value' => sanitize_text_field( $cart_item['custom_size'] )
         );
 
@@ -700,7 +700,7 @@ add_filter( 'woocommerce_order_item_product', 'iro_custom_size_order_item_produc
  * @return array 
  */ 
 function iro_custom_size_email_order_meta_fields( $fields ) { 
-    $fields['custom_size'] = __( 'Misure personalizzate', 'iro' ); 
+    $fields['custom_size'] = __( 'Misure', 'iro' ); 
     return $fields; 
 } 
 add_filter('woocommerce_email_order_meta_fields', 'iro_custom_size_email_order_meta_fields');
