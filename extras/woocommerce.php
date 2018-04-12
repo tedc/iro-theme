@@ -654,13 +654,13 @@ function iro_custom_size_add_order_item_meta( $item_id, $values ) {
 add_action( 'woocommerce_add_order_item_meta', 'iro_custom_size_add_order_item_meta', 10, 2 );
 
 add_action( 'woocommerce_checkout_create_order_line_item', 'custom_checkout_create_order_line_item', 20, 4 );
-function custom_checkout_create_order_line_item( $item, $cart_item_key, $values, $order ) {
+// function custom_checkout_create_order_line_item( $item, $cart_item_key, $values, $order ) {
     
-    // Get cart item custom data and update order item meta
-    if( isset( $values['custom_size'] ) ) {
-        $item->update_meta_data( 'custom_size', $values['custom_size'] );
-    }
-}
+//     // Get cart item custom data and update order item meta
+//     if( isset( $values['custom_size'] ) ) {
+//         $item->update_meta_data( 'custom_size', $values['custom_size'] );
+//     }
+// }
 
 
 /*
