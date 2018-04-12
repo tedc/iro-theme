@@ -168,7 +168,7 @@ module.exports = () => {
 						let price = $scope.attributes.display_price;
 						if($scope.isCustomSize) {
 							if($scope.productCustomSize.extent && $scope.productCustomSize.width && $scope.productCustomSize.height) {
-								let custom_size = `${$scope.productCustomSize.extent}x${$scope.productCustomSize.width}x${$scope.productCustomSize.height}`;
+								let custom_size = `${$scope.productCustomSize.extent}x${$scope.productCustomSize.width}x${$scope.productCustomSize.height} cm`;
 								data = angular.extend({}, data, {_custom_size : custom_size});
 								item_data = angular.extend({}, item_data, {custom_size : custom_size})
 							}
@@ -247,6 +247,19 @@ module.exports = () => {
 						item_key : item_key,
 						quantity : quantity
 					}
+					if($scope.isCustomSize) {
+						if($scope.productCustomSize.extent && $scope.productCustomSize.width && $scope.productCustomSize.height) {
+							let custom_size = `${$scope.productCustomSize.extent}x${$scope.productCustomSize.width}x${$scope.productCustomSize.height} cm`;
+							data = angular.extend({}, data, {_custom_size : custom_size});
+							item_data = angular.extend({}, item_data, {custom_size : custom_size})
+						}
+					} else {
+						if(data.custom_size) {
+							delete data._custom_size;
+							delete item_data.custom_size;
+						}
+					}
+					item.setData(item_data);
 					ecommerce
 						.post(url, data)
 						.then((res)=> {

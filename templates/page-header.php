@@ -49,7 +49,7 @@ else :
 	</div>
 	<?php 
 	else:
-		if(!WC()->cart->is_empty()):
+		if(!WC()->cart->is_empty() && !is_wc_endpoint_url( 'order-received' ) && !is_wc_endpoint_url( 'order-pay' )):
 ?>
 <div class="header header--page header--shrink-fw">
 	<div class="header__container header__container--grow-md">
