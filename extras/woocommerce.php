@@ -714,11 +714,12 @@ function iro_custom_size_email_order_meta_fields( $fields ) {
 } 
 add_filter('woocommerce_email_order_meta_fields', 'iro_custom_size_email_order_meta_fields');
 
-function iro_custom_size_order_item_display_meta_key($display_key) {
-    if($display_key == 'custom_size') {
+function iro_custom_size_order_item_display_meta_key($display_key, $meta) {
+    var_dump($meta);
+    if($meta->key == 'custom_size') {
         $display_key == __('Misure', 'iro');
     }
     return $display_key;
 }
 
-add_filter('woocommerce_order_item_display_meta_key', 'iro_custom_size_order_item_display_meta_key');
+add_filter('woocommerce_order_item_display_meta_key', 'iro_custom_size_order_item_display_meta_key', 10, 2);
