@@ -1,4 +1,4 @@
-<div class="<?php echo $video; ?>__close <?php echo $video; ?>__close--shrink-fw"><?php _e('Chiudi', 'iro'); ?> <i class="icon-chiudi" ng-click="closeVideo(); player.pause();"></i></div>
+<div class="<?php echo $video; ?>__close <?php echo $video; ?>__close--shrink-fw" ng-click="closeVideo(); player.pause();"><?php _e('Chiudi', 'iro'); ?> <i class="icon-chiudi"></i></div>
 <div class="<?php echo $video; ?>__wrapper <?php echo $video; ?>__wrapper--shrink-fw">
 <div class="<?php echo $video; ?>__player" youtube-video video-id="playerId" player-vars="playerVars" player="player">
 </div>

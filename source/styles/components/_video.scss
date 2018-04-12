@@ -24,6 +24,7 @@
 	@extend %video_commons;
 	justify-content: flex-end;
 	i {
+		margin-left: 10px;
 		font-size: 14px;
 		color: $w;
 	}
