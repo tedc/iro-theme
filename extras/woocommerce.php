@@ -716,7 +716,6 @@ add_filter('woocommerce_email_order_meta_fields', 'iro_custom_size_email_order_m
 
 function iro_custom_size_order_item_display_meta_key($display_key, $meta) {
     if($meta->key == 'custom_size') {
-        var_dump($meta);
         $display_key = __('Misure', 'iro');
     }
     return $display_key;
