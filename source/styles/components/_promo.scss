@@ -4,7 +4,6 @@
 	top: 0;
 	left: 0;
 	width: $f;
-	display: none;
 	text-transform: uppercase;
 	&__{
 		&pre, &content {
@@ -48,6 +47,8 @@
 			display: inline-block;
 			margin: 0 10px;
 			text-transform: none;
+			position: relative;
+			top: -3px;
 		}
 		&sep {
 			margin: 0 10px;
@@ -61,6 +62,8 @@
 		}
 		&expire {
 			font-family: $main-font;
+			font-size: 70%;
+			top: -2px;
 		}
 	}
 }
