@@ -288,8 +288,8 @@
 	function promo__expire_fn( $atts, $content ){
 		return '<span class="promo__sep">/</span><span class="promo__expire">'.$content.'</span>';
 	}
-	add_shortcode( 'promo__expire', 'promo_value_fn' );
+	add_shortcode( 'promo_expire', 'promo_value_fn' );
 	function promo__name_fn( $atts, $content ){
 		return '<span class="promo__name">'.$content.'</span>';
 	}
-	add_shortcode( 'promo__name', 'promo_value_fn' );
+	add_shortcode( 'promo_name', 'promo_value_fn' );
