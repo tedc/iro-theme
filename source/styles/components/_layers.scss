@@ -28,7 +28,7 @@
 					transition: transform $speed;
 					transform: translate3d(0, 100%, 0);
 				}
-				.layers__pointer--even & {
+				.layers__pointer--odd & {
 					//transform: translate3d(0, calc(100% - #{em(24px)}), 0);
 					transform: translateY(100%) translateY(em(-24px)) translateZ(0);
 				}
@@ -144,39 +144,6 @@
 				&:hover {
 					color: $alternate-color;
 				}
-				&--nav {
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					i {
-						font-size: 6px;
-						width: 10px;
-						height: 10px;
-						margin: 0 5px;
-						border-radius: 10px;
-						background-color: $alternate-color;
-						color: $brand-main;
-						transition: background-color $speed;
-						&:before {
-							display: inline-block;
-							transition: transform $speed;
-						}
-						&:hover {
-							color: $w;
-							background-color: $brand-main;
-						}
-						&.icon-arrow-left:hover {
-							&:before {
-								transform: translate3d(-2px, 0, 0);
-							}
-						}
-						&.icon-arrow-left:hover {
-							&:before {
-								transform: translate3d(2px, 0, 0);
-							}
-						}
-					}
-				}
 			}
 			//padding-top: em($p*2);
 			text-align: center;
@@ -192,14 +159,14 @@
 				position: relative;
 				flex: 1;
 				transition: padding-top $speed, opacity $speed, transform $speed;
-				&--odd {
+				&--even {
 					&:before {
 						display: block;
 						content: '';
 						padding-bottom: em($p*4);
 					}
 				}
-				&--even {
+				&--odd {
 					&:after {
 						display: block;
 						content: '';
@@ -207,98 +174,98 @@
 					}
 				}
 				.layers[data-count="1"] & {
-					&:nth-child(odd) {
+					&--even {
 						&:before {
 							padding-top: percentage(592px/2200px);
 						}
 					}
 				}
 				.layers[data-count="2"] & {
-					&:nth-child(odd) {
+					&--even {
 						&:before {
 							padding-top: percentage(592px/2200px)*2;
 						}
 					}
 				}
 				.layers[data-count="3"] & {
-					&:nth-child(odd) {
+					&--even {
 						&:before {
 							padding-top: percentage(592px/2200px)*3;
 						}
 					}
 				}
 				.layers[data-count="4"] & {
-					&:nth-child(odd) {
+					&--even {
 						&:before {
 							padding-top: percentage(592px/2200px)*4;
 						}
 					}
 				}
 				.layers[data-count="5"] & {
-					&:nth-child(odd) {
+					&--even {
 						&:before {
 							padding-top: percentage(592px/2200px)*5;
 						}
 					}
 				}
 				.layers[data-count="6"] & {
-					&:nth-child(odd) {
+					&--even {
 						&:before {
 							padding-top: percentage(592px/2200px)*6;
 						}
 					}
 				}
 				.layers[data-count="7"] & {
-					&:nth-child(odd) {
+					&--even {
 						&:before {
 							padding-top: percentage(592px/2200px)*7;
 						}
 					}
 				}
 				.layers[data-count="1"] & {
-					&:nth-child(even) {
+					&--odd {
 						&:after {
 							padding-top: percentage(592px/2200px);
 						}
 					}
 				}
 				.layers[data-count="2"] & {
-					&:nth-child(even) {
+					&--odd {
 						&:after {
 							padding-top: percentage(592px/2200px)*2;
 						}
 					}
 				}
 				.layers[data-count="3"] & {
-					&:nth-child(even) {
+					&--odd {
 						&:after {
 							padding-top: percentage(592px/2200px)*3;
 						}
 					}
 				}
 				.layers[data-count="4"] & {
-					&:nth-child(even) {
+					&--odd {
 						&:after {
 							padding-top: percentage(592px/2200px)*4;
 						}
 					}
 				}
 				.layers[data-count="5"] & {
-					&:nth-child(even) {
+					&--odd {
 						&:after {
 							padding-top: percentage(592px/2200px)*5;
 						}
 					}
 				}
 				.layers[data-count="6"] & {
-					&:nth-child(even) {
+					&--odd {
 						&:after {
 							padding-top: percentage(592px/2200px)*6;
 						}
 					}
 				}
 				.layers[data-count="7"] & {
-					&:nth-child(even) {
+					&--odd {
 						&:after {
 							padding-top: percentage(592px/2200px)*7;
 						}
@@ -333,18 +300,68 @@
 			}
 		}
 		&content {
+			i {
+				display: none;
+			}
 			@include breakpoint() {
 				background-color: #fff;
 				position: relative;
 				z-index: 2;	
 				cursor: pointer;
 				padding: {
-					left: em($p/2);
-					right: em($p/2);
+					left: 40px;
+					right: 40px;
+				}
+				.layers__pointer--even & {
+					top: em($p);
+				}
+				i {
+					display: inline-block;
+					position: absolute;
+					visibility: hidden;
+					opacity: 0;
+					top: 50%;
+					font-size: 10px;
+					line-height: 20px;
+					width: 20px;
+					height: 20px;
+					border-radius: 20px;
+					background-color: $cyan;
+					color: $brand-main;
+					transform: translate3d(0, -50%, 0);
+					transition: background-color $speed, visibility $speed, opacity $speed;
+					&:before {
+						display: inline-block;
+						transition: transform $speed;
+					}
+					&:hover {
+						color: $w;
+						background-color: $brand-main;
+					}
+					&.icon-arrow-left {
+						left: 0;
+						&:hover {
+							&:before {
+								transform: translate3d(-2px, 0, 0);
+							}
+						}
+					}
+					&.icon-arrow-right {
+						right: 0;
+						&:hover {
+							&:before {
+								transform: translate3d(2px, 0, 0);
+							}
+						}
+					}
 				}
 				&.layer-active {
 					.layers__title {
 						color: $alternate-color;
+					}
+					i {
+						opacity: 1;
+						visibility: visible;
 					}
 				}
 			}
@@ -366,7 +383,7 @@
 				flex: 0 0 auto;
 				position: relative;
 				cursor: pointer;
-				&--odd {
+				&--even {
 					align-self: flex-end;
 				}
 				.layers[data-count="1"] & {
@@ -413,12 +430,12 @@
 					top: 0;
 					transition: background-color $speed;
 				}
-				&--odd {
+				&--even {
 					&:after {
 						top: -5px;
 					}
 				}
-				&--even {
+				&--odd {
 					&:after {
 						bottom: -5px;
 					}
@@ -438,7 +455,7 @@
 					}
 				}
 				@each $n, $ratio in (0, (366/592)), (4, (235/592)), (5, (192/592)) {
-					&[data-layer-to*="#{$n}"].layers__line--even {
+					&[data-layer-to*="#{$n}"].layers__line--odd {
 						@include line_top($n, $ratio);
 					}
 				}

@@ -37,17 +37,47 @@ module.exports = (getInstances, $animate)=> {
 				});
 			} else {
 				var layers = element[0].querySelectorAll('[data-layer-to]');
-				scope.layer = 0;
-				scope.move = (cond, max)=> {
-					if(cond) {
-						scope.layer = (scope.layer + 1 > max) ? 0 : scope.layer + 1;
-					} else {
-						scope.layer = (scope.layer - 1 < 0) ? max : scope.layer - 1;
-					}
-					let current = angular.element(layers[scope.layer]);
+				scope.move = (n)=> {
+					let current = angular.element(layers[n]);
 					current.triggerHandler('click');
 				}
-				let clicked = []
+				let clicked = [];
+				let start = element[0].querySelector('.layer-active');
+				if(start) {
+					start = start.getAttribute('data-layer-to').replace(/\s/g, '').split(',');
+					TweenMax.set(element[0].querySelectorAll('[data-layer]'), {className : '+=animate'});
+					TweenMax.to([element[0].querySelectorAll('[data-layer]'),element[0].querySelectorAll('[data-layer-to]')], .5, {
+						opacity: .15
+					});
+					if(start == 'cover') {
+						angular.element(element[0].querySelectorAll('.layer-active')).removeClass('layer-active');
+						angular.element(element[0].querySelectorAll('[data-layer-to="cover"]')).addClass('layer-active');			
+						TweenMax.to('.layers__stop', .5, {
+							attr : {
+								offset : 1
+							}
+						});
+					} else {
+						TweenMax.to('#stop_1', .5, {
+							attr : {
+								offset : 0.03
+							}
+						});
+						TweenMax.to('#stop_2', .5, {
+							attr : {
+								offset : 0.1
+							}
+						});
+						
+						for(let i of start) {
+							angular.element(element[0].querySelectorAll('.layer-active')).removeClass('layer-active');
+							angular.element(element[0].querySelectorAll(`[data-layer-to*="${i}"]`)).addClass('layer-active');
+							TweenMax.to(element[0].querySelectorAll(`[data-layer*="${i}"]`), .5, {
+								opacity: 1
+							});
+						}
+					}
+				}
 				angular.forEach( layers, function(item, index) {
 					let layers = item.getAttribute('data-layer-to').replace(/\s/g, '').split(',');
 					clicked[index] = false;

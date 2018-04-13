@@ -504,12 +504,18 @@
 				align-items: flex-end;
 				align-content: flex-end;
 				padding-top: 0;
-				padding-bottom: em($p*6);
+				padding-bottom: em($p*4);
 				//text-align: left;
 			}
 		}
 		&__play {
 			padding-top: em($p);
+		}
+	}
+	&__watch {
+		transition: color $speed;
+		&:hover {
+			color: $alternate-color;
 		}
 	}
 	&__goto {

@@ -20,7 +20,7 @@
 	//  */
 	// do_action( 'woocommerce_after_add_to_cart_quantity' );
 ?>
-<span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top" id="product-button" ng-class="{'add-to-cart__wrapper--loading' : ngCart.isUpdating, 'add-to-cart__wrapper--disabled' : ngCart.isCustomSize & !ngCart.isValidSize}">
+<span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top" id="product-button" ng-class="{'add-to-cart__wrapper--loading' : ngCart.isUpdating, 'add-to-cart__wrapper--disabled' : ngCart.isCustomSize && !ngCart.isValidSize}">
 <span class="add-to-cart__button" ng-class="{'add-to-cart__button--loading' : ngCart.isUpdating}" ng-transclude ng-click="ngCart.addItem(id, name, price, qty, data)"></span>
 </span>
 <span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top add-to-cart__wrapper--fixed" ng-sm="{'triggerHook' : 'onLeave','triggerElement':'#product-button', 'class':'add-to-cart__wrapper--fixed-inview'}">
