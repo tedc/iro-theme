@@ -65,7 +65,7 @@
 			)
 		)
 	);
-	if(is_product()) : 
+	if(!is_product()) : 
 ?>
 <span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top add-to-cart__wrapper--fixed" ng-sm="{'triggerHook' : 'onLeave','triggerElement':'body', 'class':'add-to-cart__wrapper--fixed-inview', offset: 160}">
 <a class="add-to-cart__button" href="<?php echo get_permalink($materasso[0]->ID); ?>"><?php _e('Acquista IRO', 'iro'); ?></a>
