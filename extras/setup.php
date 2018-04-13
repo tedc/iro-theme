@@ -281,15 +281,15 @@
 	//add_filter( 'paginate_links', 'custom_paginate_links', 10, 1 );
 
 	function promo_value_fn( $atts, $content ){
-		return '<span class="promo__discount">'.$content.'</span>';
+		return '</span><span class="promo__discount">'.$content.'</span><span>';
 	}
 	add_shortcode( 'promo_value', 'promo_value_fn' );
 
 	function promo__expire_fn( $atts, $content ){
-		return '<span class="promo__sep">/</span><span class="promo__expire">'.$content.'</span>';
+		return '</span><span class="promo__sep">/</span><span class="promo__expire">'.$content.'</span><span>';
 	}
 	add_shortcode( 'promo_expire', 'promo__expire_fn' );
 	function promo__name_fn( $atts, $content ){
-		return '<span class="promo__name">'.$content.'</span>';
+		return '</span><span class="promo__name">'.$content.'</span><span>';
 	}
 	add_shortcode( 'promo_name', 'promo__name_fn' );
