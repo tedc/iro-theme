@@ -337,6 +337,7 @@
 				flex-wrap: wrap;
 				justify-content: center;
 				overflow: visible;
+				position: relative;
 				.section__wrapper {
 					order: 3;
 					align-items: stretch;
@@ -386,15 +387,21 @@
 					.section__wrapper {
 						order: 2;
 						margin: 0;
-						transform: translate3d(em(-50px), 0, 0);
+					}
+					i {
+						position: absolute;
+						top: 50%;
 					}
 					.icon-arrow-left {
 						order: 1;
+						left: 0;
 						margin-left: 0;
-						transform: translate3d(-200%, 0, 0);
+						transform: translate3d(-200%, -50%, 0);
 					}
 					.icon-arrow-right {
 						order: 3;
+						right: 0;
+						transform: translate3d(200%, -50%, 0);
 						margin-right: 0;
 					}
 				}
