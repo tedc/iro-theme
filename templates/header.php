@@ -4,6 +4,7 @@
     $phone = get_field('phone', 'options');
     $phone_unformatted = preg_replace('/[^0-9,.]/','',str_replace('+', '00', $phone)); 
     acf_unset_language_to_default();
+    get_template_part('templates/promo');
 ?>
 <header class="banner banner--shrink-fw" ng-class="{'banner--active-menu':isMenu}">
     <nav class="banner__nav">

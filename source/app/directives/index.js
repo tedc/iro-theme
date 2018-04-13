@@ -339,3 +339,17 @@ iro
 	.directive('loginForm', require('./login'))
 	.directive('ngPay', require('./pay'))
 	.directive('ngLayers', ['getInstances', '$animate', require('./layers')])
+	.directive('ngPromo', ()=> {
+		return {
+			link: (scope, element, attrs)=> {
+				let fn = ()=> {
+					let h = (element[0].offsetHeight / 16) + (80/16);
+					TweenMax.set('body', {
+						paddingTop : `${h}em`
+					});
+				}
+				fn();
+				angular.element(window).on('resize', fn);
+			}
+		}
+	})

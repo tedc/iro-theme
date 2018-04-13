@@ -1,0 +1,47 @@
+.promo {
+	background-color: $highlight-color;
+	&__{
+		&pre, &content {
+			@include grow('small');
+			flex: 0 0 auto;
+		}
+		&pre {
+			background-color: $brand-main;
+			color: $w;
+			border-top-left-radius: 25px;
+			border-bottom-left-radius: 25px;
+			span {
+				font-size: 12px;
+			}
+			@include breakpoint() {
+				font-size: 1em;
+			}
+		}
+		&content {
+			font-family: $alternate-font;
+			color: $brand-main;
+			p {
+				display: flex;
+				align-items: center;
+				flex-wrap: wrap;
+				font-size: 12px;
+				@include breakpoint() {
+					font-size: 1em;
+				}
+			}
+		}
+		&name {
+			font-family: $main-font;
+		}
+		&sep {
+			margin: 0 20px;
+			display: inline-block;
+		}
+		&discount {
+			font-size: $f*2;
+		}
+		&expire {
+			font-family: $main-font;
+		}
+	}
+}
