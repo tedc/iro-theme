@@ -51,13 +51,13 @@ do_action( 'woocommerce_before_add_to_cart_form' );
 				<h4 class="variation__title"><?php _e('Scegli le tue dimensioni', 'iro'); ?></h4>
 				<div class="variation__units variation__units--grid">
 					<div class="variation__unit">
-						<input class="variation__input" type="text" ng-model="productCustomSize.extent" placeholder="<?php _e('Lunghezza', 'iro'); ?>"><span class="variation__per">x</span>
+						<input ng-change="validOnChange()" class="variation__input" type="text" ng-model="productCustomSize.extent" placeholder="<?php _e('Lunghezza', 'iro'); ?>"><span class="variation__per">x</span>
 					</div>
 					<div class="variation__unit">
-						<input class="variation__input" type="text" ng-model="productCustomSize.width" placeholder="<?php _e('Larghezza', 'iro'); ?>"><span class="variation__per">x</span>
+						<input ng-change="validOnChange()" class="variation__input" type="text" ng-model="productCustomSize.width" placeholder="<?php _e('Larghezza', 'iro'); ?>"><span class="variation__per">x</span>
 					</div>
 					<div class="variation__unit">
-						<input class="variation__input" type="text" ng-model="productCustomSize.height" placeholder="<?php _e('Altezza', 'iro'); ?>">
+						<input ng-change="validOnChange()" class="variation__input" type="text" ng-model="productCustomSize.height" placeholder="<?php _e('Altezza', 'iro'); ?>">
 					</div>
 					<div class="variation__unit"><strong class="variation__per"><?php _e('cm', 'iro'); ?></strong></div>
 				</div>
