@@ -343,9 +343,13 @@ iro
 		return {
 			link: (scope, element, attrs)=> {
 				let fn = ()=> {
-					let h = (element[0].offsetHeight / 16) + (80/16);
+					let h = (element[0].offsetHeight / 16);
+					let p = h + (80/16);
+					TweenMax.set('.banner', {
+						padddingTop : `${h}em`
+					})
 					TweenMax.set('body', {
-						paddingTop : `${h}em`
+						paddingTop : `${p}em`
 					});
 				}
 				fn();

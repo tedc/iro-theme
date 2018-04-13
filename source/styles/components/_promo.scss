@@ -1,5 +1,9 @@
 .promo {
 	background-color: $highlight-color;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: $f;
 	&__{
 		&pre, &content {
 			@include grow('small');
