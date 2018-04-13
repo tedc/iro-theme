@@ -41,6 +41,8 @@
 		}
 		&name {
 			font-family: $main-font;
+			display: inline-block;
+			margin: 0 10px;
 		}
 		&sep {
 			margin: 0 20px;
