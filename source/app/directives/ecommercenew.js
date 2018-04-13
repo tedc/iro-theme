@@ -162,6 +162,13 @@ module.exports = () => {
 				$scope.inLineHtml = (string)=> {
 					return $sce.trustAsHtml(string);
 				}
+				$scope.validOnChange = ()=> {
+					if($scope.productCustomSize.extent && $scope.productCustomSize.width && $scope.productCustomSize.height) {
+						$scope.isValidSize = true;
+					} else {
+						$scope.isValidSize = false;
+					}
+				}
 				var addToCart = (item)=> {
 					if(!$element.hasClass('iro--init')) return;
 					if(ngCart.isUpdating) return;
@@ -183,9 +190,6 @@ module.exports = () => {
 								let custom_size = `${$scope.productCustomSize.extent}x${$scope.productCustomSize.width}x${$scope.productCustomSize.height} cm`;
 								data = angular.extend({}, data, {_custom_size : custom_size});
 								item_data = angular.extend({}, item_data, {custom_size : custom_size});
-								$scope.isValidSize = true;
-							} else {
-								$scope.isValidSize = false;
 							}
 						} else {
 							if(data.custom_size) {
