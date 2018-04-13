@@ -16,6 +16,10 @@ cookie-law-banner {
 		p {
 			font-size: 12px;
 		}
+		a {
+			display: inline-block;
+			margin: 0 10px;
+		}
 	}
 	&.accepted {
 		.cl-banner {
