@@ -7,14 +7,17 @@
 	display: none;
 	&__{
 		&pre, &content {
-			@include grow('small');
+			padding: {
+				top: em(15px);
+				bottom: em(15px);
+			};
 			flex: 0 0 auto;
 		}
 		&pre {
 			background-color: $brand-main;
 			color: $w;
-			border-top-left-radius: 25px;
-			border-bottom-left-radius: 25px;
+			border-top-right-radius: 25px;
+			border-bottom-right-radius: 25px;
 			span {
 				font-size: 12px;
 			}
