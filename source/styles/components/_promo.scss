@@ -4,6 +4,7 @@
 	top: 0;
 	left: 0;
 	width: $f;
+	display: none;
 	&__{
 		&pre, &content {
 			@include grow('small');
