@@ -1,17 +1,19 @@
 .promo {
-	background-color: $highlight-color;
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: $f;
 	text-transform: uppercase;
-	min-height: em(44px);
 	z-index: 9999;
-	justify-content: center;
-	@include breakpoint(1030px) {	
-		justify-content: flex-start;
-	}
+	overflow: visible;
 	&__{
+		&wrapper {		
+			background-color: $highlight-color;
+			justify-content: center;
+			@include breakpoint(1030px) {	
+				justify-content: flex-start;
+			}
+		}
 		&pre, &content {
 			padding: {
 				top: em(10px);

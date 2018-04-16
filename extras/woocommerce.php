@@ -726,6 +726,7 @@ add_filter('woocommerce_order_item_display_meta_key', 'iro_custom_size_order_ite
 // Delete Account Functionality 
 
 //add_filter( 'woocommerce_account_menu_items', 'my_woocommerce_account_menu_items', 10, 1 );
+add_action( 'woocommerce_after_my_account', 'woo_delete_account_button' );
 function woo_delete_account_button() { 
     $delete_url = add_query_arg( 'wc-api', 'wc-delete-account', home_url( '/' ) ); 
     $delete_url = wp_nonce_url( $delete_url, 'wc_delete_user' ); ?>

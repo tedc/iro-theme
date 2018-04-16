@@ -1028,6 +1028,46 @@
 	    	}
 	        wp_send_json( $data );
 	    }
+
+	    public static function iro_delete_user_account() {
+	    	// Verify the security nonce and die if it fails
+			if ( ! isset( $_POST['wp_delete_user_accounts_nonce'] ) || ! wp_verify_nonce( $_POST['wp_delete_user_accounts_nonce'], 'wp_delete_user_accounts_nonce' ) ) {
+				wp_send_json( array(
+					'status' => 'fail',
+					'title' => __( 'Error!', 'wp-delete-user-accounts' ),
+					'message' => __( 'Request failed security check.', 'wp-delete-user-accounts' )
+				) );
+			}
+
+			// Don't permit admins to delete their own accounts
+			if ( current_user_can( 'manage_options' ) ) {
+				wp_send_json( array(
+					'status' => 'fail',
+					'title' => __( 'Error!', 'wp-delete-user-accounts' ),
+					'message' => __( 'Administrators cannot delete their own accounts.', 'wp-delete-user-accounts' )
+				) );
+			}
+
+			// Get the current user
+			$user_id = get_current_user_id();
+
+			// Get user meta
+			$meta = get_user_meta( $user_id );
+
+			// Delete user's meta
+			foreach ( $meta as $key => $val ) {
+				delete_user_meta( $user_id, $key );
+			}
+
+			// Destroy user's session
+			wp_logout();
+
+			// Delete the user's account
+			$deleted = wp_delete_user( $user_id );
+
+			wp_redirect( home_url('/') );
+			die();
+	    }
 	}
 
 	$iro_wc_ajax = new Iro_WC_AJAX();
