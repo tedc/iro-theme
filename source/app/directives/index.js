@@ -346,7 +346,7 @@ iro
 					let h = (element[0].offsetHeight / 16);
 					let p = h + (80/16);
 					TweenMax.set('.banner', {
-						paddingTop : `${h}em`
+						top : `${h}em`
 					})
 					TweenMax.set('body', {
 						paddingTop : `${p}em`

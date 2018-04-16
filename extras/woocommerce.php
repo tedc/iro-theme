@@ -722,3 +722,23 @@ function iro_custom_size_order_item_display_meta_key($display_key, $meta) {
 }
 
 add_filter('woocommerce_order_item_display_meta_key', 'iro_custom_size_order_item_display_meta_key', 10, 2);
+
+// Delete Account Functionality 
+add_action( 'woocommerce_after_my_account', 'woo_delete_account_button' ); 
+function woo_delete_account_button() { 
+    $delete_url = add_query_arg( 'wc-api', 'wc-delete-account', home_url( '/' ) ); 
+    $delete_url = wp_nonce_url( $delete_url, 'wc_delete_user' ); ?>
+    <a href="<?php echo $delete_url; ?>" class="account__button account__button--delete"><?php _e('Cancella il tuo account', 'iro'); ?></a>
+<?php } 
+add_action( 'woocommerce_api_' . strtolower( 'wc-delete-account' ), 'woo_handle_account_delete' ); 
+function woo_handle_account_delete() { 
+    if ( ! current_user_can( 'manage_options' ) ) { 
+        $security_check_result = check_admin_referer( 'wc_delete_user' ); 
+        if ( $security_check_result ) {
+            require( './wp-admin/includes/user.php' ); 
+            wp_delete_user( get_current_user_id() ); 
+            wp_redirect( home_url() ); 
+            die(); 
+        } 
+    } 
+} ?>

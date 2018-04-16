@@ -1,10 +1,16 @@
 .promo {
 	background-color: $highlight-color;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: $f;
 	text-transform: uppercase;
+	min-height: em(44px);
+	z-index: 9999;
+	justify-content: center;
+	@include breakpoint(1030px) {	
+		justify-content: flex-start;
+	}
 	&__{
 		&pre, &content {
 			padding: {
@@ -18,24 +24,36 @@
 			color: $w;
 			border-top-right-radius: em($p*2);
 			border-bottom-right-radius: em($p*2);
-			display: flex;
 			align-items: center;
 			align-content: center;
+			font-family: $alternate-font;
+			display: none;
 			span {
 				font-size: 13px;
 				@include breakpoint() {
 					font-size: 1.1em;
 				}
 			}
+			@include breakpoint(1030px) {
+				display: flex;
+			}
 		}
 		&content {
 			font-family: $alternate-font;
 			color: $brand-main;
-			p {
-				display: flex;
-				align-items: center;
-				align-content: center;
-				flex-wrap: wrap;
+			display: flex;
+			flex-wrap: wrap;
+			display: flex;
+			align-items: center;
+			align-content: center;
+			flex-wrap: wrap;
+			max-width: $f;
+			justify-content: center;
+			@include breakpoint(1030px) {	
+				justify-content: flex-start;
+			}
+			span {
+				flex: 0 0 auto;
 				font-size: 12px;
 				@include breakpoint() {
 					font-size: 1em;
@@ -52,18 +70,26 @@
 		}
 		&sep {
 			margin: 0 10px;
-			display: inline-block;
-			font-size: $f*2;
+			font-size: $f*2!important;
+			display: none;
+			@include breakpoint(1030px) {	
+				display: inline-block;
+			}
 		}
 		&discount {
-			font-size: $f*2;
+			font-size: $f*2!important;
 			display: inline-block;
 			margin: 0 10px;
 		}
 		&expire {
 			font-family: $main-font;
-			font-size: 70%;
+			font-size: 70%!important;
 			top: -2px;
+			position: relative;
+			display: none;
+			@include breakpoint(1030px) {	
+				display: inline-block;
+			}
 		}
 	}
 }

@@ -59,6 +59,14 @@ a, span, button, input[type="button"], input[type="submit"] {
 				background-color: $w;
 			}
 		}
+		&[class*="-delete"] {
+			background-color: $error;
+			color: $w;
+			&:not([class*="-loading"]):not(:disabled):hover {
+				background-color: $brand-main;
+				color: $w;
+			}
+		}
 		&[class*="-radius-right"] {
 			min-width: 0;
 			border-top-left-radius: 0;
