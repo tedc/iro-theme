@@ -27,3 +27,17 @@
 		return $html;
 	}
 	//add_filter('style_loader_tag', 'media_styles', 10, 4);
+
+	function add_promo_padding($classes) {
+		$args = array(
+			'post_type' => 'promo',
+			'posts_per_page' => 1,
+		);
+		$promo = get_posts($args);
+		if(count($promo) > 0) {
+			$classes[] = 'iro--has-promo';
+		}
+		return $classes;
+
+	}
+	add_filter( 'body_class', 'add_promo_padding', 10, 1 );

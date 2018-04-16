@@ -18,6 +18,16 @@ body {
     padding: {
         top: em(80px);
     }
+    &.iro--has-promo {
+        padding: {
+            top: em(63px + 80px);
+        }   
+        @include breakpoint(1030px) {
+            padding: {
+                top: em(56px + 80px);
+            }
+        }
+    }
     color: $main-color;
     font-family: $main-font;
     -webkit-font-smoothing: antialiased;

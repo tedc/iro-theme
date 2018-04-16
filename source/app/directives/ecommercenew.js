@@ -138,7 +138,7 @@ module.exports = () => {
 					        'id': ($scope.attributes.sku) ? $scope.attributes.sku : $scope.attributes.variation_id,
 					        'price': $scope.attributes.display_price,
 					        'brand': 'Iro',
-					        'variant': $scope.attributes.variation_description.replace($scope.attributes.title + ' ', ''),
+					        'variant': $scope.attributes.variation_description.replace($scope.attributes.title + ' ', '').replace(/<[^>]+>/gm, '').replace(/(&#215;)/g, 'x'),
 					       }]
 					    }
 					  }

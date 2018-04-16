@@ -11,6 +11,16 @@
 	.admin-bar.logged-in & {
 		top: 32px;
 	}
+	.iro--has-banner & {
+		padding: {
+            top: em(63px);
+        }   
+        @include breakpoint(1030px) {
+            padding: {
+                top: em(56px);
+            }
+        }
+	}
 }
 .banner {
 	@extend %banner;

@@ -5,7 +5,7 @@
 	);
 	$promo = new WP_Query($args);
 	if($promo->have_posts()) : ?>
-<div class="promo" ng-promo>
+<div class="promo">
 	<div class="promo__wrapper promo__wrapper--grid-nowrap">
 	<?php while($promo->have_posts()) : $promo->the_post(); ?>
 	<div class="promo__pre promo__pre--shrink-fw-left"><span><?php the_title(); ?></span></div>
