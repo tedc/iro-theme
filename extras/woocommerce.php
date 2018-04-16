@@ -737,18 +737,19 @@ function custom_vc_endpoint(){
             $meta = get_user_meta( $user_id );
 
             // Delete user's meta
-            foreach ( $meta as $key => $val ) {
-                delete_user_meta( $user_id, $key );
-            }
+            // foreach ( $meta as $key => $val ) {
+            //     delete_user_meta( $user_id, $key );
+            // }
 
+            var_dump($meta);
             // Destroy user's session
-            wp_logout();
+            //wp_logout();
 
             // Delete the user's account
-            $deleted = wp_delete_user( $user_id );
+            // $deleted = wp_delete_user( $user_id );
 
-            wp_redirect( home_url('/') );
-            die();
+            // wp_redirect( home_url('/') );
+            //die();
         } else {
             wp_redirect( wc_get_page_permalink('myaccount') );
             die();
