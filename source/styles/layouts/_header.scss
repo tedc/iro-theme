@@ -8,17 +8,13 @@
 	height: em(80px);
 	z-index: 9999;
 	justify-content: space-between;	
-	.admin-bar.logged-in & {
-		top: 32px;
-	}
+	// .admin-bar.logged-in & {
+	// 	top: 32px;
+	// }
 	.iro--has-banner & {
-		padding: {
-            top: em(63px);
-        }   
+		top: em(63px);
         @include breakpoint(1030px) {
-            padding: {
-                top: em(56px);
-            }
+            top: em(56px);
         }
 	}
 }
