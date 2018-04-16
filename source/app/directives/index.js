@@ -344,6 +344,7 @@ iro
 			link: (scope, element, attrs)=> {
 				let fn = ()=> {
 					let h = (element[0].offsetHeight / 16);
+					console.log(h);
 					let p = h + (80/16);
 					TweenMax.set('.banner', {
 						top : `${h}em`

@@ -283,8 +283,6 @@ module.exports = () => {
 						.post(url, data)
 						.then((res)=> {
 							$rootScope.$broadcast('ngCart:change');
-							$location.hash('cart');
-							ngCart.isUpdating = false;
 							$window.dataLayer.push({
 							  'event': 'addToCart',
 							  'ecommerce': {
@@ -301,6 +299,8 @@ module.exports = () => {
 							    }
 							  }
 							});
+							$location.hash('cart');
+							ngCart.isUpdating = false;
 						});
 				}
 				
