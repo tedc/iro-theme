@@ -741,7 +741,7 @@ function custom_vc_endpoint(){
             //     delete_user_meta( $user_id, $key );
             // }
 
-            var_dump($meta);
+            var_dump($user_id);
             // Destroy user's session
             //wp_logout();
 
