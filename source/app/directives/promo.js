@@ -11,7 +11,6 @@ module.exports = ($timeout)=> {
 					paddingTop : `${p}em`
 				});
 			}
-			fn();
 			angular.element(window).on('resize', fn);
 		}
 	}
