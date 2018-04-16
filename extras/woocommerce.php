@@ -593,7 +593,7 @@ function wpo_wcpdf_product_custom_field ( $template_type, $item, $order ) {
     $lotto = get_field('lotto_dispositivo_medico', 'options');
     if (!empty($lotto)) {
         foreach ($lotto as $l) {
-            if($l['prodotto'] ==  $item['product']->id) :
+            if($l['prodotto'] ==  $item['product']->id || $l['prodotto_su_misura'] == $item['product']->id) :
                 if($invoice_number >= $l['numero_fattura_minima'] && $invoice_number <= $l['numero_fattura_massima']) {
                     echo '<div class="product-medical">Lotto dispositivo medico: '.$l['numero_lotto'].'</div>';
                 }

@@ -8,7 +8,7 @@
 	</header>
 	<div class="facebook__content facebook__content--grow-md facebook__content--cell-s6">
 		<div class="facebook__header facebook__header--shrink">
-			<h2 class="facebook__title facebook__title--medium"><?php _e('Iro su Facebook', 'iro'); ?></h2>
+			<h2 class="facebook__title facebook__title--medium"><?php _e('IRO su Facebook', 'iro'); ?></h2>
 		</div>
 		<div class="facebook__container facebook__container--shrink" scroller="facebook" options="{freeMode : true, direction: 'vertical', mousewheel : true, 'slidesPerView':'auto', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true}}">
 			<div class="facebook__wrapper swiper-wrapper">
