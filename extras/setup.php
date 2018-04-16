@@ -190,14 +190,22 @@
         //$vars[] = 'dichiarazione_di_conformita';
         //$vars[] = 'carta_di_identita';
        	$vars[] = 'files';
+       	$vars[] = 'delete-account';
         return $vars;
     }
     function rewrite_popup_url() {
         $name = 'step';
         add_rewrite_endpoint($name, EP_PERMALINK );
         add_rewrite_endpoint('files', EP_ALL );
+        add_rewrite_endpoint( 'delete-account', EP_ROOT | EP_PAGES );
     }
     add_action('init', 'rewrite_popup_url' );
+
+    function my_custom_flush_rewrite_rules() {
+	    flush_rewrite_rules();
+	}
+
+	add_action( 'wp_loaded', 'my_custom_flush_rewrite_rules' );
 
     function setup_seo_endpoint() {
     // Ensures the $query_vars['item'] is available

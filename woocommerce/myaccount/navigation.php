@@ -42,9 +42,8 @@ do_action( 'woocommerce_before_account_navigation' );
 			</li>
 		<?php } endforeach; ?>
 		<li class="account__item account__item--grow-top">
-			<?php $delete_url = add_query_arg( 'wc-api', 'wc-delete-account', home_url( '/' ) ); 
-    $delete_url = wp_nonce_url( $delete_url, 'wc_delete_user' ); ?>
-    <a href="<?php echo $delete_url; ?>" class="account__button account__button--delete"><?php _e('Cancella il tuo account', 'iro'); ?></a>
+		
+    <a href="<?php echo wc_get_account_endpoint_url( 'delete-account' ); ?>" class="account__button account__button--delete"><?php _e('Cancella il tuo account', 'iro'); ?></a>
 		</li>
 	</ul>
 </nav>
