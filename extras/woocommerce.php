@@ -741,11 +741,11 @@ function custom_vc_endpoint(){
                 }
             }
 
-            var_dump($user_id);
             // Destroy user's session
             wp_logout();
 
             // Delete the user's account
+            require_once(ABSPATH.'wp-admin/includes/user.php' );
             $deleted = wp_delete_user( $user_id );
 
             wp_redirect( home_url('/') );
