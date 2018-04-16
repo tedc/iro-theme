@@ -41,6 +41,11 @@ do_action( 'woocommerce_before_account_navigation' );
 				<a<?php if($endpoint!='customer-logout'){?> href="<?php echo wc_get_account_endpoint_url( $endpoint ); ?>"<?php } else { ?> ng-class="{'account__button--loading' : isLoggingOut}" ng-click="isLogout=!isLogout"<?php } ?> class="account__button <?php echo $btn_class; ?>"><?php echo esc_html( $label ); ?></a>
 			</li>
 		<?php } endforeach; ?>
+		<li class="account__item account__item--grow-top">
+			<?php $delete_url = add_query_arg( 'wc-api', 'wc-delete-account', home_url( '/' ) ); 
+    $delete_url = wp_nonce_url( $delete_url, 'wc_delete_user' ); ?>
+    <a href="<?php echo $delete_url; ?>" class="account__button account__button--delete"><?php _e('Cancella il tuo account', 'iro'); ?></a>
+		</li>
 	</ul>
 </nav>
 

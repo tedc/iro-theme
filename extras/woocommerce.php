@@ -724,7 +724,8 @@ function iro_custom_size_order_item_display_meta_key($display_key, $meta) {
 add_filter('woocommerce_order_item_display_meta_key', 'iro_custom_size_order_item_display_meta_key', 10, 2);
 
 // Delete Account Functionality 
-add_action( 'woocommerce_after_my_account', 'woo_delete_account_button' ); 
+
+//add_filter( 'woocommerce_account_menu_items', 'my_woocommerce_account_menu_items', 10, 1 );
 function woo_delete_account_button() { 
     $delete_url = add_query_arg( 'wc-api', 'wc-delete-account', home_url( '/' ) ); 
     $delete_url = wp_nonce_url( $delete_url, 'wc_delete_user' ); ?>
