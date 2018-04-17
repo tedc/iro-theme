@@ -47,7 +47,7 @@ do_action( 'woocommerce_before_add_to_cart_form' );
 					</div>
 				</div>
 			<?php endforeach; ?>
-			<div class="variation__custom slide-toggle" ng-class="{'slide-toggle--visible': isCustomSize}">
+			<!-- <div class="variation__custom slide-toggle" ng-class="{'slide-toggle--visible': isCustomSize}">
 				<h4 class="variation__title"><?php _e('Scegli le tue dimensioni', 'iro'); ?></h4>
 				<div class="variation__units variation__units--grid">
 					<div class="variation__unit">
@@ -61,7 +61,8 @@ do_action( 'woocommerce_before_add_to_cart_form' );
 					</div>
 					<div class="variation__unit"><strong class="variation__per"><?php _e('cm', 'iro'); ?></strong></div>
 				</div>
-			</div>
+			</div> -->
+			<div class="variation__availability slide-toggle" ng-bind-html="attributes.availability_html" ng-class="{'slide-toggle--visible':attributes.availability_html}"></div>
 		</div>
 
 		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
