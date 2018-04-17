@@ -756,3 +756,40 @@ function custom_vc_endpoint(){
         }
     }
 }
+
+// Add Variation Settings
+add_action( 'woocommerce_product_after_variable_attributes', 'variation_settings_fields', 10, 3 );
+
+// Save Variation Settings
+add_action( 'woocommerce_save_product_variation', 'save_variation_settings_fields', 10, 2 );
+
+/**
+ * Create new fields for variations
+ *
+*/
+function variation_settings_fields( $loop, $variation_data, $variation ) {
+
+    // Text Field
+    woocommerce_wp_text_input( 
+        array( 
+            'id'          => '_aviability_text[' . $variation->ID . ']', 
+            'label'       => __( 'Disponibilità in', 'iro' ), 
+            'placeholder' => '',
+            'desc_tip'    => 'true',
+            'description' => __( 'Inserisci il testo su eventuale disponibilità (es: \'Disponibile in 15 giorni.\'.', 'woocommerce' ),
+            'value'       => get_post_meta( $variation->ID, '_text_field', true )
+        )
+    );
+}
+
+/**
+ * Save new fields for variations
+ *
+*/
+function save_variation_settings_fields( $post_id ) {
+    // Text Field
+    $text_field = $_POST['_aviability_text'][ $post_id ];
+    if( ! empty( $text_field ) ) {
+        update_post_meta( $post_id, '_aviability_text', esc_attr( $text_field ) );
+    }
+}

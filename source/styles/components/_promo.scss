@@ -19,10 +19,10 @@
 				top: em(10px);
 				bottom: em(10px);
 			};
-			flex: 0 0 auto;
 		}
 		&pre {
 			background-color: $brand-main;
+			flex: 0 0 auto;
 			color: $w;
 			border-top-right-radius: em($p*2);
 			border-bottom-right-radius: em($p*2);
@@ -42,6 +42,7 @@
 		}
 		&content {
 			font-family: $alternate-font;
+			flex: 1;
 			color: $brand-main;
 			display: flex;
 			flex-wrap: wrap;
