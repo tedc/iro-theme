@@ -777,7 +777,7 @@ function variation_settings_fields( $loop, $variation_data, $variation ) {
             'placeholder' => '',
             'desc_tip'    => 'true',
             'description' => __( 'Inserisci il testo su eventuale disponibilità (es: \'Disponibile in 15 giorni.\'.', 'woocommerce' ),
-            'value'       => get_post_meta( $variation->ID, '_text_field', true )
+            'value'       => get_post_meta( $variation->ID, '_aviability_text', true )
         )
     );
 }
