@@ -334,7 +334,7 @@ Non è da considerarsi un difetto un leggero peeling sulla superficie.</p>
 			</div>
 </div>
 	</section>
-	<section class="row row--grow-lg row--relative ng-scope" ng-sm="{triggerHook: 0.5, class : &quot;row--inview&quot;}">
+	<!-- <section class="row row--grow-lg row--relative ng-scope" ng-sm="{triggerHook: 0.5, class : &quot;row--inview&quot;}">
 			<div class="section section--mw-large section--shrink">
 		<div class="section__cell section__cell--reviews section__cell--s12">
 		<h3 class="section__title section__title--medium-aligncenter section__title--review">Recensioni</h3>
@@ -374,54 +374,12 @@ Non è da considerarsi un difetto un leggero peeling sulla superficie.</p>
 					<i class="icon-stella"></i><i class="icon-stella"></i><i class="icon-stella"></i><i class="icon-stella"></i>				</div>
 							</div>
 				<footer class="section__link section__link--aligncenter section__link--grow-md-top">
-				<!-- <a class="section__button section__button--dark" href="https://www.dreamiro.it/recensioni" ui-sref="app.page({slug : 'recensioni', productId : 37})">Leggi tutte</a> -->
+				
 				<a class="section__button section__button--dark" href="<?php the_field('materasso'); ?>"><?= $scopri; ?></a>
 		
 		</footer>
 	</div>
 	</div>	</section>
-	<section class="row row--grow row--gradient-light row--gradient-light-inverted row--relative ng-scope" ng-sm="{triggerHook: 0.5, class : &quot;row--inview&quot;}">
-				<div class="row__wave row__wave--top"></div>
-			<section class="faq faq--shrink faq--mw-large" ng-init="isFaq=[]">
-	<header class="faq__header faq__header--grow-md">
-				<h2 class="faq__title faq__title--aligncenter faq__title--big">Domande frequenti</h2>
-			</header>
-	<ul class="faq__list">
-		<li class="faq__item faq__item--grow-md" ng-class="{'faq__item--active':isFaq['quanto-costa-la-spedizione-di-iro']}">
-		<header class="faq__header faq__header--grid-nowrap" ng-click="isFaq['quanto-costa-la-spedizione-di-iro']=!isFaq['quanto-costa-la-spedizione-di-iro']">
-			<h3 class="faq__subtitle">Quanto costa la spedizione di IRO?</h3>
-			<span class="faq__close"></span>
-		</header>
-		<div class="faq__content faq__content--grow-top slide-toggle" ng-class="{'slide-toggle--visible':isFaq['quanto-costa-la-spedizione-di-iro']}">
-			<div class="faq__text faq__text--grow-top">
-				<p>Nulla, la spedizione è completamente gratuita.</p>
-			</div>
-		</div>
-	</li>
-		<li class="faq__item faq__item--grow-md" ng-class="{'faq__item--active':isFaq['non-trovo-iro-nella-misura-adatta-a-me']}">
-		<header class="faq__header faq__header--grid-nowrap" ng-click="isFaq['non-trovo-iro-nella-misura-adatta-a-me']=!isFaq['non-trovo-iro-nella-misura-adatta-a-me']">
-			<h3 class="faq__subtitle">Non trovo IRO nella misura adatta a me</h3>
-			<span class="faq__close"></span>
-		</header>
-		<div class="faq__content faq__content--grow-top slide-toggle" ng-class="{'slide-toggle--visible':isFaq['non-trovo-iro-nella-misura-adatta-a-me']}">
-			<div class="faq__text faq__text--grow-top">
-				<p>Su richiesta, possiamo realizzare un materasso IRO su misura: <a href="https://www.dreamiro.it/contatti" target="_blank" rel="noopener">contattaci</a> per avere maggiori informazioni e inviarci le tue specifiche.</p>
-			</div>
-		</div>
-	</li>
-		<li class="faq__item faq__item--grow-md" ng-class="{'faq__item--active':isFaq['come-mai-iro-ha-un-prezzo-cosi-conveniente']}">
-		<header class="faq__header faq__header--grid-nowrap" ng-click="isFaq['come-mai-iro-ha-un-prezzo-cosi-conveniente']=!isFaq['come-mai-iro-ha-un-prezzo-cosi-conveniente']">
-			<h3 class="faq__subtitle">Come mai IRO ha un prezzo così conveniente?</h3>
-			<span class="faq__close"></span>
-		</header>
-		<div class="faq__content faq__content--grow-top slide-toggle" ng-class="{'slide-toggle--visible':isFaq['come-mai-iro-ha-un-prezzo-cosi-conveniente']}">
-			<div class="faq__text faq__text--grow-top">
-				<p>IRO arriva direttamente dal produttore al consumatore; non ci sono intermediari e non abbiamo un negozio fisico, perciò noi sosteniamo meno costi e tu puoi avere IRO ad un prezzo più agevolato senza alcun compromesso con la qualità.</p>
-			</div>
-		</div>
-	</li>
-		</ul>
-</section>
-	</section>
+	 -->
 
 <?php endwhile; ?>

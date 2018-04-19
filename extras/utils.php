@@ -60,7 +60,9 @@
 			}
 		}
 		if(ICL_LANGUAGE_CODE != $sitepress->get_default_language()){
-			$slider = array_reverse($slider);
+            if($slider && is_array($slider)) {
+                $slider = array_reverse($slider);
+            }
 		}
 		return $slider;
 	}
