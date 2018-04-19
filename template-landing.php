@@ -1,3 +1,10 @@
+<?php
+/**
+ * Template Name: Landing
+ */
+?>
+
+<?php while (have_posts()) : the_post(); ?>
 <style>@media screen and (min-width:53.125em){#product-113:before, #product-113::before {padding-top: 33.323529411765vw;}}</style><div id="product-113" class="product--grid product--grow-md-bottom post-113 product type-product status-publish has-post-thumbnail product_cat-materasso product_plus-120-notti-di-prova product_plus-spedizione-e-reso-gratuiti product_plus-10-anni-di-garanzia prodotto_associato-materasso first instock taxable shipping-taxable purchasable product-type-variable has-children">
 
 	
@@ -415,3 +422,5 @@ Non è da considerarsi un difetto un leggero peeling sulla superficie.</p>
 		</ul>
 </section>
 	</section>
+
+<?php endwhile; ?>
