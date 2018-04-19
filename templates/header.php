@@ -10,6 +10,7 @@
     <nav class="banner__nav">
       <!-- <a class="icon-logo" href="<?= esc_url(home_url('/')); ?>" ui-sref="app.root({lang : '<?php echo ICL_LANGUAGE_CODE; ?>'})"></a> -->
       <a class="icon-logo" href="<?= esc_url(home_url('/')); ?>"></a>
+      <?php if(!is_page_template( 'template-landing.php')) : ?>
       <div class="banner__menu" scroller options="{freeMode: true, slidesPerView: 'auto', breakpoints:{1024:{mousewheel: true, direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true} } }  }">
       <?php
         if (has_nav_menu('primary_navigation')) :
@@ -40,5 +41,6 @@
      <!--  <a class="banner__btn banner__btn--account" href="<?php echo (is_user_logged_in()) ? wc_get_page_permalink('myaccount') : '#register'; ?>" ng-click="account($event)" ng-bind-html="(isUserLoggedIn) ? '<?php _e('Profilo', 'iro'); ?>' : '<?php _e('Registrati', 'iro'); ?>'"><?php echo (is_user_logged_in()) ? __('Profilo', 'iro') : __('Registrati', 'iro'); ?></a> -->
      <a class="banner__btn banner__btn--account" href="<?php echo (is_user_logged_in()) ? wc_get_page_permalink('myaccount') : '#register'; ?>"><?php echo (is_user_logged_in()) ? __('Profilo', 'iro') : __('Registrati', 'iro'); ?></a>
       <ngcart-summary template-url="cart-summary.html"></ngcart-summary>
+    <?php endif; ?>
     </nav>
 </header>

@@ -1,4 +1,5 @@
 <footer class="footer" id="footer">
+	<?php if(!is_page_template( 'template-landing.php')) : ?>
 	<?php get_template_part( 'templates/social'); ?>
 	<div class="footer__container footer__container--grid footer__container--grow footer__container--gray footer__container--shrink-fw">
 		<div class="footer__cell footer__cell--first">
@@ -37,6 +38,7 @@
 		<?php endwhile; acf_unset_language_to_default(); 
 		get_template_part( 'templates/footer', 'rating' ); ?>
 	</div>
+<?php endif; ?>
 	<div class="footer__container footer__container--grow footer__container--grid footer__container--dark footer__container--shrink-fw">
 		<div class="footer__cell footer__cell--s4 footer__cell--first">
 			<i class="icon-luna"></i><strong><?php _e('Sogni d\'oro', 'iro'); ?></strong>
@@ -65,7 +67,7 @@
 			)
 		)
 	);
-	if(!is_product()) : 
+	if(!is_product() && !is_page_template( 'template-landing.php')) : 
 ?>
 <span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top add-to-cart__wrapper--fixed" ng-sm="{'triggerHook' : 'onLeave','triggerElement':'body', 'class':'add-to-cart__wrapper--fixed-inview', offset: 160}">
 <a class="add-to-cart__button" href="<?php echo get_permalink($materasso[0]->ID); ?>"><?php _e('Acquista IRO', 'iro'); ?></a>
