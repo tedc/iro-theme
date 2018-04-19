@@ -28,20 +28,18 @@
 	</div>
 </div>
 <hr id="product-price-trigger" class="trigger">        
-            <span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top" id="product-button" ng-class="{'add-to-cart__wrapper--loading' : ngCart.isUpdating, 'add-to-cart__wrapper--disabled' : ngCart.isCustomSize && !ngCart.isValidSize}">
-<a class="add-to-cart__button" href="<?php the_field('materasso'); ?>"><?php the_field('scopri'); ?></a>
-</span>
-<span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top add-to-cart__wrapper--fixed" ng-sm="{'triggerHook' : 'onLeave','triggerElement':'#product-button', 'class':'add-to-cart__wrapper--fixed-inview'}">
-<a class="add-to-cart__button" href="<?php the_field('materasso'); ?>"><?php the_field('scopri'); ?></a>
-</span>
+           
     <div class="variations_form">
 				
 
 		
 		<div class="single_variation_wrap">
 			
-<span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top" id="product-button" ng-class="{'add-to-cart__wrapper--loading' : ngCart.isUpdating, 'add-to-cart__wrapper--disabled' : ngCart.isCustomSize &amp;&amp; !ngCart.isValidSize}" style="">
-<a class="add-to-cart__button" href="https://www.dreamiro.it/materasso">Scopri le misure</a>
+ <span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top" id="product-button" ng-class="{'add-to-cart__wrapper--loading' : ngCart.isUpdating, 'add-to-cart__wrapper--disabled' : ngCart.isCustomSize && !ngCart.isValidSize}">
+<a class="add-to-cart__button" href="<?php the_field('materasso'); ?>"><?php the_field('scopri'); ?></a>
+</span>
+<span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top add-to-cart__wrapper--fixed" ng-sm="{'triggerHook' : 'onLeave','triggerElement':'#product-button', 'class':'add-to-cart__wrapper--fixed-inview'}">
+<a class="add-to-cart__button" href="<?php the_field('materasso'); ?>"><?php the_field('scopri'); ?></a>
 </span>
 		</div>
 
