@@ -4,7 +4,9 @@
  */
 ?>
 
-<?php while (have_posts()) : the_post(); ?>
+<?php while (have_posts()) : the_post(); 
+	$scopri = get_field('scopri_generico');
+?>
 <style>@media screen and (min-width:53.125em){#product-113:before, #product-113::before {padding-top: 33.323529411765vw;}}</style><div id="product-113" class="product--grid product--grow-md-bottom post-113 product type-product status-publish has-post-thumbnail product_cat-materasso product_plus-120-notti-di-prova product_plus-spedizione-e-reso-gratuiti product_plus-10-anni-di-garanzia prodotto_associato-materasso first instock taxable shipping-taxable purchasable product-type-variable has-children">
 
 	
@@ -36,10 +38,10 @@
 		<div class="single_variation_wrap">
 			
  <span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top" id="product-button" ng-class="{'add-to-cart__wrapper--loading' : ngCart.isUpdating, 'add-to-cart__wrapper--disabled' : ngCart.isCustomSize && !ngCart.isValidSize}">
-<a class="add-to-cart__button" href="<?php the_field('materasso'); ?>"><?php the_field('scopri'); ?></a>
+<a class="add-to-cart__button" href="<?php the_field('materasso'); ?>"><?php echo get_field('scopri') ? get_field('scopri') : $scopri; ?></a>
 </span>
 <span class="add-to-cart__wrapper add-to-cart__wrapper--grow-top add-to-cart__wrapper--fixed" ng-sm="{'triggerHook' : 'onLeave','triggerElement':'#product-button', 'class':'add-to-cart__wrapper--fixed-inview'}">
-<a class="add-to-cart__button" href="<?php the_field('materasso'); ?>"><?php the_field('scopri'); ?></a>
+<a class="add-to-cart__button" href="<?php the_field('materasso'); ?>"><?= $scopri; ?></a>
 </span>
 		</div>
 
@@ -155,6 +157,7 @@
 			<div id="col_0_0" class="section__cell section__cell--text section__cell--odd section__cell--mw section__cell--align-center section__cell--centered section__cell--aligncenter section__cell--grow-lg">
 		<div class="section__content section__content--shrink">
 		<h2 class="section__title section__title--large section__title--forcewhite">Provalo gratis<br>per 120 notti</h2>
+		<div class="section__link section__link section__link--grow-md-top"><a class="section__button" href="<?php the_field('materasso'); ?>"><?= $scopri; ?></a></div>
 	</div>		</div>
 	<hr class="divider divider--small"><hr class="divider divider--lg"><hr class="divider divider--lg"><hr class="divider divider--md"></div>	</section>
 	<section class="row row--grow-lg row--relative ng-scope" ng-sm="{triggerHook: 0.5, class : &quot;row--inview&quot;}">
@@ -372,7 +375,7 @@ Non è da considerarsi un difetto un leggero peeling sulla superficie.</p>
 							</div>
 				<footer class="section__link section__link--aligncenter section__link--grow-md-top">
 				<!-- <a class="section__button section__button--dark" href="https://www.dreamiro.it/recensioni" ui-sref="app.page({slug : 'recensioni', productId : 37})">Leggi tutte</a> -->
-				<a class="section__button section__button--dark" href="https://www.dreamiro.it/recensioni">Leggi tutte</a>
+				<a class="section__button section__button--dark" href="<?php the_field('materasso'); ?>"><?= $scopri; ?></a>
 		
 		</footer>
 	</div>
