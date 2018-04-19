@@ -288,7 +288,7 @@ Non è da considerarsi un difetto un leggero peeling sulla superficie.</p>
 					</div>
 			</div>
 	</div>	</section>
-	<section class="row row--grow-top row--shrink-fw row--gradient-light row--gradient-light-inverted row--relative ng-scope" ng-sm="{triggerHook: 0.5, class : &quot;row--inview&quot;}">
+	<section class="row row--grow-md row--shrink-fw row--gradient-light row--gradient-light-inverted row--relative ng-scope" ng-sm="{triggerHook: 0.5, class : &quot;row--inview&quot;}">
 				<div class="row__wave row__wave--top"></div>
 			<div class="section section--certification">
 		<div class="section__cell section__cell--grow-md section__cell--mw-large section__cell--aligncenter">
