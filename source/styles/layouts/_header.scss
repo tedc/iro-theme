@@ -42,6 +42,9 @@
 		@include breakpoint(1024px) {
 			flex-wrap: nowrap;
 		}
+		.page-template-template-landing & {
+			justify-content: center;
+		}
 	}
 	&__menu {
 		display: flex;
