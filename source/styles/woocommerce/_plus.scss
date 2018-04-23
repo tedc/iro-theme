@@ -18,6 +18,7 @@
 		@include breakpoint(640px) {
 			width: $f/4;
 			justify-content: center;
+			text-align: left;
 		}
 		i {
 			color: $highlight-color;
