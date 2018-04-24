@@ -333,18 +333,16 @@ iro
 			}
 		}
 	})
-	.directive('ngCountdown', ['$interval', '$cookies', '$rootScope', ($interval, $cookies, $rootScope)=> {
+	.directive('ngCountdown', ['$interval', '$cookies', '$rootScope', '$timeout', ($interval, $cookies, $rootScope, $timeout)=> {
 		return {
 			link : (scope, element, attr)=> {
 				$rootScope.isCountDown = false;
 				let cookie = $cookies.get(attr.cookieName);
 				if(!cookie && typeof cookie == 'undefined') {
-					let date = new Date();
-        			date.setTime(date.getTime()+(24*60*60*1000));
+					let currentDate = new Date();
+					currentDate.setDate(currentDate.getDate() + 1);
 					$cookies.put(attr.cookieName, 1, {
-						path: '/',
-						domain: vars.main.base,
-						expires : date.toGMTString()
+						expires : currentDate
 					});
 					console.log(attr.cookieName, $cookies.get(attr.cookieName));
 					let countDownDate = new Date(attr.ngCountdown).getTime();
@@ -364,7 +362,9 @@ iro
 							$rootScope.isCountDown = false;
 	        			}   
 					}, 1000);
-					$rootScope.isCountDown = true;
+					$timeout(() => {
+						$rootScope.isCountDown = true;
+					});
 				}
 			}
 		}
