@@ -5,6 +5,10 @@
 	background: url(../images/iro-sogno-accedi-stelle-BG.gif) repeat;
 	background-size: 250px;
 	display: none;
+	&--promo {
+		background-image: none;
+		background-color: transparentize($b, .15);
+	}
 	// .handheld & {
 	// 	overflow-x: hidden;
 	// 	overflow-y: scroll;
@@ -217,8 +221,17 @@
 		text-align: center;
 		border-radius: $r;
 	}
+	&__figure {
+		display: inline-block;
+		max-width: $f;
+		img {
+			width: $f!important;
+			height: auto!important;
+		}
+	}
 	&__content {
 		.popup--promo & {
+			text-transform: none;
 			align-items: center;
 			align-content: center;
 			> * {
@@ -226,5 +239,8 @@
 				flex: 0 0 auto;
 			}
 		}
+	}
+	&__countdown {
+		justify-content: center;
 	}
 }
