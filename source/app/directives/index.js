@@ -336,7 +336,7 @@ iro
 	.directive('ngCountdown', ['$interval', ($interval)=> {
 		return {
 			link : (scope, element, attr)=> {
-				let countDownDate = new Date(attr.countDown).getTime();
+				let countDownDate = new Date(attr.ngCountdown).getTime();
 				console.log(countDownDate);
 				let x = $interval(()=> {
 					let now = new Date().getTime();
