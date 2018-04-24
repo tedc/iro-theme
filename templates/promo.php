@@ -28,7 +28,7 @@
 				</div>
 				<div class="popup__content popup__content--grow-lg popup__content--shrink-left-half popup__content--grid popup__content--cell-s7">
 					<h3 class="popup__title popup__title--medium"><?php the_field('popup_title'); ?></h3>
-					<div class="popup__countdown popup__countdown--grid" ng-countdown="<?php $date = get_field('popup_date', false, false);$date = new DateTime($date);echo $date->format('Y-m-d'); ?>T<?php echo $date->format('H:i:s'); ?>" cookie-name="promo<?php the_ID(); ?>">
+					<div class="popup__countdown popup__countdown--grid" ng-countdown="<?php $date = get_field('popup_date', false, false);$date = new DateTime($date);echo $date->format('Y-m-d'); ?>T<?php echo $date->format('H:i:s'); ?>" cookie-name="_promo_<?php the_ID(); ?>">
 						<div class="popup__time">
 							<strong>{{d}}</strong><br />
 							<span><?php _e('Giorni', 'iro'); ?></span>
