@@ -340,12 +340,13 @@ iro
 				let cookie = $cookies.get(attr.cookieName);
 				if(!cookie && typeof cookie == 'undefined') {
 					let date = new Date();
-        			date.setTime(date.getTime()+(24*60*60*1000))
+        			date.setTime(date.getTime()+(24*60*60*1000));
 					$cookies.put(attr.cookieName, 1, {
 						path: '/',
 						domain: vars.main.base,
 						expires : date.toGMTString()
 					});
+					console.log(attr.cookieName, $cookies.get(attr.cookieName));
 					let countDownDate = new Date(attr.ngCountdown).getTime();
 					let x = $interval(()=> {
 						let now = new Date().getTime();
@@ -360,6 +361,7 @@ iro
 					    scope.s = Math.floor((distance % (1000 * 60)) / 1000);
 					    if (distance < 0) {
 	        				$interval.cancel(x);
+							$rootScope.isCountDown = false;
 	        			}   
 					}, 1000);
 					$rootScope.isCountDown = true;
