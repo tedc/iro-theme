@@ -224,12 +224,16 @@
 	}
 	&__figure {
 		display: none;
-		img {
-			width: $f!important;
-			height: auto!important;
+		.popup--promo & {
+			align-items: center;
+			align-content: center;
+			> * {
+				width: $f;
+				flex: 0 0 auto;
+			}
 		}
 		@include breakpoint() {
-			display: block;
+			display: flex;
 		}
 	}
 	&__content {

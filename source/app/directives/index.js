@@ -333,26 +333,37 @@ iro
 			}
 		}
 	})
-	.directive('ngCountdown', ['$interval', ($interval)=> {
+	.directive('ngCountdown', ['$interval', '$cookies', '$rootScope', ($interval, $cookies, $rootScope)=> {
 		return {
 			link : (scope, element, attr)=> {
-				let countDownDate = new Date(attr.ngCountdown).getTime();
-				console.log(countDownDate);
-				let x = $interval(()=> {
-					let now = new Date().getTime();
-				    
-				    // Find the distance between now an the count down date
-				    let distance = countDownDate - now;
-				    
-				    // Time calculations for days, hours, minutes and seconds
-				    scope.d = Math.floor(distance / (1000 * 60 * 60 * 24));
-				    scope.h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-				    scope.m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-				    scope.s = Math.floor((distance % (1000 * 60)) / 1000);
-				    if (distance < 0) {
-        				$interval.cancel(x);
-        			}   
-				}, 1000);
+				let cookie = $cookies.get(attr.cookieName);
+				if(!cookie) {
+					let date = new Date();
+        			date.setTime(date.getTime()+(24*60*60*1000))
+					$cookies.put(attr.cookieName, {
+						path: '/',
+						domain: vars.main.base,
+						expires : date.toGMTString()
+					});
+					let countDownDate = new Date(attr.ngCountdown).getTime();
+					let x = $interval(()=> {
+						let now = new Date().getTime();
+					    
+					    // Find the distance between now an the count down date
+					    let distance = countDownDate - now;
+					    
+					    // Time calculations for days, hours, minutes and seconds
+					    scope.d = Math.floor(distance / (1000 * 60 * 60 * 24));
+					    scope.h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+					    scope.m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+					    scope.s = Math.floor((distance % (1000 * 60)) / 1000);
+					    if (distance < 0) {
+	        				$interval.cancel(x);
+	        			}   
+					}, 1000);
+				} else {
+					$rootScope.isCountDown = true;
+				}
 			}
 		}
 	}])

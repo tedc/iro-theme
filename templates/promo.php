@@ -21,12 +21,12 @@
 <div class="popup popup--promo" ng-class="{'popup--visible':isCountDown}">
 	<div class="popup__container swiper-container" scroller options="{freeMode: true, slidesPerView: 'auto', mousewheel: true, direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true} }">
 		<div class="popup__wrapper swiper-wrapper">
-			<div class="popup__promo popup__promo--grid swiper-slide">
+			<div class="popup__promo popup__promo--shrink popup__promo--grid swiper-slide">
 				<div class="popup__close" ng-click="isCountDown=false"><?php _e('Chiudi', 'iro'); ?> <i class="icon-chiudi"></i></div>
-				<div class="popup__figure popup__figure--shrink popup__figure--cell-s5">
+				<div class="popup__figure popup__figure--shrink-right-half popup__figure--cell-s5">
 					<?php the_post_thumbnail('full'); ?>
 				</div>
-				<div class="popup__content popup__content--grow-lg popup__content--shrink popup__content--grid popup__content--cell-s7">
+				<div class="popup__content popup__content--grow-lg popup__content--shrink-left-half popup__content--grid popup__content--cell-s7">
 					<h3 class="popup__title popup__title--medium"><?php the_field('popup_title'); ?></h3>
 					<div class="popup__countdown popup__countdown--grid" ng-countdown="<?php $date = get_field('popup_date', false, false);$date = new DateTime($date);echo $date->format('Y-m-d'); ?>T<?php echo $date->format('H:i:s'); ?>">
 						<div class="popup__time">
