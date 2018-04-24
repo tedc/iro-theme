@@ -234,6 +234,7 @@
 	}
 	&__content {
 		.popup--promo & {
+			@include grow('lg');
 			text-transform: none;
 			align-items: center;
 			align-content: center;
@@ -249,7 +250,8 @@
 	&__time {
 		padding: em($p) em($p/2) 0;
 		strong {
-			font-size: 150%;
+			font-size: $f*2;
+			font-family: $alternate-font;
 			color: $alternate-color;
 		}
 		span {
@@ -263,7 +265,11 @@
 		strong {
 			font-size: $f*2;
 			color: $brand-main;
+			border-bottom: 2px solid $highlight-color;
 		}
+	}
+	&__link {
+		@include grow('small', 'top');
 	}
 	&__button {
 		.popup--promo & {
