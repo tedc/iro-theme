@@ -28,7 +28,7 @@
 				</div>
 				<div class="popup__content popup__content--shrink popup__content--grid popup__content--cell-s7">
 					<h3 class="popup__title popup__title--medium"><?php the_field('popup_title'); ?></h3>
-					<div class="popup__countdown popup__countdown--grid" ng-countdown="<?php $date = get_field('popup_date', false, false); echo $date; ?>">
+					<div class="popup__countdown popup__countdown--grid" ng-countdown="<?php $date = strtotime(get_field('popup_date')); echo $date; ?>">
 						<div class="popup__time">
 							<strong>{{d}}</strong><br />
 							<span><?php _e('Giorni', 'iro'); ?></span>
