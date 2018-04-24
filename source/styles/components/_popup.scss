@@ -137,6 +137,14 @@
 	&__close {
 		display: inline-flex;
 		align-items: center;
+		.popup--promo & {
+			position: absolute;
+			right: 0;
+			top: 0;
+			transform: translate3d(0, -100%, 0);
+			color: $w;
+			padding-bottom: em($p);
+		}
 	}
 	&__footer {
 		border-top: 1px solid $dark-border;
@@ -201,5 +209,10 @@
 			visibility: hidden;
 			opacity: 0;
 		}
+	}
+	&__promo {
+		position: relative;
+		width: $f;
+		background-color: #fff;
 	}
 }

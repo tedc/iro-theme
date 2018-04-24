@@ -19,10 +19,10 @@
 	</div>
 	<?php if(is_user_logged_in() && current_user_can('manage_options')) : ?>
 <div class="popup popup--promo" ng-class="{'popup--visible':isCountDown}">
-	<div class="popup__close" ng-class="{isCountDown: false}"><?php _e('Chiudi', 'iro'); ?> <i class="icon-close"></i></div>
 	<div class="popup__container swiper-container" scroller options="{freeMode: true, slidesPerView: 'auto', mousewheel: true, direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true} }">
 		<div class="popup__wrapper swiper-wrapper">
 			<div class="popup__promo popup__promo--grid swiper-slide">
+				<div class="popup__close" ng-class="{isCountDown: false}"><?php _e('Chiudi', 'iro'); ?> <i class="icon-close"></i></div>
 				<div class="popup__figure popup__figure--cell-s6">
 					<?php the_post_thumbnail('full'); ?>
 				</div>
