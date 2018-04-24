@@ -337,7 +337,6 @@ iro
 		return {
 			link : (scope, element, attr)=> {
 				let cookie = $cookies.get(attr.cookieName);
-				console.log(cookie)
 				if(!cookie) {
 					let date = new Date();
         			date.setTime(date.getTime()+(24*60*60*1000))
@@ -362,7 +361,6 @@ iro
 	        				$interval.cancel(x);
 	        			}   
 					}, 1000);
-				} else {
 					$rootScope.isCountDown = true;
 				}
 			}

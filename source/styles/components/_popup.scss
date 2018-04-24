@@ -273,7 +273,7 @@
 		}
 	}
 	&__link {
-		@include grow('small', 'top');
+		@include grow('md', 'top');
 	}
 	&__button {
 		.popup--promo & {
