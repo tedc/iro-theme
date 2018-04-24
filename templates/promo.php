@@ -17,7 +17,7 @@
 			echo '<span>'.$content.'</span>';
 		 ?>
 	</div>
-	<?php if(is_user_logged_in() && current_user_can('manage_options')) : ?>
+	<?php if(is_user_logged_in() && current_user_can('manage_options') && !isset($_COOKIE['_promo_'.get_the_ID()])) : ?>
 <div class="popup popup--promo" ng-class="{'popup--visible':isCountDown}">
 	<div class="popup__container swiper-container" scroller options="{freeMode: true, slidesPerView: 'auto', mousewheel: true, direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true} }">
 		<div class="popup__wrapper swiper-wrapper">
