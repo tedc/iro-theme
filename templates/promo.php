@@ -31,19 +31,19 @@
 					<div class="popup__countdown popup__countdown--grid popup__countdown--grow-top" ng-countdown="<?php the_field('popup_date'); ?>">
 						<div class="popup__time">
 							<strong>{{d}}</strong><br />
-							<?php _e('Giorni', 'iro'); ?>
+							<span><?php _e('Giorni', 'iro'); ?></span>
 						</div>
 						<div class="popup__time">
 							<strong>{{h}}</strong><br />
-							<?php _e('Ore', 'iro'); ?>
+							<span><?php _e('Ore', 'iro'); ?></span>
 						</div>
 						<div class="popup__time">
 							<strong>{{m}}</strong><br />
-							<?php _e('Minuti', 'iro'); ?>
+							<span><?php _e('Minuti', 'iro'); ?></span>
 						</div>
 						<div class="popup__time">
 							<strong>{{s}}</strong><br />
-							<?php _e('Secondi', 'iro'); ?>
+							<span><?php _e('Secondi', 'iro'); ?></span>
 						</div>
 					</div>	
 					<?php if(get_field('popup_text')): ?>

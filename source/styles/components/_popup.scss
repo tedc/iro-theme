@@ -243,4 +243,21 @@
 	&__countdown {
 		justify-content: center;
 	}
+	&__time {
+		strong {
+			font-size: 150%;
+			color: $alternate-color;
+		}
+		span {
+			text-transform: lowercase;
+			font-size: em(14px);
+			color: $dark-gray;
+		}
+	}
+	&__button {
+		.popup--promo & {
+			display: inline-block;
+			width: auto;
+		}
+	}
 }
