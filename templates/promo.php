@@ -22,27 +22,27 @@
 	<div class="popup__container swiper-container" scroller options="{freeMode: true, slidesPerView: 'auto', mousewheel: true, direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true} }">
 		<div class="popup__wrapper swiper-wrapper">
 			<div class="popup__promo popup__promo--grid swiper-slide">
-				<div class="popup__close" ng-class="{isCountDown: false}"><?php _e('Chiudi', 'iro'); ?> <i class="icon-close"></i></div>
+				<div class="popup__close" ng-click="isCountDown=false"><?php _e('Chiudi', 'iro'); ?> <i class="icon-chiudi"></i></div>
 				<div class="popup__figure popup__figure--cell-s6">
 					<?php the_post_thumbnail('full'); ?>
 				</div>
-				<div class="popup__content popup__content--cell-s6">
+				<div class="popup__content popup__content--grid popup__content--cell-s6">
 					<h3 class="popup__title"><?php the_field('popup_title'); ?></h3>
-					<div class="popup__countdown popup__countdown--grow-top" ng-countdown="<?php the_field('popup_date'); ?>">
+					<div class="popup__countdown popup__countdown--grid popup__countdown--grow-top" ng-countdown="<?php the_field('popup_date'); ?>">
 						<div class="popup__time">
-							<strong>{{d}}</strong>
+							<strong>{{d}}</strong><br />
 							<?php _e('Giorni', 'iro'); ?>
 						</div>
 						<div class="popup__time">
-							<strong>{{h}}</strong>
+							<strong>{{h}}</strong><br />
 							<?php _e('Ore', 'iro'); ?>
 						</div>
 						<div class="popup__time">
-							<strong>{{m}}</strong>
+							<strong>{{m}}</strong><br />
 							<?php _e('Minuti', 'iro'); ?>
 						</div>
 						<div class="popup__time">
-							<strong>{{s}}</strong>
+							<strong>{{s}}</strong><br />
 							<?php _e('Secondi', 'iro'); ?>
 						</div>
 					</div>

@@ -214,5 +214,17 @@
 		position: relative;
 		width: $f;
 		background-color: #fff;
+		text-align: center;
+		border-radius: $r;
+	}
+	&__content {
+		.popup--promo & {
+			align-items: center;
+			align-content: center;
+			> * {
+				width: $f;
+				flex: 0 0 auto;
+			}
+		}
 	}
 }
