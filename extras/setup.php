@@ -301,3 +301,19 @@
 		return '</span><span class="promo__name">'.$content.'</span><span>';
 	}
 	add_shortcode( 'promo_name', 'promo__name_fn' );
+
+
+	function footer_scripts() { ?>
+	<script type="text/javascript">
+_linkedin_data_partner_id = "322636";
+</script><script type="text/javascript">
+(function(){var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})();
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=322636&fmt=gif" />
+</noscript>
+<?php } add_action( 'wp_footer', 'footer_scripts', 10, 1 );

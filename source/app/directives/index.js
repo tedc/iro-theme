@@ -333,6 +333,28 @@ iro
 			}
 		}
 	})
+	.directive('ngCountdown', ['$interval', ($interval)=> {
+		return {
+			link : (scope, element, attr)=> {
+				let countDownDate = new Date(attr.countDown).getTime();
+				let x = $interval(()=> {
+					let now = new Date().getTime();
+				    
+				    // Find the distance between now an the count down date
+				    let distance = countDownDate - now;
+				    
+				    // Time calculations for days, hours, minutes and seconds
+				    scope.d = Math.floor(distance / (1000 * 60 * 60 * 24));
+				    scope.h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				    scope.m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+				    scope.s = Math.floor((distance % (1000 * 60)) / 1000);
+				    if (distance < 0) {
+        				$interval.cancel(x);
+        			}   
+				}, 1000);
+			}
+		}
+	}])
 	.directive('ngNewsletter', require('./newsletter'))
 	.directive('ngVideo', ['$rootScope', '$timeout', 'screenSize', require('./video')])
 	.directive('review', require('./review'))
