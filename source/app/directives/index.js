@@ -337,10 +337,10 @@ iro
 		return {
 			link : (scope, element, attr)=> {
 				let cookie = $cookies.get(attr.cookieName);
-				if(!cookie) {
+				if(!cookie && typeof cookie == 'undefined') {
 					let date = new Date();
         			date.setTime(date.getTime()+(24*60*60*1000))
-					$cookies.put(attr.cookieName, {
+					$cookies.put(attr.cookieName, true, {
 						path: '/',
 						domain: vars.main.base,
 						expires : date.toGMTString()
