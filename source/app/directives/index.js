@@ -336,6 +336,7 @@ iro
 	.directive('ngCountdown', ['$interval', '$cookies', '$rootScope', ($interval, $cookies, $rootScope)=> {
 		return {
 			link : (scope, element, attr)=> {
+				$rootScope.isCountDown = false;
 				let cookie = $cookies.get(attr.cookieName);
 				if(!cookie && typeof cookie == 'undefined') {
 					let date = new Date();
