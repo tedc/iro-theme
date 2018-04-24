@@ -337,6 +337,7 @@ iro
 		return {
 			link : (scope, element, attr)=> {
 				let countDownDate = new Date(attr.countDown).getTime();
+				console.log(countDownDate);
 				let x = $interval(()=> {
 					let now = new Date().getTime();
 				    
