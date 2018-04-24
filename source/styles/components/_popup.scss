@@ -222,11 +222,13 @@
 		border-radius: $r;
 	}
 	&__figure {
-		display: inline-block;
-		max-width: $f;
+		display: none;
 		img {
 			width: $f!important;
 			height: auto!important;
+		}
+		@include breakpoint() {
+			display: block;
 		}
 	}
 	&__content {
@@ -244,6 +246,7 @@
 		justify-content: center;
 	}
 	&__time {
+		padding: em($p) em($p/2) 0;
 		strong {
 			font-size: 150%;
 			color: $alternate-color;
@@ -252,6 +255,13 @@
 			text-transform: lowercase;
 			font-size: em(14px);
 			color: $dark-gray;
+		}
+	}
+	&__text {
+		@include grow('small', 'top');
+		strong {
+			font-size: $f*2;
+			color: $brand-main;
 		}
 	}
 	&__button {
