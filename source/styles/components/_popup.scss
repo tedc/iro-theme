@@ -228,8 +228,9 @@
 			align-items: center;
 			align-content: center;
 			> * {
-				width: $f;
+				width: $f!important;
 				flex: 0 0 auto;
+				height: auto!important;
 			}
 		}
 		@include breakpoint() {

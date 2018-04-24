@@ -344,7 +344,6 @@ iro
 					$cookies.put(attr.cookieName, 1, {
 						expires : currentDate
 					});
-					console.log(attr.cookieName, $cookies.get(attr.cookieName));
 					let countDownDate = new Date(attr.ngCountdown).getTime();
 					let x = $interval(()=> {
 						let now = new Date().getTime();
