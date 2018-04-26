@@ -5,7 +5,7 @@
 	background: url(../images/iro-sogno-accedi-stelle-BG.gif) repeat;
 	background-size: 250px;
 	display: none;
-	&--promo, &--size {
+	&--promo {
 		background-image: none;
 		background-color: transparentize($b, .15);
 	}
@@ -170,20 +170,19 @@
 	&__module {
 		max-width: $md-max-width;
 		border-radius: $r;
-		.popup__header {
-			background-color: $brand-main;
-			color: $lighter-color;
-			@include grow('md');
-			.popup__title {
-				color: $w;
-			}
-		}
+		// .popup__header {
+		// 	background-color: $dark-color;
+		// 	color: $lighter-color;
+		// 	@include grow('md');
+		// 	.popup__title {
+		// 		color: $w;
+		// 	}
+		// }
 	}
 	&__footer {
 		border-top: 1px solid $dark-border;
 		padding: em(20px) em(30px);
 		.popup--size & {
-			border-top: 0;
 			text-align: center;
 			.popup__privacy {
 				font-size: 12px;
