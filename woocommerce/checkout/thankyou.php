@@ -40,7 +40,9 @@ if(!preg_match('/(dnative)/', home_url('/'))) :
 //Printing Script
 echo "<script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js\"></script>";
 echo "<script type=\"text/javascript\" src=\"https://tracking.trovaprezzi.it/javascripts/tracking.min.js\"></script>";
+endif;
 echo "<script type=\"text/javascript\">";
+if(!preg_match('/(dnative)/', home_url('/'))) : 
 echo "window._tt = window._tt || [];";
 echo "window._tt.push({ event: \"setAccount\", id: '". $TPtpi['chiaveMerchant'] ."' });";
 echo "window._tt.push({ event: \"setOrderId\", order_id: '" . $TPtpi['orderid'] . "' });";
@@ -56,6 +58,7 @@ foreach( $order->get_items() as $item_id => $item ){
 }
 echo "window._tt.push({ event: \"setAmount\", amount: '" . $TPtpi['amount'] . "' });";
 echo "window._tt.push({ event: \"orderSubmit\"});";
+endif;
 ?>
 window.dataLayer.push({
 	event:'purchase',
@@ -128,7 +131,6 @@ fbq('track', 'Purchase', {
 <?php /*TP implementation END*/
 
 echo "</script>";
-endif;
 ?>
 
 <div class="woocommerce-order woocommerce-order--shrink woocommerce-order--mw-large">
