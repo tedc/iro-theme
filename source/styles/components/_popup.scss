@@ -74,7 +74,8 @@
 		}
 		.popup--size & {
 			background-color: $w;
-			border-radius: 0;
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
 			width: $f;
 			margin-top: auto!important;
 			margin-bottom: auto!important;

@@ -5,12 +5,15 @@
 				<header class="popup__header popup__header--grow-md">
 					<div class="popup__row popup__row--close">
 						<div class="popup__image"></div>
-						<div class="popup__close" ng-click="close()"><?php _e('Chiudi', 'iro'); ?><i class="icon-chiudi"></i></div>
+						<div class="popup__close" ng-click="isSizeForm=false"><?php _e('Chiudi', 'iro'); ?><i class="icon-chiudi"></i></div>
 					</div>
-					<h2 class="popup__title popup__title--medium">
-						<?php _e('Scegli le tue misure di IRO', 'iro'); ?>
-					</h2>
-					<span class="popup__required">*<?php _e('Campi sono obbligatori', 'iro'); ?></span>	
+					<div class="popup__row">
+						<h2 class="popup__title popup__title--medium">
+							<?php _e('Scegli le tue misure di IRO', 'iro'); ?>
+						</h2>
+						<span class="popup__required">*<?php _e('Campi sono obbligatori', 'iro'); ?></span>
+					</div>
+				</div>
 				</header>
 				<form class="popup__form popup__form--grid" name="sizeForm" ng-submit="submit(sizeForm.$valid)">
 					<div class="popup__row popup__row--cell-s6">
