@@ -1,13 +1,14 @@
 module.exports = ()=> {
 	return {
-		controller: [ "$scope", "$http", "$timeout", "$httpParamSerializerJQLike", '$window', ($scope, $http, $timeout, $httpParamSerializerJQLike, $window)=> {
+		controller: [ "$scope", "$http", "$timeout", "$httpParamSerializerJQLike", '$window', '$attrs', ($scope, $http, $timeout, $httpParamSerializerJQLike, $window, $attrs)=> {
 		 	$scope.formData = {}
 		 	$scope.isContactSent = false;
 		 	$scope.isSubmitted = false;
+      let is_size_form = $attrs.formKind !== 'undefined' && $attrs.formKind == 'size' ? true : false;
 		 	$scope.submit = (isValid)=> {
 		 		if($scope.isSubmitted) return;
 		 		$scope.isSubmitted = true;
-            	let url = vars.wc.form;
+            	let url = (is_size_form) ? vars.wc.form : vars.wc.size_form;
             	let frmdata = $scope.formData;
             	let config = {
             		headers : { 
@@ -25,11 +26,19 @@ module.exports = ()=> {
           					if($window.dataLayer) $window.dataLayer.push({event: 'formSubmissionSuccess'});
           					$scope.isContactSent = true;
           					$scope.alert = res.data.formMsg;
-          					$scope.formData = {
-          						_iro_form_nonce : res.data.new_nonce,
-          						_bcc : frmdata._bcc,
-          						_send_to : frmdata._send_to
-          					};
+                    if(is_size_form) {
+                      $scope.formData = {
+                        _bcc : frmdata._bcc,
+                        _send_to : frmdata._send_to
+                      }; 
+                    } else {
+                       $scope.formData = {
+                        _iro_form_nonce : res.data.new_nonce,
+                        _bcc : frmdata._bcc,
+                        _send_to : frmdata._send_to
+                      }; 
+                    }
+          					
           					$timeout(()=> {
                                 $scope.isSubmitted = false;
                                 $scope.isContactSent = false;

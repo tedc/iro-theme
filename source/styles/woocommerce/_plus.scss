@@ -26,6 +26,17 @@
 			font-size: em($p*1.4);
 			margin-right: em($p, $p*1.4);
 		}
+		.icon-arrow-right {
+			margin-right: 0;
+			margin-left: em($p, $p*1.4);
+			transition: color $speed, transform $speed;
+		}
+		&:hover {
+			.icon-arrow-right {
+				transform: translate3d(10px, 0, 0);
+				color: $alternate-color;
+			}
+		}
 	}
 	&__name {
 		color: $dark-gray;

@@ -60,6 +60,7 @@
 		acf_unset_language_to_default();
 		$wc = array(
 			'form' => WC_AJAX::get_endpoint('iro_form'),
+			'size_form' => WC_AJAX::get_endpoint('iro_size_form'),
 			'variation_add' => WC_AJAX::get_endpoint('iro_variation_add_to_cart_item'),
 			'add' => WC_AJAX::get_endpoint('iro_simple_add_to_cart_item'),
 			'qty' => WC_AJAX::get_endpoint('iro_udapte_item_quantity'),

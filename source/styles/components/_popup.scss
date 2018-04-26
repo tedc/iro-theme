@@ -9,6 +9,10 @@
 		background-image: none;
 		background-color: transparentize($b, .15);
 	}
+	&--size {
+		background-image: none;
+		background-color: #fff;
+	}
 	// .handheld & {
 	// 	overflow-x: hidden;
 	// 	overflow-y: scroll;
@@ -290,5 +294,18 @@
 			display: inline-block;
 			width: auto;
 		}
+	}
+	&__unit{
+		&s {
+			align-items: center;
+			
+		}
+		flex: 1;
+		display: flex;
+		align-items: center;
+	}
+	&__per {
+		display: inline-block;
+		padding: 0 em($p/2);
 	}
 }

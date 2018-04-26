@@ -30,6 +30,10 @@ if($plus) :
 			foreach ($plus as $p) :
 			$icon_kind = get_field('icon_kind', 'product_plus_'.$p->term_id);
 			$icon = get_field('icon_'.$icon_kind, 'product_plus_'.$p->term_id);
+			$ngclick = '';
+			if(get_field('popup_kind', $p)) {
+				$ngclick = (get_field('popup_kind', $p) == 'form') ? ' ng-click="isSizeForm=true"' : ' ng-click="isPlusPopup="'.$p->term_id;
+			}
 		 ?>
 		<li class="plus__item plus__item--shrink swiper-slide">
 			<?php if($icon_kind == 'svg') : ?>
@@ -37,10 +41,20 @@ if($plus) :
 			<?php else : ?>
 			<i class="icon-<?php echo $icon; ?>"></i>
 			<?php endif; ?>
-			<span class="plus__name"><?php echo $p->name; ?></span>
+			<span class="plus__name"><?php echo $p->name; ?><?php if($p->description) { ?><br /><?php echo $p->description; ?><?php } ?></span>
+			<?php if(get_field('popup_kind', $p)) : ?>
+			<i class="icon-arrow-right"></i>
+			<?php endif; ?>
 		</li>
 		<?php endforeach; ?>
 	</ul>
 </div>
-<?php endif; ?>
+<?php endif; 
+foreach ($plus as $p) :
+	if(get_field('popup_kind', $p)) :
+		$kind = (get_field('popup_kind', $p) == 'form') ? 'form-size' : 'plus-popup';
+		get_template_part( 'templates/'.$kind );
+	endif;
+endforeach;
+?>
 <hr id="product-trigger" class="trigger" />
