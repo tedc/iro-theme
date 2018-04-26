@@ -53,7 +53,7 @@ if($plus) :
 foreach ($plus as $p) :
 	if(get_field('popup_kind', $p)) :
 		$kind = (get_field('popup_kind', $p) == 'form') ? 'form-size' : 'plus-popup';
-		get_template_part( 'templates/'.$kind );
+		include(locate_template( 'templates/'.$kind .'.php', false, false));
 	endif;
 endforeach;
 ?>
