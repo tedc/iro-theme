@@ -35,7 +35,7 @@ if($plus) :
 				$ngclick = (get_field('popup_kind', $p) == 'form') ? ' ng-click="isSizeForm=true"' : ' ng-click="isPlusPopup="'.$p->term_id;
 			}
 		 ?>
-		<li class="plus__item plus__item--shrink swiper-slide">
+		<li class="plus__item plus__item--shrink swiper-slide"<?php echo $ngclick; ?>>
 			<?php if($icon_kind == 'svg') : ?>
 			<?php echo print_svg($icon); ?>
 			<?php else : ?>
