@@ -69,6 +69,7 @@
 	// }
 	&__form {
 		background-color: $lighter-color;
+		position: relative;
 		border-radius: $r;
 		max-width: $f;
 		margin-top: em(74px, 14px);
@@ -348,5 +349,31 @@
 	&__per {
 		display: inline-block;
 		padding: 0 em($p/2);
+	}
+	&__ {
+		&alert {
+			@include full;
+			z-index: 2;
+			background-color: transparentize($w, .05);
+			display: flex;
+			align-items: center;
+			align-content: center;
+			justify-content: center;
+			text-align: center;
+		}
+		&message, &alert {
+			opacity: 0;
+			transition: visiblity $speed, opacity $speed;
+			visibility: hidden;
+			&--visible {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+		&message {
+			p {
+				padding: em($p) 0;
+			}
+		}
 	}
 }

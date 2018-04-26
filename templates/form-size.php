@@ -59,12 +59,12 @@
 						<input type="hidden" name="_bcc" ng-model="formData._bcc" ng-init="formData._bcc='<?php echo preg_replace('/\s+/', '', get_field('bcc', $p)); ?>'">
 						<span class="popup__privacy"><?php _e('Inviando questo form acconsento al trattamento dei dati personali ai sensi del D. Lgs. 196/03.', 'catellani'); ?></span><br/>
 						<button type="submit" ng-disabled="sizeForm.$invalid" class="popup__button"><?php _e('Invia', 'iro'); ?></button>
-					</footer>
-				</form>
-				<div class="popup__alert" ng-class="{'popup__alert--visible':isSubmitted}">
-					<div class="popup__message popup__message--shrink"  ng-class="{'popup__message--visible':isContactSent}" ng-bind-html="alert">
+					</footer>	
+					<div class="popup__alert" ng-class="{'popup__alert--visible':isSubmitted}">
+						<div class="popup__message popup__message--shrink"  ng-class="{'popup__message--visible':isContactSent}" ng-bind-html="alert">
+						</div>
 					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 		
