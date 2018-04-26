@@ -20,7 +20,7 @@
 	<?php if(is_user_logged_in() && current_user_can('manage_options') && !isset($_COOKIE['_promo_'.get_the_ID()])) : ?>
 <div class="popup popup--promo" ng-class="{'popup--visible':isCountDown}">
 	<div class="popup__container swiper-container" scroller options="{freeMode: true, slidesPerView: 'auto', mousewheel: true, direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true} }">
-		<div class="popup__wrapper swiper-wrapper">
+		<div class="popup__wrapper popup__wrapper--shrink swiper-wrapper">
 			<div class="popup__promo popup__promo--shrink popup__promo--grid swiper-slide">
 				<div class="popup__close" ng-click="isCountDown=false"><?php _e('Chiudi', 'iro'); ?> <i class="icon-chiudi"></i></div>
 				<div class="popup__figure popup__figure--shrink-right-half popup__figure--cell-s5">

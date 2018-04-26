@@ -338,33 +338,53 @@ iro
 			link : (scope, element, attr)=> {
 				$rootScope.isCountDown = false;
 				let cookie = $cookies.get(attr.cookieName);
-				if(!cookie && typeof cookie == 'undefined') {
-					let currentDate = new Date();
-					currentDate.setDate(currentDate.getDate() + 1);
-					$cookies.put(attr.cookieName, 1, {
-						expires : currentDate
-					});
-					let countDownDate = new Date(attr.ngCountdown).getTime();
-					let x = $interval(()=> {
-						let now = new Date().getTime();
+				// if(!cookie && typeof cookie == 'undefined') {
+				// 	let currentDate = new Date();
+				// 	currentDate.setDate(currentDate.getDate() + 1);
+				// 	$cookies.put(attr.cookieName, 1, {
+				// 		expires : currentDate
+				// 	});
+				// 	let countDownDate = new Date(attr.ngCountdown).getTime();
+				// 	let x = $interval(()=> {
+				// 		let now = new Date().getTime();
 					    
-					    // Find the distance between now an the count down date
-					    let distance = countDownDate - now;
+				// 	    // Find the distance between now an the count down date
+				// 	    let distance = countDownDate - now;
 					    
-					    // Time calculations for days, hours, minutes and seconds
-					    scope.d = Math.floor(distance / (1000 * 60 * 60 * 24));
-					    scope.h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-					    scope.m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-					    scope.s = Math.floor((distance % (1000 * 60)) / 1000);
-					    if (distance < 0) {
-	        				$interval.cancel(x);
-							$rootScope.isCountDown = false;
-	        			}   
-					}, 1000);
-					$timeout(() => {
-						$rootScope.isCountDown = true;
-					});
-				}
+				// 	    // Time calculations for days, hours, minutes and seconds
+				// 	    scope.d = Math.floor(distance / (1000 * 60 * 60 * 24));
+				// 	    scope.h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				// 	    scope.m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+				// 	    scope.s = Math.floor((distance % (1000 * 60)) / 1000);
+				// 	    if (distance < 0) {
+	   //      				$interval.cancel(x);
+				// 			$rootScope.isCountDown = false;
+	   //      			}   
+				// 	}, 1000);
+				// 	$timeout(() => {
+				// 		$rootScope.isCountDown = true;
+				// 	});
+				// }
+				let countDownDate = new Date(attr.ngCountdown).getTime();
+				let x = $interval(()=> {
+					let now = new Date().getTime();
+				    
+				    // Find the distance between now an the count down date
+				    let distance = countDownDate - now;
+				    
+				    // Time calculations for days, hours, minutes and seconds
+				    scope.d = Math.floor(distance / (1000 * 60 * 60 * 24));
+				    scope.h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				    scope.m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+				    scope.s = Math.floor((distance % (1000 * 60)) / 1000);
+				    if (distance < 0) {
+        				$interval.cancel(x);
+						$rootScope.isCountDown = false;
+        			}   
+				}, 1000);
+				$timeout(() => {
+					$rootScope.isCountDown = true;
+				});
 			}
 		}
 	}])
