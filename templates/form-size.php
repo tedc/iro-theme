@@ -61,7 +61,7 @@
 						<button type="submit" ng-disabled="sizeForm.$invalid" class="popup__button"><?php _e('Invia', 'iro'); ?></button>
 					</footer>	
 					<div class="popup__alert" ng-class="{'popup__alert--visible':isSubmitted}">
-						<div class="popup__message popup__message--shrink"  ng-class="{'popup__message--visible':isContactSent}" ng-bind-html="alert">
+						<div class="popup__message popup__message--shrink"  ng-class="{'popup__message--visible':isContactSent}" bind-html-compile="alert">
 						</div>
 					</div>
 				</form>

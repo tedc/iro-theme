@@ -841,7 +841,7 @@
 	        if(isset($_POST['email']) && isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['tel']) && isset($_POST['_send_to']) && isset($_POST['_bcc']) && isset($_POST['extent']) && isset($_POST['width']) && !isset($_POST['website']) && !isset($_POST['address'])) :
 	            $email = $_POST['email'];
 	            $name = $_POST['first_name'];
-	            $last_name = $_POST['first_name'];
+	            $last_name = $_POST['last_name'];
 	            $tel = $_POST['tel'];
 	            $send_to = $_POST['_send_to'];
 	            $bcc = explode(',', $_POST['_bcc']);
@@ -867,7 +867,7 @@
 	            $errorMessage = __('Verifica di aver compilato bene i campi o scrivi a','iro');
 	            $sent = __('Messaggio inviato correttamente','iro');
 	            $error = __('Messaggio non inviato','iro');
-	            $name_row = (!empty($_POST['sender'])) ? '<tr style="border-bottom: 1px solid #f8f8f8;"><td style="text-align:center;padding:20px;font-size:18px;"><em style="color:#7f7f7f;font-style:italic">'.__('Da','iro').'</em><br />'.$sender.'</td></tr>' : "";
+	            $name_row = (!empty($sender)) ? '<tr style="border-bottom: 1px solid #f8f8f8;"><td style="text-align:center;padding:20px;font-size:18px;"><em style="color:#7f7f7f;font-style:italic">'.__('Da','iro').'</em><br />'.$sender.'</td></tr>' : "";
 	            $email_row = (!empty($_POST['email'])) ? '<tr style="border-bottom: 1px solid #f8f8f8;"><td style="text-align:center;padding:20px;font-size:18px;"><em style="color:#a7a9ac;font-style:italic">Email</em><br /><a href="mailto:'.$email.'" style="text-decoration:none;font-weight:bold;color:#123f6d">'.$email.'</a></td></tr>' : "";
 	            $tel_row = (!empty($_POST['tel'])) ? '<tr style="border-bottom: 1px solid #f8f8f8;"><td style="text-align:center;padding:20px;font-size:18px;"><em style="color:#7f7f7f;font-style:italic">'.__('Telefono','iro').'</em><br />'.$tel.'</td></tr>' : "";
 	           	$size_row = (!empty($size)) ? '<tr style="border-bottom: 1px solid #f8f8f8;"><td style="text-align:center;padding:20px;font-size:18px;"><em style="color:#7f7f7f;font-style:italic">'.__('Misure','iro').'</em><br />'.$size.'</td></tr>' : "";
@@ -914,10 +914,10 @@
 	            $rEmail->setBody(template($resp), 'text/html');
 	            if( $mMailer->send($mEmail) && $mMailer->send($rEmail)){
 	                //$data = array('formMsg' => "<h3 class='form__subtitle form__subtitle'>".__('Grazie per averci contattato', 'iro')."</h3><p>".__('Ti risponderemo nel più breve tempo possibile', 'iro')."</p><a ui-sref='app.root({lang : \"".ICL_LANGUAGE_CODE."\"})' class='form__button' href='".get_home_url()."'>".__('Torna allo shop', 'iro')."</a>", 'new_nonce' => wp_create_nonce('iro-contact-form'));
-	                $data = array('formMsg' => "<h3 class='form__subtitle form__subtitle'>".__('Grazie per averci contattato', 'iro')."</h3><p>".__('Ti risponderemo nel più breve tempo possibile', 'iro')."</p><a href='".home_url('/')."' class='form__button' href='".get_home_url()."'>".__('Torna alla home', 'iro')."</a>", 'new_nonce' => wp_create_nonce('iro-contact-form'));
+	                $data = array('formMsg' => "<h3 class='form__subtitle form__subtitle'>".__('Grazie per averci contattato', 'iro')."</h3><p>".__('Ti risponderemo nel più breve tempo possibile', 'iro')."</p><span class='form__button' ng-click='isSizeForm=false'>".__('Chiudi', 'iro')."</span>", 'new_nonce' => wp_create_nonce('iro-contact-form'));
 	            } else {
 	                // $data = array('formMsg' => "<h3 class='form__subtitle--error'>Spiacenti, qualcosa è andato storto</h3><p>".__('Si è verificato un problema con il messaggio inviato. Riprova inserendo tutti i dati correttamente oppure contattaci all\'indirizzo email', 'iro')." <a href=\'mailto:".$send_to."'>".$send_to."</a>.</p><a ui-sref='app.root({lang : \"".ICL_LANGUAGE_CODE."\"})' class='form__button' href='".get_home_url()."'>".__('Torna allo shop', 'iro')."</a>", 'new_nonce' => wp_create_nonce('iro-contact-form'));
-	                $data = array('formMsg' => "<h3 class='form__subtitle--error'>Spiacenti, qualcosa è andato storto</h3><p>".__('Si è verificato un problema con il messaggio inviato. Riprova inserendo tutti i dati correttamente oppure contattaci all\'indirizzo email', 'iro')." <a href=\'mailto:".$send_to."'>".$send_to."</a>.</p><a class='form__button' href='".get_home_url()."'>".__('Torna alla home', 'iro')."</a>", 'new_nonce' => wp_create_nonce('iro-contact-form'));
+	                $data = array('formMsg' => "<h3 class='form__subtitle--error'>Spiacenti, qualcosa è andato storto</h3><p>".__('Si è verificato un problema con il messaggio inviato. Riprova inserendo tutti i dati correttamente oppure contattaci all\'indirizzo email', 'iro')." <a href=\'mailto:".$send_to."'>".$send_to."</a>.</p><span class='form__button' ng-click='isSizeForm=false'>".__('Chiudi', 'iro')."</span>", 'new_nonce' => wp_create_nonce('iro-contact-form'));
 	            }
 	            wp_send_json($data);
 	            wp_die();

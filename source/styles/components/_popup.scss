@@ -365,6 +365,8 @@
 			opacity: 0;
 			transition: visiblity $speed, opacity $speed;
 			visibility: hidden;
+			border-bottom-left-radius: $r;
+			border-bottom-right-radius: $r;
 			&--visible {
 				opacity: 1;
 				visibility: visible;
