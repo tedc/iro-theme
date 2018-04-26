@@ -2,8 +2,8 @@
 	<div class="popup__container swiper-container" scroller options="{freeMode: true, slidesPerView: 'auto', mousewheel: true, direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true} }">
 		<div class="popup__wrapper popup__wrapper--shrink swiper-wrapper">
 			<div id="size-form" class="popup__module swiper-slide" ng-form form-kind="size">
-				<header class="popup__header popup__header--grow-md-bottom popup__header--grid">
-					<h2 class="popup__subtitle">
+				<header class="popup__header popup__header--grow-md-bottom">
+					<h2 class="popup__title">
 						<?php _e('Scegli le tue misure di IRO', 'iro'); ?>
 					</h2>
 					<span class="popup__required">*<?php _e('Campi sono obbligatori', 'iro'); ?></span>	
@@ -48,10 +48,10 @@
 							<input type="text" name="website" id="website" ng-model="formData.website" />
 							<input type="text" name="address" id="address" ng-model="formData.address" />
 					</div>
-					<footer class="popup__footer popup__footer--cell-s12 popup__footer--grid-nowrap">
+					<footer class="popup__footer popup__footer--cell-s12">
 						<input type="hidden" name="_send_to" ng-model="formData._send_to" ng-init="formData._send_to='<?php the_field('indirizzo_email'); ?>'">
 						<input type="hidden" name="_bcc" ng-model="formData._bcc" ng-init="formData._bcc='<?php echo preg_replace('/\s+/', '', get_field('bcc')); ?>'">
-						<span class="popup__privacy"><?php _e('Inviando questo form acconsento al trattamento dei dati personali ai sensi del D. Lgs. 196/03.', 'catellani'); ?></span>
+						<span class="popup__privacy"><?php _e('Inviando questo form acconsento al trattamento dei dati personali ai sensi del D. Lgs. 196/03.', 'catellani'); ?></span><br/>
 						<button type="submit" ng-disabled="sizeForm.$invalid" class="popup__button popup__button--dark"><?php _e('Invia', 'iro'); ?></button>
 					</footer>
 				</form>
@@ -61,5 +61,8 @@
 				</div>
 			</div>
 		</div>
+		<?php 
+		echo '</div><div class="swiper-scrollbar"></div></div>';
+	 ?>
 	</div>
 </div>

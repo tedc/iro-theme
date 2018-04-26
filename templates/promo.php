@@ -55,6 +55,9 @@
 				</div>
 			</div>
 		</div>
+		<?php 
+		echo '</div><div class="swiper-scrollbar"></div></div>';
+	 ?>
 	</div>
 </div>
 <?php endif; ?>
