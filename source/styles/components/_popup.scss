@@ -179,6 +179,7 @@
 			text-align: center;
 			.popup__privacy {
 				font-size: 12px;
+				padding-bottom: em($p, 12px);
 			}
 			.popup__button {
 				width: auto;
@@ -203,6 +204,7 @@
 		position: relative;
 		.popup--size & {
 			text-align: center;
+			padding-bottom: em($p);
 		}
 	}
 	&__image {

@@ -3,7 +3,7 @@
 		<div class="popup__wrapper popup__wrapper--shrink swiper-wrapper">
 			<div id="size-form" class="popup__module swiper-slide" ng-form form-kind="size">
 				<header class="popup__header popup__header--grow-md-bottom">
-					<h2 class="popup__title">
+					<h2 class="popup__title popup__title--medium">
 						<?php _e('Scegli le tue misure di IRO', 'iro'); ?>
 					</h2>
 					<span class="popup__required">*<?php _e('Campi sono obbligatori', 'iro'); ?></span>	
@@ -37,7 +37,7 @@
 							<div class="popup__unit">
 								<input class="popup__input" type="text" ng-model="formData.height" placeholder="<?php _e('Altezza', 'iro'); ?>">
 							</div>
-							<div class="popup__unit"><strong class="popup__per"><?php _e('cm', 'iro'); ?></strong></div>
+							<strong class="popup__per"><?php _e('cm', 'iro'); ?></strong>
 						</div>
 					</div>
 					<div class="popup__row popup__row--cell-s12">
@@ -60,9 +60,10 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<?php 
-		echo '</div><div class="swiper-scrollbar"></div></div>';
+			<?php 
+		echo '<div class="swiper-scrollbar"></div>';
 	 ?>
+		</div>
+		
 	</div>
 </div>
