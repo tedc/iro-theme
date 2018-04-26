@@ -42,4 +42,10 @@
 	&__name {
 		color: $dark-gray;
 	}
+	&__desc {
+		display: inline-block;
+		padding-top: em($p/2, 12px);
+		font-size: 12px;
+		font-style: italic;
+	}
 }

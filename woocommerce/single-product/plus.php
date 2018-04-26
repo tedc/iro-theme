@@ -41,7 +41,7 @@ if($plus) :
 			<?php else : ?>
 			<i class="icon-<?php echo $icon; ?>"></i>
 			<?php endif; ?>
-			<span class="plus__name"><?php echo $p->name; ?><?php if($p->description) { ?><br /><?php echo $p->description; ?><?php } ?></span>
+			<span class="plus__name"><?php echo $p->name; ?><?php if($p->description) { ?><br /><span class="plus__desc"><?php echo strip_tags($p->description); ?></span><?php } ?></span>
 			<?php if(get_field('popup_kind', $p)) : ?>
 			<i class="icon-arrow-right"></i>
 			<?php endif; ?>
