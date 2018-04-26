@@ -8,7 +8,7 @@ module.exports = ()=> {
 		 	$scope.submit = (isValid)=> {
 		 		if($scope.isSubmitted) return;
 		 		$scope.isSubmitted = true;
-      	let url = (is_size_form) ? vars.wc.form : vars.wc.size_form;
+      	let url = (is_size_form) ? vars.wc.size_form : vars.wc.form;
       	let frmdata = $scope.formData;
       	let config = {
       		headers : { 
