@@ -2,12 +2,12 @@
 	<div class="popup__container swiper-container" scroller options="{freeMode: true, slidesPerView: 'auto', mousewheel: true, direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true} }">
 		<div class="popup__wrapper popup__wrapper--shrink swiper-wrapper">
 			<div id="size-form" class="popup__module swiper-slide" ng-form form-kind="size">
-				<header class="popup__header popup__header--grow-md">
+				<header class="popup__header">
 					<div class="popup__row popup__row--close">
 						<div class="popup__image"></div>
 						<div class="popup__close" ng-click="isSizeForm=false"><?php _e('Chiudi', 'iro'); ?><i class="icon-chiudi"></i></div>
 					</div>
-					<div class="popup__row">
+					<div class="popup__row popup__row--header">
 						<h2 class="popup__title popup__title--medium">
 							<?php _e('Scegli le tue misure di IRO', 'iro'); ?>
 						</h2>

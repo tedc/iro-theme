@@ -140,6 +140,9 @@
 			color: $w;
 			padding-top: em(20px);
 			margin-bottom: em(20px);
+			.popup--size & {
+				margin-bottom: 0;
+			}
 			.icon-chiudi {
 				font-size: 12px;
 				margin-left: 10px;
@@ -150,6 +153,10 @@
 			a {
 				font-size: 12px;
 			}
+		}
+		&--header {
+			padding-top: em($p*2);
+			padding-bottom: em($p*2);
 		}
 	}
 	&__close {
@@ -213,7 +220,6 @@
 		position: relative;
 		.popup--size & {
 			text-align: center;
-			padding-bottom: em($p);
 		}
 	}
 	&__image {
