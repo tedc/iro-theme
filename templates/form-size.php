@@ -44,13 +44,13 @@
 						<label class="popup__label"><?php _e('Note', 'iro'); ?></label>
 						<textarea class="popup__textarea" name="message" ng-model="formData.message" ng-attr-placeholder="{{((sizeForm.message.$invalid && sizeForm.message.$touched) ? '<?php _e('Campo obbligatorio', 'iro'); ?>' : '')}}"></textarea>
 					</div>
+					<div style="visibility: hidden;height: 0;overflow: hidden;">
+							<input type="text" name="website" id="website" ng-model="formData.website" />
+							<input type="text" name="address" id="address" ng-model="formData.address" />
+					</div>
 					<footer class="popup__footer popup__footer--cell-s12 popup__footer--grid-nowrap">
 						<input type="hidden" name="_send_to" ng-model="formData._send_to" ng-init="formData._send_to='<?php the_field('indirizzo_email'); ?>'">
 						<input type="hidden" name="_bcc" ng-model="formData._bcc" ng-init="formData._bcc='<?php echo preg_replace('/\s+/', '', get_field('bcc')); ?>'">
-						<div style="visibility: hidden;height: 0;overflow: hidden;">
-							<input type="text" name="website" id="website" ng-model="formData.website" />
-							<input type="text" name="address" id="address" ng-model="formData.address" />
-						</div>
 						<span class="popup__privacy"><?php _e('Inviando questo form acconsento al trattamento dei dati personali ai sensi del D. Lgs. 196/03.', 'catellani'); ?></span>
 						<button type="submit" ng-disabled="sizeForm.$invalid" class="popup__button popup__button--dark"><?php _e('Invia', 'iro'); ?></button>
 					</footer>
