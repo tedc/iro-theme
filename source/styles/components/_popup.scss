@@ -74,10 +74,11 @@
 		}
 		.popup--size & {
 			background-color: $w;
-			max-width: $md-max-width;
+			border-radius: 0;
 			width: $f;
 			margin-top: auto!important;
 			margin-bottom: auto!important;
+			padding-top: em($p*2);
 		}
 		// .ng-enter &, .ng-leave & {
 		// 	transform: translate3d(0, $p, 0);
@@ -166,6 +167,18 @@
 			}
 		}
 	}
+	&__module {
+		max-width: $md-max-width;
+		border-radius: $r;
+		.popup__header {
+			background-color: $brand-main;
+			color: $lighter-color;
+			@include grow('md');
+			.popup__title {
+				color: $w;
+			}
+		}
+	}
 	&__footer {
 		border-top: 1px solid $dark-border;
 		padding: em(20px) em(30px);
@@ -174,6 +187,7 @@
 			text-align: center;
 			.popup__privacy {
 				font-size: 12px;
+				display: inline-block;
 				padding-bottom: em($p, 12px);
 			}
 			.popup__button {
