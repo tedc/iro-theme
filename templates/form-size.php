@@ -13,7 +13,6 @@
 						</h2>
 						<span class="popup__required">*<?php _e('Campi sono obbligatori', 'iro'); ?></span>
 					</div>
-				</div>
 				</header>
 				<form class="popup__form popup__form--grid" name="sizeForm" ng-submit="submit(sizeForm.$valid)">
 					<div class="popup__row popup__row--cell-s6">
