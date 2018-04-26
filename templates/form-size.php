@@ -25,20 +25,22 @@
 						<label class="popup__label"><?php _e('Numero di telefono*', 'iro'); ?></label>
 						<input class="popup__input" type="tel" required ng-model="formData.tel" name="tel" ng-attr-placeholder="{{((sizeForm.tel.$invalid && sizeForm.tel.$touched) ? '<?php _e('Campo obbligatorio', 'iro'); ?>' : '')}}" />
 					</div>
-					<label class="popup__label popup__label--cell-s12"><?php _e('Scegli le tue dimensioni', 'iro'); ?></label>
-					<div class="popup__units popup__units--grid">
-						<div class="popup__unit">
-							<input class="popup__input" type="text" ng-model="formData.extent" required placeholder="<?php _e('Lunghezza (campo obbligatorio)', 'iro'); ?>"><span class="popup__per">x</span>
+					<div class="popup__row popup__row--cell-s12">
+						<label class="popup__label"><?php _e('Scegli le tue dimensioni', 'iro'); ?></label>
+						<div class="popup__units popup__units--grid">
+							<div class="popup__unit">
+								<input class="popup__input" type="text" ng-model="formData.extent" required placeholder="<?php _e('Lunghezza (campo obbligatorio)', 'iro'); ?>"><span class="popup__per">x</span>
+							</div>
+							<div class="popup__unit">
+								<input class="popup__input" type="text" ng-model="formData.width" required placeholder="<?php _e('Larghezza (campo obbligatorio)', 'iro'); ?>"><span class="popup__per">x</span>
+							</div>
+							<div class="popup__unit">
+								<input class="popup__input" type="text" ng-model="formData.height" placeholder="<?php _e('Altezza', 'iro'); ?>">
+							</div>
+							<div class="popup__unit"><strong class="popup__per"><?php _e('cm', 'iro'); ?></strong></div>
 						</div>
-						<div class="popup__unit">
-							<input class="popup__input" type="text" ng-model="formData.width" required placeholder="<?php _e('Larghezza (campo obbligatorio)', 'iro'); ?>"><span class="popup__per">x</span>
-						</div>
-						<div class="popup__unit">
-							<input class="popup__input" type="text" ng-model="formData.height" placeholder="<?php _e('Altezza', 'iro'); ?>">
-						</div>
-						<div class="popup__unit"><strong class="popup__per"><?php _e('cm', 'iro'); ?></strong></div>
 					</div>
-					<div class="popup__row popup__row--cell-s6">
+					<div class="popup__row popup__row--cell-s12">
 						<label class="popup__label"><?php _e('Note', 'iro'); ?></label>
 						<textarea class="popup__textarea" name="message" ng-model="formData.message" ng-attr-placeholder="{{((sizeForm.message.$invalid && sizeForm.message.$touched) ? '<?php _e('Campo obbligatorio', 'iro'); ?>' : '')}}"></textarea>
 					</div>

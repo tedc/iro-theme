@@ -76,6 +76,14 @@
 			margin-top: em(74px);
 			margin-bottom: em(74px);
 		}
+		.popup--size & {
+			background-color: #fff;
+			border-radius: 0;
+			max-width: $md-max-width;
+			width: $f;
+			margin-top: 0!important;
+			margin-bottom: 0!important;
+		}
 		// .ng-enter &, .ng-leave & {
 		// 	transform: translate3d(0, $p, 0);
 		// }
