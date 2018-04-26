@@ -66,10 +66,10 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		
 			<?php 
 		echo '<div class="swiper-scrollbar"></div>';
 	 ?>
-		</div>
-		
 	</div>
 </div>
