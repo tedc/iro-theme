@@ -171,20 +171,23 @@
 	&__module {
 		max-width: $md-max-width;
 		border-radius: $r;
-		// .popup__header {
-		// 	background-color: $dark-color;
-		// 	color: $lighter-color;
-		// 	@include grow('md');
-		// 	.popup__title {
-		// 		color: $w;
-		// 	}
-		// }
+		margin-top: em(74px, 14px);
+		margin-bottom: em(74px, 14px);
+		@include breakpoint() {
+			margin-top: em(74px);
+			margin-bottom: em(74px);
+		}
+		.popup__header {
+			background-color: $w;
+			border-top: 1px solid $light-border;
+		}
 	}
 	&__footer {
 		border-top: 1px solid $dark-border;
 		padding: em(20px) em(30px);
 		.popup--size & {
 			text-align: center;
+			margin-top: em($p);
 			.popup__privacy {
 				font-size: 12px;
 				display: inline-block;
