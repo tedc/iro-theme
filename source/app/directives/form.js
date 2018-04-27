@@ -1,7 +1,8 @@
 module.exports = ()=> {
 	return {
-		controller: [ "$scope", "$http", "$timeout", "$httpParamSerializerJQLike", '$window', '$attrs', ($scope, $http, $timeout, $httpParamSerializerJQLike, $window, $attrs)=> {
+		controller: [ "$scope", "$http", "$timeout", "$httpParamSerializerJQLike", '$window', '$attrs', '$rootScope', ($scope, $http, $timeout, $httpParamSerializerJQLike, $window, $attrs, $rootScope)=> {
 		 	$scope.formData = {}
+      $rootScope.isSizeForm = false;
 		 	$scope.isContactSent = false;
 		 	$scope.isSubmitted = false;
       let is_size_form = $attrs.formKind !== 'undefined' && $attrs.formKind == 'size' ? true : false;
@@ -15,6 +16,13 @@ module.exports = ()=> {
       			"Content-type" : "application/x-www-form-urlencoded; charset=utf-8"
       		}
       	};
+        $rootScope.$watch('isSizeForm', (newValue, oldValue)=> {
+          if(newValue=!oldValue) {
+            $timeout(()=> {
+              $rootScope.$broadcast('update_scrollbar');
+            }, 500);
+          }
+        })
       	$scope.formData = {}
         if(is_size_form) {
           $scope.sizeForm.$setUntouched();

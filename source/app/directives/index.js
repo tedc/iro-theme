@@ -334,11 +334,11 @@ iro
 			}
 		}
 	})
-	.directive('ngCountdown', ['$interval', '$cookies', '$rootScope', '$timeout', ($interval, $cookies, $rootScope, $timeout)=> {
+	.directive('ngCountdown', ['$interval', '$rootScope', '$timeout', ($interval, $rootScope, $timeout)=> {
 		return {
 			link : (scope, element, attr)=> {
-				$rootScope.isCountDown = false;
-				let cookie = $cookies.get(attr.cookieName);
+				// $rootScope.isCountDown = false;
+				// let cookie = $cookies.get(attr.cookieName);
 				// if(!cookie && typeof cookie == 'undefined') {
 				// 	let currentDate = new Date();
 				// 	currentDate.setDate(currentDate.getDate() + 1);
@@ -387,7 +387,7 @@ iro
 					    scope.m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 					    scope.s = Math.floor((distance % (1000 * 60)) / 1000);
 					    if (distance < 0) {
-	        				$interval.cancel(x);
+	        				$interval.cancel(scope.x);
 							$rootScope.isCountDown = false;
 	        			}   
 					}, 1000);
