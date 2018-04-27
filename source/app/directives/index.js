@@ -1,4 +1,3 @@
-require('ouibounce');
 var iro = angular.module('iro');
 iro
 	.directive('scroller', ['getInstances','$timeout', (getInstances, $timeout) => {
@@ -366,7 +365,7 @@ iro
 				// 		$rootScope.isCountDown = true;
 				// 	});
 				// }
-				ouibounce(false, {
+				let _ouibounce = ouibounce(false, {
 					callback : ()=> {
 						fireCountDown();
 					}

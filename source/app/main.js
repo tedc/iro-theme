@@ -1,5 +1,6 @@
 //require('objectFitPolyfill');
 require('babel-polyfill');
+require('ouibounce');
 require('angular');
 require('angular-cookies');
 require('../../bower_components/angular-cookie-law/dist/angular-cookie-law');
