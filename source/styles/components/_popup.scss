@@ -163,6 +163,9 @@
 			background-color: #fff;
 			border-bottom: 1px solid $dark-border;
 		}
+		.popup__module & {
+			text-align: left;
+		}
 	}
 	&__close {
 		display: inline-flex;
