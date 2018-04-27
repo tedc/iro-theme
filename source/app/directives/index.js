@@ -369,17 +369,17 @@ iro
 
 				let _ouibounce = ouibounce(false, {
 					callback : ()=> {
-						fireCountDown();
+						scope.fireCountDown();
 					}
 				});
-				let x = null;
-				let fireCountDown = ()=> {
-					let countDownDate = new Date(attr.ngCountdown).getTime();
-					x = $interval(()=> {
+				scope.countDownDate = new Date(attr.ngCountdown).getTime();
+				scope.x = null;
+				scope.fireCountDown = ()=> {
+					scope.x = $interval(()=> {
 						let now = new Date().getTime();
 					    
 					    // Find the distance between now an the count down date
-					    let distance = countDownDate - now;
+					    let distance = scope.countDownDate - now;
 					    
 					    // Time calculations for days, hours, minutes and seconds
 					    scope.d = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -395,8 +395,8 @@ iro
 						$rootScope.isCountDown = true;
 					});
 				}
-				$rootScope.$watch('isCountDown', ()=> {
-					if($rootScope.isCountDown && x != null) {
+				$rootScope.$watch('isCountDown', (newValue, oldValue)=> {
+					if(!$rootScope.isCountDown && scope.x != null && newValue!=oldValue) {
 						$interval.cancel(x);
 					}
 				})
