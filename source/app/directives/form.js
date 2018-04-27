@@ -17,7 +17,7 @@ module.exports = ()=> {
       		}
       	};
         $rootScope.$watch('isSizeForm', (newValue, oldValue)=> {
-          if(newValue=!oldValue) {
+          if(newValue!=oldValue) {
             $timeout(()=> {
               $rootScope.$broadcast('update_scrollbar');
             }, 500);
