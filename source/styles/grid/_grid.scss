@@ -98,9 +98,9 @@ $unit: $p;
     }
 }
 
-@mixin full($pos : absolute, $sides : false) {
+@mixin full($pos : absolute, $sides : false, $h : $f) {
     position: $pos;
-    height: $f;
+    height: $h;
     top: 0;
     @if $sides == true {
         @include normalize_sides;
