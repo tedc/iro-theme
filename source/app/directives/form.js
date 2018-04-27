@@ -8,9 +8,8 @@ module.exports = ()=> {
       $rootScope.$watch('isSizeForm', (newValue, oldValue)=> {
         if(newValue!=oldValue) {
           $timeout(()=> {
-            console.log(newValue);
             $rootScope.$broadcast('update_scrollbar');
-          }, 500);
+          }, 1100);
         }
       })
       let is_size_form = $attrs.formKind !== 'undefined' && $attrs.formKind == 'size' ? true : false;
