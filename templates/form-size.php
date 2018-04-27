@@ -38,10 +38,7 @@
 								<input class="popup__input" type="text" ng-model="formData.extent" required placeholder="<?php _e('Lunghezza (campo obbligatorio)', 'iro'); ?>"><span class="popup__per">x</span>
 							</div>
 							<div class="popup__unit">
-								<input class="popup__input" type="text" ng-model="formData.width" required placeholder="<?php _e('Larghezza (campo obbligatorio)', 'iro'); ?>"><span class="popup__per">x</span>
-							</div>
-							<div class="popup__unit">
-								<input class="popup__input" type="text" ng-model="formData.height" placeholder="<?php _e('Altezza', 'iro'); ?>">
+								<input class="popup__input" type="text" ng-model="formData.width" required placeholder="<?php _e('Larghezza (campo obbligatorio)', 'iro'); ?>">
 							</div>
 							<strong class="popup__per"><?php _e('cm', 'iro'); ?></strong>
 						</div>
