@@ -1,5 +1,5 @@
 .popup {
-	@include full($pos: fixed, $h:100vh);
+	@include full($pos: fixed);
 	z-index: 9999999;
 	//background: linear-gradient(to top, #0c386c, #7dcdf3);
 	background: url(../images/iro-sogno-accedi-stelle-BG.gif) repeat;
@@ -17,7 +17,7 @@
 	// 	align-items: center;
 	// }
 	.swiper-container {
-		@include full($h: 100vh);
+		@include full;
 		overflow: hidden;
 		display: flex;
 		justify-content: center;
@@ -26,7 +26,8 @@
 	&--size {
 		z-index: 99999999;
 		.swiper-container {
-			align-items: flex-start;
+			display: block;
+			text-align: center;
 		}
 	}
 	.swiper-wrapper {
