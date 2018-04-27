@@ -2,16 +2,8 @@ module.exports = ()=> {
 	return {
 		controller: [ "$scope", "$http", "$timeout", "$httpParamSerializerJQLike", '$window', '$attrs', '$rootScope', ($scope, $http, $timeout, $httpParamSerializerJQLike, $window, $attrs, $rootScope)=> {
 		 	$scope.formData = {}
-      $rootScope.isSizeForm = false;
-		 	$scope.isContactSent = false;
+      $scope.isContactSent = false;
 		 	$scope.isSubmitted = false;
-      $rootScope.$watch('isSizeForm', (newValue, oldValue)=> {
-        if(newValue!=oldValue) {
-          $timeout(()=> {
-            $rootScope.$broadcast('update_scrollbar');
-          }, 1100);
-        }
-      })
       let is_size_form = $attrs.formKind !== 'undefined' && $attrs.formKind == 'size' ? true : false;
 		 	$scope.submit = (isValid)=> {
 		 		if($scope.isSubmitted) return;

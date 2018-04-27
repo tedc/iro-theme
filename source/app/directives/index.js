@@ -20,7 +20,21 @@ iro
 					s.update();
 					//objectFitPolyfill();
 					//if(!attrs.smooth) s.updateSlides();
-				})
+				});
+				var updated = false;
+				element.on('mousewheel', ()=> {
+					if(!updated) s.update();
+					updated = true;
+				});
+				element.on('mousemove', ()=> {
+					if(!updated) s.update();
+					updated = true;
+				});
+
+				element.on('mouseenter', ()=> {
+					if(!updated) s.update();
+					updated = true;
+				});
 				scope.$on('$destroy', ()=> {
 					getInstances.destroyInstance(name);
 				});
