@@ -5,6 +5,14 @@ module.exports = ()=> {
       $rootScope.isSizeForm = false;
 		 	$scope.isContactSent = false;
 		 	$scope.isSubmitted = false;
+      $rootScope.$watch('isSizeForm', (newValue, oldValue)=> {
+        if(newValue!=oldValue) {
+          $timeout(()=> {
+            console.log(newValue);
+            $rootScope.$broadcast('update_scrollbar');
+          }, 500);
+        }
+      })
       let is_size_form = $attrs.formKind !== 'undefined' && $attrs.formKind == 'size' ? true : false;
 		 	$scope.submit = (isValid)=> {
 		 		if($scope.isSubmitted) return;
@@ -16,14 +24,6 @@ module.exports = ()=> {
       			"Content-type" : "application/x-www-form-urlencoded; charset=utf-8"
       		}
       	};
-        $rootScope.$watch('isSizeForm', (newValue, oldValue)=> {
-          if(newValue!=oldValue) {
-            $timeout(()=> {
-              console.log(newValue);
-              $rootScope.$broadcast('update_scrollbar');
-            }, 500);
-          }
-        })
       	$scope.formData = {}
         if(is_size_form) {
           $scope.sizeForm.$setUntouched();
