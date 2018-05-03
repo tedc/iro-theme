@@ -494,9 +494,9 @@
 			}
 		}
 		&--page {
-			min-height: 0;
+			min-height: 0!important;
 			.header__container {
-				min-height: 0;
+				min-height: 0!important;
 			}
 		}
 	}
