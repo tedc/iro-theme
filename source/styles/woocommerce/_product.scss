@@ -252,10 +252,11 @@
 		}
 	}
 	&__open {
-		font-size: em(14px);
+		font-size: 12px;
 		display: block;
 		font-weight: bold;
-		padding-top: em($p, 14px);
+		padding-top: 10px;
+		letter-spacing: 0;
 		color: $brand-main;
 		transition: color $speed;
 		&:hover {
