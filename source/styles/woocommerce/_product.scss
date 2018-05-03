@@ -253,6 +253,8 @@
 	}
 	&__open {
 		font-size: em(14px);
+		display: block;
+		font-weight: bold;
 		padding-top: em($p, 14px);
 		color: $brand-main;
 		transition: color $speed;
