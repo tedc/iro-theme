@@ -30,6 +30,9 @@
 	@include grow('lg', 'top');
 	position: relative;
 	z-index: 1;
+	.single-post & {
+		text-align: center;
+	}
 	&--grid {
 		align-items: center;
 		align-content: center;
@@ -150,6 +153,9 @@
 			@include grow('small', 'top');
 			@include normalize_padding_half;
 			position: relative;
+			.single-post & {
+				text-align: left;
+			}
 			.post--grid & {
 				background-color: $lighter-color;
 			}
