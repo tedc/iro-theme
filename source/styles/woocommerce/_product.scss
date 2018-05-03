@@ -252,11 +252,11 @@
 		}
 	}
 	&__open {
-		font-size: 12px;
+		font-size: 14px;
 		display: block;
 		font-weight: bold;
 		padding-top: 10px;
-		letter-spacing: 0;
+		letter-spacing: 0.025em;
 		color: $brand-main;
 		transition: color $speed;
 		&:hover {
