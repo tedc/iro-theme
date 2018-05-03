@@ -251,4 +251,13 @@
 			}
 		}
 	}
+	&__open {
+		font-size: em(14px);
+		padding-top: em($p, 14px);
+		color: $brand-main;
+		transition: color $speed;
+		&:hover {
+			color: $alternate-color;
+		}
+	}
 }

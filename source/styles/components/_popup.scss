@@ -166,6 +166,9 @@
 		.popup__module & {
 			text-align: left;
 		}
+		.popup__module .popup__header {
+			text-align: center;
+		}
 	}
 	&__close {
 		display: inline-flex;
