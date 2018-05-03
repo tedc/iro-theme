@@ -13,13 +13,15 @@
 	$header_class .= (!is_page_template() || get_field('header_small')) ? ' header--page' : '';
 	$header_class .= (get_field('white_text')) ? ' header--clear' : '';
 ?>
-<div class="<?= $header_class; ?>"<?php echo ($thumb_id) ? ' style="background-image:url('.wp_get_attachment_image_src( $thumb_id, 'full' )[0].')"' : ''; ?>>
+<div class="<?= $header_class; ?>"<?php echo ($thumb_id && !is_404()) ? ' style="background-image:url('.wp_get_attachment_image_src( $thumb_id, 'full' )[0].')"' : ''; ?>>
 	<?php 
-	if(get_field('is_video')) :
-		get_template_part( 'templates/header', 'video');
-	else :
-		echo $image;
-	endif;
+	if(!is_404()) {
+		if(get_field('is_video')) :
+			get_template_part( 'templates/header', 'video');
+		else :
+			echo $image;
+		endif;
+	}
 	?>
 	<div class="header__container header__container--grow-<?php echo (!is_page_template() || get_field('header_small')) ? 'md' : 'lg'; ?>">
 		<?php get_template_part( 'templates/page', 'title'); ?>
