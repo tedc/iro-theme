@@ -188,14 +188,17 @@
 			position: absolute;
 			right: 0;
 			top: 0;
-			transform: translate3d(0, -100%, 0);
-			color: $w;
-			padding-bottom: em($p);
+			//transform: translate3d(0, -100%, 0);
+			color: $brand-main;
+			padding-top: em($p);
+			transition: color $speed;
+			padding-right: em($p);
 			.icon-chiudi {
 				font-size: 12px;
 				margin-left: 10px;
 			}
 			&:hover {
+				color: $alternate-color;
 				.icon-chiudi {
 					transform: scale(0.9) translate3d(0, 0, 0);
 				}
