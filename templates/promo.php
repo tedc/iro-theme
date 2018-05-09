@@ -17,7 +17,7 @@
 	if($promo->have_posts()) : ?>
 <div class="promo">
 	<?php while($promo->have_posts()) : $promo->the_post(); ?>
-	<div class="promo__pre"><span><?php the_title(); ?></span></div>
+	<div class="promo__pre"><?php the_title(); ?></div>
 	<div class="promo__open"></div>
 </div>
 	<?php if(is_user_logged_in() && current_user_can('manage_options') && !isset($_COOKIE['_promo_'.get_the_ID()])) : ?>

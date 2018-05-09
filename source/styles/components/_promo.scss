@@ -23,16 +23,10 @@
 	&__{
 		&pre {
 			font-family: $alternate-font;
-			span {
-				font-size: 13px;
-				@include breakpoint() {
-					font-size: 1.1em;
-				}
-			}
 		}
 		&open {
-			width: 20px;
-			height: 20px;
+			width: 16px;
+			height: 16px;
 			margin-left: em(20px);
 			position: relative;
 			&:before, &:after {
