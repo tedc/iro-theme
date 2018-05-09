@@ -21,7 +21,7 @@
             $count_opt = 0;
             foreach ( $terms as $term ) { 
                 if ( in_array( $term->slug, $options ) ) {
-                    $term_name = '<strong>'.preg_replace('/([0-9]{1,3}([x][0-9]{1,3})([x][0-9]{1,3})?)/', '<span>$1</span>', $term->name) . '</strong>';
+                    $term_name = '<strong>'.preg_replace('/([0-9]{1,3}([x][0-9]{1,3})([x][0-9]{1,3}[,][0-9]{1,2})?)/', '<span>$1</span>', $term->name) . '</strong>';
                     
                      $ngselected = $args['selected'] == $term->slug ? ' ng-init=";variationPriceIndex='.$count_opt.';singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '=\''.$args['selected'].'\'; sizeSelected={name :\''.$term_name.'\', sizes :\''.$term->description.'\'}"' : '';
                     
