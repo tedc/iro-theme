@@ -382,6 +382,9 @@ iro
 				// }
 
 				let kind = attr.pageKind;
+				scope.countDownDate = new Date(attr.ngCountdown).getTime();
+				scope.x = null;
+					
 				scope.countDown = ()=> {
 					scope.x = $interval(()=> {
 						let now = new Date().getTime();
@@ -415,8 +418,6 @@ iro
 							scope.fireCountDown();
 						}
 					});
-					scope.countDownDate = new Date(attr.ngCountdown).getTime();
-					scope.x = null;
 					scope.fireCountDown = ()=> {
 						$timeout(() => {
 							$rootScope.isCountDown = true;
