@@ -414,13 +414,14 @@ iro
 		        			}   
 						}, 1000);
 					}
-					$rootScope.$watch('isCountDown', (newValue, oldValue)=> {
-						if(!$rootScope.isCountDown && scope.x != null && newValue!=oldValue) {
-							$interval.cancel(scope.x);
-						} else {
-							scope.countDown();
-						}
-					});
+					scope.countDown();
+					// $rootScope.$watch('isCountDown', (newValue, oldValue)=> {
+					// 	if(!$rootScope.isCountDown && scope.x != null && newValue!=oldValue) {
+					// 		$interval.cancel(scope.x);
+					// 	} else {
+					// 		scope.countDown();
+					// 	}
+					// });
 					if(kind == 'materasso'){
 						$timeout(()=> {
 							if(!$rootScope.isCountDown) {
