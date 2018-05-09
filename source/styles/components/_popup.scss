@@ -71,6 +71,7 @@
 	// }
 	&__agile {
 		width: $f;
+		border-top: 1px solid $light-border;
 		flex: 0 0 auto;
 		@include grow('md', 'top');
 		@include grow('lg', 'bottom');
@@ -317,6 +318,7 @@
 		.popup--promo & {
 			@include grow('lg');
 			@include grow('lg', 'top');
+			@include grow('md', 'bottom');
 			text-transform: none;
 			align-items: center;
 			align-content: center;
