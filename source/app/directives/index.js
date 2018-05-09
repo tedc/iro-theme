@@ -429,7 +429,7 @@ iro
 							idx : 10,
 							onComplete : ()=> {
 								$timeout(() => {
-									if(!rootScope.isCountDown) $rootScope.isCountDown = true;
+									if(!$rootScope.isCountDown) $rootScope.isCountDown = true;
 								});
 							}
 						});
