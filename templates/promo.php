@@ -15,7 +15,7 @@
 	);
 	$promo = new WP_Query($args);
 	if($promo->have_posts()) : ?>
-<div class="promo">
+<div class="promo" ng-click="isCountDown=true">
 	<?php while($promo->have_posts()) : $promo->the_post(); ?>
 	<div class="promo__pre"><?php the_title(); ?></div>
 	<div class="promo__open"></div>

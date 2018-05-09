@@ -384,6 +384,7 @@ iro
 				let kind = scope.$eval(attr.pageKind);
 				if(kind != false) {
 					let _ouibounce = ouibounce(false, {
+						aggressive: true,
 						callback : ()=> {
 							scope.fireCountDown();
 						}

@@ -23,6 +23,8 @@
 	&__{
 		&pre {
 			font-family: $alternate-font;
+			position: relative;
+			top: 2px;
 		}
 		&open {
 			width: 16px;
