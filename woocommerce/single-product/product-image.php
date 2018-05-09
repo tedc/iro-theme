@@ -21,7 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 global $post, $product;
-$default = $product->get_variation_default_attribute( 'pa_color' );
+
+$default = ($product->is_type('variable')) ? $product->get_variation_default_attribute( 'pa_color' ) : false;
 $columns           = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
 $thumbnail_size    = apply_filters( 'woocommerce_product_thumbnails_large_size', 'full' );
 $post_thumbnail_id = get_post_thumbnail_id( $post->ID );
@@ -42,7 +43,7 @@ $swiper_slide = ($product->get_gallery_image_ids() && has_post_thumbnail()) ? ' 
 $options = ($product->get_gallery_image_ids() && has_post_thumbnail()) ? ' scroller="product" options="{\'effect\':\'fade\',\'fadeEffect\':{\'crossFade\':true}}"' : '';
 ?>
 <div class="product__images product__images--align-start">
-<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>"<?php echo $options; ?> ng-class="{'product__gallery--visible' : singleProductVariation.attribute_pa_color == '<?php echo $default; ?>'}">
+<div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>"<?php echo $options; if($product->is_type('variable') ) : ?> ng-class="{'product__gallery--visible' : singleProductVariation.attribute_pa_color == '<?php echo $default; ?>'}"<?php endif; ?>>
 	<div class="product__gallery-wrapper<?php echo $swiper_wrapper; ?>">
 		<?php
 		$attributes = array(
