@@ -26,10 +26,10 @@
 		<div class="popup__wrapper popup__wrapper--shrink swiper-wrapper">
 			<div class="popup__promo popup__promo--shrink popup__promo--grid swiper-slide">
 				<div class="popup__close" ng-click="isCountDown=false"><?php _e('Chiudi', 'iro'); ?> <i class="icon-chiudi"></i></div>
-				<div class="popup__figure popup__figure--shrink-right-half popup__figure--cell-s5">
+				<div class="popup__figure popup__figure--shrink-right-half popup__figure--cell-s7">
 					<?php the_post_thumbnail('full'); ?>
 				</div>
-				<div class="popup__content popup__content--grow-lg popup__content--shrink-left-half popup__content--grid popup__content--cell-s7">
+				<div class="popup__content popup__content--grow-lg popup__content--shrink-left-half popup__content--grid popup__content--cell-s5">
 					<h3 class="popup__title popup__title--medium"><?php the_field('popup_title'); ?></h3>
 					<div class="popup__countdown popup__countdown--grid" ng-countdown="<?php $date = get_field('popup_date', false, false);$date = new DateTime($date);echo $date->format('Y-m-d'); ?>T<?php echo $date->format('H:i:s'); ?>" cookie-name="_promo_<?php the_ID(); ?>" page-kind="<?php echo $kind; ?>">
 						<div class="popup__time">
@@ -68,7 +68,6 @@
 					</div>
 					<!-- Text input-->
 					<div class="popup__agilerow popup__agilerow--mw">
-					 <label class="popup__label" for="agilefield-1">Inserisci mail<span class="agile-span-asterisk"> *</span></label>
 					 <input maxlength="250" id="agilefield-1" name="email" type="email" placeholder="Inserisci la tua email" class="popup__input" required="">
 					<!--recaptcha aglignment-->
 					<!-- Button -->
