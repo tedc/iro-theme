@@ -402,7 +402,7 @@ iro
 						    
 						    // Find the distance between now an the count down date
 						    let distance = scope.countDownDate - now;
-						    
+						    console.log(distance);
 						    // Time calculations for days, hours, minutes and seconds
 						    scope.d = Math.floor(distance / (1000 * 60 * 60 * 24));
 						    scope.h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
