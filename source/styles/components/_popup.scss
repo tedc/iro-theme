@@ -77,9 +77,10 @@
 	// }
 	&__agile {
 		width: $f;
-		border-top: 1px solid $light-border;
+		//border-top: 1px solid $light-border;
 		flex: 0 0 auto;
-		@include grow('md');
+		//@include grow('md');
+		@include grow('md', 'top');
 		.popup__input {
 			margin-bottom: em($p);
 		}

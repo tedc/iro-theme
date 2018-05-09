@@ -29,7 +29,7 @@
 				<div class="popup__figure popup__figure--shrink-right-half popup__figure--cell-s5">
 					<?php the_post_thumbnail('full'); ?>
 				</div>
-				<div class="popup__content popup__content--grow-md-bottom popup__content--grow-lg-top popup__content--shrink-left-half popup__content--grid popup__content--cell-s7">
+				<div class="popup__content popup__content--grow-lg popup__content--shrink-left-half popup__content--grid popup__content--cell-s7">
 					<h3 class="popup__title popup__title--medium"><?php the_field('popup_title'); ?></h3>
 					<div class="popup__countdown popup__countdown--grid" ng-countdown="<?php $date = get_field('popup_date', false, false);$date = new DateTime($date);echo $date->format('Y-m-d'); ?>T<?php echo $date->format('H:i:s'); ?>" cookie-name="_promo_<?php the_ID(); ?>" page-kind="<?php echo $kind; ?>">
 						<div class="popup__time">
@@ -55,8 +55,7 @@
 					<?php if(get_field('popup_link')): ?>
 					<div class="popup__link popup__link--grow-md-top"><a class="popup__button" hre="<?php the_field('popup_link'); ?>"><?php _e('Acquista IRO', 'iro'); ?></a></div>
 					<?php endif; ?>
-				</div>
-				<form class="popup__agile popup__agile--grow-md" id="agile-form" action="https://dreamiro.agilecrm.com/formsubmit" method="GET">
+					<form class="popup__agile popup__agile--grow-md-top" id="agile-form" action="https://dreamiro.agilecrm.com/formsubmit" method="GET">
 					<div style="display: none; height: 0px; width: 0px;">
 					<input type="hidden" id="_agile_form_name" name="_agile_form_name" value="Mail">
 					<input type="hidden" id="_agile_domain" name="_agile_domain" value="dreamiro">
@@ -80,6 +79,7 @@
 					<script type="text/javascript">
 					(function(a){var b=a.onload,p=true;isCaptcha=false;if(p){a.onload="function"!=typeof b?function(){try{_agile_load_form_fields()}catch(a){}}:function(){b();try{_agile_load_form_fields()}catch(a){}}};var formLen=document.forms.length;for(i=0;i<formLen;i++){if(document.forms.item(i).getAttribute("id")== "agile-form"){a.document.forms.item(i).onsubmit=function(a){a.preventDefault();try{_agile_synch_form_v5(this)}catch(b){this.submit()}}}}})(window);
 					</script>
+				</div>
 			</div>
 		</div>
 		<?php 
