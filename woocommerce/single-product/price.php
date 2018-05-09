@@ -24,6 +24,4 @@ global $product;
 if(!$product->is_type('variable')) :
 ?>
 <div class="product__price product__price--grow-top"><span><?php echo $product->get_price_html(); ?></span></div>
-<?php else : ?>
-<div class="product__price product__price--grow-top"><span ng-bind-html="(product.price) ? (product.price) : '<?php echo addslashes($product->get_price_html()); ?>'"><?php echo $product->get_price_html(); ?></span></div>
 <?php endif; ?>
