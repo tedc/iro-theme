@@ -56,6 +56,29 @@
 					<div class="popup__link popup__link--grow-md-top"><a class="popup__button" hre="<?php the_field('popup_link'); ?>"><?php _e('Acquista IRO', 'iro'); ?></a></div>
 					<?php endif; ?>
 				</div>
+				<form class="popup__agile" id="agile-form" action="https://dreamiro.agilecrm.com/formsubmit" method="GET">
+					<div style="display: none; height: 0px; width: 0px;">
+					<input type="hidden" id="_agile_form_name" name="_agile_form_name" value="Mail">
+					<input type="hidden" id="_agile_domain" name="_agile_domain" value="dreamiro">
+					<input type="hidden" id="_agile_api" name="_agile_api" value="3ojuin62rel99ttpgfj4ul2dkl">
+					<input type="hidden" id="_agile_redirect_url" name="_agile_redirect_url" value="https://www.dreamiro.it/materasso">
+					<input type="hidden" id="_agile_document_url" name="_agile_document_url" value="">
+					<input type="hidden" id="_agile_confirmation_msg" name="_agile_confirmation_msg" value="">
+					<input type="hidden" id="_agile_form_id_tags" name="tags" value="Sconto">
+					<input type="hidden" id="_agile_form_id" name="_agile_form_id" value="5692462144159744">
+					</div>
+					<!-- Text input-->
+					 <label class="popup__label" for="agilefield-1">Inserisci mail<span class="agile-span-asterisk"> *</span></label>
+					 <input maxlength="250" id="agilefield-1" name="email" type="email" placeholder="Inserisci la tua email" class="popup__input" required="">
+					<!--recaptcha aglignment-->
+					<!-- Button -->
+					   <button type="submit" class="agile-button">Invia</button>
+					   <br><span id="agile-error-msg"></span>
+					
+					</form>
+					<script type="text/javascript">
+					(function(a){var b=a.onload,p=true;isCaptcha=false;if(p){a.onload="function"!=typeof b?function(){try{_agile_load_form_fields()}catch(a){}}:function(){b();try{_agile_load_form_fields()}catch(a){}}};var formLen=document.forms.length;for(i=0;i<formLen;i++){if(document.forms.item(i).getAttribute("id")== "agile-form"){a.document.forms.item(i).onsubmit=function(a){a.preventDefault();try{_agile_synch_form_v5(this)}catch(b){this.submit()}}}}})(window);
+					</script>
 			</div>
 		</div>
 		<?php 

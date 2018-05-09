@@ -69,6 +69,10 @@
 	// 	visibility: visible;
 	// 	transition-delay: 0;
 	// }
+	&__agile {
+		width: $f;
+		flex: 0 0 auto;
+	}
 	&__form {
 		background-color: $lighter-color;
 		position: relative;
