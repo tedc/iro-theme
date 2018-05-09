@@ -418,6 +418,7 @@ iro
 							$interval.cancel(scope.x);
 						}
 					});
+					console.log(kind);
 					if(kind == 'materasso'){
 						$timeout(()=> {
 							if(!$rootScope.isCountDown) {
