@@ -56,7 +56,7 @@
 					<div class="popup__link popup__link--grow-md-top"><a class="popup__button" hre="<?php the_field('popup_link'); ?>"><?php _e('Acquista IRO', 'iro'); ?></a></div>
 					<?php endif; ?>
 				</div>
-				<form class="popup__agile popup__agile--grow-lg-bottom popup__agile--grow-md-top" id="agile-form" action="https://dreamiro.agilecrm.com/formsubmit" method="GET">
+				<form class="popup__agile popup__agile--grow-md" id="agile-form" action="https://dreamiro.agilecrm.com/formsubmit" method="GET">
 					<div style="display: none; height: 0px; width: 0px;">
 					<input type="hidden" id="_agile_form_name" name="_agile_form_name" value="Mail">
 					<input type="hidden" id="_agile_domain" name="_agile_domain" value="dreamiro">

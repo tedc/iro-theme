@@ -73,8 +73,7 @@
 		width: $f;
 		border-top: 1px solid $light-border;
 		flex: 0 0 auto;
-		@include grow('md', 'top');
-		@include grow('lg', 'bottom');
+		@include grow('md');
 		.popup__input {
 			margin-bottom: em($p);
 		}
