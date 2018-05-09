@@ -2,7 +2,6 @@
 	position: fixed;
 	top: em(90px);
 	right: 0;
-	width: $f;
 	text-transform: uppercase;
 	z-index: 99998;
 	background-color: $highlight-color;
@@ -38,6 +37,7 @@
 			position: relative;
 			&:before, &:after {
 				content: '';
+				border-radius: 5px;
 				position: absolute;
 				top: 0;
 				left: 50%;
