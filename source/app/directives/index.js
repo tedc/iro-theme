@@ -382,6 +382,7 @@ iro
 				// }
 
 				let kind = scope.$eval(attr.pageKind);
+				console.log(kind);
 				if(kind != false) {
 					let _ouibounce = ouibounce(false, {
 						aggressive: true,
@@ -418,7 +419,6 @@ iro
 							$interval.cancel(scope.x);
 						}
 					});
-					console.log(kind);
 					if(kind == 'materasso'){
 						$timeout(()=> {
 							if(!$rootScope.isCountDown) {
