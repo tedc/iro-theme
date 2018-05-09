@@ -154,7 +154,11 @@ module.exports = () => {
 					}
 				}
 				$scope.variationPrice = (i)=> {
-					return $scope.variationPrices[i][$scope.singleProductVariation.attribute_pa_color];
+					if($scope.singleProductVariation.attribute_pa_color) {
+						return $scope.variationPrices[i][$scope.singleProductVariation.attribute_pa_color];
+					} else {
+						return $scope.variationPrices[i][0];
+					}
 				}
 				$scope.variationValue = (n, i)=> {
 					return n + '<em>' + $scope.variationPrice(i) + '</em>';
