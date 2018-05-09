@@ -381,39 +381,64 @@ iro
 				// 	});
 				// }
 
-				let _ouibounce = ouibounce(false, {
-					callback : ()=> {
-						scope.fireCountDown();
-					}
-				});
-				scope.countDownDate = new Date(attr.ngCountdown).getTime();
-				scope.x = null;
-				scope.fireCountDown = ()=> {
-					scope.x = $interval(()=> {
-						let now = new Date().getTime();
-					    
-					    // Find the distance between now an the count down date
-					    let distance = scope.countDownDate - now;
-					    
-					    // Time calculations for days, hours, minutes and seconds
-					    scope.d = Math.floor(distance / (1000 * 60 * 60 * 24));
-					    scope.h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-					    scope.m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-					    scope.s = Math.floor((distance % (1000 * 60)) / 1000);
-					    if (distance < 0) {
-	        				$interval.cancel(scope.x);
-							$rootScope.isCountDown = false;
-	        			}   
-					}, 1000);
-					$timeout(() => {
-						$rootScope.isCountDown = true;
+				let kind = scope.$eval(attr.pageKind);
+				if(kind != false) {
+					let _ouibounce = ouibounce(false, {
+						callback : ()=> {
+							scope.fireCountDown();
+						}
 					});
-				}
-				$rootScope.$watch('isCountDown', (newValue, oldValue)=> {
-					if(!$rootScope.isCountDown && scope.x != null && newValue!=oldValue) {
-						$interval.cancel(x);
+					scope.countDownDate = new Date(attr.ngCountdown).getTime();
+					scope.x = null;
+					scope.fireCountDown = ()=> {
+						scope.x = $interval(()=> {
+							let now = new Date().getTime();
+						    
+						    // Find the distance between now an the count down date
+						    let distance = scope.countDownDate - now;
+						    
+						    // Time calculations for days, hours, minutes and seconds
+						    scope.d = Math.floor(distance / (1000 * 60 * 60 * 24));
+						    scope.h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+						    scope.m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+						    scope.s = Math.floor((distance % (1000 * 60)) / 1000);
+						    if (distance < 0) {
+		        				$interval.cancel(scope.x);
+								$rootScope.isCountDown = false;
+		        			}   
+						}, 1000);
+						$timeout(() => {
+							$rootScope.isCountDown = true;
+						});
 					}
-				})
+					$rootScope.$watch('isCountDown', (newValue, oldValue)=> {
+						if(!$rootScope.isCountDown && scope.x != null && newValue!=oldValue) {
+							$interval.cancel(x);
+						}
+					});
+					if(kind == 'materasso'){
+						$timeout(()=> {
+							if(!$rootScope.isCountDown) {
+								$rootScope.isCountDown = true;
+							}
+						}, 10000);
+						let tweenEnter = TweenMax.to({idx : 0}, .25, {
+							idx : 10,
+							onComplete : ()=> {
+								$timeout(() => {
+									if(!rootScope.isCountDown) $rootScope.isCountDown = true;
+								});
+							}
+						});
+						let scrollScene = new ScrollMagic.Scene({
+							triggerElement: '#footer',
+							triggerHook : 'onEnter',
+						});
+						scrollScene
+							.setTween(tweenEnter)
+							.addTo(controller);
+					}
+				}
 			}
 		}
 	}])

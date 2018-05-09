@@ -11,12 +11,12 @@
 	// .admin-bar.logged-in & {
 	// 	top: 32px;
 	// }
-	.iro--has-promo & {
-		top: em(63px);
-        @include breakpoint(1030px) {
-            top: em(56px);
-        }
-	}
+	// .iro--has-promo & {
+	// 	top: em(63px);
+ //        @include breakpoint(1030px) {
+ //            top: em(56px);
+ //        }
+	// }
 }
 .banner {
 	@extend %banner;

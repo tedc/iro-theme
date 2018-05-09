@@ -1,97 +1,62 @@
 .promo {
 	position: fixed;
-	top: 0;
-	left: 0;
+	top: em(90px);
+	right: 0;
 	width: $f;
 	text-transform: uppercase;
-	z-index: 99999999;
+	z-index: 99998;
+	background-color: $highlight-color;
 	overflow: visible;
+	display: flex;
+	align-items: center;
+	border-top-left-radius: $r;
+	border-bottom-left-radius: $r;
+	color: $brand-main;
+	padding: em(10px) em(20px);
+	transition: {
+		property: visibility, opacity, background-color;
+		duration: $speed;
+	};
+	&--hidden {
+		opacity: 0;
+		visibility: hidden;
+	}	
 	&__{
-		&wrapper {		
-			background-color: $highlight-color;
-			justify-content: center;
-			@include breakpoint(1030px) {	
-				justify-content: flex-start;
-			}
-		}
-		&pre, &content {
-			padding: {
-				top: em(10px);
-				bottom: em(10px);
-			};
-		}
 		&pre {
-			background-color: $brand-main;
-			flex: 0 0 auto;
-			color: $w;
-			border-top-right-radius: em($p*2);
-			border-bottom-right-radius: em($p*2);
-			align-items: center;
-			align-content: center;
 			font-family: $alternate-font;
-			display: none;
 			span {
 				font-size: 13px;
 				@include breakpoint() {
 					font-size: 1.1em;
 				}
 			}
-			@include breakpoint(1030px) {
-				display: flex;
-			}
 		}
-		&content {
-			font-family: $alternate-font;
-			flex: 1;
-			color: $brand-main;
-			display: flex;
-			flex-wrap: wrap;
-			display: flex;
-			align-items: center;
-			align-content: center;
-			flex-wrap: wrap;
-			max-width: $f;
-			justify-content: center;
-			@include breakpoint(1030px) {	
-				justify-content: flex-start;
-			}
-			span {
-				flex: 0 0 auto;
-				font-size: 12px;
-				@include breakpoint() {
-					font-size: 1em;
-				}
-			}
-		}
-		&name {
-			font-family: $main-font;
-			display: inline-block;
-			margin: 0 10px;
-			text-transform: none;
+		&open {
+			width: 20px;
+			height: 20px;
+			margin-left: em(20px);
 			position: relative;
-			top: -3px;
-		}
-		&sep {
-			margin: 0 10px;
-			font-size: $f*2!important;
-			display: none;
-			@include breakpoint(1030px) {	
-				display: inline-block;
+			&:before, &:after {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 50%;
+				height: $f;
+				width: 4px;
+				margin-left: -2px;
+				background-color: $brand-main;
+			}
+			&:after {
+				transform: rotate(90deg) translateZ(0);
 			}
 		}
-		&discount {
-			font-size: $f*2!important;
-			display: inline-block;
-			margin: 0 10px;
-		}
-		&expire {
-			font-family: $main-font;
-			font-size: 70%!important;
-			top: -2px;
-			position: relative;
-			display: none;
-			@include breakpoint(1030px) {	
-				display: inline-block;
+	}
+	&:hover {
+		background-color: $brand-main;
+		color: $w;
+		.promo__open {
+			&:before, &:after {
+				background-color: $w;
 			}
 		}
 	}
