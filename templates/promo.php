@@ -4,7 +4,7 @@
 	acf_unset_language_to_default();
 	if(is_front_page()) {
 		$kind = 'home';
-	} elseif(is_product($materasso)) {
+	} elseif(is_product($materasso) && $post->ID == $materasso) {
 		$kind = 'materasso';
 	} else {
 		$kind = 'false';
