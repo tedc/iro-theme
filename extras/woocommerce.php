@@ -558,6 +558,8 @@ function display_price_in_variation_option_name( $term, $product ) {
         $_color = get_term_by( 'name', $_product->get_attribute('color'), 'pa_color');
         if($_color) {
            $array[$_color->slug] = wc_price( $_product->get_price());
+        } else {
+            $array[] = wc_price( $_product->get_price());
         }
     }
     // $parent = wp_get_post_parent_id( $variation_id[0] );
