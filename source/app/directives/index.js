@@ -381,9 +381,9 @@ iro
 				// 	});
 				// }
 
-				let kind = scope.$eval(attr.pageKind);
+				let kind = attr.pageKind;
 				console.log(kind);
-				if(kind != false) {
+				if(kind == 'home' || kind == 'materasso') {
 					let _ouibounce = ouibounce(false, {
 						aggressive: true,
 						callback : ()=> {
