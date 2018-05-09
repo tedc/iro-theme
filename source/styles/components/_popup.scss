@@ -30,6 +30,12 @@
 			text-align: center;
 		}
 	}
+	&--promo {
+		.swiper-container {
+			padding-top: em($p);
+			padding-bottom: em($p);
+		}
+	}
 	.swiper-wrapper {
 		display: block;
 		margin: auto;
