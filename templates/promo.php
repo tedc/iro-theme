@@ -20,7 +20,7 @@
 	<div class="promo__pre"><?php the_title(); ?></div>
 	<div class="promo__open"></div>
 </div>
-	<?php if(is_user_logged_in() && current_user_can('manage_options') && !isset($_COOKIE['_promo_'.get_the_ID()])) : ?>
+	<?php // if(is_user_logged_in() && current_user_can('manage_options') && !isset($_COOKIE['_promo_'.get_the_ID()])) : ?>
 <div class="popup popup--promo" ng-class="{'popup--visible':isCountDown}">
 	<div class="popup__container swiper-container" scroller options="{freeMode: true, slidesPerView: 'auto', mousewheel: true, direction:'vertical', 'scrollbar':{'el':'.swiper-scrollbar', 'draggable':true} }">
 		<div class="popup__wrapper popup__wrapper--shrink swiper-wrapper">
@@ -63,6 +63,6 @@
 	 ?>
 	</div>
 </div>
-<?php endif; ?>
+<?php //endif; ?>
 <?php endwhile; wp_reset_query(); wp_reset_postdata(); ?>
 <?php endif; ?>
