@@ -72,6 +72,11 @@
 	&__agile {
 		width: $f;
 		flex: 0 0 auto;
+		@include grow('md', 'top');
+		@include grow('lg', 'bottom');
+		.popup__input {
+			margin-bottom: em($p);
+		}
 	}
 	&__form {
 		background-color: $lighter-color;
@@ -311,6 +316,7 @@
 	&__content {
 		.popup--promo & {
 			@include grow('lg');
+			@include grow('lg', 'top');
 			text-transform: none;
 			align-items: center;
 			align-content: center;
