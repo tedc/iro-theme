@@ -34,6 +34,7 @@
 				<i class="icon-chiudi"></i>
 			</a>
 			<div class="order-review__desc" ng-bind-html="ngCart.getCouponAumount(coupon)"></div>
+			<div class="order-review__gift" ng-if="coupon.free_gifts" bind-html-compile=coupon.free_gifts></div>
 		</div>
 	</div>
 	<div class="order-review__total">

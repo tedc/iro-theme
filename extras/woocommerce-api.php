@@ -549,6 +549,14 @@
 		    }
 
 		    $discount = array();
+		    $free_gift_products = get_field('free_gift_products', $coupon->get_id());
+		    $free_html = '';
+		    if($free_gift_products) {
+		    	ob_start();
+		    	include(locate_template( 'templates/woocommerce/coupons-gift.php', false, false));
+		    	$free_html = ob_get_clean();
+		    	$discount['free_gifts'] = $free_html;
+		    }
 
 		    if ( $amount = WC()->cart->get_coupon_discount_amount( $coupon->get_code(), WC()->cart->display_cart_ex_tax ) ) {
 		       $discount['label'] = wc_cart_totals_coupon_label( $coupon, false );
