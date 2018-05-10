@@ -8,11 +8,11 @@
 	);
 	$gifts = new WP_Query($args);
 	while ($gifts->have_posts()) : $gifts->the_post(); ?>
-		<div class="free-gifts__row free-gifts__row--grid">
+		<div class="free-gifts__row">
 			<input type="radio" name="free_gift" ng-model="ngCart.free_gift" ng-change="ngCart.freeGift(ngCart.free_gift)" value="<?php the_ID(); ?>" id="free-gift_<?php the_ID(); ?>" />
-			<label class="free-gifts__content" for="free-gift_<?php the_ID(); ?>">
-				<?php the_post_thumbnail_url( 'post-thumbnail' ); ?>
-				<div class="free-gifts__title"><?php the_title(); ?></div>
+			<label class="free-gifts__content free-gifts__content--grid" for="free-gift_<?php the_ID(); ?>">
+				<?php the_post_thumbnail( 'post-thumbnail' ); ?>
+				<a class="free-gifts__title" href="<?php the_permalink(); ?>" target="_blank"><?php the_title(); ?></a>
 			</label>
 		</div>
 <?php endwhile; wp_reset_postdata(); wp_reset_query(); ?>
