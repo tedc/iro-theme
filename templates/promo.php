@@ -71,7 +71,7 @@
 					 <input maxlength="250" id="agilefield-1" name="email" type="email" placeholder="Inserisci la tua email" class="popup__input" required="">
 					<!--recaptcha aglignment-->
 					<!-- Button -->
-					   <button type="submit" class="popup__button">Invia</button>
+					   <button type="submit" class="popup__button" onclick="window.dataLayer({'event':'coupon_request'})">Invia</button>
 					   <br><span id="agile-error-msg"></span>
 					</div>
 					</form>
