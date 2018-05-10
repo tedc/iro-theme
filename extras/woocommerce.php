@@ -725,6 +725,11 @@ function iro_custom_size_order_item_display_meta_key($display_key, $meta) {
 
 add_filter('woocommerce_order_item_display_meta_key', 'iro_custom_size_order_item_display_meta_key', 10, 2);
 
+add_action('woocommerce_checkout_update_order_meta', 'my_custom_checkout_field_update_order_meta');
+function my_custom_checkout_field_update_order_meta( $order_id ) {
+    if ($_POST['free_gift']) update_post_meta( $order_id, 'free_gift', esc_attr($_POST['free_gift']));
+}
+
 // Delete Account Functionality 
 
 add_action( 'template_redirect', 'custom_vc_endpoint', 10, 5 );
