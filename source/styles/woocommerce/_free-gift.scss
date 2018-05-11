@@ -1,5 +1,21 @@
 .free-gifts {
 	padding-top: em($p);
+	position: relative;
+	&:after {
+		@include full;
+		content: '';
+		background-color: transparentize($w, .1);
+		z-index: 1;
+		opacity: 0;
+		visibility: hidden;
+		transition: visibility $speed, opacity $speed;
+	}
+	&--disabled {
+		&:after {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
 	&__{
 		&title, &link {
 			font-size: 1em;
@@ -51,6 +67,20 @@
 						border-color: $alternate-color;
 					}
 				}
+			}
+		}
+		&button--reset {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate3d(-50%, -50%, 0);
+			opacity: 0;
+			visibility: hidden;
+			transition: visibility $speed, opacity $speed;
+			z-index: 2;
+			.free-gifts--disabled & {
+				opacity: 1;
+				visibility: visible;
 			}
 		}
 	}
