@@ -26,5 +26,5 @@
 			</div>
 		</div>
 <?php endwhile; wp_reset_postdata(); wp_reset_query(); ?>
-	<span class="free-gift__button" ng-click="ngCart.resetGift();"><?php _e('Resetta omaggi', 'iro'); ?><i class="icon-close"></i></span>
+	<span class="free-gifts__button free-gifts__button--reset" ng-click="ngCart.resetGift();"><?php _e('Resetta omaggi', 'iro'); ?><i class="icon-close"></i></span>
 </div>
