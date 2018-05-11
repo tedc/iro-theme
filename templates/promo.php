@@ -1,4 +1,5 @@
 <?php
+	if(!isset($_COOKIE['promo_completed'])) :
 	acf_set_language_to_default();
 	$materasso = get_field('materasso', 'options');
 	$privacy = get_field('privacy_policy', 'options');
@@ -91,4 +92,4 @@
 </div>
 <?php //endif; ?>
 <?php endwhile; wp_reset_query(); wp_reset_postdata(); ?>
-<?php endif; ?>
+<?php endif; endif;?>
