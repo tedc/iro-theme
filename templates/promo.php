@@ -17,8 +17,8 @@
 	$promo = new WP_Query($args);
 	if($promo->have_posts()) : ?>
 	<?php while($promo->have_posts()) : $promo->the_post(); if(!isset($_COOKIE['_promo_'.get_the_ID()])) :
+		if(intval(time()) < intval(strtotime(get_field('popup_expire', false, false)))) :
 
-echo time() . ' = '.strtotime(get_field('popup_expire', false, false));
 		?>
 
 <div class="promo" ng-click="isCountDown=true" ng-class="{'promo--hidden': isCountDown}">
@@ -93,6 +93,6 @@ echo time() . ' = '.strtotime(get_field('popup_expire', false, false));
 	 ?>
 	</div>
 </div>
-<?php endif; ?>
+<?php endif; endif; ?>
 <?php endwhile; wp_reset_query(); wp_reset_postdata(); ?>
 <?php endif; ?>
