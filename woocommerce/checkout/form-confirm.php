@@ -33,6 +33,10 @@
 	<input type="hidden" ng-model="checkoutFields.wpnonce" ng-init="checkoutFields.wpnonce='<?php echo wp_create_nonce( 'woocommerce-process_checkout' ); ?>'" />
 </div>
 <nav class="checkout__nav checkout__nav--submit checkout__nav--grow-md checkout__nav--grid" ng-if="isConfirm">
+	<div class="checkout__accept">
 	<input required type="checkbox" class="checkout__checkbox" ng-model="checkoutFields.terms" id="checkout_terms" /><label for="checkout_terms" class="checkout__terms"><span><?php _e('Dichiaro di aver letto e accetto i ', 'iro'); ?><a class="checkout__terms" href="<?php $term_cond_id = apply_filters('wpml_object_id', wc_get_page_id('terms'), 'page', true, ICL_LANGUAGE_CODE ); echo get_permalink($term_cond_id); ?>" target="_blank"><?php echo lcfirst(get_the_title($term_cond_id)); ?></a></span></label>
+	<input type="checkbox" class="checkout__checkbox" ng-model="checkoutFields.privacy_input" id="checkout_privacy_input" value="true" required><label for="checkout_privacy_input"><span><?php _e('Acconsento all\'utilizzo dei dati inseriti secondo le finalità indicate dalla', 'iro'); ?> <a href="<?php echo $privacy; ?>" target="_blank">privacy policy</a></span></label>
+			<input type="checkbox" class="checkout__checkbox" ng-model="checkoutFields.marketing_input" id="checkout_marketing_input" required value="true"><label for="checkout_marketing_input"><span><?php _e("Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl", 'iro'); ?></span></label>
+	</div>
 	<button class="checkout__button" ng-class="{'checkout__button--loading':isOrdering}" ng-disabled="checkout.$invalid"><?php _e('Acquista', 'iro'); ?></button>
 </nav>
