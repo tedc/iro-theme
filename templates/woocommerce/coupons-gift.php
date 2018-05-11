@@ -13,11 +13,11 @@
 				<?php the_post_thumbnail( 'post-thumbnail' ); ?>
 				<a class="free-gifts__link" href="<?php the_permalink(); ?>" target="_blank"><?php the_title(); ?></a>
 				<div class="free-gift__select">
-					<span class="free-figts__value" ng-bind-html="(giftRow[<?php the_ID(); ?>]) ? giftRow[<?php the_ID(); ?>] : '<?php _e('Seleziona', 'iro'); ?>"><i class="icon-arrow-down"></i></span>
+					<span class="free-figts__value" ng-bind-html="(giftRow[<?php the_ID(); ?>]) ? giftRow[<?php the_ID(); ?>] : '<?php _e('Seleziona', 'iro'); ?>'"><i class="icon-arrow-down"></i></span>
 					<ul class="free-gifts__options">
 						<?php for($i=0; $i<=$free_gift_max; $i++) : 
 						?>
-						<li class="free-gifts__option" ng-click="ngCart.freeGift({id: <?php the_ID(); ?>, qty: <?php echo $i; ?>}); giftRow[<?php the_ID(); ?>] = <?php echo ($i == 0) ? __('Seleziona', 'iro') : $i; ?>">
+						<li class="free-gifts__option" ng-click="ngCart.freeGift({id: <?php the_ID(); ?>, qty: <?php echo $i; ?>}); giftRow[<?php the_ID(); ?>] = '<?php echo ($i == 0) ? __('Seleziona', 'iro') : $i; ?>'">
 							<?php echo ($i==0) ? __('Seleziona', 'iro') : $i; ?>
 						</li>
 						<?php endfor; ?>
