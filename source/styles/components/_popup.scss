@@ -411,9 +411,12 @@
 			}
 		}
 		&checkbox + label {
+			align-items: flex-start;
+			margin-bottom: em($p/2);
 			span {
 				display: inline-block;
-				font-size: em(14px);
+				font-weight: normal;
+				font-size: 11px;
 				text-align: left;
 				color: $dark-gray;
 			}
