@@ -16,9 +16,9 @@
 	);
 	$promo = new WP_Query($args);
 	if($promo->have_posts()) : ?>
-		<div style="display:none"><?php var_dump($promo); ?></div>
+	<?php while($promo->have_posts()) : $promo->the_post(); if(!isset($_COOKIE['_promo_'.get_the_ID()])) :?>
+
 <div class="promo" ng-click="isCountDown=true" ng-class="{'promo--hidden': isCountDown}">
-	<?php while($promo->have_posts()) : $promo->the_post(); ?>
 	<div class="promo__pre"><?php the_title(); ?></div>
 	<div class="promo__open"></div>
 </div>
@@ -90,6 +90,6 @@
 	 ?>
 	</div>
 </div>
-<?php //endif; ?>
+<?php endif; ?>
 <?php endwhile; wp_reset_query(); wp_reset_postdata(); ?>
 <?php endif; ?>
