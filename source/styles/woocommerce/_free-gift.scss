@@ -21,6 +21,10 @@
 			transition: color $speed;
 			cursor: pointer;
 		}
+		&select {
+			font-size: em(14px);
+			margin-top: em(10px, 14px);
+		}
 		&row {
 			img {
 				width: em(80px)!important;
