@@ -81,6 +81,18 @@ if ( $show_customer_details ) {
 					<td><?php echo wptexturize( $order->get_customer_note() ); ?></td>
 				</tr>
 			<?php endif; ?>
+			<?php if(get_field('corriere', $order->get_id())) : ?>
+								<p><strong><?php _e('Corriere', 'iro'); ?></strong>: <?php the_field('corriere', $order->get_id()); ?></p>
+								<?php endif; ?>
+								<?php if(get_field('tracking_code', $order->get_id())) : ?>
+								<p><strong><?php _e('Codice di tracciamento', 'iro'); ?></strong>: <?php the_field('tracking_code', $order->get_id()); ?>
+								<?php endif; ?></p>
+								<?php if(get_field('tracking_url', $order->get_id())) : ?>
+								<p><strong><?php _e('Link per il tracciamento', 'iro'); ?></strong>: <a href="<?php the_field('tracking_url', $order->get_id()); ?>">Url</a></p>
+								<?php endif; ?>
+								<?php if(get_field('tracking_date', $order->get_id())) : ?>
+								<p><strong><?php _e('Data di spedizione', 'iro'); ?></strong>: <a href="<?php the_field('tracking_date', $order->get_id()); ?>">Url</a></p>
+								<?php endif; ?>
 		
 	</div>
 	<?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?>

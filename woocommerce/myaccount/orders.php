@@ -87,19 +87,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 									}
 								}
 								?>
-							<?php  elseif ( 'order-tracking' === $column_id ) : echo get_field('corriere', $order->get_id()); ?>
-								<?php if(get_field('corriere', $order->get_id())) : ?>
-								<p><strong><?php _e('Corriere', 'iro'); ?></strong>: <?php the_field('corriere', $order->get_id()); ?></p>
-								<?php endif; ?>
-								<?php if(get_field('tracking_code', $order->get_id())) : ?>
-								<p><strong><?php _e('Codice di tracciamento', 'iro'); ?></strong>: <?php the_field('tracking_code', $order->get_id()); ?>
-								<?php endif; ?></p>
-								<?php if(get_field('tracking_url', $order->get_id())) : ?>
-								<p><strong><?php _e('Link per il tracciamento', 'iro'); ?></strong>: <a href="<?php the_field('tracking_url', $order->get_id()); ?>">Url</a></p>
-								<?php endif; ?>
-								<?php if(get_field('tracking_date', $order->get_id())) : ?>
-								<p><strong><?php _e('Data di spedizione', 'iro'); ?></strong>: <a href="<?php the_field('tracking_date', $order->get_id()); ?>">Url</a></p>
-								<?php endif; ?>
+							
 							<?php endif; ?>
 						</td>
 					<?php endforeach; ?>

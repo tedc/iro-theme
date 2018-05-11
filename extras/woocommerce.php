@@ -232,7 +232,7 @@
 
     function my_woocommerce_account_orders_columns($columns) {
         $columns['order-actions'] = '';
-        $columns['order-tracking'] = '';
+        //$columns['order-tracking'] = '';
         return $columns;
     }
 
