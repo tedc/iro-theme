@@ -422,6 +422,7 @@ module.exports = () => {
 					ecommerce
 						.post(vars.wc.coupons, {coupon_code : coupon, security : nonce})
 						.then( (res) => {
+							console.log(res.data);
 							ngCart.isDescountLoading = false;
 							$scope.isDescountLoading = ngCart.isDescountLoading;
 							if(res.data.error) {
@@ -567,7 +568,7 @@ module.exports = () => {
 				if(ngCart.getExtras().free_gift) {
 					ngCart.free_gift = ngCart.getExtras().free_gift;
 
-				console.log(ngCart.getExtras());
+					console.log(ngCart.getExtras());
 				}
 				ngCart.freeGift = (fg)=> {
 					let extras = ngCart.getExtras();
