@@ -191,6 +191,7 @@
         //$vars[] = 'carta_di_identita';
        	$vars[] = 'files';
        	$vars[] = 'delete-account';
+       	$vars[] = 'promo_id';
         return $vars;
     }
     function rewrite_popup_url() {
