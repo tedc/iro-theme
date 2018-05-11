@@ -25,6 +25,9 @@
 			font-size: em(14px);
 			margin-top: em(10px, 14px);
 		}
+		&value {
+			align-items: center;
+		}
 		&row {
 			img {
 				width: em(80px)!important;
