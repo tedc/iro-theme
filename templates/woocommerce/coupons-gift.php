@@ -18,7 +18,7 @@
 						<?php for($i=0; $i<=$free_gift_max; $i++) : 
 						?>
 						<li class="free-gifts__option" ng-click="ngCart.freeGift({id: <?php the_ID(); ?>, qty: <?php echo $i; ?>}); giftRow[<?php the_ID(); ?>] = '<?php echo ($i == 0) ? __('Seleziona', 'iro') : $i; ?>'; isRow[<?php the_ID(); ?>]=false">
-							<?php echo ($i==0) ? __('Seleziona', 'iro') : $i; ?>
+							<?php echo $i; ?>
 						</li>
 						<?php endfor; ?>
 					</ul>
@@ -26,5 +26,5 @@
 			</div>
 		</div>
 <?php endwhile; wp_reset_postdata(); wp_reset_query(); ?>
-	<span class="free-gifts__button free-gifts__button--reset" ng-click="ngCart.resetGift();"><?php _e('Resetta omaggi', 'iro'); ?><i class="icon-close"></i></span>
+	<span class="free-gifts__button free-gifts__button--reset" ng-click="ngCart.resetGift();giftRow=[]"><?php _e('Resetta omaggi', 'iro'); ?><i class="icon-close"></i></span>
 </div>
