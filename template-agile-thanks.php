@@ -2,6 +2,9 @@
 /**
  * Template Name: Agile Thanks
  */
+acf_set_language_to_default();
+	$materasso = get_field('materasso', 'options');
+	acf_unset_language_to_default();
 ?>
 <?php while (have_posts()) : the_post(); ?>
 	<div class="header header--page header--shrink-fw"><h1 class="header__title"><?php the_title(); ?></h1></div>
