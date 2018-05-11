@@ -85,13 +85,13 @@ if ( $show_customer_details ) {
 								<div class="order-details__row"><strong><?php _e('Corriere', 'iro'); ?></strong>: <?php the_field('corriere', $order->get_id()); ?></div>
 								<?php endif; ?>
 								<?php if(get_field('tracking_code', $order->get_id())) : ?>
-								<div class="order-details__row"><strong><?php _e('Codice di tracciamento', 'iro'); ?></strong>: <?php the_field('tracking_code', $order->get_id()); ?>
+								<div class="order-details__row"><strong><?php _e('Codice di tracciamento', 'iro'); ?></strong> <?php the_field('tracking_code', $order->get_id()); ?>
 								<?php endif; ?></div>
 								<?php if(get_field('tracking_url', $order->get_id())) : ?>
-								<div class="order-details__row"><strong><?php _e('Link per il tracciamento', 'iro'); ?></strong>: <a href="<?php the_field('tracking_url', $order->get_id()); ?>">Url</a></div>
+								<div class="order-details__row"><strong><?php _e('Link per il tracciamento', 'iro'); ?></strong> <a href="<?php the_field('tracking_url', $order->get_id()); ?>">Url</a></div>
 								<?php endif; ?>
 								<?php if(get_field('tracking_date', $order->get_id())) : ?>
-								<div class="order-details__row"><strong><?php _e('Data di spedizione', 'iro'); ?></strong>: <?php the_field('tracking_date', $order->get_id()); ?></div>
+								<div class="order-details__row"><strong><?php _e('Data di spedizione', 'iro'); ?></strong> <?php the_field('tracking_date', $order->get_id()); ?></div>
 								<?php endif; ?>
 		
 	</div>
