@@ -10,8 +10,10 @@
 				<input type="hidden" ng-model="nlFields._newsletter_nonce" ng-init="nlFields._newsletter_nonce='<?php echo wp_create_nonce( 'iro-newsletter' ); ?>'" />
 				<button type="submit" ng-class="{'newsletter__button--loading':isSubscribing}" ng-disabled="newsletter.$invalid" class="newsletter__button"><?php _e('Invia', 'iro'); ?></button>
 			</div>
+			<div class="newsletter_accept">
 			<input type="checkbox" class="newsletter__checkbox" ng-model="nlFields.privacy_input" id="privacy_input" value="true" ng-model="multiple_checkboxes_1526030399334_0" required><label for="privacy_input"><span><?php _e('Acconsento all\'utilizzo dei dati inseriti secondo le finalità indicate dalla', 'iro'); ?> <a href="<?php echo $privacy; ?>" target="_blank">privacy policy</a></span></label>
-			<input type="checkbox" class="newsletter__checkbox" ng-model="nlFields.marketing_input" required value="true"><label for="marketing_input"><span><?php _e("Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl", 'iro'); ?></span></label>
+			<input type="checkbox" class="newsletter__checkbox" ng-model="nlFields.marketing_input" required value="true" id="marketing_input"><label for="marketing_input"><span><?php _e("Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl", 'iro'); ?></span></label>
+			</div>
 			<div class="newsletter__message" ng-clas="{'newsletter__message--error' : isNlError}" ng-if="nlMessage">
 				<p ng-bind-html="nlMessage"></p>
 			</div>
