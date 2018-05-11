@@ -559,18 +559,17 @@
 		    	$free_html = ob_get_clean();
 		    	$discount['free_gifts'] = $free_html;
 		    }
-
-		    if ( $amount = WC()->cart->get_coupon_discount_amount( $coupon->get_code(), WC()->cart->display_cart_ex_tax ) ) {
-		       $discount['label'] = wc_cart_totals_coupon_label( $coupon, false );
-		       $discount['code'] =  $coupon->get_code();
-		       $discount['price'] = $amount;
-		       $discount['type'] = $coupon->get_discount_type();
-		       $discount['amount'] = $coupon->get_amount();
-		    } elseif ( $coupon->get_free_shipping() ) {
+		    if ( $coupon->get_free_shipping() ) {
 		    	$discount['label'] = __( 'Free shipping coupon', 'woocommerce' );
 		       	$discount['code'] =  $coupon->get_code();
 		       	$discount['price'] = $amount;
 		       	$discount['free_shipping'] = true;
+		    } else {
+		    	$discount['label'] = wc_cart_totals_coupon_label( $coupon, false );
+		    	$discount['code'] =  $coupon->get_code();
+		    	$discount['price'] = $amount;
+		    	$discount['type'] = $coupon->get_discount_type();
+		    	$discount['amount'] = $coupon->get_amount();
 		    }
 		    $discount['remove'] = esc_url( add_query_arg( 'remove_coupon', urlencode( $coupon->get_code() ), defined( 'WOOCOMMERCE_CHECKOUT' ) ? wc_get_checkout_url() : wc_get_cart_url() ) );
 
