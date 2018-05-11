@@ -95,6 +95,11 @@
 			};
 		}
 	}
+	&__nav {
+		@include breakpoint(640px) {
+			max-width: em(180px);
+		}
+	}
 	&__container {
 		@include grow();
 		align-items: center;

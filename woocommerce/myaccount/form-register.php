@@ -69,7 +69,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</p>
 
 			<?php endif; ?>
-
+			<p class="popup__row">
+				<input type="checkbox" class="popup__checkbox" ng-model="user.privacy_input" id="privacy_input" value="true" ng-model="multiple_checkboxes_1526030399334_0" required><label for="privacy_input"><span><?php _e('Acconsento all\'utilizzo dei dati inseriti secondo le finalità indicate dalla', 'iro'); ?> <a href="<?php echo $privacy; ?>" target="_blank">privacy policy</a></span></label>
+			<input type="checkbox" class="popup__checkbox" ng-model="user.marketing_input" required value="true"><label for="marketing_input"><span><?php _e("Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl", 'iro'); ?></span></label>
+		</p>
 			<?php do_action( 'woocommerce_register_form' ); ?>
 
 			<p class="popup__row">
