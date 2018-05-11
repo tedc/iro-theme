@@ -6,7 +6,7 @@
 	$materasso = get_field('materasso', 'options');
 	acf_unset_language_to_default();
 	$promo_id = intval(get_query_var('promo_id'));
-	$date = get_field('popup_expire', $promo_id, false, false);
+	$date = get_field('popup_expire', $promo_id);
 	echo $date;
 ?>
 <?php while (have_posts()) : the_post(); ?>
