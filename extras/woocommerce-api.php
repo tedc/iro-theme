@@ -550,6 +550,8 @@
 
 		    $discount = array();
 		    $free_gift_products = get_field('free_gift_products', $coupon->get_id());
+		    $free_gift_max = get_field('free_gift_max', $coupon->get_id());
+		    $free_gift_title = get_field('free_gift_title', $coupon->get_id());
 		    $free_html = '';
 		    if($free_gift_products) {
 		    	ob_start();

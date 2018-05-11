@@ -397,7 +397,7 @@ module.exports = () => {
 					extra_shipping_option : []
 				}
 				$scope.checkoutFields = {
-					terms : true,
+					//terms : true,
 					shipping_method : $scope.shipping_method,
 					post_data : $scope.post_data,
 					countries : JSON.parse(vars.wc.country_select_params.countries),
@@ -563,6 +563,43 @@ module.exports = () => {
 					$scope.shippings = ngCart.getExtras().shippings.packages;
 				}
 				//CHECKOUT
+
+				if(ngCart.getExtras().free_gift) {
+					ngCart.free_gift = ngCart.getExtras().free_gift;
+				}
+				ngCart.freeGift = (fg)=> {
+					let extras = ngCart.getExtras();
+					let free_gift;
+					if(extras.free_gift) {
+						extras.free_gift.push(fg);
+						free_gift = extras.free_gift;
+					} else {
+						free_gift = [fg];
+					}
+					extras = angular.extend({}, extras, {free_gift : free_gift});
+					ngCart.setExtras(extras);
+					ngCart.free_gift = extras.free_gift;
+					$rootScope.$broadcast('ngCart:change');
+				}
+				ngCart.isGiftDisabled = (id, max)=> {
+					let extras = ngCart.getExtras();
+					let tot = 0;
+					if(extras.free_gift && extras.free_gift.length > 0) {
+						for(let i = 0; i < extras.free_gift.length; i++) {
+							tot += extras.free_gift[i].qty;
+						}
+						if(tot == max) {
+							let result = extras.free_gift.some((obj) => {
+								return obj.id === id;
+							});
+							return result;
+						} else {
+							return false;
+						}
+					} else {
+						return false;
+					}
+				}
 				$scope.sendCheckout = (form)=> {
 					//console.log($scope.checkoutFields);
 					$scope.checkoutErrorMessage = false;
@@ -576,6 +613,10 @@ module.exports = () => {
 						terms : $scope.checkoutFields.terms
 					}
 					data = angular.extend({}, data, $scope.checkoutFields.customer);
+					if(ngCart.free_gift) {
+						data = angular.extend({}, data, {free_gift : ngCart.free_gift});
+					}
+
 					let coupon = '';
 					angular.forEach( ngCart.getExtras().coupons, (element, index)=> {
 						coupon = element.code;

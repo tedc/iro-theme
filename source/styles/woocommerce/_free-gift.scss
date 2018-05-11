@@ -1,0 +1,50 @@
+.free-gifts {
+	padding-top: em($p);
+	&__{
+		&title, &link {
+			font-size: 1em;
+		}
+		&title {
+			line-height: 1;
+		}
+		&link {
+			font-family: $alternate-font;
+		}
+		&content {	
+			border-top: 1px solid $light-border;
+			padding-top: em($p/2);
+			padding-bottom: em($p/2);
+			align-items: center;
+			align-content: center;
+			font-family: $alternate-font;
+			color: $brand-main;
+			transition: color $speed;
+			cursor: pointer;
+		}
+		&row {
+			img {
+				width: em(80px)!important;
+				height: auto!important;
+				margin-right: em($p);
+				padding: em($p/4);
+				border: 1px solid $light-border;
+				transition: background-color $speed, border-color $speed;
+			}
+			&:hover {
+				img {
+					border-color: $brand-main;
+				}
+			}
+			input[type="radio"] {
+				display: none;
+				&:checked + label {
+					color: $brand-main;
+					img {
+						background-color: $alternate-color;
+						border-color: $alternate-color;
+					}
+				}
+			}
+		}
+	}
+}
