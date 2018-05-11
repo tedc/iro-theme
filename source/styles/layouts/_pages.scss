@@ -103,5 +103,11 @@
 		width: $f;
 		max-width: em(250px);
 		margin: 0 auto em($p);
+		height: auto!important;
+	}
+	&__button {
+		.page-template-template-agile-thanks & {
+			margin-top: em($p);
+		}
 	}
 }

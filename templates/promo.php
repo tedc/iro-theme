@@ -56,7 +56,7 @@
 					<?php if(get_field('popup_link')): ?>
 					<div class="popup__link popup__link--grow-md-top"><a class="popup__button" hre="<?php the_field('popup_link'); ?>"><?php _e('Acquista IRO', 'iro'); ?></a></div>
 					<?php endif; ?>
-					<form class="popup__agile popup__agile--grow-md-top" id="agile-form" action="https://dreamiro.agilecrm.com/formsubmit" method="GET">
+					<form class="popup__agile popup__agile--grow-md-top" name="agileForm" id="agile-form" action="https://dreamiro.agilecrm.com/formsubmit" method="GET">
 					<div style="display: none; height: 0px; width: 0px;">
 					<input type="hidden" id="_agile_form_name" name="_agile_form_name" value="Mail">
 					<input type="hidden" id="_agile_domain" name="_agile_domain" value="dreamiro">
@@ -69,12 +69,12 @@
 					</div>
 					<!-- Text input-->
 					<div class="popup__agilerow popup__agilerow--mw">
-					 <input maxlength="250" id="agilefield-1" name="email" type="email" placeholder="Inserisci la tua email" class="popup__input" required="">
+					 <input maxlength="250" id="agilefield-1" name="email" ng-model="promo_email" type="email" placeholder="Inserisci la tua email" class="popup__input" required="">
 					<!--recaptcha aglignment-->
 					<!-- Button -->
-					<input type="checkbox" class="popup__checkbox" name="multiple_checkboxes_1526030399334-0" id="multiple_checkboxes_1526030399334-0" value="Acconsento all'utilizzo dei dati inseriti secondo le finalità indicate dalla privacy policy"><label for="multiple_checkboxes_1526030399334-0"><span>Acconsento all'utilizzo dei dati inseriti secondo le finalità indicate dalla <a href="<?php echo $privacy; ?>" target="_blank">privacy policy</a></span></label>
-					<input type="checkbox" class="popup__checkbox" name="multiple_checkboxes_1526030359115-0" id="multiple_checkboxes_1526030359115-0" value="Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl"><label for="multiple_checkboxes_1526030359115-0"><span>Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl</span></label>
-					   <button type="submit" class="popup__button" onclick="window.dataLayer({'event':'coupon_request'})">Invia</button>
+					<input type="checkbox" class="popup__checkbox" name="multiple_checkboxes_1526030399334-0" id="multiple_checkboxes_1526030399334-0" value="Acconsento all'utilizzo dei dati inseriti secondo le finalità indicate dalla privacy policy"><label for="multiple_checkboxes_1526030399334-0" ng-model="multiple_checkboxes_1526030399334-0" required><span>Acconsento all'utilizzo dei dati inseriti secondo le finalità indicate dalla <a href="<?php echo $privacy; ?>" target="_blank">privacy policy</a></span></label>
+					<input type="checkbox" class="popup__checkbox" name="multiple_checkboxes_1526030359115-0" id="multiple_checkboxes_1526030359115-0" value="Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl"><label for="multiple_checkboxes_1526030359115-0" ng-model="multiple_checkboxes_1526030359115-0" required><span>Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl</span></label>
+					   <button type="submit" class="popup__button" ng-disabled="agileForm.$invalid" onclick="window.dataLayer({'event':'coupon_request'})">Invia</button>
 					   <br><span id="agile-error-msg"></span>
 					</div>
 					</form>
