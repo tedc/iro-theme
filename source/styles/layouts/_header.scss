@@ -522,18 +522,18 @@
 			padding-top: em($p);
 		}
 	}
-	body.iro--has-promo:not(.woocommerce-page) & {
-		min-height: calc(100vh - #{em(80px + 63px)});
-		@include breakpoint(1030px) {
-			min-height: calc(100vh - #{em(80px + 56px)});
-		}
-		&__container {
-			min-height: calc(100vh - #{em(80px + 63px)});
-			@include breakpoint(1030px) {
-				min-height: calc(100vh - #{em(80px + 56px)});
-			}
-		}
-	}
+	// body.iro--has-promo:not(.woocommerce-page) & {
+	// 	min-height: calc(100vh - #{em(80px + 63px)});
+	// 	@include breakpoint(1030px) {
+	// 		min-height: calc(100vh - #{em(80px + 56px)});
+	// 	}
+	// 	&__container {
+	// 		min-height: calc(100vh - #{em(80px + 63px)});
+	// 		@include breakpoint(1030px) {
+	// 			min-height: calc(100vh - #{em(80px + 56px)});
+	// 		}
+	// 	}
+	// }
 	&__watch {
 		transition: color $speed;
 		&:hover {
