@@ -85,6 +85,7 @@
 		z-index: 200;
 		border-top: 1px solid $light-border;
 		justify-content: space-between;
+		align-items: center;
 		&--submit {
 			width: $f;
 			flex: 0 0 auto;
@@ -112,7 +113,7 @@
 		}
 	}
 	&__terms {
-		display: flex;
+		display: flex!important;
 		span {
 			font-size: em(12px);
 			font-weight: normal;
@@ -124,6 +125,14 @@
 			&:hover {
 				color: $brand-main;
 				text-decoration: none;
+			}
+		}
+	}
+	&__accept {
+		.checkout__terms {
+			margin-top: 10px;
+			&:nth-child(1) {
+				margin-top: 0;
 			}
 		}
 	}
