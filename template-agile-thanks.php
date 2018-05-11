@@ -4,7 +4,7 @@
  */
 ?>
 <?php while (have_posts()) : the_post(); ?>
-	<?php get_template_part('templates/page', 'header'); ?>
+	<div class="header header--page header--shrink-fw"><h1 class="header__title"><?php the_title(); ?></h1></div>
 	<div class="alert alert--grow-lg-bottom alert--shrink alert--mw-large alert--aligncenter">
 	<?php the_content(); ?>
   	<a href="<?php echo get_permalink($materasso); ?>" class="page__button"><?php _e('Continua lo shopping'); ?></a>
