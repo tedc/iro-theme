@@ -566,6 +566,8 @@ module.exports = () => {
 
 				if(ngCart.getExtras().free_gift) {
 					ngCart.free_gift = ngCart.getExtras().free_gift;
+
+				console.log(ngCart.getExtras());
 				}
 				ngCart.freeGift = (fg)=> {
 					let extras = ngCart.getExtras();
