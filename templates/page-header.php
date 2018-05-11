@@ -13,7 +13,7 @@
 	$header_class .= (!is_page_template() || get_field('header_small')) ? ' header--page' : '';
 	$header_class .= (get_field('white_text')) ? ' header--clear' : '';
 ?>
-<div class="<?= $header_class; ?>"<?php echo ($thumb_id && !is_404()) ? ' style="background-image:url('.wp_get_attachment_image_src( $thumb_id, 'full' )[0].')"' : ''; ?>>
+<div class="<?= $header_class; ?>"<?php echo ($thumb_id && !is_404() && !is_page_template( 'template-agile-thanks.php' )) ? ' style="background-image:url('.wp_get_attachment_image_src( $thumb_id, 'full' )[0].')"' : ''; ?>>
 	<?php 
 	if(!is_404()) {
 		if(get_field('is_video')) :
