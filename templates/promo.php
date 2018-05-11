@@ -1,5 +1,4 @@
 <?php
-	if(!isset($_COOKIE['promo_completed'])) :
 	acf_set_language_to_default();
 	$materasso = get_field('materasso', 'options');
 	$privacy = get_field('privacy_policy', 'options');
@@ -17,6 +16,7 @@
 	);
 	$promo = new WP_Query($args);
 	if($promo->have_posts()) : ?>
+		<div style="display:none"><?php var_dump($promo); ?></div>
 <div class="promo" ng-click="isCountDown=true" ng-class="{'promo--hidden': isCountDown}">
 	<?php while($promo->have_posts()) : $promo->the_post(); ?>
 	<div class="promo__pre"><?php the_title(); ?></div>
@@ -92,4 +92,4 @@
 </div>
 <?php //endif; ?>
 <?php endwhile; wp_reset_query(); wp_reset_postdata(); ?>
-<?php endif; endif;?>
+<?php endif; ?>
