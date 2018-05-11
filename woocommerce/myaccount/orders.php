@@ -87,7 +87,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 									}
 								}
 								?>
-							<?php  elseif ( 'order-tracking' === $column_id ) : echo $order->get_id(); ?>
+							<?php  elseif ( 'order-tracking' === $column_id ) : echo get_field('corriere', $order->get_id()); ?>
 								<?php if(get_field('corriere', $order->get_id())) : ?>
 								<p><strong><?php _e('Corriere', 'iro'); ?></strong>: <?php the_field('corriere', $order->get_id()); ?></p>
 								<?php endif; ?>
