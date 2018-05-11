@@ -1,3 +1,8 @@
+<?php
+	acf_set_language_to_default();
+	$privacy = get_field('privacy_policy', 'options');
+	acf_unset_language_to_default();
+?>
 <div id="contact-form" class="contact__module contact__module--shrink-left-only" ng-form>
 	<header class="contact__header contact__header--grow-md-bottom contact__header--grid">
 		<h2 class="contact__subtitle">
@@ -23,11 +28,16 @@
 			<label class="contact__label"><?php _e('Messaggio', 'iro'); ?></label>
 			<textarea class="contact__textarea" name="message" ng-model="formData.message" required ng-attr-placeholder="{{((contactForm.message.$invalid && contactForm.message.$touched) ? '<?php _e('Campo obbligatorio', 'iro'); ?>' : '')}}"></textarea>
 		</p>
+		<p>
+		<input type="checkbox" class="contact__checkbox" ng-model="formData.privacy_input" id="contact_privacy_input" value="true" required><label for="contact_privacy_input" class="contact__terms"><span><?php _e('Acconsento all\'utilizzo dei dati inseriti secondo le finalità indicate dalla', 'iro'); ?> <a href="<?php echo $privacy; ?>" target="_blank">privacy policy</a></span></label>
+			<input type="checkbox" class="contact__checkbox" ng-model="formData.marketing_input" id="contact_marketing_input" required value="true"><label for="contact_marketing_input" class="contact__terms"><span><?php _e("Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl", 'iro'); ?></span></label>
+		</p>
 		<footer class="contact__footer contact__footer--grid-nowrap">
 			<input type="hidden" name="_send_to" ng-model="formData._send_to" ng-init="formData._send_to='<?php the_field('indirizzo_email'); ?>'">
 			<input type="hidden" name="_bcc" ng-model="formData._bcc" ng-init="formData._bcc='<?php echo preg_replace('/\s+/', '', get_field('bcc')); ?>'">
 			<input type="hidden" name="_iro_nonce" ng-model="formData._iro_form_nonce" ng-init="formData._iro_form_nonce='<?php echo wp_create_nonce('iro-contact-form'); ?>'">
-			<span class="contact__privacy"><?php _e('Inviando questo form acconsento al trattamento dei dati personali ai sensi del D. Lgs. 196/03.', 'catellani'); ?></span>
+			<!-- <span class="contact__privacy"><?php _e('Inviando questo form acconsento al trattamento dei dati personali ai sensi del D. Lgs. 196/03.', 'catellani'); ?></span> -->
+
 			<button type="submit" ng-disabled="contactForm.$invalid" class="contact__button contact__button--dark"><?php _e('Invia', 'iro'); ?></button>
 		</footer>
 	</form>

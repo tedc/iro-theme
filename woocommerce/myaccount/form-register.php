@@ -20,6 +20,9 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
+acf_set_language_to_default();
+	$privacy = get_field('privacy_policy', 'options');
+	acf_unset_language_to_default();
 
 ?>
 

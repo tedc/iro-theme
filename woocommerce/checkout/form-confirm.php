@@ -1,3 +1,6 @@
+<?php acf_set_language_to_default();
+	$privacy = get_field('privacy_policy', 'options');
+	acf_unset_language_to_default(); ?>
 <div  id="confirm" class="checkout__confirm checkout__confirm--grid slide-toggle" ng-class="{'slide-toggle--visible' : isConfirm}">
 	<header class="checkout__cell checkout__cell--grow-md<?php if(is_user_logged_in()) { echo '-bottom'; } ?> checkout__cell--s12">
 		<h2 class="checkout__subtitle"><?php _e('Conferma ordine', 'iro'); ?></h2>

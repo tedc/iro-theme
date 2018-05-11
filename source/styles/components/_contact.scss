@@ -53,6 +53,23 @@
 		&module {
 			position: relative;
 		}
+		&terms {
+			display: flex!important;
+			margin-top: 10px;
+			span {
+				font-size: em(12px);
+				font-weight: normal;
+				color: $dark-gray;
+			}
+			a {
+				color: $main-color;
+				text-decoration: underline;
+				&:hover {
+					color: $brand-main;
+					text-decoration: none;
+				}
+			}
+		}
 		&form {
 			p {
 				padding-bottom: em($p);
