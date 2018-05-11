@@ -71,7 +71,8 @@
 			}
 		}
 		&button--reset {
-			position: absolute;
+			position: absolute!important;
+			font-size: em(14px)!important;
 			top: 50%;
 			left: 50%;
 			transform: translate3d(-50%, -50%, 0);
