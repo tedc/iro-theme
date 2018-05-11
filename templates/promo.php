@@ -72,8 +72,8 @@
 					 <input maxlength="250" id="agilefield-1" name="email" type="email" placeholder="Inserisci la tua email" class="popup__input" required="">
 					<!--recaptcha aglignment-->
 					<!-- Button -->
-					<input type="checkbox" class="popup__checkbox" name="multiple_checkboxes_1526030399334-0" id="multiple_checkboxes_1526030399334-0" value="Acconsento all'utilizzo dei dati inseriti secondo le finalità indicate dalla privacy policy"><label for="multiple_checkboxes_1526030399334-0">Acconsento all'utilizzo dei dati inseriti secondo le finalità indicate dalla <a href="<?php echo $privacy; ?>" target="_blank">privacy policy</a></label>
-					<input type="checkbox" class="popup__checkbox" name="multiple_checkboxes_1526030359115-0" id="multiple_checkboxes_1526030359115-0" value="Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl"><label for="multiple_checkboxes_1526030359115-0">Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl</label>
+					<input type="checkbox" class="popup__checkbox" name="multiple_checkboxes_1526030399334-0" id="multiple_checkboxes_1526030399334-0" value="Acconsento all'utilizzo dei dati inseriti secondo le finalità indicate dalla privacy policy"><label for="multiple_checkboxes_1526030399334-0"><span>Acconsento all'utilizzo dei dati inseriti secondo le finalità indicate dalla <a href="<?php echo $privacy; ?>" target="_blank">privacy policy</a></span></label>
+					<input type="checkbox" class="popup__checkbox" name="multiple_checkboxes_1526030359115-0" id="multiple_checkboxes_1526030359115-0" value="Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl"><label for="multiple_checkboxes_1526030359115-0"><span>Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl</span></label>
 					   <button type="submit" class="popup__button" onclick="window.dataLayer({'event':'coupon_request'})">Invia</button>
 					   <br><span id="agile-error-msg"></span>
 					</div>
