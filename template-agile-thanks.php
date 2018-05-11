@@ -13,6 +13,7 @@ acf_set_language_to_default();
 		</div>
 	</div>
 	<div class="alert alert--grow-lg-bottom alert--shrink alert--mw-large alert--aligncenter">
+	<?php the_post_thumbnail('full', array('class' => 'alert__image')); ?>
 	<?php the_content(); ?>
   	<a href="<?php echo get_permalink($materasso); ?>" class="page__button"><?php _e('Continua lo shopping'); ?></a>
   	<ng-agile-thanks></ng-agile-thanks>

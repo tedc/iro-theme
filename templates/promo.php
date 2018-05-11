@@ -60,7 +60,7 @@
 					<input type="hidden" id="_agile_form_name" name="_agile_form_name" value="Mail">
 					<input type="hidden" id="_agile_domain" name="_agile_domain" value="dreamiro">
 					<input type="hidden" id="_agile_api" name="_agile_api" value="3ojuin62rel99ttpgfj4ul2dkl">
-					<input type="hidden" id="_agile_redirect_url" name="_agile_redirect_url" value="https://www.dreamiro.it/materasso">
+					<input type="hidden" id="_agile_redirect_url" name="_agile_redirect_url" value="<?php the_field('redirect_link'); ?>">
 					<input type="hidden" id="_agile_document_url" name="_agile_document_url" value="">
 					<input type="hidden" id="_agile_confirmation_msg" name="_agile_confirmation_msg" value="">
 					<input type="hidden" id="_agile_form_id_tags" name="tags" value="Sconto">
