@@ -744,7 +744,7 @@ function your_custom_field_function_name($order_id){
     $html = '';
     if(get_post_meta( $order_id, '_free_gift_total')) {
         $html .= '<tr><td class="label">'.__( 'Prodotti omaggio con il coupon:', 'iro' ).'</td>';
-        for($i = 0; $i < count(get_post_meta( $order_id, '_free_gift_total')); $i++) {
+        for($i = 0; $i < get_post_meta( $order_id, '_free_gift_total'); $i++) {
             $html .= '<td width="1%"></td><td>Prodotto:<br/><strong>'.get_the_title(get_post_meta( $order_id, '_free_gift_product_id_'.$i)).'</strong><br/>Quantità:<br/><strong>'.get_post_meta( $order_id, '_free_gift_product_qty_'.$i).'</strong>';
         }
         $html .= '</tr>';
