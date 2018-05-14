@@ -764,16 +764,30 @@ function custom_woocommerce_email_order_meta_fields( $fields, $sent_to_admin, $o
 function your_custom_field_function_name($order_id){
     $html = '';
     if(get_post_meta( $order_id, '_free_gift_total')) {
-        $html .= '<tr><td class="label">'.__( 'Prodotti omaggio con il coupon:', 'iro' ).'</td>';
+        $html .= '<tr><td class="label">'.__( 'Prodotti omaggio con il coupon:', 'iro' ).'</td><td width="1%"></td><td>';
         for($i = 0; $i < get_post_meta( $order_id, '_free_gift_total', true); $i++) {
-            $html .= '<td width="1%"></td><td>Prodotto:<br/><strong>'.get_the_title(get_post_meta( $order_id, '_free_gift_product_id_'.$i, true)).'</strong><br/>Quantità:<br/><strong>'.get_post_meta( $order_id, '_free_gift_product_qty_'.$i, true).'</strong>';
+            $html .= '<strong>'.get_the_title(get_post_meta( $order_id, '_free_gift_product_id_'.$i, true)).'</strong> x'.get_post_meta( $order_id, '_free_gift_product_qty_'.$i, true).'<br/>';
         }
-        $html .= '</tr>';
+        $html .= '</td></tr>';
     }
     echo $html;
 }
 
 add_action( 'woocommerce_admin_order_totals_after_discount', 'your_custom_field_function_name', 10, 1 );
+
+add_action( 'wpo_wcpdf_after_order_data', 'wpo_wcpdf_delivery_date', 10, 2 );
+function wpo_wcpdf_delivery_date ($template_type, $order) {
+    $order_id = $order->get_id();
+    $html = '';
+    if(get_post_meta( $order_id, '_free_gift_total')) {
+        $html .= '<tr><td class="label">'.__( 'Prodotti omaggio con il coupon:', 'iro' ).'</td><td>';
+        for($i = 0; $i < get_post_meta( $order_id, '_free_gift_total', true); $i++) {
+            $html .= '<strong>'.get_the_title(get_post_meta( $order_id, '_free_gift_product_id_'.$i, true)).'</strong> x'.get_post_meta( $order_id, '_free_gift_product_qty_'.$i, true).'<br/>';
+        }
+        $html .= '</td></tr>';
+    }
+    echo $html;
+}
 
 // Delete Account Functionality 
 
