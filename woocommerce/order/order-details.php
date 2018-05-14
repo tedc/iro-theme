@@ -80,8 +80,19 @@ if ( $show_customer_details ) {
 					<th><?php _e( 'Note', 'iro' ); ?></th>
 					<td><?php echo wptexturize( $order->get_customer_note() ); ?></td>
 				</tr>
-			<?php endif; ?>
-			<?php if(get_field('corriere', $order->get_id())) : ?>
+			<?php endif;
+				if(get_post_meta('_free_gift_total', $order->gt_id(), true)) : 
+			 ?>
+			 <div class="order-details__row">
+			 	<strong><?php _e('Prodotti omaggio', 'iro'); ?></strong>
+			 <?php		
+					for($i = 0; $i < get_post_meta($order->id, '_free_gift_total', true); $i++) {
+			 ?>
+			 <strong><?php echo get_the_title(get_post_meta( $order_id, '_free_gift_product_id_'.$i, true)); ?> x<?php echo get_post_meta( $order_id, '_free_gift_product_qty_'.$i, true); ?></strong>
+
+			<?php } ?>
+		</div>
+		<?php endif; if(get_field('corriere', $order->get_id())) : ?>
 								<p><strong><?php _e('Corriere', 'iro'); ?></strong>: <?php the_field('corriere', $order->get_id()); ?></p>
 								<?php endif; ?>
 								<?php if(get_field('tracking_code', $order->get_id())) : ?>
