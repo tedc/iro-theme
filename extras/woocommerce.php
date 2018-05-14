@@ -744,10 +744,15 @@ add_filter( 'woocommerce_email_order_meta_fields', 'custom_woocommerce_email_ord
 
 function custom_woocommerce_email_order_meta_fields( $fields, $sent_to_admin, $order ) {
     if(get_post_meta( $order->id, '_free_gift_total')) {
-        $html.= '';
+        $html.= '<div><table class="td" cellspacing="0" cellpadding="6" style="width: 100%; font-family: \'Helvetica Neue\', Helvetica, Roboto, Arial, sans-serif; color: #797a7c; border: 1px solid #e5e5e5;" border="1"><thead><tr><th class="td" scope="col" style="text-align: left; color: #797a7c; border: 1px solid #e5e5e5; padding: 12px;">'.__( 'Prodotti omaggio' ).'</th><th class="td" scope="col" style="text-align: left; color: #797a7c; border: 1px solid #e5e5e5; padding: 12px;">Prodotto</th><th class="td" scope="col" style="text-align: left; color: #797a7c; border: 1px solid #e5e5e5; padding: 12px;">Quantità</th></tr></thead><tbody>';
+
         for($i = 0; $i < get_post_meta($order->id, '_free_gift_total', true); $i++) {
-            $html .= 'Prodotto:<br/><strong>'.get_the_title(get_post_meta($order->id, '_free_gift_product_id_'.$i, true)).'</strong><br/>Quantità:<br/><strong>'.get_post_meta($order->id, '_free_gift_product_qty_'.$i, true).'</strong><br/>';
+            $html .= '<tr class="order_item"><td class="td" style="text-align: left; vertical-align: middle; border: 1px solid #eee; font-family: \'Helvetica Neue\', Helvetica, Roboto, Arial, sans-serif; color: #797a7c; padding: 12px;">'.get_the_title(get_post_meta($order->id, '_free_gift_product_id_'.$i, true)).'</td>
+            <td class="td" style="text-align: left; vertical-align: middle; border: 1px solid #eee; font-family: \'Helvetica Neue\', Helvetica, Roboto, Arial, sans-serif; color: #797a7c; padding: 12px;">'.get_post_meta($order->id, '_free_gift_product_qty_'.$i, true).'</td></tr>';
         }
+
+        $html = '</tbody></table></div>';
+
         $fields['free_gift'] = array(
             'label' => __( 'Prodotti omaggio' ),
             'value' => $html,
