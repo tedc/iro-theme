@@ -83,7 +83,7 @@ if ( $show_customer_details ) {
 			<?php endif;
 				if(get_post_meta($order->get_id(), '_free_gift_total', $order->get_id())) : 
 			 ?>
-			 	<p><strong><?php _e('Prodotti omaggio', 'iro'); ?></strong>
+			 	<p class="order-details__gift"><strong><?php _e('Prodotti omaggio', 'iro'); ?></strong>
 			 <?php		
 					for($i = 0; $i < get_post_meta($order->get_id(), '_free_gift_total', true); $i++) {
 			 ?>
@@ -92,8 +92,8 @@ if ( $show_customer_details ) {
 			<?php } ?>
 			</p>
 		<?php endif; if(get_field('corriere', $order->get_id())) : ?>
-								<p><strong><?php _e('Corriere', 'iro'); ?></strong>: <?php the_field('corriere', $order->get_id()); ?></p>
-								<?php endif; ?>
+		<div class="order-details__track">
+								<p><strong><?php _e('Corriere', 'iro'); ?></strong>: <?php the_field('corriere', $order->get_id()); ?></p>	
 								<?php if(get_field('tracking_code', $order->get_id())) : ?>
 								<p><strong><?php _e('Codice di tracciamento', 'iro'); ?></strong>: <?php the_field('tracking_code', $order->get_id()); ?>
 								<?php endif; ?></p>
@@ -103,6 +103,7 @@ if ( $show_customer_details ) {
 								<?php if(get_field('tracking_date', $order->get_id())) : ?>
 								<p><strong><?php _e('Data di spedizione', 'iro'); ?></strong>: <?php the_field('tracking_date', $order->get_id()); ?></p>
 								<?php endif; ?>
+		</div><?php endif; ?>
 		
 	</div>
 	<?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?>

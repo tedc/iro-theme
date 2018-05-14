@@ -355,6 +355,14 @@
 					width: $f/2;
 				}
 			}
+			&track, &gift {
+				strong {
+					color: $brand-main;
+				}
+			}
+			&gift {
+				padding-bottom: em($p*2);
+			}
 			&price, &name {
 				@extend %order_span;
 				width: $f/2;
