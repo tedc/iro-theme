@@ -411,14 +411,18 @@
 			}
 		}
 		&checkbox + label {
-			align-items: flex-start;
 			margin-bottom: em($p/2);
 			span {
 				display: inline-block;
 				font-weight: normal;
 				font-size: 11px;
+				line-height: 1.4;
 				text-align: left;
 				color: $dark-gray;
+			}
+			#register & {
+				max-width: em(360px);
+				display: flex;
 			}
 		}
 	}

@@ -23,6 +23,9 @@
 				flex-wrap: nowrap;
 			}
 		}
+		&accept {
+			text-align: left;
+		}
 		&input {
 			width: $f;
 			flex: 0 0 auto;
@@ -39,8 +42,9 @@
 				}
 			}
 		}
-		&checkout + label {
+		&checkbox + label {
 			color: $dark-gray;
+			font-weight: normal;
 			font-size: 12px;
 			text-align: left;
 			margin-top: em($p/2, 12px);

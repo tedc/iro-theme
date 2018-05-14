@@ -117,6 +117,22 @@ iro
 	.directive('wcAccount', require('./account'))
 	.directive('ngPlayer', ['$rootScope', '$timeout', require('./player')])
 	.directive('ngForm', require('./form'))
+	.directive('ngAgileThanks', ['$cookies', ($cookies)=> {
+		return {
+			link : (scope, element, attr)=> {
+				let name = attr.cookieName;
+				let date = new Date(attr.ngAgileThanks);
+				date.setDate(date.getDate());
+				let cookie = $cookies.get(name);
+				console.log(date, name, cookie);
+				if(!cookie) {
+					$cookies.put(name, 1, {
+						expires : date
+					});
+				}
+			}
+		}
+	}])
 	.directive('moveTopImage', ()=> {
 		return {
 			restrict: 'A',

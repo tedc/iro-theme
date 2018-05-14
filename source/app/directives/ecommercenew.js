@@ -422,7 +422,6 @@ module.exports = () => {
 					ecommerce
 						.post(vars.wc.coupons, {coupon_code : coupon, security : nonce})
 						.then( (res) => {
-							console.log(res.data);
 							ngCart.isDescountLoading = false;
 							$scope.isDescountLoading = ngCart.isDescountLoading;
 							if(res.data.error) {
@@ -500,6 +499,10 @@ module.exports = () => {
 							if(extras.coupons.length == 0) {
 								delete extras.coupons;
 							}
+							if(extras.free_gift) {
+								delete extras.free_gift;
+								delete ngCart.free_gift;
+							}
 							ngCart.setExtras(extras);
 							ngCart.isCounting = false;
 							$rootScope.$broadcast('ngCart:change');
@@ -567,14 +570,31 @@ module.exports = () => {
 
 				if(ngCart.getExtras().free_gift) {
 					ngCart.free_gift = ngCart.getExtras().free_gift;
-
-					console.log(ngCart.getExtras());
 				}
 				ngCart.freeGift = (fg)=> {
 					let extras = ngCart.getExtras();
 					let free_gift;
-					if(extras.free_gift) {
-						extras.free_gift.push(fg);
+					if(extras.free_gift && extras.free_gift.length > 0) {
+						let isInGift = false;
+						for(let i = 0; i < extras.free_gift.length; i++) {
+							if(fg.id == extras.free_gift[i].id) {
+								isInGift = true;
+								break;
+							}
+						}
+						if(isInGift){
+							for(let i = 0; i < extras.free_gift.length; i++) {
+								if(fg.id == extras.free_gift[i].id) {
+									if(fg.qty == 0) {
+										extras.free_gift.splice(i, 1);
+									} else {
+										extras.free_gift[i].qty = fg.qty;
+									}
+								}
+							}
+						} else {
+							extras.free_gift.push(fg);
+						}
 						free_gift = extras.free_gift;
 					} else {
 						free_gift = [fg];
@@ -584,21 +604,20 @@ module.exports = () => {
 					ngCart.free_gift = extras.free_gift;
 					$rootScope.$broadcast('ngCart:change');
 				}
-				ngCart.isGiftDisabled = (id, max)=> {
+				ngCart.resetGift = ()=> {
+					let extras = ngCart.getExtras();
+					delete extras.free_gift;
+					delete ngCart.free_gift;
+					ngCart.setExtras(extras);
+				}
+				ngCart.isGiftDisabled = (max)=> {
 					let extras = ngCart.getExtras();
 					let tot = 0;
 					if(extras.free_gift && extras.free_gift.length > 0) {
 						for(let i = 0; i < extras.free_gift.length; i++) {
 							tot += extras.free_gift[i].qty;
 						}
-						if(tot == max) {
-							let result = extras.free_gift.some((obj) => {
-								return obj.id === id;
-							});
-							return result;
-						} else {
-							return false;
-						}
+						return tot == max;
 					} else {
 						return false;
 					}
@@ -646,6 +665,7 @@ module.exports = () => {
 						},
 						products : products
 					};
+					//return;
 					ecommerce
 						.post(vars.wc.checkout, data)
 						.then( (res)=> {
