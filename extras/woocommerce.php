@@ -777,8 +777,8 @@ function tracking_woocommerce_email_order_meta_fields( $fields, $sent_to_admin, 
          endif; 
     $html .= '</tbody></table></div>';
     endif;
-    $fields['free_gift'] = array(
-        'label' => __( 'Prodotti omaggio' ),
+    $fields['tracking_code'] = array(
+        'label' => __( 'Track spedizione' ),
         'value' => $html,
     );
     return $fields;
