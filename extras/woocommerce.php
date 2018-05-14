@@ -740,6 +740,20 @@ function my_custom_checkout_field_update_order_meta( $order_id ) {
     }
 }
 
+function your_custom_field_function_name($order_id){
+    $html = '';
+    if(get_post_meta( $order_id, '_free_gift_total')) {
+        $html .= '<tr><td class="label">'.__( 'Prodotti omaggio con il coupon:', 'iro' ).'</td>';
+        for($i = 0; $i < count(get_post_meta( $order_id, '_free_gift_total')); $i++) {
+            $html .= '<td width="1%"></td><td>Prodotto: <strong>'.get_the_title(get_post_meta( $order_id, '_free_gift_product_id_'.$i)).'</strong><br/>Quantità: <strong>'.get_the_title(get_post_meta( $order_id, '_free_gift_product_qty_'.$i)).'</strong>';
+        }
+        $html .= '</tr>';
+    }
+    echo $html;
+}
+
+add_action( 'woocommerce_admin_order_totals_after_discount', 'your_custom_field_function_name', 10, 1 );
+
 // Delete Account Functionality 
 
 add_action( 'template_redirect', 'custom_vc_endpoint', 10, 5 );
