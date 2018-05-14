@@ -743,10 +743,10 @@ function my_custom_checkout_field_update_order_meta( $order_id ) {
 function your_custom_field_function_name($order_id){
     $html = '';
     if(get_post_meta( $order_id, '_free_gift_total')) {
-        $html .= '<tr><td class="label">'.__( 'Prodotti omaggio con il coupon:', 'iro' ).get_post_meta( $order_id, '_free_gift_total', true).'</td>';
-        // for($i = 0; $i < get_post_meta( $order_id, '_free_gift_total'); $i++) {
-        //     $html .= '<td width="1%"></td><td>Prodotto:<br/><strong>'.get_the_title(get_post_meta( $order_id, '_free_gift_product_id_'.$i)).'</strong><br/>Quantità:<br/><strong>'.get_post_meta( $order_id, '_free_gift_product_qty_'.$i).'</strong>';
-        // }
+        $html .= '<tr><td class="label">'.__( 'Prodotti omaggio con il coupon:', 'iro' ).'</td>';
+        for($i = 0; $i < get_post_meta( $order_id, '_free_gift_total', true); $i++) {
+            $html .= '<td width="1%"></td><td>Prodotto:<br/><strong>'.get_the_title(get_post_meta( $order_id, '_free_gift_product_id_'.$i, true)).'</strong><br/>Quantità:<br/><strong>'.get_post_meta( $order_id, '_free_gift_product_qty_'.$i, true).'</strong>';
+        }
         $html .= '</tr>';
     }
     echo $html;
