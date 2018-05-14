@@ -740,7 +740,7 @@ function my_custom_checkout_field_update_order_meta( $order_id ) {
     }
 }
 
-add_filter( 'woocommerce_email_order_meta_fields', 'custom_woocommerce_email_order_meta_fields', 10, 3 );
+add_filter( 'woocommerce_email_order_meta_fields', 'custom_woocommerce_email_order_meta_fields', 11, 3 );
 
 function custom_woocommerce_email_order_meta_fields( $fields, $sent_to_admin, $order ) {
     if(get_post_meta( $order->id, '_free_gift_total')) {
@@ -758,6 +758,29 @@ function custom_woocommerce_email_order_meta_fields( $fields, $sent_to_admin, $o
             'value' => $html,
         );
     }
+    return $fields;
+}
+
+add_filter('woocommerce_email_order_meta_fields','tracking_woocommerce_email_order_meta_fields', 10, 3 ); 
+function tracking_woocommerce_email_order_meta_fields( $fields, $sent_to_admin, $order ) { 
+    $html = '';
+    if(get_field('corriere', $order->get_id()) ) : 
+        $html.= '<div style="margin-bottom:40px"><table class="td" cellspacing="0" cellpadding="6" style="width: 100%; font-family: \'Helvetica Neue\', Helvetica, Roboto, Arial, sans-serif; color: #797a7c; border: 1px solid #e5e5e5;" border="1"><thead><tr><th class="td" scope="col" style="text-align: left; color: #797a7c; border: 1px solid #e5e5e5; padding: 12px;">Prodotto</th><th class="td" scope="col" style="text-align: left; color: #797a7c; border: 1px solid #e5e5e5; padding: 12px;">Codice di tracciamento</th><th class="td" scope="col" style="text-align: left; color: #797a7c; border: 1px solid #e5e5e5; padding: 12px;">Link per il tracciamento</th><th class="td" scope="col" style="text-align: left; color: #797a7c; border: 1px solid #e5e5e5; padding: 12px;">Data di spedizione</th></tr></thead><tbody><tr class="order_item"><td class="td" style="text-align: left; vertical-align: middle; border: 1px solid #eee; font-family: \'Helvetica Neue\', Helvetica, Roboto, Arial, sans-serif; color: #797a7c; padding: 12px;">'.get_field('corriere', $order->get_id()).'</td>';
+        if(get_field('tracking_code', $order->get_id())) : 
+            $html .=  '<td class="td" style="text-align: left; vertical-align: middle; border: 1px solid #eee; font-family: \'Helvetica Neue\', Helvetica, Roboto, Arial, sans-serif; color: #797a7c; padding: 12px;">'.get_field('tracking_code', $order->get_id()).'</td>';
+        endif; 
+        if(get_field('tracking_url', $order->get_id())) :
+            $html .=  '<td class="td" style="text-align: left; vertical-align: middle; border: 1px solid #eee; font-family: \'Helvetica Neue\', Helvetica, Roboto, Arial, sans-serif; color: #797a7c; padding: 12px;"><a href="'.get_field('tracking_url', $order->get_id()).'">Url</a></td>';
+        endif; 
+        if(get_field('tracking_date', $order->get_id())) :
+            $html .='<td class="td" style="text-align: left; vertical-align: middle; border: 1px solid #eee; font-family: \'Helvetica Neue\', Helvetica, Roboto, Arial, sans-serif; color: #797a7c; padding: 12px;">'.get_field('tracking_date', $order->get_id()). '</td>';
+         endif; 
+    $html .= '</tbody></table></div>';
+    endif;
+    $fields['free_gift'] = array(
+        'label' => __( 'Prodotti omaggio' ),
+        'value' => $html,
+    );
     return $fields;
 }
 
