@@ -751,7 +751,7 @@ function custom_woocommerce_email_order_meta_fields( $fields, $sent_to_admin, $o
             <td class="td" style="text-align: left; vertical-align: middle; border: 1px solid #eee; font-family: \'Helvetica Neue\', Helvetica, Roboto, Arial, sans-serif; color: #797a7c; padding: 12px;">'.get_post_meta($order->id, '_free_gift_product_qty_'.$i, true).'</td></tr>';
         }
 
-        $html = '</tbody></table></div>';
+        $html .= '</tbody></table></div>';
 
         $fields['free_gift'] = array(
             'label' => __( 'Prodotti omaggio' ),
