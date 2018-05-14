@@ -740,6 +740,22 @@ function my_custom_checkout_field_update_order_meta( $order_id ) {
     }
 }
 
+add_filter( 'woocommerce_email_order_meta_fields', 'custom_woocommerce_email_order_meta_fields', 10, 3 );
+
+function custom_woocommerce_email_order_meta_fields( $fields, $sent_to_admin, $order ) {
+    if(get_post_meta( $order_id, '_free_gift_total')) {
+        $html.= '';
+        for($i = 0; $i < get_post_meta( $order_id, '_free_gift_total', true); $i++) {
+            $html .= 'Prodotto:<br/><strong>'.get_the_title(get_post_meta( $order_id, '_free_gift_product_id_'.$i, true)).'</strong><br/>Quantità:<br/><strong>'.get_post_meta( $order_id, '_free_gift_product_qty_'.$i, true).'</strong><br/>';
+        }
+        $fields['free_gift'] = array(
+            'label' => __( 'Prodotti omaggio' ),
+            'value' => $html,
+        );
+    }
+    return $fields;
+}
+
 function your_custom_field_function_name($order_id){
     $html = '';
     if(get_post_meta( $order_id, '_free_gift_total')) {
