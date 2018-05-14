@@ -83,14 +83,14 @@ if ( $show_customer_details ) {
 			<?php endif;
 				if(get_post_meta($order->get_id(), '_free_gift_total', $order->get_id())) : 
 			 ?>
-			 	<strong><?php _e('Prodotti omaggio', 'iro'); ?></strong>
+			 	<p><strong><?php _e('Prodotti omaggio', 'iro'); ?></strong>
 			 <?php		
 					for($i = 0; $i < get_post_meta($order->get_id(), '_free_gift_total', true); $i++) {
 			 ?>
-			 <br/><?php echo get_the_title(get_post_meta($order->get_id(), '_free_gift_product_id_'.$i, true)); ?> x<?php echo get_post_meta( $order->get_id(), '_free_gift_product_qty_'.$i, true); ?>
+			 <br/><a href="<?php echo get_permalink(get_post_meta($order->get_id(), '_free_gift_product_id_'.$i, true)); ?>" target="_blank"><?php echo get_the_title(get_post_meta($order->get_id(), '_free_gift_product_id_'.$i, true)); ?></a> x<?php echo get_post_meta( $order->get_id(), '_free_gift_product_qty_'.$i, true); ?>
 
 			<?php } ?>
-		</div>
+			</p>
 		<?php endif; if(get_field('corriere', $order->get_id())) : ?>
 								<p><strong><?php _e('Corriere', 'iro'); ?></strong>: <?php the_field('corriere', $order->get_id()); ?></p>
 								<?php endif; ?>
