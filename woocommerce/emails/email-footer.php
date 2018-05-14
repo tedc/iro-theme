@@ -26,10 +26,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 													</tr>
 													<?php if(get_field('downloads', 'options')) : ?>
 													<tr>
-														<td><strong><?php _('Download', 'iro'); ?></strong></td>
+														<td><strong><?php _e('Download', 'iro'); ?></strong></td>
 													</tr>
 													<tr>
-														<td><a href="<?php echo get_field('downloads', 'options')['carta_di_identita']; ?>"><?php _('La carta di identità di IRO', 'iro'); ?></a> | <a href="<?php echo get_field('downloads', 'options')['dichiarazione_di_conformita']; ?>"><?php _('Dichiarazione di conformità di IRO', 'iro'); ?></a></td>
+														<td><a href="<?php echo get_field('downloads', 'options')['carta_di_identita']; ?>"><?php _e('La carta di identità di IRO', 'iro'); ?></a> | <a href="<?php echo get_field('downloads', 'options')['dichiarazione_di_conformita']; ?>"><?php _e('Dichiarazione di conformità di IRO', 'iro'); ?></a></td>
 													</tr>
 												<?php endif; ?>
 												</table>
