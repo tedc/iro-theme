@@ -81,15 +81,13 @@ if ( $show_customer_details ) {
 					<td><?php echo wptexturize( $order->get_customer_note() ); ?></td>
 				</tr>
 			<?php endif;
-				echo get_post_meta($order->get_id(), '_free_gift_total', true). $order->get_id();
 				if(get_post_meta($order->get_id(), '_free_gift_total', $order->get_id())) : 
 			 ?>
-			 <div class="order-details__row">
 			 	<strong><?php _e('Prodotti omaggio', 'iro'); ?></strong>
 			 <?php		
 					for($i = 0; $i < get_post_meta($order->get_id(), '_free_gift_total', true); $i++) {
 			 ?>
-			 <strong><?php echo get_the_title(get_post_meta($order->get_id(), '_free_gift_product_id_'.$i, true)); ?> x<?php echo get_post_meta( $order->get_id(), '_free_gift_product_qty_'.$i, true); ?></strong>
+			 <br/><?php echo get_the_title(get_post_meta($order->get_id(), '_free_gift_product_id_'.$i, true)); ?> x<?php echo get_post_meta( $order->get_id(), '_free_gift_product_qty_'.$i, true); ?>
 
 			<?php } ?>
 		</div>
