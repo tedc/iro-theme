@@ -81,7 +81,7 @@ if ( $show_customer_details ) {
 					<td><?php echo wptexturize( $order->get_customer_note() ); ?></td>
 				</tr>
 			<?php endif;
-				if(get_post_meta('_free_gift_total', $order->get_id(), true)) : 
+				if(get_post_meta('_free_gift_total', $order->get_id())) : 
 			 ?>
 			 <div class="order-details__row">
 			 	<strong><?php _e('Prodotti omaggio', 'iro'); ?></strong>
