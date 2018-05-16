@@ -465,22 +465,23 @@ module.exports = () => {
 								if(discount.product_ids) {
 									let count_item_in_cart = 0;
 									let price = 0;
+									let count = 0;
 									angular.forEach( ngCart.getCart().items, function(item, idx) {
 										console.log(item.getId(), discount.product_ids);
 										if(discount.product_ids.indexOf(parseInt(item.getId())) !== -1 ) {
 											if(discount.limit) {
-												if(count_item_in_cart < discount.limit) {
+												if(count < discount.limit) {
 													price += item.getPrice();
 												}
 											} else {
 												price += item.getPrice();
 											}
+											count++;
 											count_item_in_cart += item.getQuantity();
 										}
 									});
 									count_item_in_cart = (count_item_in_cart < discount.limit) ? count_item_in_cart : discount.limit;
 									price = (price * discount.amount) / 100;
-									console.log(price);
 									total = total - price;
 								} else {
 									total = total - ((total * discount.amount ) / 100);
@@ -510,7 +511,7 @@ module.exports = () => {
 						if(coupon.product_ids) {
 							let count_item_in_cart = 0;
 							angular.forEach( ngCart.getCart().items, function(item, idx) {
-								if(coupon.product_ids.indexOf(item.getId()) !== -1 ) {
+								if(coupon.product_ids.indexOf(parseInt(item.getIditem.getId())) !== -1 ) {
 									if(coupon.limit) {
 										if(count_item_in_cart < coupon.limit) {
 											price += item.getPrice();
@@ -518,7 +519,7 @@ module.exports = () => {
 									} else {
 										price += item.getPrice();
 									}
-									count_item_in_cart += item.getQuantity();
+									count_item_in_cart++;
 								}
 							});
 							count_item_in_cart = (count_item_in_cart < coupon.limit) ? count_item_in_cart : coupon.limit;
