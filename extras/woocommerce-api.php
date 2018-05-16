@@ -562,30 +562,16 @@
 		    if ( $coupon->get_free_shipping() ) {
 		    	$discount['label'] = __( 'Free shipping coupon', 'woocommerce' );
 		       	$discount['code'] =  $coupon->get_code();
-		       	$discount['price'] = $coupon->get_discount_amount();
 		       	$discount['free_shipping'] = true;
 		    } else {
 		    	$discount['label'] = wc_cart_totals_coupon_label( $coupon, false );
 		    	$discount['code'] =  $coupon->get_code();
-		    	$discount['price'] = $coupon->get_amount();
 		    	$discount['type'] = $coupon->get_discount_type();
 		    	$discount['amount'] = $coupon->get_amount();
 		    }
 		    $discount['description'] = $coupon->get_description();
-		    if($coupon->get_discount_type() == 'fixed_product') {
-		    	if($coupon->get_limit_usage_to_x_items() && $coupon->get_limit_usage_to_x_items() > 1) {
-		    		$count_items_in_cart = 0;
-			    	foreach(WC()->cart->get_cart() as $cart_item_key => $cart_item) {
-			    		if(in_array($cart_item['product_id'], $coupon->get_product_ids())) {
-			    			$count_items_in_cart += $cart_item['quantity'];
-			    		}
-			    	}
-			    	$discount['limit'] = $coupon->get_limit_usage_to_x_items();
-			    	$count_items_in_cart = ($count_items_in_cart > $coupon->get_limit_usage_to_x_items()) ? $coupon->get_limit_usage_to_x_items() : $count_items_in_cart;
-			    	$discount['count_items_in_cart'] = $count_items_in_cart;
-		    		$discount['price'] = $coupon->get_amount() * $count_items_in_cart;
-		    	}
-		    }
+	    	$discount['product_ids'] =  $coupon->get_product_ids();
+	    	$discount['limit'] = $coupon->get_limit_usage_to_x_items();
 		    $discount['remove'] = esc_url( add_query_arg( 'remove_coupon', urlencode( $coupon->get_code() ), defined( 'WOOCOMMERCE_CHECKOUT' ) ? wc_get_checkout_url() : wc_get_cart_url() ) );
 
 		    return $discount;

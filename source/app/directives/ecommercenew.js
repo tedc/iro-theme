@@ -462,9 +462,39 @@ module.exports = () => {
 					if(coupons && coupons.length > 0){
 						for(let discount of coupons) {
 							if(discount.type == 'percent') {
-								total = total - ((total * discount.amount ) / 100);
+								if(discount.product_ids) {
+									let count_item_in_cart = 0;
+									let price = 0;
+									angular.forEach( ngCart.getCart().items, function(item, idx) {
+										if(discount.product_id.indexOf(item.getId()) !== -1 ) {
+											if(discount.limit) {
+												if(count_item_in_cart < discount.limit) {
+													price += item.getPrice();
+												}
+											} else {
+												price += item.getPrice();
+											}
+											count_item_in_cart += item.getQuantity();
+										}
+									});
+									count_item_in_cart = (count_item_in_cart < discount.limit) ? count_item_in_cart : discount.limit;
+									price = (price * discount.amount) / 100;
+									total = total - price;
+								} else {
+									total = total - ((total * discount.amount ) / 100);
+								}
 							} else {
-								total -= discount.price;
+								if(discount.product_ids) {
+									angular.forEach( ngCart.getCart().items, function(item, idx) {
+										if(discount.product_id.indexOf(item.getId()) !== -1 ) {
+											let count_item_in_cart = 0;
+											count_item_in_cart += item.getQuantity();
+										}
+									});
+									total = total - (discount.amount * count_item_in_cart);
+								} else {
+									total -= discount.amount;
+								}
 							}
 						}
 					}
