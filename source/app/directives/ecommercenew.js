@@ -481,6 +481,7 @@ module.exports = () => {
 										}
 									});
 									count_item_in_cart = (count_item_in_cart < discount.limit) ? count_item_in_cart : discount.limit;
+									console.log(count_item_in_cart);
 									price = (price * discount.amount) / 100;
 									total = total - price;
 								} else {
@@ -511,7 +512,7 @@ module.exports = () => {
 						if(coupon.product_ids) {
 							let count_item_in_cart = 0;
 							angular.forEach( ngCart.getCart().items, function(item, idx) {
-								if(coupon.product_ids.indexOf(parseInt(tem.getId())) !== -1 ) {
+								if(coupon.product_ids.indexOf(parseInt(item.getId())) !== -1 ) {
 									if(coupon.limit) {
 										if(count_item_in_cart < coupon.limit) {
 											price += item.getPrice();
