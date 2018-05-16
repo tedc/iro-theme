@@ -511,7 +511,7 @@ module.exports = () => {
 						if(coupon.product_ids) {
 							let count_item_in_cart = 0;
 							angular.forEach( ngCart.getCart().items, function(item, idx) {
-								if(coupon.product_ids.indexOf(parseInt(item.getIditem.getId())) !== -1 ) {
+								if(coupon.product_ids.indexOf(parseInt(tem.getId())) !== -1 ) {
 									if(coupon.limit) {
 										if(count_item_in_cart < coupon.limit) {
 											price += item.getPrice();
