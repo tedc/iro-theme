@@ -469,21 +469,18 @@ module.exports = () => {
 									let price = 0;
 									let count = 0;
 									angular.forEach( ngCart.getCart().items, function(item, idx) {
-										console.log(item.getId(), discount.product_ids);
 										if(discount.product_ids.indexOf(parseInt(item.getId())) !== -1 ) {
 											if(discount.limit) {
-												if(count < discount.limit && count_item_in_cart < discount.limit) {
-													price += parseInt(item.getPrice());
+												if(count_item_in_cart < discount.limit) {
+													price += (parseInt(item.getQuantity()) < discount.limit )? parseInt(item.getPrice()) * parseInt(item.getQuantity()) : parseInt(item.getPrice()) * discount.limit;
 												}
 											} else {
 												price += parseInt(item.getPrice());
 											}
-											count++;
 											count_item_in_cart += parseInt(item.getQuantity());
 										}
 									});
 									count_item_in_cart = (count_item_in_cart < discount.limit) ? count_item_in_cart : discount.limit;
-									console.log(count_item_in_cart, count, price);
 									price = (price * discount.amount) / 100;
 									total = total - price;
 								} else {
