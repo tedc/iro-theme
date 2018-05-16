@@ -72,13 +72,15 @@ module.exports = () => {
 											let quantity = data.products[i].quantity;
 											let price = data.products[i].price;
 											let item_data = item.getData();
-											if(item_data.attributes != data.products[i].variation_details.attributes) {
-												item_data.attributes = data.products[i].variation_details.attributes;
+											if(data.products[i].variation_details) {
+												if(item_data.attributes != data.products[i].variation_details.attributes) {
+													item_data.attributes = data.products[i].variation_details.attributes;
+												}
+												if(item_data.dimensions_html != data.products[i].variation_details.dimensions_html) {
+													item_data.dimensions_html = data.products[i].variation_details.dimensions_html;
+												}
+												item.setData(item_data);
 											}
-											if(item_data.dimensions_html != data.products[i].variation_details.dimensions_html) {
-												item_data.dimensions_html = data.products[i].variation_details.dimensions_html;
-											}
-											item.setData(item_data);
 											if(price != item.getPrice()){
 												item.setPrice(price);
 											}
@@ -481,7 +483,7 @@ module.exports = () => {
 										}
 									});
 									count_item_in_cart = (count_item_in_cart < discount.limit) ? count_item_in_cart : discount.limit;
-									console.log(count_item_in_cart, countm, price);
+									console.log(count_item_in_cart, count, price);
 									price = (price * discount.amount) / 100;
 									total = total - price;
 								} else {
