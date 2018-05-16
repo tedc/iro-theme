@@ -581,6 +581,8 @@
 			    			}
 			    		}
 			    	}
+			    	$discount['limit'] = $coupon->get_limit_usage_to_x_items();
+			    	$discount['count_items_in_cart'] = $count_items_in_cart;
 		    		$discount['price'] = $coupon->get_amount() * $count_items_in_cart;
 		    	}
 		    }
