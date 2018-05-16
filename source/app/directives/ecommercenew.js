@@ -514,12 +514,12 @@ module.exports = () => {
 								if(coupon.product_ids.indexOf(parseInt(item.getId())) !== -1 ) {
 									if(coupon.limit) {
 										if(count_item_in_cart < coupon.limit) {
-											price += item.getPrice();
+											price += (parseInt(item.getQuantity()) < coupon.limit )? parseInt(item.getPrice()) * parseInt(item.getQuantity()) : parseInt(item.getPrice()) * coupon.limit;
 										}
 									} else {
-										price += item.getPrice();
+										price += parseInt(item.getPrice());
 									}
-									count_item_in_cart++;
+									count_item_in_cart += parseInt(item.getQuantity());
 								}
 							});
 							count_item_in_cart = (count_item_in_cart < coupon.limit) ? count_item_in_cart : coupon.limit;
