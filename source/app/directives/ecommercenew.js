@@ -467,7 +467,7 @@ module.exports = () => {
 									let price = 0;
 									angular.forEach( ngCart.getCart().items, function(item, idx) {
 										console.log(item.getId(), discount.product_ids);
-										if(discount.product_ids.indexOf(item.getId()) !== -1 ) {
+										if(discount.product_ids.indexOf(parseInt(item.getId())) !== -1 ) {
 											if(discount.limit) {
 												if(count_item_in_cart < discount.limit) {
 													price += item.getPrice();
@@ -488,7 +488,7 @@ module.exports = () => {
 							} else {
 								if(discount.product_ids) {
 									angular.forEach( ngCart.getCart().items, function(item, idx) {
-										if(discount.product_ids.indexOf(item.getId()) !== -1 ) {
+										if(discount.product_ids.indexOf(parseInt(item.getId())) !== -1 ) {
 											let count_item_in_cart = 0;
 											count_item_in_cart += item.getQuantity();
 										}
