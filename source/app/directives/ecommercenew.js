@@ -505,12 +505,12 @@ module.exports = () => {
 					if(coupon.price <= 0) return;
 					if(coupon.type == 'percent') {
 						let price = 0;	
-						if(discount.product_ids) {
+						if(coupon.product_ids) {
 							let count_item_in_cart = 0;
 							angular.forEach( ngCart.getCart().items, function(item, idx) {
-								if(discount.product_ids.indexOf(item.getId()) !== -1 ) {
-									if(discount.limit) {
-										if(count_item_in_cart < discount.limit) {
+								if(coupon.product_ids.indexOf(item.getId()) !== -1 ) {
+									if(coupon.limit) {
+										if(count_item_in_cart < coupon.limit) {
 											price += item.getPrice();
 										}
 									} else {
@@ -519,8 +519,8 @@ module.exports = () => {
 									count_item_in_cart += item.getQuantity();
 								}
 							});
-							count_item_in_cart = (count_item_in_cart < discount.limit) ? count_item_in_cart : discount.limit;
-							price = (price * discount.amount) / 100;
+							count_item_in_cart = (count_item_in_cart < coupon.limit) ? count_item_in_cart : coupon.limit;
+							price = (price * coupon.amount) / 100;
 							price = `-€ ${price}`;
 						} else {
 							price = `-${coupon.amount}%`;
