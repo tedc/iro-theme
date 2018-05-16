@@ -570,6 +570,7 @@
 		    	$discount['price'] = $coupon->get_discount_amount();
 		    	$discount['type'] = $coupon->get_discount_type();
 		    	$discount['amount'] = $coupon->get_amount();
+		    	$discount['product_ids'] = $coupon->get_product_ids();
 		    }
 		    $discount['remove'] = esc_url( add_query_arg( 'remove_coupon', urlencode( $coupon->get_code() ), defined( 'WOOCOMMERCE_CHECKOUT' ) ? wc_get_checkout_url() : wc_get_cart_url() ) );
 
