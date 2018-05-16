@@ -576,12 +576,11 @@
 		    		$count_items_in_cart = 0;
 			    	foreach(WC()->cart->get_cart() as $cart_item_key => $cart_item) {
 			    		if(in_array($cart_item['product_id'], $coupon->get_product_ids())) {
-			    			if($count_items_in_cart < $coupon->get_limit_usage_to_x_items()){
-			    				$count_items_in_cart += $cart_item['quantity'];
-			    			}
+			    			$count_items_in_cart += $cart_item['quantity'];
 			    		}
 			    	}
 			    	$discount['limit'] = $coupon->get_limit_usage_to_x_items();
+			    	$count_items_in_cart = ($count_items_in_cart > $coupon->get_limit_usage_to_x_items()) ? $coupon->get_limit_usage_to_x_items() : $count_items_in_cart;
 			    	$discount['count_items_in_cart'] = $count_items_in_cart;
 		    		$discount['price'] = $coupon->get_amount() * $count_items_in_cart;
 		    	}
