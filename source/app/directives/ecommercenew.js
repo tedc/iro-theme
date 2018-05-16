@@ -466,6 +466,7 @@ module.exports = () => {
 									let count_item_in_cart = 0;
 									let price = 0;
 									angular.forEach( ngCart.getCart().items, function(item, idx) {
+										console.log(item.getId(), discount.product_ids);
 										if(discount.product_ids.indexOf(item.getId()) !== -1 ) {
 											if(discount.limit) {
 												if(count_item_in_cart < discount.limit) {
@@ -479,6 +480,7 @@ module.exports = () => {
 									});
 									count_item_in_cart = (count_item_in_cart < discount.limit) ? count_item_in_cart : discount.limit;
 									price = (price * discount.amount) / 100;
+									console.log(price);
 									total = total - price;
 								} else {
 									total = total - ((total * discount.amount ) / 100);
@@ -525,7 +527,7 @@ module.exports = () => {
 						} else {
 							price = `-${coupon.amount}%`;
 						}
-						return `-${price}% <span>${coupon.description}</span>`;
+						return `${price} <span>${coupon.description}</span>`;
 					} else if(coupon.type == 'fixed_product') {
 						return `-€ ${coupon.price} <span>${coupon.description}</span>`;
 					} else  {
