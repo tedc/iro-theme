@@ -562,12 +562,12 @@
 		    if ( $coupon->get_free_shipping() ) {
 		    	$discount['label'] = __( 'Free shipping coupon', 'woocommerce' );
 		       	$discount['code'] =  $coupon->get_code();
-		       	$discount['price'] = $amount;
+		       	$discount['price'] = $coupon->get_discount_amount();
 		       	$discount['free_shipping'] = true;
 		    } else {
 		    	$discount['label'] = wc_cart_totals_coupon_label( $coupon, false );
 		    	$discount['code'] =  $coupon->get_code();
-		    	$discount['price'] = $amount;
+		    	$discount['price'] = $coupon->get_discount_amount();
 		    	$discount['type'] = $coupon->get_discount_type();
 		    	$discount['amount'] = $coupon->get_amount();
 		    }
