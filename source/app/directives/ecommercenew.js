@@ -474,11 +474,11 @@ module.exports = () => {
 				ngCart.getCouponAumount = (coupon)=> {
 					if(coupon.price <= 0) return;
 					if(coupon.type == 'percent') {
-						return `-${coupon.amount}%`;
+						return `-${coupon.amount}% <span>${coupon.description}</span>`;
 					} else if(coupon.type == 'fixed_product') {
-						return `-€ ${coupon.price} <span>(€ ${coupon.amount} ${vars.wc.fixed_product_coupon})</span>`;
+						return `-€ ${coupon.price} <span>${coupon.description}</span>`;
 					} else  {
-						return `-€ ${coupon.price}`;
+						return `-€ ${coupon.price} <span>${coupon.description}</span>`;
 					}
 				}
 	

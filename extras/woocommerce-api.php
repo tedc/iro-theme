@@ -571,6 +571,7 @@
 		    	$discount['type'] = $coupon->get_discount_type();
 		    	$discount['amount'] = $coupon->get_amount();
 		    }
+		    $discount['description'] = $coupon->get_description();
 		    if($coupon->get_discount_type() == 'fixed_product') {
 		    	if($coupon->get_limit_usage_to_x_items() && $coupon->get_limit_usage_to_x_items() > 1) {
 		    		$count_items_in_cart = 0;
