@@ -63,7 +63,7 @@ module.exports = () => {
 									ngCart.empty();
 								} else {
 									for(let i = 0; i < data.products.length; i++) {
-										let pId = (data.products[i].variation_id > 0) ? data.products[i].variation_id : data.products[i].product_id;
+										let pId = (data.products[i].variation_details) ? data.products[i].variation_id : data.products[i].product_id;
 										pId = pId.toString();
 										let item = ngCart.getItemById(pId);
 										if(!ngCart.getItemById(pId)) {

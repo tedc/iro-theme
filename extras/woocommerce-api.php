@@ -1074,7 +1074,7 @@
 		    			if($_product) {
 		    				$variations = $_product->get_available_variations();
 			    			$variation_details = null;
-							if($cart_item['variation_id'] > 0) {
+							if($cart_item['variation']) {
 								foreach($variations as $variation) {
 									if($variation['variation_id'] == $cart_item['variation_id']) {
 										$variation_details = $variation;
