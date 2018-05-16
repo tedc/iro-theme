@@ -470,18 +470,18 @@ module.exports = () => {
 										console.log(item.getId(), discount.product_ids);
 										if(discount.product_ids.indexOf(parseInt(item.getId())) !== -1 ) {
 											if(discount.limit) {
-												if(count < discount.limit) {
-													price += item.getPrice();
+												if(count < discount.limit && count_item_in_cart < discount.limit) {
+													price += parseInt(item.getPrice());
 												}
 											} else {
-												price += item.getPrice();
+												price += parseInt(item.getPrice());
 											}
 											count++;
-											count_item_in_cart += item.getQuantity();
+											count_item_in_cart += parseInt(item.getQuantity());
 										}
 									});
 									count_item_in_cart = (count_item_in_cart < discount.limit) ? count_item_in_cart : discount.limit;
-									console.log(count_item_in_cart);
+									console.log(count_item_in_cart, countm, price);
 									price = (price * discount.amount) / 100;
 									total = total - price;
 								} else {
