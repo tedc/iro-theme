@@ -148,7 +148,7 @@ module.exports = () => {
 					if($window.fbq) {
 						$window.fbq('track', 'ViewContent', {
 							content_name: $scope.attributes.variation_description ? $scope.attributes.variation_description.replace(/<[^>]+>/gm, '').replace(/(&#215;)/g, 'x') : $scope.attributes.title,
-							content_type: 'product',
+							content_type: 'product_group',
 							content_ids: [($scope.attributes.sku) ? $scope.attributes.sku : $scope.attributes.variation_id],
 							value: $scope.attributes.display_price,
 							currency: 'EUR'
