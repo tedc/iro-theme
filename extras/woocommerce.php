@@ -1069,6 +1069,79 @@ function iro_get_userdata( $user_id, $key ) {
     return $userdata->{$key};
 }
 
+/**
+ * Modify checkboxes/radio fields.
+ *
+ * @param string $field
+ * @param string $key
+ * @param array  $args
+ * @param string $value
+ *
+ * @see https://irowp.com/blog/the-ultimate-guide-to-adding-custom-woocommerce-user-account-fields/
+ *
+ * @return string
+ */
+function iro_form_field_modify( $field, $key, $args, $value ) {
+    if(!is_admin()) {
+        return $field;
+    }
+    ob_start();
+    iro_print_list_field( $key, $args, $value );
+    $field = ob_get_clean();
+
+    if ( $args['return'] ) {
+        return $field;
+    } else {
+        echo $field;
+    }
+}
+
+add_filter( 'woocommerce_form_field_checkboxes', 'iro_form_field_modify', 10, 4 );
+add_filter( 'woocommerce_form_field_radio', 'iro_form_field_modify', 10, 4 );
+
+/**
+ * Print a list field (checkboxes|radio).
+ *
+ * @param string $key
+ * @param array  $field_args
+ * @param mixed  $value
+ *
+ * @see https://irowp.com/blog/the-ultimate-guide-to-adding-custom-woocommerce-user-account-fields/
+ */
+function iro_print_list_field( $key, $field_args, $value = null ) {
+    if(!is_admin()) {
+        return;
+    }
+    $value = empty( $value ) && $field_args['type'] === 'checkboxes' ? array() : $value;
+    ?>
+    <div class="form-row">
+        <?php if ( ! empty( $field_args['label'] ) ) { ?>
+            <label>
+                <?php echo $field_args['label']; ?>
+                <?php if ( ! empty( $field_args['required'] ) ) { ?>
+                    <abbr class="required" title="<?php echo esc_attr__( 'required', 'woocommerce' ); ?>">*</abbr>
+                <?php } ?>
+            </label>
+        <?php } ?>
+        <ul>
+            <?php foreach ( $field_args['options'] as $option_value => $option_label ) {
+                $id         = sprintf( '%s_%s', $key, sanitize_title_with_dashes( $option_label ) );
+                $option_key = $field_args['type'] === 'checkboxes' ? sprintf( '%s[%s]', $key, $option_value ) : $key;
+                $type       = $field_args['type'] === 'checkboxes' ? 'checkbox' : $field_args['type'];
+                $checked    = $field_args['type'] === 'checkboxes' ? in_array( $option_value, $value ) : $option_value == $value;
+                ?>
+                <li>
+                    <label for="<?php echo esc_attr( $id ); ?>">
+                        <input type="<?php echo esc_attr( $type ); ?>" id="<?php echo esc_attr( $id ); ?>" name="<?php echo esc_attr( $option_key ); ?>" value="<?php echo esc_attr( $option_value ); ?>" <?php checked( $checked ); ?>>
+                        <?php echo $option_label; ?>
+                    </label>
+                </li>
+            <?php } ?>
+        </ul>
+    </div>
+    <?php
+}
+
 // function iro_checkout_fields( $checkout_fields ) {
 //     $fields = iro_get_account_fields();
  
