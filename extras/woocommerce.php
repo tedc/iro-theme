@@ -283,6 +283,9 @@
     // FORMS
 
     function checkout_forms_args($args, $key, $value) {
+        if(is_admin()) {
+            return $args;
+        }
         $base_field = (is_checkout()) ? 'checkout' : 'account';
         //$ng_model_key = (is_checkout()) ? str_replace(array('billing_', 'shipping_'), array('', 's_'), $key) : $key;
         $ng_model_key = $key;
@@ -311,6 +314,9 @@
     }, 10, 1 );
 
     function iro_form_field($field, $key, $args, $value) {
+        if(is_admin()) {
+            return $field;
+        }
         $kind = explode('_', $key)[0];
         $type = str_replace('wooccm', '', $args['type']);
         $field = strip_tags($field, '<input><select><option><label>');
