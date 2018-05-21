@@ -1027,7 +1027,9 @@ function iro_print_user_admin_fields() {
                     <label for="<?php echo $key; ?>"><?php echo $field_args['label']; ?></label>
                 </th>
                 <td>
-                    <?php $field_args['label'] = false; ?>
+                    <?php $field_args['label'] = false; 
+                    var_dump($value);
+                    ?>
                     <?php woocommerce_form_field( $key, $field_args, $value ); ?>
                 </td>
             </tr>
