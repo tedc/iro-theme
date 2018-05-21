@@ -41,14 +41,13 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 		<div class="account__cell account__cell--shrink-left-half account__cell--s6">
 			<p class="account__row account__row--grow-top">
 				<label class="account__label" for="account_last_name"><?php esc_html_e( 'Last name', 'woocommerce' ); ?> <span class="required">*</span></label>
-				<input class="account__input" ng-model="account.account_last_name" type="text" name="account_last_name" id="account_last_name" value="<?php echo esc_attr( $user->last_name ); ?>" ng-init="account.account_first_name='<?php echo esc_attr( $user->last_name ); ?>'" />
+				<input class="account__input" ng-model="account.account_last_name" type="text" name="account_last_name" id="account_last_name" value="<?php echo esc_attr( $user->last_name ); ?>" ng-init="account.account_last_name='<?php echo esc_attr( $user->last_name ); ?>'" />
 			</p>
 		</div>
 		<div class="account__cell account__cell--shrink-right-half account__cell--s6">
 			<p class="account__row account__row--grow-top">
 				<label class="account__label" for="account_email"><?php esc_html_e( 'Email address', 'woocommerce' ); ?> <span class="required">*</span></label>
-				<input class="account__input" ng-model="account.account_email" type="email" name="account_email" id="account_email" value="<?php echo esc_attr( $user->user_email ); ?>" ng-init="account.account_first_name='<?php echo esc_attr( $user->user_email ); ?>'" />
-			</p> />
+				<input class="account__input" ng-model="account.account_email" type="email" name="account_email" id="account_email" value="<?php echo esc_attr( $user->user_email ); ?>" ng-init="account.account_email='<?php echo esc_attr( $user->user_email ); ?>'" />
 			</p>
 		</div>
 		<div class="account__cell account__cell--shrink-left-half account__cell--s6">
