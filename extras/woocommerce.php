@@ -898,41 +898,6 @@ function iro_get_account_fields() {
     ) );
 }
 
-function iro_print_user_frontend_fields() {
-    $fields = iro_get_account_fields();
-
-    foreach ( $fields as $key => $field_args ) {
-        woocommerce_form_field( $key, $field_args );
-    }
-}
-
-add_action( 'woocommerce_register_form', 'iro_print_user_frontend_fields', 10 ); 
-add_action( 'woocommerce_edit_account_form', 'iro_print_user_frontend_fields', 10 );
-
-function iro_print_user_admin_fields() {
-    $fields = iro_get_account_fields();
-    ?>
-    <h2><?php _e( 'Additional Information', 'iro' ); ?></h2>
-    <table class="form-table" id="iro-additional-information">
-        <tbody>
-        <?php foreach ( $fields as $key => $field_args ) { ?>
-            <tr>
-                <th>
-                    <label for="<?php echo $key; ?>"><?php echo $field_args['label']; ?></label>
-                </th>
-                <td>
-                    <?php $field_args['label'] = false; ?>
-                    <?php woocommerce_form_field( $key, $field_args ); ?>
-                </td>
-            </tr>
-        <?php } ?>
-        </tbody>
-    </table>
-    <?php
-}
- 
-add_action( 'show_user_profile', 'iro_print_user_admin_fields', 30 ); // admin: edit profile
-add_action( 'edit_user_profile', 'iro_print_user_admin_fields', 30 ); // admin: edit other users
 
 function iro_is_field_visible( $field_args ) {
     $visible = true;
@@ -1003,6 +968,100 @@ add_action( 'woocommerce_created_customer', 'iro_save_account_fields' ); // regi
 add_action( 'personal_options_update', 'iro_save_account_fields' ); // edit own account admin
 add_action( 'edit_user_profile_update', 'iro_save_account_fields' ); // edit other account admin
 add_action( 'woocommerce_save_account_details', 'iro_save_account_fields' ); // edit WC account
+
+
+function iro_print_user_frontend_fields() {
+    $fields            = iro_get_account_fields();
+    $is_user_logged_in = is_user_logged_in();
+ 
+    foreach ( $fields as $key => $field_args ) {
+        $value = null;
+ 
+        if ( $is_user_logged_in && ! empty( $field_args['hide_in_account'] ) ) {
+            continue;
+        }
+ 
+        if ( ! $is_user_logged_in && ! empty( $field_args['hide_in_registration'] ) ) {
+            continue;
+        }
+ 
+        if ( $is_user_logged_in ) {
+            $user_id = iro_get_edit_user_id();
+            $value   = iro_get_userdata( $user_id, $key );
+        }
+ 
+        $value = isset( $field_args['value'] ) ? $field_args['value'] : $value;
+ 
+        woocommerce_form_field( $key, $field_args, $value );
+    }
+}
+ 
+/**
+ * Add fields to admin area.
+ *
+ * @see https://irowp.com/blog/the-ultimate-guide-to-adding-custom-woocommerce-user-account-fields/
+ */
+function iro_print_user_admin_fields() {
+    $fields = iro_get_account_fields();
+    ?>
+    <h2><?php _e( 'Additional Information', 'iro' ); ?></h2>
+    <table class="form-table" id="iro-additional-information">
+        <tbody>
+        <?php foreach ( $fields as $key => $field_args ) { ?>
+            <?php
+            if ( ! empty( $field_args['hide_in_admin'] ) ) {
+                continue;
+            }
+ 
+            $user_id = iro_get_edit_user_id();
+            $value   = iro_get_userdata( $user_id, $key );
+            ?>
+            <tr>
+                <th>
+                    <label for="<?php echo $key; ?>"><?php echo $field_args['label']; ?></label>
+                </th>
+                <td>
+                    <?php $field_args['label'] = false; ?>
+                    <?php woocommerce_form_field( $key, $field_args, $value ); ?>
+                </td>
+            </tr>
+        <?php } ?>
+        </tbody>
+    </table>
+    <?php
+}
+ 
+
+
+add_action( 'woocommerce_register_form', 'iro_print_user_frontend_fields', 10 ); 
+add_action( 'woocommerce_edit_account_form', 'iro_print_user_frontend_fields', 10 );
+
+add_action( 'show_user_profile', 'iro_print_user_admin_fields', 30 ); // admin: edit profile
+add_action( 'edit_user_profile', 'iro_print_user_admin_fields', 30 ); // admin: edit other users
+/**
+ * Get currently editing user ID (frontend account/edit profile/edit other user).
+ *
+ * @see https://irowp.com/blog/the-ultimate-guide-to-adding-custom-woocommerce-user-account-fields/
+ *
+ * @return int
+ */
+function iro_get_edit_user_id() {
+    return isset( $_GET['user_id'] ) ? (int) $_GET['user_id'] : get_current_user_id();
+}
+
+function iro_get_userdata( $user_id, $key ) {
+    if ( ! iro_is_userdata( $key ) ) {
+        return get_user_meta( $user_id, $key );
+    }
+ 
+    $userdata = get_userdata( $user_id );
+ 
+    if ( ! $userdata || ! isset( $userdata->{$key} ) ) {
+        return '';
+    }
+ 
+    return $userdata->{$key};
+}
 
 // function iro_checkout_fields( $checkout_fields ) {
 //     $fields = iro_get_account_fields();
