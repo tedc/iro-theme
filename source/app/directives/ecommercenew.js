@@ -145,15 +145,15 @@ module.exports = () => {
 					    }
 					  }
 					});
-					if($window.fbq) {
-						$window.fbq('track', 'ViewContent', {
-							content_name: $scope.attributes.variation_description ? $scope.attributes.variation_description.replace(/<[^>]+>/gm, '').replace(/(&#215;)/g, 'x') : $scope.attributes.title,
-							content_type: 'product',
-							//content_ids: [($scope.attributes.sku) ? $scope.attributes.sku : $scope.attributes.variation_id],
-							value: $scope.attributes.display_price,
-							currency: 'EUR'
-						});
-					}
+					// if($window.fbq) {
+					// 	$window.fbq('track', 'ViewContent', {
+					// 		content_name: $scope.attributes.variation_description ? $scope.attributes.variation_description.replace(/<[^>]+>/gm, '').replace(/(&#215;)/g, 'x') : $scope.attributes.title,
+					// 		content_type: 'product',
+					// 		//content_ids: [($scope.attributes.sku) ? $scope.attributes.sku : $scope.attributes.variation_id],
+					// 		value: $scope.attributes.display_price,
+					// 		currency: 'EUR'
+					// 	});
+					// }
 				}
 				$scope.variationPrice = (i)=> {
 					if($scope.singleProductVariation.attribute_pa_color) {
@@ -686,7 +686,9 @@ module.exports = () => {
 						payment_method : $scope.checkoutFields.payment_method,
 						ship_to_different_address : $scope.checkShippingAddress ? 1 : 0,
 						_wpnonce : $scope.checkoutFields.wpnonce,
-						terms : $scope.checkoutFields.terms
+						terms : $scope.checkoutFields.terms,
+						privacy : $scope.checkoutFields.privacy_input,
+						marketing : $scope.checkoutFields.marketing_input
 					}
 					data = angular.extend({}, data, $scope.checkoutFields.customer);
 					if(ngCart.free_gift) {

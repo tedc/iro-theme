@@ -46,8 +46,8 @@
     add_filter('woocommerce_variable_price_html', 'custom_variation_price', 10, 2);
 
     function custom_variation_price( $price, $product ) {
-        $defautls = iconic_get_default_attributes($product);
-        $variation_id = iconic_find_matching_product_variation($product, $defautls);
+        $defautls = iro_get_default_attributes($product);
+        $variation_id = iro_find_matching_product_variation($product, $defautls);
         if($product->is_type('variable') && $variation_id != 0) {
             $selectedproduct = wc_get_product($variation_id);
             $price =  $selectedproduct->get_price();
@@ -84,7 +84,7 @@
      * @param array $attributes
      * @return int Matching variation ID or 0.
      */
-    function iconic_find_matching_product_variation( $product, $attributes ) {
+    function iro_find_matching_product_variation( $product, $attributes ) {
 
         foreach( $attributes as $key => $value ) {
             if( strpos( $key, 'attribute_' ) === 0 ) {
@@ -113,7 +113,7 @@
      * @param WC_Product $product
      * @return array
      */
-    function iconic_get_default_attributes( $product ) {
+    function iro_get_default_attributes( $product ) {
 
         if( method_exists( $product, 'get_default_attributes' ) ) {
 
@@ -884,3 +884,96 @@ function save_variation_settings_fields( $post_id ) {
         update_post_meta( $post_id, '_aviability_text', esc_attr( $text_field ) );
     }
 }
+
+
+// TERMINI PER MARKETING
+
+function iro_get_account_fields() {
+    return apply_filters( 'iro_account_fields', array(
+        'marketing_input' => array(
+            'type'        => 'checkbox',
+            'label'       => __("Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl", 'iro'),
+            'placeholder' => __( "Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl", 'iro')
+        ),
+    ) );
+}
+
+function iro_print_user_frontend_fields() {
+    $fields = iro_get_account_fields();
+
+    foreach ( $fields as $key => $field_args ) {
+        woocommerce_form_field( $key, $field_args );
+    }
+}
+
+add_action( 'woocommerce_register_form', 'iro_print_user_frontend_fields', 10 ); 
+add_action( 'woocommerce_edit_account_form', 'iro_print_user_frontend_fields', 10 );
+
+function iro_print_user_admin_fields() {
+    $fields = iro_get_account_fields();
+    ?>
+    <h2><?php _e( 'Additional Information', 'iro' ); ?></h2>
+    <table class="form-table" id="iro-additional-information">
+        <tbody>
+        <?php foreach ( $fields as $key => $field_args ) { ?>
+            <tr>
+                <th>
+                    <label for="<?php echo $key; ?>"><?php echo $field_args['label']; ?></label>
+                </th>
+                <td>
+                    <?php $field_args['label'] = false; ?>
+                    <?php woocommerce_form_field( $key, $field_args ); ?>
+                </td>
+            </tr>
+        <?php } ?>
+        </tbody>
+    </table>
+    <?php
+}
+ 
+add_action( 'show_user_profile', 'iro_print_user_admin_fields', 30 ); // admin: edit profile
+add_action( 'edit_user_profile', 'iro_print_user_admin_fields', 30 ); // admin: edit other users
+
+
+function iro_save_account_fields( $customer_id ) {
+    $fields = iro_get_account_fields();
+    $sanitized_data = array();
+ 
+    foreach ( $fields as $key => $field_args ) {
+        if ( ! iro_is_field_visible( $field_args ) ) {
+            continue;
+        }
+ 
+        $sanitize = isset( $field_args['sanitize'] ) ? $field_args['sanitize'] : 'wc_clean';
+        $value    = isset( $_POST[ $key ] ) ? call_user_func( $sanitize, $_POST[ $key ] ) : '';
+ 
+        if ( iro_is_userdata( $key ) ) {
+            $sanitized_data[ $key ] = $value;
+            continue;
+        }        
+ 
+        update_user_meta( $customer_id, $key, $value );
+    }
+ 
+    if ( ! empty( $sanitized_data ) ) {
+        $sanitized_data['ID'] = $customer_id;
+        wp_update_user( $sanitized_data );
+    }
+}
+ 
+add_action( 'woocommerce_created_customer', 'iro_save_account_fields' ); // register/checkout
+add_action( 'personal_options_update', 'iro_save_account_fields' ); // edit own account admin
+add_action( 'edit_user_profile_update', 'iro_save_account_fields' ); // edit other account admin
+add_action( 'woocommerce_save_account_details', 'iro_save_account_fields' ); // edit WC account
+
+// function iro_checkout_fields( $checkout_fields ) {
+//     $fields = iro_get_account_fields();
+ 
+//     foreach ( $fields as $key => $field_args ) {
+//         $checkout_fields['account'][ $key ] = $field_args;
+//     }
+ 
+//     return $checkout_fields;
+// }
+ 
+// add_filter( 'woocommerce_checkout_fields', 'iro_checkout_fields', 10, 1 );
