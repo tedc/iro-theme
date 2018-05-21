@@ -1142,6 +1142,25 @@ function iro_print_list_field( $key, $field_args, $value = null ) {
     <?php
 }
 
+function iro_add_post_data_to_account_fields( $fields ) {
+    if ( empty( $_POST ) ) {
+        return $fields;
+    }
+
+    foreach ( $fields as $key => $field_args ) {
+        if ( empty( $_POST[ $key ] ) ) {
+            $fields[ $key ]['value'] = '';
+            continue;
+        }
+
+        $fields[ $key ]['value'] = $_POST[ $key ];
+    }
+
+    return $fields;
+}
+
+add_filter( 'iro_account_fields', 'iro_add_post_data_to_account_fields', 10, 1 );
+
 // function iro_checkout_fields( $checkout_fields ) {
 //     $fields = iro_get_account_fields();
  
