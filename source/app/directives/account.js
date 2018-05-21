@@ -14,6 +14,31 @@ module.exports = ()=> {
 				customer : {},
 				isSaving : []
 			};
+
+			$escope.account {
+				isSaving = false;
+			}
+
+			$scope.updateAccount = (valid)=> {
+				if(!valid) return;
+				$scope.account.isSaving= true;
+				let url vars.wc.update_account;
+				let data = $scope.account;
+				ecommerce
+					.post(url, data)
+					.then((res)) => {
+						if(res.data.success) {
+							$scope.saveMessage = res.success;
+							$scope.messageClass = 'success';
+							$window.location = res.data.redirect;
+							//$state.go('app.account', {path : res.data.redirect}, {reload : true});
+						} else {
+							$scope.saveMessage = res.error;
+							$scope.messageClass = 'error';
+						}
+						$scope.account.isSaving = false;
+					}
+			}
 			$scope.save = (valid, endpoint, kind)=> {
 				if(!valid) return;
 				$scope.accountFields.isSaving[kind] = true;

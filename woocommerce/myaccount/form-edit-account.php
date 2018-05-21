@@ -30,49 +30,54 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 		<?php echo esc_attr( $user->first_name ); ?> <?php echo esc_attr( $user->last_name ); ?>
 		<p><?php echo esc_attr( $user->user_email ); ?></p>
 	</div>
-	<form class="account__edit account__edit--grid slide-toggle" ng-class="{'slide-toggle--visible':isAccount['details']}" method="post">
+	<form class="account__edit account__edit--grid slide-toggle" ng-class="{'slide-toggle--visible':isAccount['details']}" method="post" ng-submit="saveAccount()">
 		<?php do_action( 'woocommerce_edit_account_form_start' ); ?>
 		<div class="account__cell account__cell--shrink-right-half account__cell--s6">
 			<p class="account__row account__row--grow-top">
 				<label class="account__label" for="account_first_name"><?php esc_html_e( 'First name', 'woocommerce' ); ?> <span class="required">*</span></label>
-				<input class="account__input" type="text" name="account_first_name" id="account_first_name" value="<?php echo esc_attr( $user->first_name ); ?>" />
+				<input class="account__input" type="text" ng-model="account.account_first_name" name="account_first_name" id="account_first_name" value="<?php echo esc_attr( $user->first_name ); ?>" />
 			</p>
 		</div>
 		<div class="account__cell account__cell--shrink-left-half account__cell--s6">
 			<p class="account__row account__row--grow-top">
 				<label class="account__label" for="account_last_name"><?php esc_html_e( 'Last name', 'woocommerce' ); ?> <span class="required">*</span></label>
-				<input class="account__input" type="text" name="account_last_name" id="account_last_name" value="<?php echo esc_attr( $user->last_name ); ?>" />
+				<input class="account__input" ng-model="account.account_last_name" type="text" name="account_last_name" id="account_last_name" value="<?php echo esc_attr( $user->last_name ); ?>" />
 			</p>
 		</div>
 		<div class="account__cell account__cell--shrink-right-half account__cell--s6">
 			<p class="account__row account__row--grow-top">
 				<label class="account__label" for="account_email"><?php esc_html_e( 'Email address', 'woocommerce' ); ?> <span class="required">*</span></label>
-				<input class="account__input" type="email" name="account_email" id="account_email" value="<?php echo esc_attr( $user->user_email ); ?>" />
+				<input class="account__input" ng-model="account.account_email" type="email" name="account_email" id="account_email" value="<?php echo esc_attr( $user->user_email ); ?>" />
 			</p>
 		</div>
 		<div class="account__cell account__cell--shrink-left-half account__cell--s6">
 			<p class="account__row account__row--grow-top">
 				<label class="account__label" for="password_current"><?php esc_html_e( 'Password corrente', 'iro' ); ?></label>
-				<input class="account__input" type="password" name="password_current" id="password_current" />
+				<input class="account__input" ng-model="account.password_current" type="password" name="password_current" id="password_current" />
 			</p>
 		</div>
 		<div class="account__cell account__cell--shrink-right-half account__cell--s6">
 			<p class="account__row account__row--grow-top">
 				<label class="account__label" for="password_1"><?php esc_html_e( 'Nuova password', 'iro' ); ?></label>
-				<input class="account__input" type="password" name="password_1" id="password_1" />
+				<input class="account__input" ng-model="account.password_1" type="password" name="password_1" id="password_1" />
 			</p>
 		</div>
 		<div class="account__cell account__cell--shrink-left-half account__cell--s6">
 			<p class="account__row account__row--grow-top">
 				<label class="account__label" for="password_2"><?php esc_html_e( 'Conferma nuova password', 'iro' ); ?></label>
-				<input class="account__input" type="password" name="password_2" id="password_2" />
+				<input class="account__input" ng-model="account.password_2" type="password" name="password_2" id="password_2" />
 			</p>
 		</div>
+
+
 		
 		<?php do_action( 'woocommerce_edit_account_form' ); ?>
 
 		<footer class="account__footer account__footer--s12 account__footer--grow-top">
 			<?php wp_nonce_field( 'save_account_details' ); ?>
+			<input type="hidden" ng-model="account._wpnonce" ng-ini="account._wpnonce='<?php echo wp_create_nonce('save_account_details'); ?>'">
+			<input type="hidden" ng-model="account._wp_http_referer" ng-init="account._wp_http_referer='<?php echo esc_attr( wp_unslash( $_SERVER['REQUEST_URI'] ) ); ?>'" />
+			<input type="checkbox" class="account__checkbox" ng-model="account.marketing_input" id="register_marketing_input" value="true"><label for="register_marketing_input"><span><?php _e("Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl", 'iro'); ?></span></label>
 			<button type="submit" class="account__button account__button--dark" name="save_account_details" value="<?php esc_attr_e( 'Save changes', 'woocommerce' ); ?>"><?php esc_html_e( 'Save changes', 'woocommerce' ); ?></button>
 			<input class="account__input" type="hidden" name="action" value="save_account_details" />
 		</footer>
