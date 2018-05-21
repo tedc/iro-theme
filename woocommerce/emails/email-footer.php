@@ -24,12 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 															</div>
 														</td>
 													</tr>
-													<?php if(get_field('downloads', 'options')) : ?>
-													<tr>
-														<td style='border-top: 1px solid #e5e5e5; color: #797a7c; font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; font-size: 14px; line-height: 150%; text-align: center;'><h2 style='color: #123f6d; display: block; font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; font-size: 18px; font-weight: bold; line-height: 130%; margin: 0 0 18px; text-align: center;'><?php _e('Download', 'iro'); ?></h2>
-														<p><a style='color: #123f6d;font-weight:bold;text-decoration:none;' href="<?php echo get_field('downloads', 'options')['carta_di_identita']; ?>"><?php _e('La carta di identità di IRO', 'iro'); ?></a> | <a style='color: #123f6d;font-weight:bold;text-decoration:none;' href="<?php echo get_field('downloads', 'options')['dichiarazione_di_conformita']; ?>"><?php _e('Dichiarazione di conformità di IRO', 'iro'); ?></a></p>
-													</tr>
-												<?php endif; ?>
+													
 												</table>
 												<!-- End Content -->
 											</td>
