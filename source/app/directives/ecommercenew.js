@@ -464,7 +464,7 @@ module.exports = () => {
 					if(coupons && coupons.length > 0){
 						for(let discount of coupons) {
 							if(discount.type == 'percent') {
-								if(discount.product_ids) {
+								if(discount.product_ids && discount.product_ids.length > 0) {
 									let count_item_in_cart = 0;
 									let price = 0;
 									let count = 0;
@@ -508,7 +508,7 @@ module.exports = () => {
 					if(coupon.price <= 0) return;
 					if(coupon.type == 'percent') {
 						let price = 0;	
-						if(coupon.product_ids) {
+						if(coupon.product_ids && coupon.product_ids.length > 0) {
 							let count_item_in_cart = 0;
 							angular.forEach( ngCart.getCart().items, function(item, idx) {
 								if(coupon.product_ids.indexOf(parseInt(item.getId())) !== -1 ) {
