@@ -1009,6 +1009,7 @@ function iro_print_user_frontend_fields() {
  */
 function iro_print_user_admin_fields() {
     $fields = iro_get_account_fields();
+    var_dump($fields);
     ?>
     <h2><?php _e( 'Additional Information', 'iro' ); ?></h2>
     <table class="form-table" id="iro-additional-information">
@@ -1021,6 +1022,7 @@ function iro_print_user_admin_fields() {
  
             $user_id = iro_get_edit_user_id();
             $value   = iro_get_userdata( $user_id, $key );
+            var_dump($value);
             ?>
             <tr>
                 <th>
@@ -1028,7 +1030,6 @@ function iro_print_user_admin_fields() {
                 </th>
                 <td>
                     <?php $field_args['label'] = false; 
-                    var_dump($value);
                     ?>
                     <?php woocommerce_form_field( $key, $field_args, $value ); ?>
                 </td>
