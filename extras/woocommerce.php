@@ -1067,6 +1067,8 @@ function iro_get_userdata( $user_id, $key ) {
     if ( ! $userdata || ! isset( $userdata->{$key} ) ) {
         return '';
     }
+
+    var_dump($userdata->{$key});
  
     return $userdata->{$key};
 }
