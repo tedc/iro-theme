@@ -950,6 +950,29 @@ function iro_is_field_visible( $field_args ) {
  
     return $visible;
 }
+function iro_is_userdata( $key ) {
+    $userdata = array(
+        'user_pass',
+        'user_login',
+        'user_nicename',
+        'user_url',
+        'user_email',
+        'display_name',
+        'nickname',
+        'first_name',
+        'last_name',
+        'description',
+        'rich_editing',
+        'user_registered',
+        'role',
+        'jabber',
+        'aim',
+        'yim',
+        'show_admin_bar_front',
+    );
+ 
+    return in_array( $key, $userdata );
+}
 function iro_save_account_fields( $customer_id ) {
     $fields = iro_get_account_fields();
     $sanitized_data = array();
