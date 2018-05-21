@@ -74,7 +74,7 @@ do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text, 
  */
 do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email );
 if(get_field('downloads', 'options')) : ?>
-	<table>
+	<table cellspacing="0" cellpadding="0" style="width: 100%; vertical-align: top; margin-bottom: 40px; padding: 0;" border="0">
 		<tbody>
 													<tr>
 														<td style='border-top: 1px solid #e5e5e5; color: #797a7c; font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; font-size: 14px; line-height: 150%; text-align: center;'><h2 style='color: #123f6d; display: block; font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; font-size: 18px; font-weight: bold; line-height: 130%; margin: 0 0 18px; text-align: center;'><?php _e('Download', 'iro'); ?></h2>
