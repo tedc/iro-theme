@@ -934,7 +934,22 @@ function iro_print_user_admin_fields() {
 add_action( 'show_user_profile', 'iro_print_user_admin_fields', 30 ); // admin: edit profile
 add_action( 'edit_user_profile', 'iro_print_user_admin_fields', 30 ); // admin: edit other users
 
-
+function iro_is_field_visible( $field_args ) {
+    $visible = true;
+    $action = filter_input( INPUT_POST, 'action' );
+ 
+    if ( is_admin() && ! empty( $field_args['hide_in_admin'] ) ) {
+        $visible = false;
+    } elseif ( ( is_account_page() || $action === 'save_account_details' ) && is_user_logged_in() && ! empty( $field_args['hide_in_account'] ) ) {
+        $visible = false;
+    } elseif ( ( is_account_page() || $action === 'save_account_details' ) && ! is_user_logged_in() && ! empty( $field_args['hide_in_registration'] ) ) {
+        $visible = false;
+    } elseif ( is_checkout() && ! empty( $field_args['hide_in_checkout'] ) ) {
+        $visible = false;
+    }
+ 
+    return $visible;
+}
 function iro_save_account_fields( $customer_id ) {
     $fields = iro_get_account_fields();
     $sanitized_data = array();
