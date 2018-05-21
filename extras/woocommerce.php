@@ -1021,6 +1021,7 @@ function iro_print_user_admin_fields() {
  
             $user_id = iro_get_edit_user_id();
             $value   = iro_get_userdata( $user_id, $key );
+            $value = is_array($value) ? $value[0] : $value;
             //var_dump(checked( $value, 1, false ), $value);
             ?>
             <tr>
@@ -1067,8 +1068,6 @@ function iro_get_userdata( $user_id, $key ) {
     if ( ! $userdata || ! isset( $userdata->{$key} ) ) {
         return '';
     }
-
-    var_dump($userdata->{$key});
  
     return $userdata->{$key};
 }
