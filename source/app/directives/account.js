@@ -24,7 +24,7 @@ module.exports = ()=> {
 				$scope.account.isSaving= true;
 				let data = $scope.account;
 				ecommerce
-					.post(data._wp_http_referer, data)
+					.post(url, data)
 					.then((res)=> {
 						$window.location = data._wp_http_referer;
 					});
