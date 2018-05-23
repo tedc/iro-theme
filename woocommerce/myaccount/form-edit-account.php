@@ -77,7 +77,6 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 			<?php wp_nonce_field( 'save_account_details' ); ?>
 			<input type="hidden" ng-model="account._wpnonce" ng-init="account._wpnonce='<?php echo wp_create_nonce('save_account_details'); ?>'">
 			<input type="hidden" ng-model="account._wp_http_referer" ng-init="account._wp_http_referer='<?php echo esc_attr( wp_unslash( $_SERVER['REQUEST_URI'] ) ); ?>'" />
-			<?php var_dump($user->marketing_input); ?>
 			<input type="checkbox" class="account__checkbox" ng-init="account.marketing_input=<?php esc_attr( $user->marketing_input ); ?>" ng-model="account.marketing_input" id="account_marketing_input" value="true"><label for="account_marketing_input"><span><?php _e("Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl", 'iro'); ?></span></label>
 			<button type="submit" class="account__button account__button--dark" name="save_account_details" value="<?php esc_attr_e( 'Save changes', 'woocommerce' ); ?>"><?php esc_html_e( 'Save changes', 'woocommerce' ); ?></button>
 			<input class="account__input" type="hidden" name="action" value="save_account_details" />

@@ -30,7 +30,7 @@
 		</p>
 		<p>
 		<input type="checkbox" class="contact__checkbox" ng-model="formData.privacy_input" id="contact_privacy_input" value="true" required><label for="contact_privacy_input" class="contact__terms"><span><?php _e('Acconsento all\'utilizzo dei dati inseriti secondo le finalità indicate dalla', 'iro'); ?> <a href="<?php echo $privacy; ?>" target="_blank">privacy policy</a></span></label>
-			<input type="checkbox" class="contact__checkbox" ng-model="formData.marketing_input" id="contact_marketing_input" required value="true"><label for="contact_marketing_input" class="contact__terms"><span><?php _e("Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl", 'iro'); ?></span></label>
+			<input type="checkbox" class="contact__checkbox" ng-model="formData.marketing_input" id="contact_marketing_input" value="true"><label for="contact_marketing_input" class="contact__terms"><span><?php _e("Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl", 'iro'); ?></span></label>
 		</p>
 		<footer class="contact__footer contact__footer--grid-nowrap">
 			<input type="hidden" name="_send_to" ng-model="formData._send_to" ng-init="formData._send_to='<?php the_field('indirizzo_email'); ?>'">

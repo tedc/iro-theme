@@ -529,6 +529,11 @@
 			    	if ( apply_filters( 'woocommerce_registration_auth_new_customer', true, $user_id ) ) {
 						wc_set_customer_auth_cookie( $user_id );
 					}
+
+					if(isset($_POST['marketing_input']) && !empty($_POST['marketing_input'])) {
+						update_user_meta( $user_id, 'marketing_input', 1 );
+					}
+
 		    		//echo json_encode(array('loggedin'=>true, 'message'=>__('Registrazione avvenuta.', 'iro'), 'redirect' => basename(wc_get_page_permalink('myaccount'))));
 		    		echo json_encode(array('loggedin'=>true, 'message'=>__('Registrazione avvenuta.', 'iro'), 'redirect' => wc_get_page_permalink('myaccount')));
 		    	}
@@ -543,6 +548,7 @@
 	    	}
 	    	die();
 	    }
+
 	    private static function get_coupon($coupon) {
 	    	if ( is_string( $coupon ) ) {
 		        $coupon = new WC_Coupon( $coupon );
@@ -794,12 +800,24 @@
 	            $email_row = (!empty($_POST['email'])) ? '<tr style="border-bottom: 1px solid #f8f8f8;"><td style="text-align:center;padding:20px;font-size:18px;"><em style="color:#a7a9ac;font-style:italic">Email</em><br /><a href="mailto:'.$email.'" style="text-decoration:none;font-weight:bold;color:#123f6d">'.$email.'</a></td></tr>' : "";
 	            $tel_row = (!empty($_POST['tel'])) ? '<tr style="border-bottom: 1px solid #f8f8f8;"><td style="text-align:center;padding:20px;font-size:18px;"><em style="color:#7f7f7f;font-style:italic">'.__('Telefono','iro').'</em><br />'.$tel.'</td></tr>' : "";
 	            $message_row = (!empty($_POST['message'])) ? '<tr style="border-bottom: 1px solid #f8f8f8;"><td style="text-align:center;padding:20px;font-size:18px;"><em style="color:#7f7f7f;font-style:italic">'.__('Messaggio','iro').'</em><br />'.stripslashes($message).'</td></tr>' : "";
-	            $body = $name_row.$email_row.$tel_row.$message_row;
+	            $marketing_row = (!empty($_POST['marketing_input'])) ? '<tr style="border-bottom: 1px solid #f8f8f8;"><td style="text-align:center;padding:20px;font-size:18px;">'.stripslashes(__("Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl", 'iro')).'</td></tr>' : "";
+	            $body = $name_row.$email_row.$tel_row.$message_row . $marketing_row;
 	            $resp = '<tr style="border-bottom: 1px solid #f8f8f8;"><td style="text-align:center;padding:20px;"><p style="line-height:1.35">'.$tnx.'</p></td></tr>';
 	            function template($body) {
 	                $html = '<html><head><meta charset="utf-8" /></head><body style="background-color:#f8f8f8"><div style="background-color:#fff;font-family:\'Helvetica Neue\', Helvetica, Arial, san-serif;font-size:18px;color:#58595b;max-width:550px;margin:0 auto;"><table style="width:100%;border-collapse:collapse;"><thead><tr><td style="padding: 20px;text-align:center; background-color:#fff"><a href="'.get_bloginfo('url').'" style="text-decoration:none"><img src="'.get_stylesheet_directory_uri().'/assets/images/logo.gif" style="border:0;width:100%;max-width:100px;height:auto"/></a></td></tr></thead><tfoot><tr><td style="padding:20px; text-align:center;color:#7f7f7f;font-size:11px">'.get_field('info', 'options').'<br /><a href="'.get_bloginfo('url').'" style="text-decoration:none;font-weight:bold;color:#123f6d">'.str_replace('http://', '', get_bloginfo('url')).'</a></td></tr></tfoot><tbody>'.$body.'</tbody></table></div></body></html>';
 	                return $html;
 	            }
+	   //          acf_set_language_to_default();
+				// $mc = get_field('mailchimp', 'options');
+				// $list_id = $mc['list_id'];
+				// $api_key = $mc['api_key'];
+				// $user_url = $mc['user_url'];
+				// acf_unset_language_to_default();
+				// if(isset($_POST['marketing_input'])) {
+				// 	$MailChimp = new Mailchimp($api_key);
+			 //    	$post_params = array('email_address'=>$email, 'status'=>'subscribed');
+			 //    }
+					// if(i
 	    //         if(is_user_subscribed($email)) {
 		   //      	$subscriber_hash = $MailChimp->subscriberHash($email);
 		   //      	$result = $MailChimp->patch('lists/'.$list_id.'/members/'.$subscriber_hash, array(
