@@ -30,7 +30,7 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 		<?php echo esc_attr( $user->first_name ); ?> <?php echo esc_attr( $user->last_name ); ?>
 		<p><?php echo esc_attr( $user->user_email ); ?></p>
 	</div>
-	<form class="account__edit account__edit--grid slide-toggle" ng-class="{'slide-toggle--visible':isAccount['details']}" method="post" ng-submit="saveAccount()">
+	<form class="account__edit account__edit--grid slide-toggle" name="saveAccount" ng-class="{'slide-toggle--visible':isAccount['details']}" method="post" ng-submit="updateAccount(saveAccount.$valid)">
 		<?php do_action( 'woocommerce_edit_account_form_start' ); ?>
 		<div class="account__cell account__cell--shrink-right-half account__cell--s6">
 			<p class="account__row account__row--grow-top">
