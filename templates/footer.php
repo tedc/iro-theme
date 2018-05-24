@@ -73,4 +73,4 @@
 <a class="add-to-cart__button" href="<?php echo get_permalink($materasso[0]->ID); ?>"><?php _e('Acquista IRO', 'iro'); ?></a>
 </span>
 <?php endif; ?>
-<cookie-law-banner accept-button="true" accept-text="<?php _e('Chiudi', 'iro'); ?>" ng-class="{accepted: isClAccepted}" policy-button="true" policy-text="Cookie Policy" message="<?php _e('Il sito di IRO utilizza cookie: proseguendo nella navigazione, acconsenti al loro uso secondo le finalità illustrate dalle nostre policy.', 'iro'); ?>" policy-url="<?php the_field('cookie_policy', 'options'); ?>"></cookie-law-banner>
+<!-- <cookie-law-banner accept-button="true" accept-text="<?php _e('Chiudi', 'iro'); ?>" ng-class="{accepted: isClAccepted}" policy-button="true" policy-text="Cookie Policy" message="<?php _e('Il sito di IRO utilizza cookie: proseguendo nella navigazione, acconsenti al loro uso secondo le finalità illustrate dalle nostre policy.', 'iro'); ?>" policy-url="<?php the_field('cookie_policy', 'options'); ?>"></cookie-law-banner> -->
