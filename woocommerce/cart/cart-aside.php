@@ -61,6 +61,7 @@
 								<div class="cart-aside__info">
 									<strong>{{coupon.label}}</strong>
 									<div class="cart-aside__desc" ng-bind-html="ngCart.getCouponAumount(coupon)"></div>
+									<div class="cart-aside__gift" ng-if="coupon.free_gifts" bind-html-compile=coupon.free_gifts></div>
 								</div>
 								<a class="cart-aside__remove" ng-attr-href="{{item.getData().remove_item_url}}" ng-click="$event.preventDefault(); ngCart.deleteCoupon(coupon.remove, $index)">
 									<?php _e('Rimuovi', 'iro'); ?>

@@ -148,6 +148,12 @@
 				color: $light-color;
 			}
 		}
+		&__gift {
+			strong {
+				color: $brand-main;
+			}
+			padding-bottom: em($p);
+		}
 		&__remove {
 			@extend %remove;
 		}
