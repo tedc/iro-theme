@@ -673,7 +673,7 @@
 		    $free_html = '';
 		    if($sconto) {
 		    	ob_start();
-		    	include(locate_template( 'templates/woocommerce/coupons-gift.php', false, false));
+		    	include(locate_template( 'templates/woocommerce/coupons-add.php', false, false));
 		    	$free_html = ob_get_clean();
 		    	$discount['free_gifts'] = $free_html;
 		    	$discont['add_discount'] = $sconto;
