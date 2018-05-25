@@ -669,7 +669,15 @@
 		    $free_gift_products = get_field('free_gift_products', $coupon->get_id());
 		    $free_gift_max = get_field('free_gift_max', $coupon->get_id());
 		    $free_gift_title = get_field('free_gift_title', $coupon->get_id());
+		    $sconto = get_field('sconto', $coupon->get_id());
 		    $free_html = '';
+		    if($sconto) {
+		    	ob_start();
+		    	include(locate_template( 'templates/woocommerce/coupons-gift.php', false, false));
+		    	$free_html = ob_get_clean();
+		    	$discount['free_gifts'] = $free_html;
+		    	$discont['add_discount'] = $sconto;
+		    }
 		    if($free_gift_products) {
 		    	ob_start();
 		    	include(locate_template( 'templates/woocommerce/coupons-gift.php', false, false));

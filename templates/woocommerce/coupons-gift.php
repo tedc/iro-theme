@@ -1,5 +1,5 @@
 <div class="free-gifts" ng-class="{'free-gifts--disabled':ngCart.isGiftDisabled(<?php echo $free_gift_max; ?>)}">
-	<h4 class="free-gifts__title"><?php echo ($free_gift_title) ? $free_gift_title : __('Seleziona uno dei prodotti in omaggio con il tuo coupon'); ?></h4>
+	<h4 class="free-gifts__title"><?php echo _e('Sconto agguintivo sul carrello', 'iro'); ?></h4>
 <?php
 	$args = array(
 		'post_type' => 'product',

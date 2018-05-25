@@ -1171,6 +1171,21 @@ function iro_add_post_data_to_account_fields( $fields ) {
 
 add_filter( 'iro_account_fields', 'iro_add_post_data_to_account_fields', 10, 1 );
 
+
+add_action( 'woocommerce_cart_calculate_fees', 'discount_based_on_total', 25, 1 );
+function discount_based_on_total( $cart ) {
+
+    if ( is_admin() && ! defined( 'DOING_AJAX' ) ) return;
+    if($cart->has_discount('sognairo') && $cart->has_discount('promoiro')) return;
+    $total = $cart->cart_contents_total;
+
+    // Percentage discount (10%)
+    $discount = $total * 0.25;
+
+    // Add the Scon
+    $cart->add_fee( __('Sconto in aggiunta sul carrello', 'iro'), -$discount );
+}
+
 // function iro_checkout_fields( $checkout_fields ) {
 //     $fields = iro_get_account_fields();
  

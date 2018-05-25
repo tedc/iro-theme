@@ -500,6 +500,9 @@ module.exports = () => {
 								}
 							}
 						}
+						if(discount.add_discount) {
+							total = total - (total * (discount.add_discount / 100));
+						}
 					}
 					return total;
 				}
