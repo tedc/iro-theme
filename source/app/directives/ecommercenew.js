@@ -499,9 +499,9 @@ module.exports = () => {
 									total -= discount.amount;
 								}
 							}
-						}
-						if(discount.add_discount) {
-							total = total - (total * (discount.add_discount / 100));
+							if(discount.add_discount) {
+								total = total - (total * (discount.add_discount / 100));
+							}
 						}
 					}
 					return total;
