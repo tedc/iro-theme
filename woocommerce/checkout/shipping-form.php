@@ -11,6 +11,6 @@
 
 <?php endif; ?>
 
-<?php wp_get_template_part('checkout/tax'); ?>
+<?php wc_get_template_part('checkout/tax'); ?>
 </div>
 	
