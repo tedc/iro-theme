@@ -1176,7 +1176,7 @@ add_action( 'woocommerce_cart_calculate_fees', 'discount_based_on_total', 25, 1 
 function discount_based_on_total( $cart ) {
 
     if ( is_admin() && ! defined( 'DOING_AJAX' ) ) return;
-    if($cart->has_discount('sognairo') && $cart->has_discount('promoiro')) return;
+    if(!$cart->has_discount('sognairo') && !$cart->has_discount('promoiro')) return;
     $total = $cart->cart_contents_total;
 
     // Percentage discount (10%)
