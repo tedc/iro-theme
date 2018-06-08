@@ -10,7 +10,5 @@
 	<?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
 
 <?php endif; ?>
-
-<?php wc_get_template_part('checkout/tax'); ?>
 </div>
 	
