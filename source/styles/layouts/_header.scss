@@ -506,18 +506,18 @@
 		margin: 0 auto em($p);
 	}
 	body.home:not(.woocommerce-page) & {
-		// &__container {
-		// 	align-items: flex-start;
-		// 	align-content: flex-start;
-		// 	padding-top: em($p*6);
-		// 	@include breakpoint() {
-		// 		align-items: flex-end;
-		// 		align-content: flex-end;
-		// 		padding-top: 0;
-		// 		padding-bottom: em($p*4);
-		// 		//text-align: left;
-		// 	}
-		// }
+		&__container {
+			align-items: flex-start;
+			align-content: flex-start;
+			padding-top: em($p*6);
+			@include breakpoint() {
+				align-items: flex-end;
+				align-content: flex-end;
+				padding-top: 0;
+				padding-bottom: em($p*4);
+				//text-align: left;
+			}
+		}
 		&__play {
 			color: $brand-main;
 			padding-top: em($p);
