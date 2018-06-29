@@ -275,3 +275,8 @@
                 return $items;
             }
     }
+
+    function caption_shortcode($atts, $content = null) {
+        return '<div class="post__caption">'.do_shortcode($content).'</div>';
+    }
+    add_shortcode( 'caption', 'caption_shortcode' );

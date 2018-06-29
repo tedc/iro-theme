@@ -204,7 +204,6 @@
 				width: $f!important;
 				height: auto!important;
 			}
-
 		}
 		&thumbnail {
 			.single & {
@@ -212,6 +211,16 @@
 				width: $f!important;
 				height: auto!important;
 				max-height: calc(100vh - #{em($p*4)});
+			}
+		}	
+		&caption {
+			position: relative;
+			text-align: center;
+			font-style: italic;
+			line-height: 1.2;
+			top: em($p*-1.5);
+			@include breakpoint() {
+				top: em($p*-3);
 			}
 		}
 	}
