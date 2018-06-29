@@ -217,7 +217,7 @@
 			position: relative;
 			text-align: center;
 			font-style: italic;
-			line-height: 1.2;
+			line-height: 1.5;
 			top: em($p*-1.5);
 			@include breakpoint() {
 				top: em($p*-3);
