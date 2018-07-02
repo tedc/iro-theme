@@ -33,7 +33,7 @@
 				<?php endif; ?>
 			</figure>
 			<?php endwhile; if(get_sub_field('col_kind') > 1) :?>
-			<a target="_blank" href="https://www.consorzionetcomm.it/spazio_consumatori/sigillo-netcomm/siti_autorizzati/elenco-siti-autorizzati/iro.kl" class="footer__netcomm"><img src="<?php the_sub_field('netcomm'); ?>" /></a>
+			<a target="_blank" href="https://www.consorzionetcomm.it/spazio_consumatori/sigillo-netcomm/siti_autorizzati/elenco-siti-autorizzati/iro.kl" class="footer__netcomm"><img src="<?php the_field('netcomm', 'options'); ?>" /></a>
 			<?php endif; ?>
 		</div>
 		</div>
