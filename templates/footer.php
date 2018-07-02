@@ -32,7 +32,9 @@
 				</a>
 				<?php endif; ?>
 			</figure>
-			<?php endwhile; ?>
+			<?php endwhile; if(get_sub_field('col_kind') > 1) :?>
+			<a target="_blank" href="https://www.consorzionetcomm.it/spazio_consumatori/sigillo-netcomm/siti_autorizzati/elenco-siti-autorizzati/iro.kl" class="footer__netcomm"><img src="<?php the_sub_field('netcomm'); ?>" /></a>
+			<?php endif; ?>
 		</div>
 		</div>
 		<?php endwhile; acf_unset_language_to_default(); 

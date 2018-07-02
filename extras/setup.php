@@ -60,8 +60,9 @@
 	    }
 
 	    $post_link = str_replace( $uri, '', $post_link );
+	    
 	    //$new_link = str_replace( array('/' . $post->post_type . '/', '/prodotto/'), '/', $post_link );
-	    $post_link = str_replace( array('/' . $post->post_type . '/', '/prodotto/'), '/', $post_link );
+	    $post_link = str_replace( array('/' . $post->post_type . '/', '/prodotto/'), '/', $post_link . $append);
 	    return $post_link;
 	}
 	add_filter( 'post_type_link', 'na_remove_slug', 10, 3 );
