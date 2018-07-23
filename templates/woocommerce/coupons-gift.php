@@ -11,8 +11,8 @@
 		<div class="free-gifts__row">
 			<div class="free-gifts__content free-gifts__content--grid" for="free-gift_<?php the_ID(); ?>" ng-init="ngCart.freeGift({id: <?php the_ID(); ?>, qty: <?php echo $qty; ?>})">
 				<?php the_post_thumbnail( 'post-thumbnail' ); ?>
-				<a class="free-gifts__link" href="<?php the_permalink(); ?>" target="_blank"><?php the_title(); ?></a>
-				<span>x <?php echo $qty; ?></span>
+				<a class="free-gifts__link" href="<?php the_permalink(); ?>" target="_blank"><?php the_title(); ?><br/><span>x <?php echo $qty; ?></span></a>
+				
 			</div>
 		</div>
 <?php endwhile; wp_reset_postdata(); wp_reset_query(); ?>
