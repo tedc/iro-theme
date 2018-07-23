@@ -681,7 +681,7 @@
 		    if($free_gift_products) {
 		    	foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
 		    		$product_variation_id = $cart_item['variation_id'];
-				    $_p = WC_Product_Variation($product_variation_id);
+				    $_p = new WC_Product_Variation($product_variation_id);
 				    $attribute = $_p->get_attribute('pa_misure');
 				    $qty = preg_match('/(matrimoniale)/i', $attribute) ? 2 : 1;
 		    	}
