@@ -12,11 +12,15 @@
 			<div class="free-gifts__content free-gifts__content--grid" for="free-gift_<?php the_ID(); ?>">
 				<?php the_post_thumbnail( 'post-thumbnail' ); ?>
 				<a class="free-gifts__link" href="<?php the_permalink(); ?>" target="_blank"><?php the_title(); ?></a>
-				<div class="free-gifts__select">
+				<div class="free-gifts__select" click-outside="isRow[<?php the_ID(); ?>]=false">
+					<span class="free-gifts__value" ng-click="isRow[<?php the_ID(); ?>]=true;"><span ng-bind-html="(giftRow[<?php the_ID(); ?>]) ? giftRow[<?php the_ID(); ?>] : '<?php _e('Seleziona', 'iro'); ?>'"></span><i class="icon-arrow-down"></i></span>
 					<ul class="free-gifts__options" ng-class="{'free-gifts__options--visible':isRow[<?php the_ID(); ?>]}">
-						<li class="free-gifts__option">
+						<?php for($i=0; $i<=$free_gift_max; $i++) : 
+						?>
+						<li class="free-gifts__option" ng-click="ngCart.freeGift({id: <?php the_ID(); ?>, qty: <?php echo $i; ?>}); giftRow[<?php the_ID(); ?>] = '<?php echo ($i == 0) ? __('Seleziona', 'iro') : $i; ?>'; isRow[<?php the_ID(); ?>]=false">
 							<?php echo $i; ?>
 						</li>
+						<?php endfor; ?>
 					</ul>
 				</div>
 			</div>

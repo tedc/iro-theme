@@ -739,15 +739,36 @@ function iro_custom_size_order_item_display_meta_key($display_key, $meta) {
 
 add_filter('woocommerce_order_item_display_meta_key', 'iro_custom_size_order_item_display_meta_key', 10, 2);
 
+// add_action('woocommerce_checkout_update_order_meta', 'my_custom_checkout_field_update_order_meta');
+// function my_custom_checkout_field_update_order_meta( $order_id ) {
+//     if ($_POST['free_gift']) {
+//         $qty = count($_POST['free_gift']);
+//         update_post_meta( $order_id, '_free_gift_total', $qty);
+//         $i = 0;
+//         foreach ($_POST['free_gift'] as $f) {
+//             update_post_meta( $order_id, '_free_gift_product_id_'.$i, $f['id']);
+//             update_post_meta( $order_id, '_free_gift_product_qty_'.$i, $f['qty']);
+//             $i++;
+//         }
+//     }
+// }
+
 add_action('woocommerce_checkout_update_order_meta', 'my_custom_checkout_field_update_order_meta');
 function my_custom_checkout_field_update_order_meta( $order_id ) {
+    $order = new WC_Order( $order_id );
+    $items = $order->get_items();
+    $item = $items[0];
+    $product_variation_id = $item['variation_id'];
+    $_p = WC_Product_Variation($product_variation_id);
+    $attribute = $_p->get_attribute('pa_misure');
+    $qty = preg_match('/(matrimoniale)/i', $attribute) ? 2 : 1;
     if ($_POST['free_gift']) {
         $qty = count($_POST['free_gift']);
         update_post_meta( $order_id, '_free_gift_total', $qty);
         $i = 0;
         foreach ($_POST['free_gift'] as $f) {
             update_post_meta( $order_id, '_free_gift_product_id_'.$i, $f['id']);
-            update_post_meta( $order_id, '_free_gift_product_qty_'.$i, $f['qty']);
+            update_post_meta( $order_id, '_free_gift_product_qty_'.$i, $qty);
             $i++;
         }
     }
@@ -1185,6 +1206,8 @@ function discount_based_on_total( $cart ) {
     // Add the Scon
     $cart->add_fee( __('Sconto in aggiunta sul carrello', 'iro'), -$discount );
 }
+
+
 
 // function iro_checkout_fields( $checkout_fields ) {
 //     $fields = iro_get_account_fields();
