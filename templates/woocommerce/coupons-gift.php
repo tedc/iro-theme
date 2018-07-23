@@ -1,5 +1,5 @@
 <div class="free-gifts">
-	<h4 class="free-gifts__title"><?php echo _e('Sconto agguintivo sul carrello', 'iro'); ?></h4>
+	<h4 class="free-gifts__title"><?php echo _e('Sconto aggiuntivo sul carrello', 'iro'); ?></h4>
 <?php
 	$args = array(
 		'post_type' => 'product',
