@@ -679,6 +679,12 @@
 		    	$discount['add_discount'] = $sconto;
 		    }
 		    if($free_gift_products) {
+		    	foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+		    		$product_variation_id = $cart_item['variation_id'];
+				    $_p = WC_Product_Variation($product_variation_id);
+				    $attribute = $_p->get_attribute('pa_misure');
+				    $qty = preg_match('/(matrimoniale)/i', $attribute) ? 2 : 1;
+		    	}
 		    	ob_start();
 		    	include(locate_template( 'templates/woocommerce/coupons-gift.php', false, false));
 		    	$free_html = ob_get_clean();
