@@ -1,4 +1,4 @@
-<div class="free-gifts" ng-class="{'free-gifts--disabled':ngCart.isGiftDisabled(<?php echo $free_gift_max; ?>)}">
+<div class="free-gifts">
 	<h4 class="free-gifts__title"><?php echo _e('Sconto agguintivo sul carrello', 'iro'); ?></h4>
 <?php
 	$args = array(
@@ -16,5 +16,4 @@
 			</div>
 		</div>
 <?php endwhile; wp_reset_postdata(); wp_reset_query(); ?>
-	<span class="free-gifts__button free-gifts__button--reset" ng-click="ngCart.resetGift();giftRow=[]"><?php _e('Azzera omaggi', 'iro'); ?><i class="icon-close"></i></span>
 </div>
