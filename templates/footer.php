@@ -55,8 +55,10 @@
         </div>
 	</div>
 </footer>
-<?php 
+<?php
+	acf_set_language_to_default();
 	$main_product = get_field('main_product', 'options');
+	acf_unset_language_to_default();
 	$materasso = get_posts(
 		array(
 			'post_type'=>'product',
