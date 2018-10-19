@@ -21,7 +21,7 @@
             foreach ( $terms as $term ) { 
                 if ( in_array( $term->slug, $options ) ) { 
                     $ngselected = $args['selected'] == $term->slug ? ' ng-init="singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '=\''.$args['selected'].'\'"' : '';
-                    $html .= '<input type="radio" id="attr_'.$term->term_id.'" ng-value="\'' . esc_attr( $term->slug ) . '\'" ' . checked( sanitize_title( $args['selected'] ), $term->slug, false ) . $ngselected . ' name="' . esc_attr( $name ) . '" ng-model="singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '" ng-change="getVariation()"/><label ng-style="{backgroundColor : \''.get_field('colore', $attribute.'_'.$term->term_id).'\'}" for="attr_'.$term->term_id.'">' . esc_html( apply_filters( 'woocommerce_variation_option_name', str_replace('-en', '', $term->name )) ) . '</label>'; 
+                    $html .= '<input type="radio" id="attr_'.$term->term_id.'" ng-value="\'' . esc_attr( $term->slug ) . '\'" ' . checked( sanitize_title( $args['selected'] ), $term->slug, false ) . $ngselected . ' name="' . esc_attr( $name ) . '" ng-model="singleProductVariation.attribute_' . esc_attr( sanitize_title( $attribute ) ) . '" ng-change="getVariation()"/><label ng-style="{backgroundColor : \''.get_field('colore', $attribute.'_'.$term->term_id).'\'}" for="attr_'.$term->term_id.'">' . esc_html( apply_filters( 'woocommerce_variation_option_name',  $term->name ) ) . '</label>'; 
                 } 
             } 
         } else {

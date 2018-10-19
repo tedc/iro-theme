@@ -37,7 +37,7 @@ do_action( 'woocommerce_before_add_to_cart_form' );
 			<?php foreach ( $attributes as $attribute_name => $options ) : $radio = ($attribute_name == 'pa_color') ? true : false;
 						?>
 				<div class="variation variation--grow-top">
-					<label class="variation__label" for="<?php echo sanitize_title( $attribute_name ); ?>"><?php echo wc_attribute_label( $attribute_name ); ?><?php if($radio): ?><strong class="variation__chosen" ng-bind-html="singleProductVariation.attribute_<?php echo  esc_attr( sanitize_title( $attribute_name ) ); ?>"></strong><?php endif; ?></label>
+					<label class="variation__label" for="<?php echo sanitize_title( $attribute_name ); ?>"><?php echo wc_attribute_label( $attribute_name ); ?><?php if($radio): ?><strong class="variation__chosen" ng-bind-html="removeEn(singleProductVariation.attribute_<?php echo  esc_attr( sanitize_title( $attribute_name ) ); ?>)"></strong><?php endif; ?></label>
 					<div class="variation__items">
 						<?php
 							$selected = isset( $_REQUEST[ 'attribute_' . sanitize_title( $attribute_name ) ] ) ? wc_clean( stripslashes( urldecode( $_REQUEST[ 'attribute_' . sanitize_title( $attribute_name ) ] ) ) ) : $product->get_variation_default_attribute( $attribute_name );
