@@ -77,7 +77,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 	<aside class="checkout__cell checkout__cell--order-review checkout__cell--shrink-left-only checkout__cell--s4" ng-class="{'slide-toggle--visible' : isConfirm}">
 		<div class="order-review">
 			<header class="order-review__header order-review__header--mobile" ng-click="isOrderToggle=!isOrderToggle">
-				<h4 class="order-review__subtitle"><?php _e('Riepilogo ordine'); ?></h4>
+				<h4 class="order-review__subtitle"><?php _e('Riepilogo ordine', 'iro'); ?></h4>
 				<span class="order-review__header-toggle"><strong>{{ngCart.totalCost() | currency:'€'}}</strong><i class="icon-arrow-down"></i></span>
 			</header>
 		<div class="order-review__wrapper slide-toggle" ng-class="{'slide-toggle--visible':isOrderToggle}">

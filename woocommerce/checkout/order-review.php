@@ -1,6 +1,6 @@
 <div class="order-review__container">
 	<header class="order-review__header">
-		<h4 class="order-review__subtitle"><?php _e('Riepilogo ordine'); ?></h4>
+		<h4 class="order-review__subtitle"><?php _e('Riepilogo ordine', 'iro'); ?></h4>
 	</header>
 	<div class="order-review__row" ng-repeat="item in ngCart.getCart().items track by $index">
 		<span>
