@@ -330,4 +330,4 @@ function rkv_remove_columns( $columns ) {
 	unset( $columns['wpseo-focuskw'] );
 	return $columns;
 }
-add_filter ( 'manage_edit-wpdmpro_columns', 'rkv_remove_columns' );
+add_filter ( 'manage_edit-product_columns', 'rkv_remove_columns' );
