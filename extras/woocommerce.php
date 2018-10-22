@@ -325,7 +325,7 @@
         
         $args['custom_attributes']['ng-attr-placeholder'] = '{{('.$name_base. '.'.$key.'.$error.required && '.$name_base. '.'.$key.'.$touched) ? \''.__('Campo obbligatorio', 'iro').'\' : \''.$args['placeholder'].'\'}}';
 
-        if($sitepress->current_language() != $sitepress->get_default_language()) {
+        if($sitepress->get_current_language() != $sitepress->get_default_language()) {
             $args['label'] = $checkout_en_args[$key]['label'];
             $args['placeholder'] =  $checkout_en_args[$key]['placeholder'];
         }
