@@ -319,3 +319,15 @@ s.parentNode.insertBefore(b, s);})();
 <img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=322636&fmt=gif" />
 </noscript>
 <?php } add_action( 'wp_footer', 'footer_scripts', 10, 1 );
+
+
+//unset all those WPSEO shizzle  columns
+function rkv_remove_columns( $columns ) {
+	unset( $columns['wpseo-score-readability'] );
+	unset( $columns['wpseo-score'] );
+	unset( $columns['wpseo-title'] );
+	unset( $columns['wpseo-metadesc'] );
+	unset( $columns['wpseo-focuskw'] );
+	return $columns;
+}
+add_filter ( 'manage_edit-wpdmpro_columns', 'rkv_remove_columns' );
