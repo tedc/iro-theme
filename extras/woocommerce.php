@@ -328,7 +328,7 @@
         if($sitepress->get_current_language() != $sitepress->get_default_language()) {
             // $args['label'] = $checkout_en_args[$key]['label'];
             // $args['placeholder'] =  $checkout_en_args[$key]['placeholder'];
-            var_dump($checkout_en_args[$key]['label']);
+            var_dump($checkout_en_args[$key]);
         }
         
         foreach ($args as $arg => $value) {
