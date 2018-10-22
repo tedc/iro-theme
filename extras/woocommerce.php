@@ -1232,14 +1232,12 @@ function discount_based_on_total( $cart ) {
 
 
 
-// function iro_checkout_fields( $checkout_fields ) {
-//     $fields = iro_get_account_fields();
+function iro_checkout_fields( $checkout_fields ) {
+    global $sitepress;
+    if($sitepress->get_current_language() != $sitepress->get_default_language()){
+        unset($checkout_fields['billing'][ 'billing_vat' ]);
+    }
+    return $checkout_fields;
+}
  
-//     foreach ( $fields as $key => $field_args ) {
-//         $checkout_fields['account'][ $key ] = $field_args;
-//     }
- 
-//     return $checkout_fields;
-// }
- 
-// add_filter( 'woocommerce_checkout_fields', 'iro_checkout_fields', 10, 1 );
+add_filter( 'woocommerce_checkout_fields', 'iro_checkout_fields', 10, 1 );
