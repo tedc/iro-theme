@@ -282,30 +282,31 @@
 
     // FORMS
 
-    $checkout_en_args = array(
-        'billing_first_name' => array('label' => 'Name', 'placeholder' => ''),
-        'billing_last_name' => array('label' => 'Last name', 'placeholder' => ''),
-        'billing_email' => array('label' => 'Email', 'placeholder' => ''),
-        'billing_phone' => array('label' => 'Telephone', 'placeholder' => ''),
-        'billing_company' => array('label' => 'Company', 'placeholder' => ''),
-        'billing_address_1' => array('label' => 'Address', 'placeholder' => ''),
-        'billing_city' => array('label' => 'City', 'placeholder' => ''),
-        'billing_postcode' => array('label' => 'Zip/Postal Code', 'placeholder' => ''),
-        'billing_state' => array('label' => 'State', 'placeholder' => ''),
-        'billing_country' => array('label' => 'Country', 'placeholder' => ''),
-        'shipping_first_name' => array('label' => 'Name', 'placeholder' => ''),
-        'shipping_last_name' => array('label' => 'Last name', 'placeholder' => ''),
-        'shipping_email' => array('label' => 'Email', 'placeholder' => ''),
-        'shipping_phone' => array('label' => 'Telephone', 'placeholder' => ''),
-        'shipping_company' => array('label' => 'Company', 'placeholder' => ''),
-        'shipping_address_1' => array('label' => 'Address', 'placeholder' => ''),
-        'shipping_city' => array('label' => 'City', 'placeholder' => ''),
-        'shipping_postcode' => array('label' => 'Zip/Postal Code', 'placeholder' => ''),
-        'shipping_state' => array('label' => 'State', 'placeholder' => ''),
-        'shipping_country' => array('label' => 'Country', 'placeholder' => ''),
-    );
+    
 
     function checkout_forms_args($args, $key, $value) {
+        $checkout_en_args = array(
+            'billing_first_name' => array('label' => 'Name', 'placeholder' => ''),
+            'billing_last_name' => array('label' => 'Last name', 'placeholder' => ''),
+            'billing_email' => array('label' => 'Email', 'placeholder' => ''),
+            'billing_phone' => array('label' => 'Telephone', 'placeholder' => ''),
+            'billing_company' => array('label' => 'Company', 'placeholder' => ''),
+            'billing_address_1' => array('label' => 'Address', 'placeholder' => ''),
+            'billing_city' => array('label' => 'City', 'placeholder' => ''),
+            'billing_postcode' => array('label' => 'Zip/Postal Code', 'placeholder' => ''),
+            'billing_state' => array('label' => 'State', 'placeholder' => ''),
+            'billing_country' => array('label' => 'Country', 'placeholder' => ''),
+            'shipping_first_name' => array('label' => 'Name', 'placeholder' => ''),
+            'shipping_last_name' => array('label' => 'Last name', 'placeholder' => ''),
+            'shipping_email' => array('label' => 'Email', 'placeholder' => ''),
+            'shipping_phone' => array('label' => 'Telephone', 'placeholder' => ''),
+            'shipping_company' => array('label' => 'Company', 'placeholder' => ''),
+            'shipping_address_1' => array('label' => 'Address', 'placeholder' => ''),
+            'shipping_city' => array('label' => 'City', 'placeholder' => ''),
+            'shipping_postcode' => array('label' => 'Zip/Postal Code', 'placeholder' => ''),
+            'shipping_state' => array('label' => 'State', 'placeholder' => ''),
+            'shipping_country' => array('label' => 'Country', 'placeholder' => ''),
+        );
         global $sitepress;
         if(is_admin()) {
             return $args;
