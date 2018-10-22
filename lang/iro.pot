@@ -869,3 +869,9 @@ msgstr ""
 # wpml-name: 61023cd89838fa35bc319ddcd595153a
 msgid "Assistenza"
 msgstr ""
+
+
+
+# wpml-name: 61023cd89838fa35bc319ddcd595153a
+msgid "Riepilogo ordine"
+msgstr ""
