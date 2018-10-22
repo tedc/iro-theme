@@ -328,6 +328,8 @@ function rkv_remove_columns( $columns ) {
 	unset( $columns['wpseo-title'] );
 	unset( $columns['wpseo-metadesc'] );
 	unset( $columns['wpseo-focuskw'] );
+	unset( $columns['wpseo-links'] );
+	unset( $columns['wpseo-linked'] );
 	return $columns;
 }
 add_filter ( 'manage_edit-product_columns', 'rkv_remove_columns' );
