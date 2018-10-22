@@ -255,6 +255,11 @@
 				display: none;
 			}
 		}
+		&--lang {
+			padding: 0 0 0 em(20px);
+			margin: 0 0 0 em(20px);
+			border-left: 1px solid $light-border;
+		}
 		&--phone {
 			display: none;
 			align-items: center;

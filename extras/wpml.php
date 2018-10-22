@@ -30,7 +30,7 @@
        foreach($languages as $l){
             $language_link = $l['url'];
             $language_code = $l['language_code'];
-            $langs .= ($language_code != ICL_LANGUAGE_CODE) ? '<a href="'.$language_link.'">'.$language_code.'</a>' : '';
+            $langs .= ($language_code != ICL_LANGUAGE_CODE) ? '<a href="'.$language_link.'" class="banner__btn banner__btn--lang">'.$language_code.'</a>' : '';
         }
         echo $langs;
     }
