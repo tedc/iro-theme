@@ -229,11 +229,13 @@
     }
 
     function instagram_object() {
+            acf_set_language_to_default();
             $client_id = get_field('instagram_client_id', 'options');
             $client_secret = get_field('instagram_client_secret', 'options');
             $access_token = get_field('instagram_access_token', 'options');
             $user_id = get_field('instagram_user_id', 'options');
             $count = get_field('instagram_count', 'options');
+            acf_unset_language_to_default();
             $access_token_parameters = array(
                 'client_id'                =>     $client_id,
                 'client_secret'            =>     $client_secret,
