@@ -23,3 +23,17 @@
             remove_filter( 'acf/settings/current_language', 'acf_get_language_default', 100 );
         }
     }
+
+    function lang_nav() {
+        $languages = icl_get_languages('skip_missing=0');
+        $lang = "'lang'";
+        $langs = '';
+        $count = 0;
+        foreach($languages as $l){
+            $language_link = $l['url'];
+            $language_code = $l['language_code'];
+            $langs .= ($language_code != ICL_LANGUAGE_CODE) ? '<a href="'.$language_link.'">'.$language_code.'</a>' : '';
+            $count++;
+        }
+        echo $langs;
+    }
