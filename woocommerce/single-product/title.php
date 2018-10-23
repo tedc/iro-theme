@@ -15,11 +15,13 @@
  * @package    WooCommerce/Templates
  * @version    1.6.4
  */
+global $sitepress;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-$pid = wp_get_post_terms( get_the_ID(), 'prodotto_associato' );
+$original_id = apply_filters('wpml_object_id', get_the_ID(), get_post_type(), false, $sitepress->get_default_language());
+$pid = wp_get_post_terms( $original_id, 'prodotto_associato' );
 the_title( '<h1 class="product__title product__title--big">', '</h1>' );
 if($pid) :
 $args = array(
