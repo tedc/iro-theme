@@ -16,11 +16,13 @@
  * @version 3.0.0
  */
 
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
 global $product;
+global $sitepress;
 $plus = wp_get_post_terms($product->get_id(), 'product_plus', array('oderby'=> 'term_order'));
 if($plus) :
 ?>
@@ -28,8 +30,9 @@ if($plus) :
 	<ul class="plus__wrapper swiper-wrapper">
 		<?php 
 			foreach ($plus as $p) :
-			$icon_kind = get_field('icon_kind', 'product_plus_'.$p->term_id);
-			$icon = get_field('icon_'.$icon_kind, 'product_plus_'.$p->term_id);
+			$p_id = apply_filters('wpml_object_id', $p->term_id, $p->taxonomy, false, $sitepress->get_default_language());
+			$icon_kind = get_field('icon_kind', 'product_plus_'.$p_id);
+			$icon = get_field('icon_'.$icon_kind, 'product_plus_'.$p_id);
 			$ngclick = '';
 			if(get_field('popup_kind', $p)) {
 				$ngclick = (get_field('popup_kind', $p) == 'form') ? ' ng-click="isSizeForm=true"' : ' ng-click="isPlusPopup="'.$p->term_id;
