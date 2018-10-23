@@ -24,6 +24,7 @@ $original_id = apply_filters('wpml_object_id', get_the_ID(), get_post_type(), fa
 $pid = wp_get_post_terms( $original_id, 'prodotto_associato' );
 the_title( '<h1 class="product__title product__title--big">', '</h1>' );
 if($pid) :
+acf_set_language_to_default();
 $args = array(
 	array(
 		'taxonomy' => 'prodotto_associato',
@@ -32,7 +33,6 @@ $args = array(
 	)
 );
 $main_total = count(get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $args, 'suppress_filters' => false)));
-acf_set_language_to_default();
 $ratings = get_terms(array('taxonomy'=>'rating', 'hide_empty'=>0));
 acf_unset_language_to_default();
 var_dump($main_total);
