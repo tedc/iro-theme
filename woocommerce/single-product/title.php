@@ -48,7 +48,7 @@ foreach ($ratings as $rate) {
 			'terms' => array($pid[0]->term_id)
 		)
 	);
-	$prods = get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $tx));
+	$prods = get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $tx, 'suppress_filters' => false));
 	if($prods) {
 		$totals[get_field('rating', 'rating_'.$rate->term_id)] = count($prods);
 	}
