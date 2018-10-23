@@ -1,7 +1,6 @@
 <?php
 	acf_set_language_to_default();
 	$main_product = get_field('main_product', 'options');
-	acf_unset_language_to_default();
 	$args = array(
 		array(
 			'taxonomy' => 'prodotto_associato',
@@ -9,8 +8,10 @@
 			'terms' => array($main_product)
 		)
 	);
-	$main_total = count(get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $args)));
+	$main_total = count(get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $args, 'suppress_filters' => 0)));
 	$ratings = get_terms(array('taxonomy'=>'rating', 'hide_empty'=>0));
+
+	acf_unset_language_to_default();
 	$totals = array();
 	foreach ($ratings as $rate) {
 		$tx = array(
@@ -26,7 +27,7 @@
 				'terms' => array($main_product)
 			)
 		);
-		$totals[get_field('rating', 'rating_'.$rate->term_id)] = count(get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $tx)));
+		$totals[get_field('rating', 'rating_'.$rate->term_id)] = count(get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $tx, 'suppress_filters' => 0)));
 	}
 	$average = 0;
 	foreach ($totals as $key => $value) {
