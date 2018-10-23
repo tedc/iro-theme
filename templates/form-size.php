@@ -54,7 +54,7 @@
 					<footer class="popup__footer popup__footer--cell-s12">
 						<input type="hidden" name="_send_to" ng-model="formData._send_to" ng-init="formData._send_to='<?php the_field('indirizzo_email', $p); ?>'">
 						<input type="hidden" name="_bcc" ng-model="formData._bcc" ng-init="formData._bcc='<?php echo preg_replace('/\s+/', '', get_field('bcc', $p)); ?>'">
-						<span class="popup__privacy"><?php _e('Inviando questo form acconsento al trattamento dei dati personali ai sensi del D. Lgs. 196/03.', 'catellani'); ?></span><br/>
+						<span class="popup__privacy"><?php _e('Inviando questo form acconsento al trattamento dei dati personali ai sensi del D. Lgs. 196/03.', 'iro'); ?></span><br/>
 						<button type="submit" ng-disabled="sizeForm.$invalid" class="popup__button"><?php _e('Invia', 'iro'); ?></button>
 					</footer>	
 					<div class="popup__alert" ng-class="{'popup__alert--visible':isSubmitted}">
