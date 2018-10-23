@@ -1,4 +1,5 @@
 <?php
+	global $sitepress;
 	acf_set_language_to_default();
 	$main_product = get_field('main_product', 'options');
 	$args = array(
@@ -45,6 +46,8 @@
 			stars($average, 'footer');
 		?>
 	</span>
+	<?php if($sitepress->get_current_language() == $sitepress->get_default_language()) : ?>
 	<a class="footer__permalink" href="<?php echo get_post_type_archive_link('recensioni'); ?>"></a>
+<?php endif; ?>
 </div>
 <?php endif; ?>
