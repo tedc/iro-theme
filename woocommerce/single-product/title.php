@@ -31,7 +31,7 @@ $args = array(
 		'terms' => array($pid[0]->term_id)
 	)
 );
-$main_total = count(get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $args)));
+$main_total = count(get_posts(array('post_type' => 'recensioni', 'posts_per_page' => -1, 'tax_query' => $args, 'suppress_filters' => false)));
 $ratings = get_terms(array('taxonomy'=>'rating', 'hide_empty'=>0));
 $totals = array();
 foreach ($ratings as $rate) {
