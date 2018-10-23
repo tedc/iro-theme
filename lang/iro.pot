@@ -871,6 +871,10 @@ msgid "Assistenza"
 msgstr ""
 
 
+# wpml-name: 61023cd89838fa35bc319ddcd595153a
+msgid "Inviando questo form acconsento al trattamento dei dati personali ai sensi del D. Lgs. 196/03."
+msgstr ""
+
 
 # wpml-name: 61023cd89838fa35bc319ddcd595153a
 msgid "Riepilogo ordine"
