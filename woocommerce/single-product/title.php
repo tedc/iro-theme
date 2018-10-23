@@ -35,6 +35,7 @@ $main_total = count(get_posts(array('post_type' => 'recensioni', 'posts_per_page
 acf_set_language_to_default();
 $ratings = get_terms(array('taxonomy'=>'rating', 'hide_empty'=>0));
 acf_unset_language_to_default();
+var_dump($main_total, $ratings);
 $totals = array();
 foreach ($ratings as $rate) {
 	$tx = array(
