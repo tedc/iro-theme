@@ -16,7 +16,24 @@
 	);
 	$promo = new WP_Query($args);
 	if($promo->have_posts()) : ?>
-	<?php while($promo->have_posts()) : $promo->the_post(); if(!isset($_COOKIE['_promo_'.get_the_ID()])) :
+	<?php while($promo->have_posts()) : $promo->the_post(); 
+		if(get_field('fascia')) : 
+if(intval(time()) < intval(strtotime(get_field('popup_expire', false, false))) && is_user_logged_in()) :
+	?>
+<div class="promo promo--top" ng-promo>
+	<div class="promo__wrapper promo__wrapper--grid-nowrap">
+	<div class="promo__pre promo__pre--shrink-fw-left"><span><?php the_title(); ?></span></div>
+	<div class="promo__content promo__content--shrink-fw-right">
+		<?php 
+			$content = get_the_content();
+			$content = apply_filters('the_content', $content);
+			$content = strip_tags($content, '<span>');
+			echo '<span>'.$content.'</span>';
+		 ?>
+	</div>
+</div>
+<?php endif; else :
+		if(!isset($_COOKIE['_promo_'.get_the_ID()])) :
 		if(intval(time()) < intval(strtotime(get_field('popup_expire', false, false)))) :
 
 		?>
@@ -76,9 +93,9 @@
 					 <input maxlength="250" id="agilefield-1" name="email" ng-model="promo_email" type="email" placeholder="Inserisci la tua email" class="popup__input" required="">
 					<!--recaptcha aglignment-->
 					<!-- Button -->
-					<input type="checkbox" class="popup__checkbox" name="multiple_checkboxes_1526030399334-0" id="multiple_checkboxes_1526030399334-0" value="Acconsento all'utilizzo dei dati inseriti secondo le finalità indicate dalla privacy policy" ng-model="multiple_checkboxes_1526030399334_0" required><label for="multiple_checkboxes_1526030399334-0"><span><?php _e('Acconsento all\'utilizzo dei dati inseriti secondo le finalità indicate dalla', 'iro'); ?> <a href="<?php echo $privacy; ?>" target="_blank">privacy policy</a></span></label>
-					<input type="checkbox" class="popup__checkbox" ng-model="multiple_checkboxes_1526030359115_0" name="multiple_checkboxes_1526030359115-0" id="multiple_checkboxes_1526030359115-0" value="Acconsento all'utilizzo dei dati inseriti per l'invio di eventuali comunicazioni di marketing da parte di IRO Srl"><label for="multiple_checkboxes_1526030359115-0"><span>Desidero restare aggiornato sugli sconti e promozioni di IRO Srl</span></label>
-					   <button type="submit" class="popup__button" ng-disabled="agileForm.$invalid" onclick="window.dataLayer({'event':'coupon_request'})">Invia</button>
+					<input type="checkbox" class="popup__checkbox" name="multiple_checkboxes_1526030399334-0" id="multiple_checkboxes_1526030399334-0" value="<?php _e('Acconsento all\'utilizzo dei dati inseriti secondo le finalità indicate dalla privacy policy', 'iro'); ?>" ng-model="multiple_checkboxes_1526030399334_0" required><label for="multiple_checkboxes_1526030399334-0"><span><?php _e('Acconsento all\'utilizzo dei dati inseriti secondo le finalità indicate dalla', 'iro'); ?> <a href="<?php echo $privacy; ?>" target="_blank">privacy policy</a></span></label>
+					<input type="checkbox" class="popup__checkbox" ng-model="multiple_checkboxes_1526030359115_0" name="multiple_checkboxes_1526030359115-0" id="multiple_checkboxes_1526030359115-0" value="<?php _e('Acconsento all\'utilizzo dei dati inseriti per l\'invio di eventuali comunicazioni di marketing da parte di IRO Srl', 'iro'); ?>"><label for="multiple_checkboxes_1526030359115-0"><span><?php _e('Desidero restare aggiornato sugli sconti e promozioni di IRO Srl', 'iro'); ?></span></label>
+					   <button type="submit" class="popup__button" ng-disabled="agileForm.$invalid" onclick="window.dataLayer({'event':'coupon_request'})"><?php _e('Invia', 'iro'); ?></button>
 					   <br><span id="agile-error-msg"></span>
 					</div>
 					</form>
@@ -93,6 +110,6 @@
 	 ?>
 	</div>
 </div>
-<?php endif; endif; ?>
+<?php endif; endif; endif; ?>
 <?php endwhile; wp_reset_query(); wp_reset_postdata(); ?>
 <?php endif; ?>
