@@ -32,6 +32,7 @@ if(is_user_logged_in()) :
 		 ?>
 	</div>
 </div>
+</div>
 <?php endif; else :
 		if(!isset($_COOKIE['_promo_'.get_the_ID()])) :
 		if(intval(time()) < intval(strtotime(get_field('popup_expire', false, false)))) :
