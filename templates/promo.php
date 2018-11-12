@@ -18,7 +18,7 @@
 	if($promo->have_posts()) : ?>
 	<?php while($promo->have_posts()) : $promo->the_post(); 
 		if(get_field('fascia')) : 
-if(is_user_logged_in() && intval(time()) < intval(strtotime(get_field('popup_expire', false, false)))) :
+if(intval(time()) < intval(strtotime(get_field('popup_expire', false, false)))) :
 	?>
 <div class="promo promo--top" ng-promo>
 	<div class="promo__wrapper promo__wrapper--grid-nowrap">
