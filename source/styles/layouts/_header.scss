@@ -11,12 +11,12 @@
 	// .admin-bar.logged-in & {
 	// 	top: 32px;
 	// }
-	// .iro--has-promo & {
-	// 	top: em(63px);
- //        @include breakpoint(1030px) {
- //            top: em(56px);
- //        }
-	// }
+	.iro--has-promo-top & {
+		top: em(54px);
+        @include breakpoint(1030px) {
+            top: em(43px);
+        }
+	}
 }
 .banner {
 	@extend %banner;
@@ -530,18 +530,18 @@
 			padding-top: em($p);
 		}
 	}
-	// body.iro--has-promo:not(.woocommerce-page) & {
-	// 	min-height: calc(100vh - #{em(80px + 63px)});
-	// 	@include breakpoint(1030px) {
-	// 		min-height: calc(100vh - #{em(80px + 56px)});
-	// 	}
-	// 	&__container {
-	// 		min-height: calc(100vh - #{em(80px + 63px)});
-	// 		@include breakpoint(1030px) {
-	// 			min-height: calc(100vh - #{em(80px + 56px)});
-	// 		}
-	// 	}
-	// }
+	body.iro--has-promo-top:not(.woocommerce-page) & {
+		min-height: calc(100vh - #{em(80px + 54px)});
+		@include breakpoint(1030px) {
+			min-height: calc(100vh - #{em(80px + 43px)});
+		}
+		&__container {
+			min-height: calc(100vh - #{em(80px + 54px)});
+			@include breakpoint(1030px) {
+				min-height: calc(100vh - #{em(80px + 43px)});
+			}
+		}
+	}
 	&__watch {
 		transition: color $speed;
 		&:hover {

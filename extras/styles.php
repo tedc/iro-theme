@@ -36,6 +36,9 @@
 		$promo = get_posts($args);
 		if(count($promo) > 0) {
 			$classes[] = 'iro--has-promo';
+			if(get_field('fascia', $promo->ID)) {
+				$classes[] = 'iro--has-promo-top';
+			}
 		}
 		return $classes;
 
