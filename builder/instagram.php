@@ -2,7 +2,7 @@
 	acf_set_language_to_default();
 	$img = wp_get_attachment_image_src( get_field('instagram_image', 'options'), 'full', false );
 	$img_src = $img[0];
-	$img_mb = get_field('instagram_image_mb', 'options') ? ((get_field('instagram_image_mb', 'options') * 100) / $img[1])*-1 : 0;
+	//$img_mb = get_field('instagram_image_mb', 'options') ? ((get_field('instagram_image_mb', 'options') * 100) / $img[1])*-1 : 0;
 	acf_unset_language_to_default();
 ?>
 
